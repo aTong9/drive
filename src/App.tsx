@@ -1,20 +1,25 @@
 import { BarChart3, Bell, CalendarDays, Camera, Clapperboard, Compass, Map as MapIcon, Menu, Settings2, Videotape } from "lucide-react";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { lazy, Suspense, useCallback, useEffect, useMemo, useState } from "react";
 import type { DrivingSummary } from "./types/domain.js";
 import { Brand } from "./components/common/Brand.js";
 import { RouteList } from "./components/route/RouteList.js";
 import { MapCanvas } from "./components/map/MapCanvas.js";
 import { RouteDetail } from "./components/route/RouteDetail.js";
-import { PlanView } from "./components/plan/PlanView.js";
-import { LocationView } from "./components/location/LocationView.js";
-import { CameraView } from "./components/camera/CameraView.js";
-import { PostWorkflowView } from "./components/post/PostWorkflowView.js";
-import { DashboardView } from "./components/dashboard/DashboardView.js";
-import { CreatorView } from "./components/creator/CreatorView.js";
 import { usePlannerStore } from "./app/store.js";
 import { catalog, resolvedRoutes } from "./services/catalogService.js";
 import { davinciWorkflow } from "./services/workflowService.js";
 import { detectCurrentRegion, type CurrentRegion, type LocationDetectionStatus } from "./services/currentCityService.js";
+
+const DashboardView = lazy(() => import("./components/dashboard/DashboardView.js").then((module) => ({ default: module.DashboardView })));
+const PlanView = lazy(() => import("./components/plan/PlanView.js").then((module) => ({ default: module.PlanView })));
+const LocationView = lazy(() => import("./components/location/LocationView.js").then((module) => ({ default: module.LocationView })));
+const CameraView = lazy(() => import("./components/camera/CameraView.js").then((module) => ({ default: module.CameraView })));
+const PostWorkflowView = lazy(() => import("./components/post/PostWorkflowView.js").then((module) => ({ default: module.PostWorkflowView })));
+const CreatorView = lazy(() => import("./components/creator/CreatorView.js").then((module) => ({ default: module.CreatorView })));
+
+function ViewLoadingState() {
+  return <main className="view-loading" role="status" aria-live="polite"><span className="view-loading-dot" />正在加载工作区…</main>;
+}
 
 export function App() {
   const state = usePlannerStore();
@@ -72,13 +77,15 @@ export function App() {
         </div>
       </header>
 
-      {state.view === "dashboard" ? <DashboardView routes={resolvedRoutes} plans={state.plans} checks={state.fieldChecks} postTasks={state.postTasks} postProject={state.postProject} /> : state.view === "explore" ? (
-        <main className={`workspace ${state.detailOpen && selected ? "has-detail" : ""}`}>
-          <RouteList routes={routes} nearbyLocations={nearbyLocations} currentRegion={currentRegion} locationStatus={locationStatus} locationMessage={locationMessage} onLocate={locateCurrentCity} onClearLocation={() => { setCurrentRegion(null); setLocationStatus("idle"); }} />
-          <MapCanvas selected={selected} nearbyLocations={nearbyLocations} onDrivingSummary={handleDrivingSummary} />
-          {state.detailOpen && selected && <RouteDetail selected={selected} drivingSummary={drivingSummary?.routeId === selected.route.id ? drivingSummary : null} />}
-        </main>
-      ) : state.view === "plans" ? <PlanView routes={resolvedRoutes} /> : state.view === "locations" ? <LocationView locations={catalog.locations} routes={resolvedRoutes} catalogSchemaVersion={catalog.schemaVersion} /> : state.view === "cameras" ? <CameraView presets={catalog.cameraPresets} routes={resolvedRoutes} /> : state.view === "post" ? <PostWorkflowView workflow={davinciWorkflow} routes={resolvedRoutes} /> : <CreatorView />}
+      <Suspense fallback={<ViewLoadingState />}>
+        {state.view === "dashboard" ? <DashboardView routes={resolvedRoutes} plans={state.plans} checks={state.fieldChecks} postTasks={state.postTasks} postProject={state.postProject} /> : state.view === "explore" ? (
+          <main className={`workspace ${state.detailOpen && selected ? "has-detail" : ""}`}>
+            <RouteList routes={routes} nearbyLocations={nearbyLocations} currentRegion={currentRegion} locationStatus={locationStatus} locationMessage={locationMessage} onLocate={locateCurrentCity} onClearLocation={() => { setCurrentRegion(null); setLocationStatus("idle"); }} />
+            <MapCanvas selected={selected} nearbyLocations={nearbyLocations} onDrivingSummary={handleDrivingSummary} />
+            {state.detailOpen && selected && <RouteDetail selected={selected} drivingSummary={drivingSummary?.routeId === selected.route.id ? drivingSummary : null} />}
+          </main>
+        ) : state.view === "plans" ? <PlanView routes={resolvedRoutes} /> : state.view === "locations" ? <LocationView locations={catalog.locations} routes={resolvedRoutes} catalogSchemaVersion={catalog.schemaVersion} /> : state.view === "cameras" ? <CameraView presets={catalog.cameraPresets} routes={resolvedRoutes} /> : state.view === "post" ? <PostWorkflowView workflow={davinciWorkflow} routes={resolvedRoutes} /> : <CreatorView />}
+      </Suspense>
 
       <nav className="mobile-nav" aria-label="移动端导航">
         <button className={state.view === "dashboard" ? "active" : ""} onClick={() => state.setView("dashboard")}><BarChart3 size={19} /><span>资产</span></button>

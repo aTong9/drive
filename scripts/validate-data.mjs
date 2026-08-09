@@ -68,7 +68,7 @@ for (const location of catalog.locations) {
   if (!coordinateEvidence) errors.push(`${location.id}: coordinate has no supporting source`);
 }
 
-const coveredProvinceNames = new Set(catalog.locations.map((location) => location.province));
+const coveredProvinceNames = new Set(catalog.locations.filter((location) => location.verification.status !== "draft").map((location) => location.province));
 const provincesWithoutLocations = expectedProvinceNames.filter((name) => !coveredProvinceNames.has(name));
 if (provincesWithoutLocations.length) errors.push(`locations: province-level units without a source-checked location: ${provincesWithoutLocations.join(", ")}`);
 
@@ -93,7 +93,7 @@ for (const route of catalog.routes) {
   }
 }
 
-const routeCoveredProvinceNames = new Set(catalog.routes.map((route) => route.province));
+const routeCoveredProvinceNames = new Set(catalog.routes.filter((route) => route.verification.status !== "draft").map((route) => route.province));
 const provincesWithoutRoutes = expectedProvinceNames.filter((name) => !routeCoveredProvinceNames.has(name));
 if (provincesWithoutRoutes.length) errors.push(`routes: province-level units without an explorable route: ${provincesWithoutRoutes.join(", ")}`);
 

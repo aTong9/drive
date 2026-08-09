@@ -8,7 +8,8 @@
     "demo:plan": "tsx src/cli/plan.ts",
     "dev": "vite",
     "typecheck": "tsc --noEmit",
-    "build": "npm run typecheck && vite build",
+    "build": "npm run typecheck && vite build && node scripts/check-bundle-size.mjs",
+    "check:bundle": "node scripts/check-bundle-size.mjs",
     "test:services": "tsx --test src/services/*.test.ts",
     "test": "npm run validate:data && npm run typecheck && npm run test:services && npm run demo:plan"
   },

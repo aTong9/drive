@@ -33,6 +33,17 @@ npm test
 npm run dev
 ```
 
+## GitHub Pages 自动发布
+
+推送到 `master` 分支后，GitHub Actions 会先运行完整测试，再构建并发布到 GitHub Pages。首次使用时，请在仓库的 **Settings → Pages** 中将 Source 设为 **GitHub Actions**。
+
+为了让线上地图正常工作，请在仓库的 **Settings → Secrets and variables → Actions** 中添加：
+
+- `AMAP_KEY`：高德 Web 端 JS API Key。
+- `AMAP_SECURITY_CODE`：对应的 `securityJsCode`。
+
+同时需要在高德控制台把 `https://atong9.github.io/drive/` 对应域名加入安全域名白名单。工作流也支持在 Actions 页面手动触发发布。
+
 ## 高德地图
 
 本地开发从根目录 `.ENV_AMAP` 读取 Web 端（JS API）凭据：
@@ -74,9 +85,10 @@ data/catalog.json
 - `schemas/field-check-export.schema.json`：实地核验交换文件的数据契约。
 - `schemas/youtube-creators.schema.json`：创作者研究、代表内容、证据链接与策略归纳的数据契约。
 - `schema.md`：契约设计、可信度和版本演进说明。
-- `data/catalog.json`：56 条路线、112 个地点、4 个设备预设和 1 个拍摄计划；这些内容必须有来源证据。全国 34 个省级单位均已有来源核验地点和可探索路线；尚无真实内容的城市仍会按实际情况显示“待核验”。
+- `data/catalog.json`：68 条路线、136 个地点、4 个设备预设和 1 个拍摄计划；这些内容必须有来源证据。全国 34 个省级单位均已有来源核验地点和可探索路线；尚无真实内容的城市仍会按实际情况显示“待核验”。
+- `data/youtube-creators.json`：29 位全球创作者案例，覆盖风景驾车、城市步行、雨中步行、静态自然声景、电影化风景与户外路线，并记录代表内容、可复用模式和风险边界。
 - `data/regions.json`：全国 34 个省级行政区及城市/地级区域目录；只负责导航覆盖，不伪装成已核验地点。
-- `data/youtube-creators.json`：19 个全球代表频道，覆盖风景驾车、雨天步行、自然定点、城市步行、路线导览和电影风景；播放原因是基于公开素材的编辑推断，不是 YouTube 官方归因。
+- `data/youtube-creators.json`：20 个全球代表频道，覆盖风景驾车、雨天步行、自然定点、城市步行、路线导览和电影风景；播放原因是基于公开素材的编辑推断，不是 YouTube 官方归因。
 
 数据校验会固定核对 34 个省级单位，要求每个省级单位至少有一个来源核验地点和一条可探索路线，并验证地点、路线及途经点引用的省市关系。服务测试还会证明六大地理分区对全国目录恰好完成一次无重复划分。
 

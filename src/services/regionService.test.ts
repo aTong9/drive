@@ -19,8 +19,8 @@ test("national directory contains every province-level unit exactly once", () =>
 
 test("every province-level unit has a source-checked location and an explorable route", () => {
   const expected = administrativeProvinces.map((province) => province.name).sort();
-  const locationProvinces = [...new Set(catalog.locations.map((location) => location.province))].sort();
-  const routeProvinces = [...new Set(catalog.routes.map((route) => route.province))].sort();
+  const locationProvinces = [...new Set(catalog.locations.filter((location) => location.verification.status !== "draft").map((location) => location.province))].sort();
+  const routeProvinces = [...new Set(catalog.routes.filter((route) => route.verification.status !== "draft").map((route) => route.province))].sort();
   assert.deepEqual(locationProvinces, expected);
   assert.deepEqual(routeProvinces, expected);
 });

@@ -173,6 +173,96 @@
       "patterns": ["将抵达、搭营、夜间与清晨设计成四段结构", "自然全景与手部操作细节交替", "把当地地貌和季节风险写入拍摄说明"],
       "caution": "野外用火、露营和无人机规则因州与保护地而异；展示技能时要明确条件，避免鼓励无准备模仿。",
       "evidence": [{ "title": "Scotty 创作者官网", "url": "https://www.walkaboutco.com.au/" }, { "title": "官方 YouTube 频道", "url": "https://www.youtube.com/@ScottysGoneWalkabout" }]
+    },
+    {
+      "id": "abao-vision", "name": "Abao", "region": "日本 / 东京及日本各地", "category": "scenic-drive", "channelUrl": "https://www.youtube.com/@abaovision",
+      "positioning": "以 8K 60fps HDR、真实环境声和原创音乐记录东京夜间驾驶、日本自然与长时间沉浸风景。",
+      "representative": { "title": "Tokyo Night Drive / 8K 60fps HDR / Relaxing Car Sounds", "url": "https://www.youtube.com/watch?v=b9XY3-SEJ-c", "observedPerformance": "公开索引在 2026 年 7 月核验时显示约 62 万播放、9200 点赞；频道公开统计约 33.4 万订阅。" },
+      "whyItWorks": ["东京塔、银座、首都高速、彩虹桥和晴空塔被编排成连续路线，长视频仍有明确空间进程。", "8K 60fps HDR 与夜间驾驶形成强画质承诺，高亮招牌、车流和城市纵深能在大屏上兑现规格。", "同一场景提供原创 Lofi 音乐版与纯环境声版，分别服务专注陪伴和真实驾驶沉浸需求。"],
+      "patterns": ["先用地标和道路节点规划章节", "同一素材交付音乐版与纯环境声版", "标题固定包含地点、时段、8K HDR 与声音用途", "描述公开拍摄月份和完整途经顺序"],
+      "caution": "可借鉴路线章节、双版本交付与声音设计；驾车机位必须出发前固定，8K HDR 和音乐授权也必须与真实交付一致。",
+      "evidence": [{ "title": "Abao 官方项目入口", "url": "https://linktr.ee/abaointokyo" }, { "title": "Abao Vision 官方频道", "url": "https://www.youtube.com/@abaovision" }, { "title": "东京夜景驾驶公开数据", "url": "https://yutura.net/channel/135718/popular/b9XY3-SEJ-c/" }]
+    },
+    {
+      "id": "adventure-every-day", "name": "AdventureEveryDay", "region": "美国 / 风景公路", "category": "scenic-drive", "channelUrl": "https://www.youtube.com/@AdventureEveryDay",
+      "positioning": "用连续车载实景完整记录美国国家公园、沙漠公路和较少被拍摄的风景支线。",
+      "representative": { "title": "Apache Trail - The Complete Iconic Arizona Desert Drive 8K", "url": "https://www.youtube.com/watch?v=m016veSZaTs", "observedPerformance": "公开频道与视频页面核验时显示约 11.7 万关注者；代表路线完整记录约 40 英里的 Apache Trail。" },
+      "whyItWorks": ["Complete、道路名称和里程共同给出明确路线承诺，观众知道会看到完整行程而非风景混剪。", "沙漠、峡谷和景观支路区别于常见城市驾驶，地点稀缺性提高搜索和旅行预览价值。", "连续道路画面配合章节与路况说明，既适合沉浸观看，也能成为出发前的路线参考。"],
+      "patterns": ["标题写明道路名、完整路线与画质规格", "描述列出里程、节点和拍摄日期", "热门国家公园与冷门景观支路交替", "保留真实道路速度与环境声"],
+      "caution": "偏远风景道路可能有封闭、非铺装和通信盲区；发布时必须标注拍摄日期，不能把历史影像当作实时路况。",
+      "evidence": [{ "title": "AdventureEveryDay 官方频道", "url": "https://www.youtube.com/@AdventureEveryDay" }, { "title": "Apache Trail 完整驾驶路线", "url": "https://www.youtube.com/watch?v=m016veSZaTs" }, { "title": "创作者官方简介", "url": "https://www.patreon.com/AdventureEveryDay/about" }]
+    },
+    {
+      "id": "walking-alice", "name": "Walking Alice", "region": "美国 / 全球城市", "category": "urban-walk", "channelUrl": "https://www.youtube.com/@walkingalice",
+      "positioning": "以高频 4K 步行覆盖纽约大型活动、季节景观和世界城市街区，形成持续更新的城市现场档案。",
+      "representative": { "title": "2024 Macy’s Thanksgiving Day Parade in New York City / FULL 4K", "url": "https://www.youtube.com/results?search_query=Walking+Alice+2024+Macys+Thanksgiving+Day+Parade+FULL+4K", "observedPerformance": "第三方公开统计在核验时显示频道约 30.4 万订阅、7800 万累计播放；该完整游行视频约 575 万播放。" },
+      "whyItWorks": ["大型游行、节庆和季节窗口具有明确时间性，能在事件前后集中承接搜索与分享。", "FULL 与 4K 承诺完整现场体验，长时间覆盖让未到场观众获得接近亲历的观看价值。", "城市、日期、活动名称和地点进入标题，内容既能被即时发现，也能作为多年后的城市记录。"],
+      "patterns": ["常规街区路线与大型活动穿插", "标题固定标注年份、活动和城市", "在人群中保持稳定步速与连续视线", "按季节和城市建立播放列表"],
+      "caution": "节庆现场的人群密度、音乐版权与临时管制风险更高；应提前确认拍摄边界，并避免长时间对准单一个体。",
+      "evidence": [{ "title": "Walking Alice 官方频道", "url": "https://www.youtube.com/@walkingalice" }, { "title": "Walking Alice 公开频道统计", "url": "https://vidiq.com/youtube-stats/channel/%40walkingalice/" }]
+    },
+    {
+      "id": "proartinc-4k-relaxation", "name": "4K Relaxation Channel / ProArtInc", "region": "美国 / 全球自然地", "category": "stationary-nature", "channelUrl": "https://www.youtube.com/@4KRelaxationChannel",
+      "positioning": "把瀑布、溪流、森林和国家公园制作成 4K/8K HDR 自然纪录与数小时真实声景。",
+      "representative": { "title": "Amazing Nature of Croatia: Stunning Waterfalls & Caves – Krka National Park – 8K HDR", "url": "https://proartinc.net/", "observedPerformance": "官方作品目录持续发布 8K HDR 自然纪录，并将瀑布森林声景延展为最长约八小时的睡眠与专注版本。" },
+      "whyItWorks": ["瀑布、洞穴和森林等单一自然主题在缩略图与标题中形成即时可理解的视觉承诺。", "短篇纪录与八小时声景覆盖探索、电视背景、专注和睡眠等不同使用场景。", "真实自然声与高分辨率画面共同建立临场感，使内容不依赖语言也能面向全球观众。"],
+      "patterns": ["同一地点制作纪录版与长时声景版", "标题同时表达地貌、地点和使用场景", "固定机位保留水声与鸟鸣层次", "8K 母版兼顾大屏与后续裁切"],
+      "caution": "长时间自然声景应保存现场录音与素材授权记录；循环拼接必须无突变，HDR 和 8K 标识必须与实际母版一致。",
+      "evidence": [{ "title": "ProArtInc 官方作品目录", "url": "https://proartinc.net/" }, { "title": "4K Relaxation Channel 官方频道", "url": "https://www.youtube.com/@4KRelaxationChannel" }]
+    },
+    {
+      "id": "forest-of-wing", "name": "Forest of Wing", "region": "日本 / 森林与水景", "category": "stationary-nature", "channelUrl": "https://www.youtube.com/@Forestofwing",
+      "positioning": "使用自采自录的瀑布、溪流、森林与篝火素材制作无语言门槛的长时间 4K 自然声景。",
+      "representative": { "title": "4K Relax in the sound of a waterfall in the forest for 1 hour and 56 minutes", "url": "https://www.youtube.com/watch?v=hg9UUi-TU2E", "observedPerformance": "公开视频核验时显示频道约 21.8 万关注者，代表瀑布森林声景约 39 万播放，时长约 1 小时 56 分。" },
+      "whyItWorks": ["瀑布、森林、4K 与接近两小时的时长在标题中直接说明画面、声音和使用周期。", "作品明确声明画面与录音均由创作者现场完成，使自然声真实性成为区别于素材拼接频道的核心信任。", "睡眠、学习、阅读和放松等用途覆盖稳定的常青需求，长视频能够被反复作为空间背景播放。"],
+      "patterns": ["固定机位同时记录水流主体和森林纵深", "公开相机、录音机与防风设备", "标题写清自然声源、分辨率和时长", "保留无音乐的现场声音版本"],
+      "caution": "瀑布附近湿滑、水雾和低频过载风险都很高；必须先确认安全机位，以独立录音电平和完整防风防水保护换取真实声场。",
+      "evidence": [{ "title": "Forest of Wing 瀑布森林代表视频", "url": "https://www.youtube.com/watch?v=hg9UUi-TU2E" }, { "title": "Forest of Wing 官方频道", "url": "https://www.youtube.com/@Forestofwing" }]
+    },
+    {
+      "id": "4k-japan", "name": "4K JAPAN", "region": "日本 / 东京及各地", "category": "rain-walk", "channelUrl": "https://www.youtube.com/@4KJAPAN",
+      "positioning": "以无 vlog、尽量不突出人脸的 4K HDR 长时步行记录东京暴雨、夜景、郊区和日本各地现场。",
+      "representative": { "title": "Tokyo Japan: 4 Hours of Heavy Rain, Night Walk • 4K HDR", "url": "https://www.youtube.com/watch?v=ufskJSgaLfI", "observedPerformance": "公开视频核验时显示频道已验证、约 14.2 万关注者；四小时东京暴雨夜行代表影片约 50.9 万播放。" },
+      "whyItWorks": ["四小时、暴雨、东京夜景和 4K HDR 同时构成高强度且明确的内容承诺。", "温度、湿度与风速让雨景不只是一种情绪包装，也保留了拍摄当晚的现场条件。", "无旁白和尽量不突出人脸的连续步行兼顾沉浸感、隐私意识与全球观看门槛。"],
+      "patterns": ["标题量化时长并标注天气", "描述记录温度、湿度与风速", "主路线与不同街区雨夜版本互链", "真实雨声、脚步与城市底声主导"],
+      "caution": "暴雨长拍必须预先规划避雨点、设备防水和撤离路线；四小时内容也不能以持续对准行人或进入受限空间换取画面。",
+      "evidence": [{ "title": "4K JAPAN 暴雨夜行代表视频", "url": "https://www.youtube.com/watch?v=ufskJSgaLfI" }, { "title": "4K JAPAN 官方频道", "url": "https://www.youtube.com/@4KJAPAN" }]
+    },
+    {
+      "id": "dashcam-roadshow", "name": "Dashcam Roadshow", "region": "日本 / 全球风景公路", "category": "scenic-drive", "channelUrl": "https://www.youtube.com/@DashcamRoadshow",
+      "positioning": "由个人持续驾驶并记录世界各地风景道路，以完整路线、自然景观变化和大屏沉浸体验为核心。",
+      "representative": { "title": "Norway Scenic Drive 4K | Norangsdalen Valley | Ørsta to Hellesylt on Fv655", "url": "https://www.youtube.com/results?search_query=Dashcam+Roadshow+Norangsdalen+Valley+Orsta+Hellesylt+Fv655", "observedPerformance": "公开统计在 2026 年 7 月核验时显示约 19.4 万订阅、4200 万累计播放；挪威 Fv655 峡谷路线约 219 万播放。" },
+      "whyItWorks": ["起点、终点、道路编号和国家同时进入标题，让内容可以按真实路线被发现和复用。", "章节对应渡轮、村镇与峡谷段落，观众既能连续沉浸，也能快速跳到景观变化节点。", "公开拍摄日期、地图路线和相机信息，使画面具备旅行研究和制作参考的双重价值。"],
+      "patterns": ["标题写明起终点和道路编号", "描述附路线地图与拍摄日期", "章节按村镇、渡轮和地貌切分", "自然驾驶声与音乐版分频道交付"],
+      "caution": "长距离驾驶拍摄必须让设备完全固定并独立运行；发布地图和历史路况时应注明日期，不能替代实时导航与安全判断。",
+      "evidence": [{ "title": "Dashcam Roadshow 频道介绍与作品目录", "url": "https://dashcamroadshow.ruclips.net/" }, { "title": "Dashcam Roadshow 公开统计", "url": "https://yutura.net/channel/45150/" }, { "title": "挪威 Fv655 代表路线数据", "url": "https://en.yutura.net/channel/45150/popular/b4Rr_7y068U/" }]
+    },
+    {
+      "id": "beautiful-destinations", "name": "Beautiful Destinations", "region": "英国 / 全球旅行地", "category": "cinematic-landscape", "channelUrl": "https://www.youtube.com/@beautifuldestinationsyoutube",
+      "positioning": "以全球创作者网络和电影化旅行叙事，把自然景观、住宿体验与人物视角组织成目的地传播内容。",
+      "representative": { "title": "Our Stay: Marina Bay Sands", "url": "https://www.youtube.com/@beautifuldestinationsyoutube/videos", "observedPerformance": "公开统计在 2026 年 6 月核验时显示约 47.2 万订阅、3410 万累计播放；该住宿目的地代表内容约 67 万播放。" },
+      "whyItWorks": ["用人物体验和明确行程串联漂亮镜头，避免电影化风景只剩下难以记忆的画面拼接。", "住宿、地标与城市生活共同构成可保存的旅行决策信息，观看动机不局限于放松。", "其 2026 趋势报告显示，长视频在 YouTube 上每次观看产生的观看时长明显高于短内容，说明完整叙事仍有平台价值。"],
+      "patterns": ["开场先给人物目标或目的地承诺", "航拍、地面环境和人物细节交替", "按完整行程而非镜头类型组织章节", "长视频与平台原生短内容分别设计"],
+      "caution": "品牌合作和住宿置换必须清晰披露；高制作规格不能替代真实体验，航拍、人物肖像、音乐和场地权限需要逐项留档。",
+      "evidence": [{ "title": "Beautiful Destinations 官方频道统计", "url": "https://vidiq.com/youtube-stats/channel/%40beautifuldestinationsyoutube/" }, { "title": "Beautiful Destinations 2026 旅行内容趋势报告", "url": "https://beautifuldestinations.com/hubfs/Beautifuldestinations_SocialTrendsReport_2026.pdf" }]
+    },
+    {
+      "id": "timelab-pro", "name": "Timelab Pro", "region": "全球城市与极地", "category": "cinematic-landscape", "channelUrl": "https://www.youtube.com/@TimelabPro",
+      "positioning": "以高规格航拍、时间流逝和精密后期制作城市、自然与极地电影，强调空间尺度与节奏设计。",
+      "representative": { "title": "Timelab Pro cinematic drone films", "url": "https://www.youtube.com/@TimelabPro/videos", "observedPerformance": "官方作品站将团队定位为国际领先的无人机电影制作团队，并公开城市、极地、破冰船和旅行营销作品。" },
+      "whyItWorks": ["通过从大全景到建筑、交通和人物尺度的连续变化，让高分辨率画面形成空间叙事而非演示片。", "延时、速度渐变与音乐结构紧密配合，使城市灯光和自然天气变化成为明确段落。", "极地、破冰船和大型城市等高进入门槛题材带来普通创作者难以复制的稀缺视觉资产。"],
+      "patterns": ["先按空间尺度设计镜头顺序", "延时段落服务光线与交通变化", "音乐节拍对应运动方向和速度", "为高风险航拍保存许可与飞行记录"],
+      "caution": "可借鉴节奏、尺度与调色，不应复制高风险飞行；无人机许可、禁飞区、极端天气、音乐和商业合作必须逐项核验。",
+      "evidence": [{ "title": "Timelab Pro 官方作品与团队介绍", "url": "https://timelab.pro/" }, { "title": "Timelab Pro 官方频道", "url": "https://www.youtube.com/@TimelabPro" }]
+    },
+    {
+      "id": "outdoor-boys", "name": "Outdoor Boys", "region": "美国 / 阿拉斯加及全球荒野", "category": "guided-walk", "channelUrl": "https://www.youtube.com/@OutdoorBoys",
+      "positioning": "由 Luke Nichols 以独行与家庭户外过程记录荒野露营、徒步、觅食、搭建和极端天气中的完整任务。",
+      "representative": { "title": "4 Days Alone in Alaska - Bushcraft Camping & Foraging Food", "url": "https://www.youtube.com/@OutdoorBoys/videos", "observedPerformance": "公开统计在 2026 年 7 月核验时显示约 2030 万订阅、36.8 亿累计播放；四日阿拉斯加独行代表影片约 6990 万播放。" },
+      "whyItWorks": ["四天、独行、阿拉斯加和觅食在标题中同时给出时间、风险、地点与生存任务。", "抵达、搭建、取水、做饭、过夜和撤离构成连续行为变化，长视频始终有下一步可期待。", "大量真实环境声、手部操作和天气变化让观众感到亲历过程，而不只是观看风景。"],
+      "patterns": ["用天数和核心任务定义标题", "按抵达、营地、食物、夜晚与撤离组织段落", "远景交代环境、近景解释动作", "明确危险条件和不适合模仿的边界"],
+      "caution": "户外生存内容不能把高风险行为包装成通用教程；路线、天气、野生动物、用火、食物和救援能力必须先于拍摄需求。",
+      "evidence": [{ "title": "Outdoor Boys 官方频道统计", "url": "https://vidiq.com/youtube-stats/channel/UCfpCQ89W9wjkHc8J_6eTbBg/" }, { "title": "Outdoor Boys 公开频道数据", "url": "https://socialblade.com/youtube/handle/outdoorboys" }]
     }
   ]
 }
