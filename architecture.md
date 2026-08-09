@@ -1,521 +1,85 @@
-# RoadLens Planner 前端架构规范（architecture.md）
-
-## 1. 项目架构目标
-
-RoadLens Planner 是一个地图驱动型自驾摄影数据库系统。
-
-核心原则：
-
-1. 数据驱动 UI
-2. 地图作为核心入口
-3. 组件高度复用
-4. 功能模块独立
-5. 支持未来扩展 AI 路线规划
-
----
-
-# 2. 技术栈规范
-
-## Core
-
-```
-React
-TypeScript
-Vite
-```
-
----
-
-## UI
-
-```
-TailwindCSS
-
-shadcn/ui
-```
-
----
-
-## State
-
-使用：
-
-```
-Zustand
-```
-
-禁止：
-
-```
-Redux
-MobX
-```
-
-除非项目规模扩大。
-
----
-
-## Map
-
-第一阶段：
-
-```
-高德地图 JS API
-```
-
-未来：
-
-```
-Mapbox GL
-```
-
----
-
-## Data
-
-当前：
-
-```
-JSON
-```
-
-未来：
-
-```
-Database API
-```
-
----
-
-# 3. 目录规范
-
-```
-src
-
-├── app
-│
-│   ├── router.tsx
-│   ├── providers.tsx
-│   └── store.ts
-│
-
-
-├── pages
-
-│
-│   ├── MapPage
-│   │   ├── index.tsx
-│   │   └── styles.css
-│
-│   ├── RouteDetail
-│
-│   ├── CameraPreset
-│
-│   ├── ShootPlan
-│
-│   └── Dashboard
-│
-
-
-├── components
-
-
-│
-│   ├── map
-│   │
-│   │   ├── MapView.tsx
-│   │   ├── MarkerLayer.tsx
-│   │   ├── RoutePolyline.tsx
-│   │   └── MapControl.tsx
-│
-│
-│   ├── route
-│   │
-│   │   ├── RouteCard.tsx
-│   │   ├── RouteFilter.tsx
-│   │   └── RouteTimeline.tsx
-│
-│
-│   ├── location
-│   │
-│   │   ├── LocationCard.tsx
-│   │   └── LocationBadge.tsx
-│
-│
-│   ├── camera
-│   │
-│   │   ├── CameraCard.tsx
-│   │   └── PresetPanel.tsx
-│
-│
-│   └── common
-│
-│       ├── EmptyState.tsx
-│       ├── Loading.tsx
-│       └── Modal.tsx
-│
-
-
-├── data
-
-├── hooks
-
-├── services
-
-├── types
-
-├── utils
-
-└── assets
-
-```
-
----
-
-# 4. 页面职责
-
-# MapPage
-
-核心页面。
-
-负责：
-
-* 地图展示
-* 图层切换
-* 搜索
-* 筛选
-
-禁止：
-
-* 直接读取 JSON
-* 包含业务逻辑
-
-结构：
-
-```
-MapPage
-
-|
-├── MapView
-
-├── LayerControl
-
-├── FilterPanel
-
-└── DetailDrawer
-```
-
----
-
-# RouteDetail
-
-展示路线详情。
-
-内容：
-
-```
-路线信息
-
-地图轨迹
-
-拍摄建议
-
-设备参数
-
-关联视频
-```
-
----
-
-# CameraPreset
-
-展示设备参数。
-
-例如：
-
-Sony A7C2：
-
-```
-海边日落
-
-城市夜景
-
-瀑布
-
-驾驶视频
-```
-
----
-
-# ShootPlan
-
-个人拍摄任务管理。
-
-类似：
-
-Notion Calendar。
-
----
-
-# Dashboard
-
-统计：
-
-```
-路线数量
-
-已拍数量
-
-待拍数量
-
-城市覆盖
-
-视频数量
-```
-
----
-
-# 5. 组件设计规范
-
-## 原则
-
-一个组件只负责一种事情。
-
-错误：
-
-```tsx
-MapPage.tsx
-
-里面包含：
-
-地图
-
-路线计算
-
-JSON读取
-
-弹窗
-```
-
-正确：
-
-```tsx
-MapPage
-
-↓
-
-MapView
-
-↓
-
-MarkerLayer
-
-↓
-
-RouteDrawer
-```
-
----
-
-# 6. TypeScript规范
-
-所有数据必须有类型。
-
-例如：
-
-```ts
-interface Route {
-
-id:string;
-
-name:string;
-
-type:RouteType;
-
-distance:number;
-
-}
-```
-
-禁止：
-
-```ts
-const data:any
-```
-
----
-
-# 7. 数据读取规范
-
-禁止：
-
-组件直接：
-
-```ts
-import routes from "../data/routes.json"
-```
-
-统一：
-
-```
-services
-```
-
-处理。
-
-例如：
-
-```
-services/routeService.ts
-```
-
-提供：
-
-```ts
-getRoutes()
-
-getRouteById()
-
-filterRoutes()
-```
-
----
-
-# 8. Zustand Store设计
-
-位置：
-
-```
-app/store.ts
-```
-
-管理：
-
-```ts
-interface AppState {
-
-mode:
-
-"day"
-|
-"night"
-|
-"asmr";
-
-
-selectedLocation:string;
-
-
-filters:Filter;
-
-
-}
-```
-
----
-
-# 9. Hooks规范
-
-公共逻辑必须抽离。
-
-例如：
-
-地图：
-
-```
-useMap()
-```
-
-路线：
-
-```
-useRoutes()
-```
-
-拍摄计划：
-
-```
-useShootPlan()
-```
-
----
-
-# 10. API预留
-
-未来：
-
-```
-services/api
-```
-
-结构：
-
-```
-routeApi.ts
-
-locationApi.ts
-
-weatherApi.ts
-
-aiPlannerApi.ts
-
-```
-
----
-
-# 11. Agent开发规则
-
-AI Agent 必须遵守：
-
-## 禁止
-
-* 修改数据结构
-* 创建重复组件
-* 在页面写大量业务逻辑
-
-## 必须
-
-新增功能：
-
-同时更新：
-
-```
-types
-
+# RoadLens Planner 架构规范
+
+## 核心原则
+
+1. 数据驱动 UI。
+2. 地图是核心入口。
+3. 先完成小型纵向闭环，再扩展模块和数据量。
+4. 事实、编辑建议和实时导航信息必须分开。
+5. 数据必须先通过运行时校验，再进入强类型服务层。
+
+## 分层
+
+```text
+JSON 数据
+  ↓ JSON Schema + 业务一致性校验
+TypeScript 领域类型
+  ↓
+services（查询、筛选、引用解析）
+  ↓
+hooks / Zustand（跨组件交互状态）
+  ↓
 components
-
-services
-
-README
+  ↓
+pages
 ```
 
----
+页面不得直接读取或解释 JSON。组件不得自行解析地点引用或重新实现筛选逻辑。
 
-# 12. 代码质量要求
+当前可执行纵向样例：
 
-必须：
-
+```text
+data/catalog.json
+→ scripts/validate-data.mjs
+→ src/types/domain.ts
+→ src/services/routeService.ts
+→ src/cli/plan.ts
 ```
-npm run lint
 
+CLI 是服务层的最小消费者，后续地图页面复用相同服务，而不是另写一套逻辑。
+
+## 前端目标结构
+
+```text
+src/
+├── app/
+├── pages/
+├── components/
+│   ├── map/
+│   ├── route/
+│   ├── location/
+│   ├── camera/
+│   └── common/
+├── hooks/
+├── services/
+├── types/
+└── utils/
+```
+
+一个组件只负责一类展示或交互。禁止创建城市专属组件，例如 `ShenzhenRouteCard`；使用由数据驱动的 `RouteCard`。
+
+## 状态管理
+
+Zustand 仅保存跨页面交互状态，例如模式、筛选条件和选中实体。Catalog 数据由服务层读取，不在 Store 内复制一份。
+
+## 地图与坐标
+
+第一阶段使用高德地图 JS API 2.0 和 GCJ-02。地图加载封装在 `services/amapLoader.ts`，组件只负责地图实例和覆盖物生命周期。API Key 与 securityJsCode 从本地环境注入并限制允许域名，不提交到 Git；生产环境应使用服务端代理隐藏安全密钥。
+
+地点存储可核验坐标；路线导航和实时路况由地图服务生成。以后增加 GPX 时，坐标转换位于数据导入边界。
+
+## 数据与 API 演进
+
+`Catalog` 是服务层稳定边界。静态 JSON 拆文件、迁移 SQLite 或改为远程 API 时，页面和组件不应改变。
+
+数据结构允许演进，但必须遵守 `schema.md` 的版本规则、同步 JSON Schema 与 TypeScript 类型，并说明迁移方式。禁止无版本、无迁移地修改契约。
+
+## 质量门槛
+
+```bash
+npm run validate:data
 npm run build
+npm run demo:plan
 ```
 
-通过。
-
----
-
-# 13. 未来扩展
-
-支持：
-
-* 用户登录
-* 云同步
-* AI路线规划
-* GPS轨迹
-* 视频管理
-
-架构必须提前保留扩展能力。
-
-```
-```
+新增数据必须通过结构、唯一性、引用完整性和来源证据检查。新增服务逻辑应补单元测试；前端建立后再增加组件和端到端测试。

@@ -1,0 +1,256 @@
+{
+  "schemaVersion": "1.0.0",
+  "locations": [
+    {
+      "id": "gd-sz-talent-park",
+      "name": "深圳人才公园",
+      "province": "广东",
+      "city": "深圳",
+      "type": "city-night",
+      "coordinate": { "lat": 22.511353, "lng": 113.946958, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "自驾导航至人才公园停车区域，入园后步行取景。" },
+      "shooting": {
+        "bestTimes": ["sunset", "blue-hour", "night"],
+        "bestWeather": ["sunny", "after-rain"],
+        "modes": ["photo", "tripod-video", "timelapse"],
+        "advice": "蓝调时段拍摄湖面、步道灯光与后海建筑群倒影，雨后注意镜头防潮。"
+      },
+      "verification": {
+        "status": "source-checked",
+        "sources": [
+          {
+            "title": "深圳人才公园（深圳市城市管理和综合执法局）",
+            "url": "https://cgj.sz.gov.cn/xsmh/gysz/twf/bhxx/content/post_10841318.html",
+            "accessedAt": "2026-08-09",
+            "supports": ["existence", "address", "access", "shooting-value"]
+          },
+          {
+            "title": "深圳人才公园（高德地图）",
+            "url": "https://ditu.amap.com/place/B0FFI1VATT",
+            "accessedAt": "2026-08-09",
+            "supports": ["coordinate"]
+          }
+        ]
+      }
+    },
+    {
+      "id": "gd-sz-shenzhen-bay-park",
+      "name": "深圳湾公园",
+      "province": "广东",
+      "city": "深圳",
+      "type": "coast",
+      "coordinate": { "lat": 22.518968, "lng": 113.972602, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "驾车至公园停车区域后进入滨海步道；停车位需以当日预约和现场规则为准。" },
+      "shooting": {
+        "bestTimes": ["sunrise", "sunset", "blue-hour"],
+        "bestWeather": ["sunny", "cloudy", "after-rain"],
+        "modes": ["photo", "tripod-video", "asmr"],
+        "advice": "使用中广角记录海岸线与城市天际线；长焦拍摄候鸟时保持距离，不干扰生态。"
+      },
+      "verification": {
+        "status": "source-checked",
+        "sources": [
+          {
+            "title": "深圳湾·公园BOX（深圳市城市管理和综合执法局）",
+            "url": "https://cgj.sz.gov.cn/zwgk/gzdt/content/post_12605910.html",
+            "accessedAt": "2026-08-09",
+            "supports": ["existence", "shooting-value"]
+          },
+          {
+            "title": "深圳湾公园（高德地图）",
+            "url": "https://ditu.amap.com/place/B0FFFRDS71",
+            "accessedAt": "2026-08-09",
+            "supports": ["address", "coordinate"]
+          }
+        ]
+      }
+    },
+    {
+      "id": "gd-sz-mangrove-park",
+      "name": "红树林海滨生态公园",
+      "province": "广东",
+      "city": "深圳",
+      "type": "coast",
+      "coordinate": { "lat": 22.522076, "lng": 113.998082, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "驾车到深圳湾公园停车区域后步行进入；不要进入生态保护区域。" },
+      "shooting": {
+        "bestTimes": ["sunrise", "morning", "sunset"],
+        "bestWeather": ["sunny", "cloudy"],
+        "modes": ["photo", "tripod-video", "asmr"],
+        "advice": "优先记录潮滩、红树林和远景天际线；自然收音应避开人流高峰并保持安静。"
+      },
+      "verification": {
+        "status": "source-checked",
+        "sources": [
+          {
+            "title": "红树林海滨生态公园（高德地图）",
+            "url": "https://ditu.amap.com/place/B02F37U9RJ",
+            "accessedAt": "2026-08-09",
+            "supports": ["existence", "address", "coordinate", "shooting-value"]
+          }
+        ]
+      }
+    },
+    {
+      "id": "gd-sz-sumei-coast",
+      "name": "深圳湾公园深圳苏梅岛段",
+      "province": "广东",
+      "city": "深圳",
+      "type": "coast",
+      "coordinate": { "lat": 22.488373, "lng": 113.952409, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "位于深圳湾绿道西南段，驾车应停在允许停车区域后步行进入。" },
+      "shooting": {
+        "bestTimes": ["sunrise", "sunset", "golden-hour"],
+        "bestWeather": ["sunny", "cloudy"],
+        "modes": ["photo", "tripod-video", "asmr"],
+        "advice": "沿滨海绿道寻找开阔水面，日落时保留高光层次；海风较大时给麦克风加防风毛衣。"
+      },
+      "verification": {
+        "status": "source-checked",
+        "sources": [
+          {
+            "title": "深圳湾公园深圳苏梅岛（高德地图）",
+            "url": "https://ditu.amap.com/place/B0FFM948FM",
+            "accessedAt": "2026-08-09",
+            "supports": ["existence", "address", "coordinate"]
+          }
+        ]
+      }
+    },
+    {
+      "id": "gd-hz-double-moon-resort",
+      "name": "双月湾度假村",
+      "province": "广东",
+      "city": "惠州",
+      "type": "coast",
+      "coordinate": { "lat": 22.578656, "lng": 114.89634, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "可作为港口镇海岸拍摄路线的驾车终点与转步行节点。" },
+      "shooting": {
+        "bestTimes": ["sunrise", "sunset"],
+        "bestWeather": ["sunny", "cloudy"],
+        "modes": ["photo", "tripod-video", "asmr"],
+        "advice": "在允许进入的公共海岸区域拍摄浪线与港湾，不进入酒店私有区域，不在道路上停车。"
+      },
+      "verification": {
+        "status": "source-checked",
+        "sources": [
+          {
+            "title": "双月湾度假村（高德地图）",
+            "url": "https://ditu.amap.com/place/B02F002F0P",
+            "accessedAt": "2026-08-09",
+            "supports": ["existence", "address", "coordinate", "access"]
+          }
+        ]
+      }
+    },
+    {
+      "id": "gd-hz-double-moon-viewpoint",
+      "name": "双月湾观景台",
+      "province": "广东",
+      "city": "惠州",
+      "type": "coast",
+      "coordinate": { "lat": 22.563964, "lng": 114.903401, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "最后一段道路陡窄，不作为自驾路线；在合法停车点停车后步行，并以现场管制为准。" },
+      "shooting": {
+        "bestTimes": ["sunrise", "sunset", "golden-hour"],
+        "bestWeather": ["sunny", "cloudy", "after-rain"],
+        "modes": ["photo", "tripod-video", "timelapse"],
+        "advice": "用广角呈现双湾地形，长焦压缩海岸层次；避免在狭窄道路架设器材或临时停车。"
+      },
+      "verification": {
+        "status": "source-checked",
+        "sources": [
+          {
+            "title": "双月湾观景台（高德地图）",
+            "url": "https://ditu.amap.com/place/B0FFHCVZIB",
+            "accessedAt": "2026-08-09",
+            "supports": ["existence", "address", "coordinate", "access", "shooting-value"]
+          }
+        ]
+      }
+    }
+  ],
+  "cameraPresets": [
+    {
+      "id": "gopro12-city-night-driving",
+      "camera": "GoPro HERO12 Black",
+      "scene": "city-night-driving",
+      "settings": { "resolution": "4K", "fps": 30, "shutter": "1/60", "iso": { "min": 100, "max": 1600 }, "whiteBalanceKelvin": 4500, "profile": "10-bit Log" },
+      "notes": "参数是拍摄起点而非万能值；固定机位后根据道路照度降低 ISO 上限并检查高光。"
+    },
+    {
+      "id": "a7c2-city-night-tripod",
+      "camera": "Sony A7C II",
+      "scene": "city-night-tripod",
+      "settings": { "resolution": "4K", "fps": 25, "shutter": "1/50", "iso": { "min": 100, "max": 3200 }, "whiteBalanceKelvin": 4300, "aperture": "F4", "profile": "S-Cinetone" },
+      "notes": "三脚架视频预设；现场按灯光频闪和动态范围调整快门、ISO 与白平衡。"
+    },
+    {
+      "id": "a7c2-coast-sunset",
+      "camera": "Sony A7C II",
+      "scene": "coast-sunset",
+      "settings": { "resolution": "4K", "fps": 25, "shutter": "1/50", "iso": { "min": 100, "max": 800 }, "whiteBalanceKelvin": 5600, "aperture": "F5.6", "profile": "S-Cinetone" },
+      "notes": "日落视频基础预设；优先保护天空高光，并随落日亮度逐步检查曝光。"
+    }
+  ],
+  "routes": [
+    {
+      "id": "gd-sz-bay-night",
+      "name": "深圳湾后海蓝调夜景路线",
+      "province": "广东",
+      "cities": ["深圳"],
+      "type": "city-night",
+      "modes": ["sunset", "night"],
+      "estimatedDurationMinutes": 150,
+      "waypointLocationIds": ["gd-sz-talent-park", "gd-sz-shenzhen-bay-park", "gd-sz-mangrove-park"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["sunset", "blue-hour", "night"], "weather": ["sunny", "after-rain"] },
+      "cameraPresetIds": ["gopro12-city-night-driving", "a7c2-city-night-tripod"],
+      "shootAdvice": "驾车只负责地点间转场，所有固定机位拍摄均在合法停车后步行完成；工作日晚间更容易获得写字楼灯光。",
+      "scores": { "visual": 5, "road": 4, "parking": 3, "safety": 4, "youtubePotential": 5 },
+      "status": "idea",
+      "verification": { "status": "source-checked", "note": "各地点和坐标已查源；推荐顺序、时长和主观评分尚待一次实地验证。" }
+    },
+    {
+      "id": "gd-sz-bay-coast",
+      "name": "深圳湾滨海日落采风路线",
+      "province": "广东",
+      "cities": ["深圳"],
+      "type": "coast",
+      "modes": ["day", "sunset", "asmr"],
+      "estimatedDurationMinutes": 180,
+      "waypointLocationIds": ["gd-sz-sumei-coast", "gd-sz-shenzhen-bay-park", "gd-sz-mangrove-park"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["golden-hour", "sunset"], "weather": ["sunny", "cloudy"] },
+      "cameraPresetIds": ["a7c2-coast-sunset"],
+      "shootAdvice": "按日落方向和停车条件选择一至两个点即可，不应把滨海绿道当作机动车道路；自然收音避开活动和人流高峰。",
+      "scores": { "visual": 4, "road": 4, "parking": 3, "safety": 4, "youtubePotential": 4 },
+      "status": "idea",
+      "verification": { "status": "source-checked", "note": "各地点和坐标已查源；路线为编辑组合，不代表官方推荐驾驶线路，需实地核验停车条件。" }
+    },
+    {
+      "id": "gd-hz-double-moon-coast",
+      "name": "惠东双月湾海岸与观景台路线",
+      "province": "广东",
+      "cities": ["惠州"],
+      "type": "coast",
+      "modes": ["day", "sunrise", "sunset"],
+      "estimatedDurationMinutes": 150,
+      "waypointLocationIds": ["gd-hz-double-moon-resort", "gd-hz-double-moon-viewpoint"],
+      "best": { "seasons": ["spring", "autumn"], "times": ["sunrise", "golden-hour", "sunset"], "weather": ["sunny", "cloudy"] },
+      "cameraPresetIds": ["a7c2-coast-sunset"],
+      "shootAdvice": "将车辆停在合法区域后再前往观景台；最后陡窄路段按步行点处理，天气恶劣或现场管制时取消观景台机位。",
+      "scores": { "visual": 5, "road": 2, "parking": 2, "safety": 3, "youtubePotential": 5 },
+      "status": "idea",
+      "verification": { "status": "source-checked", "note": "地点、坐标及末段通行风险已查源；具体停车点、时长和路线仍须实地确认。" }
+    }
+  ],
+  "shootPlans": [
+    {
+      "id": "plan-sz-bay-blue-hour",
+      "routeId": "gd-sz-bay-night",
+      "scheduledDate": "2026-10-16",
+      "status": "planned",
+      "equipmentPresetIds": ["gopro12-city-night-driving", "a7c2-city-night-tripod"],
+      "objective": "完成一条从日落到蓝调时刻的深圳湾城市夜景短片"
+    }
+  ]
+}

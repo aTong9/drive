@@ -1,601 +1,97 @@
-# RoadLens Planner 数据结构规范（schema.md）
+# RoadLens Planner 数据契约
 
-## 1. 数据设计原则
+当前契约版本：`1.0.0`
 
-所有路线、地点、设备数据均使用 JSON。
+机器可验证的唯一事实来源是：
 
-目标：
-
-* 人可读
-* AI可生成
-* Git可管理
-* 未来可迁移数据库
-
----
-
-# 2. Route路线数据
-
-文件：
-
-```
-data/routes/*.json
+```text
+schemas/roadlens-catalog.schema.json
 ```
 
-结构：
+本文只解释设计决策，不重复完整字段清单。字段、必填项、枚举或约束发生冲突时，以 JSON Schema 为准。
 
-```json
-{
-"id":"gd-hz-001",
+## 1. 聚合结构
 
-"name":"惠州大亚湾海岸线",
+`data/catalog.json` 是 MVP 阶段的原子数据集：
 
-"province":"广东",
-
-"city":"惠州",
-
-"type":"coast",
-
-"mode":[
-"day",
-"sunset"
-],
-
-
-"distance":80,
-
-"duration":"3h",
-
-
-"road":
-
-{
-"type":"coastal",
-"difficulty":"easy"
-},
-
-
-"best":
-
-{
-
-"season":[
-"spring",
-"autumn"
-],
-
-"time":[
-"sunrise",
-"sunset"
-],
-
-"weather":[
-"sunny"
-]
-
-},
-
-
-"points":[
-
-"location-id"
-
-],
-
-
-"cameraPreset":[
-
-"a7c2-sunset"
-
-],
-
-
-"status":
-
-"todo"
-
-}
+```text
+Catalog
+├── schemaVersion
+├── locations
+├── cameraPresets
+├── routes
+└── shootPlans
 ```
 
----
+未来可拆分文件或迁移数据库，但对服务层暴露的 `Catalog` 契约保持不变。
 
-# 3. 拍摄地点 Location
+## 2. 领域边界
 
-文件：
+### Location
 
-```
-data/locations
-```
+真实世界中可核验的地点。地点拥有坐标、到达方式、拍摄条件和来源证据。
 
-统一结构：
+坐标统一使用 `GCJ-02`，以匹配第一阶段的高德地图。导入 WGS-84 GPX 时必须在数据边界转换，禁止静默混用。
 
-```json
-{
+`access.mode` 明确区分：
 
-"id":"gd-hz-001-point01",
+- `drive`：可作为合法驾车抵达节点，但仍不代表可随意停车。
+- `park-and-walk`：车辆只能到合法停车区域，最终拍摄点步行抵达。
 
-"name":"黄金海岸",
+### Route
 
-"type":"coast",
+路线是编辑推荐的有序地点组合，不是一个坐标点，也不等同于地图厂商实时导航结果。
 
+- `waypointLocationIds` 保存有序地点引用。
+- `estimatedDurationMinutes` 是拍摄行程估算，不是导航承诺。
+- `verification.note` 必须说明哪些信息已查源、哪些仍需实地验证。
+- 实际驾车道路由地图服务根据当时路况和管制生成。
 
-"coordinate":
+### CameraPreset
 
-{
+参数必须绑定具体场景。ISO 使用数值范围，不使用 `"100-800"` 之类不可计算字符串。参数只是现场曝光的起点。
 
-"lat":22.7,
+### ShootPlan
 
-"lng":114.5
+计划引用一条路线和若干设备预设。路线与计划统一使用：
 
-},
-
-
-"shoot":
-
-{
-
-"direction":"west",
-
-"bestTime":"sunset",
-
-"recommendedLens":
-
-[
-"24mm",
-"35mm"
-]
-
-},
-
-
-"parking":
-
-{
-
-"available":true,
-
-"fee":"free"
-
-},
-
-
-"tags":
-
-[
-"sea",
-"driving"
-]
-
-
-}
+```text
+idea → planned → captured → published
 ```
 
----
+## 3. 数据可信度
 
-# 4. 城市夜景数据
+验证状态只有三种：
 
-文件：
+- `draft`：尚未完成来源检查。
+- `source-checked`：名称、地址或坐标已由来源支持，但尚未实地确认。
+- `field-checked`：创作者已在现场核验。
 
-```
-night-city.json
-```
+地点至少需要一个来源支持坐标。来源的 `supports` 精确声明它能证明的内容，不能用“景点存在”的来源推断停车条件或坐标。
 
-结构：
+路线组合、推荐时段、预计时长和评分属于编辑判断，应与地点事实分开描述。
 
-```json
-{
+## 4. 版本演进
 
-"id":"sz-night-001",
+- 向后兼容的描述或样例调整不升级契约版本。
+- 增加可选字段升级次版本，例如 `1.1.0`。
+- 删除字段、改名或改变语义升级主版本，并提供迁移脚本或迁移说明。
+- 禁止在其他文档重新定义字段或枚举；它们必须链接到本文件和 JSON Schema。
 
-"name":"深圳CBD夜景路线",
+## 5. 验证层次
 
-"city":"深圳",
+执行：
 
-
-"type":"city-night",
-
-
-"coordinate":
-
-{
-"lat":22,
-"lng":113
-},
-
-
-"bestTime":
-
-{
-
-"weekday":
-
-"19:30-22:30",
-
-
-"weekend":
-
-"not-recommend"
-
-},
-
-
-"reason":
-
-[
-"office-light",
-"traffic"
-],
-
-
-"score":
-
-{
-
-"building":5,
-
-"light":5,
-
-"traffic":4,
-
-"parking":3
-
-},
-
-
-"shoot":
-
-{
-
-"camera":
-"gopro12",
-
-"style":
-"driving"
-
-}
-
-}
+```bash
+npm run validate:data
 ```
 
----
-
-# 5. 瀑布溪流 ASMR 数据
-
-文件：
-
-```
-waterfalls.json
-```
-
-结构：
-
-```json
-{
-
-"id":"gd-qy-water-001",
-
-
-"name":"清远瀑布",
-
-
-"type":"waterfall",
-
-
-"coordinate":
-
-{
-
-"lat":0,
-
-"lng":0
-
-},
-
-
-"sound":
-
-[
-
-"water",
-
-"bird",
-
-"forest"
-
-],
-
-
-"best":
-
-{
-
-"weather":
-
-"after-rain",
-
-"season":
-
-"summer"
-
-},
-
-
-"record":
-
-{
-
-"camera":
-
-"gopro12",
-
-"audio":
-
-"environment"
-
-},
-
-
-"difficulty":
-
-"medium"
-
-}
-```
-
----
-
-# 6. 相机参数数据
-
-文件：
-
-```
-cameras/*.json
-```
-
-结构：
-
-```json
-{
-
-"id":"a7c2-sunset",
-
-
-"camera":
-
-"Sony A7C2",
-
-
-"scene":
-
-"sunset-coast",
-
-
-"settings":
-
-{
-
-"mode":"manual",
-
-"shutter":"1/50",
-
-"aperture":"F4",
-
-"iso":"100-800",
-
-"wb":"5600K",
-
-"profile":"S-Cinetone"
-
-},
-
-
-"notes":
-
-"海边日落驾驶视频"
-
-}
-```
-
----
-
-# 7. GoPro参数
-
-```json
-{
-
-"id":"gopro12-night-driving",
-
-"camera":
-
-"GoPro Hero12",
-
-
-"settings":
-
-{
-
-"resolution":"5.3K",
-
-"fps":60,
-
-"hdr":true,
-
-"stabilization":"high"
-
-}
-
-}
-```
-
----
-
-# 8. 拍摄计划数据
-
-文件：
-
-```
-shoot-plan.json
-```
-
-结构：
-
-```json
-{
-
-"id":"plan-001",
-
-"date":"2026-08-20",
-
-"location":
-
-"gd-hz-001",
-
-
-"status":
-
-"todo",
-
-
-"equipment":
-
-[
-"a7c2",
-"gopro12"
-],
-
-
-"youtube":
-
-{
-
-"title":"",
-
-"url":""
-
-}
-
-}
-```
-
----
-
-# 9. 枚举定义
-
-## Location Type
-
-```ts
-type LocationType =
-
-"coast"
-
-| "mountain"
-
-| "city-night"
-
-| "waterfall"
-
-| "forest"
-
-| "river"
-
-| "lake"
-
-```
-
----
-
-## Shoot Mode
-
-```ts
-type ShootMode =
-
-"day"
-
-| "night"
-
-| "sunrise"
-
-| "sunset"
-
-| "asmr"
-
-```
-
----
-
-## Status
-
-```ts
-type Status =
-
-"todo"
-
-| "planned"
-
-| "shooted"
-
-| "published"
-
-```
-
----
-
-# 10. 全国数据生成规则
-
-AI生成路线时必须包含：
-
-必填：
-
-```
-id
-
-name
-
-coordinate
-
-type
-
-bestTime
-
-bestWeather
-
-cameraPreset
-
-shootAdvice
-```
-
----
-
-禁止：
-
-* 虚构不存在地点
-* 没有坐标
-* 没有拍摄价值的普通地点
-
----
-
-# 11. 数据扩展方向
-
-未来增加：
-
-## Weather
-
-天气数据
-
-## GPX
-
-真实驾驶轨迹
-
-## Video
-
-视频资产
-
-## AI Recommendation
-
-智能路线推荐
-
-最终形成：
-
-全国自驾摄影知识图谱。
-
-```
-```
+校验同时覆盖：
+
+1. JSON Schema 的结构、类型、枚举、格式与额外字段。
+2. 所有实体 ID 唯一。
+3. 路线、计划与设备的引用完整性。
+4. 每个地点都有坐标证据。
+5. 相机 ISO 范围合法。
+
+TypeScript 对应类型位于 `src/types/domain.ts`。JSON Schema 负责运行时输入，TypeScript 负责服务层编译期使用，两者变更必须同步。
