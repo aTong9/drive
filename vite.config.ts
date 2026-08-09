@@ -29,6 +29,17 @@ export default defineConfig(() => {
   return {
     base: process.env.VITE_BASE_PATH || "/",
     plugins: [react(), tailwindcss()],
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks(moduleId: string) {
+            if (moduleId.includes("node_modules/react") || moduleId.includes("node_modules/zustand")) return "react-runtime";
+            if (moduleId.includes("node_modules/ajv")) return "data-validation";
+            if (moduleId.includes("node_modules/@amap/amap-jsapi-loader")) return "amap-loader";
+          }
+        }
+      }
+    },
     define: {
       __AMAP_KEY__: JSON.stringify(amap.key),
       __AMAP_SECURITY_CODE__: JSON.stringify(amap.security)
