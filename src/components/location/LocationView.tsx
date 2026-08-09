@@ -3,6 +3,7 @@ import { useMemo, useRef, useState, type ChangeEvent, type FormEvent } from "rea
 import type { FieldCheck, Location, ResolvedRoute } from "../../types/domain.js";
 import { usePlannerStore } from "../../app/store.js";
 import { downloadFieldChecks, importFieldChecks as readFieldChecks } from "../../services/fieldCheckExport.js";
+import { administrativeDivisionCount, administrativeGroups, divisionLabel, findProvince, provinceLabel, provincesForGroup, type AdministrativeGroupId } from "../../services/regionService.js";
 
 const typeLabels: Record<Location["type"], string> = {
   coast: "海岸",
@@ -22,8 +23,6 @@ const riskLabels = { low: "低", medium: "中", high: "高" } as const;
 const captureLabels = { "scenic-drive": "风景驾车", "rain-walk": "雨天步行", "stationary-nature": "林间定点" } as const;
 const captureDescriptions = { "scenic-drive": "真实道路 · 长距离转场", "rain-walk": "停车进入 · 慢行取景", "stationary-nature": "固定机位 · 自然收音" } as const;
 const captureIcons = { "scenic-drive": CarFront, "rain-walk": CloudRain, "stationary-nature": Trees } as const;
-const guangdongCities = ["广州", "深圳", "珠海", "汕头", "佛山", "韶关", "河源", "梅州", "惠州", "汕尾", "东莞", "中山", "江门", "阳江", "湛江", "茂名", "肇庆", "清远", "潮州", "揭阳", "云浮"];
-
 interface CheckDraft {
   visitedAt: string;
   parkingNote: string;
@@ -48,6 +47,7 @@ export function LocationView({ locations, routes, catalogSchemaVersion }: { loca
   const [type, setType] = useState<Location["type"] | "all">("all");
   const [captureStyle, setCaptureStyle] = useState<ResolvedRoute["route"]["captureStyle"] | "all">("all");
   const [region, setRegion] = useState<{ province?: string; city?: string }>({});
+  const [regionGroup, setRegionGroup] = useState<AdministrativeGroupId | "all">("all");
   const [selectedId, setSelectedId] = useState(locations[0]?.id ?? "");
   const [detailVisible, setDetailVisible] = useState(true);
   const [editing, setEditing] = useState(false);
@@ -63,9 +63,10 @@ export function LocationView({ locations, routes, catalogSchemaVersion }: { loca
   const setExploreDuration = usePlannerStore((state) => state.setMaxDurationMinutes);
   const setExploreQuery = usePlannerStore((state) => state.setQuery);
   const selectRoute = (routeId: string) => {
+    const target = routes.find((item) => item.route.id === routeId);
     setExploreMode("all");
     setExploreCaptureStyle("all");
-    setExploreDuration(360);
+    setExploreDuration(Math.max(360, target?.route.estimatedDurationMinutes ?? 360));
     setExploreQuery("");
     selectStoredRoute(routeId);
   };
@@ -78,8 +79,9 @@ export function LocationView({ locations, routes, catalogSchemaVersion }: { loca
     const matchesRegion = (!region.province || location.province === region.province) && (!region.city || location.city === region.city);
     return matchesRegion && (type === "all" || location.type === type) && (!needle || location.name.toLowerCase().includes(needle) || location.city.includes(needle));
   }), [locations, query, region, type]);
-  const provinces = [...new Set(locations.map((location) => location.province))];
-  const cities = region.province === "广东" ? guangdongCities : [...new Set(locations.filter((location) => !region.province || location.province === region.province).map((location) => location.city))];
+  const provinces = provincesForGroup(regionGroup);
+  const cities = findProvince(region.province)?.divisions ?? [];
+  const coveredProvinceCount = new Set(locations.map((location) => location.province)).size;
   const filteredRoutes = useMemo(() => routes.filter(({ route, waypoints }) => {
     const needle = query.trim().toLowerCase();
     const matchesRegion = (!region.province || route.province === region.province) && (!region.city || route.cities.includes(region.city));
@@ -116,8 +118,43 @@ export function LocationView({ locations, routes, catalogSchemaVersion }: { loca
   return (
     <main className={`location-page mode-${browseMode}`}>
       <section className="location-browser">
-        <header className="location-head"><div><p className="eyebrow">PLACE & ROUTE ATLAS</p><h1>地点与路线图鉴</h1><p className="location-intro">从行政区域找到拍摄地，或直接按创作方式挑选一条完整路线。</p>{importMessage && <small className="import-message">{importMessage}</small>}</div><div className="location-head-actions"><div className="location-head-stats"><strong>{locations.length}</strong><small>真实地点</small><strong>{routes.length}</strong><small>完整路线</small></div><input ref={importInputRef} type="file" accept="application/json,.json" hidden onChange={handleImport} /><button className="import-checks" onClick={() => importInputRef.current?.click()}><Download size={15} /> 导入核验</button><button className="export-checks" disabled={!fieldChecks.length} onClick={() => downloadFieldChecks(catalogSchemaVersion, locations, fieldChecks)} title={fieldChecks.length ? "导出全部实地核验数据" : "添加实地核验后可导出"}><Download size={15} /> 导出 JSON</button></div></header>
-        <section className="region-browser" aria-label="地点行政区划"><div className="region-path"><Globe2 size={14} /><button onClick={() => setRegion({})}>全国</button>{region.province && <><ChevronRight size={12} /><button onClick={() => setRegion({ province: region.province! })}>{region.province}省</button></>}{region.city && <><ChevronRight size={12} /><strong>{region.city}市</strong></>}</div><div className="region-options">{!region.province ? provinces.map((province) => <button key={province} onClick={() => setRegion({ province })}><span>{province}省</span><small>{locations.filter((location) => location.province === province).length} 地点 · {routes.filter((route) => route.route.province === province).length} 路线</small><ChevronRight size={14} /></button>) : <><button className={!region.city ? "active" : ""} onClick={() => setRegion({ province: region.province! })}><span>全省</span><small>{locations.filter((location) => location.province === region.province).length} 地点</small></button>{cities.map((city) => <button key={city} className={region.city === city ? "active" : ""} onClick={() => setRegion({ province: region.province!, city })}><span>{city}市</span><small>{locations.filter((location) => location.city === city).length} 地点 · {routes.filter((route) => route.route.cities.includes(city)).length} 路线</small></button>)}</>}</div></section>
+        <header className="location-head"><div><p className="eyebrow">PLACE & ROUTE ATLAS</p><h1>地点与路线图鉴</h1><p className="location-intro">全国行政目录负责完整导航，来源核验内容负责真实拍摄决策；两者分层展示。</p>{importMessage && <small className="import-message">{importMessage}</small>}</div><div className="location-head-actions"><div className="location-head-stats"><strong>{coveredProvinceCount}/34</strong><small>实景省级覆盖</small><strong>{administrativeDivisionCount}</strong><small>城市与区域</small><strong>{locations.length}</strong><small>真实地点</small><strong>{routes.length}</strong><small>完整路线</small></div><input ref={importInputRef} type="file" accept="application/json,.json" hidden onChange={handleImport} /><button className="import-checks" onClick={() => importInputRef.current?.click()}><Download size={15} /> 导入核验</button><button className="export-checks" disabled={!fieldChecks.length} onClick={() => downloadFieldChecks(catalogSchemaVersion, locations, fieldChecks)} title={fieldChecks.length ? "导出全部实地核验数据" : "添加实地核验后可导出"}><Download size={15} /> 导出 JSON</button></div></header>
+        <section className="region-browser" aria-label="地点行政区划">
+          <div className="region-path">
+            <Globe2 size={14} />
+            <button onClick={() => { setRegion({}); setRegionGroup("all"); }}>全国</button>
+            {region.province && <><ChevronRight size={12} /><button onClick={() => setRegion({ province: region.province! })}>{provinceLabel(region.province)}</button></>}
+            {region.city && <><ChevronRight size={12} /><strong>{divisionLabel(region.province, region.city)}</strong></>}
+          </div>
+          {!region.province && <div className="region-groups" aria-label="按地理分区筛选省级行政区">
+            <button className={regionGroup === "all" ? "active" : ""} onClick={() => setRegionGroup("all")}>全部 34</button>
+            {administrativeGroups.map((group) => <button key={group.id} className={regionGroup === group.id ? "active" : ""} onClick={() => setRegionGroup(group.id)}>{group.label} {group.provinces.length}</button>)}
+          </div>}
+          <div className={`region-options ${!region.province ? "province-options" : ""}`}>
+            {!region.province ? provinces.map((province) => {
+              const locationCount = locations.filter((location) => location.province === province.name).length;
+              const routeCount = routes.filter((route) => route.route.province === province.name).length;
+              return <button key={province.name} className={locationCount ? "has-content" : "directory-only"} onClick={() => setRegion({ province: province.name })}>
+                <span>{province.label}</span>
+                <small>{locationCount || routeCount ? `${locationCount} 地点 · ${routeCount} 路线` : "行政目录 · 待核验"}</small>
+                <ChevronRight size={14} />
+              </button>;
+            }) : <>
+              <button className={!region.city ? "active" : ""} onClick={() => setRegion({ province: region.province! })}>
+                <span>全部区域</span>
+                <small>{locations.filter((location) => location.province === region.province).length} 地点</small>
+              </button>
+              {cities.map((city) => {
+                const locationCount = locations.filter((location) => location.province === region.province && location.city === city.name).length;
+                const routeCount = routes.filter((route) => route.route.province === region.province && route.route.cities.includes(city.name)).length;
+                return <button key={city.name} className={`${region.city === city.name ? "active " : ""}${locationCount || routeCount ? "has-content" : "directory-only"}`} onClick={() => setRegion({ province: region.province!, city: city.name })}>
+                  <span>{city.label}</span>
+                  <small>{locationCount || routeCount ? `${locationCount} 地点 · ${routeCount} 路线` : "行政目录 · 待核验"}</small>
+                </button>;
+              })}
+            </>}
+          </div>
+        </section>
         <div className="library-switch" role="tablist" aria-label="浏览内容"><button role="tab" aria-selected={browseMode === "locations"} onClick={() => setBrowseMode("locations")}><MapPin size={16} /><span>地点</span><small>{filtered.length} 个可用地点</small></button><button role="tab" aria-selected={browseMode === "routes"} onClick={() => setBrowseMode("routes")}><Navigation size={16} /><span>路线</span><small>{filteredRoutes.length} 条完整流程</small></button></div>
         <label className="location-search"><Search size={17} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder={browseMode === "locations" ? "搜索地点或城市" : "搜索路线、途经点或城市"} /></label>
         {browseMode === "locations" ? <><div className="location-filters">
@@ -134,9 +171,10 @@ export function LocationView({ locations, routes, catalogSchemaVersion }: { loca
             </button>;
           })}
         </div></> : <><div className="capture-library-filters"><button className={captureStyle === "all" ? "active" : ""} onClick={() => setCaptureStyle("all")}><Navigation size={18} /><span><strong>全部路线</strong><small>查看所有创作流程</small></span></button>{(["scenic-drive", "rain-walk", "stationary-nature"] as const).map((style) => { const Icon = captureIcons[style]; return <button key={style} className={`${captureStyle === style ? "active" : ""} style-${style}`} onClick={() => setCaptureStyle(style)}><Icon size={18} /><span><strong>{captureLabels[style]}</strong><small>{captureDescriptions[style]}</small></span></button>; })}</div><div className="library-route-grid">{filteredRoutes.map(({ route, waypoints }) => { const Icon = captureIcons[route.captureStyle]; return <article className={`library-route-card style-${route.captureStyle}`} key={route.id}><div className="library-route-top"><span><Icon size={16} /> {captureLabels[route.captureStyle]}</span><small><ShieldCheck size={12} /> 来源核验</small></div><h2>{route.name}</h2><div className="library-route-meta"><span><Clock3 size={13} /> 约 {route.estimatedDurationMinutes} 分钟</span><span><MapPin size={13} /> {waypoints.length} 个拍摄点</span><span>{route.cities.join(" · ")}</span></div><ol>{waypoints.map((point, index) => <li key={point.id}><i>{String(index + 1).padStart(2, "0")}</i><span><strong>{point.name}</strong><small>{point.access.mode === "drive" ? "驾车到达" : "停车后步行"}</small></span></li>)}</ol><p>{route.shootAdvice}</p><button onClick={() => selectRoute(route.id)}>在地图中打开路线 <ChevronRight size={15} /></button></article>; })}</div>{filteredRoutes.length === 0 && <div className="library-empty"><Navigation size={24} /><strong>当前区域没有匹配路线</strong><span>尝试切换城市或拍摄方式</span></div>}</>}
+        {browseMode === "locations" && filtered.length === 0 && <div className="library-empty"><MapPin size={24} /><strong>该区域已进入全国行政目录</strong><span>拍摄地点与路线仍待来源核验，暂无虚构占位数据</span></div>}
       </section>
 
-      <aside className={`location-detail ${detailVisible && browseMode === "locations" ? "" : "is-hidden"}`}>
+      <aside className={`location-detail ${detailVisible && browseMode === "locations" && filtered.some((location) => location.id === selected.id) ? "" : "is-hidden"}`}>
         <div className="location-detail-hero"><button className="location-detail-close" onClick={() => setDetailVisible(false)} aria-label="关闭地点详情"><X size={17} /></button><span>{typeLabels[selected.type]}</span><h2>{selected.name}</h2><p><MapPin size={14} /> {selected.province} · {selected.city} · {selected.coordinate.lng.toFixed(6)}, {selected.coordinate.lat.toFixed(6)}</p></div>
         <div className="location-detail-scroll">
           <div className="location-facts">

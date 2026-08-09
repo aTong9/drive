@@ -1,4 +1,4 @@
-export type CoordinateReferenceSystem = "GCJ-02";
+export type CoordinateReferenceSystem = "GCJ-02" | "WGS84";
 export type VerificationStatus = "draft" | "source-checked" | "field-checked";
 export type WorkflowStatus = "idea" | "planned" | "captured" | "published";
 export type RouteMode = "day" | "night" | "sunrise" | "sunset" | "asmr";
@@ -125,4 +125,4 @@ export interface DavinciStage { id: DavinciStageId; label: string; englishLabel:
 export interface DavinciWorkflow { schemaVersion: "1.0.0"; id: string; name: string; product: string; sourceUrl: string; stages: DavinciStage[] }
 export interface LocalPostTask { id: string; workflowId: string; stageId: DavinciStageId; title: string; completed: boolean }
 export interface LocalPostProject { workflowId: string; planId?: string; routeId?: string; title: string; createdAt: string }
-export interface LocalGpxTrack { id: string; name: string; sourceCrs: "WGS84"; points: Array<{ lat: number; lng: number; crs: "GCJ-02" }>; importedAt: string }
+export interface LocalGpxTrack { id: string; name: string; sourceCrs: "WGS84"; points: Array<{ lat: number; lng: number; crs: CoordinateReferenceSystem }>; importedAt: string }

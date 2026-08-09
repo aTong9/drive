@@ -37,7 +37,7 @@
       "properties": {
         "lat": { "type": "number", "minimum": -90, "maximum": 90 },
         "lng": { "type": "number", "minimum": -180, "maximum": 180 },
-        "crs": { "const": "GCJ-02" }
+        "crs": { "enum": ["GCJ-02", "WGS84"] }
       }
     },
     "location": {

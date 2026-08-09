@@ -12,6 +12,20 @@ interface Window {
 }
 
 declare namespace AMap {
+  interface AddressComponent {
+    province: string;
+    city: string | string[];
+  }
+
+  interface GeocoderResult {
+    regeocode?: { addressComponent: AddressComponent };
+  }
+
+  class Geocoder {
+    constructor(options?: { radius?: number; extensions?: "base" | "all" });
+    getAddress(position: [number, number], callback: (status: "complete" | "no_data" | "error", result: GeocoderResult | string) => void): void;
+  }
+
   interface DrivingOptions {
     map?: Map;
     policy?: number;

@@ -1,7 +1,8 @@
-import { CarFront, Footprints, Search, SlidersHorizontal, Trees } from "lucide-react";
-import type { CaptureStyle, ResolvedRoute, RouteMode } from "../../types/domain.js";
+import { CarFront, Footprints, LocateFixed, MapPin, RefreshCw, Search, SlidersHorizontal, Trees, X } from "lucide-react";
+import type { CaptureStyle, Location, ResolvedRoute, RouteMode } from "../../types/domain.js";
 import { usePlannerStore } from "../../app/store.js";
 import { RouteCard } from "./RouteCard.js";
+import type { CurrentRegion, LocationDetectionStatus } from "../../services/currentCityService.js";
 
 const modes: Array<{ value: RouteMode | "all"; label: string }> = [
   { value: "all", label: "全部" },
@@ -17,7 +18,17 @@ const captureStyles: Array<{ value: CaptureStyle; label: string; short: string; 
   { value: "stationary-nature", label: "林间定点", short: "溪瀑 · 自然声", icon: Trees }
 ];
 
-export function RouteList({ routes }: { routes: ResolvedRoute[] }) {
+interface RouteListProps {
+  routes: ResolvedRoute[];
+  nearbyLocations: Location[];
+  currentRegion: CurrentRegion | null;
+  locationStatus: LocationDetectionStatus;
+  locationMessage: string;
+  onLocate: () => void;
+  onClearLocation: () => void;
+}
+
+export function RouteList({ routes, nearbyLocations, currentRegion, locationStatus, locationMessage, onLocate, onClearLocation }: RouteListProps) {
   const state = usePlannerStore();
 
   return (
@@ -35,6 +46,17 @@ export function RouteList({ routes }: { routes: ResolvedRoute[] }) {
         <input value={state.query} onChange={(event) => state.setQuery(event.target.value)} placeholder="搜索城市或路线" />
         <kbd>⌘ K</kbd>
       </label>
+
+      <div className={`current-city ${locationStatus}`}>
+        <span className="current-city-icon"><LocateFixed size={15} /></span>
+        <span><small>{locationStatus === "locating" ? "正在识别当前位置" : currentRegion ? "当前城市" : "位置筛选"}</small><strong>{currentRegion ? `${currentRegion.province} · ${currentRegion.city}` : locationMessage || "定位后优先显示身边内容"}</strong></span>
+        {locationStatus === "locating" ? <i className="location-spinner" /> : currentRegion ? <button onClick={onClearLocation} aria-label="清除当前城市筛选"><X size={14} /></button> : <button onClick={onLocate} aria-label="重新定位"><RefreshCw size={14} /></button>}
+      </div>
+
+      {currentRegion && <div className="nearby-locations">
+        <div><span>当前城市地点</span><button onClick={() => state.setView("locations")}>进入地点库</button></div>
+        {nearbyLocations.length ? nearbyLocations.slice(0, 3).map((location) => <button key={location.id} onClick={() => state.setView("locations")}><MapPin size={13} /><span><strong>{location.name}</strong><small>{location.access.mode === "drive" ? "驾车可达" : "停车后步行"}</small></span></button>) : <p>该城市尚无来源核验地点</p>}
+      </div>}
 
       <div className="capture-heading"><span>选择拍摄方式</span>{state.captureStyle !== "all" && <button onClick={() => state.setCaptureStyle("all")}>清除</button>}</div>
       <div className="capture-modes" aria-label="拍摄方式">
@@ -54,7 +76,7 @@ export function RouteList({ routes }: { routes: ResolvedRoute[] }) {
         ))}
       </div>
 
-      <label className="duration-filter"><span>最长行程</span><select value={state.maxDurationMinutes} onChange={(event) => state.setMaxDurationMinutes(Number(event.target.value))}><option value={120}>2 小时</option><option value={180}>3 小时</option><option value={240}>4 小时</option><option value={360}>6 小时</option></select></label>
+      <label className="duration-filter"><span>最长行程</span><select value={state.maxDurationMinutes} onChange={(event) => state.setMaxDurationMinutes(Number(event.target.value))}><option value={120}>2 小时</option><option value={180}>3 小时</option><option value={240}>4 小时</option><option value={360}>6 小时</option><option value={480}>8 小时</option><option value={600}>10 小时</option><option value={720}>2—3 日</option><option value={960}>多日路线</option></select></label>
 
       <div className="list-heading">
         <span><strong>{routes.length}</strong> 条匹配路线</span>
@@ -74,7 +96,7 @@ export function RouteList({ routes }: { routes: ResolvedRoute[] }) {
           <div className="empty-state">
             <Search size={22} />
             <strong>没有找到路线</strong>
-            <span>试试清除拍摄方式、放宽最长行程或缩短搜索词</span>
+            <span>{currentRegion ? `${currentRegion.city}暂无匹配路线，可清除位置筛选查看全国路线` : "试试清除拍摄方式、放宽最长行程或缩短搜索词"}</span>
           </div>
         )}
       </div>

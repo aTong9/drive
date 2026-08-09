@@ -1,5 +1,5 @@
-import { BarChart3, Bell, CalendarDays, Camera, Clapperboard, Compass, Map as MapIcon, Menu, Settings2 } from "lucide-react";
-import { useCallback, useMemo, useState } from "react";
+import { BarChart3, Bell, CalendarDays, Camera, Clapperboard, Compass, Map as MapIcon, Menu, Settings2, Videotape } from "lucide-react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import type { DrivingSummary } from "./types/domain.js";
 import { Brand } from "./components/common/Brand.js";
 import { RouteList } from "./components/route/RouteList.js";
@@ -10,25 +10,46 @@ import { LocationView } from "./components/location/LocationView.js";
 import { CameraView } from "./components/camera/CameraView.js";
 import { PostWorkflowView } from "./components/post/PostWorkflowView.js";
 import { DashboardView } from "./components/dashboard/DashboardView.js";
+import { CreatorView } from "./components/creator/CreatorView.js";
 import { usePlannerStore } from "./app/store.js";
 import { catalog, resolvedRoutes } from "./services/catalogService.js";
 import { davinciWorkflow } from "./services/workflowService.js";
+import { detectCurrentRegion, type CurrentRegion, type LocationDetectionStatus } from "./services/currentCityService.js";
 
 export function App() {
   const state = usePlannerStore();
   const [drivingSummary, setDrivingSummary] = useState<DrivingSummary | null>(null);
+  const [currentRegion, setCurrentRegion] = useState<CurrentRegion | null>(null);
+  const [locationStatus, setLocationStatus] = useState<LocationDetectionStatus>("idle");
+  const [locationMessage, setLocationMessage] = useState("");
   const handleDrivingSummary = useCallback((summary: DrivingSummary) => setDrivingSummary(summary), []);
+  const locateCurrentCity = useCallback(async () => {
+    setLocationStatus("locating");
+    setLocationMessage("");
+    try {
+      const region = await detectCurrentRegion();
+      setCurrentRegion(region);
+      setLocationStatus("ready");
+    } catch (error) {
+      const denied = typeof error === "object" && error !== null && "code" in error && error.code === 1;
+      setLocationStatus(denied ? "denied" : "error");
+      setLocationMessage(denied ? "定位权限未开启，可手动重试" : error instanceof Error ? error.message : "定位失败");
+    }
+  }, []);
+  useEffect(() => { void locateCurrentCity(); }, [locateCurrentCity]);
   const routes = useMemo(() => resolvedRoutes.filter((item) => {
     const query = state.query.trim().toLowerCase();
     const matchesMode = state.mode === "all" || item.route.modes.includes(state.mode);
     const matchesCaptureStyle = state.captureStyle === "all" || item.route.captureStyle === state.captureStyle;
     const matchesDuration = item.route.estimatedDurationMinutes <= state.maxDurationMinutes;
     const matchesQuery = !query || item.route.name.toLowerCase().includes(query) || item.route.cities.some((city) => city.includes(query));
-    return matchesMode && matchesCaptureStyle && matchesDuration && matchesQuery;
-  }), [state.mode, state.captureStyle, state.maxDurationMinutes, state.query]);
+    const matchesCurrentCity = !currentRegion || item.route.cities.includes(currentRegion.city);
+    return matchesMode && matchesCaptureStyle && matchesDuration && matchesQuery && matchesCurrentCity;
+  }), [state.mode, state.captureStyle, state.maxDurationMinutes, state.query, currentRegion]);
 
-  const selected = routes.find((item) => item.route.id === state.selectedRouteId) ?? routes[0] ?? resolvedRoutes[0];
-  if (!selected) return null;
+  const nearbyLocations = useMemo(() => currentRegion ? catalog.locations.filter((location) => location.province === currentRegion.province && location.city === currentRegion.city) : [], [currentRegion]);
+
+  const selected = routes.find((item) => item.route.id === state.selectedRouteId) ?? routes[0];
 
   return (
     <div className="app-shell">
@@ -41,6 +62,7 @@ export function App() {
           <button className={state.view === "locations" ? "active" : ""} onClick={() => state.setView("locations")}><MapIcon size={17} /> 地点库</button>
           <button className={state.view === "cameras" ? "active" : ""} onClick={() => state.setView("cameras")}><Camera size={17} /> 参数库</button>
           <button className={state.view === "post" ? "active" : ""} onClick={() => state.setView("post")}><Clapperboard size={17} /> 后期流程</button>
+          <button className={state.view === "creators" ? "active" : ""} onClick={() => state.setView("creators")}><Videotape size={17} /> 创作者</button>
         </nav>
         <div className="topbar-actions">
           <button className="icon-button" aria-label="通知"><Bell size={18} /><i /></button>
@@ -51,12 +73,12 @@ export function App() {
       </header>
 
       {state.view === "dashboard" ? <DashboardView routes={resolvedRoutes} plans={state.plans} checks={state.fieldChecks} postTasks={state.postTasks} postProject={state.postProject} /> : state.view === "explore" ? (
-        <main className={`workspace ${state.detailOpen ? "has-detail" : ""}`}>
-          <RouteList routes={routes} />
-          <MapCanvas selected={selected} onDrivingSummary={handleDrivingSummary} />
-          {state.detailOpen && <RouteDetail selected={selected} drivingSummary={drivingSummary?.routeId === selected.route.id ? drivingSummary : null} />}
+        <main className={`workspace ${state.detailOpen && selected ? "has-detail" : ""}`}>
+          <RouteList routes={routes} nearbyLocations={nearbyLocations} currentRegion={currentRegion} locationStatus={locationStatus} locationMessage={locationMessage} onLocate={locateCurrentCity} onClearLocation={() => { setCurrentRegion(null); setLocationStatus("idle"); }} />
+          <MapCanvas selected={selected} nearbyLocations={nearbyLocations} onDrivingSummary={handleDrivingSummary} />
+          {state.detailOpen && selected && <RouteDetail selected={selected} drivingSummary={drivingSummary?.routeId === selected.route.id ? drivingSummary : null} />}
         </main>
-      ) : state.view === "plans" ? <PlanView routes={resolvedRoutes} /> : state.view === "locations" ? <LocationView locations={catalog.locations} routes={resolvedRoutes} catalogSchemaVersion={catalog.schemaVersion} /> : state.view === "cameras" ? <CameraView presets={catalog.cameraPresets} routes={resolvedRoutes} /> : <PostWorkflowView workflow={davinciWorkflow} routes={resolvedRoutes} />}
+      ) : state.view === "plans" ? <PlanView routes={resolvedRoutes} /> : state.view === "locations" ? <LocationView locations={catalog.locations} routes={resolvedRoutes} catalogSchemaVersion={catalog.schemaVersion} /> : state.view === "cameras" ? <CameraView presets={catalog.cameraPresets} routes={resolvedRoutes} /> : state.view === "post" ? <PostWorkflowView workflow={davinciWorkflow} routes={resolvedRoutes} /> : <CreatorView />}
 
       <nav className="mobile-nav" aria-label="移动端导航">
         <button className={state.view === "dashboard" ? "active" : ""} onClick={() => state.setView("dashboard")}><BarChart3 size={19} /><span>资产</span></button>
@@ -65,6 +87,7 @@ export function App() {
         <button className={state.view === "locations" ? "active" : ""} onClick={() => state.setView("locations")}><MapIcon size={19} /><span>地点</span></button>
         <button className={state.view === "cameras" ? "active" : ""} onClick={() => state.setView("cameras")}><Camera size={19} /><span>参数</span></button>
         <button className={state.view === "post" ? "active" : ""} onClick={() => state.setView("post")}><Clapperboard size={19} /><span>后期</span></button>
+        <button className={state.view === "creators" ? "active" : ""} onClick={() => state.setView("creators")}><Videotape size={19} /><span>创作者</span></button>
       </nav>
     </div>
   );

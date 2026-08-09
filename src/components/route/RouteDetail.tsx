@@ -24,6 +24,9 @@ export function RouteDetail({ selected, drivingSummary }: { selected: ResolvedRo
   const [scheduledDate, setScheduledDate] = useState(tomorrow);
   const [objective, setObjective] = useState(`完成「${selected.route.name}」拍摄素材`);
   const { route, waypoints, cameraPresets } = selected;
+  const usesWgs84 = waypoints.some((waypoint) => waypoint.coordinate.crs === "WGS84");
+  const accessOnlyLabel = usesWgs84 ? "公共交通 · 步行连接" : "步行景区 · 导航锚点";
+  const accessOnlyMessage = usesWgs84 ? "展示真实地点与行程顺序，不调用高德大陆驾车规划" : "仅展示入口与景区范围，不生成景区内驾车路线";
 
   useEffect(() => {
     setDialogOpen(false);
@@ -61,7 +64,7 @@ export function RouteDetail({ selected, drivingSummary }: { selected: ResolvedRo
         </section>
 
         <section className={`driving-result ${drivingSummary?.status ?? "idle"}`} aria-live="polite">
-          <div>{drivingSummary?.status === "access-only" ? <Trees size={16} /> : <Navigation size={16} />}<span><small>{drivingSummary?.status === "access-only" ? "步行景区 · 导航锚点" : "高德实时驾车规划"}</small><strong>{drivingSummary?.status === "access-only" ? "仅展示入口与景区范围，不生成景区内驾车路线" : drivingSummary?.status === "ready" ? `${(drivingSummary.distanceMeters / 1000).toFixed(1)} 公里 · ${formatDrivingTime(drivingSummary.durationSeconds)}` : drivingSummary?.status === "error" ? drivingSummary.message : "正在计算道路与通行时间…"}</strong></span></div>
+          <div>{drivingSummary?.status === "access-only" ? <Trees size={16} /> : <Navigation size={16} />}<span><small>{drivingSummary?.status === "access-only" ? accessOnlyLabel : "高德实时驾车规划"}</small><strong>{drivingSummary?.status === "access-only" ? accessOnlyMessage : drivingSummary?.status === "ready" ? `${(drivingSummary.distanceMeters / 1000).toFixed(1)} 公里 · ${formatDrivingTime(drivingSummary.durationSeconds)}` : drivingSummary?.status === "error" ? drivingSummary.message : "正在计算道路与通行时间…"}</strong></span></div>
           {drivingSummary?.status === "ready" && <small>{drivingSummary.tollsYuan > 0 ? `预计收费 ¥${drivingSummary.tollsYuan}` : "预计无收费"}{drivingSummary.hasRestriction ? " · 存在无法规避的限行路段" : " · 已规避限行"}</small>}
         </section>
 

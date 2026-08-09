@@ -2,6 +2,402 @@
   "schemaVersion": "2.0.0",
   "locations": [
     {
+      "id": "qh-hn-erlangjian", "name": "青海湖二郎剑景区", "province": "青海", "city": "海南州", "type": "lake",
+      "coordinate": { "lat": 36.578633, "lng": 100.495767, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至共和县109国道151号，按景区停车、票务和湖岸开放范围步行进入；高海拔行程预留适应时间。" },
+      "shooting": { "bestTimes": ["sunrise", "golden-hour", "sunset", "blue-hour"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "driving-video", "tripod-video", "timelapse", "asmr"], "advice": "从合法公路完成湖岸转场，停车后拍高原湖面、云层和季节植被；禁止驶入草场或越过生态保护边界。" },
+      "soundEnvironment": { "character": ["water", "birds", "mixed"], "noiseRisk": "low", "crowdRisk": "high", "weatherSensitivity": "高海拔、强风、低温、紫外线和天气突变影响显著", "recordingAdvice": "准备强防风罩和备用电池，在远离游客中心的开放湖岸录制风声、水声与鸟声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "青海湖二郎剑景区（高德地图）", "url": "https://ditu.amap.com/place/B03CE0000D", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "nx-zw-shapotou", "name": "中卫沙坡头旅游景区", "province": "宁夏", "city": "中卫", "type": "river",
+      "coordinate": { "lat": 37.531873, "lng": 104.99148, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至沙坡头区腾格里沙漠南缘景区停车场，按票务、分区交通和项目开放信息进入。" },
+      "shooting": { "bestTimes": ["sunrise", "golden-hour", "sunset", "blue-hour"], "bestWeather": ["sunny", "cloudy"], "modes": ["photo", "driving-video", "tripod-video", "timelapse", "asmr"], "advice": "组合沙丘、黄河和铁路景观，驾车仅用于合法道路转场；大风或沙尘天气取消，镜头更换须在防沙环境完成。" },
+      "soundEnvironment": { "character": ["water", "traffic", "mixed"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "沙尘、强风、温差和旅游项目扩声影响拍摄", "recordingAdvice": "使用完整防风防沙保护，在远离游乐项目区域分段录制沙风与黄河环境声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "沙坡头旅游景区（高德地图）", "url": "https://ditu.amap.com/place/B07A10048L", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "xj-cj-tianshan-tianchi", "name": "天山天池风景区", "province": "新疆", "city": "昌吉", "type": "lake",
+      "coordinate": { "lat": 43.8985, "lng": 88.121518, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至阜康市天池景区游客中心，车辆停放后按景区交通换乘并在开放栈道步行；天气和道路信息提前确认。" },
+      "shooting": { "bestTimes": ["sunrise", "morning", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy", "fog", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "拍摄高山湖泊、雪峰、云雾和针叶林倒影；轻量化器材并注意高海拔低温，严格留在开放步道。" },
+      "soundEnvironment": { "character": ["water", "birds", "mixed"], "noiseRisk": "low", "crowdRisk": "high", "weatherSensitivity": "高山天气、低温、强风和季节性道路状态变化快", "recordingAdvice": "在远离码头与观光车站的湖岸使用强防风罩，短时录制水声和林地底声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "天山天池铁瓦寺坐标点（高德地图）", "url": "https://www.amap.com/place/B03E20MAQA", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "tw-tp-taipei-101", "name": "台北101", "province": "台湾", "city": "台北", "type": "city-night",
+      "coordinate": { "lat": 25.033976, "lng": 121.56453, "crs": "WGS84" },
+      "access": { "mode": "park-and-walk", "note": "地址为台北市信义区信义路五段7号，建议由台北101／世贸站步行到达；观景台票务与拍摄规定以官方公告为准。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse"], "advice": "从信义商圈公共空间拍建筑与城市灯光，或按观景台规定拍台北盆地；跨年及活动期间提前确认管制。" },
+      "soundEnvironment": { "character": ["urban", "traffic", "mixed"], "noiseRisk": "high", "crowdRisk": "high", "weatherSensitivity": "台风、降雨、低云和大型活动客流会改变执行计划", "recordingAdvice": "以城市氛围声为主，在远离路口和商场扩声的位置补录短段环境声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "台北101（交通部观光署）", "url": "https://www.tad.gov.tw/m1.aspx?id=7927&sNo=0001016", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "hk-victoria-peak", "name": "香港太平山", "province": "香港", "city": "香港", "type": "city-night",
+      "coordinate": { "lat": 22.273206, "lng": 114.150552, "crs": "WGS84" },
+      "access": { "mode": "park-and-walk", "note": "目标位于香港特别行政区中西区，优先公共交通或山顶缆车前往；停车、步道和观景设施开放以现场信息为准。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "从合法观景区域拍维多利亚港、港岛与九龙灯光层次；雾季确认能见度，三脚架不得阻碍狭窄观景通道。" },
+      "soundEnvironment": { "character": ["birds", "urban", "traffic", "mixed"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "低云、台风、强风和夜间观景客流影响显著", "recordingAdvice": "在远离缆车与巴士站的位置用防风罩录制山风和城市远景环境声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "香港太平山（高德地图）", "url": "https://ditu.amap.com/place/B073C0TJNO", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "mo-ruins-st-paul", "name": "澳门大三巴牌坊", "province": "澳门", "city": "澳门", "type": "landmark",
+      "coordinate": { "lat": 22.194627, "lng": 113.545883, "crs": "WGS84" },
+      "access": { "mode": "park-and-walk", "note": "目标位于澳门特别行政区花王堂区炮台山下，建议公共交通后步行进入历史城区；活动和人流管制以现场为准。" },
+      "shooting": { "bestTimes": ["morning", "golden-hour", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse"], "advice": "利用石阶、牌坊立面和旧城街巷形成纵深；清晨人流较少，固定机位不得阻挡主要台阶和应急通道。" },
+      "soundEnvironment": { "character": ["urban", "mixed"], "noiseRisk": "high", "crowdRisk": "high", "weatherSensitivity": "高温、台风、降雨和密集客流影响拍摄", "recordingAdvice": "同期声以旧城氛围为主，清晨在侧巷补录脚步与街区底声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "大三巴牌坊（高德地图）", "url": "https://ditu.amap.com/place/B073D00ASB", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "hn-cs-yuelu-mountain", "name": "长沙岳麓山风景名胜区", "province": "湖南", "city": "长沙", "type": "mountain",
+      "coordinate": { "lat": 28.183601, "lng": 112.936104, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至岳麓区登高路58号周边公共停车区域，按预约、开放和景区交通规定步行入山。" },
+      "shooting": { "bestTimes": ["sunrise", "morning", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy", "fog", "rain", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "沿开放步道拍林地、山城远景和季节色彩；雨天适合低饱和慢行画面，但须防滑并避免占用登山主路。" },
+      "soundEnvironment": { "character": ["birds", "urban", "mixed"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "降雨、雾气、高温和节假日登山客流影响明显", "recordingAdvice": "清晨远离入口和观光交通线，在林下使用防雨防风设备录制鸟声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "岳麓山风景名胜区（高德地图）", "url": "https://ditu.amap.com/place/B0FFG0BPT6", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "gx-gl-elephant-trunk-hill", "name": "桂林象鼻山景区", "province": "广西", "city": "桂林", "type": "river",
+      "coordinate": { "lat": 25.267579, "lng": 110.296573, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至象山区民主路1号周边停车点，依景区预约、开放和客流管理步行进入。" },
+      "shooting": { "bestTimes": ["sunrise", "morning", "golden-hour", "sunset", "blue-hour"], "bestWeather": ["sunny", "cloudy", "fog", "rain", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "结合象鼻山、漓江倒影和岸线植被构图；雨雾天保护镜头并避开湿滑临水边缘，三脚架不挡游线。" },
+      "soundEnvironment": { "character": ["water", "birds", "urban", "mixed"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "漓江水位、降雨、雾气与旅游高峰影响较大", "recordingAdvice": "清晨在远离码头和团队扩声的位置录制水声与鸟声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "象鼻山景区（高德地图）", "url": "https://ditu.amap.com/place/B030506W0W", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "cq-hongyadong-viewpoint", "name": "重庆洪崖洞观景休息区", "province": "重庆", "city": "重庆", "type": "city-night",
+      "coordinate": { "lat": 29.562456, "lng": 106.578952, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至渝中区嘉陵江滨江路88号周边停车场，优先轨道交通步行前往；夜间客流管制以现场为准。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse"], "advice": "利用山城高差、吊脚楼灯光、嘉陵江和桥梁形成层次；雨后反光更强，固定机位避开拥挤出入口。" },
+      "soundEnvironment": { "character": ["water", "urban", "traffic", "mixed"], "noiseRisk": "high", "crowdRisk": "high", "weatherSensitivity": "夜间客流、扩声、江风和降雨对拍摄影响显著", "recordingAdvice": "现场只保留城市氛围声，另在较安静江岸补录水声和桥梁环境声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "洪崖洞观景休息区（高德地图）", "url": "https://ditu.amap.com/place/B0IUPLMPLE", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "sc-cd-qingcheng-mountain", "name": "成都青城山景区", "province": "四川", "city": "成都", "type": "forest",
+      "coordinate": { "lat": 30.9044, "lng": 103.563817, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至都江堰市青城山路168号，按景区停车、购票、索道及步道开放信息进入。" },
+      "shooting": { "bestTimes": ["morning", "golden-hour"], "bestWeather": ["cloudy", "fog", "rain", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "重点记录湿润林地、山径、雾气和水声；雨天使用轻量器材与防雨罩，只在开放步道定点拍摄。" },
+      "soundEnvironment": { "character": ["water", "birds", "mixed"], "noiseRisk": "low", "crowdRisk": "high", "weatherSensitivity": "山雨、浓雾、湿滑路面和旅游客流会改变执行计划", "recordingAdvice": "清晨在远离索道和主要节点的林间，用立体声设备录制水声与鸟鸣。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "青城山景区（高德地图）", "url": "https://ditu.amap.com/place/B001C06ESL", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "gz-as-huangguoshu-tianxing", "name": "黄果树景区天星桥", "province": "贵州", "city": "安顺", "type": "waterfall",
+      "coordinate": { "lat": 25.94786, "lng": 105.679803, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "车辆停在黄果树景区指定区域并按内部交通换乘至天星桥，票务、客流及步道开放信息需提前确认。" },
+      "shooting": { "bestTimes": ["morning", "golden-hour"], "bestWeather": ["cloudy", "fog", "rain", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "拍摄喀斯特水景、瀑布、石林与林下细节；雨季控制水雾和高光，严禁离开护栏或进入封闭涉水区。" },
+      "soundEnvironment": { "character": ["water", "birds", "mixed"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "雨量、水势、水雾和湿滑步道直接影响安全与器材", "recordingAdvice": "使用防水套与防风罩，在安全平台分段录制瀑布和溪流，保护接口免受水雾。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "黄果树景区天星桥（高德地图）", "url": "https://www.amap.com/place/B0FFH329QI", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "xz-ls-potala-palace", "name": "拉萨布达拉宫", "province": "西藏", "city": "拉萨", "type": "landmark",
+      "coordinate": { "lat": 29.654471, "lng": 91.118463, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至城关区北京中路35号周边停车区域，按实名预约、安检和参观时段步行进入；尊重宗教场所拍摄规定。" },
+      "shooting": { "bestTimes": ["sunrise", "morning", "golden-hour", "sunset", "blue-hour"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse"], "advice": "在允许拍摄的公共区域记录建筑、山体和城市光线；高海拔行程留出适应时间，室内及宗教活动拍摄严格服从规定。" },
+      "soundEnvironment": { "character": ["urban", "traffic", "mixed"], "noiseRisk": "high", "crowdRisk": "high", "weatherSensitivity": "高海拔、强紫外线、昼夜温差和客流影响执行", "recordingAdvice": "以公共广场城市氛围声为主，不在宗教活动中近距离收音或干扰参观。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "布达拉宫（高德地图）", "url": "https://ditu.amap.com/place/B037B01F68", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "sn-xa-city-wall", "name": "西安城墙", "province": "陕西", "city": "西安", "type": "landmark",
+      "coordinate": { "lat": 34.2759, "lng": 108.948183, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至新城区南大街2号相应入口周边停车场，按票务、开放城门和活动安排步行进入。" },
+      "shooting": { "bestTimes": ["golden-hour", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse"], "advice": "沿城墙开放区拍轴线、角楼、城门和现代城市对比；日落前确认下城点和关闭时间，骑行段不得手持拍摄。" },
+      "soundEnvironment": { "character": ["urban", "traffic", "mixed"], "noiseRisk": "high", "crowdRisk": "high", "weatherSensitivity": "强风、灯会、客流和季节开放时间会影响机位", "recordingAdvice": "同期声以城市场景为主，在远离表演和主入口处补录脚步与城墙环境声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "西安城墙（高德地图）", "url": "https://ditu.amap.com/place/B001D0WP6V", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "gs-lz-zhongshan-bridge", "name": "兰州中山桥", "province": "甘肃", "city": "兰州", "type": "river",
+      "coordinate": { "lat": 36.06514, "lng": 103.816868, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至城关区南滨河路与中山路交叉口周边停车场，沿黄河步道步行到达；临时交通和灯光安排以现场为准。" },
+      "shooting": { "bestTimes": ["sunrise", "golden-hour", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "结合铁桥结构、黄河水流、白塔山和城市灯光构图；桥面机位保持通行，临水段不得跨越护栏。" },
+      "soundEnvironment": { "character": ["water", "urban", "traffic"], "noiseRisk": "high", "crowdRisk": "high", "weatherSensitivity": "河风、风沙、水位和夜间客流影响画面及收音", "recordingAdvice": "在南北滨河步道远离路口的位置，用强防风罩补录黄河水声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "兰州中山桥（高德地图）", "url": "https://www.amap.com/place/B03A30WY2W", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "sh-bund-waterfront", "name": "上海外滩", "province": "上海", "city": "上海", "type": "city-night",
+      "coordinate": { "lat": 31.233516, "lng": 121.492127, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至黄浦区中山东二路1号周边公共停车场，建议由地铁步行进入；滨水步道全程徒步拍摄。" },
+      "shooting": { "bestTimes": ["sunrise", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "组合万国建筑群、黄浦江与陆家嘴天际线，蓝调时刻平衡建筑灯光；三脚架不得占用高峰人流通道。" },
+      "soundEnvironment": { "character": ["water", "urban", "traffic"], "noiseRisk": "high", "crowdRisk": "high", "weatherSensitivity": "江风、游船汽笛和节假日人流影响明显", "recordingAdvice": "同期声以城市氛围为主，日出前在远离路口的位置补录江面底声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "上海外滩（高德地图）", "url": "https://ditu.amap.com/place/B00155FXB3", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "js-nj-xuanwu-lake", "name": "南京玄武湖景区", "province": "江苏", "city": "南京", "type": "lake",
+      "coordinate": { "lat": 32.069455, "lng": 118.812688, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至玄武门路1号周边合法停车点，或从玄武门地铁站步行入园；环湖区域按开放步道行进。" },
+      "shooting": { "bestTimes": ["sunrise", "morning", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy", "fog", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "利用湖面、城墙、紫金山和季节植被构图；清晨适合长焦压缩与水鸟画面，保持野生动物距离。" },
+      "soundEnvironment": { "character": ["water", "birds", "urban"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "节假日客流、湖风与降雨会改变拍摄节奏", "recordingAdvice": "清晨在远离入口和游船码头的位置录制水声与鸟声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "玄武湖景区（高德地图）", "url": "https://ditu.amap.com/place/B00190BBCZ", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "zj-hz-west-lake-six-park", "name": "杭州西湖六公园", "province": "浙江", "city": "杭州", "type": "lake",
+      "coordinate": { "lat": 30.258607, "lng": 120.15777, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至西湖东北岸六公园周边停车场，优先公共交通步行进入；湖滨区域按人行规定拍摄。" },
+      "shooting": { "bestTimes": ["sunrise", "morning", "golden-hour", "sunset", "blue-hour"], "bestWeather": ["sunny", "cloudy", "fog", "rain", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "从湖滨拍水面、保俶塔、游船与树木倒影；雨天注意器材防水和湿滑地面，避开主游线架设机位。" },
+      "soundEnvironment": { "character": ["water", "birds", "urban", "mixed"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "降雨、雾气、游船和旅游高峰影响画面及收音", "recordingAdvice": "小雨或清晨选择树下静态机位，以防雨罩和防风罩记录湖岸环境声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "杭州西湖六公园（高德地图）", "url": "https://ditu.amap.com/place/B023B13YJB", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "ah-hs-bright-summit", "name": "黄山风景区光明顶", "province": "安徽", "city": "黄山", "type": "mountain",
+      "coordinate": { "lat": 30.132266, "lng": 118.169186, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "车辆停放在黄山风景区指定换乘区域，依景区交通、索道和步道前往；票务、天气和开放路线须提前核对。" },
+      "shooting": { "bestTimes": ["sunrise", "golden-hour", "sunset", "blue-hour"], "bestWeather": ["sunny", "cloudy", "fog", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "拍摄峰林、云海与日出日落，轻量化携带并为器材防潮；严格停留在开放平台和步道内，恶劣天气取消。" },
+      "soundEnvironment": { "character": ["birds", "mixed"], "noiseRisk": "low", "crowdRisk": "high", "weatherSensitivity": "山地强风、低温、雷电、浓雾和客流均可能改变计划", "recordingAdvice": "使用强防风罩，避开观景平台中心并优先记录短段山风和鸟声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "黄山风景区光明顶（高德地图）", "url": "https://ditu.amap.com/place/B022F0MIDU", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "jx-nc-tengwang-pavilion", "name": "南昌滕王阁", "province": "江西", "city": "南昌", "type": "landmark",
+      "coordinate": { "lat": 28.681332, "lng": 115.881197, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至东湖区仿古街58号周边停车区域，按景区开放、票务和安检要求步行进入。" },
+      "shooting": { "bestTimes": ["golden-hour", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse"], "advice": "结合赣江、古建轮廓和城市灯光拍摄，蓝调时刻保留天空层次；商业拍摄与三脚架限制须现场确认。" },
+      "soundEnvironment": { "character": ["water", "urban", "traffic"], "noiseRisk": "high", "crowdRisk": "high", "weatherSensitivity": "江风、演出扩声和夜间客流影响同期声", "recordingAdvice": "以城市氛围声为主，另在江岸安静区域补录水声作为素材。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "滕王阁（高德地图）", "url": "https://ditu.amap.com/place/B031701YGL", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "sd-qd-zhanqiao", "name": "青岛栈桥景区", "province": "山东", "city": "青岛", "type": "coast",
+      "coordinate": { "lat": 36.061736, "lng": 120.3193, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至市南区太平路12号周边停车场，或从青岛站地铁站步行到达；栈桥和海滨均为步行拍摄区。" },
+      "shooting": { "bestTimes": ["sunrise", "morning", "golden-hour", "sunset", "blue-hour"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "拍摄栈桥延伸线、回澜阁、海鸥和老城背景；查看潮汐与风浪，禁止追逐投喂鸟类或翻越护栏。" },
+      "soundEnvironment": { "character": ["waves", "birds", "urban"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "海风、潮汐、海浪和旅游旺季人流变化明显", "recordingAdvice": "清晨使用防风罩在栈桥入口外侧录海浪和鸟声，避开叫卖与扩声区域。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "青岛栈桥景区（高德地图）", "url": "https://ditu.amap.com/place/B0FFG19SSX", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "ha-zz-yellow-river-park", "name": "郑州黄河文化公园", "province": "河南", "city": "郑州", "type": "river",
+      "coordinate": { "lat": 34.953667, "lng": 113.512589, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至惠济区江山路黄河南岸1号，按景区规定停车、购票和换乘；临水及山地部分只走开放路线。" },
+      "shooting": { "bestTimes": ["morning", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "以黄河水面、岸线、桥梁和山体地标构图；汛期与大风天气远离临水边缘，航拍和商业拍摄另行确认。" },
+      "soundEnvironment": { "character": ["water", "birds", "mixed"], "noiseRisk": "medium", "crowdRisk": "medium", "weatherSensitivity": "汛情、风沙、强日照和景区客流会影响计划", "recordingAdvice": "在开放观景区远离扩声设施，用防风罩分段记录河流和鸟声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "郑州黄河文化公园（高德地图）", "url": "https://ditu.amap.com/place/B01730839D", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "hb-wh-east-lake", "name": "武汉东湖生态旅游风景区", "province": "湖北", "city": "武汉", "type": "lake",
+      "coordinate": { "lat": 30.549509, "lng": 114.41397, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至武昌区沿湖大道16号或目标景区停车点，停车后通过开放绿道步行或按规定骑行；不同片区开放信息分别确认。" },
+      "shooting": { "bestTimes": ["sunrise", "morning", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy", "fog", "rain", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "沿绿道选择湖湾、林地和城市远景，雨后适合低饱和慢行画面；机位不得占用骑行通道，临水注意湿滑。" },
+      "soundEnvironment": { "character": ["water", "birds", "urban", "mixed"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "梅雨、高温、湖风和周末骑行人流影响明显", "recordingAdvice": "清晨在远离主入口和骑行密集段的湖湾，使用防雨与防风设备录制自然声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "武汉东湖生态旅游风景区（高德地图）", "url": "https://ditu.amap.com/place/B001B0A0CK", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "bj-olympic-forest-park",
+      "name": "北京奥林匹克森林公园",
+      "province": "北京",
+      "city": "北京",
+      "type": "forest",
+      "coordinate": { "lat": 40.018635, "lng": 116.392159, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至科荟路33号周边公共停车区域后步行入园；开放时间、停车和临时活动管制以现场公告为准。" },
+      "shooting": { "bestTimes": ["morning", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "以林地、水面和城市天际线构成纵深画面；清晨适合稳定器慢行与自然声采集，避免占用跑步和骑行通道。" },
+      "soundEnvironment": { "character": ["birds", "water", "urban"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "周末人流及大风会影响长焦与同期声", "recordingAdvice": "选择清晨林下远离主路的位置，使用防风罩并单独录制环境底声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "奥林匹克森林公园（高德地图）", "url": "https://ditu.amap.com/place/B000A875MC", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "tj-jinwan-plaza",
+      "name": "天津津湾广场",
+      "province": "天津",
+      "city": "天津",
+      "type": "city-night",
+      "coordinate": { "lat": 39.131337, "lng": 117.208008, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至解放北路48号周边停车场，或由津湾广场地铁站步行进入；广场内仅步行拍摄。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse"], "advice": "利用海河倒影、桥梁和历史建筑灯光形成夜景层次；雨后地面反光更强，三脚架不得阻挡主要通道。" },
+      "soundEnvironment": { "character": ["water", "urban", "traffic"], "noiseRisk": "high", "crowdRisk": "high", "weatherSensitivity": "河岸大风、节假日人流和灯光变化影响明显", "recordingAdvice": "同期声只作城市氛围素材，另在远离道路的河岸位置补录水声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "津湾广场（高德地图）", "url": "https://ditu.amap.com/place/B00160E4YP", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "he-qhd-pigeon-nest-park",
+      "name": "北戴河鸽子窝公园",
+      "province": "河北",
+      "city": "秦皇岛",
+      "type": "coast",
+      "coordinate": { "lat": 39.836216, "lng": 119.526688, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至北戴河区鸽赤路25号，按景区指引停车后步行；潮汐、开放时间和票务以景区当天公告为准。" },
+      "shooting": { "bestTimes": ["sunrise", "morning", "golden-hour"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "日出前到达观海区域，拍摄潮滩、海鸟与晨光层次；不得追逐或投喂鸟类，长焦机位避开游客动线。" },
+      "soundEnvironment": { "character": ["waves", "birds", "mixed"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "海风、潮汐和旅游旺季人流影响显著", "recordingAdvice": "使用长毛防风罩，在非核心观景通道定点录制海浪与鸟声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "鸽子窝公园（高德地图）", "url": "https://ditu.amap.com/place/B014F0188F", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "sx-ty-fenhe-park",
+      "name": "太原汾河公园汾水阁",
+      "province": "山西",
+      "city": "太原",
+      "type": "river",
+      "coordinate": { "lat": 37.823148, "lng": 112.545138, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至滨河东路太原汾河景区周边合法停车点后步行；汾水阁页面标注暂停开放，拍摄前必须核对现场开放边界。" },
+      "shooting": { "bestTimes": ["golden-hour", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse"], "advice": "在公共开放河岸拍摄汾河、桥梁和城市灯光，不进入暂停开放建筑区域；蓝调时刻适合固定机位延时。" },
+      "soundEnvironment": { "character": ["water", "urban", "traffic"], "noiseRisk": "medium", "crowdRisk": "medium", "weatherSensitivity": "河岸风力和道路车流会改变同期声质量", "recordingAdvice": "以画面记录为主，若需水声应远离滨河道路并使用立体声防风系统。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "太原汾河公园汾水阁（高德地图）", "url": "https://www.amap.com/place/B015F160VU", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "nm-hhht-chilechuan-grassland",
+      "name": "敕勒川草原",
+      "province": "内蒙古",
+      "city": "呼和浩特",
+      "type": "landmark",
+      "coordinate": { "lat": 40.92357, "lng": 111.883372, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至新城区苏尔干街8号，按现场指引停车后进入公共游览区域；草原防火、活动封控和天气限制优先。" },
+      "shooting": { "bestTimes": ["sunrise", "golden-hour", "sunset", "blue-hour"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "driving-video", "tripod-video", "timelapse", "asmr"], "advice": "从合法道路完成开阔草原转场，停车后再拍低机位草浪和天际线；禁止驶入草地或在防火期使用明火。" },
+      "soundEnvironment": { "character": ["birds", "mixed"], "noiseRisk": "medium", "crowdRisk": "medium", "weatherSensitivity": "强风、雷雨和季节性植被状态对画面与收音影响很大", "recordingAdvice": "准备强防风设备，并避开扩声音响与游客密集区录制草原环境声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "敕勒川草原（高德地图）", "url": "https://www.amap.com/place/B0G25SVB25", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "ln-dl-xinghai-square",
+      "name": "大连星海广场",
+      "province": "辽宁",
+      "city": "大连",
+      "type": "coast",
+      "coordinate": { "lat": 38.882006, "lng": 121.587922, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至沙河口区中山路572号周边公共停车场，或乘地铁步行进入；广场及海岸步道内不得驾车取景。" },
+      "shooting": { "bestTimes": ["sunrise", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "组合广场轴线、海湾、桥梁与海鸟画面；夜间使用固定机位记录城市灯光，长焦拍鸟保持距离。" },
+      "soundEnvironment": { "character": ["waves", "birds", "urban", "traffic"], "noiseRisk": "high", "crowdRisk": "high", "weatherSensitivity": "海风、活动和游客密度会影响稳定器与同期声", "recordingAdvice": "清晨到海岸边缘补录海浪与鸟声，广场中心只保留城市氛围声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "星海广场（高德地图）", "url": "https://ditu.amap.com/place/B019B0AN7O", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "jl-cc-jingyuetan",
+      "name": "长春净月潭国家森林公园",
+      "province": "吉林",
+      "city": "长春",
+      "type": "forest",
+      "coordinate": { "lat": 43.801388, "lng": 125.455345, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至净月大街5840号，按景区规定停车和购票后步行；内部交通、季节开放和防火要求以景区公告为准。" },
+      "shooting": { "bestTimes": ["sunrise", "morning", "golden-hour"], "bestWeather": ["sunny", "cloudy", "fog", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "沿开放步道拍森林、水面和季节变化，雾天重点控制高光；固定机位不得离开步道或影响骑行游览。" },
+      "soundEnvironment": { "character": ["birds", "water", "mixed"], "noiseRisk": "low", "crowdRisk": "medium", "weatherSensitivity": "低温、积雪、浓雾和林区防火规则影响明显", "recordingAdvice": "在清晨林下定点录制鸟声与树叶声，冬季注意设备电池保温。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "净月潭国家森林公园（高德地图）", "url": "https://ditu.amap.com/place/B01AF085RR", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "hlj-heb-sun-island",
+      "name": "哈尔滨太阳岛风景区",
+      "province": "黑龙江",
+      "city": "哈尔滨",
+      "type": "river",
+      "coordinate": { "lat": 45.791584, "lng": 126.59788, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至松北区太阳大道3号，按景区指引停车或由地铁步行到达；轮渡、冰雪和内部交通开放状态需当天确认。" },
+      "shooting": { "bestTimes": ["morning", "golden-hour", "sunset", "blue-hour"], "bestWeather": ["sunny", "cloudy", "fog", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "拍摄松花江岸、林地与季节景观，冬季重点保护设备免受凝露；仅在开放区域架设三脚架。" },
+      "soundEnvironment": { "character": ["water", "birds", "urban", "mixed"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "严寒、江风、融冰期和节庆人流对安全及收音影响明显", "recordingAdvice": "远离游乐设施与扩声区域，清晨录制江风、鸟声和林地底声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "太阳岛风景区（高德地图）", "url": "https://www.amap.com/place/B01C30003A", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "hi-hk-holiday-beach", "name": "海口假日海滩", "province": "海南", "city": "海口", "type": "coast", "coordinate": { "lat": 20.036599, "lng": 110.237188, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至滨海大道126号周边合法停车区域，进入海滩后步行；海况和开放以现场为准。" }, "shooting": { "bestTimes": ["sunrise", "golden-hour", "sunset", "blue-hour"], "bestWeather": ["sunny", "cloudy"], "modes": ["photo", "driving-video", "tripod-video", "timelapse"], "advice": "拍摄琼州海峡、椰林和滨海大道转场；道路素材使用固定车载机位，台风和雷暴天气取消。" },
+      "soundEnvironment": { "character": ["waves", "traffic", "urban"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "季风、台风和游客密度影响明显", "recordingAdvice": "清晨远离道路并完整防风收音。" }, "verification": { "status": "source-checked", "sources": [{ "title": "假日海滩旅游区（高德地图）", "url": "https://www.amap.com/place/B038202B9U", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "hi-wc-tongguling", "name": "文昌铜鼓岭景区", "province": "海南", "city": "文昌", "type": "mountain", "coordinate": { "lat": 19.66598, "lng": 111.022592, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至铜鼓岭景区公开入口，停车后按开放步道和景区交通进入；高处风况须现场确认。" }, "shooting": { "bestTimes": ["sunrise", "morning", "golden-hour"], "bestWeather": ["sunny", "cloudy"], "modes": ["photo", "tripod-video", "timelapse"], "advice": "利用高处视角拍摄月亮湾、海岸和植被，不越过护栏；强风、雷暴和台风预警时取消。" },
+      "soundEnvironment": { "character": ["waves", "birds"], "noiseRisk": "low", "crowdRisk": "medium", "weatherSensitivity": "高处风噪和天气变化快", "recordingAdvice": "在背风安全观景点短时记录，优先保证撤离路线。" }, "verification": { "status": "source-checked", "sources": [{ "title": "铜鼓岭景区（高德地图）", "url": "https://ditu.amap.com/place/B07650044E", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "yn-dq-pudacuo", "name": "迪庆普达措国家公园", "province": "云南", "city": "迪庆", "type": "forest", "coordinate": { "lat": 27.856299, "lng": 99.951808, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至国家公园游客区域，内部按景区交通和开放线路活动；高海拔、低温与天气突变须提前评估。" }, "shooting": { "bestTimes": ["morning", "golden-hour"], "bestWeather": ["sunny", "cloudy", "fog"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "拍摄高原湖泊、草甸和森林，严格留在开放线路；出现高原不适、雷雪或低能见度时退出。" },
+      "soundEnvironment": { "character": ["water", "birds"], "noiseRisk": "low", "crowdRisk": "medium", "weatherSensitivity": "高海拔风雪和温差变化快", "recordingAdvice": "轻量化设备，在开放观景点短时记录并保暖防潮。" }, "verification": { "status": "source-checked", "sources": [{ "title": "普达措国家公园（高德地图）", "url": "https://ditu.amap.com/place/B0377006XM", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "yn-xsbn-tropical-garden", "name": "西双版纳热带植物园", "province": "云南", "city": "西双版纳", "type": "forest", "coordinate": { "lat": 21.917224, "lng": 101.273887, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至植物园公开入口，内部按步行和观光车规则活动；保护区域不得进入。" }, "shooting": { "bestTimes": ["morning", "golden-hour"], "bestWeather": ["cloudy", "after-rain", "fog"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "以热带植被、晨雾和林下光线为主，不触碰或移动植物，不用灯光干扰动物。" },
+      "soundEnvironment": { "character": ["birds", "water"], "noiseRisk": "low", "crowdRisk": "medium", "weatherSensitivity": "高温高湿和降雨要求设备防潮", "recordingAdvice": "清晨在开放步道记录虫鸟声，做好防雨防潮。" }, "verification": { "status": "source-checked", "sources": [{ "title": "中国科学院西双版纳热带植物园（高德地图）", "url": "https://ditu.amap.com/place/B02B3006LK", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "hi-wn-shimei-bay", "name": "万宁石梅湾", "province": "海南", "city": "万宁", "type": "coast", "coordinate": { "lat": 18.661922, "lng": 110.27209, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至石梅湾公开区域，停车后步行进入海岸；酒店私有区域不作为公共机位。" }, "shooting": { "bestTimes": ["sunrise", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy"], "modes": ["photo", "driving-video", "tripod-video", "timelapse"], "advice": "拍摄湾区公路、沙滩和热带植被；固定车载设备，台风和强对流期间取消。" },
+      "soundEnvironment": { "character": ["waves", "mixed"], "noiseRisk": "medium", "crowdRisk": "medium", "weatherSensitivity": "季风和台风直接影响安全", "recordingAdvice": "清晨在公共海岸完整防风收音。" }, "verification": { "status": "source-checked", "sources": [{ "title": "石梅湾（高德地图）", "url": "https://ditu.amap.com/place/B076A00310", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "fj-zz-dongshan-island", "name": "漳州东山岛海岸", "province": "福建", "city": "漳州", "type": "coast", "coordinate": { "lat": 23.662358, "lng": 117.426735, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "作为东山岛海岸导航锚点，具体公共海岸、道路和停车由高德及现场确认，不进入非公开园区。" }, "shooting": { "bestTimes": ["sunrise", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy"], "modes": ["photo", "driving-video", "tripod-video", "timelapse"], "advice": "固定车载机位记录岛路，停车后寻找公共海岸机位；强风浪和台风预警时取消。" },
+      "soundEnvironment": { "character": ["waves", "traffic"], "noiseRisk": "medium", "crowdRisk": "medium", "weatherSensitivity": "沿海强风显著影响收音", "recordingAdvice": "在公共海岸背风处记录海浪。" }, "verification": { "status": "source-checked", "sources": [{ "title": "东山岛滨海导航点（高德地图）", "url": "https://ditu.amap.com/place/B025402UAR", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "yn-km-dianchi-haigeng", "name": "昆明滇池海埂公园", "province": "云南", "city": "昆明", "type": "lake", "coordinate": { "lat": 24.958925, "lng": 102.658412, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至海埂公园合法停车区域后步行进入湖岸，候鸟季遵守生态保护和现场管理。" }, "shooting": { "bestTimes": ["sunrise", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "拍摄滇池、西山远景和季节性候鸟；使用长焦保持观察距离，不投喂、不追逐鸟类。" },
+      "soundEnvironment": { "character": ["water", "birds", "urban"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "高原风和游客密度影响声场", "recordingAdvice": "清晨使用防风保护记录湖岸声，不干扰候鸟。" }, "verification": { "status": "source-checked", "sources": [{ "title": "滇池海埂公园（高德地图）", "url": "https://ditu.amap.com/place/B036702E39", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "yn-dl-erhai-corridor", "name": "大理洱海生态廊道", "province": "云南", "city": "大理", "type": "lake", "coordinate": { "lat": 25.771208, "lng": 100.150124, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "生态廊道内部不作为机动车路线；车辆停在允许区域后步行或按当地慢行规则进入。" }, "shooting": { "bestTimes": ["sunrise", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "利用苍山、洱海和岸线层次构图，避开骑行通道和候鸟活动区域。" },
+      "soundEnvironment": { "character": ["water", "birds"], "noiseRisk": "low", "crowdRisk": "high", "weatherSensitivity": "高原风显著增加风噪", "recordingAdvice": "清晨背风收音并与鸟类保持距离。" }, "verification": { "status": "source-checked", "sources": [{ "title": "洱海生态廊道（高德地图）", "url": "https://ditu.amap.com/place/B0H19LNDXJ", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "yn-lj-old-town", "name": "丽江古城", "province": "云南", "city": "丽江", "type": "landmark", "coordinate": { "lat": 26.870507, "lng": 100.235517, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "车辆停在古城外围合法停车区域，内部全程步行；文物、商铺和无人机拍摄按当地规定。" }, "shooting": { "bestTimes": ["morning", "golden-hour", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse"], "advice": "清晨拍街巷，蓝调拍屋顶和灯光；不阻碍通行，不将私人院落作为公共机位。" },
+      "soundEnvironment": { "character": ["water", "urban", "mixed"], "noiseRisk": "high", "crowdRisk": "high", "weatherSensitivity": "游客和商业音乐主导夜间声场", "recordingAdvice": "清晨记录水系和街巷底声，避开扩声。" }, "verification": { "status": "source-checked", "sources": [{ "title": "丽江古城（高德地图）", "url": "https://ditu.amap.com/place/B0378008PR", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "hi-sy-yalong-bay", "name": "三亚亚龙湾", "province": "海南", "city": "三亚", "type": "coast", "coordinate": { "lat": 18.23307, "lng": 109.656975, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至亚龙湾公开停车或游客服务区域，海岸开放、收费与水上活动边界以现场为准。" }, "shooting": { "bestTimes": ["sunrise", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy"], "modes": ["photo", "driving-video", "tripod-video", "timelapse"], "advice": "固定车载机位记录湾区道路，停车后拍海岸；台风、雷雨和强浪预警时取消。" },
+      "soundEnvironment": { "character": ["waves", "mixed"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "季风和台风影响显著", "recordingAdvice": "清晨远离商业区域，完整防风记录海浪。" }, "verification": { "status": "source-checked", "sources": [{ "title": "亚龙湾海底世界（高德地图）", "url": "https://ditu.amap.com/place/B0383004FL", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "hi-sy-tianya-haijiao", "name": "三亚天涯海角", "province": "海南", "city": "三亚", "type": "coast", "coordinate": { "lat": 18.294988, "lng": 109.348143, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至游览区停车场，进入后步行或使用景区交通；开放、票务与海况以当日公告为准。" }, "shooting": { "bestTimes": ["sunrise", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy"], "modes": ["photo", "tripod-video", "timelapse"], "advice": "拍摄礁石、椰林和日落海面，不攀爬湿滑礁石；恶劣海况取消。" },
+      "soundEnvironment": { "character": ["waves", "mixed"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "海风和游客影响收音", "recordingAdvice": "使用防风并避开团队扩声。" }, "verification": { "status": "source-checked", "sources": [{ "title": "天涯海角游览区（高德地图）", "url": "https://ditu.amap.com/place/B03830048T", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "fj-fz-pingtan-island", "name": "福州平潭岛", "province": "福建", "city": "福州", "type": "coast", "coordinate": { "lat": 25.461402, "lng": 119.720434, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "作为平潭岛路线导航锚点，具体环岛道路、停车和海岸开放由高德及现场信息确认。" }, "shooting": { "bestTimes": ["sunrise", "golden-hour", "sunset", "night"], "bestWeather": ["sunny", "cloudy"], "modes": ["photo", "driving-video", "tripod-video", "timelapse"], "advice": "固定车载机位记录岛路和风电景观，海岸停车后拍摄；强风、台风和海雾时谨慎或取消。" },
+      "soundEnvironment": { "character": ["waves", "traffic"], "noiseRisk": "medium", "crowdRisk": "medium", "weatherSensitivity": "强风是主要限制", "recordingAdvice": "选择背风海岸并完整防风。" }, "verification": { "status": "source-checked", "sources": [{ "title": "平潭岛（高德地图）", "url": "https://ditu.amap.com/place/B024F0XRA9", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "fj-xm-huandao-road", "name": "厦门环岛路黄厝海岸", "province": "福建", "city": "厦门", "type": "coast", "coordinate": { "lat": 24.445106, "lng": 118.162445, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至环岛南路合法停车区域，海岸和慢行道内步行；严禁道路临停取景。" }, "shooting": { "bestTimes": ["sunrise", "golden-hour", "blue-hour"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "driving-video", "tripod-video", "timelapse"], "advice": "固定车载机位记录环岛路，停车后拍海岸、骑行道和城市天际线。" },
+      "soundEnvironment": { "character": ["waves", "traffic", "urban"], "noiseRisk": "high", "crowdRisk": "high", "weatherSensitivity": "海风与车流共同影响声场", "recordingAdvice": "清晨远离道路并使用防风。" }, "verification": { "status": "source-checked", "sources": [{ "title": "厦门环岛路黄厝海岸导航点（高德地图）", "url": "https://ditu.amap.com/place/B02500T4W4", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "fj-np-wuyi-mountain", "name": "南平武夷山风景名胜区", "province": "福建", "city": "南平", "type": "mountain", "coordinate": { "lat": 27.656446, "lng": 117.959681, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至武夷山景区公开入口，内部使用步行、景区交通或竹筏；票务和开放须提前确认。" }, "shooting": { "bestTimes": ["sunrise", "morning", "golden-hour"], "bestWeather": ["sunny", "cloudy", "after-rain", "fog"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "拍摄丹霞峰林、九曲溪和云雾，雨天防滑，不进入封闭与保护区域。" },
+      "soundEnvironment": { "character": ["water", "birds"], "noiseRisk": "low", "crowdRisk": "high", "weatherSensitivity": "雨雾增强氛围也增加风险", "recordingAdvice": "在开放步道和安全水岸记录自然声。" }, "verification": { "status": "source-checked", "sources": [{ "title": "武夷山风景名胜区（高德地图）", "url": "https://ditu.amap.com/place/B025706YPD", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "gd-zh-zhuhai-fisher-girl", "name": "珠海渔女与情侣路", "province": "广东", "city": "珠海", "type": "coast", "coordinate": { "lat": 22.261417, "lng": 113.588277, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至情侣中路周边合法停车区域后步行前往海岸，禁止在道路临停取景。" },
+      "shooting": { "bestTimes": ["sunrise", "golden-hour", "sunset", "blue-hour"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "driving-video", "tripod-video", "timelapse"], "advice": "车载机位记录情侣路转场，停车后拍摄香炉湾、雕塑与城市海岸；节假日避开拥堵高峰。" },
+      "soundEnvironment": { "character": ["waves", "traffic", "urban"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "海风和道路车流影响收音", "recordingAdvice": "清晨使用防风保护记录海浪，避开道路和密集人流。" }, "verification": { "status": "source-checked", "sources": [{ "title": "珠海渔女（高德地图）", "url": "https://ditu.amap.com/place/B02F400189", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "gd-st-nanao-island", "name": "汕头南澳岛生态旅游区", "province": "广东", "city": "汕头", "type": "coast", "coordinate": { "lat": 23.434508, "lng": 117.061109, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "作为南澳岛环岛路线导航锚点；使用高德实时确认进岛道路、拥堵和停车，海岸机位均须停车后步行。" },
+      "shooting": { "bestTimes": ["sunrise", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy"], "modes": ["photo", "driving-video", "tripod-video", "timelapse"], "advice": "固定车载机位记录环岛道路和海湾变化，不在弯道、桥面或路肩停车；台风和强风天气取消。" },
+      "soundEnvironment": { "character": ["waves", "traffic", "birds"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "海风和台风天气显著影响安全及声场", "recordingAdvice": "只在开放海岸安全位置使用防风保护记录海浪。" }, "verification": { "status": "source-checked", "sources": [{ "title": "南澳岛生态旅游区（高德地图）", "url": "https://ditu.amap.com/place/B02F201YKC", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "gd-sw-red-bay", "name": "汕尾红海湾旅游区", "province": "广东", "city": "汕尾", "type": "coast", "coordinate": { "lat": 22.668046, "lng": 115.5787, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至红海湾旅游区公开停车点，进入海岸后步行；开放、票务和风浪警示以现场为准。" },
+      "shooting": { "bestTimes": ["sunrise", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy"], "modes": ["photo", "driving-video", "tripod-video", "timelapse"], "advice": "拍摄岬角、海湾和长焦浪线，强风浪或台风预警时取消，不靠近湿滑礁石。" },
+      "soundEnvironment": { "character": ["waves", "mixed"], "noiseRisk": "low", "crowdRisk": "high", "weatherSensitivity": "风浪决定声场和安全边界", "recordingAdvice": "远离浪区并使用完整防风，保持撤离路线。" }, "verification": { "status": "source-checked", "sources": [{ "title": "红海湾南海观世音旅游景区（高德地图）", "url": "https://ditu.amap.com/place/B0294009OI", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "gd-jm-guifeng-mountain", "name": "江门圭峰山国家森林公园", "province": "广东", "city": "江门", "type": "forest", "coordinate": { "lat": 22.541495, "lng": 113.032849, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至圭峰山公开入口，停车后按开放步道和景区交通规则进入。" },
+      "shooting": { "bestTimes": ["morning", "golden-hour"], "bestWeather": ["cloudy", "after-rain", "fog"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "以森林、山路和晨雾为主，不在通道架设器材，雷雨和地质风险提示时取消。" },
+      "soundEnvironment": { "character": ["birds", "mixed"], "noiseRisk": "low", "crowdRisk": "medium", "weatherSensitivity": "雨雾增强氛围但提高湿滑风险", "recordingAdvice": "在开放步道安全位置记录鸟鸣并做好防潮。" }, "verification": { "status": "source-checked", "sources": [{ "title": "圭峰山国家森林公园（高德地图）", "url": "https://ditu.amap.com/place/B02EE0OG0L", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "gd-yj-hailing-island", "name": "阳江海陵岛大角湾", "province": "广东", "city": "阳江", "type": "coast", "coordinate": { "lat": 21.569849, "lng": 111.847476, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至大角湾景区停车区域，海岸活动服从票务、开放和风浪管理。" },
+      "shooting": { "bestTimes": ["sunrise", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy"], "modes": ["photo", "driving-video", "tripod-video", "timelapse"], "advice": "固定车载机位记录海陵岛转场，停车后拍摄湾区和浪线；台风、雷雨和强风浪天气取消。" },
+      "soundEnvironment": { "character": ["waves", "mixed"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "风浪和游客密度变化明显", "recordingAdvice": "清晨远离商业扩声，使用防风设备记录海浪。" }, "verification": { "status": "source-checked", "sources": [{ "title": "海陵岛大角湾（高德地图）", "url": "https://ditu.amap.com/place/B029600ZXY", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "gd-zj-huguangyan", "name": "湛江湖光岩风景区", "province": "广东", "city": "湛江", "type": "lake", "coordinate": { "lat": 21.145373, "lng": 110.29535, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "坐标为东大门导航锚点，车辆停在公开区域后按景区步行规则进入。" },
+      "shooting": { "bestTimes": ["sunrise", "morning", "golden-hour"], "bestWeather": ["sunny", "cloudy", "after-rain", "fog"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "拍摄玛珥湖、森林倒影和晨雾；不进入保护区域，不在环湖通道中央架设器材。" },
+      "soundEnvironment": { "character": ["water", "birds"], "noiseRisk": "low", "crowdRisk": "medium", "weatherSensitivity": "晨雾和风改变湖面声场", "recordingAdvice": "清晨在开放湖岸记录鸟鸣和环境底声。" }, "verification": { "status": "source-checked", "sources": [{ "title": "湖光岩风景区东大门（高德地图）", "url": "https://ditu.amap.com/place/B02F70O1U1", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "gd-mm-first-beach", "name": "茂名中国第一滩", "province": "广东", "city": "茂名", "type": "coast", "coordinate": { "lat": 21.457157, "lng": 111.052003, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "坐标为北门导航锚点，停车后步行进入海滨区域，开放和海况以现场为准。" },
+      "shooting": { "bestTimes": ["sunrise", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy"], "modes": ["photo", "driving-video", "tripod-video", "timelapse"], "advice": "拍摄长海岸、沙滩和日出日落，不在滨海道路临停，强风浪和台风预警时取消。" },
+      "soundEnvironment": { "character": ["waves", "mixed"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "海风与游客活动影响声场", "recordingAdvice": "避开商业活动区并使用防风保护记录海浪。" }, "verification": { "status": "source-checked", "sources": [{ "title": "中国第一滩北门（高德地图）", "url": "https://ditu.amap.com/place/B029C02SGD", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "gd-jy-huangqi-mountain", "name": "揭阳黄岐山森林公园", "province": "广东", "city": "揭阳", "type": "forest", "coordinate": { "lat": 23.582451, "lng": 116.372586, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至公园公开入口，停车后沿开放步道进入；夜间和恶劣天气按现场管理。" },
+      "shooting": { "bestTimes": ["morning", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy", "after-rain", "fog"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "以森林、城市远景和雨后雾气为主，不离开开放步道。" },
+      "soundEnvironment": { "character": ["birds", "urban", "mixed"], "noiseRisk": "medium", "crowdRisk": "medium", "weatherSensitivity": "风向改变城市底噪，雨后步道湿滑", "recordingAdvice": "清晨选择背风安全位置记录鸟鸣。" }, "verification": { "status": "source-checked", "sources": [{ "title": "黄岐山森林公园（高德地图）", "url": "https://ditu.amap.com/place/B029700KCZ", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "gd-yf-panlong-cave", "name": "云浮蟠龙洞风景区", "province": "广东", "city": "云浮", "type": "landmark", "coordinate": { "lat": 22.944426, "lng": 112.051777, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至景区公开入口停车，洞内开放、票务、照明和摄影限制须向景区确认。" },
+      "shooting": { "bestTimes": ["morning", "golden-hour"], "bestWeather": ["sunny", "cloudy", "rain"], "modes": ["photo", "tripod-video"], "advice": "洞内以稳定曝光和低照度细节为主，禁止使用影响游客与洞穴生态的强光设备。" },
+      "soundEnvironment": { "character": ["water", "mixed"], "noiseRisk": "low", "crowdRisk": "high", "weatherSensitivity": "外部天气影响较小，但湿度长期偏高", "recordingAdvice": "先确认录音许可，做好防潮并避开团队讲解。" }, "verification": { "status": "source-checked", "sources": [{ "title": "蟠龙洞风景区（高德地图）", "url": "https://ditu.amap.com/place/B02FE00VXG", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
       "id": "gd-gz-baiyun-mountain", "name": "广州白云山风景名胜区", "province": "广东", "city": "广州", "type": "mountain",
       "coordinate": { "lat": 23.180245, "lng": 113.297041, "crs": "GCJ-02" },
       "access": { "mode": "park-and-walk", "note": "导航至景区公开入口及停车区域，进入景区后按步行或景区交通规则活动；门票、开放与交通以当日公告为准。" },
@@ -458,6 +854,246 @@
       "shooting": { "bestTimes": ["morning", "golden-hour"], "bestWeather": ["cloudy", "fog", "after-rain"], "modes": ["photo", "tripod-video", "asmr"], "advice": "以森林层次、雾气和自然声为主，选择开放步道稳定位置定点拍摄，不进入保护或封闭区域。" },
       "soundEnvironment": { "character": ["birds", "water"], "noiseRisk": "low", "crowdRisk": "low", "weatherSensitivity": "雨雾增强森林氛围，同时提高湿滑和迷雾风险", "recordingAdvice": "固定位置长时间记录鸟鸣与林下环境声，携带防潮和定位设备。" },
       "verification": { "status": "source-checked", "sources": [{ "title": "南昆山国家森林公园（高德地图）", "url": "https://ditu.amap.com/place/B02F00265Z", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "sc-cd-dujiangyan-irrigation", "name": "成都都江堰景区", "province": "四川", "city": "成都", "type": "river",
+      "coordinate": { "lat": 31.00346, "lng": 103.61941, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至都江堰景区公开入口周边停车区域，按实名购票、客流和开放游线步行进入；景区水利设施与临水区域服从现场管理。" },
+      "shooting": { "bestTimes": ["morning", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy", "fog", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "利用鱼嘴、飞沙堰、宝瓶口、岷江水流和山城空间讲述古堰结构；汛期、强降雨或地质灾害预警时取消临水机位。" },
+      "soundEnvironment": { "character": ["water", "birds", "mixed"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "岷江水势、降雨、地质灾害预警与旅游客流会改变开放范围", "recordingAdvice": "在开放观景平台使用防风罩分段录制水流声，远离扩声讲解和拥挤通道。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "都江堰青城山景区（四川省文化和旅游厅）", "url": "https://wlt.sc.gov.cn/scwlt/djlypwq/2019/11/15/b4d157a1a25f4ceaadc710f4d996b879.shtml", "accessedAt": "2026-08-09", "supports": ["existence", "address", "access", "shooting-value"] }, { "title": "都江堰景区（高德地图检索）", "url": "https://ditu.amap.com/search?query=%E6%88%90%E9%83%BD%E9%83%BD%E6%B1%9F%E5%A0%B0%E6%99%AF%E5%8C%BA", "accessedAt": "2026-08-09", "supports": ["coordinate"] }] }
+    },
+    {
+      "id": "gz-as-huangguoshu-waterfall", "name": "黄果树大瀑布景区", "province": "贵州", "city": "安顺", "type": "waterfall",
+      "coordinate": { "lat": 25.98931, "lng": 105.66752, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "车辆停放在黄果树景区指定区域，按景区观光车动线换乘至大瀑布；票务、客流、步道和扶梯开放以当天公告为准。" },
+      "shooting": { "bestTimes": ["morning", "golden-hour"], "bestWeather": ["cloudy", "fog", "rain", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "从允许开放的观景台记录瀑布全貌、水雾、岩壁与植被层次；丰水期保护镜头接口，禁止翻越护栏或进入封闭涉水区域。" },
+      "soundEnvironment": { "character": ["water", "mixed"], "noiseRisk": "high", "crowdRisk": "high", "weatherSensitivity": "雨量、水势、水雾、湿滑步道和观光车客流直接影响执行", "recordingAdvice": "使用防水套和高强度防风罩，在安全平台分别录制远景轰鸣与近岸水声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "黄果树瀑布与天星桥（贵州省民政厅）", "url": "https://mzt.guizhou.gov.cn/ztzl/rdzt/gzdmgs/202506/t20250615_88143272.html", "accessedAt": "2026-08-09", "supports": ["existence", "address", "access", "shooting-value"] }, { "title": "黄果树大瀑布（高德地图检索）", "url": "https://ditu.amap.com/search?query=%E5%AE%89%E9%A1%BA%E9%BB%84%E6%9E%9C%E6%A0%91%E5%A4%A7%E7%80%91%E5%B8%83", "accessedAt": "2026-08-09", "supports": ["coordinate"] }] }
+    },
+    {
+      "id": "sn-xa-giant-wild-goose-pagoda", "name": "西安大雁塔", "province": "陕西", "city": "西安", "type": "landmark",
+      "coordinate": { "lat": 34.21932, "lng": 108.96447, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "优先乘地铁至大雁塔站或在雁塔路周边合法停车后步行进入；寺院、登塔、广场活动和灯光时间以现场公告为准。" },
+      "shooting": { "bestTimes": ["golden-hour", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse"], "advice": "以塔体轴线、广场、唐文化街区和蓝调灯光组织城市夜景；宗教空间与文物区域严格遵守摄影规定，三脚架不占主通道。" },
+      "soundEnvironment": { "character": ["urban", "traffic", "mixed"], "noiseRisk": "high", "crowdRisk": "high", "weatherSensitivity": "夜间活动、音乐喷泉、节假日客流和降雨影响机位及同期声", "recordingAdvice": "以城市氛围声为主，避开扩声演出，在广场边缘补录脚步与钟声环境。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "大雁塔（西安市地方志办公室）", "url": "https://xadfz.xa.gov.cn/xadq/rwxa/1802954373708996609.html", "accessedAt": "2026-08-09", "supports": ["existence", "shooting-value"] }, { "title": "大雁塔（西安市人民政府）", "url": "https://en.xa.gov.cn/CultureTravel/Attractions/1691691504798126082.html", "accessedAt": "2026-08-09", "supports": ["address", "access"] }, { "title": "西安大雁塔（高德地图检索）", "url": "https://ditu.amap.com/search?query=%E8%A5%BF%E5%AE%89%E5%A4%A7%E9%9B%81%E5%A1%94", "accessedAt": "2026-08-09", "supports": ["coordinate"] }] }
+    },
+    {
+      "id": "gs-lz-baita-mountain-park", "name": "兰州白塔山公园", "province": "甘肃", "city": "兰州", "type": "mountain",
+      "coordinate": { "lat": 36.07082, "lng": 103.82018, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "从中山桥北侧或白塔山公园公开入口步行进入，车辆停在周边合法停车区域；夜间开放、登高游线和临时施工以现场为准。" },
+      "shooting": { "bestTimes": ["sunrise", "golden-hour", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "在开放观景点组合白塔、中山桥、黄河与兰州河谷城市线；登高控制器材重量，强风、沙尘或结冰时不进入陡坡。" },
+      "soundEnvironment": { "character": ["water", "birds", "urban", "mixed"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "河风、沙尘、温差、登高步道和游客密度影响拍摄", "recordingAdvice": "清晨在远离广场活动的位置录制风、鸟与远处黄河声，始终使用防风罩。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "白塔山公园资料（甘肃省文化和旅游厅）", "url": "https://wlt.gansu.gov.cn/wlt/c118256/202308/169916340/files/984e9e5f38394c51803e753ad6fa617a.pdf", "accessedAt": "2026-08-09", "supports": ["existence", "address", "access", "shooting-value"] }, { "title": "兰州白塔山公园（高德地图检索）", "url": "https://ditu.amap.com/search?query=%E5%85%B0%E5%B7%9E%E7%99%BD%E5%A1%94%E5%B1%B1%E5%85%AC%E5%9B%AD", "accessedAt": "2026-08-09", "supports": ["coordinate"] }] }
+    },
+    {
+      "id": "nm-hhht-daqingshan-trail", "name": "呼和浩特大青山国家登山健身步道", "province": "内蒙古", "city": "呼和浩特", "type": "mountain",
+      "coordinate": { "lat": 40.92152, "lng": 111.70493, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至新城区S101沿线公开步道入口，在允许停车区域下车后步行；不得进入大青山自然保护区核心、缓冲或封闭管护区域。" },
+      "shooting": { "bestTimes": ["sunrise", "morning", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "在公开健身步道记录阴山山地、草甸和青城远景；大风、雷暴、沙尘、降雪或森林草原火险高等级时取消登高。" },
+      "soundEnvironment": { "character": ["birds", "mixed"], "noiseRisk": "low", "crowdRisk": "medium", "weatherSensitivity": "山风、沙尘、雷暴、积雪和防火管制会直接影响开放与收音", "recordingAdvice": "使用强防风罩，在开放步道休息点短时录制风、鸟和草木声，不追逐或干扰野生动物。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "青城乡村生态一日游（内蒙古自治区人民政府）", "url": "https://www.nmg.gov.cn/asnmg/asnmg/asnmgxcp/202308/t20230807_2357811.html", "accessedAt": "2026-08-09", "supports": ["existence", "address", "access", "shooting-value"] }, { "title": "大青山国家登山健身步道（高德地图检索）", "url": "https://ditu.amap.com/search?query=%E5%91%BC%E5%92%8C%E6%B5%A9%E7%89%B9%E5%A4%A7%E9%9D%92%E5%B1%B1%E5%9B%BD%E5%AE%B6%E7%99%BB%E5%B1%B1%E5%81%A5%E8%BA%AB%E6%AD%A5%E9%81%93", "accessedAt": "2026-08-09", "supports": ["coordinate"] }] }
+    },
+    {
+      "id": "ln-dl-bangchuidao", "name": "大连棒棰岛景区", "province": "辽宁", "city": "大连", "type": "coast",
+      "coordinate": { "lat": 38.87147, "lng": 121.68393, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "由滨海路东段导航至景区公开入口和指定停车区，停车后按票务及开放岸线步行；重大接待、海况或临时管制以现场公告为准。" },
+      "shooting": { "bestTimes": ["sunrise", "morning", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy", "fog", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "组合山林、海湾、岛礁和卵石岸线，清晨优先拍海面层次；强风、浪高、浓雾或浴场关闭时远离岸缘。" },
+      "soundEnvironment": { "character": ["waves", "water", "birds"], "noiseRisk": "low", "crowdRisk": "high", "weatherSensitivity": "海风、浪高、海雾、水温和旺季客流影响显著", "recordingAdvice": "在开放岸线使用强防风罩记录浪声，避免靠近鸟类栖息点和游客聚集区。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "大连棒棰岛宾馆景区（辽宁省文化和旅游厅）", "url": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026030215590914845/index.shtml", "accessedAt": "2026-08-09", "supports": ["existence", "address", "shooting-value"] }, { "title": "大连无障碍特色旅游线路（辽宁省人民政府）", "url": "https://www.ln.gov.cn/web/ywdt/qsgd/ass_2_1/2024060709090185410/index.shtml", "accessedAt": "2026-08-09", "supports": ["access", "shooting-value"] }, { "title": "大连棒棰岛景区（高德地图检索）", "url": "https://ditu.amap.com/search?query=%E5%A4%A7%E8%BF%9E%E6%A3%92%E6%A3%B0%E5%B2%9B%E6%99%AF%E5%8C%BA", "accessedAt": "2026-08-09", "supports": ["coordinate"] }] }
+    },
+    {
+      "id": "jl-cc-nanhu-park", "name": "长春南湖公园", "province": "吉林", "city": "长春", "type": "lake",
+      "coordinate": { "lat": 43.85682, "lng": 125.30831, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "优先乘公共交通或导航至朝阳区工农大路周边合法停车点，沿公园开放入口步行进入；活动、施工和冬季冰面管理以现场为准。" },
+      "shooting": { "bestTimes": ["sunrise", "morning", "golden-hour", "sunset", "blue-hour"], "bestWeather": ["sunny", "cloudy", "fog", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "以湖面、桥林、四季植被和城市生活形成对照；冬季只在官方开放区域活动，禁止自行进入未确认承载能力的冰面。" },
+      "soundEnvironment": { "character": ["water", "birds", "urban", "mixed"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "风、降雪、结冰、活动和晨晚人流会改变画面与声场", "recordingAdvice": "清晨远离健身扩声区域录制水鸟与林地声，冬季注意设备低温续航和冷凝。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "长春秋季文旅推荐（吉林省文化和旅游厅）", "url": "https://whhlyt.jl.gov.cn/dfwhxx/202409/t20240918_8976408.html", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "长春市南湖公园场地信息（吉林省人民政府）", "url": "https://www.jl.gov.cn/ggzy/gycq/gppl/202607/t20260706_9660372.html", "accessedAt": "2026-08-09", "supports": ["address"] }, { "title": "长春南湖公园（高德地图检索）", "url": "https://ditu.amap.com/search?query=%E9%95%BF%E6%98%A5%E5%8D%97%E6%B9%96%E5%85%AC%E5%9B%AD", "accessedAt": "2026-08-09", "supports": ["coordinate"] }] }
+    },
+    {
+      "id": "hlj-heb-central-street", "name": "哈尔滨中央大街", "province": "黑龙江", "city": "哈尔滨", "type": "city-night",
+      "coordinate": { "lat": 45.77108, "lng": 126.61638, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "优先乘地铁或在道里区周边合法停车后步行进入中央大街；冰雪季客流、活动、街区维护和临时交通管制以现场为准。" },
+      "shooting": { "bestTimes": ["golden-hour", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "记录历史建筑立面、石铺路面、灯光和冰雪季城市生活；低温环境控制电池与镜头冷凝，三脚架不阻挡高峰人流。" },
+      "soundEnvironment": { "character": ["urban", "traffic", "mixed"], "noiseRisk": "high", "crowdRisk": "high", "weatherSensitivity": "严寒、降雪、结冰、节庆扩声和客流对拍摄影响显著", "recordingAdvice": "以城市步行氛围为主，在支路口补录脚步与风雪声；器材由室外进室内前密封回温。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "哈尔滨中央大街国际旅游集散中心（黑龙江省文化和旅游厅）", "url": "https://wlt.hlj.gov.cn/wlt/c114169/202412/c00_31790834.shtml", "accessedAt": "2026-08-09", "supports": ["existence", "address", "access", "shooting-value"] }, { "title": "哈尔滨中央大街（高德地图）", "url": "https://ditu.amap.com/place/B0FFGDXA74", "accessedAt": "2026-08-09", "supports": ["coordinate"] }] }
+    },
+    {
+      "id": "qh-hx-chaka-salt-lake", "name": "海西茶卡盐湖景区", "province": "青海", "city": "海西", "type": "lake",
+      "coordinate": { "lat": 36.79172, "lng": 99.07821, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至乌兰县茶卡镇盐湖路9号景区停车区，按票务、观光车或小火车及盐湖开放区域进入；高海拔行程预留适应时间。" },
+      "shooting": { "bestTimes": ["sunrise", "morning", "golden-hour", "sunset", "blue-hour"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "利用盐壳、水面倒影、轨道与远山形成极简构图；只在开放栈道和允许区域拍摄，强风、雷暴或景区关闭时停止。" },
+      "soundEnvironment": { "character": ["water", "mixed"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "高海拔、强风、低温、强紫外线、水位与客流会改变倒影和开放范围", "recordingAdvice": "以强防风罩保护麦克风，在远离观光车和小火车的位置短时记录风与盐湖环境声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "茶卡盐湖景区官网", "url": "https://www.chakasl.com/index.html", "accessedAt": "2026-08-09", "supports": ["existence", "address", "access", "shooting-value"] }, { "title": "茶卡盐湖景区（高德地图检索）", "url": "https://ditu.amap.com/search?query=%E9%9D%92%E6%B5%B7%E8%8C%B6%E5%8D%A1%E7%9B%90%E6%B9%96%E6%99%AF%E5%8C%BA", "accessedAt": "2026-08-09", "supports": ["coordinate"] }] }
+    },
+    {
+      "id": "nx-zw-jinsha-island-wetland", "name": "中卫腾格里沙漠湿地·金沙岛旅游区", "province": "宁夏", "city": "中卫", "type": "lake",
+      "coordinate": { "lat": 37.53513, "lng": 105.19382, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至沙坡头区腾格里湿地公园附近景区入口，车辆停在指定区域后按开放游线进入；水域、沙漠项目和鸟类保护规则以现场为准。" },
+      "shooting": { "bestTimes": ["sunrise", "morning", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "记录沙漠、湿地、花海、长城遗址和鸟类栖息环境的反差；不得追逐鸟类或进入未开放湿地，大风沙尘时取消。" },
+      "soundEnvironment": { "character": ["water", "birds", "mixed"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "沙尘、强风、温差、水位、花期和旅游项目会影响画面与声场", "recordingAdvice": "远离水上项目与扩声区域，使用防风防沙保护定点录制水鸟和芦苇声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "腾格里沙漠湿地·金沙岛旅游区（宁夏文化和旅游厅）", "url": "https://whhlyt.nx.gov.cn/jqjd/zws_66597/tglsmsdjsdlyq/", "accessedAt": "2026-08-09", "supports": ["existence", "address", "access", "shooting-value"] }, { "title": "腾格里沙漠湿地·金沙岛（高德地图检索）", "url": "https://ditu.amap.com/search?query=%E4%B8%AD%E5%8D%AB%E9%87%91%E6%B2%99%E5%B2%9B%E6%97%85%E6%B8%B8%E5%8C%BA", "accessedAt": "2026-08-09", "supports": ["coordinate"] }] }
+    },
+    {
+      "id": "xj-cj-jiangbulake", "name": "昌吉江布拉克景区", "province": "新疆", "city": "昌吉", "type": "mountain",
+      "coordinate": { "lat": 43.74582, "lng": 89.69946, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至奇台县半截沟镇景区游客中心，按预约、停车和景区交通规则进入；长距离转场前补足燃油、饮水并下载离线地图。" },
+      "shooting": { "bestTimes": ["sunrise", "morning", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy", "fog", "after-rain"], "modes": ["photo", "driving-video", "tripod-video", "timelapse", "asmr"], "advice": "以天山麦田、花海、村落、峡谷和山地垂直景观为主；车辆只走允许道路，禁止驶入农田、草场或封闭保护区域。" },
+      "soundEnvironment": { "character": ["birds", "mixed"], "noiseRisk": "low", "crowdRisk": "high", "weatherSensitivity": "山地天气、强风、昼夜温差、农时和季节道路状态影响显著", "recordingAdvice": "在公开观景点远离车辆和人群，用强防风罩录制麦浪、鸟声与远山环境声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "江布拉克景区（新疆文化和旅游厅）", "url": "https://wlt.xinjiang.gov.cn/wlt/c112782/202208/485879adec234d0c948ec6ae14d89618.shtml", "accessedAt": "2026-08-09", "supports": ["existence", "address", "access", "shooting-value"] }, { "title": "江布拉克景区（高德地图检索）", "url": "https://ditu.amap.com/search?query=%E6%96%B0%E7%96%86%E6%B1%9F%E5%B8%83%E6%8B%89%E5%85%8B%E6%99%AF%E5%8C%BA", "accessedAt": "2026-08-09", "supports": ["coordinate"] }] }
+    },
+    {
+      "id": "xz-ls-norbulingka", "name": "拉萨罗布林卡", "province": "西藏", "city": "拉萨", "type": "landmark",
+      "coordinate": { "lat": 29.65418, "lng": 91.09221, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "优先乘公共交通或在拉萨西郊周边合法停车后按预约、安检、票务和开放时间步行进入；宫殿与宗教空间拍摄服从现场规定。" },
+      "shooting": { "bestTimes": ["morning", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "在允许区域记录藏式宫殿、园林、古树和花卉层次；高海拔行程降低强度，不在殿堂、宗教仪式或禁止摄影区域拍摄。" },
+      "soundEnvironment": { "character": ["birds", "urban", "mixed"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "高海拔、强紫外线、温差、节庆活动和客流影响执行", "recordingAdvice": "在开放园林远离活动区录制鸟声和树叶声，不在宗教空间架设收音设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "罗布林卡（西藏自治区外事办公室）", "url": "https://wsb.xizang.gov.cn/xzjx/lyjd/201107/t20110713_100956.html", "accessedAt": "2026-08-09", "supports": ["existence", "address", "shooting-value"] }, { "title": "罗布林卡开放通告（西藏文化和旅游厅）", "url": "https://wlt.xizang.gov.cn/xccx/lytg/202603/t20260313_529254.html", "accessedAt": "2026-08-09", "supports": ["access"] }, { "title": "拉萨罗布林卡（高德地图检索）", "url": "https://ditu.amap.com/search?query=%E6%8B%89%E8%90%A8%E7%BD%97%E5%B8%83%E6%9E%97%E5%8D%A1", "accessedAt": "2026-08-09", "supports": ["coordinate"] }] }
+    },
+    {
+      "id": "tw-tp-xiangshan-trail", "name": "台北象山亲山步道", "province": "台湾", "city": "台北", "type": "mountain",
+      "coordinate": { "lat": 25.02742, "lng": 121.57072, "crs": "WGS84" },
+      "access": { "mode": "park-and-walk", "note": "建议乘捷运至象山站后步行前往公开步道入口；阶梯、照明、天气与局部维护以台北市现场公告为准，不建议以驾车方式连接山径。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "从开放观景点拍台北101、信义区天际线和台北盆地；雨后石阶湿滑，夜间携带照明并避免在狭窄平台长时间占位。" },
+      "soundEnvironment": { "character": ["birds", "urban", "mixed"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "台风、雷雨、湿滑石阶、低云和日落客流影响显著", "recordingAdvice": "在远离主观景台的人少时段使用防风罩录制林地与城市远景声，不干扰步道通行。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "南港山系象山亲山步道（台湾观光资料）", "url": "https://media.taiwan.net.tw/zh-tw/portal/travel/details/attraction_379000000a_000185", "accessedAt": "2026-08-09", "supports": ["existence", "address", "access", "shooting-value"] }, { "title": "台北象山亲山步道（高德地图检索）", "url": "https://ditu.amap.com/search?query=%E5%8F%B0%E5%8C%97%E8%B1%A1%E5%B1%B1%E4%BA%B2%E5%B1%B1%E6%AD%A5%E9%81%93", "accessedAt": "2026-08-09", "supports": ["coordinate"] }] }
+    },
+    {
+      "id": "hk-avenue-of-stars", "name": "香港尖沙咀星光大道", "province": "香港", "city": "香港", "type": "city-night",
+      "coordinate": { "lat": 22.29312, "lng": 114.17462, "crs": "WGS84" },
+      "access": { "mode": "park-and-walk", "note": "优先乘港铁、巴士或渡轮抵达尖沙咀后步行进入维港海旁；灯光汇演、活动、台风和滨水区域临时管理以官方公告为准。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "沿开放海滨记录港岛天际线、维港船流、电影主题装置和夜间灯光；三脚架不得阻挡扶手、主游线或观众视线。" },
+      "soundEnvironment": { "character": ["water", "urban", "traffic", "mixed"], "noiseRisk": "high", "crowdRisk": "high", "weatherSensitivity": "台风、海风、降雨、灯光汇演和密集客流影响画面与声场", "recordingAdvice": "使用防风罩，在远离扩声设备和码头广播的位置补录船声、水声与城市环境声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "星光大道（香港旅游事务署）", "url": "https://www.tourism.gov.hk/tc/tourism-projects.php?project=avenue_of_stars", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "幻彩咏香江·星光大道（香港旅游事务署）", "url": "https://www.tourism.gov.hk/symphony/sc_chi/participating/participating_kl_15.html", "accessedAt": "2026-08-09", "supports": ["address", "shooting-value"] }, { "title": "香港星光大道（高德地图检索）", "url": "https://ditu.amap.com/search?query=%E9%A6%99%E6%B8%AF%E6%98%9F%E5%85%89%E5%A4%A7%E9%81%93", "accessedAt": "2026-08-09", "supports": ["coordinate"] }] }
+    },
+    {
+      "id": "mo-guia-fortress", "name": "澳门东望洋炮台及灯塔", "province": "澳门", "city": "澳门", "type": "landmark",
+      "coordinate": { "lat": 22.19621, "lng": 113.54963, "crs": "WGS84" },
+      "access": { "mode": "park-and-walk", "note": "建议乘公共交通至东望洋山周边后沿开放步道进入，询问处位于松山马路；炮台、教堂、灯塔开放及文物维护以文化局公告为准。" },
+      "shooting": { "bestTimes": ["morning", "golden-hour", "sunset", "blue-hour"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "从允许区域记录炮台、灯塔、教堂和澳门半岛高位景观；教堂壁画与文物空间严格遵守摄影规定，不使用闪光或阻塞入口。" },
+      "soundEnvironment": { "character": ["birds", "urban", "mixed"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "台风、雷雨、高温、山顶强风和游客密度影响执行", "recordingAdvice": "在开放山径远离询问处与人群的位置录制风、鸟和城市远景声，不在教堂内布置收音设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "东望洋炮台、圣母雪地殿教堂及灯塔（澳门文化局）", "url": "https://www.icm.gov.mo/gb/GuiaFortress", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "东望洋炮台询问处（澳门特别行政区政府）", "url": "https://www.gov.mo/zh-hant/apm-entity-page/gov-department-institutions-of-the-msar/apm-550/apm-644/instalacoes-culturais/apm-4814/", "accessedAt": "2026-08-09", "supports": ["address"] }, { "title": "澳门东望洋炮台（高德地图检索）", "url": "https://ditu.amap.com/search?query=%E6%BE%B3%E9%97%A8%E4%B8%9C%E6%9C%9B%E6%B4%8B%E7%82%AE%E5%8F%B0", "accessedAt": "2026-08-09", "supports": ["coordinate"] }] }
+    },
+    {
+      "id": "hb-wh-yellow-crane-tower", "name": "武汉黄鹤楼公园", "province": "湖北", "city": "武汉", "type": "landmark",
+      "coordinate": { "lat": 30.54435, "lng": 114.30614, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至武昌区蛇山西坡特1号周边停车区域，按票务、开放入口和临时活动安排步行进入。" },
+      "shooting": { "bestTimes": ["sunrise", "golden-hour", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse"], "advice": "利用楼体、蛇山、长江大桥和城市天际线建立层次；重大活动或局部封闭时服从现场管理，不占用观景通道。" },
+      "soundEnvironment": { "character": ["urban", "traffic", "mixed"], "noiseRisk": "high", "crowdRisk": "high", "weatherSensitivity": "活动扩声、城市交通、江风和高峰客流影响同期声", "recordingAdvice": "主要采集城市氛围，避开演出和讲解团队，在开放园林边缘补录风声与鸟声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "武汉市黄鹤楼公园管理处", "url": "https://ylj.wuhan.gov.cn/zwgk/zwxxgkzl_12298/jggk_12304/xsdwszjzz_12308/202001/t20200110_726398.shtml", "accessedAt": "2026-08-09", "supports": ["existence", "address", "access", "shooting-value"] }, { "title": "黄鹤楼公园（高德地图检索）", "url": "https://ditu.amap.com/search?query=%E6%AD%A6%E6%B1%89%E9%BB%84%E9%B9%A4%E6%A5%BC", "accessedAt": "2026-08-09", "supports": ["coordinate"] }] }
+    },
+    {
+      "id": "hn-cs-orange-isle", "name": "长沙橘子洲风景区", "province": "湖南", "city": "长沙", "type": "river",
+      "coordinate": { "lat": 28.16924, "lng": 112.96137, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "优先乘地铁或按景区交通规定进入橘子洲，机动车停放在允许区域；预约、摆渡和活动管制以当天公告为准。" },
+      "shooting": { "bestTimes": ["sunrise", "morning", "golden-hour", "sunset", "blue-hour"], "bestWeather": ["sunny", "cloudy", "fog", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "结合湘江、岳麓山、城市天际线和洲头空间拍摄；节假日控制器材体积，临水区域不翻越护栏。" },
+      "soundEnvironment": { "character": ["water", "birds", "urban"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "湘江水位、江风、活动和节假日客流会改变画面与声场", "recordingAdvice": "清晨在远离摆渡站和主游线的开放岸线记录水声与鸟声，使用防风罩。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "橘子洲风景区（湖南省人民政府）", "url": "https://www.hunan.gov.cn/hnszf/c101474/202108/t20210827_20403826.html", "accessedAt": "2026-08-09", "supports": ["existence", "address", "access", "shooting-value"] }, { "title": "橘子洲景区（高德地图检索）", "url": "https://ditu.amap.com/search?query=%E9%95%BF%E6%B2%99%E6%A9%98%E5%AD%90%E6%B4%B2", "accessedAt": "2026-08-09", "supports": ["coordinate"] }] }
+    },
+    {
+      "id": "gx-gl-yulong-river", "name": "桂林阳朔遇龙河景区", "province": "广西", "city": "桂林", "type": "river",
+      "coordinate": { "lat": 24.75591, "lng": 110.49288, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "根据目标河段导航至阳朔遇龙河公开码头或停车点，停车后沿开放步道进入；竹筏、骑行和车辆通行分别服从景区规则。" },
+      "shooting": { "bestTimes": ["sunrise", "morning", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy", "fog", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "以峰林、河流、田园、古桥和竹筏为核心，优先选择开放岸线固定机位；不进入农田或封闭河段。" },
+      "soundEnvironment": { "character": ["water", "birds", "mixed"], "noiseRisk": "low", "crowdRisk": "high", "weatherSensitivity": "河流水位、降雨、竹筏运营和旅游旺季会显著改变现场", "recordingAdvice": "清晨在远离码头的开放河岸记录水鸟与水流声，遇涨水或强降雨立即撤离。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "遇龙河景区详细规划（广西壮族自治区林业局）", "url": "https://lyj.gxzf.gov.cn/zfxxgkzl/fdzdgknr/gggs/P020230823401747754653.pdf", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "遇龙河景区（高德地图检索）", "url": "https://ditu.amap.com/search?query=%E9%98%B3%E6%9C%94%E9%81%87%E9%BE%99%E6%B2%B3", "accessedAt": "2026-08-09", "supports": ["address", "coordinate"] }] }
+    },
+    {
+      "id": "cq-nanshan-one-tree", "name": "重庆南山一棵树观景园", "province": "重庆", "city": "重庆", "type": "city-night",
+      "coordinate": { "lat": 29.53672, "lng": 106.60108, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至南岸区南山一棵树观景园停车区域，停车后步行进入；山路拥堵、票务和观景台承载以现场为准。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain", "fog"], "modes": ["photo", "tripod-video", "timelapse"], "advice": "从高位记录两江、渝中半岛、桥梁和山城灯光；提前占用允许机位但不阻挡护栏和通道，雾天保护高光。" },
+      "soundEnvironment": { "character": ["urban", "traffic", "mixed"], "noiseRisk": "high", "crowdRisk": "high", "weatherSensitivity": "山雾、降雨、夜间客流和南山道路拥堵会影响拍摄", "recordingAdvice": "以城市远景氛围声为辅，使用防风罩和低切，不期待获得纯净同期声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "一棵树观景园（重庆市南岸区人民政府）", "url": "https://www.cqna.gov.cn/zjna/ns/hlns/nsjd/202601/t20260129_15363050.html", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "南山一棵树（高德地图检索）", "url": "https://ditu.amap.com/search?query=%E9%87%8D%E5%BA%86%E5%8D%97%E5%B1%B1%E4%B8%80%E6%A3%B5%E6%A0%91", "accessedAt": "2026-08-09", "supports": ["address", "coordinate"] }] }
+    },
+    {
+      "id": "he-qhd-old-dragon-head", "name": "秦皇岛山海关老龙头", "province": "河北", "city": "秦皇岛", "type": "coast",
+      "coordinate": { "lat": 39.96837, "lng": 119.79882, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至山海关区城南老龙头景区停车区域，按票务和开放范围步行进入；海边城墙及礁石区域服从现场安全管理。" },
+      "shooting": { "bestTimes": ["sunrise", "morning", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "利用入海长城、澄海楼、海岸线和浪花构图；查看海风和浪况，不翻越护栏，不在城墙通道架设大型器材。" },
+      "soundEnvironment": { "character": ["waves", "birds", "mixed"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "海风、浪高、旺季客流和临时管制会显著影响拍摄", "recordingAdvice": "在开放海岸观景区使用强防风罩记录浪声，避开讲解扩声和主入口人流。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "老龙头景区资料", "url": "https://s.visitbeijing.com.cn/attraction/118571", "accessedAt": "2026-08-09", "supports": ["existence", "address", "shooting-value"] }, { "title": "老龙头景区（高德地图检索）", "url": "https://ditu.amap.com/search?query=%E7%A7%A6%E7%9A%87%E5%B2%9B%E8%80%81%E9%BE%99%E5%A4%B4", "accessedAt": "2026-08-09", "supports": ["coordinate", "access"] }] }
+    },
+    {
+      "id": "sx-ty-jinci", "name": "太原晋祠天龙山景区", "province": "山西", "city": "太原", "type": "landmark",
+      "coordinate": { "lat": 37.70737, "lng": 112.44729, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至晋源区晋祠镇景区停车区域，按票务、博物馆和天龙山不同开放安排步行或乘景区交通进入。" },
+      "shooting": { "bestTimes": ["morning", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "记录古建筑、古树、泉水和园林层次；文物建筑内部及宗教空间严格遵守摄影规定，不使用强光干扰参观。" },
+      "soundEnvironment": { "character": ["water", "birds", "mixed"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "节庆客流、讲解声、泉水流量和山地天气影响执行", "recordingAdvice": "在开放园林区域远离讲解团队，短时记录泉水、树叶和鸟声，不在室内布置收音设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "太原市晋祠天龙山景区（文化和旅游部）", "url": "https://lyfw.mct.gov.cn/site/special/province?pkey=sx&type=0", "accessedAt": "2026-08-09", "supports": ["existence", "address", "shooting-value"] }, { "title": "晋祠天龙山景区（高德地图检索）", "url": "https://ditu.amap.com/search?query=%E5%A4%AA%E5%8E%9F%E6%99%8B%E7%A5%A0%E5%A4%A9%E9%BE%99%E5%B1%B1", "accessedAt": "2026-08-09", "supports": ["coordinate", "access"] }] }
+    },
+    {
+      "id": "sd-qd-laoshan", "name": "青岛崂山风景名胜区", "province": "山东", "city": "青岛", "type": "mountain",
+      "coordinate": { "lat": 36.13786, "lng": 120.62154, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "根据目标游览区导航至指定预约、停车和换乘入口，景区内部按区间车、索道及开放步道通行。" },
+      "shooting": { "bestTimes": ["sunrise", "morning", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy", "fog", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "根据流清、太清、巨峰、仰口或九水不同游览区选择海山、峰石、林泉题材；山海天气变化时及时撤离。" },
+      "soundEnvironment": { "character": ["waves", "water", "birds"], "noiseRisk": "low", "crowdRisk": "high", "weatherSensitivity": "海风、浓雾、降雨、索道运行和游览区客流均会影响计划", "recordingAdvice": "在开放步道安全位置分别记录山风、溪流与远海声，避开区间车站和游客集中点。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "青岛崂山风景名胜区官方网站", "url": "https://qdlaoshan.cn/", "accessedAt": "2026-08-09", "supports": ["existence", "address", "access", "shooting-value"] }, { "title": "崂山风景区（高德地图检索）", "url": "https://ditu.amap.com/search?query=%E9%9D%92%E5%B2%9B%E5%B4%82%E5%B1%B1%E9%A3%8E%E6%99%AF%E5%8C%BA", "accessedAt": "2026-08-09", "supports": ["coordinate"] }] }
+    },
+    {
+      "id": "ha-zz-longhu-wetland", "name": "郑州龙湖湿地公园", "province": "河南", "city": "郑州", "type": "lake",
+      "coordinate": { "lat": 34.81568, "lng": 113.71487, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至龙湖内环路与三全路交汇处周边停车区域，停车后沿开放步道进入湿地体验区；严禁涉水、野泳和野钓。" },
+      "shooting": { "bestTimes": ["sunrise", "morning", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy", "fog", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "利用湿地水面、芦苇、鸟类和城市远景构图；保持生态距离，不进入生态岛或封闭养护区域。" },
+      "soundEnvironment": { "character": ["water", "birds", "urban"], "noiseRisk": "medium", "crowdRisk": "medium", "weatherSensitivity": "汛期水位、高温、风向和周末客流会改变湿地声景与安全边界", "recordingAdvice": "清晨在开放栈道稳定位置记录鸟水声，不使用声音诱拍，并远离危险水域边缘。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "龙湖湿地公园（郑州市人民政府）", "url": "https://www.zhengzhou.gov.cn/view44/8491934.jhtml", "accessedAt": "2026-08-09", "supports": ["existence", "address", "access", "shooting-value"] }, { "title": "龙湖湿地公园（高德地图检索）", "url": "https://ditu.amap.com/search?query=%E9%83%91%E5%B7%9E%E9%BE%99%E6%B9%96%E6%B9%BF%E5%9C%B0%E5%85%AC%E5%9B%AD", "accessedAt": "2026-08-09", "supports": ["coordinate"] }] }
+    },
+    {
+      "id": "tj-italian-style-area", "name": "天津海河意式风情区", "province": "天津", "city": "天津", "type": "city-night",
+      "coordinate": { "lat": 39.13452, "lng": 117.21456, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至河北区进步道34号周边公共停车区域，停车后步行进入历史街区；活动、店铺与临时封控以现场为准。" },
+      "shooting": { "bestTimes": ["golden-hour", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse"], "advice": "利用意式建筑、街灯、海河与步行街纵深构图，雨后可拍石材反光；不阻挡商户入口和消防通道。" },
+      "soundEnvironment": { "character": ["urban", "traffic", "mixed"], "noiseRisk": "high", "crowdRisk": "high", "weatherSensitivity": "夜间消费、演出、节假日人流和道路声会持续影响同期声", "recordingAdvice": "以城市氛围声为主，避开商业扩声和表演区域，另在临河安静处补录环境底声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "天津海河意式风情区（天津市文化和旅游局）", "url": "https://whly.tj.gov.cn/WSBSYZXBS4230/CXFW5394/AJJQCX8399/202101/t20210108_5294037.html", "accessedAt": "2026-08-09", "supports": ["existence", "address", "access", "shooting-value"] }, { "title": "天津意式风情区（高德地图检索）", "url": "https://ditu.amap.com/search?query=%E5%A4%A9%E6%B4%A5%E6%84%8F%E5%BC%8F%E9%A3%8E%E6%83%85%E5%8C%BA", "accessedAt": "2026-08-09", "supports": ["coordinate"] }] }
+    },
+    {
+      "id": "js-nj-zhongshan-scenic", "name": "南京钟山风景名胜区", "province": "江苏", "city": "南京", "type": "forest",
+      "coordinate": { "lat": 32.06418, "lng": 118.84823, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至钟山风景名胜区游客中心或指定停车换乘区域，按预约、景区交通和开放游线步行进入。" },
+      "shooting": { "bestTimes": ["morning", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy", "fog", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "以林荫道、山体、历史建筑和季节色彩构图；文保区域遵守摄影规定，不在主游线长期架设器材。" },
+      "soundEnvironment": { "character": ["birds", "urban", "mixed"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "旅游客流、景区交通、雨雾和季节虫鸣会改变声场", "recordingAdvice": "清晨选择开放林地边缘记录鸟鸣与树叶声，避开游客中心和摆渡车停靠点。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "钟山风景名胜区游客服务中心（南京市中山陵园管理局）", "url": "https://zschina.nanjing.gov.cn/fjms/fwzn/ykzx/202303/t20230310_3859254.html", "accessedAt": "2026-08-09", "supports": ["existence", "address", "access", "shooting-value"] }, { "title": "钟山风景名胜区（高德地图检索）", "url": "https://ditu.amap.com/search?query=%E5%8D%97%E4%BA%AC%E9%92%9F%E5%B1%B1%E9%A3%8E%E6%99%AF%E5%90%8D%E8%83%9C%E5%8C%BA", "accessedAt": "2026-08-09", "supports": ["coordinate"] }] }
+    },
+    {
+      "id": "ah-hs-hongcun", "name": "黄山黟县宏村", "province": "安徽", "city": "黄山", "type": "landmark",
+      "coordinate": { "lat": 30.00353, "lng": 117.99461, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至黟县宏村镇景区停车区域，按票务和游客承载安排步行进入；古村内部不驶入拍摄车辆。" },
+      "shooting": { "bestTimes": ["sunrise", "morning", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy", "fog", "rain", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "围绕南湖、月沼、水圳和徽派建筑记录水系空间，清晨减少人流干扰；尊重居民生活与文保建筑拍摄边界。" },
+      "soundEnvironment": { "character": ["water", "birds", "mixed"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "旅游人流、雨雾、水圳流量和居民活动会影响同期声", "recordingAdvice": "清晨在公共游线边缘短时记录水圳、鸟鸣和村落环境声，不将麦克风朝向居民室内。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "宏村（黄山市人民政府）", "url": "https://www.huangshan.gov.cn/site/tpl/4636?id=19779&type=scenic", "accessedAt": "2026-08-09", "supports": ["existence", "address", "access", "shooting-value"] }, { "title": "宏村景区（高德地图检索）", "url": "https://ditu.amap.com/search?query=%E9%BB%84%E5%B1%B1%E5%AE%8F%E6%9D%91", "accessedAt": "2026-08-09", "supports": ["coordinate"] }] }
+    },
+    {
+      "id": "jx-nc-qiushui-square", "name": "南昌秋水广场", "province": "江西", "city": "南昌", "type": "river",
+      "coordinate": { "lat": 28.68437, "lng": 115.85829, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至红谷滩区赣江中大道秋水广场周边停车区域，或由地铁站步行进入；喷泉与活动安排以现场公告为准。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse"], "advice": "隔江拍摄滕王阁方向、赣江晚霞、城市灯光和广场空间；喷泉开放时保护高光，三脚架避开人流和亲水边缘。" },
+      "soundEnvironment": { "character": ["water", "urban", "traffic"], "noiseRisk": "high", "crowdRisk": "high", "weatherSensitivity": "喷泉扩声、江风、活动与夜间客流会覆盖自然水声", "recordingAdvice": "现场声作为城市素材，日落前在远离喷泉和主路的江岸补录水面与风声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "秋水广场站与位置（南昌地铁位置资料）", "url": "https://ditu.amap.com/search?query=%E5%8D%97%E6%98%8C%E7%A7%8B%E6%B0%B4%E5%B9%BF%E5%9C%BA", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access"] }, { "title": "秋水广场与赣江城市景观", "url": "https://baike.baidu.com/item/%E7%A7%8B%E6%B0%B4%E5%B9%BF%E5%9C%BA", "accessedAt": "2026-08-09", "supports": ["shooting-value"] }] }
+    },
+    {
+      "id": "bj-chaoyang-park", "name": "北京朝阳公园", "province": "北京", "city": "北京", "type": "lake",
+      "coordinate": { "lat": 39.94673, "lng": 116.47773, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至朝阳公园南路1号周边公共停车区域，停车后由开放入口步行；开放时间和活动区域以公园公告为准。" },
+      "shooting": { "bestTimes": ["morning", "golden-hour", "sunset", "blue-hour"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "以湖面、林地、城市建筑与季节植被构图；清晨适合慢行和鸟声采集，活动期间避开扩声区与人流主通道。" },
+      "soundEnvironment": { "character": ["water", "birds", "urban"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "大型活动、周末客流和城市道路底噪会改变声场", "recordingAdvice": "清晨选择远离游乐和主入口的湖岸林地，使用防风罩记录鸟声与水面环境声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "朝阳公园（北京市园林绿化局）", "url": "https://yllhj.beijing.gov.cn/ggfw/bjsggml/zhgy/cyq/202206/t20220614_2740316.shtml", "accessedAt": "2026-08-09", "supports": ["existence", "address", "access", "shooting-value"] }, { "title": "朝阳公园（高德地图检索）", "url": "https://ditu.amap.com/search?query=%E5%8C%97%E4%BA%AC%E6%9C%9D%E9%98%B3%E5%85%AC%E5%9B%AD", "accessedAt": "2026-08-09", "supports": ["coordinate"] }] }
+    },
+    {
+      "id": "sh-north-bund-waterfront", "name": "上海北外滩滨江", "province": "上海", "city": "上海", "type": "city-night",
+      "coordinate": { "lat": 31.25199, "lng": 121.49752, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至虹口区东大名路500号周边公共停车区域，建议公共交通进入；滨江公共开放空间内全程步行。" },
+      "shooting": { "bestTimes": ["sunrise", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "隔江拍摄陆家嘴天际线、外白渡桥方向与滨水空间，蓝调时刻保留江面高光；三脚架不得影响通行和活动。" },
+      "soundEnvironment": { "character": ["water", "urban", "traffic"], "noiseRisk": "high", "crowdRisk": "high", "weatherSensitivity": "江风、船舶汽笛、活动与夜间客流影响同期声", "recordingAdvice": "日出前在远离道路和扩声设施的滨江段补录江面底声，强风时使用完整防风。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "北外滩滨江公共开放空间（上海市规划和自然资源局）", "url": "https://ghzyj.sh.gov.cn/cmsres/94/94e2a7795a4d4fe39b9911444f79e181/394ec4cd001b1e73a5b30219a9fd9d8f.pdf", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "北外滩滨江（高德地图检索）", "url": "https://ditu.amap.com/search?query=%E5%8C%97%E5%A4%96%E6%BB%A9%E6%BB%A8%E6%B1%9F", "accessedAt": "2026-08-09", "supports": ["address", "coordinate"] }] }
+    },
+    {
+      "id": "zj-hz-xixi-wetland", "name": "杭州西溪国家湿地公园", "province": "浙江", "city": "杭州", "type": "forest",
+      "coordinate": { "lat": 30.26805, "lng": 120.06112, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至西溪湿地公开入口周边停车区域，按景区票务、开放片区和游线步行进入；湿地内部不得驶入拍摄车辆。" },
+      "shooting": { "bestTimes": ["sunrise", "morning", "golden-hour", "sunset"], "bestWeather": ["cloudy", "fog", "rain", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "沿开放游线记录河港、芦苇、林地和水鸟，雨雾天气注意器材防潮；使用长焦并保持野生动物距离。" },
+      "soundEnvironment": { "character": ["water", "birds"], "noiseRisk": "low", "crowdRisk": "medium", "weatherSensitivity": "季节水位、降雨、虫鸟活动和游船会改变湿地声景", "recordingAdvice": "在开放步道稳定位置长时间记录鸟鸣和水声，不播放声音诱拍或离开游线。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "西溪国家湿地公园（国家林业和草原局）", "url": "https://www.forestry.gov.cn/c/www/mtbd/16793.jhtml", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "西溪国家湿地公园（高德地图检索）", "url": "https://ditu.amap.com/search?query=%E8%A5%BF%E6%BA%AA%E5%9B%BD%E5%AE%B6%E6%B9%BF%E5%9C%B0%E5%85%AC%E5%9B%AD", "accessedAt": "2026-08-09", "supports": ["address", "coordinate"] }] }
     }
   ],
   "cameraPresets": [
@@ -491,6 +1127,51 @@
     }
   ],
   "routes": [
+    { "id": "tw-tp-101-xiangshan-night", "name": "台北101至象山城市夜景路线", "province": "台湾", "cities": ["台北"], "type": "city-night", "captureStyle": "rain-walk", "modes": ["sunset", "night", "asmr"], "estimatedDurationMinutes": 240, "waypointLocationIds": ["tw-tp-taipei-101", "tw-tp-xiangshan-trail"], "best": { "seasons": ["spring", "autumn", "winter"], "times": ["sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] }, "cameraPresetIds": ["a7c2-city-night-tripod", "a7c2-forest-stream-static"], "shootAdvice": "先在信义商圈公共空间拍101近景，再乘捷运或步行至象山公开步道拍城市全景；本路线不调用高德驾车，台风、雷雨、湿滑或日落平台过度拥挤时取消登山。", "scores": { "visual": 5, "road": 3, "parking": 2, "safety": 3, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "台北101与象山地点、WGS84坐标和公共交通属性已查源；天气、步道、观景台、活动与实际步行时长须当日核验。" } },
+    { "id": "hk-peak-avenue-stars-harbour", "name": "香港太平山至星光大道维港路线", "province": "香港", "cities": ["香港"], "type": "city-night", "captureStyle": "rain-walk", "modes": ["sunset", "night", "asmr"], "estimatedDurationMinutes": 360, "waypointLocationIds": ["hk-victoria-peak", "hk-avenue-of-stars"], "best": { "seasons": ["spring", "autumn", "winter"], "times": ["sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] }, "cameraPresetIds": ["a7c2-city-night-tripod"], "shootAdvice": "先从太平山拍维港全景，再以缆车、巴士、港铁或渡轮转场尖沙咀星光大道拍港岛天际线；本路线不调用高德驾车，台风、低云、交通中断或人流管制时调整。", "scores": { "visual": 5, "road": 4, "parking": 2, "safety": 4, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "太平山与星光大道地点、WGS84坐标和观景属性已查源；缆车、渡轮、灯光汇演、天气、客流及总时长须当日核验。" } },
+    { "id": "mo-ruins-guia-heritage", "name": "澳门大三巴至东望洋历史城区路线", "province": "澳门", "cities": ["澳门"], "type": "city-night", "captureStyle": "rain-walk", "modes": ["day", "sunset", "asmr"], "estimatedDurationMinutes": 300, "waypointLocationIds": ["mo-ruins-st-paul", "mo-guia-fortress"], "best": { "seasons": ["spring", "autumn", "winter"], "times": ["morning", "golden-hour", "sunset", "blue-hour"], "weather": ["sunny", "cloudy", "after-rain"] }, "cameraPresetIds": ["a7c2-city-night-tripod", "a7c2-forest-stream-static"], "shootAdvice": "清晨拍大三巴牌坊和旧城街巷，再步行或乘公共交通至东望洋山记录灯塔与半岛高位；本路线不调用高德驾车，尊重文物和教堂摄影规则，台风雷雨时取消登高。", "scores": { "visual": 5, "road": 3, "parking": 2, "safety": 4, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "大三巴与东望洋炮台地点、WGS84坐标和文物属性已查源；开放、维护、公共交通、天气、人流、摄影限制和总时长须现场核验。" } },
+    { "id": "qh-hn-hx-qinghai-lake-chaka", "name": "青海湖二郎剑至茶卡盐湖高原路线", "province": "青海", "cities": ["海南州", "海西"], "type": "lake", "captureStyle": "scenic-drive", "modes": ["day", "sunrise", "sunset", "asmr"], "estimatedDurationMinutes": 720, "waypointLocationIds": ["qh-hn-erlangjian", "qh-hx-chaka-salt-lake"], "best": { "seasons": ["spring", "summer", "autumn"], "times": ["sunrise", "morning", "golden-hour", "sunset", "blue-hour"], "weather": ["sunny", "cloudy", "after-rain"] }, "cameraPresetIds": ["gopro12-city-night-driving", "a7c2-coast-sunset", "a7c2-forest-stream-static"], "shootAdvice": "建议至少一整天并预留高海拔适应时间，先拍青海湖，再按高德实时规划合法道路转场茶卡；不驶入草场或盐壳，强风、雷暴、低温或身体不适时终止。", "scores": { "visual": 5, "road": 4, "parking": 3, "safety": 2, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "两个高原湖区节点、地址与坐标已查源；实时道路、补给、天气、海拔反应、票务、停车和总时长须出发前及途中核验。" } },
+    { "id": "nx-zw-shapotou-jinsha-island", "name": "中卫沙坡头至金沙岛沙水路线", "province": "宁夏", "cities": ["中卫"], "type": "river", "captureStyle": "scenic-drive", "modes": ["day", "sunrise", "sunset", "asmr"], "estimatedDurationMinutes": 480, "waypointLocationIds": ["nx-zw-shapotou", "nx-zw-jinsha-island-wetland"], "best": { "seasons": ["spring", "summer", "autumn"], "times": ["sunrise", "morning", "golden-hour", "sunset"], "weather": ["sunny", "cloudy"] }, "cameraPresetIds": ["gopro12-city-night-driving", "a7c2-coast-sunset", "a7c2-forest-stream-static"], "shootAdvice": "分别记录沙坡头的黄河沙丘与金沙岛湿地鸟水环境，中间仅按高德实时规划合法道路转场；沙尘、大风、高温或景区关闭时取消，禁止驶入沙地与湿地。", "scores": { "visual": 5, "road": 4, "parking": 3, "safety": 3, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "沙坡头与金沙岛地点、坐标及沙水景观已查源；实时道路、沙尘、开放、项目、停车、鸟类活动和总时长须现场核验。" } },
+    { "id": "xj-cj-tianchi-jiangbulake", "name": "昌吉天山天池至江布拉克山地长线", "province": "新疆", "cities": ["昌吉"], "type": "mountain", "captureStyle": "scenic-drive", "modes": ["day", "sunrise", "sunset", "asmr"], "estimatedDurationMinutes": 1080, "waypointLocationIds": ["xj-cj-tianshan-tianchi", "xj-cj-jiangbulake"], "best": { "seasons": ["summer", "autumn"], "times": ["sunrise", "morning", "golden-hour", "sunset"], "weather": ["sunny", "cloudy"] }, "cameraPresetIds": ["gopro12-city-night-driving", "a7c2-forest-stream-static"], "shootAdvice": "两处相距较远，建议分两日完成并在城镇补给住宿；分别按景区交通拍天池与江布拉克，长距离路段用高德实时规划，遇强风、降雪、封路或疲劳立即调整。", "scores": { "visual": 5, "road": 3, "parking": 3, "safety": 2, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "天池与江布拉克节点和景观属性已查源；两日道路、燃油、住宿、通信、天气、景区换乘、停车和总时长必须实时核验。" } },
+    { "id": "xz-ls-potala-norbulingka", "name": "拉萨布达拉宫至罗布林卡文化路线", "province": "西藏", "cities": ["拉萨"], "type": "city-night", "captureStyle": "rain-walk", "modes": ["day", "sunset", "asmr"], "estimatedDurationMinutes": 360, "waypointLocationIds": ["xz-ls-potala-palace", "xz-ls-norbulingka"], "best": { "seasons": ["spring", "summer", "autumn"], "times": ["morning", "golden-hour", "sunset", "blue-hour"], "weather": ["sunny", "cloudy", "after-rain"] }, "cameraPresetIds": ["a7c2-city-night-tripod", "a7c2-forest-stream-static"], "shootAdvice": "预留高海拔适应时间，先按预约参观布达拉宫允许区域，再乘公共交通或合法道路转场罗布林卡；全程尊重宗教与文物摄影规则，身体不适立即停止。", "scores": { "visual": 5, "road": 4, "parking": 2, "safety": 3, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "布达拉宫与罗布林卡地点、坐标和开放属性已查源；预约、安检、拍摄限制、交通、海拔适应、票务与总时长须当日核验。" } },
+    { "id": "nm-hhht-chilechuan-daqingshan", "name": "呼和浩特敕勒川至大青山草原山地路线", "province": "内蒙古", "cities": ["呼和浩特"], "type": "mountain", "captureStyle": "scenic-drive", "modes": ["day", "sunrise", "sunset", "asmr"], "estimatedDurationMinutes": 480, "waypointLocationIds": ["nm-hhht-chilechuan-grassland", "nm-hhht-daqingshan-trail"], "best": { "seasons": ["spring", "summer", "autumn"], "times": ["sunrise", "morning", "golden-hour", "sunset"], "weather": ["sunny", "cloudy", "after-rain"] }, "cameraPresetIds": ["gopro12-city-night-driving", "a7c2-forest-stream-static"], "shootAdvice": "先在敕勒川公开草原区域拍平原与阴山关系，再用高德实时规划至大青山公开步道入口；所有山地拍摄停车步行，防火、大风、沙尘或雷暴预警时取消。", "scores": { "visual": 5, "road": 4, "parking": 3, "safety": 3, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "敕勒川与大青山公开节点及坐标已查源；路线不得进入保护区封闭区域，实时道路、停车、天气、防火与开放状态须当日核验。" } },
+    { "id": "ln-dl-xinghai-bangchuidao-coast", "name": "大连星海广场至棒棰岛滨海路线", "province": "辽宁", "cities": ["大连"], "type": "coast", "captureStyle": "scenic-drive", "modes": ["day", "sunrise", "sunset", "night", "asmr"], "estimatedDurationMinutes": 540, "waypointLocationIds": ["ln-dl-xinghai-square", "ln-dl-bangchuidao"], "best": { "seasons": ["spring", "summer", "autumn"], "times": ["sunrise", "morning", "golden-hour", "sunset", "blue-hour"] , "weather": ["sunny", "cloudy", "fog", "after-rain"] }, "cameraPresetIds": ["gopro12-city-night-driving", "a7c2-coast-sunset"], "shootAdvice": "从星海广场记录城市海湾，固定车载设备后按高德实时规划滨海路合法道路转场棒棰岛；景点与观景位均停车步行，海雾、强风、浪高或管制时缩短路线。", "scores": { "visual": 5, "road": 5, "parking": 3, "safety": 3, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "辽宁省公开路线已将星海广场、滨海路和棒棰岛串联；具体道路、限行、停车、海况、开放和总时长须实时核验。" } },
+    { "id": "jl-cc-jingyuetan-nanhu-four-seasons", "name": "长春净月潭至南湖四季林水路线", "province": "吉林", "cities": ["长春"], "type": "lake", "captureStyle": "stationary-nature", "modes": ["day", "sunset", "asmr"], "estimatedDurationMinutes": 420, "waypointLocationIds": ["jl-cc-jingyuetan", "jl-cc-nanhu-park"], "best": { "seasons": ["spring", "summer", "autumn", "winter"], "times": ["sunrise", "morning", "golden-hour", "sunset"], "weather": ["sunny", "cloudy", "fog", "after-rain"] }, "cameraPresetIds": ["a7c2-forest-stream-static"], "shootAdvice": "分别在净月潭和南湖开放区域定点记录森林、水面与四季变化，中间只作城市道路转场；冬季不踏入未开放冰面，低温下预留电池并防止镜头冷凝。", "scores": { "visual": 5, "road": 4, "parking": 3, "safety": 4, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "净月潭与南湖地点、坐标和季节景观已查源；实时道路、票务、停车、活动、冰面和实际声场须现场核验。" } },
+    { "id": "hlj-heb-central-street-sun-island", "name": "哈尔滨中央大街至太阳岛冰城路线", "province": "黑龙江", "cities": ["哈尔滨"], "type": "city-night", "captureStyle": "rain-walk", "modes": ["day", "sunset", "night", "asmr"], "estimatedDurationMinutes": 420, "waypointLocationIds": ["hlj-heb-central-street", "hlj-heb-sun-island"], "best": { "seasons": ["summer", "autumn", "winter"], "times": ["morning", "golden-hour", "sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy"] }, "cameraPresetIds": ["a7c2-city-night-tripod", "a7c2-forest-stream-static"], "shootAdvice": "在中央大街拍建筑与城市步行氛围，再乘地铁、公共交通或合法道路转场太阳岛；冬季重点控制低温续航、结冰和冷凝，松花江冰面仅按官方开放范围进入。", "scores": { "visual": 5, "road": 4, "parking": 2, "safety": 3, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "中央大街与太阳岛地点和坐标已查源；冰雪活动、跨江交通、票务、开放、冰面安全、停车与总时长须当日核验。" } },
+    { "id": "sc-cd-qingcheng-dujiangyan", "name": "成都青城山至都江堰山水遗产路线", "province": "四川", "cities": ["成都"], "type": "mountain", "captureStyle": "scenic-drive", "modes": ["day", "sunset", "asmr"], "estimatedDurationMinutes": 480, "waypointLocationIds": ["sc-cd-qingcheng-mountain", "sc-cd-dujiangyan-irrigation"], "best": { "seasons": ["spring", "summer", "autumn"], "times": ["morning", "golden-hour", "sunset"], "weather": ["sunny", "cloudy", "fog", "after-rain"] }, "cameraPresetIds": ["gopro12-city-night-driving", "a7c2-forest-stream-static"], "shootAdvice": "上午在青城山开放步道记录林雾和水声，停车后用高德实时规划转场都江堰，傍晚拍古堰水系；强降雨、地质灾害预警或景区闭园时取消。", "scores": { "visual": 5, "road": 4, "parking": 3, "safety": 3, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "青城山和都江堰地点、坐标及景观属性已查源；实时道路、预约、停车、步道、水势和总时长须当日核验。" } },
+    { "id": "gz-as-huangguoshu-waterfall-loop", "name": "安顺黄果树天星桥至大瀑布水景路线", "province": "贵州", "cities": ["安顺"], "type": "waterfall", "captureStyle": "stationary-nature", "modes": ["day", "asmr"], "estimatedDurationMinutes": 360, "waypointLocationIds": ["gz-as-huangguoshu-tianxing", "gz-as-huangguoshu-waterfall"], "best": { "seasons": ["spring", "summer", "autumn"], "times": ["morning", "golden-hour"], "weather": ["cloudy", "fog", "rain", "after-rain"] }, "cameraPresetIds": ["a7c2-forest-stream-static"], "shootAdvice": "按黄果树景区当日观光车动线连接天星桥与大瀑布，以安全平台定点记录喀斯特水景和瀑布声；丰水、雷暴、封闭或步道湿滑时缩短或停止。", "scores": { "visual": 5, "road": 3, "parking": 3, "safety": 3, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "两个景区节点与坐标已查源；观光车顺序、票务、水势、开放步道、客流和收音位置须现场核验。" } },
+    { "id": "sn-xa-city-wall-pagoda-night", "name": "西安城墙至大雁塔古都蓝调路线", "province": "陕西", "cities": ["西安"], "type": "city-night", "captureStyle": "rain-walk", "modes": ["sunset", "night"], "estimatedDurationMinutes": 270, "waypointLocationIds": ["sn-xa-city-wall", "sn-xa-giant-wild-goose-pagoda"], "best": { "seasons": ["spring", "autumn", "winter"], "times": ["sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] }, "cameraPresetIds": ["a7c2-city-night-tripod"], "shootAdvice": "从城墙开放区拍日落与城门，随后优先地铁或合法道路转场大雁塔拍蓝调与夜景；雨后石材湿滑、节庆客流或活动管制时压缩器材。", "scores": { "visual": 5, "road": 4, "parking": 2, "safety": 4, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "城墙与大雁塔地点、地址和坐标已查源；开放时间、灯光、活动、人流、交通与总时长须当日核验。" } },
+    { "id": "gs-lz-zhongshan-baita-river", "name": "兰州中山桥至白塔山黄河路线", "province": "甘肃", "cities": ["兰州"], "type": "river", "captureStyle": "rain-walk", "modes": ["day", "sunset", "night", "asmr"], "estimatedDurationMinutes": 240, "waypointLocationIds": ["gs-lz-zhongshan-bridge", "gs-lz-baita-mountain-park"], "best": { "seasons": ["spring", "summer", "autumn"], "times": ["morning", "golden-hour", "sunset", "blue-hour"] , "weather": ["sunny", "cloudy", "after-rain"] }, "cameraPresetIds": ["a7c2-forest-stream-static", "a7c2-city-night-tripod"], "shootAdvice": "从中山桥和黄河步道记录水流与铁桥，再由北岸开放入口步行登白塔山拍河谷城市全景；强风、沙尘、结冰或夜间关闭时不登高。", "scores": { "visual": 5, "road": 3, "parking": 3, "safety": 3, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "中山桥和白塔山地点、坐标及景观关系已查源；开放、天气、步道、停车、灯光和声场须现场核验。" } },
+    { "id": "hb-wh-east-lake-yellow-crane", "name": "武汉东湖至黄鹤楼湖城路线", "province": "湖北", "cities": ["武汉"], "type": "lake", "captureStyle": "rain-walk", "modes": ["day", "sunset", "night", "asmr"], "estimatedDurationMinutes": 420, "waypointLocationIds": ["hb-wh-east-lake", "hb-wh-yellow-crane-tower"], "best": { "seasons": ["spring", "autumn", "winter"], "times": ["morning", "golden-hour", "sunset", "blue-hour"], "weather": ["sunny", "cloudy", "fog", "after-rain"] }, "cameraPresetIds": ["a7c2-forest-stream-static", "a7c2-city-night-tripod"], "shootAdvice": "清晨在东湖拍湖湾与自然声，傍晚转场黄鹤楼拍长江城市景观；景区内均步行，重大活动、暴雨或汛情期间调整。", "scores": { "visual": 5, "road": 4, "parking": 3, "safety": 4, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "东湖与黄鹤楼地点及坐标已查源；实时道路、票务、活动、停车和声场仍须现场核验。" } },
+    { "id": "hn-cs-yuelu-orange-isle", "name": "长沙岳麓山至橘子洲山水路线", "province": "湖南", "cities": ["长沙"], "type": "river", "captureStyle": "rain-walk", "modes": ["day", "sunset", "asmr"], "estimatedDurationMinutes": 360, "waypointLocationIds": ["hn-cs-yuelu-mountain", "hn-cs-orange-isle"], "best": { "seasons": ["spring", "autumn", "winter"], "times": ["morning", "golden-hour", "sunset", "blue-hour"], "weather": ["sunny", "cloudy", "fog", "after-rain"] }, "cameraPresetIds": ["a7c2-forest-stream-static"], "shootAdvice": "岳麓山记录林地和城市高位，橘子洲记录湘江与山城关系；优先公共交通转场，景区内部只按开放步道和摆渡规则行动。", "scores": { "visual": 5, "road": 4, "parking": 2, "safety": 4, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "岳麓山和橘子洲地点及坐标已查源；预约、交通、摆渡、活动和实际时长须当日核验。" } },
+    { "id": "gx-gl-elephant-yulong", "name": "桂林象鼻山至阳朔遇龙河山水路线", "province": "广西", "cities": ["桂林"], "type": "river", "captureStyle": "scenic-drive", "modes": ["day", "sunrise", "sunset", "asmr"], "estimatedDurationMinutes": 600, "waypointLocationIds": ["gx-gl-elephant-trunk-hill", "gx-gl-yulong-river"], "best": { "seasons": ["spring", "summer", "autumn"], "times": ["sunrise", "morning", "golden-hour", "sunset"], "weather": ["sunny", "cloudy", "fog", "after-rain"] }, "cameraPresetIds": ["gopro12-city-night-driving", "a7c2-forest-stream-static"], "shootAdvice": "先拍桂林城市漓江地标，再沿合法道路转场阳朔遇龙河；河岸与景区全部停车步行，强降雨、涨水或封航时停止临水拍摄。", "scores": { "visual": 5, "road": 4, "parking": 3, "safety": 3, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "象鼻山与遇龙河地点、坐标及景观属性已查源；道路、码头、竹筏、停车、水位和总时长须实时核验。" } },
+    { "id": "cq-hongyadong-nanshan-night", "name": "重庆洪崖洞至南山山城夜景路线", "province": "重庆", "cities": ["重庆"], "type": "city-night", "captureStyle": "scenic-drive", "modes": ["sunset", "night"], "estimatedDurationMinutes": 300, "waypointLocationIds": ["cq-hongyadong-viewpoint", "cq-nanshan-one-tree"], "best": { "seasons": ["spring", "autumn", "winter"], "times": ["sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain", "fog"] }, "cameraPresetIds": ["gopro12-city-night-driving", "a7c2-city-night-tripod"], "shootAdvice": "先在洪崖洞周边合法步行机位拍近景，再使用高德规划上南山道路拍城市全景；设备出发前固定，拥堵、浓雾或人流管制时改用公共交通。", "scores": { "visual": 5, "road": 3, "parking": 2, "safety": 3, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "洪崖洞与南山一棵树地点及坐标已查源；夜间灯光、道路拥堵、停车、人流和雾况须实时核验。" } },
+    { "id": "he-qhd-beidaihe-shanhaiguan-coast", "name": "秦皇岛北戴河至老龙头山海路线", "province": "河北", "cities": ["秦皇岛"], "type": "coast", "captureStyle": "scenic-drive", "modes": ["day", "sunrise", "sunset", "asmr"], "estimatedDurationMinutes": 420, "waypointLocationIds": ["he-qhd-pigeon-nest-park", "he-qhd-old-dragon-head"], "best": { "seasons": ["spring", "autumn"], "times": ["sunrise", "morning", "golden-hour", "sunset"], "weather": ["sunny", "cloudy", "after-rain"] }, "cameraPresetIds": ["gopro12-city-night-driving", "a7c2-coast-sunset"], "shootAdvice": "清晨在鸽子窝拍潮滩与鸟类，再沿合法城市道路转场老龙头拍入海长城；两处景区均停车后步行，强海风、浪高或临时管制时取消。", "scores": { "visual": 5, "road": 4, "parking": 3, "safety": 3, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "两个海岸地点及坐标已查源；实时道路、旺季管制、潮汐、海风、停车和总时长须当日核验。" } },
+    { "id": "sx-ty-fenhe-jinci", "name": "太原汾河至晋祠古建水系路线", "province": "山西", "cities": ["太原"], "type": "river", "captureStyle": "rain-walk", "modes": ["day", "sunset", "asmr"], "estimatedDurationMinutes": 360, "waypointLocationIds": ["sx-ty-fenhe-park", "sx-ty-jinci"], "best": { "seasons": ["spring", "summer", "autumn"], "times": ["morning", "golden-hour", "sunset"], "weather": ["sunny", "cloudy", "after-rain"] }, "cameraPresetIds": ["a7c2-forest-stream-static"], "shootAdvice": "先拍汾河城市水岸，再驾车转场晋祠记录泉水、古树和古建；两处均按开放步道拍摄，文物室内不使用强光或大型设备。", "scores": { "visual": 5, "road": 4, "parking": 3, "safety": 4, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "汾河与晋祠地点、坐标和访问属性已查源；道路、票务、开放、停车和声场须实地核验。" } },
+    { "id": "sd-qd-zhanqiao-laoshan", "name": "青岛栈桥至崂山城市山海路线", "province": "山东", "cities": ["青岛"], "type": "coast", "captureStyle": "scenic-drive", "modes": ["day", "sunrise", "sunset", "asmr"], "estimatedDurationMinutes": 600, "waypointLocationIds": ["sd-qd-zhanqiao", "sd-qd-laoshan"], "best": { "seasons": ["spring", "summer", "autumn"], "times": ["sunrise", "morning", "golden-hour", "sunset"], "weather": ["sunny", "cloudy", "fog"] }, "cameraPresetIds": ["gopro12-city-night-driving", "a7c2-coast-sunset", "a7c2-forest-stream-static"], "shootAdvice": "建议一整天或分两日：栈桥拍老城海岸，固定车载设备后转场崂山，进入具体游览区后使用景区交通和步道；大雾、暴雨或强风时停止。", "scores": { "visual": 5, "road": 4, "parking": 2, "safety": 3, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "栈桥与崂山地点及坐标已查源；目标游览区、预约、道路、停车、天气和总时长须实时核验。" } },
+    { "id": "ha-zz-yellow-river-longhu", "name": "郑州黄河至北龙湖水岸路线", "province": "河南", "cities": ["郑州"], "type": "river", "captureStyle": "stationary-nature", "modes": ["day", "sunset", "asmr"], "estimatedDurationMinutes": 420, "waypointLocationIds": ["ha-zz-yellow-river-park", "ha-zz-longhu-wetland"], "best": { "seasons": ["spring", "autumn", "winter"], "times": ["morning", "golden-hour", "sunset"], "weather": ["sunny", "cloudy", "after-rain"] }, "cameraPresetIds": ["a7c2-forest-stream-static"], "shootAdvice": "分别记录黄河大尺度水岸与城市人工湿地的声景差异，中间仅作合法道路转场；汛情、高温或大风预警时远离水边，禁止涉水。", "scores": { "visual": 4, "road": 4, "parking": 3, "safety": 3, "youtubePotential": 4 }, "status": "idea", "verification": { "status": "source-checked", "note": "黄河文化公园与龙湖湿地地点及坐标已查源；汛情、开放、道路、停车和定点收音位置须现场核验。" } },
+    { "id": "tj-haihe-jinwan-italian-night", "name": "天津津湾广场至意风区海河夜景路线", "province": "天津", "cities": ["天津"], "type": "city-night", "captureStyle": "rain-walk", "modes": ["sunset", "night"], "estimatedDurationMinutes": 180, "waypointLocationIds": ["tj-jinwan-plaza", "tj-italian-style-area"], "best": { "seasons": ["spring", "autumn", "winter"], "times": ["sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] }, "cameraPresetIds": ["a7c2-city-night-tripod"], "shootAdvice": "以海河桥梁、津湾建筑和意风区街巷形成连续城市夜景；全程优先步行或公共交通，雨后注意石材湿滑并避开商业扩声。", "scores": { "visual": 5, "road": 3, "parking": 2, "safety": 4, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "两处地点、地址和坐标已查源；灯光、活动、人流、停车和步行连接仍须当日核验。" } },
+    { "id": "js-nj-xuanwu-zhongshan-green", "name": "南京玄武湖至钟山林荫路线", "province": "江苏", "cities": ["南京"], "type": "forest", "captureStyle": "rain-walk", "modes": ["day", "sunset", "asmr"], "estimatedDurationMinutes": 360, "waypointLocationIds": ["js-nj-xuanwu-lake", "js-nj-zhongshan-scenic"], "best": { "seasons": ["spring", "autumn", "winter"], "times": ["morning", "golden-hour", "sunset"], "weather": ["sunny", "cloudy", "fog", "after-rain"] }, "cameraPresetIds": ["a7c2-forest-stream-static"], "shootAdvice": "玄武湖记录湖城关系，钟山记录林荫和历史景观；两处之间只作城市转场，景区内停车后按开放步道拍摄。", "scores": { "visual": 5, "road": 4, "parking": 3, "safety": 4, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "玄武湖与钟山地点及坐标已查源；景区交通、预约、停车、开放游线和声场仍须实地确认。" } },
+    { "id": "ah-hs-huangshan-hongcun", "name": "黄山峰林至宏村徽州山水路线", "province": "安徽", "cities": ["黄山"], "type": "mountain", "captureStyle": "scenic-drive", "modes": ["day", "sunrise", "sunset", "asmr"], "estimatedDurationMinutes": 720, "waypointLocationIds": ["ah-hs-bright-summit", "ah-hs-hongcun"], "best": { "seasons": ["spring", "autumn", "winter"], "times": ["sunrise", "morning", "golden-hour", "sunset"], "weather": ["sunny", "cloudy", "fog", "after-rain"] }, "cameraPresetIds": ["gopro12-city-night-driving", "a7c2-forest-stream-static"], "shootAdvice": "建议至少两日完成：黄山景区按换乘、索道与步道拍峰林，次日驾车转场宏村并步行拍古村水系；恶劣山地天气或客流预警时调整。", "scores": { "visual": 5, "road": 3, "parking": 3, "safety": 3, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "黄山与宏村地点、坐标和访问边界已查源；两日道路、住宿、索道、票务、天气与总时长须实时核验。" } },
+    { "id": "jx-nc-ganjiang-two-banks", "name": "南昌滕王阁至秋水广场赣江两岸路线", "province": "江西", "cities": ["南昌"], "type": "river", "captureStyle": "rain-walk", "modes": ["sunset", "night"], "estimatedDurationMinutes": 210, "waypointLocationIds": ["jx-nc-tengwang-pavilion", "jx-nc-qiushui-square"], "best": { "seasons": ["spring", "autumn", "winter"], "times": ["sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] }, "cameraPresetIds": ["a7c2-city-night-tripod"], "shootAdvice": "分别从赣江两岸拍滕王阁、晚霞和城市灯光，中间使用公共交通或合法道路转场；喷泉和大型活动期间压缩设备并保持通道畅通。", "scores": { "visual": 5, "road": 4, "parking": 3, "safety": 4, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "两处赣江节点及坐标已查源；跨江交通、灯光、喷泉、活动、人流与停车须当日核验。" } },
+    { "id": "bj-olympic-chaoyang-urban-nature", "name": "北京奥森至朝阳公园城市自然路线", "province": "北京", "cities": ["北京"], "type": "forest", "captureStyle": "rain-walk", "modes": ["day", "sunset", "asmr"], "estimatedDurationMinutes": 300, "waypointLocationIds": ["bj-olympic-forest-park", "bj-chaoyang-park"], "best": { "seasons": ["spring", "autumn"], "times": ["morning", "golden-hour", "sunset"], "weather": ["sunny", "cloudy", "after-rain"] }, "cameraPresetIds": ["a7c2-forest-stream-static"], "shootAdvice": "两座公园之间仅作城市转场，进入公园后全程步行；分别记录奥森林水空间和朝阳公园湖岸城市界面，避开跑步、人流与活动扩声区域。", "scores": { "visual": 4, "road": 4, "parking": 3, "safety": 4, "youtubePotential": 4 }, "status": "idea", "verification": { "status": "source-checked", "note": "两个公园的存在、入口和导航坐标已查源；实时道路、停车、开放范围和实际声场仍须现场核验。" } },
+    { "id": "sh-huangpu-river-two-bunds", "name": "上海外滩至北外滩滨江蓝调路线", "province": "上海", "cities": ["上海"], "type": "city-night", "captureStyle": "rain-walk", "modes": ["sunset", "night", "asmr"], "estimatedDurationMinutes": 210, "waypointLocationIds": ["sh-bund-waterfront", "sh-north-bund-waterfront"], "best": { "seasons": ["spring", "autumn", "winter"], "times": ["sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] }, "cameraPresetIds": ["a7c2-city-night-tripod"], "shootAdvice": "建议公共交通或合法停车后分段步行，先在外滩拍浦东天际线，再到北外滩补充不同角度的滨江夜景；节假日和大型活动期间压缩器材规模。", "scores": { "visual": 5, "road": 3, "parking": 2, "safety": 4, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "两处滨江公共空间及坐标已查源；实际连接方式、灯光、活动、停车和总时长须当日核验。" } },
+    { "id": "zj-hz-west-lake-xixi-water", "name": "杭州西湖至西溪湿地水岸路线", "province": "浙江", "cities": ["杭州"], "type": "lake", "captureStyle": "stationary-nature", "modes": ["day", "sunset", "asmr"], "estimatedDurationMinutes": 360, "waypointLocationIds": ["zj-hz-west-lake-six-park", "zj-hz-xixi-wetland"], "best": { "seasons": ["spring", "summer", "autumn"], "times": ["sunrise", "morning", "golden-hour", "sunset"], "weather": ["cloudy", "fog", "rain", "after-rain"] }, "cameraPresetIds": ["a7c2-forest-stream-static"], "shootAdvice": "西湖湖滨与西溪湿地分段拍摄，中间仅作城市转场；以固定机位分别记录城市湖岸和湿地鸟水声，雨天注意防水，禁止离开开放游线。", "scores": { "visual": 5, "road": 3, "parking": 2, "safety": 4, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "西湖与西溪地点、坐标及开放属性已查源；湿地游线、票务、水位、停车和收音机位仍须实地确认。" } },
+    { "id": "hi-hainan-east-ring-drive", "name": "海口—文昌—万宁—三亚海南东线", "province": "海南", "cities": ["海口", "文昌", "万宁", "三亚"], "type": "coast", "captureStyle": "scenic-drive", "modes": ["day", "sunrise", "sunset"], "estimatedDurationMinutes": 900, "waypointLocationIds": ["hi-hk-holiday-beach", "hi-wc-tongguling", "hi-wn-shimei-bay", "hi-sy-yalong-bay"], "best": { "seasons": ["winter", "spring", "autumn"], "times": ["sunrise", "golden-hour", "sunset"], "weather": ["sunny", "cloudy"] }, "cameraPresetIds": ["gopro12-city-night-driving", "a7c2-coast-sunset"], "shootAdvice": "建议三日分段完成海南东线，使用高德逐日规划；所有海岸与山景机位停车后进入，台风、雷暴、强风或高温预警时停止。", "scores": { "visual": 5, "road": 5, "parking": 3, "safety": 4, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "四个节点已查源；逐日道路、住宿、停车、海况和景区开放须实时核验。" } },
+    { "id": "yn-lijiang-shangrila-highland", "name": "丽江至香格里拉高原路线", "province": "云南", "cities": ["丽江", "迪庆"], "type": "mountain", "captureStyle": "scenic-drive", "modes": ["day", "sunrise", "sunset"], "estimatedDurationMinutes": 600, "waypointLocationIds": ["yn-lj-old-town", "yn-dq-pudacuo"], "best": { "seasons": ["spring", "summer", "autumn"], "times": ["morning", "golden-hour", "sunset"], "weather": ["sunny", "cloudy"] }, "cameraPresetIds": ["gopro12-city-night-driving", "a7c2-forest-stream-static"], "shootAdvice": "逐步适应海拔，使用高德实时规划山区道路；冰雪、落石、浓雾或高原不适时停止，国家公园内部停车后按景区交通进入。", "scores": { "visual": 5, "road": 3, "parking": 3, "safety": 2, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "两端地点已查源；高海拔道路、天气、开放和身体状态须实时核验。" } },
+    { "id": "hi-sanya-wanning-east-coast", "name": "三亚至万宁海南东线海岸路线", "province": "海南", "cities": ["三亚", "万宁"], "type": "coast", "captureStyle": "scenic-drive", "modes": ["day", "sunrise", "sunset"], "estimatedDurationMinutes": 480, "waypointLocationIds": ["hi-sy-yalong-bay", "hi-wn-shimei-bay"], "best": { "seasons": ["winter", "spring", "autumn"], "times": ["sunrise", "golden-hour", "sunset"], "weather": ["sunny", "cloudy"] }, "cameraPresetIds": ["gopro12-city-night-driving", "a7c2-coast-sunset"], "shootAdvice": "沿海南东线使用高德规划合法道路，海岸均停车后步行；避开台风、雷暴和高温时段。", "scores": { "visual": 5, "road": 5, "parking": 3, "safety": 4, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "两个海湾坐标已查源；实时道路、公共海岸边界、停车和海况须核验。" } },
+    { "id": "fj-pingtan-xiamen-dongshan-coast", "name": "福建平潭—厦门—东山岛沿海路线", "province": "福建", "cities": ["福州", "厦门", "漳州"], "type": "coast", "captureStyle": "scenic-drive", "modes": ["day", "sunrise", "sunset"], "estimatedDurationMinutes": 720, "waypointLocationIds": ["fj-fz-pingtan-island", "fj-xm-huandao-road", "fj-zz-dongshan-island"], "best": { "seasons": ["spring", "autumn", "winter"], "times": ["sunrise", "golden-hour", "sunset"], "weather": ["sunny", "cloudy"] }, "cameraPresetIds": ["gopro12-city-night-driving", "a7c2-coast-sunset"], "shootAdvice": "建议三日分段完成，岛内和城市海岸机位全部停车后拍摄；台风、强风和海雾影响通行时取消。", "scores": { "visual": 5, "road": 4, "parking": 3, "safety": 3, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "三处导航节点已查源；多日道路、住宿、停车、海况和公共访问边界须分段核验。" } },
+    { "id": "yn-kunming-dali-lijiang-drive", "name": "云南昆明—大理—丽江高原风景路线", "province": "云南", "cities": ["昆明", "大理", "丽江"], "type": "lake", "captureStyle": "scenic-drive", "modes": ["day", "sunrise", "sunset"], "estimatedDurationMinutes": 720, "waypointLocationIds": ["yn-km-dianchi-haigeng", "yn-dl-erhai-corridor", "yn-lj-old-town"], "best": { "seasons": ["spring", "autumn", "winter"], "times": ["sunrise", "golden-hour", "sunset", "blue-hour"], "weather": ["sunny", "cloudy"] }, "cameraPresetIds": ["gopro12-city-night-driving", "a7c2-coast-sunset"], "shootAdvice": "建议至少三天完成，逐步适应高原海拔；生态廊道和古城内部均停车步行，雾、冰雪或高原不适时停止行程。", "scores": { "visual": 5, "road": 4, "parking": 3, "safety": 3, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "三地坐标和到达边界已查源；高原道路、天气、住宿、限行和总时长须逐日实时核验。" } },
+    { "id": "hi-sanya-east-west-coast", "name": "三亚天涯海角至亚龙湾海岸路线", "province": "海南", "cities": ["三亚"], "type": "coast", "captureStyle": "scenic-drive", "modes": ["day", "sunrise", "sunset"], "estimatedDurationMinutes": 300, "waypointLocationIds": ["hi-sy-tianya-haijiao", "hi-sy-yalong-bay"], "best": { "seasons": ["winter", "spring", "autumn"], "times": ["sunrise", "golden-hour", "sunset"], "weather": ["sunny", "cloudy"] }, "cameraPresetIds": ["gopro12-city-night-driving", "a7c2-coast-sunset"], "shootAdvice": "高德规划三亚东西海岸合法道路，景区内部停车后步行；避开台风、雷暴和高温暴晒，驾驶者不操作设备。", "scores": { "visual": 5, "road": 4, "parking": 3, "safety": 4, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "两个海岸节点已查源；实时道路、票务、停车、海况与时长须当日确认。" } },
+    { "id": "fj-pingtan-xiamen-wuyi-drive", "name": "福建平潭—厦门—武夷山山海路线", "province": "福建", "cities": ["福州", "厦门", "南平"], "type": "coast", "captureStyle": "scenic-drive", "modes": ["day", "sunrise", "sunset"], "estimatedDurationMinutes": 900, "waypointLocationIds": ["fj-fz-pingtan-island", "fj-xm-huandao-road", "fj-np-wuyi-mountain"], "best": { "seasons": ["spring", "autumn", "winter"], "times": ["sunrise", "golden-hour", "sunset"], "weather": ["sunny", "cloudy", "fog"] }, "cameraPresetIds": ["gopro12-city-night-driving", "a7c2-coast-sunset", "a7c2-forest-stream-static"], "shootAdvice": "这是跨区域多日路线，建议分为平潭、厦门、武夷山三段；沿海遇台风强风取消，山区遇暴雨浓雾停止转场。", "scores": { "visual": 5, "road": 4, "parking": 3, "safety": 3, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "三处核心节点已查源；多日道路、住宿、天气、景区开放和具体时长须分段核验。" } },
+    { "id": "gd-prd-guangfo-mountains", "name": "广佛双山城市远景路线", "province": "广东", "cities": ["广州", "佛山"], "type": "mountain", "captureStyle": "scenic-drive", "modes": ["day", "sunset"], "estimatedDurationMinutes": 360, "waypointLocationIds": ["gd-gz-baiyun-mountain", "gd-fs-xiqiao-mountain"], "best": { "seasons": ["spring", "autumn", "winter"], "times": ["morning", "golden-hour", "sunset"], "weather": ["sunny", "cloudy", "after-rain"] }, "cameraPresetIds": ["gopro12-city-night-driving", "a7c2-coast-sunset"], "shootAdvice": "两座山之间使用高德规划城际转场，景区内部均停车后步行；不把高速和城市道路当作临停机位。", "scores": { "visual": 4, "road": 4, "parking": 3, "safety": 4, "youtubePotential": 4 }, "status": "idea", "verification": { "status": "source-checked", "note": "两处景区与坐标已查源；跨城道路、停车、开放和总时长须实时规划并实地核验。" } },
+    { "id": "gd-prd-west-coast-drive", "name": "珠海—中山—江门湾区西岸路线", "province": "广东", "cities": ["珠海", "中山", "江门"], "type": "coast", "captureStyle": "scenic-drive", "modes": ["day", "sunset"], "estimatedDurationMinutes": 360, "waypointLocationIds": ["gd-zh-zhuhai-fisher-girl", "gd-zs-qijiang-park", "gd-jm-guifeng-mountain"], "best": { "seasons": ["spring", "autumn", "winter"], "times": ["golden-hour", "sunset", "blue-hour"], "weather": ["sunny", "cloudy", "after-rain"] }, "cameraPresetIds": ["gopro12-city-night-driving", "a7c2-coast-sunset"], "shootAdvice": "从海岸、岐江工业遗存转入圭峰山林，车载设备全程固定；三个地点均在合法停车后完成固定机位。", "scores": { "visual": 5, "road": 4, "parking": 3, "safety": 4, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "三个地点与坐标已查源；跨城顺序、道路、停车和时长须由高德实时规划。" } },
+    { "id": "gd-east-chaoshan-drive", "name": "潮汕古城至南澳岛山海路线", "province": "广东", "cities": ["揭阳", "潮州", "汕头"], "type": "coast", "captureStyle": "scenic-drive", "modes": ["day", "sunrise", "sunset"], "estimatedDurationMinutes": 420, "waypointLocationIds": ["gd-jy-huangqi-mountain", "gd-cz-guangji-bridge", "gd-st-nanao-island"], "best": { "seasons": ["spring", "autumn", "winter"], "times": ["morning", "golden-hour", "sunset"], "weather": ["sunny", "cloudy"] }, "cameraPresetIds": ["gopro12-city-night-driving", "a7c2-coast-sunset"], "shootAdvice": "从揭阳山景、潮州古城转至南澳海岸，预留跨城和进岛拥堵；台风预警、强风或跨海通行管制时取消。", "scores": { "visual": 5, "road": 4, "parking": 2, "safety": 3, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "三城地点与坐标已查源；跨海道路、开放、拥堵和停车必须实时核验。" } },
+    { "id": "gd-east-huizhou-shanwei-coast", "name": "惠东至汕尾红海湾长海岸路线", "province": "广东", "cities": ["惠州", "汕尾"], "type": "coast", "captureStyle": "scenic-drive", "modes": ["day", "sunrise", "sunset"], "estimatedDurationMinutes": 420, "waypointLocationIds": ["gd-hz-xunliao-bay", "gd-hz-double-moon-resort", "gd-sw-red-bay"], "best": { "seasons": ["spring", "autumn", "winter"], "times": ["sunrise", "golden-hour", "sunset"], "weather": ["sunny", "cloudy"] }, "cameraPresetIds": ["gopro12-city-night-driving", "a7c2-coast-sunset"], "shootAdvice": "使用高德规划合法跨城道路，预留补给和拥堵时间；海岸机位停车后步行，强风浪和台风预警时取消。", "scores": { "visual": 5, "road": 4, "parking": 2, "safety": 3, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "三个海岸节点已查源；长距离道路、海况、停车和总时长须实时及实地核验。" } },
+    { "id": "gd-west-yangjiang-zhanjiang-coast", "name": "阳江—茂名—湛江粤西海岸路线", "province": "广东", "cities": ["阳江", "茂名", "湛江"], "type": "coast", "captureStyle": "scenic-drive", "modes": ["day", "sunrise", "sunset"], "estimatedDurationMinutes": 540, "waypointLocationIds": ["gd-yj-hailing-island", "gd-mm-first-beach", "gd-zj-huguangyan"], "best": { "seasons": ["spring", "autumn", "winter"], "times": ["sunrise", "golden-hour", "sunset"], "weather": ["sunny", "cloudy"] }, "cameraPresetIds": ["gopro12-city-night-driving", "a7c2-coast-sunset"], "shootAdvice": "建议拆分为两天完成，使用高德实时规划海岸城际转场；台风或强对流天气取消，驾驶者不操作拍摄设备。", "scores": { "visual": 5, "road": 4, "parking": 3, "safety": 3, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "三城地点与坐标已查源；两日节奏、住宿、道路、海况和停车仍须实地核验。" } },
+    { "id": "gd-north-mountain-drive", "name": "广州—清远—韶关粤北山景路线", "province": "广东", "cities": ["广州", "清远", "韶关"], "type": "mountain", "captureStyle": "scenic-drive", "modes": ["day", "sunrise", "sunset"], "estimatedDurationMinutes": 540, "waypointLocationIds": ["gd-gz-baiyun-mountain", "gd-qy-gulong-gorge", "gd-sg-danxia-mountain"], "best": { "seasons": ["spring", "autumn", "winter"], "times": ["morning", "golden-hour", "sunset"], "weather": ["sunny", "cloudy", "fog"] }, "cameraPresetIds": ["gopro12-city-night-driving", "a7c2-forest-stream-static"], "shootAdvice": "建议拆分为两天，景区之间驾车、景区内部步行；大雾、暴雨、落石或地质风险提示时停止山区转场。", "scores": { "visual": 5, "road": 3, "parking": 3, "safety": 3, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "三个山景节点已查源；山区道路、住宿、开放、天气和总时长须实时核验。" } },
+    { "id": "gd-hakka-lake-tea-drive", "name": "河源万绿湖至梅州茶田客家路线", "province": "广东", "cities": ["河源", "梅州"], "type": "lake", "captureStyle": "scenic-drive", "modes": ["day", "sunrise", "sunset", "asmr"], "estimatedDurationMinutes": 480, "waypointLocationIds": ["gd-hy-wanlv-lake", "gd-mz-yan-nan-fei"], "best": { "seasons": ["spring", "autumn", "winter"], "times": ["morning", "golden-hour", "sunset"], "weather": ["sunny", "cloudy", "fog"] }, "cameraPresetIds": ["gopro12-city-night-driving", "a7c2-forest-stream-static"], "shootAdvice": "从湖区转入梅州丘陵茶田，建议预留一整天或分两日；景区内部停车步行，雾天谨慎驾驶。", "scores": { "visual": 5, "road": 4, "parking": 3, "safety": 4, "youtubePotential": 4 }, "status": "idea", "verification": { "status": "source-checked", "note": "两个地点与坐标已查源；城际道路、景区开放、雾况和时长须实时核验。" } },
+    { "id": "gd-west-zhaoqing-yunfu", "name": "肇庆峰湖至云浮岩洞路线", "province": "广东", "cities": ["肇庆", "云浮"], "type": "mountain", "captureStyle": "scenic-drive", "modes": ["day", "sunset"], "estimatedDurationMinutes": 360, "waypointLocationIds": ["gd-zq-seven-star-crags", "gd-yf-panlong-cave"], "best": { "seasons": ["spring", "autumn", "winter"], "times": ["morning", "golden-hour", "sunset"], "weather": ["sunny", "cloudy", "after-rain"] }, "cameraPresetIds": ["gopro12-city-night-driving", "a7c2-forest-stream-static"], "shootAdvice": "先拍七星岩户外峰湖，再转云浮洞穴低照度场景；洞内拍摄权限和灯光限制须现场确认。", "scores": { "visual": 4, "road": 4, "parking": 3, "safety": 4, "youtubePotential": 4 }, "status": "idea", "verification": { "status": "source-checked", "note": "两个地点与坐标已查源；城际道路、开放、洞内摄影规则和时长须实地核验。" } },
     {
       "id": "gd-sz-bay-scenic-drive",
       "name": "深圳湾滨海天际线风景驾车路线",

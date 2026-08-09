@@ -8,7 +8,7 @@ function transformLat(x: number, y: number) { return -100 + 2*x + 3*y + .2*y*y +
 function transformLng(x: number, y: number) { return 300 + x + 2*y + .1*x*x + .1*x*y + .1*Math.sqrt(Math.abs(x)) + (20*Math.sin(6*x*PI)+20*Math.sin(2*x*PI))*2/3 + (20*Math.sin(x*PI)+40*Math.sin(x/3*PI))*2/3 + (150*Math.sin(x/12*PI)+300*Math.sin(x/30*PI))*2/3; }
 
 export function wgs84ToGcj02(lat: number, lng: number): { lat: number; lng: number; crs: CoordinateReferenceSystem } {
-  if (outOfChina(lat, lng)) return { lat, lng, crs: "GCJ-02" };
+  if (outOfChina(lat, lng)) return { lat, lng, crs: "WGS84" };
   let dLat = transformLat(lng - 105, lat - 35); let dLng = transformLng(lng - 105, lat - 35);
   const radLat = lat / 180 * PI; let magic = Math.sin(radLat); magic = 1 - EE * magic * magic;
   const sqrtMagic = Math.sqrt(magic);

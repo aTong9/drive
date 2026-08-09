@@ -1,0 +1,178 @@
+{
+  "schemaVersion": "1.0.0",
+  "methodology": "基于公开频道与代表视频的标题、时长、画面、声音、系列结构和可见播放表现进行编辑分析；播放量会持续变化，原因归纳属于可验证素材上的策略推断，不代表 YouTube 官方归因。",
+  "accessedAt": "2026-08-09",
+  "creators": [
+    {
+      "id": "nomadic-ambience", "name": "Nomadic Ambience", "region": "美国 / 全球取景", "category": "rain-walk", "channelUrl": "https://www.youtube.com/@NomadicAmbience",
+      "positioning": "把真实雨中步行、城市与自然声做成长时间沉浸体验。",
+      "representative": { "title": "Relaxing Walk in Thunderstorm, Binaural Rain and Nature Sounds for Sleep and Study | 4K ASMR", "url": "https://www.youtube.com/watch?v=I-zPNQYHSvU", "observedPerformance": "公开页面在核验时显示约 819 万播放、13.5 万点赞。" },
+      "whyItWorks": ["同一条视频同时满足旅行代入、睡眠、学习和 ASMR 四种使用场景。", "标题把天气、环境声、用途、4K 和 ASMR 等搜索意图完整写出。", "双耳实地录音与连续长镜头降低叙事负担，让观众可长期后台播放。"],
+      "patterns": ["把雨、雷、溪流、鸟声设计成声音事件", "60—180 分钟长时内容", "按天气与地点建立可连续观看的播放列表"],
+      "caution": "可借鉴真实收音与用途包装，不复制其素材、LUT、标题或录音。",
+      "evidence": [{ "title": "代表视频公开页面", "url": "https://www.youtube.com/watch?v=I-zPNQYHSvU" }]
+    },
+    {
+      "id": "scenic-relaxation", "name": "Scenic Relaxation", "region": "美国 / 全球取景", "category": "cinematic-landscape", "channelUrl": "https://www.youtube.com/@ScenicRelaxationFilms",
+      "positioning": "将国家和区域风景剪成一小时左右的电影感放松影像。",
+      "representative": { "title": "Italy 4K - Scenic Relaxation Film With Calming Music", "url": "https://www.youtube.com/watch?v=2b2gJu-g3qE", "observedPerformance": "公开页面在核验时显示约 1446 万播放、9.5 万点赞。" },
+      "whyItWorks": ["国家名 + 4K + 放松用途是跨语言、长期有效的搜索组合。", "海岸、山地、城镇等高差异镜头持续提供视觉新鲜感。", "固定的一小时片长和统一命名形成明确频道承诺，便于连续播放。"],
+      "patterns": ["以国家或地貌为一集", "高质量航拍与地面素材交替", "舒缓音乐、低信息密度、稳定节奏"],
+      "caution": "航拍必须遵守当地空域、景区和隐私规定；音乐需要拥有明确授权。",
+      "evidence": [{ "title": "Italy 4K 代表视频", "url": "https://www.youtube.com/watch?v=2b2gJu-g3qE" }]
+    },
+    {
+      "id": "nature-relaxation-films", "name": "Nature Relaxation Films", "region": "美国 / 全球取景", "category": "stationary-nature", "channelUrl": "https://www.youtube.com/@NatureRelaxationFilms",
+      "positioning": "用超长自然影像服务电视背景、冥想、睡眠和专注。",
+      "representative": { "title": "7 HOUR 4K DRONE FILM: Earth from Above", "url": "https://www.youtube.com/results?search_query=Nature+Relaxation+Films+Earth+from+Above+7+hour", "observedPerformance": "公开 YouTube 搜索结果在核验时显示约 1600 万播放。" },
+      "whyItWorks": ["七小时内容覆盖完整睡眠、工作或电视背景时段，扩大总观看时间。", "Earth from Above 提供一眼能懂的全球尺度承诺。", "稳定镜头和连续氛围音乐避免频繁刺激，适合重复使用。"],
+      "patterns": ["2—10 小时超长版本", "电视屏保式高分辨率画面", "自然主题与明确功能词组合"],
+      "caution": "超长内容仍需真实素材变化，避免简单循环造成体验和平台合规风险。",
+      "evidence": [{ "title": "频道公开视频页", "url": "https://www.youtube.com/@NatureRelaxationFilms/videos" }]
+    },
+    {
+      "id": "rambalac", "name": "Rambalac", "region": "日本", "category": "urban-walk", "channelUrl": "https://www.youtube.com/@Rambalac",
+      "positioning": "无旁白、长时间、高分辨率地记录日本城市与街区步行。",
+      "representative": { "title": "Japan 4K walking tours", "url": "https://www.youtube.com/@Rambalac/videos", "observedPerformance": "频道长期持续发布日本城市、夜景、雨雪与街区步行系列。" },
+      "whyItWorks": ["第一视角和无旁白降低语言门槛，全球观众都能直接进入场景。", "日本、东京、夜景、雨雪等地点与情境词具备稳定搜索需求。", "持续覆盖普通街区而非只拍名胜，建立了资料库价值和回访理由。"],
+      "patterns": ["真实路线连续行走", "夜景、雨雪、樱花等情境变体", "地点名优先、少剪辑、环境声保留"],
+      "caution": "街拍需注意行人隐私、受限场所和长时间稳定器负重。",
+      "evidence": [{ "title": "Rambalac 官方频道", "url": "https://www.youtube.com/@Rambalac" }]
+    },
+    {
+      "id": "watched-walker", "name": "Watched Walker", "region": "英国 / 欧洲", "category": "rain-walk", "channelUrl": "https://www.youtube.com/@WatchedWalker",
+      "positioning": "以伦敦为核心制作 4K HDR 城市步行，强化天气与实时街景。",
+      "representative": { "title": "Grey & Rainy Central London Walk - 4K HDR 60FPS", "url": "https://www.youtube.com/results?search_query=Watched+Walker+Grey+Rainy+Central+London+4K+HDR", "observedPerformance": "公开频道持续用 London、weather、4K HDR、60FPS 组织系列。" },
+      "whyItWorks": ["阴雨并非缺陷，而是标题和画面的核心情境卖点。", "4K HDR 60FPS 提供清晰、顺滑且适合大屏观看的质量信号。", "热门城市与当日天气组合兼顾搜索流量和现场感。"],
+      "patterns": ["城市 + 天气 + 画质规格标题", "90 分钟左右完整路线", "保留交通、人群和雨声的真实声场"],
+      "caution": "画质规格必须与实际交付一致，避免只在标题堆叠技术词。",
+      "evidence": [{ "title": "Watched Walker 官方频道", "url": "https://www.youtube.com/@WatchedWalker" }]
+    },
+    {
+      "id": "j-utah", "name": "J Utah", "region": "美国 / 全球城市", "category": "scenic-drive", "channelUrl": "https://www.youtube.com/@JUtah",
+      "positioning": "用稳定车载视角记录城市中心、海岸和公路的真实驾驶过程。",
+      "representative": { "title": "4K city driving tours", "url": "https://www.youtube.com/@JUtah/videos", "observedPerformance": "频道以城市名、驾驶路线与 4K 规格持续建立全球道路影像库。" },
+      "whyItWorks": ["城市名与 driving tour 直接对应旅行预览、怀旧和背景播放需求。", "车载机位稳定、路线连续，观众容易获得空间方向和速度感。", "跨城市重复同一格式，既利于搜索收录也降低观众理解成本。"],
+      "patterns": ["城市/道路名放在标题前部", "白天、夜间和天气版本", "少旁白、保留道路声、连续路线"],
+      "caution": "驾驶拍摄必须使用固定机位，出发前完成设置，行驶中不得操作设备。",
+      "evidence": [{ "title": "J Utah 官方频道", "url": "https://www.youtube.com/@JUtah" }]
+    },
+    {
+      "id": "tourister", "name": "Tourister", "region": "欧洲 / 全球城市", "category": "urban-walk", "channelUrl": "https://www.youtube.com/@Tourister",
+      "positioning": "制作地标城市、历史街区和乡村的长时间 4K HDR 步行体验。",
+      "representative": { "title": "Bibury - The Prettiest Village in England - 4K HDR Walking Tour", "url": "https://www.youtube.com/results?search_query=Tourister+Bibury+Prettiest+Village+4K+HDR", "observedPerformance": "公开内容以强地点形容词、4K HDR 与 walking tour 形成统一包装。" },
+      "whyItWorks": ["The Prettiest 等明确价值判断快速回答观众为什么要点开。", "地标与乡村题材交替，覆盖旅行决策和沉浸放松两类需求。", "长镜头让路线具有实用参考价值，而不只是景点混剪。"],
+      "patterns": ["强地点卖点 + 画质 + 内容类型", "历史街区和季节活动系列", "稳定步速与真实环境声"],
+      "caution": "主观形容词需要画面兑现，避免所有地点都使用同一夸张承诺。",
+      "evidence": [{ "title": "Tourister 官方频道", "url": "https://www.youtube.com/@Tourister" }]
+    },
+    {
+      "id": "prowalk-tours", "name": "Prowalk Tours", "region": "意大利 / 全球旅行地", "category": "guided-walk", "channelUrl": "https://www.youtube.com/@ProWalks",
+      "positioning": "把完整步行路线、地点知识和章节信息结合为可观看的旅行导览。",
+      "representative": { "title": "4K walking tours with route context", "url": "https://www.youtube.com/@ProWalks/videos", "observedPerformance": "频道以完整旅游目的地、长时步行和路线信息形成内容资产。" },
+      "whyItWorks": ["同时提供沉浸观看和行前规划价值，提高收藏与重复观看机会。", "长时路线配章节或地点信息，让观众可跳转也可连续播放。", "围绕高需求旅游目的地形成系列，旧视频仍可持续承接搜索。"],
+      "patterns": ["完整路线而非零散镜头", "章节、地图或地点说明", "热门目的地与街区深度覆盖"],
+      "caution": "信息说明应保持准确和克制，避免让字幕或旁白破坏沉浸节奏。",
+      "evidence": [{ "title": "Prowalk Tours 官方频道", "url": "https://www.youtube.com/@ProWalks" }]
+    },
+    {
+      "id": "naturescapes", "name": "Naturescapes", "region": "加拿大 / 美国自然保护地", "category": "stationary-nature", "channelUrl": "https://www.youtube.com/@NaturescapesYouTube",
+      "positioning": "以真实溪流、瀑布、鸟鸣和森林固定机位制作无音乐长时自然声景。",
+      "representative": { "title": "Forest River Nature Sounds - Gentle Stream with Birdsong | 4K Relaxing Nature Ambience for Sleep", "url": "https://www.youtube.com/watch?v=29XymHesxa0", "observedPerformance": "公开视频索引在核验时显示约 340 万播放、2.9 万点赞。" },
+      "whyItWorks": ["单一稳定画面减少视觉干扰，让溪流和鸟鸣成为真正的内容主体。", "森林、溪流、鸟鸣、睡眠与专注构成清晰且长期有效的搜索组合。", "同一声景提供三至十小时版本，能够覆盖午休、工作和整夜睡眠时段。"],
+      "patterns": ["固定机位先寻找声音层次而非只找漂亮构图", "无音乐版本保留自然声真实性", "同一地点制作短版、三小时版和整夜版"],
+      "caution": "需要记录真实录音地点和时间，降噪不应抹掉鸟鸣、风向与水流的空间层次。",
+      "evidence": [{ "title": "Naturescapes 官方频道", "url": "https://www.youtube.com/@NaturescapesYouTube" }, { "title": "官方视频目录", "url": "https://www.naturescapes.app/videos" }]
+    },
+    {
+      "id": "virtual-japan", "name": "VIRTUAL JAPAN", "region": "日本", "category": "rain-walk", "channelUrl": "https://www.youtube.com/@virtualjapan",
+      "positioning": "用 4K HDR 与空间音频记录东京雨夜、霓虹街区和日本日常生活。",
+      "representative": { "title": "Tokyo Rainy Night Walk in Shinjuku // 4K HDR Spatial Audio", "url": "https://www.youtube.com/watch?v=SiryvrStb8E", "observedPerformance": "公开页面显示频道已验证，核验时约 48.1 万关注者。" },
+      "whyItWorks": ["新宿、雨夜、霓虹三个高辨识元素在缩略图中即可形成明确情绪承诺。", "空间音频让脚步、车流和雨棚滴水拥有方向感，耳机观看价值突出。", "无旁白第一视角跨越语言门槛，同时服务旅行预览和氛围陪伴。"],
+      "patterns": ["优先拍摄雨后反光和多层霓虹街道", "用空间声记录近中远三个声场", "地点 + 天气 + 时段 + 技术规格命名"],
+      "caution": "雨夜高光容易过曝，HDR 交付需实际测试；在人流密集区应降低对个体的持续跟拍。",
+      "evidence": [{ "title": "VIRTUAL JAPAN 代表视频", "url": "https://www.youtube.com/watch?v=SiryvrStb8E" }]
+    },
+    {
+      "id": "driving-japan", "name": "Driving Japan", "region": "日本", "category": "scenic-drive", "channelUrl": "https://www.youtube.com/@drivingjapan",
+      "positioning": "以超长车载视角完整记录富士山、湖区、海岸和跨城公路行程。",
+      "representative": { "title": "Go to Mount Fuji and the lakes around it. Enjoy Mt. Fuji from every angle", "url": "https://www.youtube.com/watch?v=naz_RVh48vg", "observedPerformance": "代表路线时长约 8 小时 53 分，完整覆盖富士山湖区长途驾驶。" },
+      "whyItWorks": ["八小时以上的完整环线提供普通旅行短片没有的路线连续性与资料价值。", "富士山从多个角度反复出现，形成贯穿长途内容的视觉主线。", "真实道路速度和环境变化既可用于行前预览，也适合作为长时背景播放。"],
+      "patterns": ["用地标作为长路线的视觉主线", "保留进城、乡道与景观道路的节奏差异", "描述中列出途经地与章节时间"],
+      "caution": "固定相机不得遮挡驾驶视线；路线章节和道路信息需要注明拍摄日期，避免被误作实时导航。",
+      "evidence": [{ "title": "富士山湖区代表路线", "url": "https://www.youtube.com/watch?v=naz_RVh48vg" }]
+    },
+    {
+      "id": "seoul-walker", "name": "Seoul Walker", "region": "韩国", "category": "rain-walk", "channelUrl": "https://www.youtube.com/@SeoulWalker",
+      "positioning": "围绕首尔雨雪、夜景、历史街区与城市活动建立 4K HDR 步行档案。",
+      "representative": { "title": "Relaxing Rain Walk in the Dream Forest and Nature Sounds | Seoul Walker 4K HDR", "url": "https://www.youtube.com/watch?v=zCamdbpzJEs", "observedPerformance": "公开页面显示频道已验证，核验时约 45.7 万关注者；视频约 3 万播放、4700 点赞。" },
+      "whyItWorks": ["拍摄日期、天气、温度和地图信息让氛围内容同时具备现场档案价值。", "雨天、雪天、HDR 与夜景被整理成独立系列，观众可以按情境连续观看。", "城市中心与森林公园交替，维持同一频道内的视觉和声音变化。"],
+      "patterns": ["描述中固定记录日期、气温与路线地图", "按雨、雪、夜景建立播放列表", "城市步行与自然步行交替发布"],
+      "caution": "地图仅表达拍摄路线，不替代现场通行信息；历史街区和活动现场需确认拍摄限制。",
+      "evidence": [{ "title": "首尔雨中森林代表视频", "url": "https://www.youtube.com/watch?v=zCamdbpzJEs" }]
+    },
+    {
+      "id": "kraig-adams", "name": "Kraig Adams", "region": "美国 / 全球山地", "category": "guided-walk", "channelUrl": "https://www.youtube.com/@kraigadams",
+      "positioning": "将独自多日徒步拍成极少对白、强调环境和行程推进的电影感户外纪录。",
+      "representative": { "title": "Hiking 50 miles Alone on the Alta Via 2 Italy", "url": "https://www.youtube.com/watch?v=WKcnvPDgifA", "observedPerformance": "公开页面显示频道已验证，核验时约 82.1 万关注者。" },
+      "whyItWorks": ["距离、独行和世界级路线在标题中同时提供挑战强度与目的地吸引力。", "固定机位中的人物尺度让壮阔山地有参照，也形成孤独行进的叙事张力。", "对白极少但保留出发、扎营、天气和抵达节点，让氛围片仍有明确进程。"],
+      "patterns": ["每段路线设置出发、困难与抵达节点", "广角环境镜头中保留人物尺度", "脚步和自然声主导、音乐只用于段落转换"],
+      "caution": "摆放无人机和固定机位会增加实际行走距离；独行拍摄必须把安全、天气与撤退方案置于画面之前。",
+      "evidence": [{ "title": "Alta Via 2 代表影片", "url": "https://www.youtube.com/watch?v=WKcnvPDgifA" }, { "title": "创作者官方入口", "url": "https://linktr.ee/kraigadams" }]
+    },
+    {
+      "id": "lurks-world", "name": "Lurks World", "region": "欧洲公路", "category": "scenic-drive", "channelUrl": "https://www.youtube.com/@LurksWorld",
+      "positioning": "记录瑞士、挪威、冰岛等欧洲目的地的实时 4K60 风景公路和慢电视路线。",
+      "representative": { "title": "3 Hour Scenic Swiss Alps Road Trip - 4K60", "url": "https://www.youtube.com/watch?v=WT0aZR1Cw-E", "observedPerformance": "公开视频在核验时显示约 9.2 万播放，完整路线约 3 小时。" },
+      "whyItWorks": ["Gotthard、Susten、Grindelwald 与 Lauterbrunnen 构成连续且高密度的阿尔卑斯地标路线。", "三小时实时长度可作为电视背景、健身陪伴或虚拟公路旅行重复使用。", "描述中的精确章节把长视频变成可跳转路线目录，降低观看进入成本。"],
+      "patterns": ["用山口、城镇和观景段落制作章节", "保留真实车速与道路环境声", "按国家建立可连续观看的公路播放列表"],
+      "caution": "镜头上的污渍、反光和虫迹在长片中会持续放大；应在每段停车点检查镜片并记录异常章节。",
+      "evidence": [{ "title": "瑞士阿尔卑斯实时公路", "url": "https://www.youtube.com/watch?v=WT0aZR1Cw-E" }, { "title": "Lurks World 路线目录", "url": "https://lurksworld.com/" }]
+    },
+    {
+      "id": "relaxation-film", "name": "Relaxation Film", "region": "欧洲 / 全球取景", "category": "cinematic-landscape", "channelUrl": "https://www.youtube.com/@RelaxationFilm",
+      "positioning": "把峡湾、森林与国家风景制作成用于放松、冥想和睡眠的电影化长片。",
+      "representative": { "title": "Norway AMAZING 4K - The True Original Nature Ultra HD Relaxation Film", "url": "https://www.youtube.com/watch?v=bsTY5cTi3nI", "observedPerformance": "公开页面显示频道已验证，约 102 万关注者；该修正版约 87.9 万播放。" },
+      "whyItWorks": ["挪威峡湾、森林和超高清规格组成无需复杂解释的全球化视觉承诺。", "标题明确标注官方修正版，主动处理旧版本音频问题并重建观众信任。", "自然声、音乐和电影镜头同时服务放松、冥想、睡眠与压力缓解场景。"],
+      "patterns": ["为国家或核心地貌建立单一视觉承诺", "发行前分别核验环境声与音乐响度", "发现交付问题时保留说明并发布明确修正版"],
+      "caution": "航拍、音乐和跨来源素材必须逐项保存授权；高播放旧版不能成为保留声音缺陷的理由。",
+      "evidence": [{ "title": "挪威 4K 官方修正版", "url": "https://www.youtube.com/watch?v=bsTY5cTi3nI" }]
+    },
+    {
+      "id": "actionkid", "name": "ActionKid", "region": "美国 / 全球城市", "category": "urban-walk", "channelUrl": "https://www.youtube.com/@ActionKid",
+      "positioning": "从纽约日常街区延伸到交通、节庆和城市现场，以高频更新记录正在发生的城市。",
+      "representative": { "title": "Top 10 ActionKid NYC Walks", "url": "https://www.youtube.com/watch?v=p7XBIjZ9GWg", "observedPerformance": "公开资料显示频道长期覆盖纽约步行、骑行、交通、节庆与城市活动。" },
+      "whyItWorks": ["普通街区与节庆、游行、天气事件并行，兼顾常青搜索和当下关注。", "熟悉纽约交通和街区连接方式，使路线选择比单纯地标打卡更有现场价值。", "高频持续记录让频道形成城市变化档案，长期观众会为熟悉地点再次回来。"],
+      "patterns": ["常青街区路线与城市事件穿插发布", "提前研究交通节点和步行连接", "用日期、活动和街区名称标注现场性"],
+      "caution": "活动现场的人群、音乐和安保限制更复杂；直播或高频发布也不能跳过隐私与版权检查。",
+      "evidence": [{ "title": "纽约步行合集", "url": "https://www.youtube.com/watch?v=p7XBIjZ9GWg" }]
+    },
+    {
+      "id": "walk-east", "name": "Walk East", "region": "中国", "category": "urban-walk", "channelUrl": "https://www.youtube.com/c/WalkEast",
+      "positioning": "通过步行、驾车、骑行与跑步视角持续记录中国城市街景和真实日常生活。",
+      "representative": { "title": "Shanghai Streets Walking Tour | West Nanjing Road | 4K HDR", "url": "https://www.youtube.com/c/WalkEast", "observedPerformance": "官方频道页公开列出该上海代表内容约 10.1 万播放；频道持续覆盖多座中国城市。" },
+      "whyItWorks": ["同时使用步行、驾车和骑行，让同一城市可从不同速度和空间尺度被理解。", "标题同时保留英文地点词与中国城市语境，降低海外观众发现真实中国街景的门槛。", "不仅拍地标，也记录商业街、交通和普通生活，使内容具有城市档案价值。"],
+      "patterns": ["同一城区分别制作步行与驾车版本", "地标路线和日常街区交替", "中英文地点名、城市名与 4K 规格统一标注"],
+      "caution": "国内道路拍摄应遵守交通和敏感区域规定；驾车画面必须使用固定设备并避免暴露个人敏感信息。",
+      "evidence": [{ "title": "Walk East 官方频道", "url": "https://www.youtube.com/c/WalkEast" }, { "title": "频道专题报道", "url": "https://radii.co/article/got-itchy-feet-you-can-now-visit-china-from-home-on-youtube" }]
+    },
+    {
+      "id": "harmen-hoek", "name": "Harmen Hoek", "region": "荷兰 / 全球山野", "category": "guided-walk", "channelUrl": "https://www.youtube.com/@harmenhoek",
+      "positioning": "以无对白、环境声和克制音乐制作高山远足与多日穿越的电影化沉浸纪录。",
+      "representative": { "title": "Silent Hiking The Himalayas for 16 days", "url": "https://www.youtube.com/watch?v=H9-OOl_9r6I", "observedPerformance": "公开页面显示频道已验证；代表影片核验时约 326 万播放。" },
+      "whyItWorks": ["16 天、三座山口与珠峰基地营提供清晰规模感，让长途挑战在标题中立即成立。", "影片没有对白，却用城市抵达、适应海拔、过山口、扎营和返程组成完整故事。", "描述公开路线、海拔、装备、合作关系和时间章节，兼顾沉浸观看与实用研究。"],
+      "patterns": ["用海拔、距离和天数量化行程承诺", "每个自然难点对应一个清晰章节", "环境声版本与音乐版本分别交付"],
+      "caution": "无对白不等于无信息；高海拔路线需明确向导、适应过程与合作披露，不能把危险包装成轻松模仿。",
+      "evidence": [{ "title": "喜马拉雅 16 日无对白徒步", "url": "https://www.youtube.com/watch?v=H9-OOl_9r6I" }, { "title": "Harmen Hoek 官方频道", "url": "https://www.youtube.com/c/HarmenHoek" }]
+    },
+    {
+      "id": "scottys-gone-walkabout", "name": "Scotty’s Gone Walkabout", "region": "澳大利亚", "category": "guided-walk", "channelUrl": "https://www.youtube.com/@ScottysGoneWalkabout",
+      "positioning": "围绕澳洲荒野徒步、独行露营和户外过程制作具有个人温度的电影感冒险影片。",
+      "representative": { "title": "Australian wilderness hiking and wild camping films", "url": "https://www.youtube.com/@ScottysGoneWalkabout/videos", "observedPerformance": "创作者官网确认频道以澳大利亚自然、户外探险和电影制作作为长期主题。" },
+      "whyItWorks": ["澳洲森林、海岸和干旱地貌形成区别于欧美高山频道的地域辨识度。", "搭营、生火、天气和过夜过程提供行为变化，使自然画面不只是风景拼接。", "个人体验与高质量环境镜头并存，在沉浸感之外建立稳定的创作者关系。"],
+      "patterns": ["将抵达、搭营、夜间与清晨设计成四段结构", "自然全景与手部操作细节交替", "把当地地貌和季节风险写入拍摄说明"],
+      "caution": "野外用火、露营和无人机规则因州与保护地而异；展示技能时要明确条件，避免鼓励无准备模仿。",
+      "evidence": [{ "title": "Scotty 创作者官网", "url": "https://www.walkaboutco.com.au/" }, { "title": "官方 YouTube 频道", "url": "https://www.youtube.com/@ScottysGoneWalkabout" }]
+    }
+  ]
+}

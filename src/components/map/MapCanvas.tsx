@@ -3,11 +3,12 @@ import { useEffect, useRef, useState } from "react";
 import type { ChangeEvent } from "react";
 import { importGpx, wgs84ToGcj02 } from "../../services/gpxImport.js";
 import { usePlannerStore } from "../../app/store.js";
-import type { DrivingSummary, ResolvedRoute } from "../../types/domain.js";
+import type { DrivingSummary, Location, ResolvedRoute } from "../../types/domain.js";
 import { hasAmapCredentials, loadAmap } from "../../services/amapLoader.js";
 
 interface MapCanvasProps {
-  selected: ResolvedRoute;
+  selected: ResolvedRoute | undefined;
+  nearbyLocations: Location[];
   onDrivingSummary: (summary: DrivingSummary) => void;
 }
 
@@ -33,7 +34,7 @@ function createMarkerContent(index: number, name: string, accessMode: "drive" | 
   return root;
 }
 
-export function MapCanvas({ selected, onDrivingSummary }: MapCanvasProps) {
+export function MapCanvas({ selected, nearbyLocations, onDrivingSummary }: MapCanvasProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<AMap.Map | null>(null);
   const drivingRef = useRef<AMap.Driving | null>(null);
@@ -96,6 +97,19 @@ export function MapCanvas({ selected, onDrivingSummary }: MapCanvasProps) {
     driving.clear();
     map.remove(markersRef.current);
 
+    if (!selected) {
+      const markers = nearbyLocations.map((point) => new AMap.Marker({
+        position: [point.coordinate.lng, point.coordinate.lat],
+        content: createMarkerContent(0, point.name, point.access.mode),
+        anchor: "bottom-center",
+        offset: new AMap.Pixel(0, 2),
+        zIndex: 50
+      }));
+      markersRef.current = markers;
+      if (markers.length) { map.add(markers); map.setFitView(markers, false, [90, 90, 90, 90], 14); }
+      return;
+    }
+
     const path = selected.waypoints.map((point) => [point.coordinate.lng, point.coordinate.lat] as [number, number]);
     const markers = selected.waypoints.map((point, index) => new AMap.Marker({
       position: [point.coordinate.lng, point.coordinate.lat],
@@ -110,7 +124,8 @@ export function MapCanvas({ selected, onDrivingSummary }: MapCanvasProps) {
     const origin = path[0];
     const destination = path.at(-1);
     if (!origin || !destination) return;
-    if (selected.route.captureStyle === "stationary-nature") {
+    const usesWgs84 = selected.waypoints.some((point) => point.coordinate.crs === "WGS84");
+    if (selected.route.captureStyle === "stationary-nature" || usesWgs84) {
       onDrivingSummary({ status: "access-only", routeId: selected.route.id });
       map.setFitView(markers, false, [90, 90, 90, 90], 14);
       return;
@@ -133,7 +148,7 @@ export function MapCanvas({ selected, onDrivingSummary }: MapCanvasProps) {
       onDrivingSummary({ status: "error", routeId: selected.route.id, message: "暂时无法取得驾车路线" });
       map.setFitView(markers, false, [90, 90, 90, 90], 14);
     });
-  }, [onDrivingSummary, selected, status]);
+  }, [nearbyLocations, onDrivingSummary, selected, status]);
 
   useEffect(() => {
     const map = mapRef.current;
@@ -170,7 +185,7 @@ export function MapCanvas({ selected, onDrivingSummary }: MapCanvasProps) {
   };
 
   return (
-    <section className="map-canvas" aria-label={`${selected.route.name}高德地图`}>
+    <section className="map-canvas" aria-label={selected ? `${selected.route.name}高德地图` : "当前城市地点高德地图"}>
       <div ref={containerRef} className="amap-host" />
 
       {status === "loading" && <div className="map-state"><span className="map-loader" /><strong>正在加载高德地图</strong><small>准备路线和拍摄点…</small></div>}

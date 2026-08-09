@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import type { CaptureStyle, DavinciWorkflow, FieldCheck, LocalGpxTrack, LocalPostProject, LocalPostTask, LocalShootPlan, RouteMode, WorkflowStatus } from "../types/domain.js";
 
-type AppView = "dashboard" | "explore" | "plans" | "locations" | "cameras" | "post";
+type AppView = "dashboard" | "explore" | "plans" | "locations" | "cameras" | "post" | "creators";
 
 interface PlannerState {
   view: AppView;
