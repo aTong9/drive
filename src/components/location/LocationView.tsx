@@ -46,6 +46,7 @@ export function LocationView({ locations, routes, catalogSchemaVersion }: { loca
   const [browseMode, setBrowseMode] = useState<"locations" | "routes">("locations");
   const [type, setType] = useState<Location["type"] | "all">("all");
   const [captureStyle, setCaptureStyle] = useState<ResolvedRoute["route"]["captureStyle"] | "all">("all");
+  const [driveOnly, setDriveOnly] = useState(false);
   const [region, setRegion] = useState<{ province?: string; city?: string }>({});
   const [regionGroup, setRegionGroup] = useState<AdministrativeGroupId | "all">("all");
   const [selectedId, setSelectedId] = useState(locations[0]?.id ?? "");
@@ -60,12 +61,14 @@ export function LocationView({ locations, routes, catalogSchemaVersion }: { loca
   const selectStoredRoute = usePlannerStore((state) => state.selectRoute);
   const setExploreMode = usePlannerStore((state) => state.setMode);
   const setExploreCaptureStyle = usePlannerStore((state) => state.setCaptureStyle);
+  const setExploreDriveOnly = usePlannerStore((state) => state.setDriveOnly);
   const setExploreDuration = usePlannerStore((state) => state.setMaxDurationMinutes);
   const setExploreQuery = usePlannerStore((state) => state.setQuery);
   const selectRoute = (routeId: string) => {
     const target = routes.find((item) => item.route.id === routeId);
     setExploreMode("all");
     setExploreCaptureStyle("all");
+    setExploreDriveOnly(false);
     setExploreDuration(Math.max(360, target?.route.estimatedDurationMinutes ?? 360));
     setExploreQuery("");
     selectStoredRoute(routeId);
@@ -86,8 +89,8 @@ export function LocationView({ locations, routes, catalogSchemaVersion }: { loca
     const needle = query.trim().toLowerCase();
     const matchesRegion = (!region.province || route.province === region.province) && (!region.city || route.cities.includes(region.city));
     const matchesQuery = !needle || route.name.toLowerCase().includes(needle) || route.cities.some((city) => city.includes(needle)) || waypoints.some((point) => point.name.toLowerCase().includes(needle));
-    return matchesRegion && matchesQuery && (captureStyle === "all" || route.captureStyle === captureStyle);
-  }), [routes, query, region, captureStyle]);
+    return matchesRegion && matchesQuery && (captureStyle === "all" || route.captureStyle === captureStyle) && (!driveOnly || route.executionMode === "drive-only");
+  }), [routes, query, region, captureStyle, driveOnly]);
 
   if (!selected) return null;
   const relatedRoutes = routes.filter((route) => route.route.waypointLocationIds.includes(selected.id));
@@ -170,7 +173,7 @@ export function LocationView({ locations, routes, catalogSchemaVersion }: { loca
               <span className={`location-check ${fieldChecked ? "field" : ""}`}>{fieldChecked ? <CheckCircle2 size={13} /> : <ShieldCheck size={13} />}{fieldChecked ? "实地" : "来源"}</span>
             </button>;
           })}
-        </div></> : <><div className="capture-library-filters"><button className={captureStyle === "all" ? "active" : ""} onClick={() => setCaptureStyle("all")}><Navigation size={18} /><span><strong>全部路线</strong><small>查看所有创作流程</small></span></button>{(["scenic-drive", "rain-walk", "stationary-nature"] as const).map((style) => { const Icon = captureIcons[style]; return <button key={style} className={`${captureStyle === style ? "active" : ""} style-${style}`} onClick={() => setCaptureStyle(style)}><Icon size={18} /><span><strong>{captureLabels[style]}</strong><small>{captureDescriptions[style]}</small></span></button>; })}</div><div className="library-route-grid">{filteredRoutes.map(({ route, waypoints }) => { const Icon = captureIcons[route.captureStyle]; return <article className={`library-route-card style-${route.captureStyle}`} key={route.id}><div className="library-route-top"><span><Icon size={16} /> {captureLabels[route.captureStyle]}</span><small><ShieldCheck size={12} /> 来源核验</small></div><h2>{route.name}</h2><div className="library-route-meta"><span><Clock3 size={13} /> 约 {route.estimatedDurationMinutes} 分钟</span><span><MapPin size={13} /> {waypoints.length} 个拍摄点</span><span>{route.cities.join(" · ")}</span></div><ol>{waypoints.map((point, index) => <li key={point.id}><i>{String(index + 1).padStart(2, "0")}</i><span><strong>{point.name}</strong><small>{point.access.mode === "drive" ? "驾车到达" : "停车后步行"}</small></span></li>)}</ol><p>{route.shootAdvice}</p><button onClick={() => selectRoute(route.id)}>在地图中打开路线 <ChevronRight size={15} /></button></article>; })}</div>{filteredRoutes.length === 0 && <div className="library-empty"><Navigation size={24} /><strong>当前区域没有匹配路线</strong><span>尝试切换城市或拍摄方式</span></div>}</>}
+        </div></> : <><div className="capture-library-filters"><button className={captureStyle === "all" && !driveOnly ? "active" : ""} onClick={() => { setCaptureStyle("all"); setDriveOnly(false); }}><Navigation size={18} /><span><strong>全部路线</strong><small>查看所有创作流程</small></span></button>{(["scenic-drive", "rain-walk", "stationary-nature"] as const).map((style) => { const Icon = captureIcons[style]; return <button key={style} className={`${captureStyle === style && !driveOnly ? "active" : ""} style-${style}`} onClick={() => { setCaptureStyle(style); setDriveOnly(false); }}><Icon size={18} /><span><strong>{captureLabels[style]}</strong><small>{captureDescriptions[style]}</small></span></button>; })}<button className={`drive-only-library-filter ${driveOnly ? "active" : ""}`} aria-pressed={driveOnly} onClick={() => { setDriveOnly(!driveOnly); setCaptureStyle(!driveOnly ? "scenic-drive" : "all"); }}><CarFront size={18} /><span><strong>只看纯驾车</strong><small>全程不停车 · 无需下车</small></span></button></div><div className="library-route-grid">{filteredRoutes.map(({ route, waypoints }) => { const Icon = captureIcons[route.captureStyle]; const routeDriveOnly = route.executionMode === "drive-only"; return <article className={`library-route-card style-${route.captureStyle}`} key={route.id}><div className="library-route-top"><span><Icon size={16} /> {routeDriveOnly ? "纯驾车 · 无需下车" : captureLabels[route.captureStyle]}</span><small><ShieldCheck size={12} /> 来源核验</small></div><h2>{route.name}</h2><div className="library-route-meta"><span><Clock3 size={13} /> 约 {route.estimatedDurationMinutes} 分钟</span><span><MapPin size={13} /> {waypoints.length} 个{routeDriveOnly ? "道路锚点" : "拍摄点"}</span><span>{route.cities.join(" · ")}</span></div><ol>{waypoints.map((point, index) => <li key={point.id}><i>{String(index + 1).padStart(2, "0")}</i><span><strong>{point.name}</strong><small>{routeDriveOnly ? "连续驾车经过" : point.access.mode === "drive" ? "驾车到达" : "停车后步行"}</small></span></li>)}</ol><p>{route.shootAdvice}</p><button onClick={() => selectRoute(route.id)}>在地图中打开路线 <ChevronRight size={15} /></button></article>; })}</div>{filteredRoutes.length === 0 && <div className="library-empty"><Navigation size={24} /><strong>当前区域没有匹配路线</strong><span>尝试切换城市或拍摄方式</span></div>}</>}
         {browseMode === "locations" && filtered.length === 0 && <div className="library-empty"><MapPin size={24} /><strong>该区域已进入全国行政目录</strong><span>拍摄地点与路线仍待来源核验，暂无虚构占位数据</span></div>}
       </section>
 

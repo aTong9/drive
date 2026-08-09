@@ -8,6 +8,7 @@ interface PlannerState {
   view: AppView;
   mode: RouteMode | "all";
   captureStyle: CaptureStyle | "all";
+  driveOnly: boolean;
   maxDurationMinutes: number;
   query: string;
   selectedRouteId: string;
@@ -20,6 +21,7 @@ interface PlannerState {
   setView: (view: AppView) => void;
   setMode: (mode: RouteMode | "all") => void;
   setCaptureStyle: (captureStyle: CaptureStyle | "all") => void;
+  setDriveOnly: (driveOnly: boolean) => void;
   setMaxDurationMinutes: (minutes: number) => void;
   setQuery: (query: string) => void;
   selectRoute: (routeId: string) => void;
@@ -40,6 +42,7 @@ export const usePlannerStore = create<PlannerState>()(persist((set) => ({
   view: "explore",
   mode: "all",
   captureStyle: "all",
+  driveOnly: false,
   maxDurationMinutes: 240,
   query: "",
   selectedRouteId: "gd-sz-bay-night",
@@ -52,6 +55,7 @@ export const usePlannerStore = create<PlannerState>()(persist((set) => ({
   setView: (view) => set({ view }),
   setMode: (mode) => set({ mode }),
   setCaptureStyle: (captureStyle) => set({ captureStyle }),
+  setDriveOnly: (driveOnly) => set({ driveOnly, captureStyle: driveOnly ? "scenic-drive" : "all" }),
   setMaxDurationMinutes: (maxDurationMinutes) => set({ maxDurationMinutes }),
   setQuery: (query) => set({ query }),
   selectRoute: (selectedRouteId) => set({ selectedRouteId, detailOpen: true, view: "explore" }),

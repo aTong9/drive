@@ -1,8 +1,8 @@
-import { CalendarPlus, Camera, Check, ChevronRight, Clock3, CloudSun, Copy, Footprints, Navigation, Share2, ShieldCheck, Trees, X } from "lucide-react";
+import { CalendarPlus, Camera, CarFront, Check, ChevronRight, Clock3, CloudSun, Copy, ExternalLink, Footprints, Navigation, Share2, ShieldCheck, Trees, X } from "lucide-react";
 import { useEffect, useState, type FormEvent } from "react";
 import type { DrivingSummary, ResolvedRoute } from "../../types/domain.js";
 import { usePlannerStore } from "../../app/store.js";
-import { createRouteShareUrl } from "../../services/routeShareService.js";
+import { createAmapNavigationUrl, createRouteShareUrl } from "../../services/routeShareService.js";
 
 const timeLabels: Record<string, string> = { sunrise: "日出", morning: "上午", "golden-hour": "黄金时刻", sunset: "日落", "blue-hour": "蓝调时刻", night: "夜间" };
 const weatherLabels: Record<string, string> = { sunny: "晴朗", cloudy: "多云", "after-rain": "雨后", fog: "薄雾", rain: "雨天" };
@@ -26,7 +26,10 @@ export function RouteDetail({ selected, drivingSummary }: { selected: ResolvedRo
   const [scheduledDate, setScheduledDate] = useState(tomorrow);
   const [objective, setObjective] = useState(`完成「${selected.route.name}」拍摄素材`);
   const { route, waypoints, cameraPresets } = selected;
+  const driveOnly = route.executionMode === "drive-only";
+  const opensAsDrivingRoute = route.captureStyle === "scenic-drive";
   const usesWgs84 = waypoints.some((waypoint) => waypoint.coordinate.crs === "WGS84");
+  const amapNavigationUrl = createAmapNavigationUrl(waypoints, opensAsDrivingRoute);
   const accessOnlyLabel = usesWgs84 ? "公共交通 · 步行连接" : "步行景区 · 导航锚点";
   const accessOnlyMessage = usesWgs84 ? "展示真实地点与行程顺序，不调用高德大陆驾车规划" : "仅展示入口与景区范围，不生成景区内驾车路线";
 
@@ -66,12 +69,12 @@ export function RouteDetail({ selected, drivingSummary }: { selected: ResolvedRo
         <div className="detail-hero-glow" />
         <div className="detail-hero-copy">
           <span className="hero-badge"><ShieldCheck size={13} /> 来源核验</span>
-          <span className={`hero-capture capture-${route.captureStyle}`}>{captureLabels[route.captureStyle]}</span>
+          <span className={`hero-capture capture-${route.captureStyle} ${driveOnly ? "is-drive-only" : ""}`}>{driveOnly ? "纯驾车 · 无需下车" : captureLabels[route.captureStyle]}</span>
           <p>ROUTE / {route.id.toUpperCase()}</p>
           <h2>{route.name}</h2>
           <div>
             <span><Clock3 size={14} /> {drivingSummary?.status === "ready" ? formatDrivingTime(drivingSummary.durationSeconds) : `行程约 ${route.estimatedDurationMinutes} 分钟`}</span>
-            <span><Navigation size={14} /> {drivingSummary?.status === "ready" ? `${(drivingSummary.distanceMeters / 1000).toFixed(1)} 公里` : `${waypoints.length} 个拍摄点`}</span>
+            <span><Navigation size={14} /> {drivingSummary?.status === "ready" ? `${(drivingSummary.distanceMeters / 1000).toFixed(1)} 公里` : `${waypoints.length} 个${driveOnly ? "道路锚点" : "拍摄点"}`}</span>
           </div>
         </div>
       </div>
@@ -88,12 +91,12 @@ export function RouteDetail({ selected, drivingSummary }: { selected: ResolvedRo
         </section>
 
         <section className="detail-section">
-          <div className="section-title"><div><p>ITINERARY</p><h3>拍摄行程</h3></div><span>{waypoints.length} STOPS</span></div>
+          <div className="section-title"><div><p>ITINERARY</p><h3>{driveOnly ? "连续驾车行程" : "拍摄行程"}</h3></div><span>{waypoints.length} {driveOnly ? "WAYPOINTS" : "STOPS"}</span></div>
           <div className="timeline">
             {waypoints.map((waypoint, index) => (
               <div className="timeline-item" key={waypoint.id}>
                 <span className="timeline-index">{String(index + 1).padStart(2, "0")}</span>
-                <div><strong>{waypoint.name}</strong><small><Footprints size={12} /> {waypoint.access.note}</small></div>
+                <div><strong>{waypoint.name}</strong><small>{driveOnly ? <CarFront size={12} /> : <Footprints size={12} />} {waypoint.access.note}</small></div>
                 <ChevronRight size={16} />
               </div>
             ))}
@@ -127,8 +130,12 @@ export function RouteDetail({ selected, drivingSummary }: { selected: ResolvedRo
             {shareStatus === "copied" ? <Copy size={18} /> : <Share2 size={18} />}
             {shareStatus === "copied" ? "已复制" : shareStatus === "shared" ? "已分享" : shareStatus === "error" ? "重试分享" : "分享路线"}
           </button>
+          {amapNavigationUrl && <a className="detail-amap-button" href={amapNavigationUrl} target="_blank" rel="noreferrer" aria-label={`在高德地图打开：${route.name}`}>
+            <ExternalLink size={18} />
+            高德地图打开
+          </a>}
         </div>
-        <small>{shareStatus === "error" ? "无法调用分享或剪贴板，请检查浏览器权限" : "路线仍需实地核验 · 出发前查看实时路况"}</small>
+        <small>{shareStatus === "error" ? "无法调用分享或剪贴板，请检查浏览器权限" : amapNavigationUrl && driveOnly && waypoints.length > 3 ? "高德支持 1 个途经点 · 完整锚点与拍摄说明请保留本站分享链接" : "路线仍需实地核验 · 出发前查看实时路况"}</small>
       </div>
 
       {dialogOpen && (

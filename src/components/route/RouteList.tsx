@@ -67,6 +67,12 @@ export function RouteList({ routes, nearbyLocations, currentRegion, locationStat
         })}
       </div>
 
+      <button className={`drive-only-filter ${state.driveOnly ? "active" : ""}`} aria-pressed={state.driveOnly} onClick={() => state.setDriveOnly(!state.driveOnly)}>
+        <CarFront size={16} />
+        <span><strong>只看纯驾车</strong><small>全程不停车 · 无需下车</small></span>
+        <i>{state.driveOnly ? "已开启" : "开启"}</i>
+      </button>
+
       <div className="light-heading">光线与氛围</div>
       <div className="mode-tabs" role="tablist" aria-label="光线与氛围">
         {modes.map((mode) => (

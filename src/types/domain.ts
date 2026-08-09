@@ -55,6 +55,7 @@ export interface Route {
   cities: string[];
   type: "coast" | "city-night" | "mountain" | "forest" | "waterfall" | "river" | "lake";
   captureStyle: CaptureStyle;
+  executionMode?: "drive-only";
   modes: RouteMode[];
   estimatedDurationMinutes: number;
   waypointLocationIds: string[];

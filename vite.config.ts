@@ -26,24 +26,38 @@ function readAmapCredentials() {
 
 function catalogShardPlugin(): Plugin {
   const catalogPath = resolve(process.cwd(), "data/catalog.json");
-  const catalog = JSON.parse(readFileSync(catalogPath, "utf8")) as Record<string, unknown> & {
-    locations: unknown[];
-    routes: unknown[];
-  };
   const virtualPrefix = "\0catalog-shard:";
-  const locationShardSize = Math.ceil(catalog.locations.length / 4);
-  const routeShardSize = Math.ceil(catalog.routes.length / 2);
-  const locationShards = Array.from({ length: 4 }, (_, index) =>
-    catalog.locations.slice(index * locationShardSize, (index + 1) * locationShardSize)
-  );
-  const routeShards = Array.from({ length: 2 }, (_, index) =>
-    catalog.routes.slice(index * routeShardSize, (index + 1) * routeShardSize)
-  );
-  const { locations: _locations, routes: _routes, ...catalogCore } = catalog;
+  const virtualIds = [
+    `${virtualPrefix}main`,
+    ...Array.from({ length: 4 }, (_, index) => `${virtualPrefix}locations-${index}`),
+    ...Array.from({ length: 2 }, (_, index) => `${virtualPrefix}routes-${index}`)
+  ];
+
+  function readCatalogShards() {
+    const catalog = JSON.parse(readFileSync(catalogPath, "utf8")) as Record<string, unknown> & {
+      locations: unknown[];
+      routes: unknown[];
+    };
+    const locationShardSize = Math.ceil(catalog.locations.length / 4);
+    const routeShardSize = Math.ceil(catalog.routes.length / 2);
+    const locationShards = Array.from({ length: 4 }, (_, index) =>
+      catalog.locations.slice(index * locationShardSize, (index + 1) * locationShardSize)
+    );
+    const routeShards = Array.from({ length: 2 }, (_, index) =>
+      catalog.routes.slice(index * routeShardSize, (index + 1) * routeShardSize)
+    );
+    const { locations: _locations, routes: _routes, ...catalogCore } = catalog;
+    return { catalogCore, locationShards, routeShards };
+  }
+
+  let shards = readCatalogShards();
 
   return {
     name: "catalog-shards",
     enforce: "pre",
+    buildStart() {
+      this.addWatchFile(catalogPath);
+    },
     resolveId(source) {
       if (source.endsWith("data/catalog.json")) return `${virtualPrefix}main`;
       if (source.startsWith(virtualPrefix)) return source;
@@ -52,14 +66,24 @@ function catalogShardPlugin(): Plugin {
       if (!id.startsWith(virtualPrefix)) return;
       const shard = id.slice(virtualPrefix.length);
       if (shard === "main") {
-        const locationImports = locationShards.map((_, index) => `import locations${index} from "${virtualPrefix}locations-${index}";`).join("\n");
-        const routeImports = routeShards.map((_, index) => `import routes${index} from "${virtualPrefix}routes-${index}";`).join("\n");
-        return `${locationImports}\n${routeImports}\nconst catalog = ${JSON.stringify(catalogCore)};\ncatalog.locations = [${locationShards.map((_, index) => `...locations${index}`).join(",")}];\ncatalog.routes = [${routeShards.map((_, index) => `...routes${index}`).join(",")}];\nexport default catalog;`;
+        const locationImports = shards.locationShards.map((_, index) => `import locations${index} from "${virtualPrefix}locations-${index}";`).join("\n");
+        const routeImports = shards.routeShards.map((_, index) => `import routes${index} from "${virtualPrefix}routes-${index}";`).join("\n");
+        return `${locationImports}\n${routeImports}\nconst catalog = ${JSON.stringify(shards.catalogCore)};\ncatalog.locations = [${shards.locationShards.map((_, index) => `...locations${index}`).join(",")}];\ncatalog.routes = [${shards.routeShards.map((_, index) => `...routes${index}`).join(",")}];\nexport default catalog;`;
       }
       const locationMatch = /^locations-(\d+)$/.exec(shard);
-      if (locationMatch) return `export default ${JSON.stringify(locationShards[Number(locationMatch[1])])};`;
+      if (locationMatch) return `export default ${JSON.stringify(shards.locationShards[Number(locationMatch[1])])};`;
       const routeMatch = /^routes-(\d+)$/.exec(shard);
-      if (routeMatch) return `export default ${JSON.stringify(routeShards[Number(routeMatch[1])])};`;
+      if (routeMatch) return `export default ${JSON.stringify(shards.routeShards[Number(routeMatch[1])])};`;
+    },
+    handleHotUpdate({ file, server }) {
+      if (file !== catalogPath) return;
+      shards = readCatalogShards();
+      for (const id of virtualIds) {
+        const module = server.moduleGraph.getModuleById(id);
+        if (module) server.moduleGraph.invalidateModule(module);
+      }
+      server.ws.send({ type: "full-reload", path: "*" });
+      return [];
     }
   };
 }

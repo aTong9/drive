@@ -562,6 +562,750 @@
       }
     },
     {
+      "id": "gd-sz-futian-upperhills", "name": "福田深业上城空中小镇", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.557091, "lng": 114.070306, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至深业上城合法停车区域，停车后按商场、空中小镇和幸福廊桥当日开放范围步行；商业空间、活动区域和店铺内部须分别服从运营方规则。" },
+      "shooting": { "bestTimes": ["golden-hour", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse"], "advice": "利用暖色建筑、空中廊桥、城市道路和笔架山背景建立立体层次；三脚架只在获准且不妨碍通行的位置短时使用，不拍摄店铺内部、顾客特写或受版权保护的展演。" },
+      "soundEnvironment": { "character": ["urban", "traffic", "mixed"], "noiseRisk": "high", "crowdRisk": "high", "weatherSensitivity": "商业活动、人流、音乐、晚高峰车流和降雨会改变画面与声场", "recordingAdvice": "以城市环境底声为主，避开商铺音乐和活动扩声；需要人物对白时使用近讲麦克风并取得许可。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "深圳夜间文旅与深业上城立体漫游场景（深圳市文体旅游局）", "url": "https://wtl.sz.gov.cn/gkmlpt/content/12/12723/post_12723616.html", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "深圳深业上城（高德地图）", "url": "https://ditu.amap.com/place/B02F38RA75", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-futian-gangxia-north", "name": "福田岗厦北枢纽深圳之眼", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.53832, "lng": 114.067964, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "优先乘地铁到岗厦北站；自驾仅停入周边合法停车场后步行进入枢纽公共空间。出入口、换乘流线、商业区域、展览和活动以当日开放及安保管理为准。" },
+      "shooting": { "bestTimes": ["blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "rain", "after-rain"], "modes": ["photo", "tripod-video", "timelapse"], "advice": "从公共空间表现玻璃穹顶、费马螺线结构、白色灯光和换乘人流；不堵塞闸机、楼梯、无障碍与消防通道，不对乘客持续跟拍，专业设备和商业拍摄先确认许可。" },
+      "soundEnvironment": { "character": ["urban", "mixed"], "noiseRisk": "high", "crowdRisk": "high", "weatherSensitivity": "换乘客流、广播、展览、市集和运营调整会显著改变声场", "recordingAdvice": "仅收录短段公共交通氛围，不持续录取清晰乘客对话、广播或展演音乐；录音设备不得影响安全巡查与通行。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "岗厦北枢纽深圳之眼与公共空间（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/yt/zwdt/content/post_12335601.html", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "岗厦北枢纽出入口开放信息（深圳政府在线）", "url": "https://www.sz.gov.cn/cn/xxgk/bmtx/content/post_11202559.html", "accessedAt": "2026-08-09", "supports": ["access"] }, { "title": "岗厦北地铁站（高德地图）", "url": "https://ditu.amap.com/place/BV10249998", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-luohu-diwang", "name": "罗湖地王大厦与地王观光", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.542519, "lng": 114.109899, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至地王大厦周边合法停车场，或乘地铁至大剧院站后步行。坐标为大厦附楼公共到达锚点；观光层票务、开放时间、玻璃反射控制和摄影规则须出发前向运营方确认。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse"], "advice": "从公共街区拍地王双塔与罗湖旧城天际线，若获准进入观光层则以玻璃贴近遮光方式记录深港城市远景；不在车道、出入口或商业通道架机，不将历史开放时间视为当日承诺。" },
+      "soundEnvironment": { "character": ["urban", "traffic"], "noiseRisk": "high", "crowdRisk": "high", "weatherSensitivity": "晚高峰、商业活动、室内广播、能见度和玻璃反光会影响素材", "recordingAdvice": "街区只收城市交通底声，观光层内不持续收录游客对话、讲解和商业音乐；画面叙事优先于强求纯净声场。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "地王大厦与地王观光（深圳政府在线）", "url": "https://www.sz.gov.cn/en_szgov/travel/cultural/content/post_2335962.html", "accessedAt": "2026-08-09", "supports": ["existence", "address", "access", "shooting-value"] }, { "title": "地王大厦的城市天际线价值（深圳政府在线）", "url": "https://www.sz.gov.cn/szstory/202302/content/post_10421146.html", "accessedAt": "2026-08-09", "supports": ["existence", "shooting-value"] }, { "title": "地王大厦附楼（高德地图）", "url": "https://amap.com/place/B0FFG9L5UQ", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-luohu-dongmen-old-street", "name": "罗湖东门老街步行街", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.544098, "lng": 114.115817, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "优先乘地铁至老街站；自驾停在步行街外围合法停车场后进入。东门老街核心段为步行空间，严禁把街区内部当作驾车路线，施工、活动和临时交通组织以现场为准。" },
+      "shooting": { "bestTimes": ["blue-hour", "night"], "bestWeather": ["cloudy", "rain", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "利用骑楼、招牌、泛光立面、雨后反射和密集人流表现老城商业夜景；轻装手持优先，不阻塞店门或消防通道，人物特写、商铺内部、音乐和演出分别确认许可。" },
+      "soundEnvironment": { "character": ["urban", "mixed"], "noiseRisk": "high", "crowdRisk": "high", "weatherSensitivity": "商业扩声、人流、活动、施工和降雨会快速改变声场与通行条件", "recordingAdvice": "将叫卖、脚步和街区底声作为不可分离的城市氛围，不对单一摊主或顾客持续收音；音乐清晰可辨时避免作为可直接发布的长段素材。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "东门老街历史与商业步行街属性（深圳政府在线）", "url": "https://www.sz.gov.cn/szstory/202302/content/post_10440866.html", "accessedAt": "2026-08-09", "supports": ["existence", "address", "shooting-value"] }, { "title": "东门片区步行街交通组织（深圳政府在线）", "url": "https://www.sz.gov.cn/szzt2010/wgkzl/jcgk/jcygk/zdzcjc/content/post_1898812.html", "accessedAt": "2026-08-09", "supports": ["access"] }, { "title": "东门老街（高德地图）", "url": "https://www.amap.com/place/BZ7JPD02M2", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-qianhai-guiwan-park", "name": "南山前海桂湾公园", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.524969, "lng": 113.898685, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至前海一路与听海大道附近合法停车区域，停车后沿桂湾河开放绿道步行；活动、施工、亲水空间和夜间开放范围以公园当日管理为准。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "以桂湾河、水岸绿道、桥梁和前海新城建筑构成蓝调层次，从宽阔停留区短时使用三脚架；不进入绿化、施工或未开放亲水区域，不妨碍跑步与骑行人流。" },
+      "soundEnvironment": { "character": ["water", "urban", "traffic", "mixed"], "noiseRisk": "medium", "crowdRisk": "medium", "weatherSensitivity": "河风、活动、道路车流、施工和雨后水位会改变声场", "recordingAdvice": "在远离道路与活动节点的开放河岸录制水面和城市底声，注意防风；不为降低车流声进入无照明或封闭区域。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "前海公园与滨海栈道公共路线（前海管理局）", "url": "https://qh.sz.gov.cn/sygnan/qhzx/dtzx/content/post_12805150.html", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "桂湾公园（高德地图）", "url": "https://www.amap.com/place/B0FFKM8ITG", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-qianhai-stone-park", "name": "南山前海石公园桂湾滨海段", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.526982, "lng": 113.890178, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至前海大道与金岸中街附近合法停车区域，停车后进入已开放滨海岸线；公园分段建设和提升持续进行，只使用当日开放园路、台阶与公共岸线，不进入施工区。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "从开放草坪、园路与滨海台阶表现前海湾、城市天际线和日落余晖，蓝调后补建筑灯光与水岸反射；不攀爬海堤、不进入砾石湿滑边缘，活动、无人机和商业拍摄另行核验。" },
+      "soundEnvironment": { "character": ["waves", "water", "urban", "mixed"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "海风、潮位、活动、人流和雨后湿滑会改变拍摄与收音条件", "recordingAdvice": "选择开放且离水边有安全距离的位置录制海风、水声与远处城市底声，使用完整防风；强风、雷暴或高水位时取消临水收音。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "前海石公园桂湾段滨海岸线开放与提升（前海管理局）", "url": "https://qh.sz.gov.cn/sygnan/qhzx/dtzx/content/post_12364486.html", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "前海石公园（高德地图）", "url": "https://www.amap.com/place/B0FFG9KGTS", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-shennan-diwang", "name": "深南大道地王大厦路段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.542519, "lng": 114.109899, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为深南大道罗湖段的途经导航锚点，不是停车目的地；车辆按高德实时道路、信号灯、限速、车道与交警指引连续通行，不停车、不下车、不进入大厦落客区。" },
+      "shooting": { "bestTimes": ["blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "只允许由出发前固定并已开始录制的车载设备自动记录地王双塔、罗湖楼群与深南东路灯光；驾驶者全程不触碰设备，不降速追景、不变道取景、不在路口或路肩停留。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "晚高峰、施工、降雨、能见度和临时交通组织会改变路线与画面", "recordingAdvice": "仅保留车内道路环境声，设备提示音在出发前关闭；不打开车窗或操作收音设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "深圳观光巴士城市中心线与地王大厦夜景走廊（深圳市交通运输局）", "url": "https://jtys.sz.gov.cn/zwgk/jtzx/cxtx/content/post_12205347.html", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "地王大厦附楼（高德地图）", "url": "https://amap.com/place/B0FFG9L5UQ", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-shennan-gangxia", "name": "深南大道岗厦北路段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.53832, "lng": 114.067964, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为深南大道与彩田路附近的途经导航锚点，不安排进入枢纽或停车；按高德实时道路和路面标识连续通行，服从公交专用道、转向、限速与临时管制。" },
+      "shooting": { "bestTimes": ["blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定车载机位自动记录福田中心区楼群、岗厦北天窗与道路灯光，构图不构成驾驶任务；驾驶者不看监看屏、不调整曝光、不绕行重复拍摄，错过画面即放弃。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "晚高峰、灯光安排、雨雾、施工和交通管制会改变通行与画面", "recordingAdvice": "只使用车内固定设备自动收音，后期再处理道路低频；行驶中不调整麦克风。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "岗厦北位于深南大道与彩田路交会处（深圳市交通运输局）", "url": "https://jtys.sz.gov.cn/gkmlpt/content/8/8268/post_8268971.html", "accessedAt": "2026-08-09", "supports": ["existence", "address", "access"] }, { "title": "岗厦北地铁站（高德地图）", "url": "https://ditu.amap.com/place/BV10249998", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-shennan-window", "name": "深南大道世界之窗路段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.534662, "lng": 113.972981, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为深南大道华侨城段的途经导航锚点，不进入景区、不驶入落客区；按主路实时导航连续通过，遇拥堵、活动或车道管制以安全通行为先。" },
+      "shooting": { "bestTimes": ["blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "由固定车载设备自动记录华侨城、世界之窗外部轮廓与深南大道灯光；不为拍摄减速、靠边、掉头或反复经过，商业景观与灯光素材发布前再处理版权和品牌露出。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "活动散场、旅游车流、降雨和灯光开放会改变道路条件", "recordingAdvice": "只录制车内连续道路声，不开窗追求外部声场，不操作设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "深圳观光巴士城市中心线与深南大道城市地标（深圳市交通运输局）", "url": "https://jtys.sz.gov.cn/zwgk/jtzx/cxtx/content/post_12205347.html", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "深圳世界之窗（高德地图）", "url": "https://ditu.amap.com/place/B02F37V2O5", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-shennan-nantou", "name": "深南大道南头古城路段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.543019, "lng": 113.921429, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为深南大道南头段的途经锚点，不进入古城、不停车落客；依据高德实时道路选择主路可通行车道，服从施工、公交专用道、限速和交警指挥。" },
+      "shooting": { "bestTimes": ["blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定车载机位自动记录深南大道西段、南头城市界面和道路灯光，古城仅作沿线语境而不是下车拍摄点；驾驶者不观察取景、不减速等待灯光、不临停补镜头。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "施工、晚高峰、雨天反光和公交车流影响通行与素材", "recordingAdvice": "车内自动收音即可，后期用短段道路声建立转场；拍摄途中不做任何音频操作。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "深南大道串联深圳核心城区与历史节点（深圳地名保护名录）", "url": "https://pnr.sz.gov.cn/attachment/1/1440/1440081/11261520.pdf", "accessedAt": "2026-08-09", "supports": ["existence", "address", "shooting-value"] }, { "title": "南头古城深南大道到达锚点（高德地图）", "url": "https://ditu.amap.com/place/B02F37U89L", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-binhai-sports", "name": "滨海大道深圳湾体育中心路段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.518248, "lng": 113.949996, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为滨海大道后海段的途经导航锚点，不进入体育中心、不进入停车或落客通道；按高德实时主路规划连续通过，活动日优先服从交通管制或绕行。" },
+      "shooting": { "bestTimes": ["blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定车载设备自动记录春茧轮廓、后海楼群与滨海大道城市界面；演出散场、拥堵或管制时不追求原路线，驾驶者不操作设备、不变道取景。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "大型活动、晚高峰、降雨和道路管制会改变路线与画面", "recordingAdvice": "只保留车内道路声，禁止行驶中调整设备；发布时避免使用清晰可辨的车载广播或音乐。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "滨海大道城市交通走廊与深圳湾体育中心节点（深圳机场快线）", "url": "https://jtys.sz.gov.cn/ydmh/jtcx/sjcx/jcgk/content/post_8527161.html", "accessedAt": "2026-08-09", "supports": ["existence", "address", "access"] }, { "title": "深圳湾体育中心（高德地图）", "url": "https://ditu.amap.com/place/B02F37W5RN", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-binhai-bay-park", "name": "滨海大道深圳湾公园路段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.521591, "lng": 113.993114, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为滨海大道深圳湾公园段的途经导航锚点，不驶入公园或停车场；绿道不是机动车道，车辆始终按高德规划和道路标识在合法机动车道连续行驶。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "由固定车载设备自动记录滨海大道、深圳湾天际线和城市灯光，画面被绿化或车辆遮挡时直接接受；禁止驶入绿道、路肩或公交站，不降速追景。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "海风、降雨、晚高峰、活动和临时交通组织影响画面与通行", "recordingAdvice": "使用车内自动录音并保持车窗关闭，不为获取海浪声进行任何停车或开窗操作。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "观光巴士魅力湾区线与深圳湾城市道路景观（深圳市交通运输局）", "url": "https://jtys.sz.gov.cn/zwgk/jtzx/cxtx/content/post_12205347.html", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "深圳湾公园地铁站道路锚点（高德地图）", "url": "https://ditu.amap.com/place/BV10447620", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-wanghai-seaworld", "name": "望海路海上世界路段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.4802, "lng": 113.916901, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为望海路西段途经锚点，不驶入文化艺术中心、商业区或落客通道；使用高德实时导航确认望海路、施工绕行和临时管制，全程连续驾驶。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定车载设备自动记录蛇口滨海城市界面、文化建筑外部与道路灯光；施工或车流使海景不可见时不绕行补拍，不进入园区、不停车、不下车。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "望海路改造、活动、滨海天气和车流会改变开放道路与画面", "recordingAdvice": "只录车内道路声，施工噪声作为现场状态保留或后期删除；行驶中不操作收音设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "望海路连接前海蛇口并形成地面与隧道复合通道（深圳政府在线）", "url": "https://www.sz.gov.cn/szzt2010/wgkzl/glgk/jgxxgk/gtzy/content/post_12048529.html", "accessedAt": "2026-08-09", "supports": ["existence", "address", "access"] }, { "title": "海上世界文化艺术中心望海路到达锚点（高德地图）", "url": "https://ditu.amap.com/place/B0FFH81O2I", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-wanghai-sunrise", "name": "望海路日出剧场路段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.499063, "lng": 113.952314, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为望海路深圳湾公园日出剧场段的途经锚点，不驶入公园、绿道或停车区；使用高德实时导航确认施工与开放道路，严格按机动车道连续通过。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "车载固定机位自动记录望海路、深圳湾海岸与后海楼群远景；绿化、围挡或车流遮挡时不改变驾驶行为，不路肩临停、不进入公园补镜头。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "道路施工、滨海风雨、潮雾和活动管制影响通行与画面", "recordingAdvice": "保持车窗关闭并自动录制车内底声，不为海岸收音降速或停车。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "望海路快速化改造与日出剧场段（深圳市城管局）", "url": "https://cgj.sz.gov.cn/zwgk/xmgs/content/post_10112598.html", "accessedAt": "2026-08-09", "supports": ["existence", "address", "access"] }, { "title": "深圳湾公园日出剧场（高德地图）", "url": "https://www.amap.com/place/B02F38IP76", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-yanmei-yantian-road", "name": "盐梅路盐田港东段驾车锚点", "province": "广东", "city": "深圳", "type": "coast",
+      "coordinate": { "lat": 22.588959, "lng": 114.25565, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为盐田路地铁站附近进入盐梅路走廊的导航锚点，不进入地铁站、港区或停车区域；依高德实时道路和货运交通组织连续通行。" },
+      "shooting": { "bestTimes": ["sunrise", "golden-hour", "sunset", "blue-hour"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "车载设备出发前固定并自动记录盐田港城市界面、山海转场与道路灯光；港区车辆密集时安全车距优先，不操作设备、不临停、不进入港区支路追景。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "集装箱车辆、上下班车流、降雨和道路管制改变通行条件", "recordingAdvice": "只录车内道路声，保持车窗关闭，行驶中不调整收音。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "盐梅路自驾滨海旅游廊道（深圳市交通运输局）", "url": "https://jtys.sz.gov.cn/jtzx/wycx/zjcx/zjcx_cxtx/content/post_10399284.html", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "盐田路地铁站（高德地图）", "url": "https://www.amap.com/place/BV10684315", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-yanmei-dameisha", "name": "盐梅路大梅沙段驾车锚点", "province": "广东", "city": "深圳", "type": "coast",
+      "coordinate": { "lat": 22.592429, "lng": 114.307954, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为盐梅路大梅沙段途经锚点，不驶入海滨公园、地铁落客区或停车场；旺季和节假日完全服从预约通行、交通分流与实时导航。" },
+      "shooting": { "bestTimes": ["sunrise", "golden-hour", "sunset", "blue-hour"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定车载设备自动记录盐梅路山海界面、道路绿化和大梅沙城市轮廓；不降速等海景、不路肩临停、不驶入绿道，拥堵时接受遮挡或直接取消。" },
+      "soundEnvironment": { "character": ["traffic", "waves", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "旺季车流、海风、强降雨、台风与临时交通组织影响路线", "recordingAdvice": "只使用车内自动收音，不开窗追求浪声；行驶中不操作设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "盐梅路盐港东至大梅沙段建成通车（深圳市交通运输局）", "url": "https://jtys.sz.gov.cn/jtzx/wycx/zjcx/zjcx_cxtx/content/post_10399284.html", "accessedAt": "2026-08-09", "supports": ["existence", "address", "access", "shooting-value"] }, { "title": "大梅沙海滨公园盐梅路锚点（高德地图）", "url": "https://ditu.amap.com/place/B02F3001AA", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-yanmei-beizaijiao", "name": "盐梅路背仔角段驾车锚点", "province": "广东", "city": "深圳", "type": "coast",
+      "coordinate": { "lat": 22.596719, "lng": 114.340526, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为盐梅路东端背仔角检查站方向的途经锚点，不进入海滩、停车区或封闭支路；是否允许继续通行以高德实时道路、检查站和现场标志为准。" },
+      "shooting": { "bestTimes": ["sunrise", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "由固定车载设备自动记录盐梅路东端山海弯道；弯道驾驶、会车与路面观察优先，不追求海面构图，不掉头补拍、不靠边、不进入暂停开放海滩。" },
+      "soundEnvironment": { "character": ["traffic", "waves"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "海风、浪况、台风、落石、检查站与道路管制影响通行", "recordingAdvice": "车窗关闭自动收音，后期从道路声中选用短段；不得因收音改变车速或路线。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "盐梅路工程终点背仔角检查站与自驾走廊（深圳市交通运输局）", "url": "https://jtys.sz.gov.cn/jtzx/wycx/zjcx/zjcx_cxtx/content/post_10399284.html", "accessedAt": "2026-08-09", "supports": ["existence", "address", "access", "shooting-value"] }, { "title": "背仔角海滩盐葵路锚点（高德地图）", "url": "https://www.amap.com/place/B0FFI8DIT3", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-baoan-qianhai", "name": "前海桂湾—宝安中心连接段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.524969, "lng": 113.898685, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为前海一路与听海大道附近道路途经锚点，不驶入桂湾公园；前海至宝安中心的实际连接道路、桥梁和转向由高德实时规划。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定车载设备自动记录前海新城道路、桥梁和楼群，施工或导航绕行时不追求既定构图；驾驶者不操作设备、不驶入公园、不路肩临停。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "前海建设、桥梁开放、晚高峰和降雨改变路线", "recordingAdvice": "保持车窗关闭并自动收音，不在行驶中调整参数。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "前海与宝安中心景观道路连接（深圳市交通运输局）", "url": "https://jtys.sz.gov.cn/jtzx/wycx/dccx/cxtx/content/post_10511004.html", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "桂湾公园道路锚点（高德地图）", "url": "https://www.amap.com/place/B0FFKM8ITG", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-baoan-happy-harbor", "name": "宝安海天路欢乐港湾段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.544558, "lng": 113.883731, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为海天路欢乐港湾段途经锚点，不进入园区、停车场或落客区；活动日与节假日按高德实时道路、交通分流和现场指挥连续通行。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "车载固定设备自动记录湾区之光摩天轮、滨海文化建筑和宝安中心天际线；不为灯光减速、变道、重复绕行或进入落客区，活动散场拥堵时直接取消。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "灯光活动、演出散场、晚高峰、降雨和临时管制改变通行", "recordingAdvice": "只录车内道路环境，车载音乐关闭或避免进入发布音轨；行驶中不操作。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "宝安中心区道路串联欢乐港湾与滨海地标（深圳市交通运输局）", "url": "https://jtys.sz.gov.cn/zwgk/jtzx/gzdt/content/post_12835047.html", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "欢乐港湾（高德地图）", "url": "https://ditu.amap.com/place/B0GDFSX0T6", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-baoan-yifang", "name": "宝安海秀路壹方城段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.550963, "lng": 113.888061, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为海秀路与宝安中心商圈道路锚点，不驶入壹方城停车或落客通道；依据高德实时交通在海秀路、创业一路、宝华路等合法道路通行。" },
+      "shooting": { "bestTimes": ["blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定车载设备自动记录宝安中心楼群、商业灯光和道路空间；拥堵时不低速巡游取景、不抢道、不反复绕圈，错过画面即放弃。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "商圈高峰、活动、施工和降雨改变路线与画面", "recordingAdvice": "只自动记录车内道路声，行驶中不调整收音或摄像设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "宝安壹方城—欢乐港湾周边道路与拥堵提示（深圳市交通运输局）", "url": "https://jtys.sz.gov.cn/ydmh/jtzx/zyhy_1510/content/post_12415076.html", "accessedAt": "2026-08-09", "supports": ["existence", "address", "access"] }, { "title": "壹方城购物中心东区（高德地图）", "url": "https://www.amap.com/place/B0HGO9WAL0", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-longxiang-dayun", "name": "龙翔大道大运中心段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.695974, "lng": 114.216285, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为龙翔大道大运中心段途经锚点，不进入场馆、停车场或落客区；大型赛事和演出期间按高德实时道路与交通管制通行或取消。" },
+      "shooting": { "bestTimes": ["blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定车载设备自动记录水晶石场馆、龙翔大道灯光和大运新城界面；活动散场时不追求原路线，不减速取景、不进入场馆道路、不操作设备。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "赛事演出、散场车流、降雨和灯光维护改变素材", "recordingAdvice": "只保留车内道路声，发布时排除广播和车载音乐；行驶中不操作。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "龙翔大道夜景长廊与大运中心节点（龙岗政府在线）", "url": "https://www.lg.gov.cn/bmzz/lcjdb/csjs/dljs/content/post_1636223.html", "accessedAt": "2026-08-09", "supports": ["existence", "address", "access", "shooting-value"] }, { "title": "深圳大运中心（高德地图）", "url": "https://ditu.amap.com/place/B02F37VK2H", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-longxiang-longcheng", "name": "龙翔大道龙城广场段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.718424, "lng": 114.249314, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为龙翔大道龙城广场段途经锚点，不驶入广场、政府机关或商业停车区；依据高德实时主路、信号灯和临时活动管制连续通行。" },
+      "shooting": { "bestTimes": ["blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定车载设备自动记录龙城广场、红立方周边和中心城灯光；不为喷泉、楼宇灯光或人流减速、靠边和绕行，不进入广场补拍。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "广场活动、商圈车流、降雨和景观灯维护影响路线与素材", "recordingAdvice": "车窗关闭自动收音，行驶中不调整设备；清晰活动音乐不得直接长段使用。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "龙翔大道夜景长廊与龙城广场节点（龙岗政府在线）", "url": "https://www.lg.gov.cn/bmzz/lcjdb/csjs/dljs/content/post_1636223.html", "accessedAt": "2026-08-09", "supports": ["existence", "address", "access", "shooting-value"] }, { "title": "龙城广场（高德地图）", "url": "https://ditu.amap.com/place/B02F37UI67", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-dapeng-suo-city", "name": "鹏飞路大鹏所城外沿驾车锚点", "province": "广东", "city": "深圳", "type": "coast",
+      "coordinate": { "lat": 22.595213, "lng": 114.512449, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为鹏飞路公共道路途经锚点，不进入大鹏所城、停车场和村内道路；预约区域启用期间须在进入管控区前完成预约，并服从高德实时导航与现场交通组织。" },
+      "shooting": { "bestTimes": ["morning", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "设备出发前固定并自动记录山海公路和村落外沿转场；不驶入景区、不停车、不下车、不为建筑或海景减速，拥堵时放弃素材。" },
+      "soundEnvironment": { "character": ["traffic", "mixed"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "节假日预约、车流、台风、强降雨和临时交通组织影响通行", "recordingAdvice": "车窗关闭自动收音，行驶中不调整设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "大鹏半岛预约通行规定（深圳市人民政府）", "url": "https://www.sz.gov.cn/cn/xxgk/zfxxgj/bmdt/content/post_12759061.html", "accessedAt": "2026-08-09", "supports": ["access"] }, { "title": "大鹏所城（高德地图）", "url": "https://ditu.amap.com/place/B02F37VHXJ", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-dapeng-nanao", "name": "海滨南路南澳月亮湾段驾车锚点", "province": "广东", "city": "深圳", "type": "coast",
+      "coordinate": { "lat": 22.534806, "lng": 114.490661, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为南澳海滨南路附近公共道路途经锚点，不驶入码头、市场、停车场或落客区；按高德实时道路和预约通行规则连续行驶。" },
+      "shooting": { "bestTimes": ["morning", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定车载设备自动记录南澳镇区与海湾道路界面；不停车、不下车、不进入码头，行人和非机动车密集时驾驶优先。" },
+      "soundEnvironment": { "character": ["traffic", "waves", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "渔港车流、节假日拥堵、海风和强降雨影响素材", "recordingAdvice": "保持车窗关闭自动收音，不因收音改变车速。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "大鹏半岛预约通行规定（深圳市人民政府）", "url": "https://www.sz.gov.cn/cn/xxgk/zfxxgj/bmdt/content/post_12759061.html", "accessedAt": "2026-08-09", "supports": ["access"] }, { "title": "南澳月亮湾公交站（高德地图）", "url": "https://www.amap.com/place/BV11451840", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-dapeng-yangmeikeng", "name": "新东路杨梅坑段驾车锚点", "province": "广东", "city": "深圳", "type": "coast",
+      "coordinate": { "lat": 22.546530, "lng": 114.568065, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为新东路允许机动车通行路段的终点锚点，不进入村内、停车场、海岸步道或封闭路段；以高德实时道路、现场标志和施工管制为准。" },
+      "shooting": { "bestTimes": ["morning", "sunrise", "golden-hour"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "出发前固定设备，自动记录新东路山海弯道；不停车、不下车、不靠边补拍，遇窄路、骑行者、行人或施工立即降低拍摄预期。" },
+      "soundEnvironment": { "character": ["traffic", "waves", "mixed"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "施工、潮雾、台风、强降雨和节假日车流会改变通行", "recordingAdvice": "只录车内自动环境声，行驶中不操作。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "新东路杨梅坑段设施建设（深圳市人民政府）", "url": "https://www.sz.gov.cn/szzt2010/wgkzl/jcgk/jcygk/zdzcjc/content/post_12000973.html", "accessedAt": "2026-08-09", "supports": ["existence", "address", "access"] }, { "title": "杨梅坑西公交站（高德地图）", "url": "https://www.amap.com/place/BV10249248", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-guangming-station", "name": "光侨路光明城站段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.733024, "lng": 113.953569, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为光侨路与光明城站周边公共道路锚点，不进入高铁站停车场或落客平台；实际主辅路与转向由高德实时规划。" },
+      "shooting": { "bestTimes": ["morning", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定设备自动记录门户交通建筑和宽阔道路界面；不停车、不下车、不驶入落客区，不因车站灯光变道或减速。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "列车到发、施工、晚高峰和降雨改变车流", "recordingAdvice": "车内自动收音，行驶中不调整。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "深圳智能网联汽车开放道路目录（深圳市交通运输局）", "url": "https://jtys.sz.gov.cn/attachment/1/1518/1518354/11856071.pdf", "accessedAt": "2026-08-09", "supports": ["existence", "access"] }, { "title": "光明城地铁站（高德地图）", "url": "https://ditu.amap.com/place/BV11496173", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-guangming-science", "name": "科学大道科学城段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.748991, "lng": 113.931850, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为科学大道、观光路与光明大道片区的公共道路途经锚点，不进入办公园区、停车场或内部道路；由高德实时选择合法连接。" },
+      "shooting": { "bestTimes": ["morning", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "设备固定后自动记录科学城新城界面、桥梁和道路绿化；不停车、不下车、不进入园区，施工绕行时直接服从导航。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "片区建设、晚高峰、活动和降雨改变路线", "recordingAdvice": "保持车窗关闭自动收音。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "深圳智能网联汽车开放道路目录（深圳市交通运输局）", "url": "https://jtys.sz.gov.cn/attachment/1/1518/1518354/11856071.pdf", "accessedAt": "2026-08-09", "supports": ["existence", "access"] }, { "title": "光明科学城建设公司（高德地图）", "url": "https://www.amap.com/place/B0I3X75HD4", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-guangming-lab", "name": "光侨路高科创新中心段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.723400, "lng": 113.912941, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为光侨路高科创新中心公共道路锚点，不驶入园区、停车场或商业落客通道；按高德实时道路连续通行。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定车载设备自动记录产业建筑、道路灯光和科学城转场；不停车、不下车、不绕行补拍。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "通勤车流、施工与降雨影响道路", "recordingAdvice": "仅保留车内道路声，行驶中不操作。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "深圳智能网联汽车开放道路目录（深圳市交通运输局）", "url": "https://jtys.sz.gov.cn/attachment/1/1518/1518354/11856071.pdf", "accessedAt": "2026-08-09", "supports": ["existence", "access"] }, { "title": "深圳湾实验室（高德地图）", "url": "https://ditu.amap.com/place/B0G1PNHC11", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-pingshan-station", "name": "坪山大道深圳坪山站段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.707317, "lng": 114.327179, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为坪山大道西段与深圳坪山站门户片区道路锚点，不进入车站停车场或落客平台；由高德实时生成合法连接。" },
+      "shooting": { "bestTimes": ["morning", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "出发前固定设备，自动记录城市门户、轨道设施和道路空间；不停车、不下车、不驶入站场。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "列车到发、通勤高峰、施工和降雨影响车流", "recordingAdvice": "车窗关闭自动收音，驾驶中不调整。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "坪山大道城市景观轴规划（深圳市人民政府）", "url": "https://www.sz.gov.cn/attachment/1/1291/1291555/10564528.pdf", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "深圳坪山站（高德地图）", "url": "https://amap.com/place/B0FFFDSOEQ", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-pingshan-center", "name": "坪山大道中心城区段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.700587, "lng": 114.348763, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为坪山大道中心城区公共道路锚点，不进入广场、地铁接驳区或停车场；依据高德实时主辅路、转向和施工绕行连续通行。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定设备自动记录中心城区商业界面、道路绿化和灯光；不停车、不下车、不为地标减速或反复绕行。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "晚高峰、商业活动、施工与降雨影响通行", "recordingAdvice": "只自动录制车内道路声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "坪山大道城市景观轴规划（深圳市人民政府）", "url": "https://www.sz.gov.cn/attachment/1/1291/1291555/10564528.pdf", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "坪山广场地铁站（高德地图）", "url": "https://ditu.amap.com/place/BV10997914", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-pingshan-yanzihu", "name": "坪山大道燕子湖片区驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.692760, "lng": 114.363483, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为坪山大道向燕子湖片区公共道路延伸的途经锚点，不进入在建场馆、园区或停车场；实际连接道路由高德实时规划。" },
+      "shooting": { "bestTimes": ["morning", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "设备出发前固定，自动记录新城建筑、山体背景与道路转场；不停车、不下车，施工或封闭时直接绕行或取消。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "片区建设、道路施工、强降雨和活动管制影响通行", "recordingAdvice": "行驶中不调整设备或收音。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "坪山大道及燕子湖新城景观节点规划（深圳市人民政府）", "url": "https://www.sz.gov.cn/attachment/1/1291/1291555/10564528.pdf", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "深圳自然博物馆燕子湖片区（高德地图）", "url": "https://www.amap.com/place/B0ID79WKDQ", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-baoan-hourui", "name": "宝安大道后瑞机场门户段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.628835, "lng": 113.835449, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为宝安大道后瑞段公共道路锚点，不进入机场、地铁接驳区、停车场或落客通道；按高德实时主辅路与交通组织连续通行。" },
+      "shooting": { "bestTimes": ["morning", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定设备自动记录机场门户、轨道高架与城市道路转场；不停车、不下车、不驶入机场，不因飞机或灯光改变车速。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "机场客流、通勤高峰、施工与降雨影响通行", "recordingAdvice": "车窗关闭自动收音，驾驶中不操作。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "机场周边道路交通规划（深圳市交通运输局）", "url": "https://jtys.sz.gov.cn/attachment/0/850/850362/4278214.pdf", "accessedAt": "2026-08-09", "supports": ["existence", "access"] }, { "title": "后瑞地铁站（高德地图）", "url": "https://ditu.amap.com/place/BV10244581", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-baoan-xixiang", "name": "宝安大道西乡段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.581583, "lng": 113.863316, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为宝安大道西乡段公共道路锚点，不进入地铁接驳、商业停车和落客区域；主辅路、掉头与转向限制由高德实时规划。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定车载设备自动记录连续商业界面、轨道交通和道路灯光；不停车、不下车、不低速巡游或绕圈补拍。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "晚高峰、商圈车流、施工和暴雨积水影响路线", "recordingAdvice": "只自动录制车内道路声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "机场周边道路交通规划（深圳市交通运输局）", "url": "https://jtys.sz.gov.cn/attachment/0/850/850362/4278214.pdf", "accessedAt": "2026-08-09", "supports": ["existence", "access"] }, { "title": "西乡宝安大道公共锚点（高德地图）", "url": "https://www.amap.com/place/B02F37WRUY", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-baoan-center", "name": "宝安大道宝安中心段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.554575, "lng": 113.887233, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为宝安大道向宝安中心连接的公共道路锚点，不进入地铁站、政府机关、商场或停车场；实际连接道路由高德实时选择。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定设备自动记录宝安中心天际线与城市灯光转场；不停车、不下车、不为楼群变道、减速或重复经过。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "商圈高峰、活动、施工和降雨改变路线", "recordingAdvice": "行驶中不得调整摄像或收音。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "机场周边道路交通规划（深圳市交通运输局）", "url": "https://jtys.sz.gov.cn/attachment/0/850/850362/4278214.pdf", "accessedAt": "2026-08-09", "supports": ["existence", "access"] }, { "title": "宝安中心地铁站（高德地图）", "url": "https://ditu.amap.com/place/BV10249947", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-shahe-xili", "name": "沙河西路西丽湖段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.593567, "lng": 113.965648, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为沙河西路北段公共道路锚点，不进入西丽湖景区、动物园、停车场或地铁接驳区；由高德实时选择合法主辅路。" },
+      "shooting": { "bestTimes": ["morning", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "出发前固定设备，自动记录北段山体、绿化与城市界面；不停车、不下车、不为景观减速或驶入景区。" },
+      "soundEnvironment": { "character": ["traffic", "mixed"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "通勤车流、施工、强降雨和低能见度影响拍摄", "recordingAdvice": "保持车窗关闭并自动收音，行驶中不调整设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "深圳标准地名词典：沙河西路（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/attachment/1/1560/1560170/10537367.pdf", "accessedAt": "2026-08-09", "supports": ["existence", "access"] }, { "title": "西丽湖地铁站（高德地图）", "url": "https://www.amap.com/place/BV10602481", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-shahe-tech", "name": "沙河西路深圳湾科技生态园段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.530351, "lng": 113.952743, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为沙河西路与白石路附近公共道路锚点，不进入科技园内部道路、停车场或商业落客区；按高德实时交通组织通行。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定设备自动记录科技园楼群、大沙河界面和道路灯光；不停车、不下车、不在通勤车流中追求构图。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "工作日高峰、施工和降雨影响通行", "recordingAdvice": "保持自动收音，行驶中不操作或调整任何设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "深圳湾科技生态园位置（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/d-cyyf/homeDetailSeoServlet?id=01130000000000000000000000000133", "accessedAt": "2026-08-09", "supports": ["existence", "address", "access", "shooting-value"] }, { "title": "深圳湾科技生态园（高德地图）", "url": "https://ditu.amap.com/place/B0FFF4FYPR", "accessedAt": "2026-08-09", "supports": ["coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-shahe-port", "name": "沙河西路深圳湾口岸段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.503266, "lng": 113.948688, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为沙河西路南端口岸片区公共道路锚点，不进入口岸查验、停车、公交或货运缓冲区域；按高德实时交通组织与现场标志通行。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定设备自动记录口岸门户、桥梁和湾区道路界面；不停车、不下车、不驶入口岸功能区、不拍摄查验细节。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "口岸车流、货运交通、管制、海风与暴雨影响路线", "recordingAdvice": "保持车窗关闭自动录音。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "后海湾片区道路图则（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/ywzy/fdtz/cggbcx/nsq/content/post_5838399.html", "accessedAt": "2026-08-09", "supports": ["existence", "access"] }, { "title": "深圳湾口岸地铁站道路锚点（高德地图）", "url": "https://ditu.amap.com/place/BX09913894", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-yanhe-huangbeiling", "name": "沿河北路黄贝岭段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.546095, "lng": 114.136332, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为沿河北路黄贝岭附近公共快速路锚点，不进入地铁接驳区、社区或停车场；按高德实时匝道、主辅路和限行规则连续通行。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定车载设备自动记录罗湖密集城市界面、立交和道路灯光；不停车、不下车、不为楼群减速或跨车道取景。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "高峰车流、货运交通、施工与暴雨影响路线", "recordingAdvice": "只自动记录车内道路声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "深圳标准地名词典：沿河北路（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/attachment/1/1285/1285351/10537367.pdf", "accessedAt": "2026-08-09", "supports": ["existence", "access"] }, { "title": "黄贝岭地铁站（高德地图）", "url": "https://ditu.amap.com/place/BV10243876", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-yanhe-luosha", "name": "沿河北路—罗沙路罗湖体育中心段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.552769, "lng": 114.150536, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为沿河—罗沙快速通道东端公共道路锚点，不进入体育中心、停车场或落客区；实际匝道与连接方向由高德实时规划。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定设备自动记录高架、隧道入口和东部城市山景转场；不停车、不下车，不为场馆、山景或灯光改变驾驶。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "赛事、通勤车流、施工、隧道管制和降雨影响通行", "recordingAdvice": "车窗关闭自动收音，隧道内不调整设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "罗湖区国土空间规划：滨河—沿河—罗沙快速通道（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/attachment/1/1692/1692554/12683344.pdf", "accessedAt": "2026-08-09", "supports": ["existence", "access"] }, { "title": "罗湖体育馆公交站（高德地图）", "url": "https://www.amap.com/place/BV10471222", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-beihuan-keyuan", "name": "北环大道科苑立交段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.554843, "lng": 113.945623, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为北环大道科苑立交附近公共快速路锚点，不驶入公交站、科技园内部或路肩；主辅路与匝道由高德实时规划。" },
+      "shooting": { "bestTimes": ["morning", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "设备出发前固定并自动记录科技园北部、立交和城市道路界面；不停车、不下车、不为楼群或车流改变驾驶。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "高峰拥堵、立交施工、暴雨与低能见度影响通行", "recordingAdvice": "车窗关闭自动收音，行驶中不调整设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "北环大道路面修缮工程（深圳市交通运输局）", "url": "https://jtys.sz.gov.cn/zwgk/ztzl/zdlyxxgk/zdjsxm/content/post_4180592.html", "accessedAt": "2026-08-09", "supports": ["existence", "access"] }, { "title": "科苑北环立交公交站（高德地图）", "url": "https://ditu.amap.com/place/BV11401492", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-beihuan-xiangmi", "name": "北环大道香蜜湖连接段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.551195, "lng": 114.019218, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为北环大道香蜜湖片区连接道路锚点，不进入公园、体育中心或停车场；实际快速路、辅路和匝道由高德实时选择。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定设备自动记录福田北部绿化、立交和天际线转场；不停车、不下车、不驶入公园，不为灯光减速。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "晚高峰、施工、强降雨和活动影响路线", "recordingAdvice": "保持自动收音，驾驶者全程不操作设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "深圳标准地名词典：北环大道（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/attachment/1/1285/1285351/10537367.pdf", "accessedAt": "2026-08-09", "supports": ["existence", "access"] }, { "title": "香蜜体育中心道路锚点（高德地图）", "url": "https://www.amap.com/place/B0FFHNVT5B", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-beihuan-yinhu", "name": "北环大道银湖立交段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.567754, "lng": 114.089448, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为北环大道东端银湖立交附近公共道路锚点，不进入汽车站、地铁接驳区或停车场；以高德实时匝道和道路管制为准。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定设备自动记录银湖山体、立交和罗湖门户转场；不停车、不下车，隧道和匝道内不操作设备或追求曝光。" },
+      "soundEnvironment": { "character": ["traffic", "mixed"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "隧道管制、客运车流、施工、强降雨和低能见度影响通行", "recordingAdvice": "车窗关闭自动收音，隧道内不调整任何设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "北环大道路面修缮工程（深圳市交通运输局）", "url": "https://jtys.sz.gov.cn/zwgk/ztzl/zdlyxxgk/zdjsxm/content/post_4180592.html", "accessedAt": "2026-08-09", "supports": ["existence", "access"] }, { "title": "银湖汽车站公交站（高德地图）", "url": "https://ditu.amap.com/place/BV10242481", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-fulong-longyue", "name": "福龙路龙悦居段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.602722, "lng": 114.032047, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为福龙路南端龙悦居片区公共道路锚点，不进入社区、公交站、停车场或落客区；由高德实时选择主路和匝道。" },
+      "shooting": { "bestTimes": ["morning", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定设备自动记录山体、隧道与龙华门户转场；不停车、不下车，隧道和匝道内不操作设备。" },
+      "soundEnvironment": { "character": ["traffic", "mixed"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "隧道管制、通勤高峰、强降雨与低能见度影响通行", "recordingAdvice": "车窗关闭自动收音，行驶中不调整设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "深圳标准地名词典：福龙路（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/attachment/1/1285/1285351/10537367.pdf", "accessedAt": "2026-08-09", "supports": ["existence", "access"] }, { "title": "龙悦居公交站（高德地图）", "url": "https://ditu.amap.com/place/BV10383144", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-fulong-heping", "name": "福龙路龙华和平路连接段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.658965, "lng": 114.031497, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为福龙路与龙华和平路片区的公共道路连接锚点，不进入商业、加油站或停车区域；实际出口和连接道路由高德实时规划。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "设备固定后自动记录龙华城市楼群、高架与快速路灯光；不停车、不下车、不为天际线减速或绕行。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "晚高峰、出口排队、施工和降雨改变路线", "recordingAdvice": "保持自动录音，行驶中不触碰任何设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "龙华新城福龙大道道路图则（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/ywzy/fdtz/cggbcx/lhq/content/post_5841791.html", "accessedAt": "2026-08-09", "supports": ["existence", "access"] }, { "title": "龙华和平路公共道路锚点（高德地图）", "url": "https://www.amap.com/place/B02F3052DF", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-fulong-dalang", "name": "福龙路大浪门户段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.676518, "lng": 113.994040, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为福龙路大浪片区公共道路终点锚点，不进入商业街、园区、停车场或支路；由高德实时确定福龙路出口与合法连接。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定车载设备自动记录大浪山体、产业城市界面和夜间道路；不停车、不下车、不绕圈补拍。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "产业通勤、货车、施工与强降雨影响路线", "recordingAdvice": "车窗关闭并自动收音，驾驶中不操作设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "大浪西南地区福龙大道图则（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/ywzy/fdtz/cggbcx/lhq/content/post_5841849.html", "accessedAt": "2026-08-09", "supports": ["existence", "access"] }, { "title": "大浪公共道路锚点（高德地图）", "url": "https://www.amap.com/place/B0FFGLEKLT", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-yueliangwan-mawan", "name": "月亮湾大道妈湾段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.509591, "lng": 113.887399, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为月亮湾大道南端妈湾片区公共道路锚点，不进入港区、酒店、社区、停车场或内部道路；由高德实时选择开放道路。" },
+      "shooting": { "bestTimes": ["morning", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定设备自动记录前海港城、产业道路和天际线转场；不停车、不下车、不驶入港区追景。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "港区货车、施工、海风和暴雨影响通行", "recordingAdvice": "保持车窗关闭自动收音，行驶中不调整。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "深圳标准地名词典：月亮湾大道（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/attachment/1/1560/1560170/10537367.pdf", "accessedAt": "2026-08-09", "supports": ["existence", "access"] }, { "title": "妈湾公共道路锚点（高德地图）", "url": "https://ditu.amap.com/place/B0G0LUHMEY", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-yueliangwan-central", "name": "月亮湾大道前海中段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.508828, "lng": 113.899420, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为月亮湾大道中段公共道路锚点，不进入加油站、物流园、停车场或港区支路；高德实时决定主辅路和施工绕行。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "设备出发前固定，自动记录前海建设界面、港城灯光和快速道路；不停车、不下车、不因车辆或楼群改变车速。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "货运交通、片区施工、海风和积水影响路线", "recordingAdvice": "车内自动收音，驾驶中不操作任何设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "深圳标准地名词典：月亮湾大道（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/attachment/1/1560/1560170/10537367.pdf", "accessedAt": "2026-08-09", "supports": ["existence", "access"] }, { "title": "月亮湾大道 2082 号道路锚点（高德地图）", "url": "https://www.amap.com/place/B02F37T4VT", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-yueliangwan-nantou", "name": "月亮湾大道南头北段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.542853, "lng": 113.910275, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为月亮湾大道北段公共道路锚点，不进入花卉市场、公园、停车场或南头古城；以高德实时主辅路、立交和限行为准。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定设备自动记录南头门户、立交与城市灯光转场；不停车、不下车、不驶入景点或市场。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "市场车流、晚高峰、施工和暴雨影响路线", "recordingAdvice": "只自动记录车内道路声，行驶中不调整设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "深圳标准地名词典：月亮湾大道（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/attachment/1/1560/1560170/10537367.pdf", "accessedAt": "2026-08-09", "supports": ["existence", "access"] }, { "title": "月亮湾大道北段公共锚点（高德地图）", "url": "https://www.amap.com/place/B0FFFSWVLH", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-longgang-danzhutou", "name": "龙岗大道丹竹头段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.619752, "lng": 114.148054, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为龙岗大道丹竹头段公共道路锚点，不进入地铁站、客运站、商业停车或高速入口；由高德实时选择主辅路和合法方向。" },
+      "shooting": { "bestTimes": ["morning", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定设备自动记录立交、轨道高架和密集城市界面；不停车、不下车、不为构图降速或跨车道。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "通勤车流、客运车辆、施工和暴雨影响通行", "recordingAdvice": "保持车窗关闭自动收音，行驶中不调整设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "深圳地名志：龙岗大道（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/attachment/1/1442/1442495/10537363.pdf", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "丹竹头地铁站（高德地图）", "url": "https://ditu.amap.com/place/BV10249959", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-longgang-henggang", "name": "龙岗大道横岗段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.648442, "lng": 114.208994, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为龙岗大道横岗段公共道路锚点，不进入地铁接驳区、商场、社区或停车场；主辅路、掉头和转向由高德实时规划。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "设备固定后自动记录长轴道路、轨道高架、商住楼群和山体背景；不停车、不下车、不绕圈补拍。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "晚高峰、地铁站车流、施工和降雨影响路线", "recordingAdvice": "车内自动收音，驾驶者全程不触碰设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "深圳地名志：龙岗大道（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/attachment/1/1442/1442495/10537363.pdf", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "横岗地铁站（高德地图）", "url": "https://www.amap.com/place/BV10249956", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-longgang-shuanglong", "name": "龙岗大道双龙段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.728456, "lng": 114.276373, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为龙岗大道双龙段公共道路锚点，不进入公交场站、地铁接驳、停车场或坪地支路；以高德实时道路和现场标志为准。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定车载设备自动记录龙岗老城、新城与道路灯光转场；不停车、不下车、不为车辆和招牌改变车速。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "公交车流、通勤高峰、道路施工和暴雨积水影响通行", "recordingAdvice": "保持自动录音，行驶中不操作摄像或收音设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "深圳地名志：龙岗大道（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/attachment/1/1442/1442495/10537363.pdf", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "双龙地铁站公交站（高德地图）", "url": "https://www.amap.com/place/BV10382889", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-danping-shawan", "name": "丹平快速沙湾段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.605762, "lng": 114.163733, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为丹平快速沙湾段公共道路锚点，不进入原检查站、办公区、停车场或封闭支路；由高德实时选择主线入口和合法方向。" },
+      "shooting": { "bestTimes": ["morning", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定设备自动记录罗湖北部山体、立交和隧道转场；不停车、不下车，隧道和匝道内不操作设备。" },
+      "soundEnvironment": { "character": ["traffic", "mixed"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "隧道管制、施工、强降雨和低能见度影响通行", "recordingAdvice": "保持车窗关闭自动收音，驾驶中不调整设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "丹平快速路一期工程（深圳市交通运输局）", "url": "https://jtys.sz.gov.cn/zwgk/xxgkml/qt/zdjsxm_1/content/post_4310518.html", "accessedAt": "2026-08-09", "supports": ["existence", "access"] }, { "title": "沙湾检查站公共道路锚点（高德地图）", "url": "https://www.amap.com/place/B02F37WRSF", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-danping-huanancheng", "name": "丹平快速华南城连接段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.675974, "lng": 114.122250, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为丹平快速向华南城片区连接的公共道路锚点，不进入商贸园、地铁接驳、停车场或物流内部道路；实际出口由高德实时规划。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "设备出发前固定，自动记录平湖产业城市界面、高架和道路灯光；不停车、不下车、不为楼群或货车改变车速。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "物流货车、通勤高峰、施工和暴雨积水影响路线", "recordingAdvice": "车内自动收音，行驶中不触碰任何设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "丹平快速公共交通线路依据（深圳市交通运输局）", "url": "https://jtys.sz.gov.cn/jtzx/wycx/gjcx/gjfw/content/post_9517686.html", "accessedAt": "2026-08-09", "supports": ["existence", "access"] }, { "title": "华南城地铁站（高德地图）", "url": "https://ditu.amap.com/place/BV10672443", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-danping-pinghu", "name": "丹平快速平湖外围段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.697177, "lng": 114.128659, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为丹平快速北端向平湖公共道路延伸的锚点，不进入广场、地铁站、停车场或尚未开放的二期工程；以高德和现场标志为准。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定车载设备自动记录平湖城市门户、产业灯光与道路转场；不停车、不下车，不进入施工或未开放道路。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "二期施工、货车、晚高峰和强降雨影响通行", "recordingAdvice": "保持自动录音，驾驶中不操作摄像和收音设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "丹平快速路二期公众参与通告（深圳市交通运输局）", "url": "https://jtys.sz.gov.cn/zwgk/ztzl/wgk/jcgk/jcygk/zdzcjc/content/post_12065138.html", "accessedAt": "2026-08-09", "supports": ["existence", "access"] }, { "title": "平湖广场公共道路锚点（高德地图）", "url": "https://ditu.amap.com/place/B02F38PHL1", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-nanping-longhua", "name": "南坪快速龙华主线段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.590410, "lng": 114.044903, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "高德直接标注的 S301 南坪快速道路节点，仅作为龙华主线锚点；主线入口、方向、隧道与匝道必须由高德实时规划，不在路肩停留。" },
+      "shooting": { "bestTimes": ["morning", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "设备出发前固定并自动记录山体、隧道、高架和城市转场；不停车、不下车，隧道与匝道内不看屏或操作设备。" },
+      "soundEnvironment": { "character": ["traffic", "mixed"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "隧道管制、快速路拥堵、施工、强降雨和低能见度影响通行", "recordingAdvice": "保持车窗关闭自动收音，驾驶中不调整设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "深圳标准地名词典：南坪大道（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/attachment/1/1285/1285351/10537367.pdf", "accessedAt": "2026-08-09", "supports": ["existence", "access"] }, { "title": "S301 南坪快速道路节点（高德地图）", "url": "https://www.amap.com/place/B0FFFMGR9K", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-nanping-bantian", "name": "南坪快速坂田段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.602594, "lng": 114.064250, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为南坪快速坂田段附近公共道路锚点，不进入寺院、坂田商业区、停车场或货运场；由高德实时选择主线、隧道和合法连接。" },
+      "shooting": { "bestTimes": ["morning", "golden-hour", "sunset", "blue-hour"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定设备自动记录坂田山谷、快速路高架与隧道转场；不停车、不下车、不进入支路追景。" },
+      "soundEnvironment": { "character": ["traffic", "mixed"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "隧道、山谷降雨、施工和通勤高峰改变通行条件", "recordingAdvice": "车内自动收音，隧道和匝道中不得操作设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "坂田南地区南坪快速道路图则（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/ywzy/fdtz/cggbcx/lgq/content/post_5841437.html", "accessedAt": "2026-08-09", "supports": ["existence", "access"] }, { "title": "南坪快速坂田附近公共锚点（高德地图）", "url": "https://www.amap.com/place/B0FFHEJLSD", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-xinqu-north-station", "name": "新区大道深圳北站段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.608443, "lng": 114.025796, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为新区大道深圳北站外围公共道路锚点，不进入车站落客平台、公交场站、地铁接驳、商业区或停车场；由高德实时选择合法主辅路和方向。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定设备自动记录深圳北站枢纽楼群、城市高架与灯光界面；不停车、不下车、不驶入落客区补拍。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "枢纽车流、晚高峰、施工和强降雨影响通行", "recordingAdvice": "车内自动收音，驾驶者全程不触碰摄像或收音设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "深圳标准地名词典：新区大道（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/attachment/1/1285/1285351/10537367.pdf", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "深圳北站公共道路锚点（高德地图）", "url": "https://www.amap.com/place/BV10244304", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-xinqu-hongshan", "name": "新区大道红山段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.621707, "lng": 114.023400, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为新区大道红山片区公共道路锚点，不进入地铁站、商场、住宅、文化场馆或停车场；主辅路、路口转向和掉头由高德实时规划。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "设备出发前固定并自动记录红山商务楼群、道路灯光和城市密度变化；不停车、不下车、不绕行补拍。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "商圈车流、活动、施工和雨后拥堵影响通行", "recordingAdvice": "保持自动录音，行驶中不调整构图、供电或收音设置。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "深圳标准地名词典：新区大道（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/attachment/1/1285/1285351/10537367.pdf", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "红山地铁站公共道路锚点（高德地图）", "url": "https://ditu.amap.com/place/BV10249884", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-xinqu-heping", "name": "新区大道和平路口驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.657367, "lng": 114.031883, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为新区大道北端和平路连接段公共道路锚点，不进入社区、公交站、商业停车或工业园内部道路；实际路口进出方向以高德和现场标志为准。" },
+      "shooting": { "bestTimes": ["golden-hour", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定车载设备自动记录龙华城市轴线由商务区向产业与居住界面的转场；不停车、不下车、不为楼群变道。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "通勤高峰、公交车流、施工和暴雨积水影响路线", "recordingAdvice": "保持车窗关闭自动收音，驾驶中不操作任何拍摄设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "深圳标准地名词典：新区大道（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/attachment/1/1285/1285351/10537367.pdf", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "龙华和平路公共道路锚点（高德地图）", "url": "https://ditu.amap.com/place/B02F37VKT8", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-guanguang-guangming", "name": "观光路光明大道段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.748991, "lng": 113.931850, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为观光路与光明大道交会附近的公共道路锚点，不进入商场、办公楼、住宅、地铁接驳或停车场；由高德实时选择合法车道、方向与连接。" },
+      "shooting": { "bestTimes": ["golden-hour", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "设备固定后自动记录光明中心区楼群、宽阔道路与晚间灯光；不停车、不下车、不驶入商场道路追景。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "商圈车流、通勤高峰、施工和强降雨影响通行", "recordingAdvice": "保持车窗关闭与自动收音，驾驶中不触碰拍摄设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "观光路改造工程观澜段（深圳市交通运输局）", "url": "https://jtys.sz.gov.cn/zwgk/xxgkml/qt/zdjsxm_1/content/post_4310572.html", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "观光路与光明大道公共道路锚点（高德地图）", "url": "https://www.amap.com/place/B0I3X75HD4", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-guanguang-dafu", "name": "观光路大富工业区段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.727425, "lng": 114.034275, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为观光路大富工业区段公共道路锚点，不进入工厂、园区、物流场地、加油站或停车场；实际主辅路、匝道和转向由高德实时规划。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定设备自动记录光明至观澜之间的山体、产业建筑、高架和隧道转场；不停车、不下车、不为货车或灯光改变车速。" },
+      "soundEnvironment": { "character": ["traffic", "mixed"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "货运车辆、快速路施工、强降雨和低能见度影响路线", "recordingAdvice": "车内自动收音，行驶中不调整设备或观察监看屏。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "观光路改造工程观澜段（深圳市交通运输局）", "url": "https://jtys.sz.gov.cn/zwgk/xxgkml/qt/zdjsxm_1/content/post_4310572.html", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "观光路大富工业区公共道路锚点（高德地图）", "url": "https://www.amap.com/place/B02F37WHEG", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-guanguang-golf", "name": "观光路高尔夫大道段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.718101, "lng": 114.080512, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为观光路东端与高尔夫大道连接附近的公共道路锚点，不进入观澜湖、生态园、球场、酒店或停车场；由高德和现场标志决定合法连接方向。" },
+      "shooting": { "bestTimes": ["golden-hour", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "设备出发前固定并自动记录道路由产业界面转向绿地、坡地与观澜城市灯光的变化；不停车、不下车、不进入景区。" },
+      "soundEnvironment": { "character": ["traffic", "mixed"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "景区活动车流、道路施工、坡地降雨和雾气影响通行", "recordingAdvice": "保持自动录音，驾驶者不操作摄像、供电或收音设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "观光路改造工程观澜段（深圳市交通运输局）", "url": "https://jtys.sz.gov.cn/zwgk/xxgkml/qt/zdjsxm_1/content/post_4310572.html", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "高尔夫大道公共道路锚点（高德地图）", "url": "https://www.amap.com/place/B0FFLJ6CTA", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-wuhe-huawei", "name": "五和大道华为坂田段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.649185, "lng": 114.056698, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为五和大道华为坂田基地外围公共道路锚点，不进入基地、园区、访客中心、落客区或停车场；实际主辅路、转向和门区交通由高德实时规划。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定设备自动记录坂田科技园区外立面、道路灯光和通勤车流；不停车、不下车、不对准门岗或人员追拍。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "园区通勤高峰、货运、施工和降雨影响通行", "recordingAdvice": "保持车窗关闭与自动收音，驾驶者不操作设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "深圳标准地名词典：五和大道（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/attachment/1/1285/1285351/10537367.pdf", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "五和大道华为坂田段公共锚点（高德地图）", "url": "https://ditu.amap.com/place/B0FFFBF93K", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-wuhe-hub", "name": "五和大道布龙路枢纽段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.628156, "lng": 114.060715, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为五和大道与布龙路交通枢纽附近公共道路锚点，不进入地铁站、公交站、加油站、住宅或停车场；由高德实时处理路口方向、主辅路和掉头限制。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "设备出发前固定并自动记录轨道、立交、连续商住楼群和枢纽灯光；不停车、不下车、不驶入接驳区补拍。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "换乘车流、晚高峰、道路施工和暴雨积水影响路线", "recordingAdvice": "车内自动收音，行驶中不查看监看屏或调整设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "坂田五和综合交通枢纽（深圳政府在线）", "url": "https://www.sz.gov.cn/cn/xxgk/zfxxgj/gqdt/content/post_11236326.html", "accessedAt": "2026-08-09", "supports": ["existence", "address", "access"] }, { "title": "五和地铁站公共道路锚点（高德地图）", "url": "https://ditu.amap.com/place/BV10245742", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-wuhe-guangyayuan", "name": "五和大道光雅园段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.620427, "lng": 114.061241, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为五和大道南段光雅园附近公共道路锚点，不进入地铁接驳、加油站、社区、商铺或停车场；由高德按当时开放道路选择合法方向。" },
+      "shooting": { "bestTimes": ["golden-hour", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定车载设备自动记录五和大道南段住宅密度、道路高差与城市灯光转场；不停车、不下车、不为招牌或列车减速。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "地铁站车流、社区通勤、施工和积水影响通行", "recordingAdvice": "保持自动录音，驾驶中不触碰摄像、供电或收音设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "坂田南地区道路图则（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/ywzy/fdtz/cggbcx/lgq/content/post_5841437.html", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "五和大道南光雅园段公共锚点（高德地图）", "url": "https://ditu.amap.com/place/B02F37VHSL", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-bulong-shuijing", "name": "布龙路上水径段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.620424, "lng": 114.108926, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为布龙路上水径段公共道路锚点，不进入地铁站、公交站、社区、商业停车或支路；实际主辅路、立交和转向由高德实时规划。" },
+      "shooting": { "bestTimes": ["golden-hour", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定设备自动记录水径片区山体、轨道高架、密集住宅和道路灯光；不停车、不下车、不驶入接驳区域。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "地铁站车流、晚高峰、道路施工和强降雨影响通行", "recordingAdvice": "保持车窗关闭自动收音，驾驶中不观察或调整设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "水径地区法定图则：布龙路（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/ywzy/fdtz/cggbcx/lgq/content/post_5841355.html", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "上水径公共道路锚点（高德地图）", "url": "https://www.amap.com/place/BV10244201", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-bulong-yangmei", "name": "布龙路杨美段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.626440, "lng": 114.081212, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为布龙路杨美段公共道路锚点，不进入地铁或公交接驳、住宅、商场、加油站或停车场；由高德实时确定主辅路和合法通行方向。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "设备出发前固定并自动记录轨道高架、坡地商住界面和连续道路照明；不停车、不下车、不为列车或招牌改变车速。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "公交车流、通勤高峰、施工和雨后拥堵影响路线", "recordingAdvice": "车内自动收音，驾驶者不触碰摄像、供电或收音设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "坂田北地区法定图则：布龙路（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/ywzy/fdtz/cggbcx/lgq/content/post_5841279.html", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "杨美公共道路锚点（高德地图）", "url": "https://www.amap.com/place/BV10570155", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-bulong-longsheng", "name": "布龙路龙胜段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.644405, "lng": 114.012714, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为布龙路向龙华龙胜片区延伸的公共道路锚点，不进入地铁站、住宅、商业区、落客区或停车场；真实连接道路、路口和转向以高德及现场标志为准。" },
+      "shooting": { "bestTimes": ["golden-hour", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定车载设备自动记录坂田向龙华过渡的高架、轨道、楼群和道路灯光；不停车、不下车、不为画面掉头补拍。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "换乘车流、通勤高峰、施工、暴雨积水影响通行", "recordingAdvice": "保持自动录音，驾驶过程中不操作或检查设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "布龙路与五和枢纽道路关系（深圳政府在线）", "url": "https://www.sz.gov.cn/cn/xxgk/zfxxgj/gqdt/content/post_11236326.html", "accessedAt": "2026-08-09", "supports": ["existence", "access"] }, { "title": "龙胜公共道路锚点（高德地图）", "url": "https://ditu.amap.com/place/BX10027900", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-yanlong-dayun", "name": "盐龙大道大运新城段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.695974, "lng": 114.216285, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为盐龙大道现状北段与大运新城道路连接附近锚点，不进入体育场、商场、公园、地铁接驳、落客区或停车场；由高德实时选择盐龙大道主辅路及合法连接。" },
+      "shooting": { "bestTimes": ["golden-hour", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定设备自动记录大运场馆外轮廓、立交、山体和新城楼群；不停车、不下车、不驶入场馆道路或为建筑减速。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "赛事活动、晚高峰、施工和强降雨影响道路连接", "recordingAdvice": "保持车窗关闭与自动收音，驾驶中不操作设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "大运新城地区法定图则：盐龙大道（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/ywzy/fdtz/cggbcx/lgq/content/post_5841446.html", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "大运中心外围公共道路锚点（高德地图）", "url": "https://ditu.amap.com/place/B02F37VK2H", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-yanlong-longcheng-north", "name": "盐龙大道龙城北段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.733830, "lng": 114.228445, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为盐龙大道龙城北段公共道路锚点，不进入儿童公园、公交站、住宅、城市支路或停车场；主辅路、出口、掉头和连接道路由高德实时规划。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "设备出发前固定并自动记录龙城北部山体、高架、道路绿化与城市灯光转场；不停车、不下车、不进入公园取景。" },
+      "soundEnvironment": { "character": ["traffic", "mixed"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "公园活动车流、施工、暴雨积水和低能见度影响通行", "recordingAdvice": "车内自动收音，驾驶者不查看屏幕或调整设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "横岗大康—安良地区法定图则：盐龙大道现状快速路（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/ywzy/fdtz/cggbcx/lgq/content/post_5841408.html", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "龙岗儿童公园南公共道路锚点（高德地图）", "url": "https://www.amap.com/place/BV09221674", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-yanlong-pingdi", "name": "盐龙大道坪地产业段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.782299, "lng": 114.302452, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为盐龙大道坪地产业段公共道路锚点，不进入企业、厂区、物流园、门岗、货运场或停车场；实际主辅路和可通行方向由高德及现场标志确认。" },
+      "shooting": { "bestTimes": ["golden-hour", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定车载设备自动记录坪地产业建筑、长轴道路、山体与郊区灯光变化；不停车、不下车、不针对厂区或人员拍摄。" },
+      "soundEnvironment": { "character": ["traffic", "mixed"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "货运车辆、施工、夜间照明、暴雨和积水影响路线", "recordingAdvice": "保持自动录音，驾驶中不触碰摄像、供电或收音设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "龙岗区高快速路网：盐龙大道现状北段（龙岗区政府）", "url": "https://www.lg.gov.cn/attachment/1/1404/1404613/9010570.pdf", "accessedAt": "2026-08-09", "supports": ["existence", "access"] }, { "title": "盐龙大道坪地产业段公共锚点（高德地图）", "url": "https://ditu.amap.com/place/B02F37WGZ3", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-meiguan-meilin", "name": "梅观大道梅林关段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.593666, "lng": 114.053740, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为梅观大道南端梅林关附近公共道路锚点，不进入地铁站、原检查站、住宅、公交接驳或停车场；由高德实时选择开放主线、辅路和合法方向。" },
+      "shooting": { "bestTimes": ["golden-hour", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定设备自动记录梅林山体、关口城市界面、高架与灯光转场；不停车、不下车、不驶入接驳或检查站遗址区域。" },
+      "soundEnvironment": { "character": ["traffic", "mixed"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "通勤高峰、匝道施工、强降雨和低能见度影响通行", "recordingAdvice": "保持车窗关闭自动收音，驾驶中不操作或检查设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "梅观高速市政化交通详细规划（深圳市交通运输局）", "url": "https://jtys.sz.gov.cn/gkmlpt/content/5/5563/post_5563967.html", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "梅林关公共道路锚点（高德地图）", "url": "https://ditu.amap.com/place/BV10793830", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-meiguan-qinghu", "name": "梅观大道清湖段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.664085, "lng": 114.036538, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为梅观大道清湖立交片区公共道路锚点，不进入地铁站、机荷高速收费匝道、商场、社区、市场或停车场；主辅路与立交方向由高德实时规划。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "设备出发前固定并自动记录清湖立交、轨道、龙华楼群和快速路灯光；不停车、不下车、不为立交构图变道。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "立交车流、收费匝道、施工、暴雨积水影响路线", "recordingAdvice": "车内自动收音，驾驶者不查看监看屏或调整构图。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "梅观高速现状道路与清湖立交（深圳市交通运输局）", "url": "https://jtys.sz.gov.cn/gkmlpt/content/5/5563/post_5563967.html", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "清湖公共道路锚点（高德地图）", "url": "https://ditu.amap.com/place/BV10249979", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-meiguan-guanlan", "name": "梅观大道观澜段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.702431, "lng": 114.041970, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为梅观大道观澜片区公共道路锚点，不进入观澜主线收费站、加油站、产业园、社区或停车场；是否继续北行收费路段由高德和驾驶计划决定，本路线在此前结束。" },
+      "shooting": { "bestTimes": ["golden-hour", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定车载设备自动记录清湖北部宽阔道路、山体、产业楼群与观澜灯光；不停车、不下车、不进入加油站或园区。" },
+      "soundEnvironment": { "character": ["traffic", "mixed"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "收费站分流、货运车辆、施工、暴雨和雾气影响通行", "recordingAdvice": "保持自动录音，驾驶中不触碰摄像、供电或收音设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "梅观高速免费放行与收费路段说明（深圳市交通运输局）", "url": "https://jtys.sz.gov.cn/zwgk/ggqsydw/gsgl/index.html", "accessedAt": "2026-08-09", "supports": ["existence", "access"] }, { "title": "观澜大道外围公共道路锚点（高德地图）", "url": "https://ditu.amap.com/place/B02F37VHRA", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-hengping-henggang", "name": "横坪大道横岗段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.643381, "lng": 114.211479, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为横坪大道横岗方向公共道路锚点，不进入地铁站、商业区、社区、园山景区或停车场；由高德实时选择横坪大道开放主辅路和合法方向。" },
+      "shooting": { "bestTimes": ["golden-hour", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定设备自动记录横岗城市界面、山体、高架与快速路灯光；不停车、不下车、不进入景区或支路追景。" },
+      "soundEnvironment": { "character": ["traffic", "mixed"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "快速路车流、山地降雨、施工和低能见度影响通行", "recordingAdvice": "保持车窗关闭自动收音，驾驶中不操作设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "荷康地区法定图则：横坪大道（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/ywzy/fdtz/cggbcx/lgq/content/post_5841300.html", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "横岗公共道路锚点（高德地图）", "url": "https://ditu.amap.com/place/B00141K0M9", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-hengping-heao", "name": "横坪大道荷坳段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.672923, "lng": 114.225685, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为横坪大道与荷坳片区连接附近公共道路锚点，不进入汽车站、地铁站、长途客运落客、加油站、社区或停车场；真实立交和连接由高德规划。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "设备出发前固定并自动记录荷坳山体、快速路立交、轨道与产业楼群；不停车、不下车、不驶入客运站区域。" },
+      "soundEnvironment": { "character": ["traffic", "mixed"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "客运车辆、立交车流、施工和暴雨积水影响路线", "recordingAdvice": "车内自动收音，驾驶者不查看屏幕或调整设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "荷坳地区法定图则：横坪大道现状快速路（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/ywzy/fdtz/cggbcx/lgq/content/post_5841303.html", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "荷坳公共道路锚点（高德地图）", "url": "https://ditu.amap.com/place/B02F37VMQO", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-hengping-pingshan-station", "name": "横坪大道坪山站连接段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.707317, "lng": 114.327179, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为横坪大道向深圳坪山站片区连接的公共道路锚点，不进入铁路站、云巴站、落客平台、公交场站、商业区或停车场；由高德实时生成合法连接。" },
+      "shooting": { "bestTimes": ["golden-hour", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定车载设备自动记录横岗山地向坪山门户、铁路高架和新城楼群的长距离转场；不停车、不下车、不进入站区。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "站区车流、道路改造、货运车辆和暴雨影响通行", "recordingAdvice": "保持自动录音，驾驶中不触碰摄像、供电或收音设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "横坪大道道路断面图则（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/attachment/0/392/392377/5841277.pdf", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "深圳坪山站外围公共道路锚点（高德地图）", "url": "https://amap.com/place/B0FFFDSOEQ", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-caitian-binhe", "name": "彩田路滨河大道段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.529812, "lng": 114.069943, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为彩田路南端与滨河大道交会附近公共道路锚点，不进入写字楼、福田口岸查验区、商业停车、落客区或滨河匝道禁行方向；由高德实时规划。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定设备自动记录滨河高架、福田南部楼群和夜间车流；不停车、不下车、不为建筑或灯光临时并线。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "滨河大道拥堵、匝道车流、暴雨积水和活动管制影响通行", "recordingAdvice": "保持车窗关闭自动收音，驾驶中不触碰设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "深圳现状道路命名规划：彩田路（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/ywzy/ghzs/dlql/table03.html", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "彩田路滨河大道公共锚点（高德地图）", "url": "https://ditu.amap.com/place/B02F37TZS8", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-caitian-gangxia", "name": "彩田路岗厦段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.538639, "lng": 114.068432, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为彩田路岗厦与深南大道交会附近公共道路锚点，不进入地铁站、城中村、商业楼宇、停车场或落客区；主辅路和路口转向由高德实时选择。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "设备出发前固定并自动记录岗厦高密楼群、深南大道交会与霓虹反射；不停车、不下车、不为招牌减速或变道。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "CBD 晚高峰、地铁站车流、活动和雨后拥堵影响路线", "recordingAdvice": "车内自动收音，驾驶者不查看监看屏或调整构图。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "福华新村地区法定图则：彩田路双向六车道（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/ywzy/fdtz/cggbcx/ftq/content/post_5835761.html", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "彩田路岗厦公共道路锚点（高德地图）", "url": "https://www.amap.com/place/B0IDDLNABH", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-caitian-lianhua", "name": "彩田路莲花村段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.548646, "lng": 114.067853, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为彩田路莲花村与福中路片区公共道路锚点，不进入地铁站、市民中心、莲花山公园、住宅、机关或停车场；路口方向以高德和现场标志为准。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定设备自动记录福田中轴楼群、道路灯光和莲花山城市背景；不停车、不下车、不进入广场或公园补拍。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "机关活动、晚高峰、地铁换乘和临时管制影响通行", "recordingAdvice": "保持自动录音，驾驶中不操作摄像、供电或收音设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "莲花村地区彩田路景观控制（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/ywzy/fdtz/cggbcx/ftq/content/post_5835767.html", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] }, { "title": "莲花村公共道路锚点（高德地图）", "url": "https://ditu.amap.com/place/BV10249966", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-caitian-cai-mei", "name": "彩田路彩梅立交段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.568825, "lng": 114.066925, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为彩田路北端彩梅立交与新彩隧道南侧公共道路锚点，不进入地铁站、派出所、住宅、隧道施工区或停车场；潮汐车道和掉头方向严格服从现场信号。" },
+      "shooting": { "bestTimes": ["golden-hour", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定车载设备自动记录彩梅立交、北环连接、梅林楼群和山体收束；不停车、不下车、不为隧道画面改变车道。" },
+      "soundEnvironment": { "character": ["traffic", "mixed"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "潮汐车道切换、立交施工、隧道拥堵和暴雨影响通行", "recordingAdvice": "保持车窗关闭自动收音，进入立交和隧道前后均不操作设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "彩田路潮汐车道通告（深圳市公安局交通管理局）", "url": "https://www.sz.gov.cn/ztfw/jtly/wyk_184755/content/post_12770286.html", "accessedAt": "2026-08-09", "supports": ["existence", "access"] }, { "title": "孖岭与彩梅立交公共道路锚点（高德地图）", "url": "https://www.amap.com/place/BT09906183", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-xinzhou-fuqiang", "name": "新洲路福强路段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.517567, "lng": 114.047327, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为新洲路与福强路交会附近公共道路锚点，不进入电信营业厅、福田保税区、住宅、商铺、公交站、落客区或停车场；由高德实时选择合法主辅路和转向。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "设备出发前固定并自动记录福强路高架、新洲南部密集楼群与道路灯光；不停车、不下车、不为招牌或高架构图减速变道。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "高架车流、通勤拥堵、道路施工和暴雨积水影响通行", "recordingAdvice": "保持车窗关闭自动收音，驾驶中不查看或调整设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "新洲金地地区法定图则：新洲路双向八车道（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/ywzy/fdtz/cggbcx/ftq/content/post_5835780.html", "accessedAt": "2026-08-10", "supports": ["existence", "access", "shooting-value"] }, { "title": "新洲路福强路交会附近坐标（高德地图）", "url": "https://ditu.amap.com/place/B02F301079", "accessedAt": "2026-08-10", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-xinzhou-village", "name": "新洲路新洲村段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.528385, "lng": 114.044831, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为新洲路新洲村与滨河大道南北连接附近公共道路锚点，不进入村内、牌坊、公交站、学校、滨河匝道禁行方向、落客区或停车场；实时道路由高德生成。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定车载设备自动记录新洲村城市肌理、滨河高架、密集车流与夜间反光；不停车、不下车、不驶入村内支路补拍。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "滨河大道拥堵、村口汇流、暴雨积水和临时施工影响路线", "recordingAdvice": "车内自动收音，驾驶者不触碰摄像、供电或收音设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "新洲河滨河大道交会位置（深圳政府在线）", "url": "https://www.sz.gov.cn/szzt2010/wgkzl/jcgk/jcygk/zdzcjc/content/post_9486097.html", "accessedAt": "2026-08-10", "supports": ["existence", "address", "access"] }, { "title": "新洲村公共道路侧坐标（高德地图）", "url": "https://ditu.amap.com/place/BV11319625", "accessedAt": "2026-08-10", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-xinzhou-lianhua", "name": "新洲路红荔—莲花段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.546668, "lng": 114.050034, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为新洲路红荔路至莲花路潮汐路段公共道路锚点，不进入莲花西地铁站、莲花山公园、学校、住宅、公交接驳、落客区或停车场；严格服从潮汐信号与标线。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定设备自动记录红荔路灯光、莲花山西侧城市界面和新洲路纵深；不停车、不下车、不进入公园或地铁站补拍。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "潮汐车道切换、通勤高峰、地铁站车流、活动和强降雨影响通行", "recordingAdvice": "保持车窗关闭自动收音，驾驶者只观察道路与潮汐信号。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "新洲路现行潮汐车道通告（深圳市公安局交通管理局）", "url": "https://www.sz.gov.cn/ztfw/jtly/wyk_184755/content/post_12770286.html", "accessedAt": "2026-08-10", "supports": ["existence", "access"] }, { "title": "莲花西与新洲路公共道路坐标（高德地图）", "url": "https://ditu.amap.com/place/BV10249997", "accessedAt": "2026-08-10", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-xinzhou-beihuan", "name": "新洲路北环立交段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.561307, "lng": 114.052098, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为新洲路莲花北至北环大道附近公共道路锚点，不进入学校、医院、住宅、莲花山公园、北环匝道禁行方向、落客区或停车场；潮汐车道方向及立交出口以现场信号和高德为准。" },
+      "shooting": { "bestTimes": ["golden-hour", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "设备出发前固定并自动记录莲花北楼群、北环立交、山体背景与快速路灯光；不停车、不下车、不为立交或山景改变车道。" },
+      "soundEnvironment": { "character": ["traffic", "mixed"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "潮汐车道、北环汇流、医院周边车流、施工和暴雨影响路线", "recordingAdvice": "车内自动收音，进入立交前后均不操作设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "景田地区法定图则：新洲路连接北环路（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/ywzy/fdtz/cggbcx/ftq/content/post_5835757.html", "accessedAt": "2026-08-10", "supports": ["existence", "access", "shooting-value"] }, { "title": "莲花北公共道路附近坐标（高德地图）", "url": "https://www.amap.com/place/B02F3006CE", "accessedAt": "2026-08-10", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-xiangmi-shennan", "name": "香蜜湖路深南立交段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.536783, "lng": 114.030778, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为香蜜湖路与深南大道立交附近公共道路锚点，不进入公交站、地铁站、香蜜湖片区内部、商业楼宇、落客区或停车场；真实主辅路、匝道与转向由高德实时规划。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "设备出发前固定并自动记录深南大道车流、香蜜立交、高层建筑与开敞城市界面；不停车、不下车、不为立交构图临时并线。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "立交汇流、通勤高峰、片区工程、暴雨积水和低能见度影响通行", "recordingAdvice": "保持车窗关闭自动收音，驾驶中不查看屏幕或调整设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "车公庙地区法定图则：香蜜湖路双向六车道及车行景观界面（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/ywzy/fdtz/cggbcx/ftq/content/post_5835728.html", "accessedAt": "2026-08-10", "supports": ["existence", "access", "shooting-value"] }, { "title": "深南香蜜立交公共道路坐标（高德地图）", "url": "https://ditu.amap.com/place/BV10382782", "accessedAt": "2026-08-10", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-xiangmi-party-school", "name": "香蜜湖路市委党校段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.546885, "lng": 114.024734, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为香蜜湖路市委党校外围公共道路锚点，不进入党校、公交站、香蜜公园、住宅、内部道路、落客区或停车场；主辅路与合法方向由高德实时选择。" },
+      "shooting": { "bestTimes": ["golden-hour", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定车载设备自动记录道路绿化、香蜜湖片区开敞空间、山体方向和连续高架灯光；不停车、不下车、不进入公园或机关补拍。" },
+      "soundEnvironment": { "character": ["traffic", "mixed"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "公交汇流、片区建设、活动管制、强降雨和路面湿滑影响路线", "recordingAdvice": "车内自动收音，驾驶者不触碰摄像、供电或收音设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "农科中心地区法定图则：香蜜湖路现状快速路（深圳市规划和自然资源局）", "url": "https://pnr.sz.gov.cn/ywzy/fdtz/cggbcx/ftq/content/post_5835733.html", "accessedAt": "2026-08-10", "supports": ["existence", "access", "shooting-value"] }, { "title": "市委党校香蜜湖路侧公共道路坐标（高德地图）", "url": "https://www.amap.com/place/BV10246568", "accessedAt": "2026-08-10", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-zhoushi-hezhou", "name": "洲石路鹤洲段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.628995, "lng": 113.867026, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为洲石路鹤洲片区现状公共道路锚点，不进入恒丰工业城、鹤洲社区、G4/G15 收费匝道、公交站、落客区或停车场；由高德实时选择开放主辅路和合法方向。" },
+      "shooting": { "bestTimes": ["golden-hour", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "设备出发前固定并自动记录机场东部门户、鹤洲立交、高架车流和产业建筑；不停车、不下车、不为飞机或立交画面改变车道。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "机场及高速车流、洲石路改造、货运车辆、暴雨和积水影响通行", "recordingAdvice": "保持车窗关闭自动收音，驾驶中不查看屏幕或调整设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "洲石路鹤洲至九围恢复双向通行（深圳市公安局交通警察局）", "url": "https://szjj.sz.gov.cn/ZWGK/TZGG/GGJG/content/post_11997376.html", "accessedAt": "2026-08-10", "supports": ["existence", "access"] }, { "title": "鹤洲洲石路公共道路侧坐标（高德地图）", "url": "https://ditu.amap.com/place/B02F38IQT4", "accessedAt": "2026-08-10", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-zhoushi-jiuwei", "name": "洲石路九围段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.651784, "lng": 113.859374, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为洲石路与九围片区连接附近公共道路锚点，不进入九围社区、看守所道路、工业园、公共设施、公交总站、落客区或停车场；实时道路和掉头限制由高德生成。" },
+      "shooting": { "bestTimes": ["golden-hour", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定车载设备自动记录九围丘陵、连续道路、机场外围灯光与产业转场；不停车、不下车、不进入社区或支路追景。" },
+      "soundEnvironment": { "character": ["traffic", "mixed"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "主车道施工调整、货车、坡道路面、强降雨和低能见度影响路线", "recordingAdvice": "车内自动收音，驾驶者不触碰摄像、供电或收音设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "洲石路九围段恢复双向通行通告（深圳市公安局交通警察局）", "url": "https://ga.sz.gov.cn/ZWGK/QT/GSGG/content/post_11997377.html", "accessedAt": "2026-08-10", "supports": ["existence", "access"] }, { "title": "九围洲石路公共道路侧坐标（高德地图）", "url": "https://ditu.amap.com/place/B0FFKWX57L", "accessedAt": "2026-08-10", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-zhoushi-liaokeng", "name": "洲石路料坑段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.669206, "lng": 113.892136, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为洲石路料坑片区现状公共道路锚点，不进入料坑新村、工业园、物流场、南光高速施工区、公交站、落客区或停车场；开放道路与施工绕行以高德和现场标志为准。" },
+      "shooting": { "bestTimes": ["golden-hour", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "设备预先固定并自动记录丘陵收束、产业带、高架施工界面与长距离道路灯光；不停车、不下车、不驶入村内或园区补拍。" },
+      "soundEnvironment": { "character": ["traffic", "mixed"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "南光高速市政化工程、洲石路改造、货运高峰、粉尘和暴雨影响通行", "recordingAdvice": "保持自动录音，驾驶中不查看监看屏或改变设备设置。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "南光高速市政化及洲石路料坑段改造范围（深圳地铁采购平台）", "url": "https://cg.shenzhenmc.com/zzbgg/103963.jhtml", "accessedAt": "2026-08-10", "supports": ["existence", "access"] }, { "title": "料坑洲石公路公共道路侧坐标（高德地图）", "url": "https://ditu.amap.com/place/B02F30A31X", "accessedAt": "2026-08-10", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-zhoushi-luozu", "name": "洲石路罗租段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.669611, "lng": 113.934472, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为洲石路与黄峰岭工业路、罗租片区连接附近公共道路锚点，不进入罗租地铁站、社区、公园、工业园、公交接驳、落客区或停车场；由高德选择现状开放主辅路。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定设备自动记录石岩门户、轨道站点外围、产业楼群和东西向道路纵深；不停车、不下车、不进入地铁站或社区补拍。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "地铁站汇流、道路改造、货运车辆、通勤拥堵和暴雨影响路线", "recordingAdvice": "保持车窗关闭自动收音，驾驶者只观察道路和现场标志。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "石岩中心地区图则：洲石路主干路控制（深圳市规划和自然资源局）", "url": "https://www.sz.gov.cn/attachment/1/1576/1576946/12156752.pdf", "accessedAt": "2026-08-10", "supports": ["existence", "access", "shooting-value"] }, { "title": "罗租洲石路公共道路附近坐标（高德地图）", "url": "https://ditu.amap.com/place/BX09917419", "accessedAt": "2026-08-10", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-banyin-yabao", "name": "坂银通道雅宝段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.603439, "lng": 114.060303, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为坂银通道北端雅宝附近公共道路锚点，不进入地铁站、公交接驳、商业园区、落客区或停车场；实际环城南路、坂雪岗大道连接与匝道由高德实时规划。" },
+      "shooting": { "bestTimes": ["morning", "golden-hour", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "设备出发前固定并自动记录坂田门户、山体、桥梁和城市道路转场；不停车、不下车，不为地铁、楼群或灯光减速和变道。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "通勤高峰、施工、强降雨、积水和低能见度影响通行", "recordingAdvice": "保持车窗关闭自动收音，行驶中不调整设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "坂银通道正式通车（深圳市交通运输局）", "url": "https://jtys.sz.gov.cn/zwgk/jtzx/gzdt/content/post_7269943.html", "accessedAt": "2026-08-10", "supports": ["existence", "access", "shooting-value"] }, { "title": "雅宝地铁站道路锚点（高德地图）", "url": "https://ditu.amap.com/place/BV10672445", "accessedAt": "2026-08-10", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
+      "id": "gd-sz-drive-banyin-huangmugang", "name": "坂银通道黄木岗段驾车锚点", "province": "广东", "city": "深圳", "type": "city-night",
+      "coordinate": { "lat": 22.555999, "lng": 114.083031, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为坂银通道南端黄木岗立交附近公共道路锚点，不进入地铁站、医院、体育中心、公交接驳、落客区或停车场；实际华富路、泥岗路连接及立交方向由高德实时规划。" },
+      "shooting": { "bestTimes": ["golden-hour", "sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定设备自动记录福田北部高密楼群、立交、隧道出口和城市灯光；不停车、不下车，不为天际线、场馆或招牌改变驾驶。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "立交车流、活动管制、施工、暴雨与积水影响路线", "recordingAdvice": "车窗关闭自动录音，驾驶者全程不操作设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "坂银通道正式通车（深圳市交通运输局）", "url": "https://jtys.sz.gov.cn/zwgk/jtzx/gzdt/content/post_7269943.html", "accessedAt": "2026-08-10", "supports": ["existence", "access", "shooting-value"] }, { "title": "黄木岗道路锚点（高德地图）", "url": "https://ditu.amap.com/place/B02F37U4O5", "accessedAt": "2026-08-10", "supports": ["address", "coordinate", "access"] }] }
+    },
+    {
       "id": "gd-sz-talent-park",
       "name": "深圳人才公园",
       "province": "广东",
@@ -2395,6 +3139,336 @@
       "scores": { "visual": 5, "road": 4, "parking": 3, "safety": 4, "youtubePotential": 5 },
       "status": "idea",
       "verification": { "status": "source-checked", "note": "各地点和坐标已查源；推荐顺序、时长和主观评分尚待一次实地验证。" }
+    },
+    {
+      "id": "gd-sz-futian-layered-night-drive", "name": "福田深业上城—深圳之眼—市民中心立体夜景路线", "province": "广东", "cities": ["深圳"], "type": "city-night", "captureStyle": "scenic-drive",
+      "modes": ["sunset", "night"], "estimatedDurationMinutes": 240,
+      "waypointLocationIds": ["gd-sz-futian-upperhills", "gd-sz-futian-gangxia-north", "gd-sz-futian-civic-square"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["golden-hour", "sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["gopro12-city-night-driving", "a7c2-city-night-tripod"],
+      "shootAdvice": "金色时段先在深业上城合法停车后步行拍暖色建筑与空中廊桥，随后依 AMap.Driving 当天道路转往岗厦北周边停车，以地铁公共空间完成深圳之眼结构段；最后重新导航至市民中心周边停车，步行进入广场拍蓝调中轴。驾驶画面只由出发前固定的车载设备完成，驾驶者不操作；枢纽、商场和广场均不在出入口、闸机、消防或人行通道架机。晚高峰、活动、灯光安排、停车满位、安保限制或暴雨时缩减节点，真实道路、距离与通行时间由高德当日重算。",
+      "scores": { "visual": 5, "road": 4, "parking": 2, "safety": 4, "youtubePotential": 5 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "深业上城、岗厦北深圳之眼和市民中心均有政府资料与高德 GCJ-02 公共到达锚点；该条为编辑路线。实时道路、距离、预计时间、停车、地铁与商业空间开放、活动、灯光、人物和专业拍摄许可须当天核验。" }
+    },
+    {
+      "id": "gd-sz-drive-only-shennan-night", "name": "深圳深南大道全景夜驾路线", "province": "广东", "cities": ["深圳"], "type": "city-night", "captureStyle": "scenic-drive", "executionMode": "drive-only",
+      "modes": ["sunset", "night"], "estimatedDurationMinutes": 120,
+      "waypointLocationIds": ["gd-sz-drive-shennan-nantou", "gd-sz-drive-shennan-window", "gd-sz-drive-shennan-gangxia", "gd-sz-drive-shennan-diwang"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["gopro12-city-night-driving"],
+      "shootAdvice": "这是一条不停车、不下车的纯驾车路线。建议日落后从深南大道南头段向东出发，依次把世界之窗、岗厦北和地王路段设为途经锚点，由 AMap.Driving 按当时合法道路生成真实路线；若导航因拥堵、施工、转向限制或交通管制偏离深南大道，直接服从导航，不为保持画面连续而违规变道或掉头。相机必须在出发前固定、构图、供电并开始录制，驾驶者不看监看屏、不触碰设备、不降速追景、不路肩临停，乘员也不得干扰驾驶。雨后仅在能见度、积水和制动条件安全时执行，疲劳、强降雨或高峰拥堵时取消。",
+      "scores": { "visual": 5, "road": 5, "parking": 5, "safety": 4, "youtubePotential": 5 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "深圳交通部门的城市中心观光线与地名资料确认深南大道串联南头、华侨城、福田中心区和罗湖地标，四个道路锚点均有高德 GCJ-02 坐标。路线不包含停车和步行；实际道路、距离、预计时间、车道、拥堵、施工、限行与灯光状态由高德实时重算并须首次实驾核验。" }
+    },
+    {
+      "id": "gd-sz-drive-only-binhai-skyline", "name": "深圳滨海大道后海—深圳湾天际线夜驾路线", "province": "广东", "cities": ["深圳"], "type": "city-night", "captureStyle": "scenic-drive", "executionMode": "drive-only",
+      "modes": ["sunset", "night"], "estimatedDurationMinutes": 75,
+      "waypointLocationIds": ["gd-sz-drive-binhai-sports", "gd-sz-drive-binhai-bay-park"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["gopro12-city-night-driving"],
+      "shootAdvice": "这是一条不停车、不下车的纯驾车路线。以深圳湾体育中心滨海大道路段为起点锚点，向东经过后海楼群至深圳湾公园路段；由 AMap.Driving 当次计算主辅路、匝道、距离和时间，不驶入体育中心、公园停车区、公交站或滨海绿道。车载设备在出发前固定并自动运行，驾驶者全程不操作、不看取景、不为春茧或天际线减速、变道、绕行和重复经过。大型活动、散场车流、临时封路、暴雨、积水或能见度不足时取消，素材宁可被车辆和绿化遮挡也不改变安全驾驶。",
+      "scores": { "visual": 5, "road": 5, "parking": 5, "safety": 4, "youtubePotential": 5 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "深圳交通资料确认滨海大道连接深圳湾体育中心等节点，观光线路资料支持湾区道路夜景价值；两个道路锚点有高德 GCJ-02 坐标。路线不包含停车和步行；实时主辅路、匝道、距离、预计时间、活动管制、拥堵与能见度须由高德和首次实驾核验。" }
+    },
+    {
+      "id": "gd-sz-drive-only-wanghai-coast", "name": "深圳蛇口望海路滨海夜驾路线", "province": "广东", "cities": ["深圳"], "type": "coast", "captureStyle": "scenic-drive", "executionMode": "drive-only",
+      "modes": ["sunset", "night"], "estimatedDurationMinutes": 90,
+      "waypointLocationIds": ["gd-sz-drive-wanghai-seaworld", "gd-sz-drive-wanghai-sunrise", "gd-sz-drive-binhai-bay-park"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["gopro12-city-night-driving"],
+      "shootAdvice": "这是一条不停车、不下车的纯驾车路线。从望海路海上世界路段出发，经日出剧场路段向深圳湾公园方向连续行驶；望海路快速化改造可能形成地面道路、隧道、施工绕行或临时管制，必须完全服从 AMap.Driving 当日结果与现场标志，不为海景选择封闭或非机动车空间。设备出发前固定、供电并开始录制，驾驶者不操作、不盯屏、不靠边、不进入公园和绿道补拍。施工密集、活动封路、强风暴雨、潮雾、积水或夜间能见度不足时取消；隧道路段按正常车速与灯光规定通行，不追求曝光连续。",
+      "scores": { "visual": 5, "road": 4, "parking": 5, "safety": 3, "youtubePotential": 5 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "深圳规划、交通与城管资料确认望海路连接前海蛇口、日出剧场和深圳湾方向，并提示快速化改造及施工状态；三个道路锚点均有高德 GCJ-02 坐标。路线不包含停车和步行；开放道路、地面或隧道选择、施工、管制、距离、预计时间和画面可见性须由高德实时规划与首次实驾核验。" }
+    },
+    {
+      "id": "gd-sz-drive-only-yanmei-coast", "name": "深圳盐田港—盐梅路—背仔角山海纯驾路线", "province": "广东", "cities": ["深圳"], "type": "coast", "captureStyle": "scenic-drive", "executionMode": "drive-only",
+      "modes": ["day", "sunrise", "sunset"], "estimatedDurationMinutes": 120,
+      "waypointLocationIds": ["gd-sz-drive-yanmei-yantian-road", "gd-sz-drive-yanmei-dameisha", "gd-sz-drive-yanmei-beizaijiao"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["sunrise", "golden-hour", "sunset", "blue-hour"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["gopro12-city-night-driving"],
+      "shootAdvice": "这是一条不停车、不下车的纯驾车路线。从盐田港东侧道路锚点出发，经盐梅路大梅沙段向背仔角方向连续行驶，由 AMap.Driving 当次确认主辅路、检查站、预约通行、施工和管制；不得驶入港区、海滨公园、停车场、绿道、海滩或封闭支路。设备必须在出发前固定、供电并开始录制，驾驶者不看取景、不操作、不为海景减速、不路肩临停、不掉头补拍。盐梅路弯道、货车、骑行者和行人混合环境下扩大安全余量；台风、强降雨、落石提示、低能见度、严重拥堵或检查站限制时取消。",
+      "scores": { "visual": 5, "road": 4, "parking": 5, "safety": 3, "youtubePotential": 5 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "深圳交通部门确认盐梅路从北山立交方向至背仔角检查站、全长约 11.3 公里，是交通与旅游融合的自驾滨海廊道；三个道路锚点具有高德 GCJ-02 坐标。路线不包含停车和步行；实时道路、距离、预计时间、预约、港区交通、检查站、施工、台风和落石状态须由高德与首次实驾核验。" }
+    },
+    {
+      "id": "gd-sz-drive-only-baoan-bay", "name": "深圳前海—欢乐港湾—宝安中心纯驾夜景路线", "province": "广东", "cities": ["深圳"], "type": "city-night", "captureStyle": "scenic-drive", "executionMode": "drive-only",
+      "modes": ["sunset", "night"], "estimatedDurationMinutes": 75,
+      "waypointLocationIds": ["gd-sz-drive-baoan-qianhai", "gd-sz-drive-baoan-happy-harbor", "gd-sz-drive-baoan-yifang"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["gopro12-city-night-driving"],
+      "shootAdvice": "这是一条不停车、不下车的纯驾车路线。从前海桂湾道路锚点出发，由 AMap.Driving 实时选择合法连接道路进入宝安中心区，经海天路欢乐港湾段、宝华路或海秀路方向到壹方城段；不驶入公园、商场、停车场、落客区和非机动车道。车载设备在出发前固定并自动运行，驾驶者不看屏、不操作、不为摩天轮或灯光减速、变道或绕圈。商圈晚高峰、活动散场、桥梁或道路施工、暴雨积水、严重拥堵或临时封路时取消，路线允许被实时导航改写。",
+      "scores": { "visual": 5, "road": 4, "parking": 5, "safety": 4, "youtubePotential": 5 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "深圳交通资料确认前海与宝安中心连接，以及海天路、宝华路、海秀路、创业一路等道路串联壹方城、欢乐港湾与滨海地标；三个锚点有高德 GCJ-02 坐标。路线不包含停车和步行；实时桥梁、道路、转向、距离、预计时间、活动与拥堵须由高德和首次实驾核验。" }
+    },
+    {
+      "id": "gd-sz-drive-only-longxiang-night", "name": "深圳龙翔大道大运中心—龙城广场纯驾夜景路线", "province": "广东", "cities": ["深圳"], "type": "city-night", "captureStyle": "scenic-drive", "executionMode": "drive-only",
+      "modes": ["sunset", "night"], "estimatedDurationMinutes": 75,
+      "waypointLocationIds": ["gd-sz-drive-longxiang-dayun", "gd-sz-drive-longxiang-longcheng"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["gopro12-city-night-driving"],
+      "shootAdvice": "这是一条不停车、不下车的纯驾车路线。从龙翔大道大运中心段向龙城广场段连续行驶，由 AMap.Driving 当次计算真实车道、距离与时间；不进入场馆、广场、商场、政府机关、停车场或落客通道。设备出发前固定并开始录制，驾驶者不看取景、不操作、不为水晶石场馆、楼宇灯光或喷泉减速和靠边。赛事、演出、广场活动、散场车流、道路施工、暴雨积水或灯光维护时取消或服从导航绕行，错过任何画面均不折返。",
+      "scores": { "visual": 5, "road": 5, "parking": 5, "safety": 4, "youtubePotential": 5 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "龙岗政府资料确认龙翔大道已建成约 7.4 公里的灯光夜景长廊，以大运中心和龙城广场为代表节点；两个锚点有高德 GCJ-02 坐标。路线不包含停车和步行；实时道路、距离、预计时间、赛事活动、拥堵、施工和灯光状态须由高德与首次实驾核验。" }
+    },
+    {
+      "id": "gd-sz-drive-only-dapeng-coast", "name": "深圳大鹏所城—南澳—杨梅坑山海纯驾路线", "province": "广东", "cities": ["深圳"], "type": "coast", "captureStyle": "scenic-drive", "executionMode": "drive-only",
+      "modes": ["day", "sunrise", "sunset"], "estimatedDurationMinutes": 150,
+      "waypointLocationIds": ["gd-sz-drive-dapeng-suo-city", "gd-sz-drive-dapeng-nanao", "gd-sz-drive-dapeng-yangmeikeng"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["sunrise", "golden-hour", "sunset"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["gopro12-city-night-driving"],
+      "shootAdvice": "这是一条不停车、不下车的纯驾车路线。从鹏飞路大鹏所城外沿公共道路出发，经南澳海滨南路向新东路杨梅坑允许通行路段连续行驶；2026 年预约管控启用时须提前完成大鹏半岛预约，由 AMap.Driving 当次重算真实道路、距离和预计时间，并完全服从现场标志。不得进入景区、村内道路、码头、停车场、海岸步道或封闭施工段。设备在出发前固定、供电并开始录制，驾驶者不看屏、不操作、不为海景降速、靠边、掉头或补拍。节假日拥堵、预约未完成、台风、强降雨、潮雾、窄路混行或施工管制时取消。",
+      "scores": { "visual": 5, "road": 4, "parking": 5, "safety": 3, "youtubePotential": 5 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "深圳政府资料确认大鹏半岛预约区域与新东路杨梅坑段，三个公共道路锚点均有高德 GCJ-02 坐标。路线为编辑纯驾方案，不包含停车和步行；预约资格、开放道路、距离、预计时间、施工、天气与车流须由高德及首次实驾核验。" }
+    },
+    {
+      "id": "gd-sz-drive-only-guangming-science", "name": "深圳光明城—科学大道—光侨路科学城纯驾路线", "province": "广东", "cities": ["深圳"], "type": "city-night", "captureStyle": "scenic-drive", "executionMode": "drive-only",
+      "modes": ["day", "sunset", "night"], "estimatedDurationMinutes": 90,
+      "waypointLocationIds": ["gd-sz-drive-guangming-station", "gd-sz-drive-guangming-science", "gd-sz-drive-guangming-lab"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["golden-hour", "sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["gopro12-city-night-driving"],
+      "shootAdvice": "这是一条不停车、不下车的纯驾车路线。从光侨路光明城站周边公共道路出发，经科学大道、观光路或光明大道片区到光侨路高科创新中心段；三个点只作为道路锚点，具体主辅路、转向、距离与预计时间由 AMap.Driving 实时生成。不进入高铁站落客区、办公园区、商业停车场和内部道路。车载设备须在出发前固定并自动运行，驾驶者不看取景、不操作、不为建筑、桥梁或灯光减速、变道和绕行。通勤高峰、片区施工、活动管制、暴雨积水或低能见度时取消或接受导航改线。",
+      "scores": { "visual": 4, "road": 5, "parking": 5, "safety": 4, "youtubePotential": 4 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "深圳交通部门开放道路目录明确列出光明大道、科学大道、光侨路等多车道城市道路，三个锚点有高德 GCJ-02 坐标。路线为编辑纯驾方案，不包含停车和步行；真实连接、距离、预计时间、施工、活动与灯光须由高德和首次实驾核验。" }
+    },
+    {
+      "id": "gd-sz-drive-only-pingshan-axis", "name": "深圳坪山站—坪山中心—燕子湖城市景观轴纯驾路线", "province": "广东", "cities": ["深圳"], "type": "city-night", "captureStyle": "scenic-drive", "executionMode": "drive-only",
+      "modes": ["day", "sunset", "night"], "estimatedDurationMinutes": 90,
+      "waypointLocationIds": ["gd-sz-drive-pingshan-station", "gd-sz-drive-pingshan-center", "gd-sz-drive-pingshan-yanzihu"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["golden-hour", "sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["gopro12-city-night-driving"],
+      "shootAdvice": "这是一条不停车、不下车的纯驾车路线。从深圳坪山站门户片区公共道路出发，沿坪山大道城市景观轴经过中心城区，向燕子湖片区延伸；由 AMap.Driving 根据当日主辅路、转向限制和施工情况生成真实道路、距离与预计时间，不强行保持预设道路。不进入车站、广场、地铁接驳区、在建场馆、园区或停车场。设备出发前固定并开始自动录制，驾驶者不看屏、不操作、不为天际线减速、停车、掉头或反复绕行。晚高峰、施工封闭、活动管制、暴雨积水或能见度不足时取消。",
+      "scores": { "visual": 4, "road": 5, "parking": 5, "safety": 4, "youtubePotential": 4 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "深圳官方规划将坪山大道列为城市景观轴，并将坪山中心、燕子湖列为新城风貌节点；三个道路锚点具有高德 GCJ-02 坐标。路线为编辑纯驾方案，不包含停车和步行；实时道路、距离、预计时间、建设施工、活动与灯光须由高德及首次实驾核验。" }
+    },
+    {
+      "id": "gd-sz-drive-only-baoan-airport-axis", "name": "深圳宝安大道后瑞—西乡—宝安中心纯驾夜景路线", "province": "广东", "cities": ["深圳"], "type": "city-night", "captureStyle": "scenic-drive", "executionMode": "drive-only",
+      "modes": ["sunset", "night"], "estimatedDurationMinutes": 90,
+      "waypointLocationIds": ["gd-sz-drive-baoan-hourui", "gd-sz-drive-baoan-xixiang", "gd-sz-drive-baoan-center"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["gopro12-city-night-driving"],
+      "shootAdvice": "这是一条不停车、不下车的纯驾车路线。从宝安大道后瑞机场门户段出发，经西乡段向宝安中心连续行驶；三个锚点仅用于约束走廊，主辅路、掉头、连接道路、距离和预计时间由 AMap.Driving 当次生成。不进入机场、地铁接驳区、商场、政府机关、停车场或落客通道。设备必须在出发前固定、供电并自动录制，驾驶者不看屏、不操作、不为飞机、高架、楼群和灯光降速、变道或绕圈。机场客流、晚高峰、道路施工、暴雨积水或严重拥堵时接受导航改线或取消。",
+      "scores": { "visual": 4, "road": 5, "parking": 5, "safety": 4, "youtubePotential": 4 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "深圳交通规划确认宝安大道是机场对外交通主要通道之一，三个道路锚点具有高德 GCJ-02 坐标。路线为编辑纯驾方案，不包含停车和步行；实时主辅路、距离、预计时间、拥堵、施工与机场交通须由高德和首次实驾核验。" }
+    },
+    {
+      "id": "gd-sz-drive-only-shahe-tech-axis", "name": "深圳沙河西路西丽—科技园—深圳湾纯驾路线", "province": "广东", "cities": ["深圳"], "type": "city-night", "captureStyle": "scenic-drive", "executionMode": "drive-only",
+      "modes": ["day", "sunset", "night"], "estimatedDurationMinutes": 105,
+      "waypointLocationIds": ["gd-sz-drive-shahe-xili", "gd-sz-drive-shahe-tech", "gd-sz-drive-shahe-port"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["golden-hour", "sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["gopro12-city-night-driving"],
+      "shootAdvice": "这是一条不停车、不下车的纯驾车路线。从沙河西路西丽湖段向南出发，经深圳湾科技生态园段到深圳湾口岸外围公共道路；由 AMap.Driving 实时计算主辅路、匝道、距离和预计时间，不强制驶入口岸侧接线。不进入西丽湖景区、科技园内部、口岸查验区、停车场、货运缓冲区或落客区。车载设备出发前固定并自动运行，驾驶者不看取景、不操作、不为山体、大沙河、楼群或湾区桥梁减速和变道。工作日高峰、口岸管制、施工、暴雨积水或低能见度时取消或服从导航绕行。",
+      "scores": { "visual": 5, "road": 5, "parking": 5, "safety": 4, "youtubePotential": 5 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "深圳官方图则与地名资料确认沙河西路为连接西丽、科技园和深圳湾方向的多车道快速路，三个锚点有高德 GCJ-02 坐标。路线为编辑纯驾方案，不包含停车和步行；实时主辅路、匝道、距离、预计时间、口岸管制与施工须由高德和首次实驾核验。" }
+    },
+    {
+      "id": "gd-sz-drive-only-yanhe-luosha", "name": "深圳地王—沿河北路—罗沙路纯驾夜景路线", "province": "广东", "cities": ["深圳"], "type": "city-night", "captureStyle": "scenic-drive", "executionMode": "drive-only",
+      "modes": ["sunset", "night"], "estimatedDurationMinutes": 75,
+      "waypointLocationIds": ["gd-sz-drive-shennan-diwang", "gd-sz-drive-yanhe-huangbeiling", "gd-sz-drive-yanhe-luosha"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["gopro12-city-night-driving"],
+      "shootAdvice": "这是一条不停车、不下车的纯驾车路线。从地王大厦附近深南东路道路锚点出发，由 AMap.Driving 选择合法连接进入沿河北路，经黄贝岭向沿河—罗沙快速通道东段连续行驶；真实匝道、主辅路、距离和预计时间以当次结果为准。不进入商业停车、地铁接驳、社区、体育中心或落客区域。设备在出发前固定并开始自动录制，驾驶者不看屏、不操作、不为高架、深圳河界面、楼群或山景减速、停车、掉头和补拍。货运高峰、赛事活动、施工、隧道管制、暴雨积水或严重拥堵时取消或接受导航改线。",
+      "scores": { "visual": 4, "road": 5, "parking": 5, "safety": 4, "youtubePotential": 4 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "深圳地名词典确认沿河北路为双向十车道快速路，罗湖国土空间规划将滨河—沿河—罗沙列为连续快速通道；三个锚点有高德 GCJ-02 坐标。路线为编辑纯驾方案，不包含停车和步行；实时连接、匝道、距离、预计时间、限行、货运交通和施工须由高德及首次实驾核验。" }
+    },
+    {
+      "id": "gd-sz-drive-only-beihuan-cross-city", "name": "深圳北环大道科苑—香蜜湖—银湖横城纯驾路线", "province": "广东", "cities": ["深圳"], "type": "city-night", "captureStyle": "scenic-drive", "executionMode": "drive-only",
+      "modes": ["day", "sunset", "night"], "estimatedDurationMinutes": 120,
+      "waypointLocationIds": ["gd-sz-drive-beihuan-keyuan", "gd-sz-drive-beihuan-xiangmi", "gd-sz-drive-beihuan-yinhu"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["golden-hour", "sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["gopro12-city-night-driving"],
+      "shootAdvice": "这是一条不停车、不下车的纯驾车路线。从北环大道科苑立交段出发，经福田香蜜湖连接段向银湖立交方向连续行驶，覆盖南山、福田与罗湖北部城市界面；三个锚点只用于约束快速路走廊，真实主辅路、匝道、隧道、距离和预计时间由 AMap.Driving 当次生成。不进入科技园、公园、体育中心、汽车站、地铁接驳区或停车场。设备出发前完成固定、供电与自动录制，驾驶者不看屏、不操作、不为楼群、立交、山体或灯光降速、变道、停车和补拍。早晚高峰、隧道管制、道路施工、暴雨积水或低能见度时取消或服从导航改线。",
+      "scores": { "visual": 4, "road": 5, "parking": 5, "safety": 4, "youtubePotential": 5 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "深圳官方地名资料确认北环大道横贯南山、福田、罗湖，交通部门资料确认宝安大道立交至银湖立交段约 19.5 公里且为城市快速路；三个道路锚点有高德 GCJ-02 坐标。路线不包含停车和步行；实时主辅路、匝道、隧道、距离、预计时间、拥堵与施工须由高德和首次实驾核验。" }
+    },
+    {
+      "id": "gd-sz-drive-only-fulong-longhua", "name": "深圳福龙路龙悦居—和平路—大浪纯驾路线", "province": "广东", "cities": ["深圳"], "type": "city-night", "captureStyle": "scenic-drive", "executionMode": "drive-only",
+      "modes": ["day", "sunset", "night"], "estimatedDurationMinutes": 105,
+      "waypointLocationIds": ["gd-sz-drive-fulong-longyue", "gd-sz-drive-fulong-heping", "gd-sz-drive-fulong-dalang"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["golden-hour", "sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["gopro12-city-night-driving"],
+      "shootAdvice": "这是一条不停车、不下车的纯驾车路线。从福龙路龙悦居片区出发，经龙华和平路连接段向大浪片区连续行驶；三个锚点仅约束南北快速路走廊，真实主路、出口、匝道、隧道、距离和预计时间由 AMap.Driving 当次生成。不进入社区、商业街、园区、加油站、停车场或落客区。设备必须在出发前固定、供电并自动录制，驾驶者不看屏、不操作、不为山体、隧道、高架或龙华天际线降速、变道、停车和补拍。通勤高峰、货车密集、隧道管制、施工、强降雨或低能见度时取消或服从导航改线。",
+      "scores": { "visual": 4, "road": 5, "parking": 5, "safety": 4, "youtubePotential": 4 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "深圳标准地名词典确认福龙路为跨福田、南山、龙华的双向六车道快速路，长约 17.5 公里；龙华官方图则确认福龙大道与和平路、大浪片区关系，三个锚点有高德 GCJ-02 坐标。路线不包含停车和步行；实时道路、出口、隧道、距离、预计时间、拥堵和施工须由高德与首次实驾核验。" }
+    },
+    {
+      "id": "gd-sz-drive-only-yueliangwan-qianhai", "name": "深圳月亮湾大道妈湾—前海—南头纯驾路线", "province": "广东", "cities": ["深圳"], "type": "city-night", "captureStyle": "scenic-drive", "executionMode": "drive-only",
+      "modes": ["day", "sunset", "night"], "estimatedDurationMinutes": 90,
+      "waypointLocationIds": ["gd-sz-drive-yueliangwan-mawan", "gd-sz-drive-yueliangwan-central", "gd-sz-drive-yueliangwan-nantou"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["golden-hour", "sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["gopro12-city-night-driving"],
+      "shootAdvice": "这是一条不停车、不下车的纯驾车路线。从月亮湾大道妈湾片区公共道路出发，经前海中段向南头北段连续行驶；三个锚点只用于保持月亮湾大道走廊，真实主辅路、立交、距离与预计时间由 AMap.Driving 实时计算。不进入港区、物流园、社区、酒店、加油站、花卉市场、公园、南头古城或停车场。设备出发前完成固定、构图、供电并开始自动录制，驾驶者不看屏、不操作、不为港城、前海楼群或立交灯光减速、变道、靠边和绕圈。货运高峰、片区施工、海风暴雨、积水或道路管制时取消或接受导航改线。",
+      "scores": { "visual": 4, "road": 5, "parking": 5, "safety": 4, "youtubePotential": 5 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "深圳标准地名词典确认月亮湾大道连接妈湾大道至北环大道，长约 8.2 公里、双向八车道，并途经鲤鱼门等前海片区；三个锚点具有高德 GCJ-02 坐标。路线不包含停车和步行；实时主辅路、立交、距离、预计时间、港区货运、施工与管制须由高德和首次实驾核验。" }
+    },
+    {
+      "id": "gd-sz-drive-only-longgang-avenue", "name": "深圳龙岗大道丹竹头—横岗—双龙纯驾路线", "province": "广东", "cities": ["深圳"], "type": "city-night", "captureStyle": "scenic-drive", "executionMode": "drive-only",
+      "modes": ["day", "sunset", "night"], "estimatedDurationMinutes": 150,
+      "waypointLocationIds": ["gd-sz-drive-longgang-danzhutou", "gd-sz-drive-longgang-henggang", "gd-sz-drive-longgang-shuanglong"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["golden-hour", "sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["gopro12-city-night-driving"],
+      "shootAdvice": "这是一条不停车、不下车的纯驾车路线。从龙岗大道丹竹头段出发，经横岗段向双龙段连续行驶，记录轨道高架、连续商住界面、龙岗中心城与山体转场；三个锚点只用于约束龙岗大道长轴，真实主辅路、掉头、转向、距离和预计时间由 AMap.Driving 当次生成。不进入地铁或公交接驳区、客运站、商场、社区、停车场和高速入口。设备在出发前固定、供电并开始自动录制，驾驶者不看屏、不操作、不为楼群、招牌、列车或山景降速、变道、靠边和补拍。通勤高峰、客运车辆密集、施工、暴雨积水或低能见度时取消或接受导航改线。",
+      "scores": { "visual": 4, "road": 5, "parking": 5, "safety": 4, "youtubePotential": 5 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "深圳地名志确认龙岗大道为纵贯龙岗区的城市主干路，长约 36.52 公里、双向八车道，并与地铁 3 号线形成连续交通界面；三个锚点具有高德 GCJ-02 坐标。路线不包含停车和步行；实时主辅路、转向、距离、预计时间、施工、车流和信号灯须由高德及首次实驾核验。" }
+    },
+    {
+      "id": "gd-sz-drive-only-danping-pinghu", "name": "深圳丹平快速沙湾—华南城—平湖纯驾路线", "province": "广东", "cities": ["深圳"], "type": "city-night", "captureStyle": "scenic-drive", "executionMode": "drive-only",
+      "modes": ["day", "sunset", "night"], "estimatedDurationMinutes": 105,
+      "waypointLocationIds": ["gd-sz-drive-danping-shawan", "gd-sz-drive-danping-huanancheng", "gd-sz-drive-danping-pinghu"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["golden-hour", "sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["gopro12-city-night-driving"],
+      "shootAdvice": "这是一条不停车、不下车的纯驾车路线。从丹平快速沙湾段公共道路出发，经华南城连接段向平湖外围连续行驶，记录罗湖北部山体、隧道、立交与平湖产业城市界面；三个锚点只约束公共道路走廊，真实主线入口、出口、隧道、匝道、距离和预计时间由 AMap.Driving 实时生成。不进入原检查站、商贸园、物流园、广场、地铁接驳、停车场、高速入口或尚未开放的二期道路。设备出发前固定、供电并自动录制，驾驶者不看屏、不操作、不为山景、高架或灯光降速、变道、停车和补拍。货车密集、二期施工、隧道管制、强降雨、积水或低能见度时取消或服从导航改线。",
+      "scores": { "visual": 4, "road": 5, "parking": 5, "safety": 3, "youtubePotential": 4 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "深圳交通部门确认丹平快速一期长约 9.7 公里、双向六车道，包含桥梁、立交和隧道，并确认二期仍处于工程推进范围；三个锚点具有高德 GCJ-02 坐标。路线不包含停车和步行；实时开放道路、主线出入口、距离、预计时间、二期施工、货运与隧道状态须由高德和首次实驾核验。" }
+    },
+    {
+      "id": "gd-sz-drive-only-nanping-cross-city", "name": "深圳南坪快速龙华—坂田—坪山纯驾路线", "province": "广东", "cities": ["深圳"], "type": "city-night", "captureStyle": "scenic-drive", "executionMode": "drive-only",
+      "modes": ["day", "sunset", "night"], "estimatedDurationMinutes": 150,
+      "waypointLocationIds": ["gd-sz-drive-nanping-longhua", "gd-sz-drive-nanping-bantian", "gd-sz-drive-pingshan-station"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["golden-hour", "sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["gopro12-city-night-driving"],
+      "shootAdvice": "这是一条不停车、不下车的纯驾车路线。从高德标注的南坪快速龙华主线段出发，经坂田段向龙岗、坪山方向连续行驶，并以坪山站门户公共道路作为东端约束；由 AMap.Driving 当次确认开放主线、隧道、匝道、龙坪立交后的合法连接、距离和预计时间，不强制沿任何未开放或施工道路通行。不进入寺院、商业区、货运场、车站落客区、停车场和高速收费连接。设备出发前固定、供电并开始自动录制，驾驶者不看屏、不操作、不为山体、高架、隧道或城市转场降速、变道、停车和补拍。快速路拥堵、隧道管制、施工、强降雨、积水或低能见度时取消或服从导航改线。",
+      "scores": { "visual": 4, "road": 5, "parking": 5, "safety": 3, "youtubePotential": 5 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "深圳官方地名与道路图则确认南坪快速跨南山、龙华、龙岗、坪山，是多车道城市快速路；交通部门确认三期横坪立交至龙坪立交约 18 公里主线已通车。三个锚点具备高德 GCJ-02 坐标。路线不包含停车和步行；实时主线、隧道、匝道、距离、预计时间、施工与管制须由高德及首次实驾核验。" }
+    },
+    {
+      "id": "gd-sz-drive-only-xinqu-longhua", "name": "深圳新区大道深圳北站—红山—和平路纯驾路线", "province": "广东", "cities": ["深圳"], "type": "city-night", "captureStyle": "scenic-drive", "executionMode": "drive-only",
+      "modes": ["sunset", "night"], "estimatedDurationMinutes": 90,
+      "waypointLocationIds": ["gd-sz-drive-xinqu-north-station", "gd-sz-drive-xinqu-hongshan", "gd-sz-drive-xinqu-heping"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["gopro12-city-night-driving"],
+      "shootAdvice": "这是一条不停车、不下车的纯驾车路线。从新区大道深圳北站外围公共道路出发，经红山商务片区向龙华和平路连接段连续行驶，记录交通枢纽、商务楼群、城市灯光与产业居住界面的连续转场；三个锚点只约束新区大道走廊，真实主辅路、路口转向、距离和预计时间由 AMap.Driving 当次生成。不进入深圳北站落客平台、公交场站、地铁接驳、商场、住宅、文化场馆、工业园或停车场。设备在出发前固定、供电并开始自动录制，驾驶者不看屏、不操作、不为楼群、灯光或列车降速、变道、靠边、掉头和补拍。通勤高峰、枢纽拥堵、活动管制、施工、强降雨或积水时取消或接受导航改线。",
+      "scores": { "visual": 4, "road": 4, "parking": 5, "safety": 4, "youtubePotential": 4 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "深圳标准地名词典确认新区大道跨福田、龙华，北起龙华和平路、南至彩田路，长约 9.632 公里、双向六车道；深圳北站、红山和和平路三个公共道路锚点具有高德 GCJ-02 坐标。路线不包含停车和步行；实时主辅路、路口、距离、预计时间、拥堵、活动和施工须由高德及首次实驾核验。" }
+    },
+    {
+      "id": "gd-sz-drive-only-guanguang-guanglan", "name": "深圳观光路光明—大富—观澜纯驾路线", "province": "广东", "cities": ["深圳"], "type": "city-night", "captureStyle": "scenic-drive", "executionMode": "drive-only",
+      "modes": ["day", "sunset", "night"], "estimatedDurationMinutes": 105,
+      "waypointLocationIds": ["gd-sz-drive-guanguang-guangming", "gd-sz-drive-guanguang-dafu", "gd-sz-drive-guanguang-golf"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["golden-hour", "sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["gopro12-city-night-driving"],
+      "shootAdvice": "这是一条不停车、不下车的纯驾车路线。从观光路光明大道交会附近公共道路出发，经大富工业区段向观澜高尔夫大道连接段连续行驶，记录光明中心区、山体、产业建筑、高架与观澜坡地城市界面的转场；三个锚点只约束观光路走廊，真实主辅路、隧道、匝道、转向、距离和预计时间由 AMap.Driving 当次生成。不进入商场、办公楼、工厂、园区、物流场、观澜湖、生态园、球场、酒店、加油站或停车场。设备出发前完成固定、供电并开始自动录制，驾驶者不看屏、不操作、不为楼群、山景、灯光或货车降速、变道、靠边、掉头和补拍。货运高峰、景区活动、道路施工、强降雨、积水或低能见度时取消或服从导航改线。",
+      "scores": { "visual": 4, "road": 5, "parking": 5, "safety": 3, "youtubePotential": 4 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "深圳市交通运输局确认观光路观澜段西接光明方向龙大高速、东至高尔夫大道，长约 8.38 公里，为城市 I 级主干道、主道双向六车道；光明大道、大富工业区和高尔夫大道三个道路锚点具有高德 GCJ-02 坐标。路线不包含停车和步行；实时开放道路、主辅路、隧道、距离、预计时间、货运、施工与管制须由高德和首次实驾核验。" }
+    },
+    {
+      "id": "gd-sz-drive-only-wuhe-bantian", "name": "深圳五和大道华为坂田—五和—光雅园纯驾路线", "province": "广东", "cities": ["深圳"], "type": "city-night", "captureStyle": "scenic-drive", "executionMode": "drive-only",
+      "modes": ["day", "sunset", "night"], "estimatedDurationMinutes": 90,
+      "waypointLocationIds": ["gd-sz-drive-wuhe-huawei", "gd-sz-drive-wuhe-hub", "gd-sz-drive-wuhe-guangyayuan"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["golden-hour", "sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["gopro12-city-night-driving"],
+      "shootAdvice": "这是一条不停车、不下车的纯驾车路线。从五和大道华为坂田基地外围公共道路出发，经布龙路五和枢纽向光雅园段连续行驶，记录科技园区、轨道交通、立交、商住楼群与道路高差形成的城市转场；三个锚点只约束五和大道公共道路走廊，真实主辅路、路口转向、掉头限制、距离和预计时间由 AMap.Driving 当次生成。不进入华为基地或其他园区、门岗、地铁公交接驳、加油站、住宅、商铺、落客区和停车场。设备出发前固定、供电并开始自动录制，驾驶者不看屏、不操作、不为园区建筑、列车、楼群或灯光降速、变道、靠边、掉头和补拍。通勤高峰、枢纽施工、活动管制、强降雨、积水或低能见度时取消或接受导航改线。",
+      "scores": { "visual": 4, "road": 4, "parking": 5, "safety": 4, "youtubePotential": 4 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "深圳标准地名词典确认五和大道跨龙华、龙岗，南北走向，长约 7.858 公里、双向六车道，途经华为科研中心等产业界面；深圳政府资料确认五和枢纽位于布龙路与五和大道交叉口。华为坂田外围、五和枢纽和光雅园三个道路锚点具有高德 GCJ-02 坐标。路线不包含停车和步行；实时主辅路、转向、距离、预计时间、施工和管制须由高德及首次实驾核验。" }
+    },
+    {
+      "id": "gd-sz-drive-only-bulong-cross-city", "name": "深圳布龙路上水径—杨美—五和—龙胜纯驾路线", "province": "广东", "cities": ["深圳"], "type": "city-night", "captureStyle": "scenic-drive", "executionMode": "drive-only",
+      "modes": ["day", "sunset", "night"], "estimatedDurationMinutes": 120,
+      "waypointLocationIds": ["gd-sz-drive-bulong-shuijing", "gd-sz-drive-bulong-yangmei", "gd-sz-drive-wuhe-hub", "gd-sz-drive-bulong-longsheng"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["golden-hour", "sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["gopro12-city-night-driving"],
+      "shootAdvice": "这是一条不停车、不下车的纯驾车路线。从布龙路上水径段出发，经杨美、布龙路与五和大道交叉口向龙华龙胜片区连续行驶，记录山体、轨道高架、立交、连续商住楼群与产业城市界面的东西向转场；四个锚点只约束公共道路走廊，真实主辅路、立交、路口转向、掉头限制、距离和预计时间由 AMap.Driving 当次生成。不进入地铁或公交接驳、社区、商场、加油站、货运站、落客区和停车场。设备出发前固定、供电并自动录制，驾驶者不看屏、不操作、不为列车、楼群、招牌或灯光降速、变道、靠边、掉头和补拍。通勤高峰、枢纽工程、道路施工、强降雨、积水或低能见度时取消或服从导航改线。",
+      "scores": { "visual": 4, "road": 5, "parking": 5, "safety": 3, "youtubePotential": 5 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "深圳水径与坂田地区官方法定图则确认布龙路为贯通片区的城市主干路，水径段规划双向六车道、坂田段规划双向八车道，且五和枢纽位于布龙路与五和大道交叉口；上水径、杨美、五和与龙胜四个公共道路锚点具有高德 GCJ-02 坐标。路线不包含停车和步行；实时主辅路、立交、距离、预计时间、施工和管制须由高德及首次实驾核验。" }
+    },
+    {
+      "id": "gd-sz-drive-only-yanlong-north", "name": "深圳盐龙大道大运新城—龙城北—坪地纯驾路线", "province": "广东", "cities": ["深圳"], "type": "city-night", "captureStyle": "scenic-drive", "executionMode": "drive-only",
+      "modes": ["day", "sunset", "night"], "estimatedDurationMinutes": 135,
+      "waypointLocationIds": ["gd-sz-drive-yanlong-dayun", "gd-sz-drive-yanlong-longcheng-north", "gd-sz-drive-yanlong-pingdi"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["golden-hour", "sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["gopro12-city-night-driving"],
+      "shootAdvice": "这是一条不停车、不下车的纯驾车路线，仅使用盐龙大道已经存在的龙岗北段。从大运新城外围公共道路出发，经龙城北部向坪地产业段连续行驶，记录场馆新城、山体、高架、长轴道路与产业灯光转场；三个锚点只约束现状公共道路走廊，真实主辅路、出口、立交、距离和预计时间由 AMap.Driving 当次生成。严禁把仍在规划建设的盐田连接南段或北延工程作为可通行路线，不进入体育场、商场、公园、地铁公交接驳、企业厂区、物流园、门岗、货运场、落客区和停车场。设备出发前固定、供电并自动录制，驾驶者不看屏、不操作、不为场馆、山景、楼群或灯光降速、变道、靠边、掉头和补拍。赛事活动、货运高峰、施工、强降雨、积水、低能见度或导航无法生成合法连续道路时取消。",
+      "scores": { "visual": 4, "road": 5, "parking": 5, "safety": 3, "youtubePotential": 4 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "深圳官方法定图则与龙岗区规划资料确认盐龙大道现状龙岗北段属于城市快速路并联系大运、龙城与坪地；盐龙大道盐田连接南段及北延工程仍处于规划建设程序，已明确排除。大运新城、龙城北和坪地产业段三个公共道路锚点具有高德 GCJ-02 坐标。路线不包含停车和步行；实时开放道路、主辅路、距离、预计时间、施工和管制须由高德及首次实驾核验。" }
+    },
+    {
+      "id": "gd-sz-drive-only-meiguan-central", "name": "深圳梅观大道梅林关—清湖—观澜纯驾路线", "province": "广东", "cities": ["深圳"], "type": "city-night", "captureStyle": "scenic-drive", "executionMode": "drive-only",
+      "modes": ["day", "sunset", "night"], "estimatedDurationMinutes": 120,
+      "waypointLocationIds": ["gd-sz-drive-meiguan-meilin", "gd-sz-drive-meiguan-qinghu", "gd-sz-drive-meiguan-guanlan"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["golden-hour", "sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["gopro12-city-night-driving"],
+      "shootAdvice": "这是一条不停车、不下车的纯驾车路线。从梅观大道梅林关附近公共道路出发，经清湖立交向观澜片区连续行驶，记录梅林山体、高架、龙华楼群、轨道、立交和北部产业城市界面的变化；三个锚点只约束梅林至观澜的现状道路走廊，真实主辅路、匝道、立交、距离和预计时间由 AMap.Driving 当次生成。路线在观澜免费路段范围附近结束，不进入观澜主线收费站、机荷高速收费匝道、地铁公交接驳、原检查站、住宅、市场、加油站、产业园、落客区和停车场。设备出发前固定、供电并自动录制，驾驶者不看屏、不操作、不为山体、立交、列车、楼群或灯光降速、变道、靠边、掉头和补拍。通勤高峰、收费站分流、市政化施工、强降雨、积水或低能见度时取消或服从导航改线。",
+      "scores": { "visual": 4, "road": 5, "parking": 5, "safety": 3, "youtubePotential": 5 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "深圳市交通运输局确认梅林至观澜段约 13.8 公里自 2014 年起取消收费，并说明现状清湖南段双向六车道、清湖北段双向八车道以及沿线互通立交；官方高速公路资料确认观澜以南零费率放行和北侧收费边界。梅林关、清湖、观澜三个公共道路锚点具有高德 GCJ-02 坐标。路线不包含停车和步行；实时主辅路、匝道、收费边界、距离、预计时间、施工和管制须由高德及首次实驾核验。" }
+    },
+    {
+      "id": "gd-sz-drive-only-hengping-east", "name": "深圳横坪大道横岗—荷坳—坪山纯驾路线", "province": "广东", "cities": ["深圳"], "type": "city-night", "captureStyle": "scenic-drive", "executionMode": "drive-only",
+      "modes": ["day", "sunset", "night"], "estimatedDurationMinutes": 135,
+      "waypointLocationIds": ["gd-sz-drive-hengping-henggang", "gd-sz-drive-hengping-heao", "gd-sz-drive-hengping-pingshan-station"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["golden-hour", "sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["gopro12-city-night-driving"],
+      "shootAdvice": "这是一条不停车、不下车的纯驾车路线。从横坪大道横岗方向公共道路出发，经荷坳片区向深圳坪山站外围公共道路连续行驶，记录横岗山体、快速路立交、轨道、产业楼群与坪山新城门户的东西向转场；三个锚点只约束横坪大道及合法连接走廊，真实主辅路、立交、出口、距离和预计时间由 AMap.Driving 当次生成。严禁借用仍处于规划建设的沙荷路西段，不进入园山景区、汽车站、铁路或云巴站、地铁公交接驳、社区、商业区、加油站、落客平台和停车场。设备出发前固定、供电并自动录制，驾驶者不看屏、不操作、不为山景、列车、高架、楼群或灯光降速、变道、靠边、掉头和补拍。客运高峰、道路施工、山地暴雨、积水、低能见度或导航无法生成合法连续道路时取消。",
+      "scores": { "visual": 4, "road": 5, "parking": 5, "safety": 3, "youtubePotential": 4 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "深圳官方荷坳、荷康地区法定图则确认横坪大道为连接横岗与坪山的现状城市快速路，横岗至龙岗大道相关段按双向六车道控制；沙荷路西段仍处于规划建设程序，已明确排除。横岗、荷坳、坪山站三个公共道路锚点具有高德 GCJ-02 坐标。路线不包含停车和步行；实时主辅路、立交、距离、预计时间、施工和管制须由高德及首次实驾核验。" }
+    },
+    {
+      "id": "gd-sz-drive-only-caitian-futian", "name": "深圳彩田路滨河—岗厦—莲花村—梅林纯驾路线", "province": "广东", "cities": ["深圳"], "type": "city-night", "captureStyle": "scenic-drive", "executionMode": "drive-only",
+      "modes": ["day", "sunset", "night"], "estimatedDurationMinutes": 90,
+      "waypointLocationIds": ["gd-sz-drive-caitian-binhe", "gd-sz-drive-caitian-gangxia", "gd-sz-drive-caitian-lianhua", "gd-sz-drive-caitian-cai-mei"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["gopro12-city-night-driving"],
+      "shootAdvice": "这是一条不停车、不下车的纯驾车路线。从彩田路与滨河大道交会附近公共道路出发，经岗厦、莲花村向彩梅立交与梅林片区连续行驶，记录滨河高架、福田 CBD、高密楼群、中轴夜景、立交和梅林山体的南北转场；四个锚点只约束彩田路公共道路走廊，真实主辅路、路口、立交、距离和预计时间由 AMap.Driving 当次生成。不进入福田口岸查验区、地铁公交接驳、岗厦村、市民中心、莲花山公园、机关、住宅、写字楼、商场、落客区和停车场。彩田路北段存在潮汐车道，必须完全服从实时信号、标线和导航，不为保持画面连续抢行、逆向、强行并线或掉头。设备出发前固定、供电并自动录制，驾驶者不看屏、不操作、不为楼群、招牌、立交或灯光降速、靠边和补拍。工作日晚高峰、潮汐车道切换、活动管制、立交施工、强降雨或积水时取消或服从改线。",
+      "scores": { "visual": 5, "road": 4, "parking": 5, "safety": 3, "youtubePotential": 5 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "深圳现状道路命名规划确认彩田路北起梅林关口、南至滨河大道；福田法定图则确认其为城市主干路，中心段为双向六车道，并将沿线列为道路景观控制带；深圳交警现行通告确认彩田路莲心路口至新彩隧道南掉头口约 3.7 公里设潮汐车道。滨河大道、岗厦、莲花村、彩梅立交四个公共道路锚点具有高德 GCJ-02 坐标。路线不包含停车和步行；实时车道方向、距离、预计时间、施工和管制须由高德及现场信号核验。" }
+    },
+    {
+      "id": "gd-sz-drive-only-xinzhou-futian", "name": "深圳新洲路福强—CBD—莲花—北环纯驾路线", "province": "广东", "cities": ["深圳"], "type": "city-night", "captureStyle": "scenic-drive", "executionMode": "drive-only",
+      "modes": ["day", "sunset", "night"], "estimatedDurationMinutes": 90,
+      "waypointLocationIds": ["gd-sz-drive-xinzhou-fuqiang", "gd-sz-drive-xinzhou-village", "gd-sz-drive-xinzhou-lianhua", "gd-sz-drive-xinzhou-beihuan"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["gopro12-city-night-driving"],
+      "shootAdvice": "这是一条不停车、不下车的纯驾车路线。从新洲路与福强路交会附近公共道路出发，经新洲村、滨河大道、福田 CBD、红荔路与莲花路，向莲花北和北环大道附近连续行驶，记录高架、城中村、中心区天际线、道路灯光、立交与山体背景的南北转场；四个锚点只约束新洲路及合法公共道路连接，真实主辅路、路口、立交、距离和预计时间由 AMap.Driving 当次生成。不进入福田保税区、新洲村内部、地铁公交接驳、莲花山公园、学校、医院、住宅、办公楼、商场、落客区和停车场。红荔路至莲花路、莲花路至梅丽路存在分时潮汐车道，必须完全服从实时信号、标线和导航，不为连续画面抢行、逆向、强行并线或掉头。设备出发前固定、供电并自动录制，驾驶者不看屏、不操作、不为楼群、招牌、立交或灯光降速、靠边和补拍。工作日潮汐切换、早晚高峰、活动管制、道路施工、强降雨、积水或低能见度时取消或服从导航改线。",
+      "scores": { "visual": 5, "road": 4, "parking": 5, "safety": 3, "youtubePotential": 5 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "深圳官方法定图则确认新洲路南段为双向八车道城市主干路，并贯通福强路、滨河大道、深南大道、红荔路、莲花路与北环路；深圳交警 2026 年现行通告明确红荔路至莲花路、莲花路至梅丽路两段潮汐车道的分时方向。福强路、新洲村、莲花西和莲花北四个高德 GCJ-02 坐标用于约束公共道路走廊，均不作为停车或步行目的地；实时车道方向、主辅路、距离、预计时间、施工和管制须由高德及现场信号核验。" }
+    },
+    {
+      "id": "gd-sz-drive-only-xiangmi-futian", "name": "深圳香蜜湖路深南—党校—北环纯驾路线", "province": "广东", "cities": ["深圳"], "type": "city-night", "captureStyle": "scenic-drive", "executionMode": "drive-only",
+      "modes": ["day", "sunset", "night"], "estimatedDurationMinutes": 75,
+      "waypointLocationIds": ["gd-sz-drive-xiangmi-shennan", "gd-sz-drive-xiangmi-party-school", "gd-sz-drive-beihuan-xiangmi"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["golden-hour", "sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["gopro12-city-night-driving"],
+      "shootAdvice": "这是一条不停车、不下车的纯驾车路线。从深南香蜜立交附近公共道路出发，经香蜜湖路市委党校外围向北环香蜜连接段连续行驶，记录深南大道车流、城市立交、香蜜湖片区开敞界面、道路绿化、山体背景与北环快速路灯光的南北转场；三个锚点只约束香蜜湖路现状公共道路走廊，真实主辅路、匝道、出口、距离和预计时间由 AMap.Driving 当次生成。不进入香蜜湖片区内部、香蜜公园、党校、地铁公交接驳、住宅、办公楼、商业区、落客区和停车场。香蜜湖片区存在持续规划建设与交通组织调整，必须服从实时导航、现场标志、围挡和管制，不驶入施工便道或未开放地下道路。设备出发前固定、供电并自动录制，驾驶者不看屏、不操作、不为湖面、绿化、楼群、立交或灯光降速、变道、靠边、掉头和补拍。工作日早晚高峰、活动管制、片区施工、强降雨、积水或低能见度时取消或服从导航改线。",
+      "scores": { "visual": 5, "road": 4, "parking": 5, "safety": 3, "youtubePotential": 5 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "深圳官方车公庙与农科中心地区法定图则确认香蜜湖路为现状双向六车道城市快速路，深南大道及滨河大道交会采用立交，并要求强化香蜜湖路车行景观界面；2026 年香蜜湖地区法定图则调整说明片区仍有道路与公共空间建设安排，因此路线只约束现状开放公共道路。深南香蜜立交、市委党校和既有北环香蜜连接段三个高德 GCJ-02 坐标均作为行车走廊锚点，不作为停车或步行目的地；实时主辅路、匝道、距离、预计时间、施工和管制须由高德及现场标志核验。" }
+    },
+    {
+      "id": "gd-sz-drive-only-zhoushi-shiyan-airport", "name": "深圳洲石路鹤洲—九围—料坑—石岩纯驾路线", "province": "广东", "cities": ["深圳"], "type": "city-night", "captureStyle": "scenic-drive", "executionMode": "drive-only",
+      "modes": ["day", "sunset", "night"], "estimatedDurationMinutes": 120,
+      "waypointLocationIds": ["gd-sz-drive-zhoushi-hezhou", "gd-sz-drive-zhoushi-jiuwei", "gd-sz-drive-zhoushi-liaokeng", "gd-sz-drive-zhoushi-luozu"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["golden-hour", "sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["gopro12-city-night-driving"],
+      "shootAdvice": "这是一条不停车、不下车的纯驾车路线。从洲石路鹤洲片区现状公共道路出发，经九围和料坑向石岩罗租片区连续行驶，记录机场东部门户、高速立交、丘陵、长距离产业带、高架施工界面与石岩城市灯光的东西向转场；四个锚点只约束洲石路及合法公共道路走廊，真实主辅路、施工绕行、路口、距离和预计时间由 AMap.Driving 当次生成。不进入机场、G4/G15 收费匝道、恒丰工业城、九围或料坑社区、工业园、物流场、罗租地铁站、公园、公交接驳、落客区和停车场。鹤洲路至九围路段已有官方恢复双向通行依据，但洲石路全线改造和南光高速市政化工程仍在推进；严禁把规划高架、未开放立交、施工便道或围挡道路作为固定路线，必须服从高德、现场标志和交通指挥。设备出发前固定、供电并自动录制，驾驶者不看屏、不操作、不为飞机、山体、楼群、高架或灯光降速、变道、靠边、掉头和补拍。货运高峰、施工改道、粉尘、强降雨、积水、低能见度或导航无法生成合法连续道路时取消。",
+      "scores": { "visual": 4, "road": 4, "parking": 5, "safety": 3, "youtubePotential": 4 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "深圳交警确认洲石路鹤洲路至九围路段自 2025 年 2 月恢复双向通行；官方规划资料确认洲石路是联系机场场南、九围与石岩的现状主要通道，石岩中心段按城市主干路控制。2026 年土地整备计划及南光高速市政化招采资料表明洲石路全线改造、料坑附近立交和道路拓宽仍在推进，已明确排除所有未开放工程。鹤洲、九围、料坑和罗租四个高德 GCJ-02 坐标只作为公共道路走廊锚点，不作为停车或步行目的地；实时施工绕行、开放道路、距离与预计时间须由高德和现场标志核验。" }
+    },
+    {
+      "id": "gd-sz-drive-only-banyin-cross-district", "name": "深圳坂银通道雅宝—银湖—黄木岗纯驾路线", "province": "广东", "cities": ["深圳"], "type": "city-night", "captureStyle": "scenic-drive", "executionMode": "drive-only",
+      "modes": ["day", "sunset", "night"], "estimatedDurationMinutes": 75,
+      "waypointLocationIds": ["gd-sz-drive-banyin-yabao", "gd-sz-drive-beihuan-yinhu", "gd-sz-drive-banyin-huangmugang"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["golden-hour", "sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["gopro12-city-night-driving"],
+      "shootAdvice": "这是一条不停车、不下车的纯驾车路线。从雅宝附近公共道路出发，经坂银通道、鸡公山隧道和银湖连接段向黄木岗立交附近公共道路连续行驶，记录坂田门户、银湖山体、桥梁、隧道、立交与福田楼群的跨区转场；三个锚点只约束现状公共道路走廊，真实主辅路、匝道、距离和预计时间由 AMap.Driving 当次生成。不进入地铁站、公交接驳、商业园区、银湖汽车站、体育中心、医院、公园、学校、落客区和停车场，不把人行天桥或内部道路作为连接。坂银通道设计时速 60 公里且包含长隧道，必须服从公交专用道、限速、现场标志和实时导航；隧道内不得停车、调整设备或追求曝光。设备出发前固定、供电并自动录制，驾驶者不看屏、不操作、不为山景、桥梁、楼群或灯光降速、变道、靠边、掉头和补拍。通勤高峰、事故、临时管制、强降雨、积水、隧道异常或低能见度时取消或服从导航改线。",
+      "scores": { "visual": 5, "road": 5, "parking": 5, "safety": 3, "youtubePotential": 5 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "深圳市交通运输局确认坂银通道已于 2020 年 4 月 28 日正式通车，主线约 7.643 公里、双向六车道、设计时速 60 公里，北接环城南路并向南连接银湖、泥岗和黄木岗片区，沿线含鸡公山隧道、桥梁与银湖山景观界面。雅宝、银湖和黄木岗三个高德 GCJ-02 坐标只作为公共道路走廊锚点，不作为停车或步行目的地；路线不包含停车和步行，实时车道、主辅路、匝道、距离、预计时间、事故、施工和管制须由高德及现场标志核验。" }
+    },
+    {
+      "id": "gd-sz-luohu-diwang-dongmen-rain-walk", "name": "罗湖地王大厦至东门老街雨后霓虹步行路线", "province": "广东", "cities": ["深圳"], "type": "city-night", "captureStyle": "rain-walk",
+      "modes": ["sunset", "night", "asmr"], "estimatedDurationMinutes": 180,
+      "waypointLocationIds": ["gd-sz-luohu-diwang", "gd-sz-luohu-dongmen-old-street"],
+      "best": { "seasons": ["spring", "summer", "autumn", "winter"], "times": ["sunset", "blue-hour", "night"], "weather": ["cloudy", "rain", "after-rain"] },
+      "cameraPresetIds": ["a7c2-city-night-tripod", "a7c2-forest-stream-static"],
+      "shootAdvice": "建议从大剧院站或地王大厦公共街区开始，先完成双塔与罗湖天际线，再依据高德当天步行规划，沿合法人行道、过街设施和开放商业街前往东门老街；绝不按直线穿越车道、楼宇、施工区或非开放通道。小雨利用路面反射和招牌层次，保持轻装并避免边走边调设备；三脚架只在不妨碍通行处短时使用。暴雨、雷电、积水、施工、活动管制或过度拥挤时取消。人物、商铺内部、摊主、音乐和演出分别确认许可。",
+      "scores": { "visual": 5, "road": 2, "parking": 2, "safety": 4, "youtubePotential": 5 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "地王大厦与东门老街的存在、城市价值和公共 GCJ-02 锚点已有政府及高德资料，东门核心段明确按步行空间处理；路线为编辑步行方案。真实人行路径、距离、时间、过街、施工、积水、人流、店铺、音乐、展演及商业拍摄许可须当天核验。" }
+    },
+    {
+      "id": "gd-sz-qianhai-guiwan-stone-blue-hour", "name": "前海桂湾公园至前海石公园滨海蓝调路线", "province": "广东", "cities": ["深圳"], "type": "city-night", "captureStyle": "rain-walk",
+      "modes": ["sunset", "night", "asmr"], "estimatedDurationMinutes": 180,
+      "waypointLocationIds": ["gd-sz-qianhai-guiwan-park", "gd-sz-qianhai-stone-park"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["golden-hour", "sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["a7c2-coast-sunset", "a7c2-city-night-tripod", "a7c2-forest-stream-static"],
+      "shootAdvice": "日落前从桂湾公园开放河岸建立水岸、新城建筑和桥梁，随后依高德当天步行规划沿开放绿道与公共道路前往前海石公园桂湾滨海段，在正式草坪、园路或台阶完成海湾余晖和蓝调灯光。两个 POI 是到达锚点，不代表园内任意直线均可通行；不穿越施工、绿化、机动车道或未开放亲水区。海风、雷暴、高潮位、积水、活动、人流或施工封闭时缩短或取消，临水收音保持安全距离并使用防风。",
+      "scores": { "visual": 5, "road": 2, "parking": 3, "safety": 4, "youtubePotential": 5 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "前海官方资料确认桂湾公园、前海石公园及其公园—海滨栈道连接场景，两个高德 POI 提供 GCJ-02 公共到达锚点；路线为编辑步行方案。真实开放连接、步行距离、预计时间、施工、活动、潮位、照明、停车、航拍和商业拍摄许可须当天核验。" }
     },
     {
       "id": "gd-sz-bay-coast",

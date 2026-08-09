@@ -91,6 +91,13 @@ for (const route of catalog.routes) {
   for (const id of route.cameraPresetIds) {
     if (!presetIds.has(id)) errors.push(`${route.id}: unknown camera preset ${id}`);
   }
+  if (route.executionMode === "drive-only") {
+    if (route.captureStyle !== "scenic-drive") errors.push(`${route.id}: drive-only route must use scenic-drive capture style`);
+    const waypoints = route.waypointLocationIds.map((id) => catalog.locations.find((location) => location.id === id)).filter(Boolean);
+    if (waypoints.some((waypoint) => waypoint.access.mode !== "drive")) errors.push(`${route.id}: drive-only route contains a non-driving waypoint`);
+    if (waypoints.some((waypoint) => waypoint.shooting.modes.length !== 1 || waypoint.shooting.modes[0] !== "driving-video")) errors.push(`${route.id}: drive-only waypoint must allow driving-video only`);
+    if (!route.shootAdvice.includes("不停车") || !route.shootAdvice.includes("不下车")) errors.push(`${route.id}: drive-only advice must explicitly prohibit parking and leaving the vehicle`);
+  }
 }
 
 const routeCoveredProvinceNames = new Set(catalog.routes.filter((route) => route.verification.status !== "draft").map((route) => route.province));

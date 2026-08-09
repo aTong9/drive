@@ -27,6 +27,7 @@ const captureLabels = {
 
 export function RouteCard({ route, waypoints, active, onSelect }: RouteCardProps) {
   const CaptureIcon = captureLabels[route.captureStyle].icon;
+  const driveOnly = route.executionMode === "drive-only";
   const captured = usePlannerStore((state) => state.plans.some((plan) => plan.routeId === route.id && plan.status === "captured"));
   const fieldChecked = usePlannerStore((state) => waypoints.every((waypoint) => state.fieldChecks.some((check) => check.locationId === waypoint.id)));
   const verificationLabel = fieldChecked ? "全程实地核验" : captured ? "已完成拍摄" : route.verification.status === "field-checked" ? "实地核验" : "来源核验";
@@ -39,11 +40,11 @@ export function RouteCard({ route, waypoints, active, onSelect }: RouteCardProps
           {verificationLabel}
         </span>
       </div>
-      <span className="route-capture"><CaptureIcon size={13} />{captureLabels[route.captureStyle].label}</span>
+      <span className={`route-capture ${driveOnly ? "is-drive-only" : ""}`}><CaptureIcon size={13} />{driveOnly ? "纯驾车 · 无需下车" : captureLabels[route.captureStyle].label}</span>
       <h3>{route.name}</h3>
       <div className="route-meta">
         <span><Clock3 size={14} /> {Math.floor(route.estimatedDurationMinutes / 60)}小时{route.estimatedDurationMinutes % 60 || ""}</span>
-        <span><MapPin size={14} /> {waypoints.length}个拍摄点</span>
+        <span><MapPin size={14} /> {waypoints.length}个{driveOnly ? "道路锚点" : "拍摄点"}</span>
       </div>
       <div className="route-path-preview" aria-label="路线途经点">
         {waypoints.map((waypoint, index) => (

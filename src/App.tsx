@@ -60,6 +60,7 @@ export function App() {
     const store = usePlannerStore.getState();
     store.setMode("all");
     store.setCaptureStyle("all");
+    store.setDriveOnly(false);
     store.setMaxDurationMinutes(Math.max(store.maxDurationMinutes, target.route.estimatedDurationMinutes));
     store.setQuery("");
     store.selectRoute(routeId);
@@ -77,11 +78,12 @@ export function App() {
     const query = state.query.trim().toLowerCase();
     const matchesMode = state.mode === "all" || item.route.modes.includes(state.mode);
     const matchesCaptureStyle = state.captureStyle === "all" || item.route.captureStyle === state.captureStyle;
+    const matchesExecutionMode = !state.driveOnly || item.route.executionMode === "drive-only";
     const matchesDuration = item.route.estimatedDurationMinutes <= state.maxDurationMinutes;
     const matchesQuery = !query || item.route.name.toLowerCase().includes(query) || item.route.cities.some((city) => city.includes(query));
     const matchesCurrentCity = !currentRegion || item.route.cities.includes(currentRegion.city);
-    return matchesMode && matchesCaptureStyle && matchesDuration && matchesQuery && matchesCurrentCity;
-  }), [state.mode, state.captureStyle, state.maxDurationMinutes, state.query, currentRegion]);
+    return matchesMode && matchesCaptureStyle && matchesExecutionMode && matchesDuration && matchesQuery && matchesCurrentCity;
+  }), [state.mode, state.captureStyle, state.driveOnly, state.maxDurationMinutes, state.query, currentRegion]);
 
   const nearbyLocations = useMemo(() => currentRegion ? catalog.locations.filter((location) => location.province === currentRegion.province && location.city === currentRegion.city) : [], [currentRegion]);
 
