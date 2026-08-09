@@ -33,6 +33,8 @@ export default defineConfig(() => {
       rollupOptions: {
         output: {
           manualChunks(moduleId: string) {
+            if (moduleId.endsWith("/data/catalog.json")) return "catalog-data";
+            if (moduleId.endsWith("/data/youtube-creators.json")) return "creator-data";
             if (moduleId.includes("node_modules/react") || moduleId.includes("node_modules/zustand")) return "react-runtime";
             if (moduleId.includes("node_modules/ajv")) return "data-validation";
             if (moduleId.includes("node_modules/@amap/amap-jsapi-loader")) return "amap-loader";

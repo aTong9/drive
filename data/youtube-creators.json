@@ -524,6 +524,231 @@
       "patterns": ["现场先识别动态范围问题", "保留包围曝光和处理依据", "用前后对照解释局部调整", "让后期服务既定画面意图"],
       "caution": "曝光合成和亮度蒙版应解决相机动态范围与表达问题，不能伪造纪实事实或替换无授权素材；可借鉴教学拆解，不复制其教程、动作、面板、照片或课程文件。",
       "evidence": [{ "title": "Sean Bagshaw 职业与 YouTube 资料", "url": "https://neccc14.neccc.org/2019_conf/Speakers_Notes/2019-Speakers-Notes-V2.pdf" }, { "title": "Sean Bagshaw 创作者介绍", "url": "https://breakthrough.photography/pages/sean-bagshaw" }, { "title": "Sean Bagshaw 官方频道", "url": "https://www.youtube.com/seanbagshaw" }]
+    },
+    {
+      "id": "simon-baxter", "name": "Simon Baxter", "region": "英国 / 林地、地方性风景与身心疗愈", "category": "cinematic-landscape", "channelUrl": "https://www.youtube.com/channel/UCcGPU4A6xJ1OYOkvfMoo25w",
+      "positioning": "以北约克郡荒原周边的本地林地为长期题材，用缓慢、审慎的观察，把复杂林间构图、季节回访、与爱犬同行及摄影对慢性疼痛和身心状态的帮助连接起来。",
+      "representative": { "title": "Local woodland photography, wellbeing and the journey to print", "url": "https://www.youtube.com/channel/UCcGPU4A6xJ1OYOkvfMoo25w/videos", "observedPerformance": "2026 年 7 月公开统计约为 6.8 万订阅、360 万累计播放和 138 支视频；官方资料显示其自 2016 年起持续以本地林地、创作过程与身心福祉为核心。" },
+      "whyItWorks": ["长期回访近处林地，让雾、雨、雪、叶色与林下更新持续制造差异，频道不依赖昂贵远行也能形成稳定主题。", "把林地的视觉混乱拆成树干节奏、留白、层次与光线关系，观众既看到寻找画面的过程，也获得可迁移的构图方法。", "慢性疼痛、摄影带来的疗愈及与爱犬同行构成真实连续的人物线，使安静的林地拍摄具有情感缘由和长期陪伴感。"],
+      "patterns": ["反复回访同一本地林地", "先慢走观察再架设相机", "利用雾雨雪简化复杂背景", "以成片或打印收束发现过程"],
+      "caution": "身心健康经历不应被工具化为煽情钩子，林地拍摄也不能移动植被、离开开放路径或干扰野生动物；可借鉴地方性回访和诚实叙事，不复制其照片、书籍、课程、影片或个人经历表达。",
+      "evidence": [{ "title": "Simon Baxter 官方介绍", "url": "https://baxter.photos/simon-baxter/" }, { "title": "Simon Baxter 创作、福祉与环保说明", "url": "https://baxter.photos/support/" }, { "title": "Simon Baxter 公开频道统计", "url": "https://www.speakrj.com/audit/report/UCcGPU4A6xJ1OYOkvfMoo25w/youtube/income-stats" }, { "title": "Simon Baxter 林地影像访谈", "url": "https://www.onlandscape.co.uk/2018/05/simon-baxter-on-vlogging/" }]
+    },
+    {
+      "id": "andrew-marr", "name": "Andrew Marr", "region": "澳大利亚 / 远距离自驾、露营与风景摄影教学", "category": "scenic-drive", "channelUrl": "https://www.youtube.com/channel/UCSviZyZi6hJLDr5qpqpWEGA",
+      "positioning": "以西澳大利亚及海外风景摄影旅行为主线，把远距离驾驶、越野露营、地点探索、现场构图和参数选择串成从出发到成片的户外教学故事。",
+      "representative": { "title": "Landscape photography adventures, overlanding and on-location teaching", "url": "https://www.youtube.com/channel/UCSviZyZi6hJLDr5qpqpWEGA/videos", "observedPerformance": "官方介绍记录频道自 2016 年开始，累计播放超过 280 万；2026 年公开行业目录约为 4.65 万订阅，内容长期覆盖自驾、露营、海景、瀑布与现场摄影教学。" },
+      "whyItWorks": ["把长距离转场、露营准备和天气等待保留在故事中，最终照片因此拥有明确的时间成本与抵达感，而不是孤立展示景点。", "到达后逐步讲解焦段、滤镜、快门和构图取舍，让观众能把旅程娱乐性转化为可复现的拍摄方法。", "摄影只是兼职的真实限制、家庭出行和器材逐年改善降低了专业创作者距离感，使持续学习本身成为频道长期叙事。"],
+      "patterns": ["用地图和路况交代远距离转场", "到达后停车再开始拍摄教学", "露营多晚观察天气与光线变化", "以现场选择和最终照片完成闭环"],
+      "caution": "自驾和越野内容不能暗示行驶中手持拍摄、疲劳赶光或进入封闭道路；可借鉴旅程到教学的闭环，不复制其视频、照片、课程、车辆改装方案或具体叙事表达。",
+      "evidence": [{ "title": "Andrew Marr 官方频道创作说明", "url": "https://andrewmarr.com.au/support-my-channel" }, { "title": "Andrew Marr 摄影经历与教学方法", "url": "https://explorelandscapephotography.com/about-us/about-me/" }, { "title": "Andrew Marr 频道规模与内容目录", "url": "https://videos.feedspot.com/landscape_photography_youtube_channels/" }]
+    },
+    {
+      "id": "simon-booth", "name": "Simon Booth", "region": "英国 / 亲密景观、植物与野生动物短片", "category": "stationary-nature", "channelUrl": "https://www.youtube.com/@simonboothphotography",
+      "positioning": "以英国林地、植物、野生动物和亲密景观为核心，把单一自然主题拍成带环境声、现场观察和个人思考的安静短片，强调创造力与对环境的连接。",
+      "representative": { "title": "Nature and intimate-landscape photography films", "url": "https://www.youtube.com/@simonboothphotography/videos", "observedPerformance": "2026 年公开统计约为 3.33 万订阅和 257 万累计播放；代表短片覆盖景观、野生动物与植物，并保持以主题和环境关系组织内容。" },
+      "whyItWorks": ["每支影片围绕一种植物、一处林地或一个自然关系建立小主题，使普通地点拥有比单纯打卡更清楚的观看理由。", "景观、植物细节和野生动物在同一环境内切换尺度，既保留空间氛围，也持续提供微小发现。", "电影与摄影训练让灯光、机位和节奏服务安静观察，旁白解释创作意义而不过度依赖器材更新。"],
+      "patterns": ["先确定一个可持续观察的小主题", "在大景与植物动物细节间切换", "用环境声和停顿保留现场感", "以照片集合而非单张奇观收束"],
+      "caution": "拍摄植物和野生动物不得移动、采摘、诱拍或破坏栖息地；可借鉴主题化观察与尺度切换，不复制其影片、照片、课程、书籍、旁白或声音素材。",
+      "evidence": [{ "title": "Simon Booth 官方作品与教学定位", "url": "https://simonboothphotography.com/" }, { "title": "Simon Booth 自然摄影代表短片", "url": "https://www.youtube.com/watch?v=jhuquwj8TcE" }, { "title": "Simon Booth 公开频道统计", "url": "https://peopleai.com/fame/identities/simon-booth" }]
+    },
+    {
+      "id": "trond-westby", "name": "Trond Westby", "region": "挪威 / 本地野生动物、严寒环境与自然保护", "category": "stationary-nature", "channelUrl": "https://www.youtube.com/@trondwestby",
+      "positioning": "以挪威本地鸟类、松鼠、麝牛及严寒环境为核心，通过长期跟踪、隐蔽等待和幕后记录，把动物行为、天气挑战与自然保护连接成具有现场感的摄影故事。",
+      "representative": { "title": "Local wildlife encounters and cold-weather photography films", "url": "https://www.youtube.com/@trondwestby/videos", "observedPerformance": "2026 年公开行业目录约为 4.77 万订阅；官方合作介绍确认其从 2018 年持续制作幕后野生动物影像，并长期关注本地动物行为、严寒条件与自然保护。" },
+      "whyItWorks": ["长期跟踪住处附近的鸟类和松鼠，使求偶、觅食、季节变化与个体行为自然形成连续故事，而非只追求罕见物种清单。", "暴雪、严寒和长时间等待被保留为情境，最终动物照片获得明确难度、环境尺度与情绪张力。", "视频展示发现踪迹、选择隐蔽点、等待和失败，让保护伦理与拍摄方法同时可见，观众能理解照片是如何产生的。"],
+      "patterns": ["选择一个本地物种长期回访", "先观察行为再确定机位", "用环境尺度交代动物栖息地", "保留等待、失败和天气变化"],
+      "caution": "野生动物拍摄不得使用可能改变行为的投喂、鸣声诱拍或逼近手段，也不能公开敏感巢址；可借鉴长期观察和幕后过程，不复制其影片、照片、隐蔽点位置、课程或声音素材。",
+      "evidence": [{ "title": "Trond Westby 本地野生动物项目记录", "url": "https://trondwestby.wordpress.com/" }, { "title": "Trond Westby 摄影经历与保护定位", "url": "https://fstopgear.com/trond-westby/" }, { "title": "Trond Westby 公开频道目录统计", "url": "https://videos.feedspot.com/wildlife_photography_youtube_channels/" }]
+    },
+    {
+      "id": "duade-paton", "name": "Duade Paton", "region": "澳大利亚 / 鸟类行为、低机位与实用摄影教学", "category": "stationary-nature", "channelUrl": "https://www.youtube.com/@Duade",
+      "positioning": "以澳大利亚本土鸟类为主要对象，通过低机位接近、行为观察、平价与高端器材对照、现场设置和后期流程，把鸟类摄影拆成可实践的连续课程。",
+      "representative": { "title": "Bird photography fieldcraft, gear tests and complete workflows", "url": "https://www.youtube.com/@Duade/videos", "observedPerformance": "2025 年专业访谈确认其频道已超过 10 万订阅；官方内容长期覆盖鸟类现场技巧、器材对照、庭院设置及完整摄影流程。" },
+      "whyItWorks": ["反复用同一鸟类场景比较站姿与低机位、背景距离和光线方向，让构图差异可以立即被看见和验证。", "高价与平价器材被放进真实野外条件对照，结论围绕成功率、操作和成片，而不是单纯复述规格。", "保留找鸟、趴伏等待、设置、失焦、筛片和后期，使初学者看到从现场问题到最终照片的完整解决路径。"],
+      "patterns": ["先观察鸟类行为和移动规律", "降低机位获得环境分离", "一次只验证一个技术变量", "用原片、筛选和后期完成闭环"],
+      "caution": "低机位和近距离画面不能以逼近、诱拍、投喂或干扰巢区为代价，人工栖木和水池也须符合当地生态规范；可借鉴变量对照和完整教学，不复制其影片、照片、布景、课程或预设。",
+      "evidence": [{ "title": "Duade Paton 官方摄影与教学内容", "url": "https://duadepaton.com/" }, { "title": "Duade Paton 专业经历与频道规模访谈", "url": "https://pangolinpodcast.buzzsprout.com/2527088/episodes/17715371-meet-the-pro-duade-paton" }, { "title": "Duade Paton 鸟类摄影方法评价", "url": "https://www.avifaunatics.com/about" }]
+    },
+    {
+      "id": "first-man-photography", "name": "First Man Photography / Adam Karnacz", "region": "英国 / 风景旅程、摄影哲思与打印闭环", "category": "cinematic-landscape", "channelUrl": "https://www.youtube.com/@FirstManPhotography",
+      "positioning": "把登山、涉水、天气等待和现场风景摄影拍成纪录式旅程，再延伸到曝光教学、后期、打印、定价与作品表达，并持续讨论摄影与心理状态、生活意义的关系。",
+      "representative": { "title": "Landscape photography journeys, education and printing workflow", "url": "https://www.youtube.com/@FirstManPhotography/videos", "observedPerformance": "2026 年 7 月公开统计约为 17.1 万订阅、1461 万累计播放和 443 支视频；频道长期覆盖风景实拍、曝光教学、家庭打印和摄影表达。" },
+      "whyItWorks": ["把爬山、过河、天气变化和失败保留为纪录片式过程，最终画面拥有清楚的旅程与情绪背景。", "曝光、全景、打印和定价等复杂议题被拆成可执行步骤，热门内容同时回答拍摄之后如何完成作品与交付。", "摄影哲思与心理健康进入旁白，使器材和技巧始终服务于个人表达，而不是成为频道唯一的更新理由。"],
+      "patterns": ["用户外旅程建立拍摄动机", "现场解释曝光和构图决定", "将数字文件推进到实体打印", "以个人感受回看最终作品"],
+      "caution": "旅程叙事不能鼓励恶劣天气冒险、越界或疲劳赶光，心理健康表达也不应被模仿成煽情模板；可借鉴从现场到打印的闭环，不复制其影片、照片、课程、打印参数或个人故事。",
+      "evidence": [{ "title": "Adam Karnacz 官方介绍与创作哲学", "url": "https://firstmanphotography.com/about/" }, { "title": "First Man Photography 官方曝光教材", "url": "https://firstmanphotography.com/wp-content/uploads/2024/06/UnderstandingExposure.pdf" }, { "title": "First Man Photography 公开频道统计", "url": "https://vidiq.com/youtube-stats/channel/%40firstmanphotography/" }]
+    },
+    {
+      "id": "kim-grant-photography", "name": "Kim Grant Photography", "region": "苏格兰 / 正念自然摄影、海岸与林地感官体验", "category": "stationary-nature", "channelUrl": "https://www.youtube.com/@KimGrantPhotography",
+      "positioning": "把自然摄影作为减速、观察和恢复感官连接的实践，通过苏格兰海岸、林地、微距和抽象水景旅程，弱化器材焦虑，强调在场体验、个人声音与身心感受。",
+      "representative": { "title": "Mindful nature photography journeys, coastal landscapes and creative connection", "url": "https://www.youtube.com/@KimGrantPhotography/videos", "observedPerformance": "2026 年 7 月公开统计约为 4.56 万订阅、534 万累计播放和 520 支视频；官方定位持续聚焦正念自然摄影、海岸体验与创作连接。" },
+      "whyItWorks": ["自然地点不仅是画面背景，也被设计成暂停、呼吸和调动感官的过程，使内容同时服务摄影学习与情绪恢复。", "海岸、林地、微距和抽象水景提供尺度变化，但正念与自然连接维持统一频道承诺，观众容易形成长期陪伴感。", "创作者公开讨论个人体验和寻找摄影声音，让低戏剧性的天气与小景也拥有叙事理由，减少对壮观目的地的依赖。"],
+      "patterns": ["到场后先暂停并观察感官线索", "从大景转向纹理和抽象小景", "保留等待、步行与自然声片段", "用个人感受而非器材参数完成复盘"],
+      "caution": "正念与自然疗愈表达不能替代医疗建议，也不应把脆弱经历包装成点击诱饵；可借鉴慢节奏观察和感官叙事，不复制其影片、照片、课程、退修活动或个人故事。",
+      "evidence": [{ "title": "Kim Grant 正念自然摄影官方定位", "url": "https://kimgrant.net/" }, { "title": "Kim Grant 海岸、林地与抽象自然作品分类", "url": "https://kimgrant.net/gallery" }, { "title": "Kim Grant 公开频道统计", "url": "https://socialblade.com/youtube/handle/kimgrantphotography" }]
+    },
+    {
+      "id": "henry-turner-photo", "name": "Henry Turner", "region": "英国 / 湖区徒步、天气探索与风景摄影现场复盘", "category": "cinematic-landscape", "channelUrl": "https://www.youtube.com/@HenryTurnerPhoto",
+      "positioning": "以英国湖区及周边的徒步风景摄影为核心，把找路、天气变化、抵达机位、构图尝试和成片复盘保留为轻松旅程，强调持续出门与享受户外过程，而非只追逐完美条件。",
+      "representative": { "title": "Lake District landscape photography walks, weather and field decisions", "url": "https://www.youtube.com/@HenryTurnerPhoto/videos", "observedPerformance": "2026 年 6 月公开统计约为 9.23 万订阅、1318 万累计播放和 563 支视频；频道持续围绕英国湖区徒步、风景摄影现场与天气条件更新。" },
+      "whyItWorks": ["徒步到达、天气判断和现场犹豫被保留，照片因此拥有明确过程，普通观众也能把内容当作户外旅程观看。", "长期深挖湖区形成地点熟悉度，同一山谷在雾、雨、雪和不同季节下仍能产生新的拍摄问题与搜索入口。", "轻松表达和不完美成片降低专业门槛，持续出门、观察和复盘构成观众可复制的创作习惯。"],
+      "patterns": ["用徒步过程交代地点与天气", "到场后展示多次构图尝试", "保留条件落空和临时改线", "用最终照片回看现场决定"],
+      "caution": "湖区和山地天气变化不能被浪漫化为冒险理由，路线内容必须保留返程、装备、体力和取消条件；可借鉴轻量旅程与现场复盘，不复制其影片、照片、路线指南、预设或标题。",
+      "evidence": [{ "title": "Henry Turner 官方风景摄影与湖区地点指南", "url": "https://www.henryturnerphotography.co.uk/" }, { "title": "Henry Turner 户外体验型频道评价", "url": "https://ricbarratt.com/favourite-youtube-photography-channels/" }, { "title": "Henry Turner 公开频道统计", "url": "https://socialblade.com/youtube/handle/henryturnerphoto" }]
+    },
+    {
+      "id": "chris-sale-photography", "name": "Chris Sale", "region": "英国 / 坎布里亚本地景观、人与地貌关系及长期项目", "category": "cinematic-landscape", "channelUrl": "https://www.youtube.com/@ChrisSalePhotography",
+      "positioning": "从湖区大景逐步转向 Eden Valley 与 North Pennines 的本地长期项目，关注人类活动如何塑造地貌，并以主题、个人价值、视觉叙事和持续回访替代单次追光式打卡。",
+      "representative": { "title": "Landscape photography with meaning, local projects and visual storytelling", "url": "https://www.youtube.com/@ChrisSalePhotography/videos", "observedPerformance": "2026 年公开目录约为 1.64 万订阅，第三方频道档案记录约 182 万累计播放和 232 支视频；官方内容已明确转向坎布里亚本地景观、长期项目与意义表达。" },
+      "whyItWorks": ["用明确主题回答为什么拍摄，而不只展示漂亮天气，使普通田野、工业痕迹和熟悉地点也具有观看理由。", "长期回访同一地区积累季节、土地使用和个人关系，系列之间产生上下文，观众会追踪项目而非只消费单张成片。", "把找主体、讲故事、组织构图和等待条件拆成可复用过程，同时保留个人价值判断，兼顾教学搜索与作者表达。"],
+      "patterns": ["先定义地点与自己的关系", "围绕一个主题持续回访", "让人类活动痕迹进入地貌叙事", "用系列编辑而非单张热度判断成果"],
+      "caution": "意义表达不能替代事实核查，也不能未经许可进入农地、工业设施或私人区域；可借鉴长期项目和主题编辑，不复制其影片、照片、课程、社群内容、文字或项目概念。",
+      "evidence": [{ "title": "Chris Sale 官方定位与本地长期项目", "url": "https://www.chrissale.co.uk/" }, { "title": "Chris Sale 可重复的风景叙事方法", "url": "https://www.chrissale.co.uk/fundamentals" }, { "title": "Chris Sale 公开频道目录统计", "url": "https://videos.feedspot.com/landscape_photography_youtube_channels/" }]
+    },
+    {
+      "id": "david-johnston-photography", "name": "David Johnston", "region": "美国 / 田纳西本地风景、正念观察与摄影教育", "category": "cinematic-landscape", "channelUrl": "https://www.youtube.com/channel/UCPsgxpVOYxHiA5ToOv3Livw",
+      "positioning": "以田纳西及熟悉地点的自然风景为基础，把现场观察、构图与后期技巧转化为免费教学，并借助播客访谈把个人风格、创作持续性和户外摄影职业问题扩展为长期内容体系。",
+      "representative": { "title": "Landscape photography ideas, field techniques and creator conversations", "url": "https://www.youtube.com/channel/UCPsgxpVOYxHiA5ToOv3Livw/videos", "observedPerformance": "2026 年公开行业目录约为 3.06 万订阅；官方资料显示其长期发布风景摄影现场、技巧与后期内容，并以超过 160 期的户外摄影播客延伸创作者访谈。" },
+      "whyItWorks": ["从自己熟悉的田纳西景观反复寻找不同尺度与光线，降低远行依赖，也让观众看到地点知识如何积累成独特视角。", "现场经历被转译为一个明确技巧或创作问题，标题具备搜索入口，画面过程又保留户外探索感。", "视频、播客访谈和教学内容共享同一主题，既能回答即时问题，也能通过创作者故事建立长期关系与内容深度。"],
+      "patterns": ["从熟悉地点提出一个拍摄问题", "现场展示观察和构图取舍", "用教程总结可迁移的方法", "以访谈扩展风格与职业议题"],
+      "caution": "正念与创作持续性不应被包装为心理治疗承诺，地点分享也必须尊重脆弱生态和私人土地；可借鉴现场问题到教学的闭环，不复制其影片、照片、播客、课程、文字或标题。",
+      "evidence": [{ "title": "David Johnston 官方经历与频道定位", "url": "https://www.davidjohnstonart.com/about-david-johnston" }, { "title": "David Johnston 正念与地方感摄影方法", "url": "https://www.naturephotographers.network/presentations/david-johnston-contemplative-nature-photography/" }, { "title": "David Johnston 公开频道目录统计", "url": "https://videos.feedspot.com/landscape_photography_youtube_channels/" }, { "title": "The Outdoor Photography Show 节目目录", "url": "https://podcasts.apple.com/us/podcast/the-landscape-photography-show/id1485780520" }]
+    },
+    {
+      "id": "ray-hennessy-wildlife", "name": "Ray Hennessy", "region": "美国 / 鸟类、湿地栖息地与野生动物创作复盘", "category": "stationary-nature", "channelUrl": "https://www.youtube.com/c/rayhennessy",
+      "positioning": "以鸟类和野生动物摄影为核心，把低机位、环境尺度、天气、镜头选择、现场等待与后期筛片拆成可观察的实战过程，再用每周视频讨论、直播和访谈持续复盘照片如何产生。",
+      "representative": { "title": "Wildlife Photo Chat, field POV and story-of-the-shot videos", "url": "https://www.youtube.com/c/rayhennessy/videos", "observedPerformance": "2026 年官方站点持续发布每周 Wildlife Photo Chat、幕后 POV、照片拆解、直播与访谈；节目目录已超过 250 期，并形成从现场拍摄到选片后期的连续内容体系。" },
+      "whyItWorks": ["低机位、负空间、慢快门和栖息地比例都以真实鸟类场景呈现，观众能直接比较一个变量如何改变画面。", "POV、等待、失误、天气和最终照片被保留在同一故事里，成功画面拥有可理解的现场成本，而不是孤立炫技。", "每周讨论、观众照片挑战和创作者访谈持续产生互动入口，同一个物种或地点也能通过新问题保持内容新鲜。"],
+      "patterns": ["先观察行为并保持安全距离", "把栖息地作为构图的一部分", "一次验证一个机位或参数变量", "用选片、后期和讨论完成复盘"],
+      "caution": "野生动物内容不得以逼近、鸣声诱拍、投喂、干扰巢区或公开敏感位置换取画面，低机位也不代表可以进入湿地核心区；可借鉴变量验证和复盘机制，不复制其影片、照片、播客、课程、直播或预设。",
+      "evidence": [{ "title": "Ray Hennessy 官方视频与教学体系", "url": "https://www.rayhennessy.com/" }, { "title": "Wildlife Photo Chat 视频目录与每周讨论机制", "url": "https://www.rayhennessy.com/wildlife-photo-chat-video" }, { "title": "Ray Hennessy 幕后与现场 POV 内容", "url": "https://www.rayhennessy.com/behind-the-scenes" }, { "title": "Ray Hennessy 官方 YouTube 链接资料", "url": "https://creators.spotify.com/pod/profile/henry-doyle/episodes/Discover--Capture-and-Create-with-Hector-Astorga-e1ep8ad" }]
+    },
+    {
+      "id": "thomas-shahan-macro", "name": "Thomas Shahan", "region": "美国 / 节肢动物微距、自然观察与物种记录", "category": "stationary-nature", "channelUrl": "https://www.youtube.com/@terser",
+      "positioning": "以俄克拉何马州常见蜘蛛和昆虫为核心，通过自然环境中的活体微距、简易器材、耐心接近和物种记录，把容易被忽视甚至令人畏惧的节肢动物转化为具有个性与教育价值的肖像。",
+      "representative": { "title": "An Introduction to Macro Photography and natural arthropod portraits", "url": "https://www.youtube.com/@terser/videos", "observedPerformance": "2026 年公开统计约为 8 万订阅、1062 万累计播放和 75 支视频；其微距入门与自然节肢动物内容在较少更新下仍持续获得长期观看。" },
+      "whyItWorks": ["跳蛛、盗虻等微小对象通过眼睛、绒毛和行为被拍成具有角色感的肖像，天然制造陌生尺度与情绪反差。", "简易扩展管、反接镜头和现场光线控制降低设备门槛，教程以真实活体拍摄证明方法而非只讲参数。", "物种名称、自然环境和长期观察连接审美与自然史，让单张奇观进一步变成可搜索、可学习的内容。"],
+      "patterns": ["先观察个体行为和逃逸方向", "在原生环境中缓慢接近", "用眼睛与纹理建立微距肖像", "记录物种并解释器材与拍摄过程"],
+      "caution": "微距拍摄不得冷冻、粘贴、伤害或强制摆布活体，也不得采集保护物种或破坏微生境；可借鉴自然观察和低成本教学，不复制其照片、视频、插画、文字或具体物种发现位置。",
+      "evidence": [{ "title": "Thomas Shahan 官方身份与作品", "url": "https://www.thomasshahan.com/about.html" }, { "title": "Thomas Shahan 官方视频目录", "url": "https://thomasshahan.com/video.html" }, { "title": "Thomas Shahan 物种观察与自然记录", "url": "https://www.inaturalist.org/people/tshahan" }, { "title": "Thomas Shahan 公开频道统计", "url": "https://socialcounts.org/youtube-channel-analytics/UCM80atpL9P_G7_ORlFOzmAg" }, { "title": "Thomas Shahan 自然环境活体微距方法", "url": "https://www.smithsonianmag.com/science-nature/locking-eyes-with-spiders-and-insects-21965698/" }]
+    },
+    {
+      "id": "micael-widell", "name": "Micael Widell", "region": "瑞典 / 户外微距、花卉、低成本器材与快速教学", "category": "stationary-nature", "channelUrl": "https://www.youtube.com/@MicaelWidell",
+      "positioning": "以户外昆虫、花卉和日常近摄为核心，把闪光扩散、手持对焦、景深合成、旧镜头与低成本附件拆成短而直接的教程，同时用实拍散步和器材对照证明方法在普通地点也能复现。",
+      "representative": { "title": "Macro photography tutorials, photo walks and affordable gear hacks", "url": "https://www.youtube.com/@MicaelWidell/videos", "observedPerformance": "2026 年公开统计约为 11.9 万订阅、1575 万累计播放和 421 支视频；频道长期以微距、花卉、摄影散步、镜头测试和入门教学稳定更新。" },
+      "whyItWorks": ["十分钟入门、单一附件或一个现场问题构成清楚承诺，搜索用户能迅速判断视频是否解决当前困难。", "A4 纸扩散、便宜旧镜头和小型闪光等方案降低试错成本，结果对照又让低成本方法具有可信度。", "户外散步、器材实验和后期教程覆盖从发现主体到完成照片的不同阶段，大量窄主题累积成长尾内容库。"],
+      "patterns": ["用一个常见失败定义本期问题", "现场只改变一个器材或光线变量", "展示原片与放大细节对照", "总结可立即复现的简短设置"],
+      "caution": "低成本与快速教学不应鼓励触碰、搬动或伤害活体，也不能把景深合成误作自然纪实的单次瞬间；可借鉴窄问题教程和变量对照，不复制其影片、照片、书籍、课程、附件设计或联盟链接表达。",
+      "evidence": [{ "title": "Micael Widell 官方身份、器材与工作流", "url": "https://micaelwidell.com/" }, { "title": "Micael Widell 微距与花卉频道定位", "url": "https://shotkit.com/micael-widell/" }, { "title": "十分钟微距入门方法评价", "url": "https://www.australianphotography.com/photo-tips/video-shoot-macro-in-10-minutes" }, { "title": "Micael Widell 公开频道统计", "url": "https://vling.net/en/channel/UCJ9XPzyAZ4JP1HqxAN71dMQ/channel-info" }]
+    },
+    {
+      "id": "stewart-wood-macro", "name": "Stewart Wood", "region": "英国 / 林地昆虫微距、闪光扩散与焦点堆栈", "category": "stationary-nature", "channelUrl": "https://www.youtube.com/@StewartWoodArt",
+      "positioning": "以昆虫、蜘蛛、花朵和水滴的户外微距为核心，通过林地摄影散步、现场寻找、闪光与扩散器控制、连续拍摄和焦点堆栈，把肉眼容易忽略的小世界转化为清晰的实拍教程与生物肖像。",
+      "representative": { "title": "Macro photography walks, insect portraits and focus stacking tutorials", "url": "https://www.youtube.com/@StewartWoodArt/videos", "observedPerformance": "2026 年公开摄影频道目录约为 5.04 万订阅；官方站点持续发布微距摄影散步、十条快速技巧、昆虫与蜘蛛作品及现场工作坊。" },
+      "whyItWorks": ["林地寻找、主体反应、失败帧和最终细节被保留在同一过程里，微距奇观拥有可理解的现场来源。", "闪光功率、回电速度、扩散和连拍被绑定到焦点堆栈的具体失败问题，观众能直接迁移到自己的器材。", "昆虫眼睛、绒毛和翅膀形成强缩略图细节，短技巧、摄影散步和完整教学又覆盖不同观看时长与搜索意图。"],
+      "patterns": ["在清晨或夜间寻找活动较慢的主体", "先控制扩散与闪光回电一致性", "用快速连拍缩短堆栈时间", "展示单帧、堆栈和失败原因对照"],
+      "caution": "焦点堆栈和闪光不能成为搬动、冷冻、粘贴、伤害或持续刺激活体的理由，也不应公开敏感物种精确位置；可借鉴现场问题、光线控制和结果对照，不复制其影片、照片、课程、工作坊、扩散器设计或文字。",
+      "evidence": [{ "title": "Stewart Wood 官方身份、作品与微距工作坊", "url": "https://www.stewartwood.com/" }, { "title": "Stewart Wood 微距频道定位与公开规模", "url": "https://ddandb.org/compendium-of-photographers-youtube-vloggers/" }, { "title": "林地微距摄影散步与现场技巧", "url": "https://milled.com/omsystem.com/a-macro-photo-walk-with-tips-video-and-save-5-on-macro-lenses-gdm7woGJS6m1KClq" }, { "title": "活体昆虫焦点堆栈与闪光连拍方法", "url": "https://www.digitalcameraworld.com/photography/photo-technique/in-focus-stacking-your-biggest-enemy-is-time-pro-macro-photographer-stewart-wood-shares-his-surefire-tips-for-razor-sharp-close-ups-of-bugs" }]
+    },
+    {
+      "id": "into-the-wild-films", "name": "Into the Wild Films", "region": "澳大利亚 / 野生动物、热带景观与观察式自然纪录", "category": "stationary-nature", "channelUrl": "https://www.youtube.com/channel/UCKrMAT7-HXPijVsI08B3BQQ",
+      "positioning": "长期记录澳大利亚野生动物、景观和自然奇观，以观察式现场影像、电影化镜头、物种行为和专家知识制作短纪录片，让单次目击扩展为有环境关系与保护语境的完整故事。",
+      "representative": { "title": "Australian wildlife documentaries, landscapes and natural wonders", "url": "https://www.youtube.com/channel/UCKrMAT7-HXPijVsI08B3BQQ/videos", "observedPerformance": "2026 年 7 月公开统计约为 7.7 万订阅、1634 万累计播放和 76 支视频；官方网站说明团队已在澳大利亚持续观察和制作自然纪录超过十年。" },
+      "whyItWorks": ["动物行为被放回栖息地和季节中，画面不只提供近景奇观，也持续回答主体为何在这里、正在做什么。", "电影化景观、观察式等待与专家解释交替，既保留沉浸感，又为陌生物种提供足够知识入口。", "每支作品聚焦一种动物、地点或自然现象，标题承诺清楚；长期深挖澳大利亚又让分散题材维持统一地域品牌。"],
+      "patterns": ["先研究物种与地点关系", "以远景建立栖息地尺度", "等待可重复的自然行为", "用专家信息补足画面无法证明的事实"],
+      "caution": "野生动物纪录不能以追逐、投喂、鸣声诱导、干扰巢穴、破坏微生境或公开敏感坐标换取镜头，专家表述也需保存出处与语境；可借鉴观察式结构和地点品牌，不复制其影片、素材、旁白、音乐或具体故事。",
+      "evidence": [{ "title": "Into the Wild Films 官方定位与纪录片方法", "url": "https://intothewildfilms.com/" }, { "title": "Into the Wild Films 官方 YouTube 频道", "url": "https://www.youtube.com/channel/UCKrMAT7-HXPijVsI08B3BQQ" }, { "title": "Into the Wild Films 公开频道统计", "url": "https://socialblade.com/youtube/handle/intothewildfilms" }, { "title": "频道题材与澳大利亚自然纪录说明", "url": "https://vling.net/en/channel/UCKrMAT7-HXPijVsI08B3BQQ/channel-info" }]
+    },
+    {
+      "id": "behind-the-mask-underwater", "name": "Behind the Mask", "region": "德国 / 水下电影、海洋故事与潜水制作全流程", "category": "stationary-nature", "channelUrl": "https://www.youtube.com/@BehindtheMask",
+      "positioning": "由 Florian Fischer 等水下创作者组成，从行前策划、潜水物流、专业水下器材、自然与人工光、白平衡到后期剪辑，制作海洋生物、潜水目的地和保护议题影片，并强调故事意义先于单纯追逐漂亮镜头。",
+      "representative": { "title": "Underwater stories, cinematography tutorials and ocean documentaries", "url": "https://www.youtube.com/@BehindtheMask/videos", "observedPerformance": "公开水下频道目录约为 3.62 万订阅和 225 支视频；官方体系持续覆盖水下故事、纪录短片、白平衡与滤镜教程、潜水旅行和完整制作流程。" },
+      "whyItWorks": ["水面上建立地点与人物、水下展示行动和生物，两个空间共同推进故事，避免水下素材沦为无上下文混剪。", "白平衡、滤镜、自然光与人工灯等技术问题被绑定到真实水深和水体条件，教程拥有直接搜索价值。", "剪辑节奏跟随素材和故事意图，而非预设统一模板，使动物相遇、目的地和商业项目仍能保持不同情绪。"],
+      "patterns": ["下水前完成故事与安全计划", "按水深校准白平衡和光线", "让潜伴体系优先于机位", "以水面和水下镜头共同完成叙事"],
+      "caution": "水下摄制必须服从训练、健康、潜伴、气量、深度、减压、海况与运营规则，不触碰或追逐生物、不踩珊瑚，也不为镜头脱离潜伴；可借鉴策划和光色流程，不复制其影片、音乐、教程、课程、商业创意或具体剪辑。",
+      "evidence": [{ "title": "Behind the Mask 官方海洋故事定位", "url": "https://behind-the-mask.com/" }, { "title": "水下制作、策划、光线与后期教学范围", "url": "https://behind-the-mask.com/academy/" }, { "title": "Florian Fischer 水下叙事与剪辑方法访谈", "url": "https://www.nauticam.com/blogs/gear-and-techniques/behind-the-mask-aquatic-human" }, { "title": "Behind the Mask 公开频道目录", "url": "https://sailingandscuba.com/channel/Behind-the-Mask" }]
+    },
+    {
+      "id": "paul-thomson-wild-light", "name": "Paul Thomson / Wild Light Landscapes", "region": "英国 / 山地、海岸、林地与变化光线", "category": "cinematic-landscape", "channelUrl": "https://www.youtube.com/@wildlightlandscapes",
+      "positioning": "以英国湖区及远程风景为核心，把天气侦察、徒步抵达、构图、变化光线和现场失败拍成摄影冒险，并通过教程与播客延伸到创作状态、长期实践和全职风景摄影生活。",
+      "representative": { "title": "Wild Light Landscapes photography adventures, changing weather and field tutorials", "url": "https://www.youtube.com/@wildlightlandscapes/videos", "observedPerformance": "2026 年公开统计约为 1.02 万订阅、77.7 万累计播放和 280 支视频；频道持续发布湖区、海岸、林地、山地及现场光线教学。" },
+      "whyItWorks": ["雾、日出、暴雨间隙和短暂侧光被设置为每次外出的悬念，天气变化本身推动故事而非只充当背景。", "从寻找前景、等待光线到最终照片完整呈现，观众能看到同一地点中观察和耐心如何改变结果。", "山地、海岸、林地和海外旅行保持地貌变化，但 Wild Light 的统一承诺让不同目的地仍围绕光线与气氛组织。"],
+      "patterns": ["出发前研究天气和太阳方向", "到场后先寻找简洁构图", "等待短暂光线而非频繁换点", "用成片解释现场取舍"],
+      "caution": "等待光线不能演变为雷暴、涨潮、山地低能见度或疲劳环境中的冒险，盐田和工业景观也必须遵守生产边界；可借鉴天气悬念和现场复盘，不复制其影片、照片、播客、课程、预设或具体路线。",
+      "evidence": [{ "title": "Paul Thomson 官方创作定位与作品", "url": "https://www.paulthomsonphotography.co.uk/" }, { "title": "Paul Thomson 频道与全职风景摄影经历", "url": "https://www.paulthomsonphotography.co.uk/about" }, { "title": "Paul Thomson 官方视频目录", "url": "https://www.paulthomsonphotography.co.uk/youtube-landscape-photography" }, { "title": "Wild Light Landscapes 公开频道统计", "url": "https://socialcounts.org/youtube-channel-analytics/UCf0mPLB8gDb3UTMR81wV23A" }]
+    },
+    {
+      "id": "through-my-lens-road-trips", "name": "Through My Lens / Josh McNair", "region": "美国 / 多日公路旅行、国家公园与沿途探索", "category": "scenic-drive", "channelUrl": "https://www.youtube.com/@throughmylens",
+      "positioning": "把 4 至 12 天的州际公路旅行拆成逐日路线、沿途停靠、徒步、餐食和实用提示，以完整行程而非单个景点组织目的地故事，同时用摄影和户外观察维持个人视角。",
+      "representative": { "title": "Alaska 8 Day Road Trip: Our Full Itinerary", "url": "https://www.youtube.com/@throughmylens/videos", "observedPerformance": "截至 2026 年 8 月公开统计约为 48.1 万订阅、1.14 亿累计播放和 325 支视频；阿拉斯加 8 日完整路线约 1083 万播放，犹他 7 日、Blue Ridge 4 日、佛罗里达 8 日和得州 12 日路线也形成百万级长尾。" },
+      "whyItWorks": ["标题直接给出地区、天数和完整路线承诺，让处于计划阶段的观众一眼判断视频是否能解决自己的行程问题。", "按天推进，把长途驾驶、路边停靠、徒步、食宿和当日重点串成时间线，长视频仍有清晰进度与持续期待。", "大景观、偶遇小点和实用物流交替，既提供视觉奖励又提供可搜索的规划价值，使作品在发布后继续积累目的地流量。"],
+      "patterns": ["用地图和天数先交代路线边界", "按日保留出发转场与抵达过程", "每段只突出少量关键停靠", "结尾复盘时间成本和取舍"],
+      "caution": "公开视频只能作为路线灵感和叙事研究，不能替代实时导航、封路、天气、门票、许可、潮汐或保护区公告；驾车镜头必须使用出发前固定的设备并由乘员操作，驾驶者不得边开车边拍摄。可借鉴逐日结构，不复制其影片、地图、旁白、照片、音乐或具体行程文本。",
+      "evidence": [{ "title": "Josh McNair 官方自述、摄影与公路旅行主题", "url": "https://californiathroughmylens.com/about/" }, { "title": "Through My Lens 官方 YouTube 频道", "url": "https://www.youtube.com/@throughmylens" }, { "title": "Through My Lens 公开频道规模与代表视频表现", "url": "https://vidiq.com/youtube-stats/channel/%40throughmylens/" }]
+    },
+    {
+      "id": "nick-zentner-geology", "name": "Nick Zentner / GeologyNick", "region": "美国 / 太平洋西北地质、路边露头与现场科普", "category": "guided-walk", "channelUrl": "https://www.youtube.com/@GeologyNick",
+      "positioning": "由中央华盛顿大学地质讲师 Nick Zentner 在真实山谷、峡谷、熔岩和路边露头现场讲解地貌形成，把学术研究、地方问题、地图、历史争论与可见岩层压缩成亲切的短纪录、野外系列和长篇直播课程。",
+      "representative": { "title": "Nick on the Rocks and Roadside Geology field series", "url": "https://www.youtube.com/@GeologyNick/videos", "observedPerformance": "截至 2026 年公开统计约为 13.9 万订阅、2409 万累计播放和 857 支视频；频道于 2025 年获得 YouTube 十万订阅银牌，Nick on the Rocks 系列在 PBS 与 YouTube 长期传播。" },
+      "whyItWorks": ["先从观众熟悉的地标或肉眼可见纹理提出问题，再用岩层、地图和现场手势解释尺度，让抽象地质过程拥有明确视觉锚点。", "讲者真实站在地貌中，以行走、转弯后的景观揭示和远近尺度切换证明现场关系，知识段落仍保留探索感。", "每集预先把少量讲述要点绑定到具体兴趣点，七分钟短片、野外系列和长直播又覆盖快速发现与深度学习两种观看需求。"],
+      "patterns": ["先定义现场能看见的问题", "把讲述点绑定到具体岩层或地貌", "用人物与远景交代真实尺度", "区分现场观察、研究结论与仍有争议的解释"],
+      "caution": "地质故事必须区分已发表证据、合理解释和旅游宣传，不能仅凭外形宣称成因，也不能为验证镜头采石、挖掘、攀爬不稳定边坡或进入保护区、农场和私人土地；可借鉴现场问题与尺度揭示，不复制其节目、讲稿、地图、图解、课堂或具体拍摄设计。",
+      "evidence": [{ "title": "中央华盛顿大学：Nick Zentner 的地质节目、频道规模与现场制作方法", "url": "https://www.cwu.edu/about/media-resources/news/2025/08/tv-that-rocks.php" }, { "title": "Nick Zentner 官方野外地质系列", "url": "https://www.nickzentner.com/nick-from-the-field/" }, { "title": "Nick Zentner 官方 YouTube 频道", "url": "https://www.youtube.com/@GeologyNick" }, { "title": "GeologyNick 公开频道统计", "url": "https://socialcounts.org/youtube-channel-analytics/UC4szl4Ra1ZD3m80wJP40UBA" }]
+    },
+    {
+      "id": "itchy-boots-motorcycle", "name": "Itchy Boots / Noraly Schoenmaker", "region": "荷兰 / 全球单人摩托远征、偏远道路与地域观察", "category": "scenic-drive", "channelUrl": "https://www.youtube.com/@ItchyBoots",
+      "positioning": "由地球化学背景的 Noraly Schoenmaker 独自骑摩托跨洲旅行，把每日道路、导航取舍、边境、机械状态、地貌、当地相遇和住宿剪成连续季播故事，让超长距离远征保持真实方向感与人物成长。",
+      "representative": { "title": "Solo motorcycle expeditions across 80 countries", "url": "https://www.youtube.com/@ItchyBoots/videos", "observedPerformance": "截至 2026 年 8 月公开统计约为 337 万订阅、8.09 亿累计播放和 820 支视频；官方自述已独自骑行超过 19 万公里、经过 80 个国家，并以连续季集记录路线。" },
+      "whyItWorks": ["季、集编号与明确地名让跨洲旅程拥有连续追更结构，单集仍能凭道路障碍、边境或地貌问题独立成立。", "头盔与车载视角保留速度、路面和即时判断，地图、停靠与人物交流又不断补充空间及文化语境。", "机械故障、路线改变、天气和失误没有被完全剪掉，观众看到结果之外的决策成本，因此长期对人物能力和旅程产生信任。"],
+      "patterns": ["每日先交代起终点与路况假设", "保留关键道路判断和折返原因", "用停靠点解释地貌与当地生活", "结尾更新车辆、体力和下一段风险"],
+      "caution": "这是具备长期经验、专用车辆、护具、通信和应变能力的摩托远征，不能把观看体验当作普通自驾或新手骑行证明；中国道路还涉及驾照、车辆、边境、保护区和拍摄规定。可借鉴连续路线叙事，不复制其影片、地图、旁白、人物互动、品牌或危险标题，也不为镜头骑行中手持操作设备。",
+      "evidence": [{ "title": "Itchy Boots 官方经历、地质背景、里程与频道起点", "url": "https://www.itchyboots.com/about" }, { "title": "Itchy Boots 官方 YouTube 频道", "url": "https://www.youtube.com/@ItchyBoots" }, { "title": "Itchy Boots 公开频道规模与代表视频表现", "url": "https://vidiq.com/youtube-stats/channel/%40itchyboots/" }, { "title": "Itchy Boots 长途路线与季节窗口方法", "url": "https://www.itchyboots.com/blog/travel-fast-or-slow-long-distance-motorcycle-travel" }]
+    },
+    {
+      "id": "gary-gough-landscape", "name": "Gary Gough", "region": "英国 / 海岸、灯塔、沉船与黑白长曝光风景", "category": "cinematic-landscape", "channelUrl": "https://www.youtube.com/@garygough",
+      "positioning": "以英国海岸、灯塔、沉船和偏远风景为核心，把天气判断、实地构图、滤镜长曝光、黑白转换和精简后期做成带个人幽默感的摄影外拍与教学，让最终作品与现场决策保持直接联系。",
+      "representative": { "title": "Coastal landscape photography, long exposure and field tutorials", "url": "https://www.youtube.com/@garygough/videos", "observedPerformance": "2026 年公开索引约为 12.2 万订阅、1120 万累计播放和 431 支视频；频道长期覆盖海岸灯塔、沉船、冬季风景、黑白影像和现场教学。" },
+      "whyItWorks": ["灯塔、沉船、风暴海岸和长曝光形成强轮廓缩略图，地点与单一技术问题又提供清晰搜索入口。", "从天气、潮位和第一构图开始，保留等待、失败与重新取景，再展示最终成片，使观众能理解海岸光线如何改变选择。", "外拍幽默、简洁器材解释和后期结果交替，降低纯教程的信息压力，同时维持专业摄影的可迁移价值。"],
+      "patterns": ["先用潮汐与天气排除危险窗口", "为海岸主体寻找简洁轮廓", "用长曝光控制水面而非掩盖现场", "以黑白和彩色成片复盘构图取舍"],
+      "caution": "长曝光不能成为在涨潮、湿滑礁石、风暴、海蚀崖或沉船残骸附近延长暴露时间的理由；潮表必须与天气、浪高、退路和现场观察共同使用。可借鉴简洁构图与成片复盘，不复制其影片、照片、课程、预设、滤镜方案或具体机位。",
+      "evidence": [{ "title": "Gary Gough 官方经历与摄影定位", "url": "https://garygough.co.uk/about" }, { "title": "Gary Gough 官方 YouTube 频道", "url": "https://www.youtube.com/@garygough" }, { "title": "Gary Gough 公开频道规模与内容统计", "url": "https://www.speakrj.com/audit/report/UCY0ceNJ1gybHYUmGjoz0YsA/youtube" }]
+    },
+    {
+      "id": "poptravel", "name": "POPtravel", "region": "欧洲与亚洲城市 / 历史街区、昼夜转换和字幕步行", "category": "urban-walk", "channelUrl": "https://www.youtube.com/@poptravelorg",
+      "positioning": "以欧洲和亚洲城市、旧城、滨水区与季节活动为核心，用连续 4K/4K HDR 步行、环境声和克制字幕记录真实空间，并通过白天转夜晚、天气与街区主题建立高频更新的全球城市档案。",
+      "representative": { "title": "ALANYA, Turkey - Evening Tour - 4K walking tour with captions", "url": "https://www.youtube.com/@poptravelorg/videos", "observedPerformance": "截至 2026 年 7 月公开统计约为 12.7 万订阅、3240 万累计播放和 1013 支视频；Alanya 傍晚字幕路线约 12.5 万播放，Rotterdam 夏季、Sarajevo 昼转夜等路线也形成稳定长尾。" },
+      "whyItWorks": ["城市名、季节或时段、4K 规格与 walking tour 构成稳定标题模板，观众能迅速判断地点、情境和观看方式。", "从白天走到蓝调或夜晚让同一路线自然产生视觉变化，不依赖频繁剪辑也能维持进度感。", "字幕只在地标或转折点补充信息，连续环境声和稳定步速仍保留沉浸感；超过一千条窄地点视频又累积成可搜索城市目录。"],
+      "patterns": ["标题前部固定城市与国家", "选择能从白天过渡到夜晚的路线", "只在关键地标添加短字幕", "用稳定步速和环境声保持空间连续"],
+      "caution": "高频城市步行仍需逐次确认活动、隐私、文保建筑、商场和音乐版权边界，4K/HDR 规格必须与实际交付一致；雨夜不得为画面进入积水道路或边走边操作设备。可借鉴昼夜结构与字幕密度，不复制其影片、字幕、缩略图、路线文本或素材。",
+      "evidence": [{ "title": "POPtravel 官方频道", "url": "https://www.youtube.com/@poptravelorg" }, { "title": "POPtravel 官方视频目录与日期、时长结构", "url": "https://poptravel.org/videos" }, { "title": "POPtravel 公开频道规模与代表视频表现", "url": "https://vidiq.com/youtube-stats/channel/%40poptravelorg/" }, { "title": "POPtravel 公开频道统计交叉核验", "url": "https://socialblade.com/youtube/handle/poptravelorg" }]
+    },
+    {
+      "id": "peter-santenello", "name": "Peter Santenello", "region": "美国及全球社区 / 当地向导、边缘地区与人物驱动旅行纪录", "category": "guided-walk", "channelUrl": "https://www.youtube.com/@PeterSantenello",
+      "positioning": "以当地居民或社区成员为向导进入媒体较少呈现的城镇、乡村、宗教社区和边缘地区，通过连续行走、现场提问、人物关系与空间观察制作长篇独立旅行纪录，把地点从风景背景转变为居民经验。",
+      "representative": { "title": "Videos about a world the media fails to capture", "url": "https://petersantenello.com/videos", "observedPerformance": "截至 2026 年 7 月公开统计约为 425 万订阅、8.5 亿累计播放和 414 支视频；官方视频目录持续以社区、地方向导和人物进入难以从外部理解的地域。" },
+      "whyItWorks": ["由当地人带路让空间、人物和问题同步展开，陌生地区不依赖百科旁白也能快速建立可信入口。", "标题往往先提出地域刻板印象或未知问题，片中再通过长对话、走访和环境细节逐层修正，形成认知反差。", "保留步行、乘车、敲门、临时变化和不同立场，使长片拥有真实探索进程，人物关系而非景点清单推动观看。"],
+      "patterns": ["先寻找能代表自身经验的当地向导", "在行走中把问题绑定到具体空间", "让受访者完整表达并保留异议", "用环境镜头验证而非替代人物陈述"],
+      "caution": "人物驱动纪录必须取得持续知情同意，明确拍摄目的、传播平台和可撤回边界；当地向导的个人观点不能自动代表整个民族、宗教或社区，敏感地点、家庭、未成年人和仪式尤其需要二次确认。可借鉴当地人带路与认知修正结构，不复制其影片、人物关系、提问、标题、缩略图或具体路线。",
+      "evidence": [{ "title": "Peter Santenello 官方定位与视频目录", "url": "https://petersantenello.com/videos" }, { "title": "Peter Santenello 官方频道", "url": "https://www.youtube.com/@PeterSantenello" }, { "title": "Peter Santenello 公开频道规模", "url": "https://socialblade.com/youtube/handle/petersantenello" }, { "title": "Peter Santenello 公开统计交叉核验", "url": "https://open.subsub.io/channels/petersantenello/view" }]
+    },
+    {
+      "id": "samuel-and-audrey", "name": "Samuel and Audrey", "region": "加拿大 / 全球城市、小镇、公路旅行与地方饮食", "category": "guided-walk", "channelUrl": "https://www.youtube.com/@samuelandaudrey",
+      "positioning": "以城市指南、小镇慢游、公路行程和地方饮食为核心，把景点、街道、交通、餐食、住宿与个人感受组织成可执行的目的地叙事；近年从快速跨国转向在少数地区停留更久，强化小镇和沿途社区的纵深。",
+      "representative": { "title": "City guides, travel tips, street food tours and itineraries", "url": "https://www.youtube.com/@samuelandaudrey/videos", "observedPerformance": "截至 2026 年 7 月公开统计约为 43.8 万订阅、1.082 亿累计播放和 1426 支视频；频道覆盖 75 个以上国家，并持续发布城市清单、完整旅行指南、公路路线和地方食物系列。" },
+      "whyItWorks": ["城市名加明确数量的事情清单、完整指南或一日路线，直接回应观众的行前规划搜索需求。", "景点、交通、街头行走和一顿地方餐食交替出现，使实用信息与感官体验互相支撑，长片不只是口播清单。", "双人视角允许即时比较口味、路线和体验，近年来放慢节奏深入小镇，又让成熟模板获得新的社区层次。"],
+      "patterns": ["开头先交代地点和路线范围", "把沿途停靠与餐食穿插编排", "记录价格时间和交通摩擦", "结尾复盘哪些节点值得保留"],
+      "caution": "餐馆、宗教场所、渔村、港区和当地人物均需确认拍摄与传播许可，个人体验不能冒充普遍评价，价格和开放信息必须注明拍摄日期；可借鉴完整行程与食物转场，不复制其影片、清单、旁白、评分、缩略图或路线文字。",
+      "evidence": [{ "title": "Samuel and Audrey 官方频道定位", "url": "https://www.youtube.com/@samuelandaudrey" }, { "title": "Samuel and Audrey 官方经历与慢旅行转向", "url": "https://samuelandaudrey.com/" }, { "title": "Samuel and Audrey 公开频道规模", "url": "https://vidiq.com/youtube-stats/channel/UCnTsUMBOA8E-OHJE-UrFOnA/" }, { "title": "Samuel and Audrey 公开统计交叉核验", "url": "https://socialblade.com/youtube/handle/samuelandaudrey" }]
+    },
+    {
+      "id": "the-road-chose-me", "name": "The Road Chose Me / Dan Grec", "region": "全球 / 多年越野公路远征、车辆与跨境规划", "category": "scenic-drive", "channelUrl": "https://www.youtube.com/@TheRoadChoseMe",
+      "positioning": "由 Dan Grec 把跨越美洲和非洲的多年自驾远征拆成道路、边境、车辆搭建、维修、预算、安全判断与当地相遇，并持续教学如何规划和执行长期环球公路旅行，让宏大里程由可验证的日常决策支撑。",
+      "representative": { "title": "How to drive around the world: overland expeditions, vehicles and logistics", "url": "https://www.youtube.com/@TheRoadChoseMe/videos", "observedPerformance": "截至 2026 年公开统计约为 7.79 万订阅、765 万累计播放和 356 支视频；官方介绍累计驾驶约 9.5 万英里、经过 55 个国家，包括阿拉斯加至火地岛和三年非洲环行。" },
+      "whyItWorks": ["里程、国家数、月份和车辆状态持续量化远征尺度，标题中的宏大承诺因此有长期记录而非一次性景观支撑。", "过境、维修、补给、预算、坏路和风险判断都被保留为故事冲突，观众既追进度也获得能迁移到自己规划中的具体知识。", "完整旅季建立人物与车辆成长线，规划、装备和经验教学又形成可搜索资料库，让单次远征在结束后继续产生观看价值。"],
+      "patterns": ["用地图和量化目标定义远征边界", "保留车辆与路线问题的真实解决过程", "把边境补给和休整纳入故事", "每阶段复盘预算风险和下一段准备"],
+      "caution": "这是建立在长期经验、合规车辆、维修能力、通信、保险和跨境准备上的专业远征，不是进入沙滩、保护区、封闭道路或无许可越野的依据；在中国须逐段核验驾照、车辆、道路、边境与拍摄规定。可借鉴量化旅程和问题解决结构，不复制其影片、课程、书籍、地图、品牌或具体路线。",
+      "evidence": [{ "title": "The Road Chose Me 官方频道与环球驾驶经历", "url": "https://www.youtube.com/@TheRoadChoseMe" }, { "title": "The Road Chose Me 公开频道规模", "url": "https://socialblade.com/youtube/handle/theroadchoseme" }, { "title": "频道经历与公开统计交叉核验", "url": "https://open.subsub.io/channels/theroadchoseme/view" }, { "title": "Dan Grec 的国际自驾教学定位", "url": "https://www.patreon.com/theroadchoseme" }]
     }
   ]
 }
