@@ -1,5 +1,8 @@
-import { AlertTriangle, LocateFixed, Map as MapIcon, Minus, Plus } from "lucide-react";
+import { AlertTriangle, LocateFixed, Map as MapIcon, Minus, Plus, Trash2, Upload } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import type { ChangeEvent } from "react";
+import { importGpx, wgs84ToGcj02 } from "../../services/gpxImport.js";
+import { usePlannerStore } from "../../app/store.js";
 import type { DrivingSummary, ResolvedRoute } from "../../types/domain.js";
 import { hasAmapCredentials, loadAmap } from "../../services/amapLoader.js";
 
@@ -35,9 +38,14 @@ export function MapCanvas({ selected, onDrivingSummary }: MapCanvasProps) {
   const mapRef = useRef<AMap.Map | null>(null);
   const drivingRef = useRef<AMap.Driving | null>(null);
   const markersRef = useRef<AMap.Marker[]>([]);
+  const trackRef = useRef<AMap.Polyline | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const requestIdRef = useRef(0);
   const [status, setStatus] = useState<MapStatus>(() => hasAmapCredentials() ? "loading" : "missing-key");
   const [normalStyle, setNormalStyle] = useState(false);
+  const [trackMessage, setTrackMessage] = useState("");
+  const gpxTrack = usePlannerStore((state) => state.gpxTrack);
+  const setGpxTrack = usePlannerStore((state) => state.setGpxTrack);
 
   useEffect(() => {
     let cancelled = false;
@@ -74,6 +82,7 @@ export function MapCanvas({ selected, onDrivingSummary }: MapCanvasProps) {
       drivingRef.current?.clear();
       drivingRef.current = null;
       markersRef.current = [];
+      trackRef.current = null;
       mapRef.current?.destroy();
       mapRef.current = null;
     };
@@ -101,6 +110,11 @@ export function MapCanvas({ selected, onDrivingSummary }: MapCanvasProps) {
     const origin = path[0];
     const destination = path.at(-1);
     if (!origin || !destination) return;
+    if (selected.route.captureStyle === "stationary-nature") {
+      onDrivingSummary({ status: "access-only", routeId: selected.route.id });
+      map.setFitView(markers, false, [90, 90, 90, 90], 14);
+      return;
+    }
     onDrivingSummary({ status: "loading", routeId: selected.route.id });
     driving.search(origin, destination, { waypoints: path.slice(1, -1) }, (searchStatus, result) => {
       if (requestId !== requestIdRef.current) return;
@@ -121,6 +135,15 @@ export function MapCanvas({ selected, onDrivingSummary }: MapCanvasProps) {
     });
   }, [onDrivingSummary, selected, status]);
 
+  useEffect(() => {
+    const map = mapRef.current;
+    if (status !== "ready" || !map) return;
+    if (trackRef.current) { map.remove(trackRef.current); trackRef.current = null; }
+    if (!gpxTrack) return;
+    const polyline = new AMap.Polyline({ path: gpxTrack.points.map((point) => [point.lng, point.lat]), strokeColor: "#58c7b4", strokeWeight: 5, strokeOpacity: .9, lineJoin: "round", lineCap: "round", zIndex: 45 });
+    trackRef.current = polyline; map.add(polyline); map.setFitView([polyline], false, [70, 70, 70, 70], 15);
+  }, [gpxTrack, status]);
+
   const changeZoom = (delta: number) => {
     const map = mapRef.current;
     if (map) map.setZoom(map.getZoom() + delta);
@@ -129,8 +152,15 @@ export function MapCanvas({ selected, onDrivingSummary }: MapCanvasProps) {
   const locateUser = () => {
     if (!navigator.geolocation || !mapRef.current) return;
     navigator.geolocation.getCurrentPosition(({ coords }) => {
-      mapRef.current?.setZoomAndCenter(15, [coords.longitude, coords.latitude]);
+      const point = wgs84ToGcj02(coords.latitude, coords.longitude);
+      mapRef.current?.setZoomAndCenter(15, [point.lng, point.lat]);
     });
+  };
+
+  const handleGpx = async (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0]; event.target.value = ""; if (!file) return;
+    try { const track = await importGpx(file); setGpxTrack(track); setTrackMessage(`${track.name} · ${track.points.length} 点`); }
+    catch (error) { setTrackMessage(error instanceof Error ? error.message : "GPX 导入失败"); }
   };
 
   const toggleStyle = () => {
@@ -151,9 +181,12 @@ export function MapCanvas({ selected, onDrivingSummary }: MapCanvasProps) {
         <button onClick={() => changeZoom(1)} aria-label="放大地图"><Plus size={18} /></button>
         <button onClick={() => changeZoom(-1)} aria-label="缩小地图"><Minus size={18} /></button>
         <button onClick={locateUser} aria-label="定位当前位置"><LocateFixed size={18} /></button>
+        <input ref={fileInputRef} hidden type="file" accept=".gpx,application/gpx+xml" onChange={handleGpx} />
+        <button onClick={() => fileInputRef.current?.click()} aria-label="导入 GPX 轨迹"><Upload size={17} /></button>
+        {gpxTrack && <button onClick={() => { setGpxTrack(null); setTrackMessage(""); }} aria-label="清除 GPX 轨迹"><Trash2 size={16} /></button>}
       </div>
       <button className="map-style-button" onClick={toggleStyle}><MapIcon size={16} /> {normalStyle ? "深色地图" : "标准地图"}</button>
-      <div className="map-legend"><span><i className="legend-route" />推荐路线</span><span><i className="legend-walk" />停车后步行</span></div>
+      <div className="map-legend"><span><i className="legend-route" />推荐路线</span><span><i className="legend-walk" />停车后步行</span>{gpxTrack && <span><i className="legend-gpx" />{trackMessage || gpxTrack.name}</span>}</div>
     </section>
   );
 }

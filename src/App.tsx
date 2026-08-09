@@ -1,30 +1,18 @@
-import { Bell, CalendarDays, Compass, Map as MapIcon, Menu, Settings2 } from "lucide-react";
-import catalogJson from "../data/catalog.json" with { type: "json" };
+import { BarChart3, Bell, CalendarDays, Camera, Clapperboard, Compass, Map as MapIcon, Menu, Settings2 } from "lucide-react";
 import { useCallback, useMemo, useState } from "react";
-import type { Catalog, DrivingSummary, ResolvedRoute } from "./types/domain.js";
+import type { DrivingSummary } from "./types/domain.js";
 import { Brand } from "./components/common/Brand.js";
 import { RouteList } from "./components/route/RouteList.js";
 import { MapCanvas } from "./components/map/MapCanvas.js";
 import { RouteDetail } from "./components/route/RouteDetail.js";
 import { PlanView } from "./components/plan/PlanView.js";
+import { LocationView } from "./components/location/LocationView.js";
+import { CameraView } from "./components/camera/CameraView.js";
+import { PostWorkflowView } from "./components/post/PostWorkflowView.js";
+import { DashboardView } from "./components/dashboard/DashboardView.js";
 import { usePlannerStore } from "./app/store.js";
-
-const catalog = catalogJson as Catalog;
-const locationsById = new Map(catalog.locations.map((location) => [location.id, location]));
-const presetsById = new Map(catalog.cameraPresets.map((preset) => [preset.id, preset]));
-const resolvedRoutes: ResolvedRoute[] = catalog.routes.map((route) => ({
-  route,
-  waypoints: route.waypointLocationIds.map((id) => {
-    const location = locationsById.get(id);
-    if (!location) throw new Error(`Unknown location ${id}`);
-    return location;
-  }),
-  cameraPresets: route.cameraPresetIds.map((id) => {
-    const preset = presetsById.get(id);
-    if (!preset) throw new Error(`Unknown camera preset ${id}`);
-    return preset;
-  })
-}));
+import { catalog, resolvedRoutes } from "./services/catalogService.js";
+import { davinciWorkflow } from "./services/workflowService.js";
 
 export function App() {
   const state = usePlannerStore();
@@ -33,12 +21,13 @@ export function App() {
   const routes = useMemo(() => resolvedRoutes.filter((item) => {
     const query = state.query.trim().toLowerCase();
     const matchesMode = state.mode === "all" || item.route.modes.includes(state.mode);
+    const matchesCaptureStyle = state.captureStyle === "all" || item.route.captureStyle === state.captureStyle;
     const matchesDuration = item.route.estimatedDurationMinutes <= state.maxDurationMinutes;
     const matchesQuery = !query || item.route.name.toLowerCase().includes(query) || item.route.cities.some((city) => city.includes(query));
-    return matchesMode && matchesDuration && matchesQuery;
-  }), [state.mode, state.maxDurationMinutes, state.query]);
+    return matchesMode && matchesCaptureStyle && matchesDuration && matchesQuery;
+  }), [state.mode, state.captureStyle, state.maxDurationMinutes, state.query]);
 
-  const selected = resolvedRoutes.find((item) => item.route.id === state.selectedRouteId) ?? routes[0] ?? resolvedRoutes[0];
+  const selected = routes.find((item) => item.route.id === state.selectedRouteId) ?? routes[0] ?? resolvedRoutes[0];
   if (!selected) return null;
 
   return (
@@ -46,9 +35,12 @@ export function App() {
       <header className="topbar">
         <Brand />
         <nav aria-label="主导航">
+          <button className={state.view === "dashboard" ? "active" : ""} onClick={() => state.setView("dashboard")}><BarChart3 size={17} /> 资产</button>
           <button className={state.view === "explore" ? "active" : ""} onClick={() => state.setView("explore")}><Compass size={17} /> 探索路线</button>
           <button className={state.view === "plans" ? "active" : ""} onClick={() => state.setView("plans")}><CalendarDays size={17} /> 拍摄计划 <span className="nav-count">{state.plans.length}</span></button>
-          <button><MapIcon size={17} /> 地点库</button>
+          <button className={state.view === "locations" ? "active" : ""} onClick={() => state.setView("locations")}><MapIcon size={17} /> 地点库</button>
+          <button className={state.view === "cameras" ? "active" : ""} onClick={() => state.setView("cameras")}><Camera size={17} /> 参数库</button>
+          <button className={state.view === "post" ? "active" : ""} onClick={() => state.setView("post")}><Clapperboard size={17} /> 后期流程</button>
         </nav>
         <div className="topbar-actions">
           <button className="icon-button" aria-label="通知"><Bell size={18} /><i /></button>
@@ -58,18 +50,21 @@ export function App() {
         </div>
       </header>
 
-      {state.view === "explore" ? (
+      {state.view === "dashboard" ? <DashboardView routes={resolvedRoutes} plans={state.plans} checks={state.fieldChecks} postTasks={state.postTasks} postProject={state.postProject} /> : state.view === "explore" ? (
         <main className={`workspace ${state.detailOpen ? "has-detail" : ""}`}>
           <RouteList routes={routes} />
           <MapCanvas selected={selected} onDrivingSummary={handleDrivingSummary} />
           {state.detailOpen && <RouteDetail selected={selected} drivingSummary={drivingSummary?.routeId === selected.route.id ? drivingSummary : null} />}
         </main>
-      ) : <PlanView routes={resolvedRoutes} />}
+      ) : state.view === "plans" ? <PlanView routes={resolvedRoutes} /> : state.view === "locations" ? <LocationView locations={catalog.locations} routes={resolvedRoutes} catalogSchemaVersion={catalog.schemaVersion} /> : state.view === "cameras" ? <CameraView presets={catalog.cameraPresets} routes={resolvedRoutes} /> : <PostWorkflowView workflow={davinciWorkflow} routes={resolvedRoutes} />}
 
       <nav className="mobile-nav" aria-label="移动端导航">
+        <button className={state.view === "dashboard" ? "active" : ""} onClick={() => state.setView("dashboard")}><BarChart3 size={19} /><span>资产</span></button>
         <button className={state.view === "explore" ? "active" : ""} onClick={() => state.setView("explore")}><Compass size={19} /><span>探索</span></button>
         <button className={state.view === "plans" ? "active" : ""} onClick={() => state.setView("plans")}><CalendarDays size={19} /><span>计划</span></button>
-        <button><MapIcon size={19} /><span>地点</span></button>
+        <button className={state.view === "locations" ? "active" : ""} onClick={() => state.setView("locations")}><MapIcon size={19} /><span>地点</span></button>
+        <button className={state.view === "cameras" ? "active" : ""} onClick={() => state.setView("cameras")}><Camera size={19} /><span>参数</span></button>
+        <button className={state.view === "post" ? "active" : ""} onClick={() => state.setView("post")}><Clapperboard size={19} /><span>后期</span></button>
       </nav>
     </div>
   );

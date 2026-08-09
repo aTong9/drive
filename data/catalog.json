@@ -1,6 +1,170 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "2.0.0",
   "locations": [
+    {
+      "id": "gd-gz-baiyun-mountain", "name": "广州白云山风景名胜区", "province": "广东", "city": "广州", "type": "mountain",
+      "coordinate": { "lat": 23.180245, "lng": 113.297041, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至景区公开入口及停车区域，进入景区后按步行或景区交通规则活动；门票、开放与交通以当日公告为准。" },
+      "shooting": { "bestTimes": ["sunrise", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy", "after-rain", "fog"], "modes": ["photo", "tripod-video", "timelapse"], "advice": "以城市远景、山林层次和云雾为主；器材轻量化，不在主通道架设三脚架，恶劣天气不进入高处。" },
+      "soundEnvironment": { "character": ["birds", "urban", "mixed"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "风、雾和游客密度会改变高处声场", "recordingAdvice": "清晨远离主要游览节点记录鸟鸣，并使用防风保护监听城市低频。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "广州白云山风景名胜区（高德地图）", "url": "https://ditu.amap.com/place/B0014014AD", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "gd-fs-xiqiao-mountain", "name": "佛山西樵山风景名胜区", "province": "广东", "city": "佛山", "type": "mountain",
+      "coordinate": { "lat": 22.908475, "lng": 112.976074, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至西樵山公开入口，停车后按景区步行、观光车或索道规则进入，具体开放和收费须出发前确认。" },
+      "shooting": { "bestTimes": ["morning", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy", "after-rain", "fog"], "modes": ["photo", "tripod-video", "timelapse"], "advice": "拍摄火山地貌、山林和远景层次；预留景区内部转场时间，不在索道、观光车和步道出入口架设设备。" },
+      "soundEnvironment": { "character": ["birds", "mixed"], "noiseRisk": "low", "crowdRisk": "medium", "weatherSensitivity": "雨雾增强山林氛围，也增加湿滑风险", "recordingAdvice": "在开放休息点记录林间环境声，避开观光车和人流高峰。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "西樵山风景名胜区（高德地图）", "url": "https://ditu.amap.com/place/B02F5076F0", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "gd-sg-danxia-mountain", "name": "韶关丹霞山世界地质公园", "province": "广东", "city": "韶关", "type": "mountain",
+      "coordinate": { "lat": 25.02608, "lng": 113.732609, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至丹霞山景区公开入口，车辆按景区规则停放，内部使用步行和景区交通；日出机位须提前确认开放。" },
+      "shooting": { "bestTimes": ["sunrise", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy", "after-rain", "fog"], "modes": ["photo", "tripod-video", "timelapse"], "advice": "以丹霞地貌、山谷光影和日出层次为主；不翻越护栏，雷雨、大雾或地质风险提示期间取消高处机位。" },
+      "soundEnvironment": { "character": ["birds", "mixed"], "noiseRisk": "low", "crowdRisk": "medium", "weatherSensitivity": "山谷风和雾气会显著改变声场与能见度", "recordingAdvice": "选择开放观景点背风处记录自然声，避开游客集中时段。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "中国丹霞山世界地质公园（高德地图）", "url": "https://ditu.amap.com/place/B02EF0IALW", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "gd-hy-wanlv-lake", "name": "河源万绿湖镜花缘旅游区", "province": "广东", "city": "河源", "type": "lake",
+      "coordinate": { "lat": 23.776159, "lng": 114.629277, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至镜花缘旅游区或游客中心停车区域，湖区游览与船班以运营和天气安排为准。" },
+      "shooting": { "bestTimes": ["sunrise", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy", "after-rain", "fog"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "拍摄湖湾、群山倒影和晨雾；船上设备必须固定并防水，岸边三脚架不占用公共通道。" },
+      "soundEnvironment": { "character": ["water", "birds"], "noiseRisk": "low", "crowdRisk": "medium", "weatherSensitivity": "雾、风和船班会改变湖面声场", "recordingAdvice": "清晨在允许停留的湖岸记录水声和鸟鸣，避开码头广播与发动机。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "万绿湖镜花缘旅游区（高德地图）", "url": "https://ditu.amap.com/place/B0FFFFGMSQ", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "gd-mz-yan-nan-fei", "name": "梅州雁南飞茶田景区", "province": "广东", "city": "梅州", "type": "mountain",
+      "coordinate": { "lat": 24.380373, "lng": 116.371405, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至景区公开停车区，入园后步行；开放时间、票务和园内拍摄限制须向景区确认。" },
+      "shooting": { "bestTimes": ["morning", "golden-hour"], "bestWeather": ["sunny", "cloudy", "after-rain", "fog"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "利用茶田曲线、客家建筑和晨雾组织画面；尊重生产区域边界，不进入未开放茶垄。" },
+      "soundEnvironment": { "character": ["birds", "mixed"], "noiseRisk": "low", "crowdRisk": "medium", "weatherSensitivity": "雨雾增强层次，同时提高设备防潮要求", "recordingAdvice": "在开放步道边缘定点记录鸟鸣和茶园环境声，避开团队人流。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "梅州雁南飞茶田景区（高德地图）", "url": "https://ditu.amap.com/place/B02F103HUJ", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "gd-dg-songshan-lake", "name": "东莞松山湖风景区", "province": "广东", "city": "东莞", "type": "lake",
+      "coordinate": { "lat": 22.894163, "lng": 113.881514, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至松山湖公开停车区域，湖区绿道按慢行规则进入；不将绿道作为机动车拍摄道路。" },
+      "shooting": { "bestTimes": ["sunrise", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "以湖岸曲线、花木和水面倒影为主；避开骑行高峰，不在绿道中央架设器材。" },
+      "soundEnvironment": { "character": ["water", "birds", "urban"], "noiseRisk": "medium", "crowdRisk": "medium", "weatherSensitivity": "风向和活动人流会改变湖岸声场", "recordingAdvice": "清晨远离道路和活动区记录水鸟与湖岸环境声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "松山湖风景区（高德地图）", "url": "https://ditu.amap.com/place/B03018IHT1", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "gd-zs-qijiang-park", "name": "中山岐江公园", "province": "广东", "city": "中山", "type": "river",
+      "coordinate": { "lat": 22.517284, "lng": 113.364074, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至公园周边合法停车区域后步行进入，滨水步道保持通畅。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse"], "advice": "利用工业遗存、桥梁、岐江水面与夜间灯光构图；雨后注意湿滑和高光控制。" },
+      "soundEnvironment": { "character": ["water", "urban", "traffic"], "noiseRisk": "medium", "crowdRisk": "medium", "weatherSensitivity": "雨后水面反光增强，城市底噪随时段变化", "recordingAdvice": "远离道路与活动节点，分别记录水岸底声和城市氛围。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "岐江公园（高德地图）", "url": "https://ditu.amap.com/place/B02F8018WZ", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "gd-zq-seven-star-crags", "name": "肇庆七星岩景区北门", "province": "广东", "city": "肇庆", "type": "lake",
+      "coordinate": { "lat": 23.084487, "lng": 112.476537, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "坐标为七星岩北门导航锚点，车辆停在合法区域后入园步行；开放、门票和游船按当日规则。" },
+      "shooting": { "bestTimes": ["sunrise", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy", "after-rain", "fog"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "以湖面、峰林、桥亭和倒影构建层次；只在宽阔稳定位置使用三脚架。" },
+      "soundEnvironment": { "character": ["water", "birds", "mixed"], "noiseRisk": "low", "crowdRisk": "high", "weatherSensitivity": "晨雾和风会显著改变湖面氛围", "recordingAdvice": "清晨避开游船码头和人流节点，记录湖岸自然声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "七星岩景区北门（高德地图）", "url": "https://ditu.amap.com/place/B02F60P72K", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "gd-qy-gulong-gorge", "name": "清远古龙峡", "province": "广东", "city": "清远", "type": "waterfall",
+      "coordinate": { "lat": 23.786822, "lng": 112.958121, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至古龙峡景区停车区域，内部活动完全服从景区线路、安全装备与天气管制。" },
+      "shooting": { "bestTimes": ["morning", "golden-hour"], "bestWeather": ["sunny", "cloudy"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "以峡谷、瀑布和林间水声为主；漂流区域不架设器材，不在强降雨或地质风险提示期间进入。" },
+      "soundEnvironment": { "character": ["water", "birds", "mixed"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "水量和游客活动会显著改变声场与安全条件", "recordingAdvice": "只在景区允许的稳定观景点收音，设备完整防水并远离漂流通道。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "清远古龙峡漂流（高德地图）", "url": "https://ditu.amap.com/place/B02FB024GM", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "gd-cz-guangji-bridge", "name": "潮州广济桥", "province": "广东", "city": "潮州", "type": "landmark",
+      "coordinate": { "lat": 23.662858, "lng": 116.652732, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "车辆停在古城外围合法停车区域后步行前往，桥体开放、票务、启闭和灯光安排须以当日公告为准。" },
+      "shooting": { "bestTimes": ["sunset", "blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse"], "advice": "从韩江两岸拍摄桥体、城楼和蓝调夜景，避免在人流通道架设器材；尊重古城与文物管理边界。" },
+      "soundEnvironment": { "character": ["water", "urban", "mixed"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "水位、风向和夜间活动影响声场", "recordingAdvice": "远离商业扩声和密集人流，在江岸记录水声与城市氛围。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "广济桥（高德地图）", "url": "https://ditu.amap.com/place/B030000E1K", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "gd-sz-yantian-dameisha",
+      "name": "盐田大梅沙海滨公园",
+      "province": "广东", "city": "深圳", "type": "coast",
+      "coordinate": { "lat": 22.592429, "lng": 114.307954, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "沿盐梅路到达后进入合法停车区域，公园内全部步行；旺季预约、停车和开放状态以出发当日公告为准。" },
+      "shooting": { "bestTimes": ["sunrise", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "driving-video", "tripod-video", "timelapse"], "advice": "把盐梅路山海转场与沙滩固定机位分开拍摄；道路素材由固定车载设备完成，进入公园后再使用手持或三脚架。" },
+      "soundEnvironment": { "character": ["waves", "urban"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "海风会增加低频风噪，旺季人流显著影响收音", "recordingAdvice": "清晨靠近开放海岸记录浪声，避开广播、商业音乐和密集游客。" },
+      "verification": { "status": "source-checked", "sources": [
+        { "title": "盐田海滨栈道（深圳政府在线）", "url": "https://www.sz.gov.cn/szzt2010/gysz/szld/content/post_10775685.html", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] },
+        { "title": "大梅沙海滨公园（高德地图）", "url": "https://ditu.amap.com/place/B02F3001AA", "accessedAt": "2026-08-09", "supports": ["address", "coordinate"] }
+      ] }
+    },
+    {
+      "id": "gd-sz-yantian-xiaomeisha",
+      "name": "盐田小梅沙海滨乐园",
+      "province": "广东", "city": "深圳", "type": "coast",
+      "coordinate": { "lat": 22.600805, "lng": 114.327663, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "作为盐梅路东段导航与停车转步行节点；景区门票、开放区域和停车规则须在出发前向运营方确认。" },
+      "shooting": { "bestTimes": ["sunrise", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy"], "modes": ["photo", "driving-video", "tripod-video"], "advice": "在允许进入的区域拍摄湾区、海岸弧线和盐梅路转场；不在路肩临停取景，不把收费景区开放视为固定承诺。" },
+      "soundEnvironment": { "character": ["waves", "mixed"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "风浪、游客和商业活动会共同改变声场", "recordingAdvice": "优先清晨录制海浪，远离扩声设备，并记录单独的环境底声。" },
+      "verification": { "status": "source-checked", "sources": [
+        { "title": "盐田海滨栈道（深圳政府在线）", "url": "https://www.sz.gov.cn/szzt2010/gysz/szld/content/post_10775685.html", "accessedAt": "2026-08-09", "supports": ["existence", "shooting-value"] },
+        { "title": "小梅沙海滨乐园（高德地图）", "url": "https://ditu.amap.com/place/B0FFG1VBN9", "accessedAt": "2026-08-09", "supports": ["address", "coordinate", "access"] }
+      ] }
+    },
+    {
+      "id": "gd-hz-xunliao-bay",
+      "name": "惠东巽寮湾",
+      "province": "广东", "city": "惠州", "type": "coast",
+      "coordinate": { "lat": 22.672183, "lng": 114.752224, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "作为惠东滨海长距离路线的西端导航锚点；车辆停在公开合法停车区域后步行进入海岸，节假日按现场交通组织通行。" },
+      "shooting": { "bestTimes": ["sunrise", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "driving-video", "tripod-video", "timelapse"], "advice": "记录金海湾大道沿途山海转场和湾内开阔海面；驾驶画面使用固定车载机位，海岸画面必须停车后拍摄。" },
+      "soundEnvironment": { "character": ["waves", "traffic", "mixed"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "节假日交通与游客密度高，海风会掩盖细浪声", "recordingAdvice": "避开商业区域与车流高峰，在允许进入的开阔海岸使用防风保护收音。" },
+      "verification": { "status": "source-checked", "sources": [
+        { "title": "巽寮湾（高德地图）", "url": "https://ditu.amap.com/place/B0FFFGMHT1", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }
+      ] }
+    },
+    {
+      "id": "gd-sz-futian-civic-square",
+      "name": "福田市民中心广场",
+      "province": "广东",
+      "city": "深圳",
+      "type": "city-night",
+      "coordinate": { "lat": 22.543673, "lng": 114.059614, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "广场全天开放；驾车仅导航至市民中心周边合法停车区域，进入广场后步行。观看动态灯光须在出发前核对当期场次、预约及现场管制。" },
+      "shooting": {
+        "bestTimes": ["blue-hour", "night"],
+        "bestWeather": ["sunny", "after-rain"],
+        "modes": ["photo", "tripod-video", "timelapse"],
+        "advice": "以市民中心和福田中心区楼宇灯光为主体，使用中广角保留中轴对称关系；动态灯光并非每日开放，不能把历史场次当作当日承诺。"
+      },
+      "soundEnvironment": { "character": ["urban", "traffic"], "noiseRisk": "high", "crowdRisk": "high", "weatherSensitivity": "雨后地面反光更强，但人流、风噪和临时管制可能增加", "recordingAdvice": "把现场声作为城市氛围素材，远离扩声设备和出入口，另录一段较安静的环境底声。" },
+      "verification": {
+        "status": "source-checked",
+        "sources": [
+          { "title": "市民中心广场（深圳政府在线）", "url": "https://www.sz.gov.cn/szzt2010/gysz/csgy/content/mpost_10787611.html", "accessedAt": "2026-08-09", "supports": ["existence", "address", "access", "shooting-value"] },
+          { "title": "深圳市民中心（高德地图）", "url": "https://ditu.amap.com/place/B02F300690", "accessedAt": "2026-08-09", "supports": ["coordinate"] }
+        ]
+      }
+    },
+    {
+      "id": "gd-sz-futian-lianhuashan",
+      "name": "福田莲花山公园",
+      "province": "广东",
+      "city": "深圳",
+      "type": "city-night",
+      "coordinate": { "lat": 22.553594, "lng": 114.058673, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "坐标为莲花山公园导航锚点；车辆停在合法停车区域后步行，夜间只沿开放照明步道活动，并以现场开放和管制为准。" },
+      "shooting": {
+        "bestTimes": ["sunset", "blue-hour", "night"],
+        "bestWeather": ["sunny", "cloudy", "after-rain"],
+        "modes": ["photo", "tripod-video", "timelapse"],
+        "advice": "利用公园高位视角拍摄福田城市中轴和中心区天际线；日落前完成上山，器材轻量化，不占用山顶与步道通行空间。"
+      },
+      "soundEnvironment": { "character": ["urban", "birds", "mixed"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "风向会改变高处风噪和城市底噪，雨后步道湿滑", "recordingAdvice": "高位机位使用完整防风并监听低频；若人流密集，优先拍画面，不强求纯净自然声。" },
+      "verification": {
+        "status": "source-checked",
+        "sources": [
+          { "title": "莲花山公园（深圳市城市管理和综合执法局）", "url": "https://cgj.sz.gov.cn/xsmh/gysz/twf/tyyd/content/post_10841276.html", "accessedAt": "2026-08-09", "supports": ["existence", "address", "access", "shooting-value"] },
+          { "title": "莲花山公园（高德地图）", "url": "https://ditu.amap.com/place/B02F306L5G", "accessedAt": "2026-08-09", "supports": ["coordinate"] }
+        ]
+      }
+    },
     {
       "id": "gd-sz-talent-park",
       "name": "深圳人才公园",
@@ -15,6 +179,7 @@
         "modes": ["photo", "tripod-video", "timelapse"],
         "advice": "蓝调时段拍摄湖面、步道灯光与后海建筑群倒影，雨后注意镜头防潮。"
       },
+      "soundEnvironment": { "character": ["urban", "water"], "noiseRisk": "medium", "crowdRisk": "medium", "weatherSensitivity": "雨后水面与城市底噪变化明显", "recordingAdvice": "避开活动时段，靠近湖面收取环境底声，并监测远处道路低频。" },
       "verification": {
         "status": "source-checked",
         "sources": [
@@ -47,6 +212,7 @@
         "modes": ["photo", "tripod-video", "asmr"],
         "advice": "使用中广角记录海岸线与城市天际线；长焦拍摄候鸟时保持距离，不干扰生态。"
       },
+      "soundEnvironment": { "character": ["waves", "urban", "birds"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "海风会显著增加低频风噪", "recordingAdvice": "使用防风毛衣并避开跑步人流，分别录制海浪与环境底噪。" },
       "verification": {
         "status": "source-checked",
         "sources": [
@@ -79,6 +245,7 @@
         "modes": ["photo", "tripod-video", "asmr"],
         "advice": "优先记录潮滩、红树林和远景天际线；自然收音应避开人流高峰并保持安静。"
       },
+      "soundEnvironment": { "character": ["birds", "waves"], "noiseRisk": "low", "crowdRisk": "medium", "weatherSensitivity": "潮位与风向影响鸟声和潮滩声场", "recordingAdvice": "保持安静和观察距离，用长时间静态录音避免干扰鸟类。" },
       "verification": {
         "status": "source-checked",
         "sources": [
@@ -105,6 +272,7 @@
         "modes": ["photo", "tripod-video", "asmr"],
         "advice": "沿滨海绿道寻找开阔水面，日落时保留高光层次；海风较大时给麦克风加防风毛衣。"
       },
+      "soundEnvironment": { "character": ["waves"], "noiseRisk": "low", "crowdRisk": "medium", "weatherSensitivity": "强海风会覆盖细小浪声", "recordingAdvice": "背风设置立体声麦克风，额外录制一分钟连续环境声作为铺底。" },
       "verification": {
         "status": "source-checked",
         "sources": [
@@ -131,6 +299,7 @@
         "modes": ["photo", "tripod-video", "asmr"],
         "advice": "在允许进入的公共海岸区域拍摄浪线与港湾，不进入酒店私有区域，不在道路上停车。"
       },
+      "soundEnvironment": { "character": ["waves", "mixed"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "风浪与游客密度随时段变化", "recordingAdvice": "远离商业扬声器和道路，分别记录近岸浪声与远景环境声。" },
       "verification": {
         "status": "source-checked",
         "sources": [
@@ -157,6 +326,7 @@
         "modes": ["photo", "tripod-video", "timelapse"],
         "advice": "用广角呈现双湾地形，长焦压缩海岸层次；避免在狭窄道路架设器材或临时停车。"
       },
+      "soundEnvironment": { "character": ["waves", "traffic"], "noiseRisk": "medium", "crowdRisk": "medium", "weatherSensitivity": "高处风噪和道路声会随风向增强", "recordingAdvice": "选择背风安全位置，不在狭窄道路收音，并使用低切监测低频风噪。" },
       "verification": {
         "status": "source-checked",
         "sources": [
@@ -168,6 +338,126 @@
           }
         ]
       }
+    },
+    {
+      "id": "gd-sz-wutong-north-gate",
+      "name": "梧桐山风景名胜区北门",
+      "province": "广东",
+      "city": "深圳",
+      "type": "landmark",
+      "coordinate": { "lat": 22.589735, "lng": 114.195839, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "该坐标是高德北门导航锚点；车辆停在合法停车区域后，全程步行进入景区。" },
+      "shooting": {
+        "bestTimes": ["morning", "golden-hour"],
+        "bestWeather": ["cloudy", "after-rain", "fog"],
+        "modes": ["photo", "tripod-video", "asmr"],
+        "advice": "在入口完成器材、防雨和收音检查；三脚架收纳后进入步道，不在出入口或通行线上架设。"
+      },
+      "soundEnvironment": { "character": ["birds", "mixed"], "noiseRisk": "medium", "crowdRisk": "medium", "weatherSensitivity": "雨后鸟鸣活跃但入口人声和湿度增加", "recordingAdvice": "进山前检查防潮与电量，入口只作设备测试，不作为主要自然声机位。" },
+      "verification": {
+        "status": "source-checked",
+        "sources": [
+          {
+            "title": "深圳市梧桐山风景名胜区（深圳政府在线）",
+            "url": "https://www.sz.gov.cn/szzt2010/gysz/zrgy/content/mpost_10776093.html",
+            "accessedAt": "2026-08-09",
+            "supports": ["existence", "access", "shooting-value"]
+          },
+          {
+            "title": "广东梧桐山风景名胜区北门（高德地图）",
+            "url": "https://ditu.amap.com/place/B02F37VMLK",
+            "accessedAt": "2026-08-09",
+            "supports": ["address", "coordinate"]
+          }
+        ]
+      }
+    },
+    {
+      "id": "gd-sz-wutong-scenic-area",
+      "name": "梧桐山泰山涧拍摄区域",
+      "province": "广东",
+      "city": "深圳",
+      "type": "stream",
+      "coordinate": { "lat": 22.577706, "lng": 114.214689, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "坐标为高德梧桐山景区导航锚点，并非精确溪流机位；进入后只沿开放步道寻找不妨碍通行的安全定点。" },
+      "shooting": {
+        "bestTimes": ["morning", "golden-hour"],
+        "bestWeather": ["cloudy", "after-rain", "fog"],
+        "modes": ["photo", "tripod-video", "asmr"],
+        "advice": "泰山涧由多条山涧溪流汇集并形成潭、流泉和叠泉；优先固定机位记录水流与林间自然声，不下水、不离开开放步道，雨势较大时取消。"
+      },
+      "soundEnvironment": { "character": ["water", "birds"], "noiseRisk": "low", "crowdRisk": "medium", "weatherSensitivity": "雨后水声增强，强降雨会带来安全风险", "recordingAdvice": "在开放步道的稳定位置固定收音，分别记录溪流近声与林间鸟鸣远景。" },
+      "verification": {
+        "status": "source-checked",
+        "sources": [
+          {
+            "title": "深圳市梧桐山风景名胜区与泰山涧（深圳政府在线）",
+            "url": "https://www.sz.gov.cn/szzt2010/gysz/zrgy/content/mpost_10776093.html",
+            "accessedAt": "2026-08-09",
+            "supports": ["existence", "address", "access", "shooting-value"]
+          },
+          {
+            "title": "广东梧桐山风景名胜区（高德地图）",
+            "url": "https://ditu.amap.com/place/B02F300115",
+            "accessedAt": "2026-08-09",
+            "supports": ["coordinate"]
+          }
+        ]
+      }
+    },
+    {
+      "id": "gd-sz-maluan-visitor-center", "name": "马峦山郊野公园北门游客中心", "province": "广东", "city": "深圳", "type": "landmark",
+      "coordinate": { "lat": 22.654705, "lng": 114.345333, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "该坐标为北门游客中心导航锚点；车辆停放须服从现场管理，进入公园后步行。" },
+      "shooting": { "bestTimes": ["morning", "golden-hour"], "bestWeather": ["cloudy", "after-rain"], "modes": ["photo", "tripod-video", "asmr"], "advice": "在游客中心确认开放和天气情况，收好三脚架后进入步道，不占用救援与通行空间。" },
+      "soundEnvironment": { "character": ["birds", "mixed"], "noiseRisk": "medium", "crowdRisk": "medium", "weatherSensitivity": "雨后自然声增强但步道湿滑", "recordingAdvice": "入口只作设备测试，主要自然声应在开放步道的安全位置记录。" },
+      "verification": { "status": "source-checked", "sources": [
+        { "title": "马峦山郊野公园（深圳市城管局）", "url": "https://cgj.sz.gov.cn/xsmh/gysz/twf/jytb/content/post_10840032.html", "accessedAt": "2026-08-09", "supports": ["existence", "access", "shooting-value"] },
+        { "title": "马峦山郊野公园北门游客中心（高德地图）", "url": "https://ditu.amap.com/place/B0HBLUC9MP", "accessedAt": "2026-08-09", "supports": ["address", "coordinate"] }
+      ] }
+    },
+    {
+      "id": "gd-sz-maluan-country-park", "name": "马峦山郊野公园溪瀑区域", "province": "广东", "city": "深圳", "type": "waterfall",
+      "coordinate": { "lat": 22.638093, "lng": 114.32817, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "坐标为公园高德 POI，并非精确瀑布机位；只沿开放步道进入，不驶入园区内部。" },
+      "shooting": { "bestTimes": ["morning", "golden-hour"], "bestWeather": ["cloudy", "after-rain"], "modes": ["photo", "tripod-video", "asmr"], "advice": "以龙潭、榄核桥瀑布群和林间步道为题材；不下水、不越过护栏，强降雨和地质风险提示期间取消。" },
+      "soundEnvironment": { "character": ["water", "birds"], "noiseRisk": "low", "crowdRisk": "medium", "weatherSensitivity": "雨后水量增加，同时湿滑和山洪风险上升", "recordingAdvice": "在开放步道稳定位置记录水声，避免靠近落差和湿滑岩面。" },
+      "verification": { "status": "source-checked", "sources": [
+        { "title": "马峦山郊野公园与瀑布群（深圳市城管局）", "url": "https://cgj.sz.gov.cn/xsmh/gysz/twf/jytb/content/post_10840032.html", "accessedAt": "2026-08-09", "supports": ["existence", "address", "access", "shooting-value"] },
+        { "title": "马峦山郊野公园（高德地图）", "url": "https://ditu.amap.com/place/B02F37UI6D", "accessedAt": "2026-08-09", "supports": ["coordinate"] }
+      ] }
+    },
+    {
+      "id": "gd-hz-west-lake", "name": "惠州西湖风景名胜区", "province": "广东", "city": "惠州", "type": "lake",
+      "coordinate": { "lat": 23.090256, "lng": 114.394446, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "驾车至景区周边合法停车区域后步行，景区内部通行以现场规定为准。" },
+      "shooting": { "bestTimes": ["sunrise", "golden-hour", "blue-hour"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "timelapse"], "advice": "使用湖面、桥亭和城市背景建立层次，避开人流高峰并保持公共通道畅通。" },
+      "soundEnvironment": { "character": ["water", "urban", "birds"], "noiseRisk": "medium", "crowdRisk": "high", "weatherSensitivity": "风和游客密度会改变湖岸声场", "recordingAdvice": "清晨远离活动区记录水鸟与湖岸环境声，注意不干扰野生动物。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "惠州西湖风景名胜区（高德地图）", "url": "https://ditu.amap.com/place/B02F003XP7", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "gd-hz-honghua-lake", "name": "惠州西湖红花湖景区", "province": "广东", "city": "惠州", "type": "lake",
+      "coordinate": { "lat": 23.071057, "lng": 114.372382, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至红花湖景区入口周边合法停车点，环湖区域按慢行与现场管理规则进入。" },
+      "shooting": { "bestTimes": ["sunrise", "golden-hour", "sunset"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["photo", "tripod-video", "asmr"], "advice": "沿允许开放区域选择湖岸、绿道和林木倒影，不在骑行与跑步通道架设器材。" },
+      "soundEnvironment": { "character": ["birds", "water", "mixed"], "noiseRisk": "low", "crowdRisk": "medium", "weatherSensitivity": "清晨声景较稳定，雨后虫鸟与水声更明显", "recordingAdvice": "避开骑行高峰，使用防风保护并留出连续环境声。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "惠州西湖红花湖景区（高德地图）", "url": "https://ditu.amap.com/place/B02F002K55", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "gd-hz-luofu-mountain", "name": "罗浮山风景名胜区", "province": "广东", "city": "惠州", "type": "mountain",
+      "coordinate": { "lat": 23.261221, "lng": 114.06762, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至景区入口，车辆按景区停车规定停放；山内路线全部按步行与景区交通处理。" },
+      "shooting": { "bestTimes": ["sunrise", "morning", "golden-hour"], "bestWeather": ["cloudy", "fog", "after-rain"], "modes": ["photo", "tripod-video", "timelapse", "asmr"], "advice": "优先记录山林、云雾和步道空间，设备轻量化；天气变化、雷电或管制时不进入高处。" },
+      "soundEnvironment": { "character": ["birds", "mixed"], "noiseRisk": "low", "crowdRisk": "medium", "weatherSensitivity": "云雾和雨后利于氛围但增加湿滑与设备防潮要求", "recordingAdvice": "在开放步道休息区域短时固定收音，不离开游览线。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "罗浮山风景名胜区（高德地图）", "url": "https://ditu.amap.com/place/B02F002J5M", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "gd-hz-nankun-forest", "name": "南昆山国家森林公园", "province": "广东", "city": "惠州", "type": "forest",
+      "coordinate": { "lat": 23.637139, "lng": 113.873227, "crs": "GCJ-02" },
+      "access": { "mode": "park-and-walk", "note": "导航至森林公园公开入口，车辆停放和内部通行以保护区及景区现场规定为准。" },
+      "shooting": { "bestTimes": ["morning", "golden-hour"], "bestWeather": ["cloudy", "fog", "after-rain"], "modes": ["photo", "tripod-video", "asmr"], "advice": "以森林层次、雾气和自然声为主，选择开放步道稳定位置定点拍摄，不进入保护或封闭区域。" },
+      "soundEnvironment": { "character": ["birds", "water"], "noiseRisk": "low", "crowdRisk": "low", "weatherSensitivity": "雨雾增强森林氛围，同时提高湿滑和迷雾风险", "recordingAdvice": "固定位置长时间记录鸟鸣与林下环境声，携带防潮和定位设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "南昆山国家森林公园（高德地图）", "url": "https://ditu.amap.com/place/B02F00265Z", "accessedAt": "2026-08-09", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
     }
   ],
   "cameraPresets": [
@@ -191,15 +481,76 @@
       "scene": "coast-sunset",
       "settings": { "resolution": "4K", "fps": 25, "shutter": "1/50", "iso": { "min": 100, "max": 800 }, "whiteBalanceKelvin": 5600, "aperture": "F5.6", "profile": "S-Cinetone" },
       "notes": "日落视频基础预设；优先保护天空高光，并随落日亮度逐步检查曝光。"
+    },
+    {
+      "id": "a7c2-forest-stream-static",
+      "camera": "Sony A7C II",
+      "scene": "forest-stream-static",
+      "settings": { "resolution": "4K", "fps": 25, "shutter": "1/50", "iso": { "min": 100, "max": 1600 }, "whiteBalanceKelvin": 5200, "aperture": "F5.6", "profile": "S-Cinetone" },
+      "notes": "林间固定机位视频起点；先保护水面反光和亮叶高光，再按树冠遮蔽调整 ISO，收音时关闭机内提示音。"
     }
   ],
   "routes": [
+    {
+      "id": "gd-sz-bay-scenic-drive",
+      "name": "深圳湾滨海天际线风景驾车路线",
+      "province": "广东", "cities": ["深圳"], "type": "coast", "captureStyle": "scenic-drive",
+      "modes": ["day", "sunset"], "estimatedDurationMinutes": 180,
+      "waypointLocationIds": ["gd-sz-mangrove-park", "gd-sz-shenzhen-bay-park", "gd-sz-talent-park", "gd-sz-sumei-coast"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["golden-hour", "sunset", "blue-hour"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["gopro12-city-night-driving", "a7c2-coast-sunset"],
+      "shootAdvice": "通过高德在四个公开导航点之间规划真实道路，车载设备只在合法驾驶状态下固定拍摄；滨海绿道不是机动车道，每个海岸机位均须停车后步行进入。",
+      "scores": { "visual": 5, "road": 4, "parking": 3, "safety": 4, "youtubePotential": 5 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "四个地点及坐标已查源；实际道路、停车、拥堵、日落方向和总时长由高德当次规划并通过实地核验确认。" }
+    },
+    {
+      "id": "gd-sz-yantian-coastal-drive",
+      "name": "盐田盐梅路山海风景驾车路线",
+      "province": "广东", "cities": ["深圳"], "type": "coast", "captureStyle": "scenic-drive",
+      "modes": ["day", "sunrise", "sunset"], "estimatedDurationMinutes": 180,
+      "waypointLocationIds": ["gd-sz-yantian-dameisha", "gd-sz-yantian-xiaomeisha"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["sunrise", "golden-hour", "sunset"], "weather": ["sunny", "cloudy"] },
+      "cameraPresetIds": ["gopro12-city-night-driving", "a7c2-coast-sunset"],
+      "shootAdvice": "沿盐梅路完成大梅沙至小梅沙的短距离山海驾驶，禁止路肩临停和手持拍摄；在合法停车后再进入海滨区域。旺季预约、收费、交通组织和开放状态须出发前复核。",
+      "scores": { "visual": 5, "road": 4, "parking": 2, "safety": 4, "youtubePotential": 5 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "两个海滨节点、盐田海滨景观与坐标已查源；实时道路、停车、开放和具体拍摄位仍须高德规划及实地核验。" }
+    },
+    {
+      "id": "gd-hz-xunliao-double-moon-drive",
+      "name": "惠东巽寮湾至双月湾山海长途路线",
+      "province": "广东", "cities": ["惠州"], "type": "coast", "captureStyle": "scenic-drive",
+      "modes": ["day", "sunrise", "sunset"], "estimatedDurationMinutes": 300,
+      "waypointLocationIds": ["gd-hz-xunliao-bay", "gd-hz-double-moon-resort", "gd-hz-double-moon-viewpoint"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["sunrise", "golden-hour", "sunset"], "weather": ["sunny", "cloudy"] },
+      "cameraPresetIds": ["gopro12-city-night-driving", "a7c2-coast-sunset"],
+      "shootAdvice": "使用高德实时规划巽寮湾至港口镇的合法道路，预留拥堵与补给时间；观景台最后陡窄路段不纳入驾车拍摄，车辆停妥后步行，并在恶劣天气或管制时取消。",
+      "scores": { "visual": 5, "road": 4, "parking": 2, "safety": 3, "youtubePotential": 5 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "三个地点和坐标已查源；长距离组合、实时道路、拥堵、停车与观景台末段条件必须由高德规划并实地验证。" }
+    },
+    {
+      "id": "gd-sz-futian-cbd-night",
+      "name": "福田城市中轴蓝调夜景路线",
+      "province": "广东",
+      "cities": ["深圳"],
+      "type": "city-night",
+      "captureStyle": "rain-walk",
+      "modes": ["sunset", "night"],
+      "estimatedDurationMinutes": 150,
+      "waypointLocationIds": ["gd-sz-futian-lianhuashan", "gd-sz-futian-civic-square"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["sunset", "blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["a7c2-city-night-tripod", "gopro12-city-night-driving"],
+      "shootAdvice": "日落前先到莲花山完成高位城市中轴镜头，再转场市民中心广场拍蓝调与建筑灯光。两点之间可由高德规划转场，但公园和广场内均须步行；出发前核对灯光场次、预约、停车和临时管制。",
+      "scores": { "visual": 5, "road": 4, "parking": 3, "safety": 4, "youtubePotential": 5 },
+      "status": "idea",
+      "verification": { "status": "source-checked", "note": "两个地点的开放、拍摄价值与高德坐标已查源；推荐顺序、停车、步行时间、灯光场次和实际机位仍须实地核验。" }
+    },
     {
       "id": "gd-sz-bay-night",
       "name": "深圳湾后海蓝调夜景路线",
       "province": "广东",
       "cities": ["深圳"],
       "type": "city-night",
+      "captureStyle": "scenic-drive",
       "modes": ["sunset", "night"],
       "estimatedDurationMinutes": 150,
       "waypointLocationIds": ["gd-sz-talent-park", "gd-sz-shenzhen-bay-park", "gd-sz-mangrove-park"],
@@ -216,10 +567,11 @@
       "province": "广东",
       "cities": ["深圳"],
       "type": "coast",
+      "captureStyle": "rain-walk",
       "modes": ["day", "sunset", "asmr"],
       "estimatedDurationMinutes": 180,
       "waypointLocationIds": ["gd-sz-sumei-coast", "gd-sz-shenzhen-bay-park", "gd-sz-mangrove-park"],
-      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["golden-hour", "sunset"], "weather": ["sunny", "cloudy"] },
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["golden-hour", "sunset"], "weather": ["sunny", "cloudy", "after-rain"] },
       "cameraPresetIds": ["a7c2-coast-sunset"],
       "shootAdvice": "按日落方向和停车条件选择一至两个点即可，不应把滨海绿道当作机动车道路；自然收音避开活动和人流高峰。",
       "scores": { "visual": 4, "road": 4, "parking": 3, "safety": 4, "youtubePotential": 4 },
@@ -232,6 +584,7 @@
       "province": "广东",
       "cities": ["惠州"],
       "type": "coast",
+      "captureStyle": "rain-walk",
       "modes": ["day", "sunrise", "sunset"],
       "estimatedDurationMinutes": 150,
       "waypointLocationIds": ["gd-hz-double-moon-resort", "gd-hz-double-moon-viewpoint"],
@@ -241,6 +594,44 @@
       "scores": { "visual": 5, "road": 2, "parking": 2, "safety": 3, "youtubePotential": 5 },
       "status": "idea",
       "verification": { "status": "source-checked", "note": "地点、坐标及末段通行风险已查源；具体停车点、时长和路线仍须实地确认。" }
+    },
+    {
+      "id": "gd-sz-wutong-static-nature",
+      "name": "梧桐山泰山涧林间定点路线",
+      "province": "广东",
+      "cities": ["深圳"],
+      "type": "forest",
+      "captureStyle": "stationary-nature",
+      "modes": ["day", "asmr"],
+      "estimatedDurationMinutes": 210,
+      "waypointLocationIds": ["gd-sz-wutong-north-gate", "gd-sz-wutong-scenic-area"],
+      "best": { "seasons": ["spring", "summer", "autumn"], "times": ["morning", "golden-hour"], "weather": ["cloudy", "after-rain", "fog"] },
+      "cameraPresetIds": ["a7c2-forest-stream-static"],
+      "shootAdvice": "北门和景区坐标只用于到达，不代表精确机位。沿开放步道选择不妨碍通行的稳定地面，固定机位记录溪流、树叶和鸟鸣；雨后防滑，强降雨、雷电或管制时取消。",
+      "scores": { "visual": 4, "road": 2, "parking": 2, "safety": 3, "youtubePotential": 4 },
+      "status": "idea",
+      "verification": { "status": "source-checked", "note": "景区、开放信息、泰山涧水系与两个导航锚点已查源；具体静态机位、环境声和步行时长仍须实地核验。" }
+    },
+    {
+      "id": "gd-sz-maluan-waterfall-static", "name": "马峦山溪瀑林间定点路线", "province": "广东", "cities": ["深圳"], "type": "waterfall", "captureStyle": "stationary-nature", "modes": ["day", "asmr"], "estimatedDurationMinutes": 210,
+      "waypointLocationIds": ["gd-sz-maluan-visitor-center", "gd-sz-maluan-country-park"],
+      "best": { "seasons": ["spring", "summer", "autumn"], "times": ["morning", "golden-hour"], "weather": ["cloudy", "after-rain"] },
+      "cameraPresetIds": ["a7c2-forest-stream-static"], "shootAdvice": "北门游客中心和公园 POI 只作导航锚点。沿开放步道选择安全位置记录瀑布、溪流和鸟鸣；强降雨、雷电或地质风险提示时取消。",
+      "scores": { "visual": 5, "road": 2, "parking": 2, "safety": 3, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "公园、瀑布群、开放信息和导航锚点已查源；具体机位、水量、步行时长和收音环境仍须实地核验。" }
+    },
+    {
+      "id": "gd-hz-west-honghua-lakes", "name": "惠州西湖与红花湖慢行采风路线", "province": "广东", "cities": ["惠州"], "type": "lake", "captureStyle": "rain-walk", "modes": ["day", "sunset", "asmr"], "estimatedDurationMinutes": 180,
+      "waypointLocationIds": ["gd-hz-west-lake", "gd-hz-honghua-lake"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["sunrise", "golden-hour", "sunset"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["a7c2-coast-sunset"], "shootAdvice": "两个景区之间驾车转场，景区内均按慢行拍摄；避开骑行和游客高峰，不在公共通道架设器材。",
+      "scores": { "visual": 4, "road": 4, "parking": 3, "safety": 4, "youtubePotential": 4 }, "status": "idea", "verification": { "status": "source-checked", "note": "两个景区及坐标已查源；停车、现场开放、推荐顺序和拍摄时长仍须实地核验。" }
+    },
+    {
+      "id": "gd-hz-luofu-nankun-drive", "name": "惠州罗浮山至南昆山森林驾驶路线", "province": "广东", "cities": ["惠州"], "type": "forest", "captureStyle": "scenic-drive", "modes": ["day", "asmr"], "estimatedDurationMinutes": 360,
+      "waypointLocationIds": ["gd-hz-luofu-mountain", "gd-hz-nankun-forest"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["morning", "golden-hour"], "weather": ["sunny", "cloudy", "fog"] },
+      "cameraPresetIds": ["gopro12-city-night-driving", "a7c2-forest-stream-static"], "shootAdvice": "仅把公开景区入口作为长距离转场节点，景区内部全部停车后步行；山路遇大雾、暴雨、落石或管制时取消，不将推荐组合视为实时导航。",
+      "scores": { "visual": 5, "road": 3, "parking": 3, "safety": 3, "youtubePotential": 5 }, "status": "idea", "verification": { "status": "source-checked", "note": "两个景区入口与坐标已查源；跨区域驾驶顺序、道路、停车和总时长必须由高德实时规划并实地验证。" }
     }
   ],
   "shootPlans": [

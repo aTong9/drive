@@ -51,7 +51,7 @@ export function PlanView({ routes }: { routes: ResolvedRoute[] }) {
                   <div className="plan-meta"><span><Clock3 size={13} /> 行程约 {item.route.estimatedDurationMinutes} 分钟</span><span><MapPin size={13} /> {item.waypoints.length} 个拍摄点</span></div>
                   <div className="plan-kit"><Camera size={14} /> {item.cameraPresets.map((preset) => preset.camera).join(" · ")}</div>
                   <div className="plan-actions">
-                    {plan.status === "planned" ? <button onClick={() => updatePlanStatus(plan.id, "captured")}><CheckCircle2 size={15} /> 标记已拍摄</button> : <button onClick={() => updatePlanStatus(plan.id, "planned")}><CalendarDays size={15} /> 恢复为计划</button>}
+                    {plan.status === "planned" ? <button onClick={() => updatePlanStatus(plan.id, "captured")}><CheckCircle2 size={15} /> 标记已拍摄</button> : plan.status === "captured" ? <button onClick={() => updatePlanStatus(plan.id, "published")}><CheckCircle2 size={15} /> 标记已发布</button> : <button onClick={() => updatePlanStatus(plan.id, "captured")}><CalendarDays size={15} /> 恢复为已拍摄</button>}
                     <button onClick={() => selectRoute(item.route.id)}><Navigation size={15} /> 查看路线</button>
                   </div>
                 </div>

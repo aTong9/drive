@@ -1,10 +1,11 @@
-import { CalendarPlus, Camera, Check, ChevronRight, Clock3, CloudSun, Footprints, Navigation, ShieldCheck, X } from "lucide-react";
+import { CalendarPlus, Camera, Check, ChevronRight, Clock3, CloudSun, Footprints, Navigation, ShieldCheck, Trees, X } from "lucide-react";
 import { useEffect, useState, type FormEvent } from "react";
 import type { DrivingSummary, ResolvedRoute } from "../../types/domain.js";
 import { usePlannerStore } from "../../app/store.js";
 
 const timeLabels: Record<string, string> = { sunrise: "日出", morning: "上午", "golden-hour": "黄金时刻", sunset: "日落", "blue-hour": "蓝调时刻", night: "夜间" };
 const weatherLabels: Record<string, string> = { sunny: "晴朗", cloudy: "多云", "after-rain": "雨后", fog: "薄雾", rain: "雨天" };
+const captureLabels = { "scenic-drive": "风景驾车", "rain-walk": "雨景步行", "stationary-nature": "林间定点" } as const;
 
 function formatDrivingTime(seconds: number) {
   const minutes = Math.max(1, Math.round(seconds / 60));
@@ -43,6 +44,7 @@ export function RouteDetail({ selected, drivingSummary }: { selected: ResolvedRo
         <div className="detail-hero-glow" />
         <div className="detail-hero-copy">
           <span className="hero-badge"><ShieldCheck size={13} /> 来源核验</span>
+          <span className={`hero-capture capture-${route.captureStyle}`}>{captureLabels[route.captureStyle]}</span>
           <p>ROUTE / {route.id.toUpperCase()}</p>
           <h2>{route.name}</h2>
           <div>
@@ -59,7 +61,7 @@ export function RouteDetail({ selected, drivingSummary }: { selected: ResolvedRo
         </section>
 
         <section className={`driving-result ${drivingSummary?.status ?? "idle"}`} aria-live="polite">
-          <div><Navigation size={16} /><span><small>高德实时驾车规划</small><strong>{drivingSummary?.status === "ready" ? `${(drivingSummary.distanceMeters / 1000).toFixed(1)} 公里 · ${formatDrivingTime(drivingSummary.durationSeconds)}` : drivingSummary?.status === "error" ? drivingSummary.message : "正在计算道路与通行时间…"}</strong></span></div>
+          <div>{drivingSummary?.status === "access-only" ? <Trees size={16} /> : <Navigation size={16} />}<span><small>{drivingSummary?.status === "access-only" ? "步行景区 · 导航锚点" : "高德实时驾车规划"}</small><strong>{drivingSummary?.status === "access-only" ? "仅展示入口与景区范围，不生成景区内驾车路线" : drivingSummary?.status === "ready" ? `${(drivingSummary.distanceMeters / 1000).toFixed(1)} 公里 · ${formatDrivingTime(drivingSummary.durationSeconds)}` : drivingSummary?.status === "error" ? drivingSummary.message : "正在计算道路与通行时间…"}</strong></span></div>
           {drivingSummary?.status === "ready" && <small>{drivingSummary.tollsYuan > 0 ? `预计收费 ¥${drivingSummary.tollsYuan}` : "预计无收费"}{drivingSummary.hasRestriction ? " · 存在无法规避的限行路段" : " · 已规避限行"}</small>}
         </section>
 

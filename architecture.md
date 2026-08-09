@@ -26,17 +26,17 @@ pages
 
 页面不得直接读取或解释 JSON。组件不得自行解析地点引用或重新实现筛选逻辑。
 
-当前可执行纵向样例：
+当前可执行纵向链路：
 
 ```text
 data/catalog.json
 → scripts/validate-data.mjs
 → src/types/domain.ts
-→ src/services/routeService.ts
-→ src/cli/plan.ts
+→ src/services/catalogService.ts / routeService.ts
+→ React UI 或 src/cli/plan.ts
 ```
 
-CLI 是服务层的最小消费者，后续地图页面复用相同服务，而不是另写一套逻辑。
+CLI 是服务层的最小消费者；页面通过 catalog、Dashboard、推荐、GPX 与工作流服务消费数据，不直接解释 JSON。
 
 ## 前端目标结构
 
@@ -66,7 +66,7 @@ Zustand 仅保存跨页面交互状态，例如模式、筛选条件和选中实
 
 第一阶段使用高德地图 JS API 2.0 和 GCJ-02。地图加载封装在 `services/amapLoader.ts`，组件只负责地图实例和覆盖物生命周期。API Key 与 securityJsCode 从本地环境注入并限制允许域名，不提交到 Git；生产环境应使用服务端代理隐藏安全密钥。
 
-地点存储可核验坐标；路线导航和实时路况由地图服务生成。以后增加 GPX 时，坐标转换位于数据导入边界。
+地点存储可核验坐标；路线导航和实时路况由地图服务生成。GPX 与浏览器定位的 WGS84 坐标统一在 `gpxImport` 数据边界转换为 GCJ-02。
 
 ## 数据与 API 演进
 

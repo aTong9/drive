@@ -1,0 +1,32 @@
+import { CalendarDays, Camera, CheckCircle2, ChevronRight, Clapperboard, MapPinned, Route, Sparkles, Video } from "lucide-react";
+import type { CaptureStyle, FieldCheck, LocalPostProject, LocalPostTask, LocalShootPlan, ResolvedRoute, Weather } from "../../types/domain.js";
+import { buildDashboardMetrics } from "../../services/dashboardService.js";
+import { usePlannerStore } from "../../app/store.js";
+import type { CSSProperties } from "react";
+import { useMemo, useState } from "react";
+import { recommendRoutes } from "../../services/recommendationService.js";
+
+export function DashboardView({ routes, plans, checks, postTasks, postProject }: { routes: ResolvedRoute[]; plans: LocalShootPlan[]; checks: FieldCheck[]; postTasks: LocalPostTask[]; postProject: LocalPostProject | null }) {
+  const metrics = buildDashboardMetrics(routes, plans, checks, postTasks);
+  const setView = usePlannerStore((state) => state.setView);
+  const selectRoute = usePlannerStore((state) => state.selectRoute);
+  const cities = [...new Set(routes.flatMap((item) => item.route.cities))];
+  const cameras = [...new Set(routes.flatMap((item) => item.cameraPresets.map((preset) => preset.camera)))];
+  const [recommendInput, setRecommendInput] = useState<{ city: string; availableMinutes: number; weather: Weather; camera: string; objective: CaptureStyle }>({ city: cities[0] ?? "深圳", availableMinutes: 240, weather: "cloudy", camera: cameras[0] ?? "Sony A7C II", objective: "scenic-drive" });
+  const recommendations = useMemo(() => recommendRoutes(routes, recommendInput), [routes, recommendInput]);
+  return <main className="dashboard-page">
+    <header className="dashboard-head"><div><p className="eyebrow">CREATOR OVERVIEW</p><h1>个人创作资产</h1><p>从路线探索、实地拍摄到后期交付，一眼看到作品流动到哪里。</p></div><button onClick={() => setView("explore")}>继续探索 <ChevronRight size={15} /></button></header>
+    <section className="dashboard-stats">
+      <article><Route size={19} /><span><strong>{metrics.routeCount}</strong><small>核验路线</small></span></article>
+      <article><CalendarDays size={19} /><span><strong>{metrics.plannedCount}</strong><small>等待拍摄</small></span></article>
+      <article><Camera size={19} /><span><strong>{metrics.capturedCount}</strong><small>完成拍摄</small></span></article>
+      <article><Video size={19} /><span><strong>{metrics.publishedCount}</strong><small>已发布作品</small></span></article>
+    </section>
+    <section className="dashboard-grid">
+      <article className="dashboard-panel coverage-panel"><header><div><p className="eyebrow">FIELD KNOWLEDGE</p><h2>实地核验覆盖</h2></div><MapPinned size={18} /></header><div className="coverage-ring" style={{ "--coverage": `${metrics.checkCoverage * 3.6}deg` } as CSSProperties}><span><strong>{metrics.checkCoverage}%</strong><small>{metrics.checkedLocationCount} 个地点</small></span></div><p>只有实地记录过的停车、光线和声音信息才计入覆盖率。</p><button onClick={() => setView("locations")}>管理地点核验 <ChevronRight size={14} /></button></article>
+      <article className="dashboard-panel post-panel"><header><div><p className="eyebrow">POST PRODUCTION</p><h2>当前后期项目</h2></div><Clapperboard size={18} /></header>{postTasks.length ? <><strong>{postProject?.title ?? "独立后期项目"}</strong><div className="dashboard-progress"><i><b style={{ width: `${metrics.postProgress}%` }} /></i><span>{metrics.postProgress}%</span></div><p>{postTasks.filter((task) => task.completed).length} / {postTasks.length} 项任务完成</p></> : <div className="dashboard-empty-mini">尚未导入达芬奇后期流程</div>}<button onClick={() => setView("post")}>打开后期流程 <ChevronRight size={14} /></button></article>
+      <article className="dashboard-panel activity-panel"><header><div><p className="eyebrow">RECENT PLANS</p><h2>最近创作计划</h2></div><CheckCircle2 size={18} /></header>{metrics.recentPlans.length ? metrics.recentPlans.map(({ plan, routeName }) => <div className="dashboard-plan-row" key={plan.id}><span className={`plan-dot ${plan.status}`} /><div><strong>{routeName}</strong><small>{plan.scheduledDate} · {plan.status === "planned" ? "等待拍摄" : plan.status === "captured" ? "进入后期" : "已发布"}</small></div></div>) : <div className="dashboard-empty-mini">还没有创作计划</div>}<button onClick={() => setView("plans")}>查看全部计划 <ChevronRight size={14} /></button></article>
+    </section>
+    <section className="recommend-panel"><header><div><p className="eyebrow">EXPLAINABLE RECOMMENDATION</p><h2>下一次拍什么</h2><p>只从已通过数据校验的路线中推荐，并直接说明匹配原因。</p></div><Sparkles size={20} /></header><div className="recommend-controls"><label>当前位置<select value={recommendInput.city} onChange={(event) => setRecommendInput({ ...recommendInput, city: event.target.value })}>{cities.map((city) => <option key={city}>{city}</option>)}</select></label><label>可用时间<select value={recommendInput.availableMinutes} onChange={(event) => setRecommendInput({ ...recommendInput, availableMinutes: Number(event.target.value) })}><option value={120}>2 小时</option><option value={180}>3 小时</option><option value={240}>4 小时</option><option value={360}>6 小时</option></select></label><label>天气<select value={recommendInput.weather} onChange={(event) => setRecommendInput({ ...recommendInput, weather: event.target.value as Weather })}><option value="sunny">晴朗</option><option value="cloudy">多云</option><option value="after-rain">雨后</option><option value="fog">薄雾</option><option value="rain">雨天</option></select></label><label>设备<select value={recommendInput.camera} onChange={(event) => setRecommendInput({ ...recommendInput, camera: event.target.value })}>{cameras.map((camera) => <option key={camera}>{camera}</option>)}</select></label><label>创作目标<select value={recommendInput.objective} onChange={(event) => setRecommendInput({ ...recommendInput, objective: event.target.value as CaptureStyle })}><option value="scenic-drive">风景驾车</option><option value="rain-walk">雨景步行</option><option value="stationary-nature">林间定点</option></select></label></div><div className="recommend-results">{recommendations.length ? recommendations.map(({ item, score, reasons }, index) => <button key={item.route.id} onClick={() => selectRoute(item.route.id)}><span>{String(index + 1).padStart(2, "0")}</span><div><small>{item.route.verification.status === "field-checked" ? "实地核验" : "来源核验"} · 匹配分 {score}</small><strong>{item.route.name}</strong><p>{reasons.join(" · ")}</p></div><ChevronRight size={16} /></button>) : <div className="dashboard-empty-mini">当前条件下没有通过验证且时长合适的路线</div>}</div></section>
+  </main>;
+}

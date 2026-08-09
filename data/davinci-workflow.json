@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "davinci-roadlens-post-v1",
+  "name": "RoadLens 达芬奇后期标准流程",
+  "product": "DaVinci Resolve 21",
+  "sourceUrl": "https://www.blackmagicdesign.com/products/davinciresolve/",
+  "stages": [
+    { "id": "media", "label": "媒体", "englishLabel": "Media", "summary": "建立项目、备份并整理原始素材。", "output": "可追溯、可离线恢复的媒体池", "tasks": ["建立项目并确认帧率、分辨率与色彩管理", "按日期、地点、机位建立素材箱并完成双份备份", "校验离线媒体、同步外录音频并生成代理媒体"] },
+    { "id": "photo", "label": "照片", "englishLabel": "Photo", "summary": "处理封面、剧照和路线照片资产。", "output": "统一风格的封面与静态图片候选", "tasks": ["导入 RAW 或高分辨率照片并建立相册", "完成裁切、基础曝光和色彩统一", "标记封面候选并导出社交媒体尺寸版本"] },
+    { "id": "cut", "label": "快编", "englishLabel": "Cut", "summary": "快速浏览并形成故事骨架。", "output": "结构完整的粗剪时间线", "tasks": ["使用源磁带或素材箱快速筛选可用镜头", "按路线顺序建立日间、夜间或自然声故事段落", "删除明显失焦、抖动和重复内容并保留备用镜头"] },
+    { "id": "edit", "label": "剪辑", "englishLabel": "Edit", "summary": "精修节奏、转场、字幕与画面关系。", "output": "锁画前的精剪版本", "tasks": ["精确修剪入点出点并统一镜头节奏", "完成必要的变速、稳定、转场和标题", "检查连续性、字幕、地图信息并锁定画面结构"] },
+    { "id": "fusion", "label": "Fusion", "englishLabel": "Fusion", "summary": "制作需要节点合成的视觉效果与动态图形。", "output": "已缓存并通过检查的合成镜头", "tasks": ["仅为确有需要的镜头建立 Fusion 合成", "完成跟踪、遮罩、清理或路线动态图形", "检查边缘、运动模糊和缓存状态后返回剪辑页"] },
+    { "id": "color", "label": "调色", "englishLabel": "Color", "summary": "完成色彩管理、镜头匹配与风格塑造。", "output": "曝光与色彩一致的调色锁定版", "tasks": ["确认输入色彩空间并做基础曝光和白平衡校正", "按场景匹配镜头并保护天空、水面与灯光高光", "使用示波器检查肤色、黑位、广播安全和最终风格"] },
+    { "id": "fairlight", "label": "Fairlight", "englishLabel": "Fairlight", "summary": "整理自然声、降噪、混音并控制响度。", "output": "对白、环境声与音乐平衡的最终混音", "tasks": ["整理对白、环境声、车辆声、自然声和音乐轨道", "修复噪声与爆音，添加必要淡化、EQ 和动态处理", "检查峰值与目标响度并分别监听耳机和扬声器"] },
+    { "id": "deliver", "label": "交付", "englishLabel": "Deliver", "summary": "完成母版、平台版本、质检与归档。", "output": "通过回看且可复现的交付包", "tasks": ["选择母版与平台预设，确认文件名和输出路径", "加入渲染队列并完成全片画面、声音、字幕回看", "归档项目文件、字幕、音频、封面和最终成片"] }
+  ]
+}

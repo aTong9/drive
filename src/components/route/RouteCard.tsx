@@ -1,5 +1,6 @@
-import { CheckCircle2, Clock3, MapPin, ShieldCheck } from "lucide-react";
+import { CarFront, CheckCircle2, Clock3, Footprints, MapPin, ShieldCheck, Trees } from "lucide-react";
 import type { Location, Route } from "../../types/domain.js";
+import { usePlannerStore } from "../../app/store.js";
 
 interface RouteCardProps {
   route: Route;
@@ -18,16 +19,27 @@ const routeLabels: Record<Route["type"], string> = {
   lake: "湖泊"
 };
 
+const captureLabels = {
+  "scenic-drive": { label: "风景驾车", icon: CarFront },
+  "rain-walk": { label: "雨景步行", icon: Footprints },
+  "stationary-nature": { label: "林间定点", icon: Trees }
+} as const;
+
 export function RouteCard({ route, waypoints, active, onSelect }: RouteCardProps) {
+  const CaptureIcon = captureLabels[route.captureStyle].icon;
+  const captured = usePlannerStore((state) => state.plans.some((plan) => plan.routeId === route.id && plan.status === "captured"));
+  const fieldChecked = usePlannerStore((state) => waypoints.every((waypoint) => state.fieldChecks.some((check) => check.locationId === waypoint.id)));
+  const verificationLabel = fieldChecked ? "全程实地核验" : captured ? "已完成拍摄" : route.verification.status === "field-checked" ? "实地核验" : "来源核验";
   return (
-    <button className={`route-card ${active ? "is-active" : ""}`} onClick={onSelect} aria-pressed={active}>
+    <button className={`route-card style-${route.captureStyle} ${active ? "is-active" : ""}`} onClick={onSelect} aria-pressed={active}>
       <div className="route-card-topline">
         <span className="route-kind">{routeLabels[route.type]}</span>
-        <span className={`verification ${route.verification.status === "field-checked" ? "is-field" : ""}`}>
-          {route.verification.status === "field-checked" ? <CheckCircle2 size={12} /> : <ShieldCheck size={12} />}
-          {route.verification.status === "field-checked" ? "实地核验" : "来源核验"}
+        <span className={`verification ${fieldChecked || captured || route.verification.status === "field-checked" ? "is-field" : ""}`}>
+          {fieldChecked || captured || route.verification.status === "field-checked" ? <CheckCircle2 size={12} /> : <ShieldCheck size={12} />}
+          {verificationLabel}
         </span>
       </div>
+      <span className="route-capture"><CaptureIcon size={13} />{captureLabels[route.captureStyle].label}</span>
       <h3>{route.name}</h3>
       <div className="route-meta">
         <span><Clock3 size={14} /> {Math.floor(route.estimatedDurationMinutes / 60)}小时{route.estimatedDurationMinutes % 60 || ""}</span>

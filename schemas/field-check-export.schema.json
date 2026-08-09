@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://roadlens.local/schemas/field-check-export-v1.json",
+  "title": "RoadLens Field Check Export v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["exportType", "exportVersion", "catalogSchemaVersion", "exportedAt", "records"],
+  "properties": {
+    "exportType": { "const": "roadlens-field-checks" },
+    "exportVersion": { "const": "1.0.0" },
+    "catalogSchemaVersion": { "const": "2.0.0" },
+    "exportedAt": { "type": "string", "format": "date-time" },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["location", "fieldCheck"],
+        "properties": {
+          "location": {
+            "type": "object", "additionalProperties": true,
+            "required": ["id", "name", "province", "city", "type", "coordinate", "access"],
+            "properties": { "id": { "type": "string" }, "name": { "type": "string" }, "province": { "type": "string" }, "city": { "type": "string" }, "type": { "type": "string" }, "coordinate": { "type": "object" }, "access": { "type": "object" } }
+          },
+          "fieldCheck": {
+            "type": "object", "additionalProperties": false,
+            "required": ["locationId", "visitedAt", "parkingNote", "lightNote", "soundNote", "overallNote", "updatedAt"],
+            "properties": {
+              "locationId": { "type": "string" }, "visitedAt": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+              "parkingNote": { "type": "string" }, "lightNote": { "type": "string" }, "soundNote": { "type": "string" }, "overallNote": { "type": "string" }, "updatedAt": { "type": "string", "format": "date-time" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

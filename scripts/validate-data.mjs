@@ -3,12 +3,21 @@ import Ajv2020 from "ajv/dist/2020.js";
 
 const schema = JSON.parse(await readFile(new URL("../schemas/roadlens-catalog.schema.json", import.meta.url), "utf8"));
 const catalog = JSON.parse(await readFile(new URL("../data/catalog.json", import.meta.url), "utf8"));
+const davinciSchema = JSON.parse(await readFile(new URL("../schemas/davinci-workflow.schema.json", import.meta.url), "utf8"));
+const davinciWorkflow = JSON.parse(await readFile(new URL("../data/davinci-workflow.json", import.meta.url), "utf8"));
+const fieldCheckExportSchema = JSON.parse(await readFile(new URL("../schemas/field-check-export.schema.json", import.meta.url), "utf8"));
 const validate = new Ajv2020({ allErrors: true, strict: true }).compile(schema);
 const errors = [];
+const validateDavinci = new Ajv2020({ allErrors: true, strict: true }).compile(davinciSchema);
+new Ajv2020({ allErrors: true, strict: true, formats: { "date-time": true } }).compile(fieldCheckExportSchema);
 
 if (!validate(catalog)) {
   errors.push(...(validate.errors ?? []).map((error) => `${error.instancePath || "/"} ${error.message}`));
 }
+if (!validateDavinci(davinciWorkflow)) {
+  errors.push(...(validateDavinci.errors ?? []).map((error) => `davinci${error.instancePath || "/"} ${error.message}`));
+}
+if (new Set(davinciWorkflow.stages.map((stage) => stage.id)).size !== davinciWorkflow.stages.length) errors.push("davinci: duplicate stage id");
 
 function assertUnique(items, label) {
   const seen = new Set();
@@ -55,4 +64,4 @@ if (errors.length > 0) {
   process.exit(1);
 }
 
-console.log(`Catalog v${catalog.schemaVersion} valid: ${catalog.locations.length} locations, ${catalog.routes.length} routes, ${catalog.cameraPresets.length} presets, ${catalog.shootPlans.length} plan.`);
+console.log(`Catalog v${catalog.schemaVersion} valid: ${catalog.locations.length} locations, ${catalog.routes.length} routes, ${catalog.cameraPresets.length} presets, ${catalog.shootPlans.length} plan; DaVinci workflow ${davinciWorkflow.stages.length} stages.`);
