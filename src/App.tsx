@@ -29,6 +29,7 @@ export function App() {
   const [locationStatus, setLocationStatus] = useState<LocationDetectionStatus>("idle");
   const [locationMessage, setLocationMessage] = useState("");
   const [routeLinkMessage, setRouteLinkMessage] = useState("");
+  const [sharedRouteUnavailable, setSharedRouteUnavailable] = useState(false);
   const handleDrivingSummary = useCallback((summary: DrivingSummary) => setDrivingSummary(summary), []);
   const locateCurrentCity = useCallback(async () => {
     setLocationStatus("locating");
@@ -47,16 +48,20 @@ export function App() {
     const hasRouteParameter = new URL(window.location.href).searchParams.has("route");
     const routeId = parseSharedRouteId(window.location.href);
     if (!routeId) {
+      setSharedRouteUnavailable(false);
       if (hasRouteParameter) setRouteLinkMessage("分享链接格式无效，可继续浏览其他路线");
       void locateCurrentCity();
       return;
     }
     const target = resolvedRoutes.find((item) => item.route.id === routeId);
     if (!target) {
-      setRouteLinkMessage("分享链接中的路线已不存在，可继续浏览其他路线");
+      setSharedRouteUnavailable(true);
+      usePlannerStore.getState().closeDetail();
+      setRouteLinkMessage("分享路线尚未包含在当前版本，请刷新或等待最新版本发布");
       void locateCurrentCity();
       return;
     }
+    setSharedRouteUnavailable(false);
     const store = usePlannerStore.getState();
     store.setMode("all");
     store.setCaptureStyle("all");
@@ -87,7 +92,7 @@ export function App() {
 
   const nearbyLocations = useMemo(() => currentRegion ? catalog.locations.filter((location) => location.province === currentRegion.province && location.city === currentRegion.city) : [], [currentRegion]);
 
-  const selected = routes.find((item) => item.route.id === state.selectedRouteId) ?? routes[0];
+  const selected = sharedRouteUnavailable ? undefined : routes.find((item) => item.route.id === state.selectedRouteId) ?? routes[0];
 
   return (
     <div className="app-shell">
