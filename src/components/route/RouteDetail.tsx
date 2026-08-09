@@ -1,7 +1,8 @@
-import { CalendarPlus, Camera, Check, ChevronRight, Clock3, CloudSun, Footprints, Navigation, ShieldCheck, Trees, X } from "lucide-react";
+import { CalendarPlus, Camera, Check, ChevronRight, Clock3, CloudSun, Copy, Footprints, Navigation, Share2, ShieldCheck, Trees, X } from "lucide-react";
 import { useEffect, useState, type FormEvent } from "react";
 import type { DrivingSummary, ResolvedRoute } from "../../types/domain.js";
 import { usePlannerStore } from "../../app/store.js";
+import { createRouteShareUrl } from "../../services/routeShareService.js";
 
 const timeLabels: Record<string, string> = { sunrise: "日出", morning: "上午", "golden-hour": "黄金时刻", sunset: "日落", "blue-hour": "蓝调时刻", night: "夜间" };
 const weatherLabels: Record<string, string> = { sunny: "晴朗", cloudy: "多云", "after-rain": "雨后", fog: "薄雾", rain: "雨天" };
@@ -20,6 +21,7 @@ export function RouteDetail({ selected, drivingSummary }: { selected: ResolvedRo
   const setView = usePlannerStore((state) => state.setView);
   const planned = usePlannerStore((state) => state.plans.some((plan) => plan.routeId === selected.route.id));
   const [dialogOpen, setDialogOpen] = useState(false);
+  const [shareStatus, setShareStatus] = useState<"idle" | "shared" | "copied" | "error">("idle");
   const tomorrow = new Date(Date.now() + 86400000).toISOString().slice(0, 10);
   const [scheduledDate, setScheduledDate] = useState(tomorrow);
   const [objective, setObjective] = useState(`完成「${selected.route.name}」拍摄素材`);
@@ -30,6 +32,7 @@ export function RouteDetail({ selected, drivingSummary }: { selected: ResolvedRo
 
   useEffect(() => {
     setDialogOpen(false);
+    setShareStatus("idle");
     setScheduledDate(tomorrow);
     setObjective(`完成「${selected.route.name}」拍摄素材`);
   }, [selected.route.id]);
@@ -38,6 +41,22 @@ export function RouteDetail({ selected, drivingSummary }: { selected: ResolvedRo
     event.preventDefault();
     addPlan({ routeId: route.id, scheduledDate, objective: objective.trim() });
     setDialogOpen(false);
+  };
+
+  const shareRoute = async () => {
+    const url = createRouteShareUrl(route.id, window.location.href);
+    try {
+      if (navigator.share) {
+        await navigator.share({ title: route.name, text: `查看这条拍摄路线：${route.name}`, url });
+        setShareStatus("shared");
+      } else {
+        await navigator.clipboard.writeText(url);
+        setShareStatus("copied");
+      }
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") return;
+      setShareStatus("error");
+    }
   };
 
   return (
@@ -99,11 +118,17 @@ export function RouteDetail({ selected, drivingSummary }: { selected: ResolvedRo
       </div>
 
       <div className="detail-action">
-        <button className={planned ? "is-planned" : ""} onClick={() => planned ? setView("plans") : setDialogOpen(true)}>
-          {planned ? <Check size={18} /> : <CalendarPlus size={18} />}
-          {planned ? "查看拍摄计划" : "加入拍摄计划"}
-        </button>
-        <small>路线仍需实地核验 · 出发前查看实时路况</small>
+        <div className="detail-action-buttons">
+          <button className={`detail-plan-button ${planned ? "is-planned" : ""}`} onClick={() => planned ? setView("plans") : setDialogOpen(true)}>
+            {planned ? <Check size={18} /> : <CalendarPlus size={18} />}
+            {planned ? "查看拍摄计划" : "加入拍摄计划"}
+          </button>
+          <button className="detail-share-button" onClick={() => void shareRoute()} aria-label={`分享路线：${route.name}`}>
+            {shareStatus === "copied" ? <Copy size={18} /> : <Share2 size={18} />}
+            {shareStatus === "copied" ? "已复制" : shareStatus === "shared" ? "已分享" : shareStatus === "error" ? "重试分享" : "分享路线"}
+          </button>
+        </div>
+        <small>{shareStatus === "error" ? "无法调用分享或剪贴板，请检查浏览器权限" : "路线仍需实地核验 · 出发前查看实时路况"}</small>
       </div>
 
       {dialogOpen && (

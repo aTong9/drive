@@ -139,13 +139,13 @@
       "evidence": [{ "title": "挪威 4K 官方修正版", "url": "https://www.youtube.com/watch?v=bsTY5cTi3nI" }]
     },
     {
-      "id": "actionkid", "name": "ActionKid", "region": "美国 / 全球城市", "category": "urban-walk", "channelUrl": "https://www.youtube.com/@ActionKid",
-      "positioning": "从纽约日常街区延伸到交通、节庆和城市现场，以高频更新记录正在发生的城市。",
-      "representative": { "title": "Top 10 ActionKid NYC Walks", "url": "https://www.youtube.com/watch?v=p7XBIjZ9GWg", "observedPerformance": "公开资料显示频道长期覆盖纽约步行、骑行、交通、节庆与城市活动。" },
-      "whyItWorks": ["普通街区与节庆、游行、天气事件并行，兼顾常青搜索和当下关注。", "熟悉纽约交通和街区连接方式，使路线选择比单纯地标打卡更有现场价值。", "高频持续记录让频道形成城市变化档案，长期观众会为熟悉地点再次回来。"],
-      "patterns": ["常青街区路线与城市事件穿插发布", "提前研究交通节点和步行连接", "用日期、活动和街区名称标注现场性"],
-      "caution": "活动现场的人群、音乐和安保限制更复杂；直播或高频发布也不能跳过隐私与版权检查。",
-      "evidence": [{ "title": "纽约步行合集", "url": "https://www.youtube.com/watch?v=p7XBIjZ9GWg" }]
+      "id": "actionkid", "name": "ActionKid / Kenneth Chin", "region": "美国及全球城市 / 实时步行、交通体验与连续城市观察", "category": "urban-walk", "channelUrl": "https://www.youtube.com/@ActionKid",
+      "positioning": "以纽约为长期基地并扩展到全球城市，通过连续 POV 步行、公共交通、骑行、驾车和直播记录真实街道状态；路线会随节庆、天气、重新开放、观众请求和城市事件变化，因此庞大的地点档案同时具有沉浸观看与当期城市观察价值。",
+      "representative": { "title": "Driving from Miami to Key West – One of America’s Best Road Trips", "url": "https://www.youtube.com/watch?v=3aR5VdlC9nM", "observedPerformance": "截至 2026 年 7 月公开统计约为 45.1 万订阅、2.02 亿累计播放和约 6010 支视频；Miami 至 Key West 驾车约 210 万播放，多伦多市中心步行约 124 万播放，节庆和纽约直播也形成高峰。" },
+      "whyItWorks": ["高频发布把街道、天气、交通和活动保留为可检索的时间切片，观众既能沉浸观看，也能在出行前查看接近当期的真实城市状态。", "步行、地铁、骑行和驾车视角围绕同一城市互相补足，稳定 POV 和环境声保持空间连续，交通转换本身又制造自然章节。", "城市名、道路、活动和时间写进标题，搜索意图清楚；节庆、封控、重开和极端天气提供即时流量，庞大常规路线库则持续贡献长尾。"],
+      "patterns": ["用明确城市道路与日期定义路线", "保留真实等待转乘和街道变化", "在事件热点和常规街区间维持更新", "以稳定画面和环境声保持空间连续"],
+      "caution": "直播和高频街拍仍须遵守隐私、未成年人、活动安保、交通、商场与音乐版权边界；步行时不因读评论进入车道，驾车中设备必须出发前固定且驾驶者不操作。可借鉴路线时效与多交通视角，不复制其直播、影片、标题、地图、人物互动或具体路线。",
+      "evidence": [{ "title": "ActionKid 官方 YouTube 频道", "url": "https://www.youtube.com/@ActionKid" }, { "title": "ActionKid 公开频道规模与代表视频表现", "url": "https://vidiq.com/youtube-stats/channel/%40actionkid/" }, { "title": "ActionKid 公开统计与官方频道简介交叉核验", "url": "https://socialcounts.org/youtube-channel-analytics/UCBkcw8h7epT_bK0QzuY2Bmg" }, { "title": "ActionKid POV 创作定位", "url": "https://www.patreon.com/actionkid/about" }]
     },
     {
       "id": "walk-east", "name": "Walk East", "region": "中国", "category": "urban-walk", "channelUrl": "https://www.youtube.com/c/WalkEast",
@@ -749,6 +749,33 @@
       "patterns": ["用地图和量化目标定义远征边界", "保留车辆与路线问题的真实解决过程", "把边境补给和休整纳入故事", "每阶段复盘预算风险和下一段准备"],
       "caution": "这是建立在长期经验、合规车辆、维修能力、通信、保险和跨境准备上的专业远征，不是进入沙滩、保护区、封闭道路或无许可越野的依据；在中国须逐段核验驾照、车辆、道路、边境与拍摄规定。可借鉴量化旅程和问题解决结构，不复制其影片、课程、书籍、地图、品牌或具体路线。",
       "evidence": [{ "title": "The Road Chose Me 官方频道与环球驾驶经历", "url": "https://www.youtube.com/@TheRoadChoseMe" }, { "title": "The Road Chose Me 公开频道规模", "url": "https://socialblade.com/youtube/handle/theroadchoseme" }, { "title": "频道经历与公开统计交叉核验", "url": "https://open.subsub.io/channels/theroadchoseme/view" }, { "title": "Dan Grec 的国际自驾教学定位", "url": "https://www.patreon.com/theroadchoseme" }]
+    },
+    {
+      "id": "wanna-walk", "name": "Wanna Walk", "region": "欧洲、拉丁美洲与全球城市 / 美学化沉浸步行", "category": "urban-walk", "channelUrl": "https://www.youtube.com/@WannaWalk",
+      "positioning": "以第一人称 4K UHD 连续步行记录城市中心、历史街区、市场与海滨，从画面稳定、自然环境声和路线选择中建立接近亲临现场的体验，并用相对少量但高完成度的地点长片获得强搜索长尾。",
+      "representative": { "title": "Palermo, Sicily — Italy Walking Tour 4K", "url": "https://www.youtube.com/@WannaWalk/videos", "observedPerformance": "截至 2026 年 7 月公开统计约为 33.5 万订阅、7360 万累计播放和 168 支视频；平均每支约 43.8 万播放，Palermo 4K 步行约 353 万播放，Mexico City 路线约 517 万播放。" },
+      "whyItWorks": ["城市名、国家、walking tour 和 4K 规格直接覆盖目的地搜索，标题不需要额外剧情也能清楚承诺观看内容。", "历史建筑、街道人群、市场和转角揭示以连续步速自然排序，稳定第一人称让观众形成方向感，同时保留城市的生活密度。", "视频数量相对克制但单条覆盖完整路线，高质量热门目的地长期累积搜索播放，平均播放远高于许多高频目录型频道。"],
+      "patterns": ["选择视觉密度高且可连续步行的街区", "开场迅速交代城市与现场氛围", "用稳定步速保留转角和空间连接", "标题统一地点、国家、步行与画质规格"],
+      "caution": "美学化步行仍不能把居民、摊主、儿童或私人空间当作无条件素材；市场、宗教场所、室内商业空间和现场音乐需单独处理许可与版权，雨夜或拥挤路线不边走边调设备。可借鉴高完成度和搜索标题，不复制其影片、路线、缩略图、声音或调色。",
+      "evidence": [{ "title": "Wanna Walk 官方 YouTube 频道", "url": "https://www.youtube.com/@WannaWalk" }, { "title": "Wanna Walk 公开频道规模与平均播放", "url": "https://socialcounts.org/youtube-channel-analytics/UCs9MJ-TmN0-CLY2eNBHAltw" }, { "title": "Wanna Walk 频道统计交叉核验", "url": "https://socialblade.com/youtube/handle/wannawalk" }, { "title": "Wanna Walk 代表视频公开表现", "url": "https://vidiq.com/es/youtube-stats/channel/UCs9MJ-TmN0-CLY2eNBHAltw/" }]
+    },
+    {
+      "id": "4k-urban-life", "name": "4K Urban Life", "region": "欧洲、北美与全球城市 / 专业制作的长时城市步行与环境展示", "category": "urban-walk", "channelUrl": "https://www.youtube.com/@4kUrbanLife",
+      "positioning": "由专业城市与自然影像制作团队以 4K 长时步行覆盖欧洲、北美和其他目的地，强调真实街道、建筑、滨水区、季节与公共生活，并通过稳定制作规格、系列编号和可授权素材体系把 YouTube 城市漫游连接到更完整的影像生产流程。",
+      "representative": { "title": "4K Copenhagen, Denmark - City Walking Tour - Traveling Around Europe - Part 1", "url": "https://www.youtube.com/watch?v=AQqPG14QjJM", "observedPerformance": "截至 2026 年 6 月公开统计约为 36 万订阅、7935 万累计播放和 701 支视频；Copenhagen Part 1 约 85.8 万播放，Barcelona Episode 1 约 61.7 万播放。" },
+      "whyItWorks": ["城市名、国家、4K、walking tour 与系列编号构成稳定包装，既覆盖目的地搜索，也提示观众同城还有连续可看的路线。", "专业摄影、剪辑和调色让长时步行在曝光、稳定性与色彩上保持一致，建筑、公共空间和日常人流因此适合电视大屏及背景观看。", "同一城市拆成多个区段和季节，热门目的地能形成播放列表深度；部分素材进入正式授权库，又让制作投入拥有 YouTube 之外的复用价值。"],
+      "patterns": ["按城市与区段建立连续系列", "统一分辨率稳定和色彩交付", "保留建筑公共生活与真实环境声", "为素材建立来源授权与可复用元数据"],
+      "caution": "专业画质和素材授权不消除现场隐私、未成年人、商业空间、演出音乐和历史建筑许可义务；在中国拍摄还需遵守街区、活动和无人机规定。可借鉴系列化与交付一致性，不复制或转售其影片、素材、调色、音乐、标题、缩略图或具体路线。",
+      "evidence": [{ "title": "4K Urban Life 官方 YouTube 频道", "url": "https://www.youtube.com/@4kUrbanLife" }, { "title": "4K Urban Life 公开频道规模与代表视频表现", "url": "https://vidiq.com/youtube-stats/channel/%404kurbanlife/" }, { "title": "Copenhagen 代表步行片与制作信息", "url": "https://proartinc.net/shop/4k-cityscapes-videos/4k-urban-video/ecopenhagen-denmark-1/" }, { "title": "Copenhagen 官方代表视频", "url": "https://www.youtube.com/watch?v=AQqPG14QjJM" }]
+    },
+    {
+      "id": "shawn-willsey-geology", "name": "Shawn Willsey: Geology Explained", "region": "美国 / 西部火山、地震、路边露头与全球现场地质", "category": "guided-walk", "channelUrl": "https://www.youtube.com/@shawnwillsey",
+      "positioning": "由地质学教授、专业地质师和地质旅行作者 Shawn Willsey 在火山、断层、峡谷与路边露头现场，把地图、岩石证据、地貌过程和最新事件组织成同行式讲解；观众不是被动听课，而是跟随镜头一起观察并验证地球故事。",
+      "representative": { "title": "Field-based geology from the western United States and beyond", "url": "https://www.youtube.com/@shawnwillsey/videos", "observedPerformance": "截至 2026 年 7 月公开统计约为 18.6 万订阅、3880 万累计播放和 819 支视频；频道以持续更新的野外地质、火山事件、地图解析和短课形成可搜索资料库。" },
+      "whyItWorks": ["教授与专业地质师身份提供知识可信度，但讲解始终锚定镜头中可见的岩层、地形和地图，抽象过程因此能被观众现场验证。", "火山喷发、地震和地貌变化提供明确问题与时效入口，长期野外系列又把热点观众导向更完整的基础知识资料库。", "以 fellow learners 的同行口吻保留观察、推断与不确定性，既降低专业门槛，也让观众拥有共同解谜而非被单向授课的参与感。"],
+      "patterns": ["先提出一个可在现场验证的地质问题", "用广景定位再切岩石和地层细节", "把地图剖面与眼前地貌来回对应", "明确区分观察推断与尚未确定的信息"],
+      "caution": "地质讲解不能成为进入封闭火山、热泉、崖壁、矿区、保护区或不安全路肩的理由；现场判断须服从景区、自然保护和灾害预警，涉及活跃地热与地震事件应引用主管机构。可借鉴证据链与同行探索结构，不复制其课程、书籍、影片、地图绘图、标题、缩略图或具体讲稿。",
+      "evidence": [{ "title": "Shawn Willsey 官方经历与野外地质定位", "url": "https://www.willseygeology.com/about-me" }, { "title": "Shawn Willsey 官方 YouTube 频道", "url": "https://www.youtube.com/@shawnwillsey" }, { "title": "Shawn Willsey 公开频道规模与内容说明", "url": "https://socialcounts.org/youtube-live-subscriber-count/UCB1t-8MBhxyDVabeUcTj0Zw" }]
     }
   ]
 }

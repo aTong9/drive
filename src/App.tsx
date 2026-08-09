@@ -9,6 +9,7 @@ import { usePlannerStore } from "./app/store.js";
 import { catalog, resolvedRoutes } from "./services/catalogService.js";
 import { davinciWorkflow } from "./services/workflowService.js";
 import { detectCurrentRegion, type CurrentRegion, type LocationDetectionStatus } from "./services/currentCityService.js";
+import { parseSharedRouteId } from "./services/routeShareService.js";
 
 const DashboardView = lazy(() => import("./components/dashboard/DashboardView.js").then((module) => ({ default: module.DashboardView })));
 const PlanView = lazy(() => import("./components/plan/PlanView.js").then((module) => ({ default: module.PlanView })));
@@ -27,6 +28,7 @@ export function App() {
   const [currentRegion, setCurrentRegion] = useState<CurrentRegion | null>(null);
   const [locationStatus, setLocationStatus] = useState<LocationDetectionStatus>("idle");
   const [locationMessage, setLocationMessage] = useState("");
+  const [routeLinkMessage, setRouteLinkMessage] = useState("");
   const handleDrivingSummary = useCallback((summary: DrivingSummary) => setDrivingSummary(summary), []);
   const locateCurrentCity = useCallback(async () => {
     setLocationStatus("locating");
@@ -41,7 +43,36 @@ export function App() {
       setLocationMessage(denied ? "定位权限未开启，可手动重试" : error instanceof Error ? error.message : "定位失败");
     }
   }, []);
-  useEffect(() => { void locateCurrentCity(); }, [locateCurrentCity]);
+  useEffect(() => {
+    const hasRouteParameter = new URL(window.location.href).searchParams.has("route");
+    const routeId = parseSharedRouteId(window.location.href);
+    if (!routeId) {
+      if (hasRouteParameter) setRouteLinkMessage("分享链接格式无效，可继续浏览其他路线");
+      void locateCurrentCity();
+      return;
+    }
+    const target = resolvedRoutes.find((item) => item.route.id === routeId);
+    if (!target) {
+      setRouteLinkMessage("分享链接中的路线已不存在，可继续浏览其他路线");
+      void locateCurrentCity();
+      return;
+    }
+    const store = usePlannerStore.getState();
+    store.setMode("all");
+    store.setCaptureStyle("all");
+    store.setMaxDurationMinutes(Math.max(store.maxDurationMinutes, target.route.estimatedDurationMinutes));
+    store.setQuery("");
+    store.selectRoute(routeId);
+    setCurrentRegion(null);
+    setLocationStatus("idle");
+    setRouteLinkMessage(`已打开分享路线：${target.route.name}`);
+  }, [locateCurrentCity]);
+
+  useEffect(() => {
+    if (!routeLinkMessage) return;
+    const timeout = window.setTimeout(() => setRouteLinkMessage(""), 5000);
+    return () => window.clearTimeout(timeout);
+  }, [routeLinkMessage]);
   const routes = useMemo(() => resolvedRoutes.filter((item) => {
     const query = state.query.trim().toLowerCase();
     const matchesMode = state.mode === "all" || item.route.modes.includes(state.mode);
@@ -86,6 +117,8 @@ export function App() {
           </main>
         ) : state.view === "plans" ? <PlanView routes={resolvedRoutes} /> : state.view === "locations" ? <LocationView locations={catalog.locations} routes={resolvedRoutes} catalogSchemaVersion={catalog.schemaVersion} /> : state.view === "cameras" ? <CameraView presets={catalog.cameraPresets} routes={resolvedRoutes} /> : state.view === "post" ? <PostWorkflowView workflow={davinciWorkflow} routes={resolvedRoutes} /> : <CreatorView />}
       </Suspense>
+
+      {routeLinkMessage && <div className="route-link-notice" role="status" aria-live="polite">{routeLinkMessage}</div>}
 
       <nav className="mobile-nav" aria-label="移动端导航">
         <button className={state.view === "dashboard" ? "active" : ""} onClick={() => state.setView("dashboard")}><BarChart3 size={19} /><span>资产</span></button>
