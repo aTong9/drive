@@ -4,6 +4,7 @@ import type { DrivingSummary, ResolvedRoute } from "../../types/domain.js";
 import { usePlannerStore } from "../../app/store.js";
 import { createAmapNavigationUrl, createRouteShareUrl } from "../../services/routeShareService.js";
 import { GeoPhotoThumbnail } from "../common/GeoPhotoThumbnail.js";
+import { CityWeather } from "../common/CityWeather.js";
 
 const timeLabels: Record<string, string> = { sunrise: "日出", morning: "上午", "golden-hour": "黄金时刻", sunset: "日落", "blue-hour": "蓝调时刻", night: "夜间" };
 const weatherLabels: Record<string, string> = { sunny: "晴朗", cloudy: "多云", "after-rain": "雨后", fog: "薄雾", rain: "雨天" };
@@ -91,6 +92,8 @@ export function RouteDetail({ selected, drivingSummary }: { selected: ResolvedRo
           <div>{drivingSummary?.status === "access-only" ? <Trees size={16} /> : <Navigation size={16} />}<span><small>{drivingSummary?.status === "access-only" ? accessOnlyLabel : "高德实时驾车规划"}</small><strong>{drivingSummary?.status === "access-only" ? accessOnlyMessage : drivingSummary?.status === "ready" ? `${(drivingSummary.distanceMeters / 1000).toFixed(1)} 公里 · ${formatDrivingTime(drivingSummary.durationSeconds)}` : drivingSummary?.status === "error" ? drivingSummary.message : "正在计算道路与通行时间…"}</strong></span></div>
           {drivingSummary?.status === "ready" && <small>{drivingSummary.tollsYuan > 0 ? `预计收费 ¥${drivingSummary.tollsYuan}` : "预计无收费"}{drivingSummary.hasRestriction ? " · 存在无法规避的限行路段" : " · 已规避限行"}</small>}
         </section>
+
+        <CityWeather cities={route.cities} compact />
 
         <section className="detail-section">
           <div className="section-title"><div><p>ITINERARY</p><h3>{driveOnly ? "连续驾车行程" : "拍摄行程"}</h3></div><span>{waypoints.length} {driveOnly ? "WAYPOINTS" : "STOPS"}</span></div>

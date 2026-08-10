@@ -5,6 +5,7 @@ import { usePlannerStore } from "../../app/store.js";
 import { downloadFieldChecks, importFieldChecks as readFieldChecks } from "../../services/fieldCheckExport.js";
 import { administrativeDivisionCount, administrativeGroups, divisionLabel, findProvince, provinceLabel, provincesForGroup, type AdministrativeGroupId } from "../../services/regionService.js";
 import { GeoPhotoThumbnail } from "../common/GeoPhotoThumbnail.js";
+import { CityWeather } from "../common/CityWeather.js";
 
 const typeLabels: Record<Location["type"], string> = {
   coast: "海岸",
@@ -158,6 +159,7 @@ export function LocationView({ locations, routes, catalogSchemaVersion }: { loca
               })}
             </>}
           </div>
+          {region.city && <CityWeather cities={[region.city]} />}
         </section>
         <div className="library-switch" role="tablist" aria-label="浏览内容"><button role="tab" aria-selected={browseMode === "locations"} onClick={() => setBrowseMode("locations")}><MapPin size={16} /><span>地点</span><small>{filtered.length} 个可用地点</small></button><button role="tab" aria-selected={browseMode === "routes"} onClick={() => setBrowseMode("routes")}><Navigation size={16} /><span>路线</span><small>{filteredRoutes.length} 条完整流程</small></button></div>
         <label className="location-search"><Search size={17} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder={browseMode === "locations" ? "搜索地点或城市" : "搜索路线、途经点或城市"} /></label>
@@ -185,6 +187,7 @@ export function LocationView({ locations, routes, catalogSchemaVersion }: { loca
             <span><CloudSun size={17} /><small>最佳时段</small><strong>{selected.shooting.bestTimes.map((item) => timeLabels[item]).join(" · ")}</strong></span>
             <span><Camera size={17} /><small>拍摄方式</small><strong>{selected.shooting.modes.map((item) => item.replaceAll("-", " ")).join(" · ")}</strong></span>
           </div>
+          <CityWeather cities={[selected.city]} compact />
           <section><p className="eyebrow">ACCESS</p><h3>到达方式</h3><p>{selected.access.note}</p></section>
           <section><p className="eyebrow">SHOOTING NOTE</p><h3>拍摄建议</h3><p>{selected.shooting.advice}</p></section>
           <section><p className="eyebrow">SOUND ENVIRONMENT</p><h3>声音环境</h3><div className="sound-environment"><div><AudioLines size={17} /><span><small>主要声景</small><strong>{selected.soundEnvironment.character.map((item) => soundLabels[item]).join(" · ")}</strong></span></div><dl><div><dt>噪声风险</dt><dd>{riskLabels[selected.soundEnvironment.noiseRisk]}</dd></div><div><dt>人流风险</dt><dd>{riskLabels[selected.soundEnvironment.crowdRisk]}</dd></div></dl><p>{selected.soundEnvironment.weatherSensitivity}</p><strong>{selected.soundEnvironment.recordingAdvice}</strong></div></section>

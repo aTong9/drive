@@ -231,6 +231,42 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--orange); ou
 .driving-result.access-only { border-color: rgba(168,189,120,.2); background: linear-gradient(105deg, rgba(150,177,90,.09), rgba(28,32,27,.8)); }
 .driving-result.access-only > div > svg { color: #a8bd78; }
 @keyframes route-pulse { 50% { opacity: .25; transform: scale(.65); } }
+.city-weather { padding: 13px; margin-top: 12px; border: 1px solid rgba(93,145,163,.2); border-radius: 10px; background: linear-gradient(135deg, rgba(61,111,132,.11), rgba(27,32,28,.88) 62%); }
+.city-weather > header { display: flex; align-items: center; gap: 12px; }
+.city-weather > header > div:first-child { min-width: 84px; }
+.city-weather header p { margin: 0 0 3px; color: #75aebc; font-size: 5px; font-weight: 700; letter-spacing: .16em; }
+.city-weather header h3 { margin: 0; font-family: Georgia, "Songti SC", serif; font-size: 14px; font-weight: 500; }
+.city-weather header > small { margin-left: auto; color: #68766f; font-size: 5px; white-space: nowrap; }
+.weather-city-tabs { display: flex; gap: 4px; overflow-x: auto; }
+.weather-city-tabs button { padding: 4px 7px; border: 1px solid var(--line); border-radius: 10px; background: transparent; color: #77827a; font-size: 6px; cursor: pointer; }
+.weather-city-tabs button.active { border-color: rgba(117,174,188,.35); background: rgba(117,174,188,.1); color: #9bc7d1; }
+.weather-loading, .weather-error { display: flex; align-items: center; gap: 7px; min-height: 52px; color: #748179; font-size: 7px; }
+.weather-loading i { width: 10px; height: 10px; border: 1px solid rgba(117,174,188,.22); border-top-color: #75aebc; border-radius: 50%; animation: map-spin .75s linear infinite; }
+.weather-error { color: #9c7767; }
+.weather-content { margin-top: 11px; }
+.weather-now { display: grid; grid-template-columns: 34px 68px minmax(0,1fr); align-items: center; gap: 8px; }
+.weather-now-icon { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 9px; color: #e6bd77; background: rgba(230,189,119,.09); }
+.weather-now > div { display: flex; flex-direction: column; }
+.weather-now > div strong { font-family: Georgia, serif; font-size: 24px; font-weight: 500; line-height: 1; }
+.weather-now > div span { margin-top: 3px; color: #a4aea7; font-size: 7px; }
+.weather-now dl { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 0; }
+.weather-now dl > div { padding: 7px; border-radius: 7px; background: rgba(255,255,255,.025); }
+.weather-now dt { display: flex; align-items: center; gap: 4px; color: #64726b; font-size: 5px; }
+.weather-now dd { margin: 3px 0 0; color: #aab3ac; font-size: 6px; }
+.weather-forecast { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; margin-top: 10px; }
+.weather-forecast article { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 3px 6px; min-width: 0; padding: 7px; border: 1px solid rgba(255,255,255,.045); border-radius: 7px; background: rgba(13,18,15,.22); }
+.weather-forecast article > span { color: #7d8b84; font-size: 6px; }
+.weather-forecast article > svg { color: #d8b77d; }
+.weather-forecast article strong { color: #d1d7d1; font-size: 7px; font-weight: 500; white-space: nowrap; }
+.weather-forecast article small { overflow: hidden; color: #65736c; font-size: 5px; white-space: nowrap; text-overflow: ellipsis; }
+.weather-shoot-note { display: flex; align-items: flex-start; gap: 6px; margin: 10px 0 0; color: #637069; font-size: 6px; line-height: 1.45; }
+.weather-shoot-note svg { flex: 0 0 auto; color: #8aa8a9; }
+.city-weather.is-compact { padding: 10px; }
+.city-weather.is-compact .weather-forecast { grid-template-columns: repeat(2, 1fr); }
+.city-weather.is-compact .weather-forecast article:nth-child(n+3) { display: none; }
+.city-weather.is-compact .weather-now { grid-template-columns: 30px 62px minmax(0,1fr); }
+.city-weather.is-compact .weather-now-icon { width: 30px; height: 30px; }
+.city-weather.is-compact .weather-now > div strong { font-size: 20px; }
 .detail-section { margin-top: 23px; }
 .section-title { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 11px; }
 .section-title p { margin-bottom: 3px; color: #a7af9f; font-size: 6px; }
