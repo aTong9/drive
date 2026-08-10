@@ -1322,6 +1322,70 @@
       "verification": { "status": "source-checked", "sources": [{ "title": "深圳市高速公路收费站明细：沿江高速（深圳市交通运输局）", "url": "https://jtys.sz.gov.cn/zwgk/ztzl/ggqsydw/jt/gsgl/ywxx/sfz/content/post_11933111.html", "accessedAt": "2026-08-10", "supports": ["existence", "access"] }, { "title": "深圳国际会展中心交通信息", "url": "https://www.shenzhen-world.com/overview/traffic/index.html", "accessedAt": "2026-08-10", "supports": ["address", "access", "shooting-value"] }, { "title": "国际会展中心收费站公开地图坐标（Mapcarta / OpenStreetMap）", "url": "https://mapcarta.com/W785748665", "accessedAt": "2026-08-10", "supports": ["coordinate"] }] }
     },
     {
+      "id": "gd-hz-drive-huizhou-avenue-jiangbei", "name": "惠州大道江北中心段驾车锚点", "province": "广东", "city": "惠州", "type": "city-night",
+      "coordinate": { "lat": 23.112172, "lng": 114.416721, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为惠州大道江北中心区公共道路锚点，不进入市民公园、会展中心、机关、商场、落客区或停车场；主辅路和路口方向由高德实时规划。" },
+      "shooting": { "bestTimes": ["blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定设备自动记录江北楼群、道路灯光与城市中轴，不停车、不下车，不为建筑或灯光降速、绕圈和补拍。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "晚高峰、会展活动、施工、暴雨和积水影响通行", "recordingAdvice": "车窗关闭自动录音，驾驶者全程不触碰设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "惠州大道江北中心区道路锚点（高德地图）", "url": "https://www.amap.com/search?query=%E6%83%A0%E5%B7%9E%E5%A4%A7%E9%81%93%E6%B1%9F%E5%8C%97&city=441300", "accessedAt": "2026-08-10", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "gd-hz-drive-dongjiang-bridge", "name": "东江大桥合江楼段驾车锚点", "province": "广东", "city": "惠州", "type": "city-night",
+      "coordinate": { "lat": 23.087511, "lng": 114.414706, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为东江大桥与合江楼附近公共道路锚点，不进入滨江公园、古建筑、码头、步道或停车区域；桥面及连接道路以高德和现场标志为准。" },
+      "shooting": { "bestTimes": ["blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "自动记录东江水面反光、桥梁与老城灯光；桥上不停车、不下车，不因夜景减速、变道或观看取景屏。" },
+      "soundEnvironment": { "character": ["traffic", "urban", "water"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "桥面横风、雨雾、积水和节庆交通组织影响画面", "recordingAdvice": "使用车内自动收音，桥面通行中不调整麦克风或相机。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "惠州东江大桥与合江楼道路锚点（高德地图）", "url": "https://www.amap.com/search?query=%E4%B8%9C%E6%B1%9F%E5%A4%A7%E6%A1%A5%E5%90%88%E6%B1%9F%E6%A5%BC&city=441300", "accessedAt": "2026-08-10", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "gd-hz-drive-huizhou-avenue-shuikou", "name": "惠州大道水口城市段驾车锚点", "province": "广东", "city": "惠州", "type": "city-night",
+      "coordinate": { "lat": 23.103672, "lng": 114.491893, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为惠州大道水口片区公共道路东端锚点，不进入社区、工业园、商场、加油站、落客区或停车场；实际掉头与连接方向由高德生成。" },
+      "shooting": { "bestTimes": ["blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定设备连续记录惠城向水口的楼群、车流、立交和道路纵深；不停车、不下车，不为招牌、列车或灯光反复经过。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "通勤车流、货车、施工、暴雨与低能见度影响通行", "recordingAdvice": "关闭车窗自动收音，驾驶者不操作录制设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "惠州大道水口段道路锚点（高德地图）", "url": "https://www.amap.com/search?query=%E6%83%A0%E5%B7%9E%E5%A4%A7%E9%81%93%E6%B0%B4%E5%8F%A3&city=441300", "accessedAt": "2026-08-10", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "gd-hz-drive-yanda-henan-bank", "name": "演达大道河南岸段驾车锚点", "province": "广东", "city": "惠州", "type": "city-night",
+      "coordinate": { "lat": 23.054286, "lng": 114.409462, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为演达大道河南岸片区公共道路锚点，不进入汽车站、社区、商场、学校、落客区或停车场；路口转向与主辅路由高德实时规划。" },
+      "shooting": { "bestTimes": ["blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定设备自动记录演达大道车流、连续商业界面与南部城市灯光；不停车、不下车，不为招牌或楼群降速和绕行。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "商圈车流、公交进出、施工、暴雨和积水影响路线", "recordingAdvice": "车窗关闭自动录音，出发后不操作设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "演达大道河南岸段道路锚点（高德地图）", "url": "https://www.amap.com/search?query=%E6%BC%94%E8%BE%BE%E5%A4%A7%E9%81%93%E6%B2%B3%E5%8D%97%E5%B2%B8&city=441300", "accessedAt": "2026-08-10", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "gd-hz-drive-jinshan-avenue", "name": "金山大道金山湖段驾车锚点", "province": "广东", "city": "惠州", "type": "city-night",
+      "coordinate": { "lat": 23.038914, "lng": 114.416837, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为金山大道金山湖片区公共道路锚点，不进入金山湖公园、住宅、学校、商业内部道路、落客区或停车场；实际连接道路由高德生成。" },
+      "shooting": { "bestTimes": ["blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "自动记录金山大道开阔路面、湖区外围楼群、桥梁与南部新城灯光；不停车、不下车，不驶入公园或支路补拍。" },
+      "soundEnvironment": { "character": ["traffic", "urban", "mixed"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "桥面横风、晚高峰、活动、施工和雨雾影响画面", "recordingAdvice": "采用车内自动收音，驾驶中不触碰相机或麦克风。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "金山大道金山湖段道路锚点（高德地图）", "url": "https://www.amap.com/search?query=%E9%87%91%E5%B1%B1%E5%A4%A7%E9%81%93%E9%87%91%E5%B1%B1%E6%B9%96&city=441300", "accessedAt": "2026-08-10", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "gd-hz-drive-dayabay-aotou", "name": "大亚湾澳头滨海大道驾车锚点", "province": "广东", "city": "惠州", "type": "city-night",
+      "coordinate": { "lat": 22.721846, "lng": 114.541327, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为澳头滨海大道公共道路锚点，不进入码头、港区、渔港、滨海公园、市场、落客区或停车场；道路方向与港区管制由高德和现场标志确定。" },
+      "shooting": { "bestTimes": ["blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "固定设备自动记录澳头港城灯光、海湾反光和滨海道路界面；不停车、不下车，不为船舶、海面或灯光降速和靠边。" },
+      "soundEnvironment": { "character": ["traffic", "urban", "mixed"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "港区货车、海风、雨雾、活动与临时交通组织影响路线", "recordingAdvice": "关闭车窗自动收音，行驶中不调整设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "大亚湾澳头滨海大道道路锚点（高德地图）", "url": "https://www.amap.com/search?query=%E5%A4%A7%E4%BA%9A%E6%B9%BE%E6%BE%B3%E5%A4%B4%E6%BB%A8%E6%B5%B7%E5%A4%A7%E9%81%93&city=441300", "accessedAt": "2026-08-10", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "gd-hz-drive-dayabay-central", "name": "大亚湾大道中心区驾车锚点", "province": "广东", "city": "惠州", "type": "city-night",
+      "coordinate": { "lat": 22.753428, "lng": 114.499284, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为大亚湾大道中心区公共道路锚点，不进入行政办公、商场、住宅、学校、汽车站、落客区或停车场；主辅路和路口连接由高德生成。" },
+      "shooting": { "bestTimes": ["blue-hour", "night"], "bestWeather": ["sunny", "cloudy", "after-rain"], "modes": ["driving-video"], "advice": "连续记录中心区楼群、道路照明和产业新城界面；不停车、不下车，不驶入商业或住宅内部道路补拍。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "通勤高峰、道路施工、公交车流、暴雨与积水影响通行", "recordingAdvice": "车内自动收音，驾驶者全程不触碰相机。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "大亚湾大道中心区道路锚点（高德地图）", "url": "https://www.amap.com/search?query=%E5%A4%A7%E4%BA%9A%E6%B9%BE%E5%A4%A7%E9%81%93%E4%B8%AD%E5%BF%83%E5%8C%BA&city=441300", "accessedAt": "2026-08-10", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
+      "id": "gd-hz-drive-dayabay-xiachong", "name": "石化大道霞涌城市段驾车锚点", "province": "广东", "city": "惠州", "type": "city-night",
+      "coordinate": { "lat": 22.799214, "lng": 114.645183, "crs": "GCJ-02" },
+      "access": { "mode": "drive", "note": "仅作为石化大道霞涌片区公共道路锚点，不进入海滩、景区、石化园、工厂、港区、社区、落客区或停车场；货运道路和管制以现场标志为准。" },
+      "shooting": { "bestTimes": ["blue-hour", "night"], "bestWeather": ["sunny", "cloudy"], "modes": ["driving-video"], "advice": "自动记录石化大道长轴、山海背景与产业灯光的城市外围转场；不停车、不下车，不拍摄受限制的厂区内部和设施细节。" },
+      "soundEnvironment": { "character": ["traffic", "urban"], "noiseRisk": "high", "crowdRisk": "low", "weatherSensitivity": "大型货车、海风、工业交通组织、暴雨和低能见度影响安全", "recordingAdvice": "车窗关闭自动录音，禁止在货运道路行驶中操作设备。" },
+      "verification": { "status": "source-checked", "sources": [{ "title": "石化大道霞涌段道路锚点（高德地图）", "url": "https://www.amap.com/search?query=%E7%9F%B3%E5%8C%96%E5%A4%A7%E9%81%93%E9%9C%9E%E6%B6%8C&city=441300", "accessedAt": "2026-08-10", "supports": ["existence", "address", "coordinate", "access", "shooting-value"] }] }
+    },
+    {
       "id": "gd-sz-talent-park",
       "name": "深圳人才公园",
       "province": "广东",
@@ -3475,6 +3539,36 @@
       "shootAdvice": "这是一条不停车、不下车的纯驾车路线。从 S3 广深沿江高速前海收费站段进入现状开放主线，向北连续行驶至国展中心收费站段，记录前海湾、港区高架、珠江口开阔天空、机场西侧、产业岸线与会展新城的长距离转场；两个锚点只约束沿江高速深圳段走廊，真实入口、主线、出口、距离、预计时间和收费由 AMap.Driving 当次生成。不进入前海公园、港区、机场、码头、展馆、地铁公交接驳、物流轮候区、落客区和停车场，不使用正在施工或尚未开放的前海下沉改造道路、临时便道或深中通道匝道。沿江高速为收费高速且沿线无服务区，出发前完成加油、如厕、设备固定、供电和自动录制；驾驶者不看屏、不操作、不为海面、飞机、桥梁、港机、楼群或日落降速、变道、靠边、掉头和补拍。收费站排队、展会散场、货运高峰、前海段施工、强侧风、暴雨、积水、雷电或低能见度时取消或服从导航改线。",
       "scores": { "visual": 5, "road": 5, "parking": 5, "safety": 3, "youtubePotential": 5 }, "status": "idea",
       "verification": { "status": "source-checked", "note": "深圳市交通运输局现状高速清单确认 S3 广深沿江高速深圳段设前海、西乡南、大铲湾、西乡北、福海和国展中心 6 个收费站，且无服务区；深圳国际会展中心官方交通页确认展馆紧邻沿江高速并可由国展中心、福海收费站到达。前海与国展中心公开地图 WGS84 坐标已按项目转换函数统一为 GCJ-02，仅作为收费站道路走廊锚点。路线不包含停车和步行；实时开放入口、前海段施工绕行、主线、出口、距离、预计时间、收费与管制须由高德及现场标志核验。" }
+    },
+    {
+      "id": "gd-hz-drive-only-huicheng-dongjiang-night", "name": "惠州江北—东江大桥—水口城市夜驾路线", "province": "广东", "cities": ["惠州"], "type": "city-night", "captureStyle": "scenic-drive", "executionMode": "drive-only",
+      "modes": ["night"], "estimatedDurationMinutes": 90,
+      "waypointLocationIds": ["gd-hz-drive-huizhou-avenue-jiangbei", "gd-hz-drive-dongjiang-bridge", "gd-hz-drive-huizhou-avenue-shuikou"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["gopro12-city-night-driving"],
+      "shootAdvice": "这是一条不停车、不下车的惠州城市夜驾路线。从惠州大道江北中心段出发，经东江大桥与合江楼附近公共道路向水口城市段连续行驶，记录江北楼群、东江水面、桥梁、老城灯光和东部城市界面的转场；三个锚点只约束公共道路走廊，真实主辅路、桥梁、路口、距离和预计时间由 AMap.Driving 当次生成。不进入市民公园、会展中心、滨江公园、合江楼、码头、步道、社区、工业园、商场、落客区和停车场。设备出发前固定、供电并自动录制，驾驶者不看屏、不操作、不为桥梁、江景、楼群或灯光降速、变道、靠边、掉头和补拍。若高德预计单程超过 120 分钟，或遇晚高峰、活动管制、桥面横风、暴雨、积水和低能见度，取消或服从导航改线。",
+      "scores": { "visual": 5, "road": 4, "parking": 5, "safety": 4, "youtubePotential": 5 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "江北、东江大桥和水口三个高德 GCJ-02 坐标只作为惠州公共道路锚点，不作为停车或步行目的地。路线不包含景区、公园、古建筑或停车点；实时主辅路、桥梁、路口、距离、预计时间、施工和交通管制须由高德及现场标志核验，若预计单程超过 2 小时则不执行。" }
+    },
+    {
+      "id": "gd-hz-drive-only-henan-jinshan-jiangbei-night", "name": "惠州河南岸—金山湖—江北城市夜驾路线", "province": "广东", "cities": ["惠州"], "type": "city-night", "captureStyle": "scenic-drive", "executionMode": "drive-only",
+      "modes": ["night"], "estimatedDurationMinutes": 75,
+      "waypointLocationIds": ["gd-hz-drive-yanda-henan-bank", "gd-hz-drive-jinshan-avenue", "gd-hz-drive-huizhou-avenue-jiangbei"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["blue-hour", "night"], "weather": ["sunny", "cloudy", "after-rain"] },
+      "cameraPresetIds": ["gopro12-city-night-driving"],
+      "shootAdvice": "这是一条不停车、不下车的惠州城市夜驾路线。从演达大道河南岸段出发，经金山大道金山湖外围公共道路向惠州大道江北中心段连续行驶，记录南部商业界面、金山湖外围新城、桥梁、东江两岸和江北楼群的南北转场；三个锚点只约束公共道路走廊，真实主辅路、桥梁、路口、距离和预计时间由 AMap.Driving 当次生成。不进入汽车站、金山湖公园、住宅、学校、商场、会展中心、市民公园、机关、落客区和停车场。设备出发前固定、供电并自动录制，驾驶者不看屏、不操作、不为湖面、桥梁、楼群或灯光降速、变道、靠边、掉头和补拍。若高德预计单程超过 120 分钟，或遇晚高峰、活动散场、桥面横风、施工、暴雨、积水和低能见度，取消或服从导航改线。",
+      "scores": { "visual": 5, "road": 4, "parking": 5, "safety": 4, "youtubePotential": 5 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "河南岸、金山大道和江北三个高德 GCJ-02 坐标只作为惠州公共道路锚点，不作为停车或步行目的地。路线明确排除公园、场馆、学校、商场和停车区域；实时主辅路、桥梁、距离、预计时间、拥堵、施工和管制由高德及现场标志核验，若预计单程超过 2 小时则不执行。" }
+    },
+    {
+      "id": "gd-hz-drive-only-dayabay-city-night", "name": "惠州大亚湾澳头—中心区—霞涌滨海城市夜驾路线", "province": "广东", "cities": ["惠州"], "type": "city-night", "captureStyle": "scenic-drive", "executionMode": "drive-only",
+      "modes": ["night"], "estimatedDurationMinutes": 105,
+      "waypointLocationIds": ["gd-hz-drive-dayabay-aotou", "gd-hz-drive-dayabay-central", "gd-hz-drive-dayabay-xiachong"],
+      "best": { "seasons": ["spring", "autumn", "winter"], "times": ["blue-hour", "night"], "weather": ["sunny", "cloudy"] },
+      "cameraPresetIds": ["gopro12-city-night-driving"],
+      "shootAdvice": "这是一条不停车、不下车的大亚湾城市夜驾路线。从澳头滨海大道公共道路出发，经大亚湾大道中心区向石化大道霞涌城市段连续行驶，记录港城海湾、中心区楼群、长距离城市道路、山体轮廓和产业灯光的滨海转场；三个锚点只约束公共道路走廊，真实主辅路、桥梁、路口、距离和预计时间由 AMap.Driving 当次生成。不进入码头、港区、渔港、滨海公园、海滩、景区、石化园、工厂、社区、商场、落客区和停车场，不拍摄受限制的厂区内部或设施细节。设备出发前固定、供电并自动录制，驾驶者不看屏、不操作、不为海面、船舶、楼群、山景或灯光降速、变道、靠边、掉头和补拍。若高德预计单程超过 120 分钟，或遇港区货运高峰、工业交通管制、大型货车密集、强侧风、暴雨、积水和低能见度，取消或服从导航改线。",
+      "scores": { "visual": 5, "road": 5, "parking": 5, "safety": 3, "youtubePotential": 5 }, "status": "idea",
+      "verification": { "status": "source-checked", "note": "澳头滨海大道、大亚湾大道和石化大道霞涌段三个高德 GCJ-02 坐标只作为公共道路走廊锚点，不作为停车或步行目的地。路线明确排除码头、港区、海滩、景区、石化园和停车区域；实时主辅路、货运交通、管制、距离与预计时间须由高德及现场标志核验，若预计单程超过 2 小时则不执行。" }
     },
     {
       "id": "gd-sz-luohu-diwang-dongmen-rain-walk", "name": "罗湖地王大厦至东门老街雨后霓虹步行路线", "province": "广东", "cities": ["深圳"], "type": "city-night", "captureStyle": "rain-walk",
