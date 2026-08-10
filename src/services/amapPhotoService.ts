@@ -1,8 +1,8 @@
 import type { Location } from "../types/domain.js";
 import { hasAmapCredentials, loadAmap } from "./amapLoader.js";
 
-const memoryCache = new Map<string, Promise<string | null>>();
-const CACHE_PREFIX = "roadlens-amap-photo:";
+const memoryCache = new Map<string, Promise<string[]>>();
+const CACHE_PREFIX = "roadlens-amap-photo-v2:";
 
 interface AmapPhoto { url?: string }
 interface AmapPoi {
@@ -18,6 +18,8 @@ function normalizeName(value: string) {
 function nameMatches(expected: string, actual: string) {
   const left = normalizeName(expected);
   const right = normalizeName(actual);
+  if (right.endsWith("站") && !left.endsWith("站")) return false;
+  if (right.includes("地铁站") && !left.includes("地铁站")) return false;
   const probe = left.length > 8 ? left.slice(0, Math.max(4, Math.floor(left.length * .55))) : left;
   return Boolean(probe) && (right.includes(probe) || left.includes(right));
 }
@@ -34,12 +36,12 @@ function readCached(locationId: string) {
   catch { return null; }
 }
 
-function writeCached(locationId: string, url: string) {
-  try { window.sessionStorage.setItem(`${CACHE_PREFIX}${locationId}`, url); }
+function writeCached(locationId: string, urls: string[]) {
+  try { window.sessionStorage.setItem(`${CACHE_PREFIX}${locationId}`, JSON.stringify(urls)); }
   catch { /* Private browsing or quota limits should not block thumbnails. */ }
 }
 
-async function findWikimediaPhoto(location: Location): Promise<string | null> {
+async function findWikimediaPhotos(location: Location): Promise<string[]> {
   try {
     const params = new URLSearchParams({
       action: "query",
@@ -53,44 +55,49 @@ async function findWikimediaPhoto(location: Location): Promise<string | null> {
       origin: "*"
     });
     const response = await fetch(`https://zh.wikipedia.org/w/api.php?${params}`);
-    if (!response.ok) return null;
+    if (!response.ok) return [];
     const data = await response.json() as { query?: { pages?: Record<string, { title?: string; thumbnail?: { source?: string } }> } };
     const pages = Object.values(data.query?.pages ?? {});
-    return pages.find((page) => page.title && page.thumbnail?.source && nameMatches(location.name, page.title))?.thumbnail?.source ?? null;
-  } catch { return null; }
+    return pages.filter((page) => page.title && page.thumbnail?.source && nameMatches(location.name, page.title)).map((page) => page.thumbnail!.source!).slice(0, 6);
+  } catch { return []; }
 }
 
-export function findAmapLocationPhoto(location: Location): Promise<string | null> {
-  if (!hasAmapCredentials() || typeof window === "undefined") return Promise.resolve(null);
+export function findAmapLocationPhotos(location: Location): Promise<string[]> {
+  if (typeof window === "undefined") return Promise.resolve([]);
   const cached = readCached(location.id);
-  if (cached) return Promise.resolve(cached);
+  if (cached) {
+    try { return Promise.resolve(JSON.parse(cached) as string[]); }
+    catch { return Promise.resolve([cached]); }
+  }
   const pending = memoryCache.get(location.id);
   if (pending) return pending;
 
-  const request = loadAmap().then((AMapApi) => new Promise<string | null>((resolve) => {
+  const amapRequest = hasAmapCredentials() ? loadAmap().then((AMapApi) => new Promise<string[]>((resolve) => {
     const PlaceSearch = (AMapApi as unknown as { PlaceSearch?: new (options: Record<string, unknown>) => {
       searchNearBy: (keyword: string, center: [number, number], radius: number, callback: (status: string, result: unknown) => void) => void;
     } }).PlaceSearch;
-    if (!PlaceSearch) { resolve(null); return; }
+    if (!PlaceSearch) { resolve([]); return; }
     const search = new PlaceSearch({ pageSize: 8, pageIndex: 1, extensions: "all", city: location.city, citylimit: true });
     search.searchNearBy(location.name, [location.coordinate.lng, location.coordinate.lat], 1500, (status, rawResult) => {
-      if (status !== "complete" || typeof rawResult !== "object" || !rawResult) { resolve(null); return; }
+      if (status !== "complete" || typeof rawResult !== "object" || !rawResult) { resolve([]); return; }
       const result = rawResult as { poiList?: { pois?: AmapPoi[] } };
       const candidates = result.poiList?.pois ?? [];
-      const match = candidates
+      const matches = candidates
         .filter((poi) => poi.name && nameMatches(location.name, poi.name) && distanceMeters(location, poi) <= 1500)
-        .sort((a, b) => distanceMeters(location, a) - distanceMeters(location, b))
-        .find((poi) => poi.photos?.some((photo) => photo.url));
-      const rawUrl = match?.photos?.find((photo) => photo.url)?.url;
-      const url = rawUrl ? rawUrl.replace(/^http:/, "https:") : null;
-      if (url) writeCached(location.id, url);
-      resolve(url);
+        .sort((a, b) => distanceMeters(location, a) - distanceMeters(location, b));
+      resolve(matches.flatMap((poi) => poi.photos ?? []).map((photo) => photo.url?.replace(/^http:/, "https:")).filter((url): url is string => Boolean(url)).slice(0, 8));
     });
-  })).catch(() => null).then(async (url) => {
-    const resolved = url ?? await findWikimediaPhoto(location);
-    if (resolved) writeCached(location.id, resolved);
-    return resolved;
+  })).catch(() => []) : Promise.resolve([]);
+  const request = amapRequest.then(async (amapUrls) => {
+    const wikiUrls = await findWikimediaPhotos(location);
+    const urls = [...new Set([...amapUrls, ...wikiUrls])].slice(0, 8);
+    if (urls.length) writeCached(location.id, urls);
+    return urls;
   });
   memoryCache.set(location.id, request);
   return request;
+}
+
+export async function findAmapLocationPhoto(location: Location): Promise<string | null> {
+  return (await findAmapLocationPhotos(location))[0] ?? null;
 }
