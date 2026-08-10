@@ -5,6 +5,7 @@ import { importGpx, wgs84ToGcj02 } from "../../services/gpxImport.js";
 import { usePlannerStore } from "../../app/store.js";
 import type { DrivingSummary, Location, ResolvedRoute } from "../../types/domain.js";
 import { hasAmapCredentials, loadAmap } from "../../services/amapLoader.js";
+import { findAmapLocationPhoto } from "../../services/amapPhotoService.js";
 
 interface MapCanvasProps {
   selected: ResolvedRoute | undefined;
@@ -26,6 +27,15 @@ function createMarkerContent(index: number, point: Location) {
   const thumbnail = document.createElement("span");
   thumbnail.className = `amap-marker-thumbnail type-${point.type}`;
   thumbnail.setAttribute("aria-hidden", "true");
+  void findAmapLocationPhoto(point).then((url) => {
+    if (!url) return;
+    const image = document.createElement("img");
+    image.src = url;
+    image.alt = "";
+    image.referrerPolicy = "no-referrer";
+    image.addEventListener("error", () => image.remove(), { once: true });
+    thumbnail.append(image);
+  });
 
   const label = document.createElement("span");
   label.className = "amap-route-label";

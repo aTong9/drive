@@ -1,7 +1,7 @@
 import { CarFront, CheckCircle2, Clock3, Footprints, MapPin, ShieldCheck, Trees } from "lucide-react";
 import type { Location, Route } from "../../types/domain.js";
 import { usePlannerStore } from "../../app/store.js";
-import { GeoThumbnail } from "../common/GeoThumbnail.js";
+import { GeoPhotoThumbnail } from "../common/GeoPhotoThumbnail.js";
 
 interface RouteCardProps {
   route: Route;
@@ -34,7 +34,7 @@ export function RouteCard({ route, waypoints, active, onSelect }: RouteCardProps
   const verificationLabel = fieldChecked ? "全程实地核验" : captured ? "已完成拍摄" : route.verification.status === "field-checked" ? "实地核验" : "来源核验";
   return (
     <button className={`route-card style-${route.captureStyle} ${active ? "is-active" : ""}`} onClick={onSelect} aria-pressed={active}>
-      <GeoThumbnail id={route.id} label={route.name} type={route.type} points={waypoints} />
+      <GeoPhotoThumbnail id={route.id} label={route.name} type={route.type} points={waypoints} />
       <div className="route-card-topline">
         <span className="route-kind">{routeLabels[route.type]}</span>
         <span className={`verification ${fieldChecked || captured || route.verification.status === "field-checked" ? "is-field" : ""}`}>

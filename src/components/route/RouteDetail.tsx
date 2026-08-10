@@ -3,7 +3,7 @@ import { useEffect, useState, type FormEvent } from "react";
 import type { DrivingSummary, ResolvedRoute } from "../../types/domain.js";
 import { usePlannerStore } from "../../app/store.js";
 import { createAmapNavigationUrl, createRouteShareUrl } from "../../services/routeShareService.js";
-import { GeoThumbnail } from "../common/GeoThumbnail.js";
+import { GeoPhotoThumbnail } from "../common/GeoPhotoThumbnail.js";
 
 const timeLabels: Record<string, string> = { sunrise: "日出", morning: "上午", "golden-hour": "黄金时刻", sunset: "日落", "blue-hour": "蓝调时刻", night: "夜间" };
 const weatherLabels: Record<string, string> = { sunny: "晴朗", cloudy: "多云", "after-rain": "雨后", fog: "薄雾", rain: "雨天" };
@@ -66,7 +66,7 @@ export function RouteDetail({ selected, drivingSummary }: { selected: ResolvedRo
   return (
     <aside className="detail-panel">
       <div className="detail-hero">
-        <GeoThumbnail id={route.id} label={route.name} type={route.type} points={waypoints} variant="hero" />
+        <GeoPhotoThumbnail id={route.id} label={route.name} type={route.type} points={waypoints} variant="hero" />
         <button className="detail-close" onClick={closeDetail} aria-label="关闭详情"><X size={18} /></button>
         <div className="detail-hero-glow" />
         <div className="detail-hero-copy">

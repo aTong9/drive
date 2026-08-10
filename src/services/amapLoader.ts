@@ -15,7 +15,7 @@ export function loadAmap(): Promise<typeof AMap> {
   amapPromise ??= AMapLoader.load({
     key: __AMAP_KEY__,
     version: "2.0",
-    plugins: ["AMap.Driving", "AMap.Geocoder"]
+    plugins: ["AMap.Driving", "AMap.Geocoder", "AMap.PlaceSearch"]
   });
 
   return amapPromise;

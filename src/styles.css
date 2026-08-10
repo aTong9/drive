@@ -117,7 +117,7 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--orange); ou
 .route-card.style-rain-walk.is-active { border-color: rgba(105,169,178,.48); background: linear-gradient(135deg, rgba(71,145,157,.08), #1b1e1a 52%); box-shadow: inset 2px 0 #69a9b2; }
 .route-card.style-stationary-nature.is-active { border-color: rgba(168,189,120,.48); background: linear-gradient(135deg, rgba(150,177,90,.08), #1b1e1a 52%); box-shadow: inset 2px 0 #a8bd78; }
 .route-card-topline { display: flex; align-items: center; justify-content: space-between; }
-.route-card > .geo-thumbnail { margin: 0 -4px 10px; }
+.route-card > .geo-photo-host { margin: 0 -4px 10px; }
 .route-kind { color: #aeb5a8; font-size: 8px; font-weight: 700; letter-spacing: .12em; }
 .verification { display: flex; align-items: center; gap: 3px; padding: 3px 6px; border-radius: 9px; color: #a7b58a; background: rgba(183,206,120,.08); font-size: 7px; }
 .route-capture { display: inline-flex; align-items: center; gap: 4px; padding: 4px 7px; margin-top: 9px; border-radius: 5px; background: rgba(239,108,53,.08); color: #dc825c; font-size: 7px; font-weight: 650; }
@@ -146,6 +146,7 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--orange); ou
 .amap-marker-thumbnail { position: relative; z-index: 2; width: 34px; height: 34px; margin-left: -5px; overflow: hidden; border: 2px solid #1b201a; border-radius: 7px; background: linear-gradient(155deg, #52616d, #182026 58%, #0f1514); }
 .amap-marker-thumbnail::before { content: ""; position: absolute; left: -7px; right: -7px; bottom: -6px; height: 22px; background: #263b2d; transform: rotate(-8deg); }
 .amap-marker-thumbnail::after { content: ""; position: absolute; width: 11px; height: 11px; right: 5px; top: 5px; border-radius: 50%; background: #efb064; box-shadow: 0 0 12px rgba(239,176,100,.5); }
+.amap-marker-thumbnail img { position: absolute; z-index: 3; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .amap-marker-thumbnail.type-coast, .amap-marker-thumbnail.type-river, .amap-marker-thumbnail.type-lake { background: linear-gradient(155deg, #35536a, #193f4e 58%, #122829); }
 .amap-marker-thumbnail.type-city-night, .amap-marker-thumbnail.type-landmark { background: linear-gradient(155deg, #463e5c, #202331 58%, #11151b); }
 .amap-marker-thumbnail.type-forest, .amap-marker-thumbnail.type-waterfall, .amap-marker-thumbnail.type-stream, .amap-marker-thumbnail.type-mountain { background: linear-gradient(155deg, #405548, #183127 58%, #101a16); }
@@ -379,7 +380,7 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--orange); ou
 .capture-library-filters .drive-only-library-filter.active { border-color: #eeb24a; background: rgba(238,178,74,.1); box-shadow: inset 0 -2px #eeb24a; }
 .library-route-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 11px; max-width: 900px; margin: 0 auto; }
 .library-route-card { display: flex; min-height: 390px; flex-direction: column; padding: 17px; border: 1px solid var(--line); border-top: 2px solid #ef8355; border-radius: 12px; background: linear-gradient(155deg, rgba(239,108,53,.055), #1a1e19 24%); }
-.library-route-card > .geo-thumbnail { flex: 0 0 112px; margin: -9px -9px 13px; }
+.library-route-card > .geo-photo-host { flex: 0 0 112px; margin: -9px -9px 13px; }
 .library-route-card.style-rain-walk { border-top-color: #69a9b2; background: linear-gradient(155deg, rgba(71,145,157,.06), #1a1e19 24%); }
 .library-route-card.style-stationary-nature { border-top-color: #a8bd78; background: linear-gradient(155deg, rgba(150,177,90,.06), #1a1e19 24%); }
 .library-route-top { display: flex; align-items: center; justify-content: space-between; }
@@ -416,6 +417,11 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--orange); ou
 .location-detail-hero p { display: flex; align-items: center; gap: 5px; margin: 0; color: #a8afa5; font-size: 7px; }
 
 .geo-thumbnail { position: relative; height: 82px; overflow: hidden; border: 1px solid rgba(255,255,255,.07); border-radius: 9px; background: linear-gradient(155deg, #4c4b5c, #232936 45%, #111719); isolation: isolate; }
+.geo-photo-host { position: relative; min-width: 0; overflow: hidden; border-radius: 9px; }
+.geo-photo-host > .geo-thumbnail { width: 100%; }
+.geo-real-photo { position: absolute; z-index: 6; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: geo-photo-in .3s ease-out; }
+.geo-photo-credit { position: absolute; z-index: 7; right: 6px; bottom: 5px; padding: 3px 5px; border-radius: 5px; background: rgba(9,13,11,.72); color: rgba(255,255,255,.82); font-size: 5px; letter-spacing: .05em; backdrop-filter: blur(5px); }
+@keyframes geo-photo-in { from { opacity: 0; transform: scale(1.02); } }
 .geo-thumbnail svg { position: absolute; z-index: 2; inset: 0; width: 100%; height: 100%; }
 .geo-thumbnail .geo-horizon-back { fill: rgba(66,86,69,.86); }
 .geo-thumbnail .geo-horizon-front { fill: rgba(22,40,29,.96); }
@@ -432,11 +438,15 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--orange); ou
 .geo-thumbnail.type-city-night .geo-horizon-front, .geo-thumbnail.type-landmark .geo-horizon-front { fill: rgba(19,24,31,.97); }
 .geo-thumbnail.type-forest, .geo-thumbnail.type-waterfall, .geo-thumbnail.type-stream, .geo-thumbnail.type-mountain { background: linear-gradient(155deg, #4f6654, #233d30 48%, #111d17); }
 .geo-thumbnail.variant-location { width: 76px; height: 64px; border-radius: 8px; }
+.location-card > .geo-photo-host { width: 76px; height: 64px; }
 .geo-thumbnail.variant-location > small { display: none; }
 .geo-thumbnail.variant-hero { position: absolute; z-index: 0; inset: 0; width: auto; height: auto; border: 0; border-radius: 0; opacity: .68; }
 .geo-thumbnail.variant-hero::after { content: ""; position: absolute; z-index: 5; inset: 0; background: linear-gradient(180deg, rgba(12,16,13,.12), rgba(12,16,13,.82)); }
-.detail-hero > .geo-thumbnail.variant-hero { opacity: .72; }
-.location-detail-hero > .geo-thumbnail.variant-hero { opacity: .5; }
+.detail-hero > .geo-photo-host, .location-detail-hero > .geo-photo-host { position: absolute; z-index: 0; inset: 0; border-radius: 0; }
+.detail-hero > .geo-photo-host .geo-thumbnail.variant-hero { opacity: .72; }
+.location-detail-hero > .geo-photo-host .geo-thumbnail.variant-hero { opacity: .5; }
+.detail-hero > .geo-photo-host .geo-real-photo, .location-detail-hero > .geo-photo-host .geo-real-photo { opacity: .62; }
+.detail-hero > .geo-photo-host::after, .location-detail-hero > .geo-photo-host::after { content: ""; position: absolute; z-index: 7; inset: 0; background: linear-gradient(180deg, rgba(12,16,13,.08), rgba(12,16,13,.83)); pointer-events: none; }
 .location-detail-scroll { min-height: 0; flex: 1; padding: 17px 19px 35px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: #353a32 transparent; }
 .location-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
 .location-facts > span { display: grid; grid-template-columns: 27px 1fr; grid-template-rows: auto auto; padding: 9px; border: 1px solid var(--line); border-radius: 8px; background: #1d211c; }
