@@ -14,23 +14,27 @@ interface MapCanvasProps {
 
 type MapStatus = "loading" | "ready" | "error" | "missing-key";
 
-function createMarkerContent(index: number, name: string, accessMode: "drive" | "park-and-walk") {
+function createMarkerContent(index: number, point: Location) {
   const root = document.createElement("div");
   root.className = "amap-route-marker";
-  root.setAttribute("aria-label", `${index + 1}. ${name}`);
+  root.setAttribute("aria-label", `${index + 1}. ${point.name}`);
 
   const pin = document.createElement("span");
   pin.className = "amap-route-pin";
   pin.textContent = String(index + 1);
 
+  const thumbnail = document.createElement("span");
+  thumbnail.className = `amap-marker-thumbnail type-${point.type}`;
+  thumbnail.setAttribute("aria-hidden", "true");
+
   const label = document.createElement("span");
   label.className = "amap-route-label";
   const title = document.createElement("strong");
-  title.textContent = name;
+  title.textContent = point.name;
   const subtitle = document.createElement("small");
-  subtitle.textContent = accessMode === "drive" ? "驾车可达" : "停车后步行";
+  subtitle.textContent = point.access.mode === "drive" ? "驾车可达" : "停车后步行";
   label.append(title, subtitle);
-  root.append(pin, label);
+  root.append(pin, thumbnail, label);
   return root;
 }
 
@@ -100,7 +104,7 @@ export function MapCanvas({ selected, nearbyLocations, onDrivingSummary }: MapCa
     if (!selected) {
       const markers = nearbyLocations.map((point) => new AMap.Marker({
         position: [point.coordinate.lng, point.coordinate.lat],
-        content: createMarkerContent(0, point.name, point.access.mode),
+        content: createMarkerContent(0, point),
         anchor: "bottom-center",
         offset: new AMap.Pixel(0, 2),
         zIndex: 50
@@ -113,7 +117,7 @@ export function MapCanvas({ selected, nearbyLocations, onDrivingSummary }: MapCa
     const path = selected.waypoints.map((point) => [point.coordinate.lng, point.coordinate.lat] as [number, number]);
     const markers = selected.waypoints.map((point, index) => new AMap.Marker({
       position: [point.coordinate.lng, point.coordinate.lat],
-      content: createMarkerContent(index, point.name, point.access.mode),
+      content: createMarkerContent(index, point),
       anchor: "bottom-center",
       offset: new AMap.Pixel(0, 2),
       zIndex: 50 + index
