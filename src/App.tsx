@@ -1,4 +1,4 @@
-import { ArrowRight, BarChart3, CalendarDays, Camera, Clapperboard, Compass, Map as MapIcon, Menu, Music2, Search, Videotape, X } from "lucide-react";
+import { ArrowRight, BarChart3, CalendarDays, Camera, Clapperboard, Compass, FolderKanban, Map as MapIcon, Menu, Music2, Search, Videotape, X } from "lucide-react";
 import { lazy, Suspense, useCallback, useEffect, useMemo, useState } from "react";
 import type { DrivingSummary } from "./types/domain.js";
 import { Brand } from "./components/common/Brand.js";
@@ -12,6 +12,7 @@ import { detectCurrentRegion, type CurrentRegion, type LocationDetectionStatus }
 import { parseSharedRouteId } from "./services/routeShareService.js";
 
 const DashboardView = lazy(() => import("./components/dashboard/DashboardView.js").then((module) => ({ default: module.DashboardView })));
+const ProjectWorkspaceView = lazy(() => import("./components/project/ProjectWorkspaceView.js").then((module) => ({ default: module.ProjectWorkspaceView })));
 const PlanView = lazy(() => import("./components/plan/PlanView.js").then((module) => ({ default: module.PlanView })));
 const LocationView = lazy(() => import("./components/location/LocationView.js").then((module) => ({ default: module.LocationView })));
 const CameraView = lazy(() => import("./components/camera/CameraView.js").then((module) => ({ default: module.CameraView })));
@@ -111,7 +112,7 @@ export function App() {
     const query = commandQuery.trim().toLowerCase();
     return resolvedRoutes.filter((item) => !query || item.route.name.toLowerCase().includes(query) || item.route.cities.some((city) => city.includes(query))).slice(0, 7);
   }, [commandQuery]);
-  const openView = (view: "dashboard" | "explore" | "plans" | "locations" | "cameras" | "post" | "creators" | "music") => {
+  const openView = (view: "dashboard" | "projects" | "explore" | "plans" | "locations" | "cameras" | "post" | "creators" | "music") => {
     state.setView(view);
     setCommandOpen(false);
     setCommandQuery("");
@@ -123,6 +124,7 @@ export function App() {
         <Brand />
         <nav aria-label="主导航">
           <button className={state.view === "dashboard" ? "active" : ""} onClick={() => state.setView("dashboard")}><BarChart3 size={17} /> 资产</button>
+          <button className={state.view === "projects" ? "active" : ""} onClick={() => state.setView("projects")}><FolderKanban size={17} /> 视频项目 <span className="nav-count">{state.videoProjects.length}</span></button>
           <button className={state.view === "explore" ? "active" : ""} onClick={() => state.setView("explore")}><Compass size={17} /> 探索路线</button>
           <button className={state.view === "plans" ? "active" : ""} onClick={() => state.setView("plans")}><CalendarDays size={17} /> 拍摄计划 <span className="nav-count">{state.plans.length}</span></button>
           <button className={state.view === "locations" ? "active" : ""} onClick={() => state.setView("locations")}><MapIcon size={17} /> 地点库</button>
@@ -137,7 +139,7 @@ export function App() {
       </header>
 
       <Suspense fallback={<ViewLoadingState />}>
-        {state.view === "dashboard" ? <DashboardView routes={resolvedRoutes} plans={state.plans} checks={state.fieldChecks} postTasks={state.postTasks} postProject={state.postProject} /> : state.view === "explore" ? (
+        {state.view === "dashboard" ? <DashboardView routes={resolvedRoutes} plans={state.plans} checks={state.fieldChecks} postTasks={state.postTasks} postProject={state.postProject} /> : state.view === "projects" ? <ProjectWorkspaceView routes={resolvedRoutes} /> : state.view === "explore" ? (
           <main className={`workspace ${state.detailOpen && selected ? "has-detail" : ""}`}>
             <RouteList routes={routes} nearbyLocations={nearbyLocations} currentRegion={currentRegion} locationStatus={locationStatus} locationMessage={locationMessage} onLocate={locateCurrentCity} onClearLocation={() => { setCurrentRegion(null); setLocationStatus("idle"); }} />
             <MapCanvas selected={selected} nearbyLocations={nearbyLocations} onDrivingSummary={handleDrivingSummary} />
@@ -153,6 +155,7 @@ export function App() {
           <header><Search size={18} /><input autoFocus value={commandQuery} onChange={(event) => setCommandQuery(event.target.value)} placeholder="搜索路线或打开工作台…" /><button onClick={() => setCommandOpen(false)} aria-label="关闭"><X size={17} /></button></header>
           <div className="command-section"><small>工作台</small><div className="command-view-grid">
             <button onClick={() => openView("cameras")}><Camera size={16} /><span>相机参数库</span></button>
+            <button onClick={() => openView("projects")}><FolderKanban size={16} /><span>视频项目工作台</span></button>
             <button onClick={() => openView("creators")}><Videotape size={16} /><span>创作者研究</span></button>
             <button onClick={() => openView("music")}><Music2 size={16} /><span>音乐素材库</span></button>
             <button onClick={() => openView("post")}><Clapperboard size={16} /><span>达芬奇流程</span></button>
@@ -164,6 +167,7 @@ export function App() {
 
       <nav className="mobile-nav" aria-label="移动端导航">
         <button className={state.view === "dashboard" ? "active" : ""} onClick={() => state.setView("dashboard")}><BarChart3 size={19} /><span>资产</span></button>
+        <button className={state.view === "projects" ? "active" : ""} onClick={() => state.setView("projects")}><FolderKanban size={19} /><span>项目</span></button>
         <button className={state.view === "explore" ? "active" : ""} onClick={() => state.setView("explore")}><Compass size={19} /><span>探索</span></button>
         <button className={state.view === "plans" ? "active" : ""} onClick={() => state.setView("plans")}><CalendarDays size={19} /><span>计划</span></button>
         <button className={state.view === "locations" ? "active" : ""} onClick={() => state.setView("locations")}><MapIcon size={19} /><span>地点</span></button>
