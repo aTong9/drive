@@ -3,6 +3,23 @@ import { hasAmapCredentials, loadAmap } from "./amapLoader.js";
 
 const memoryCache = new Map<string, Promise<string[]>>();
 const CACHE_PREFIX = "roadlens-amap-photo-v2:";
+const MAX_CONCURRENT_PHOTO_REQUESTS = 3;
+let activePhotoRequests = 0;
+const photoRequestQueue: Array<() => void> = [];
+
+function schedulePhotoRequest<T>(request: () => Promise<T>): Promise<T> {
+  return new Promise<T>((resolve, reject) => {
+    const run = () => {
+      activePhotoRequests += 1;
+      request().then(resolve, reject).finally(() => {
+        activePhotoRequests -= 1;
+        photoRequestQueue.shift()?.();
+      });
+    };
+    if (activePhotoRequests < MAX_CONCURRENT_PHOTO_REQUESTS) run();
+    else photoRequestQueue.push(run);
+  });
+}
 
 interface AmapPhoto { url?: string }
 interface AmapPoi {
@@ -88,12 +105,12 @@ export function findAmapLocationPhotos(location: Location): Promise<string[]> {
       resolve(matches.flatMap((poi) => poi.photos ?? []).map((photo) => photo.url?.replace(/^http:/, "https:")).filter((url): url is string => Boolean(url)).slice(0, 8));
     });
   })).catch(() => []) : Promise.resolve([]);
-  const request = amapRequest.then(async (amapUrls) => {
+  const request = schedulePhotoRequest(() => amapRequest.then(async (amapUrls) => {
     const wikiUrls = await findWikimediaPhotos(location);
     const urls = [...new Set([...amapUrls, ...wikiUrls])].slice(0, 8);
     if (urls.length) writeCached(location.id, urls);
     return urls;
-  });
+  }));
   memoryCache.set(location.id, request);
   return request;
 }

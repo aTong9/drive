@@ -10,11 +10,14 @@ const regionsSchema = JSON.parse(await readFile(new URL("../schemas/regions.sche
 const regions = JSON.parse(await readFile(new URL("../data/regions.json", import.meta.url), "utf8"));
 const youtubeCreatorsSchema = JSON.parse(await readFile(new URL("../schemas/youtube-creators.schema.json", import.meta.url), "utf8"));
 const youtubeCreators = JSON.parse(await readFile(new URL("../data/youtube-creators.json", import.meta.url), "utf8"));
+const youtubeMusicSchema = JSON.parse(await readFile(new URL("../schemas/youtube-music-library.schema.json", import.meta.url), "utf8"));
+const youtubeMusic = JSON.parse(await readFile(new URL("../data/youtube-music-library.json", import.meta.url), "utf8"));
 const validate = new Ajv2020({ allErrors: true, strict: true }).compile(schema);
 const errors = [];
 const validateDavinci = new Ajv2020({ allErrors: true, strict: true }).compile(davinciSchema);
 const validateRegions = new Ajv2020({ allErrors: true, strict: true, formats: { uri: true, date: true } }).compile(regionsSchema);
 const validateYoutubeCreators = new Ajv2020({ allErrors: true, strict: true, formats: { uri: true, date: true } }).compile(youtubeCreatorsSchema);
+const validateYoutubeMusic = new Ajv2020({ allErrors: true, strict: true, formats: { uri: true, date: true } }).compile(youtubeMusicSchema);
 new Ajv2020({ allErrors: true, strict: true, formats: { "date-time": true } }).compile(fieldCheckExportSchema);
 
 if (!validate(catalog)) {
@@ -23,14 +26,34 @@ if (!validate(catalog)) {
 if (!validateDavinci(davinciWorkflow)) {
   errors.push(...(validateDavinci.errors ?? []).map((error) => `davinci${error.instancePath || "/"} ${error.message}`));
 }
+if (new Set(davinciWorkflow.gradePresets.map((preset) => preset.id)).size !== davinciWorkflow.gradePresets.length) errors.push("davinci: duplicate grade preset id");
+if (new Set(davinciWorkflow.beginnerTutorial.map((tutorial) => tutorial.id)).size !== davinciWorkflow.beginnerTutorial.length) errors.push("davinci: duplicate tutorial id");
+for (const presetId of ["daylight-natural", "sunset-warm", "night-hdr-base", "blue-hour-clean", "cinematic-road"]) {
+  if (!davinciWorkflow.gradePresets.some((preset) => preset.id === presetId)) errors.push(`davinci: missing default grade preset ${presetId}`);
+}
 if (!validateRegions(regions)) {
   errors.push(...(validateRegions.errors ?? []).map((error) => `regions${error.instancePath || "/"} ${error.message}`));
 }
 if (!validateYoutubeCreators(youtubeCreators)) {
   errors.push(...(validateYoutubeCreators.errors ?? []).map((error) => `youtubeCreators${error.instancePath || "/"} ${error.message}`));
 }
+if (!validateYoutubeMusic(youtubeMusic)) {
+  errors.push(...(validateYoutubeMusic.errors ?? []).map((error) => `youtubeMusic${error.instancePath || "/"} ${error.message}`));
+}
 if (new Set(davinciWorkflow.stages.map((stage) => stage.id)).size !== davinciWorkflow.stages.length) errors.push("davinci: duplicate stage id");
 if (new Set(youtubeCreators.creators.map((creator) => creator.id)).size !== youtubeCreators.creators.length) errors.push("youtubeCreators: duplicate creator id");
+const musicCategoryIds = new Set(youtubeMusic.categories.map((category) => category.id));
+if (musicCategoryIds.size !== youtubeMusic.categories.length) errors.push("youtubeMusic: duplicate category id");
+if (new Set(youtubeMusic.platforms.map((platform) => platform.id)).size !== youtubeMusic.platforms.length) errors.push("youtubeMusic: duplicate platform id");
+for (const platform of youtubeMusic.platforms) {
+  for (const id of platform.supportedCategoryIds) if (!musicCategoryIds.has(id)) errors.push(`youtubeMusic: ${platform.id} references unknown category ${id}`);
+  const supportsYoutube = platform.evidence.some((source) => source.supports.includes("youtube-use"));
+  const supportsContentId = platform.evidence.some((source) => source.supports.includes("content-id"));
+  if (!supportsYoutube) errors.push(`youtubeMusic: ${platform.id} has no official YouTube-use evidence`);
+  if (!supportsContentId) errors.push(`youtubeMusic: ${platform.id} has no Content ID evidence`);
+}
+for (const family of ["piano", "lofi", "jazz"]) if (!youtubeMusic.categories.some((category) => category.family === family)) errors.push(`youtubeMusic: missing ${family} category`);
+for (const scene of ["countryside", "rain", "sunrise", "city-night", "road-driving", "blue-hour", "urban"]) if (!youtubeMusic.categories.some((category) => category.scenes.includes(scene))) errors.push(`youtubeMusic: missing scene ${scene}`);
 
 const provinceNames = new Set(regions.provinces.map((province) => province.name));
 if (provinceNames.size !== regions.provinces.length) errors.push("regions: duplicate province name");
@@ -111,14 +134,22 @@ for (const plan of catalog.shootPlans) {
   }
 }
 
+const divisionCount = regions.provinces.reduce((total, province) => total + province.divisions.length, 0);
+const routeProvinceCount = new Set(catalog.routes.map((route) => route.province)).size;
+const routeCityKeys = new Set(catalog.routes.flatMap((route) => route.cities.map((city) => `${route.province}/${city}`)));
+const locationCityKeys = new Set(catalog.locations.map((location) => `${location.province}/${location.city}`));
+const routeCityCount = routeCityKeys.size;
+const locationCityCount = locationCityKeys.size;
+const minimumCoveredDivisionCount = 238;
+if (locationCityCount < minimumCoveredDivisionCount) errors.push(`locations: division coverage regressed below ${minimumCoveredDivisionCount}`);
+if (routeCityCount < minimumCoveredDivisionCount) errors.push(`routes: division coverage regressed below ${minimumCoveredDivisionCount}`);
+for (const key of locationCityKeys) if (!routeCityKeys.has(key)) errors.push(`coverage: ${key} has locations but no route`);
+for (const key of routeCityKeys) if (!locationCityKeys.has(key)) errors.push(`coverage: ${key} has routes but no location`);
+
 if (errors.length > 0) {
   console.error(`Data validation failed with ${errors.length} error(s):`);
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
 
-const divisionCount = regions.provinces.reduce((total, province) => total + province.divisions.length, 0);
-const routeProvinceCount = new Set(catalog.routes.map((route) => route.province)).size;
-const routeCityCount = new Set(catalog.routes.flatMap((route) => route.cities.map((city) => `${route.province}/${city}`))).size;
-const locationCityCount = new Set(catalog.locations.map((location) => `${location.province}/${location.city}`)).size;
-console.log(`Catalog v${catalog.schemaVersion} valid: ${catalog.locations.length} locations across ${locationCityCount} divisions, ${catalog.routes.length} routes across ${routeProvinceCount} provinces and ${routeCityCount} divisions, ${catalog.cameraPresets.length} presets, ${catalog.shootPlans.length} plan; administrative directory ${regions.provinces.length} provinces and ${divisionCount} divisions; DaVinci workflow ${davinciWorkflow.stages.length} stages; YouTube research ${youtubeCreators.creators.length} creators.`);
+console.log(`Catalog v${catalog.schemaVersion} valid: ${catalog.locations.length} locations across ${locationCityCount} divisions, ${catalog.routes.length} routes across ${routeProvinceCount} provinces and ${routeCityCount} divisions, ${catalog.cameraPresets.length} presets, ${catalog.shootPlans.length} plan; administrative directory ${regions.provinces.length} provinces and ${divisionCount} divisions; DaVinci workflow ${davinciWorkflow.stages.length} stages; YouTube research ${youtubeCreators.creators.length} creators; music library ${youtubeMusic.platforms.length} platforms and ${youtubeMusic.categories.length} directions.`);

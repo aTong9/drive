@@ -3,6 +3,7 @@ import { join } from "node:path";
 
 const assetsDirectory = new URL("../dist/assets/", import.meta.url);
 const maximumEntryBytes = 500 * 1024;
+const maximumCatalogShardBytes = 180 * 1024;
 const files = await readdir(assetsDirectory);
 const javascriptFiles = files.filter((file) => file.endsWith(".js"));
 
@@ -22,3 +23,10 @@ console.log(`Largest JavaScript asset: ${largest.file} (${formattedKiB(largest.b
 if (largest.bytes > maximumEntryBytes) {
   throw new Error(`JavaScript asset exceeds ${formattedKiB(maximumEntryBytes)} budget.`);
 }
+
+const catalogShards = assets.filter(({ file }) => /^(?:locations|routes)-\d+-/.test(file));
+const oversizedCatalogShard = catalogShards.find(({ bytes }) => bytes > maximumCatalogShardBytes);
+if (oversizedCatalogShard) {
+  throw new Error(`Catalog shard ${oversizedCatalogShard.file} exceeds ${formattedKiB(maximumCatalogShardBytes)} budget.`);
+}
+console.log(`Catalog shards: ${catalogShards.length}; per-shard budget ${formattedKiB(maximumCatalogShardBytes)}.`);

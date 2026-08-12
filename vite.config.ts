@@ -27,23 +27,22 @@ function readAmapCredentials() {
 function catalogShardPlugin(): Plugin {
   const catalogPath = resolve(process.cwd(), "data/catalog.json");
   const virtualPrefix = "\0catalog-shard:";
-  const virtualIds = [
-    `${virtualPrefix}main`,
-    ...Array.from({ length: 4 }, (_, index) => `${virtualPrefix}locations-${index}`),
-    ...Array.from({ length: 2 }, (_, index) => `${virtualPrefix}routes-${index}`)
-  ];
+  const targetLocationShardItems = 80;
+  const targetRouteShardItems = 100;
 
   function readCatalogShards() {
     const catalog = JSON.parse(readFileSync(catalogPath, "utf8")) as Record<string, unknown> & {
       locations: unknown[];
       routes: unknown[];
     };
-    const locationShardSize = Math.ceil(catalog.locations.length / 4);
-    const routeShardSize = Math.ceil(catalog.routes.length / 2);
-    const locationShards = Array.from({ length: 4 }, (_, index) =>
+    const locationShardCount = Math.max(1, Math.ceil(catalog.locations.length / targetLocationShardItems));
+    const routeShardCount = Math.max(1, Math.ceil(catalog.routes.length / targetRouteShardItems));
+    const locationShardSize = Math.ceil(catalog.locations.length / locationShardCount);
+    const routeShardSize = Math.ceil(catalog.routes.length / routeShardCount);
+    const locationShards = Array.from({ length: locationShardCount }, (_, index) =>
       catalog.locations.slice(index * locationShardSize, (index + 1) * locationShardSize)
     );
-    const routeShards = Array.from({ length: 2 }, (_, index) =>
+    const routeShards = Array.from({ length: routeShardCount }, (_, index) =>
       catalog.routes.slice(index * routeShardSize, (index + 1) * routeShardSize)
     );
     const { locations: _locations, routes: _routes, ...catalogCore } = catalog;
@@ -78,6 +77,11 @@ function catalogShardPlugin(): Plugin {
     handleHotUpdate({ file, server }) {
       if (file !== catalogPath) return;
       shards = readCatalogShards();
+      const virtualIds = [
+        `${virtualPrefix}main`,
+        ...shards.locationShards.map((_, index) => `${virtualPrefix}locations-${index}`),
+        ...shards.routeShards.map((_, index) => `${virtualPrefix}routes-${index}`)
+      ];
       for (const id of virtualIds) {
         const module = server.moduleGraph.getModuleById(id);
         if (module) server.moduleGraph.invalidateModule(module);

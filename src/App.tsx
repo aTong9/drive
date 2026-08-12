@@ -1,4 +1,4 @@
-import { BarChart3, Bell, CalendarDays, Camera, Clapperboard, Compass, Map as MapIcon, Menu, Settings2, Videotape } from "lucide-react";
+import { BarChart3, Bell, CalendarDays, Camera, Clapperboard, Compass, Map as MapIcon, Menu, Music2, Settings2, Videotape } from "lucide-react";
 import { lazy, Suspense, useCallback, useEffect, useMemo, useState } from "react";
 import type { DrivingSummary } from "./types/domain.js";
 import { Brand } from "./components/common/Brand.js";
@@ -17,6 +17,7 @@ const LocationView = lazy(() => import("./components/location/LocationView.js").
 const CameraView = lazy(() => import("./components/camera/CameraView.js").then((module) => ({ default: module.CameraView })));
 const PostWorkflowView = lazy(() => import("./components/post/PostWorkflowView.js").then((module) => ({ default: module.PostWorkflowView })));
 const CreatorView = lazy(() => import("./components/creator/CreatorView.js").then((module) => ({ default: module.CreatorView })));
+const MusicLibraryView = lazy(() => import("./components/music/MusicLibraryView.js").then((module) => ({ default: module.MusicLibraryView })));
 
 function ViewLoadingState() {
   return <main className="view-loading" role="status" aria-live="polite"><span className="view-loading-dot" />正在加载工作区…</main>;
@@ -106,6 +107,7 @@ export function App() {
           <button className={state.view === "cameras" ? "active" : ""} onClick={() => state.setView("cameras")}><Camera size={17} /> 参数库</button>
           <button className={state.view === "post" ? "active" : ""} onClick={() => state.setView("post")}><Clapperboard size={17} /> 后期流程</button>
           <button className={state.view === "creators" ? "active" : ""} onClick={() => state.setView("creators")}><Videotape size={17} /> 创作者</button>
+          <button className={state.view === "music" ? "active" : ""} onClick={() => state.setView("music")}><Music2 size={17} /> 音乐库</button>
         </nav>
         <div className="topbar-actions">
           <button className="icon-button" aria-label="通知"><Bell size={18} /><i /></button>
@@ -122,7 +124,7 @@ export function App() {
             <MapCanvas selected={selected} nearbyLocations={nearbyLocations} onDrivingSummary={handleDrivingSummary} />
             {state.detailOpen && selected && <RouteDetail selected={selected} drivingSummary={drivingSummary?.routeId === selected.route.id ? drivingSummary : null} />}
           </main>
-        ) : state.view === "plans" ? <PlanView routes={resolvedRoutes} /> : state.view === "locations" ? <LocationView locations={catalog.locations} routes={resolvedRoutes} catalogSchemaVersion={catalog.schemaVersion} /> : state.view === "cameras" ? <CameraView presets={catalog.cameraPresets} routes={resolvedRoutes} /> : state.view === "post" ? <PostWorkflowView workflow={davinciWorkflow} routes={resolvedRoutes} /> : <CreatorView />}
+        ) : state.view === "plans" ? <PlanView routes={resolvedRoutes} /> : state.view === "locations" ? <LocationView locations={catalog.locations} routes={resolvedRoutes} catalogSchemaVersion={catalog.schemaVersion} /> : state.view === "cameras" ? <CameraView presets={catalog.cameraPresets} routes={resolvedRoutes} /> : state.view === "post" ? <PostWorkflowView workflow={davinciWorkflow} routes={resolvedRoutes} /> : state.view === "creators" ? <CreatorView /> : <MusicLibraryView />}
       </Suspense>
 
       {routeLinkMessage && <div className="route-link-notice" role="status" aria-live="polite">{routeLinkMessage}</div>}
@@ -135,6 +137,7 @@ export function App() {
         <button className={state.view === "cameras" ? "active" : ""} onClick={() => state.setView("cameras")}><Camera size={19} /><span>参数</span></button>
         <button className={state.view === "post" ? "active" : ""} onClick={() => state.setView("post")}><Clapperboard size={19} /><span>后期</span></button>
         <button className={state.view === "creators" ? "active" : ""} onClick={() => state.setView("creators")}><Videotape size={19} /><span>创作者</span></button>
+        <button className={state.view === "music" ? "active" : ""} onClick={() => state.setView("music")}><Music2 size={19} /><span>音乐</span></button>
       </nav>
     </div>
   );

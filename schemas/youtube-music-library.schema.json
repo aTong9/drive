@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://roadlens.local/schemas/youtube-music-library.schema.json",
+  "title": "RoadLens YouTube music source library",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "accessedAt", "methodology", "categories", "platforms"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "accessedAt": { "type": "string", "format": "date" },
+    "methodology": { "type": "string", "minLength": 20 },
+    "categories": {
+      "type": "array",
+      "minItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "family", "name", "description", "scenes", "searchTerms", "mixingNotes"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "family": { "enum": ["piano", "lofi", "jazz"] },
+          "name": { "type": "string", "minLength": 2 },
+          "description": { "type": "string", "minLength": 12 },
+          "scenes": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "enum": ["countryside", "rain", "sunrise", "city-night", "road-driving", "blue-hour", "urban"] } },
+          "searchTerms": { "type": "array", "minItems": 2, "uniqueItems": true, "items": { "type": "string", "minLength": 2 } },
+          "mixingNotes": { "type": "string", "minLength": 12 }
+        }
+      }
+    },
+    "platforms": {
+      "type": "array",
+      "minItems": 6,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name", "kind", "importMode", "url", "catalogFit", "supportedCategoryIds", "license", "workflow", "evidence"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "name": { "type": "string", "minLength": 2 },
+          "kind": { "enum": ["youtube-native", "subscription", "freemium", "per-track"] },
+          "importMode": { "enum": ["download-import", "platform-only"] },
+          "url": { "type": "string", "format": "uri" },
+          "catalogFit": { "type": "string", "minLength": 12 },
+          "supportedCategoryIds": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string" } },
+          "license": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["youtubeUse", "cost", "attribution", "contentId", "risk", "notes"],
+            "properties": {
+              "youtubeUse": { "enum": ["allowed-with-track-terms", "allowed-with-active-license", "allowed-with-license"] },
+              "cost": { "enum": ["free", "free-or-paid", "subscription", "per-track-or-subscription"] },
+              "attribution": { "enum": ["track-dependent", "not-generally-required", "credit-or-safelist"] },
+              "contentId": { "enum": ["low", "clearlist-required", "code-or-clearlist", "track-dependent"] },
+              "risk": { "enum": ["low", "medium", "high"] },
+              "notes": { "type": "string", "minLength": 25 }
+            }
+          },
+          "workflow": { "type": "array", "minItems": 2, "items": { "type": "string", "minLength": 8 } },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["title", "url", "supports"],
+              "properties": {
+                "title": { "type": "string", "minLength": 4 },
+                "url": { "type": "string", "format": "uri" },
+                "supports": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "enum": ["youtube-use", "attribution", "content-id", "pricing", "territory"] } }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

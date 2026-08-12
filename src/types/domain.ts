@@ -123,7 +123,9 @@ export interface FieldCheck {
 
 export type DavinciStageId = "media" | "photo" | "cut" | "edit" | "fusion" | "color" | "fairlight" | "deliver";
 export interface DavinciStage { id: DavinciStageId; label: string; englishLabel: string; summary: string; output: string; tasks: string[] }
-export interface DavinciWorkflow { schemaVersion: "1.0.0"; id: string; name: string; product: string; sourceUrl: string; stages: DavinciStage[] }
+export interface DavinciGradePreset { id: string; name: string; scene: string; accent: string; intent: string; exposure: string; whiteBalance: string; contrast: string; saturation: string; nodeAdjustments: string[]; cautions: string[] }
+export interface DavinciTutorialStep { id: string; title: string; workspace: DavinciStageId; purpose: string; actions: string[]; visual: "project" | "media" | "timeline" | "color" | "audio" | "deliver"; checkpoint: string }
+export interface DavinciWorkflow { schemaVersion: "1.1.0"; id: string; name: string; product: string; sourceUrl: string; stages: DavinciStage[]; gradePresets: DavinciGradePreset[]; beginnerTutorial: DavinciTutorialStep[] }
 export interface LocalPostTask { id: string; workflowId: string; stageId: DavinciStageId; title: string; completed: boolean }
 export interface LocalPostProject { workflowId: string; planId?: string; routeId?: string; title: string; createdAt: string }
 export interface LocalGpxTrack { id: string; name: string; sourceCrs: "WGS84"; points: Array<{ lat: number; lng: number; crs: CoordinateReferenceSystem }>; importedAt: string }
