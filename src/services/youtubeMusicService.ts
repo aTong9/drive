@@ -1,6 +1,6 @@
 import data from "../../data/youtube-music-library.json" with { type: "json" };
 
-export type MusicFamily = "piano" | "lofi" | "jazz";
+export type MusicFamily = "piano" | "lofi" | "chillhop" | "jazz";
 export type MusicScene = "countryside" | "rain" | "sunrise" | "city-night" | "road-driving" | "blue-hour" | "urban";
 export type MusicRisk = "low" | "medium" | "high";
 

@@ -35,7 +35,7 @@ export interface Location {
 export interface CameraPreset {
   id: string;
   camera: string;
-  scene: "coast-sunset" | "city-night-driving" | "city-night-tripod" | "forest-stream-static";
+  scene: "coast-sunset" | "city-night-driving" | "city-night-tripod" | "forest-stream-static" | "daylight-walk" | "rain-walk" | "blue-hour-walk";
   settings: {
     resolution: string;
     fps: number;
@@ -44,8 +44,20 @@ export interface CameraPreset {
     whiteBalanceKelvin: number;
     aperture?: string;
     profile?: string;
+    codec?: string;
+    colorDepth?: string;
+    exposureCompensation?: string;
+    focus?: string;
+    stabilization?: string;
+    sharpness?: number;
+    noiseReduction?: number;
+    audio?: string;
+    filter?: string;
   };
   notes: string;
+  setup?: string[];
+  fieldChecks?: string[];
+  sourceUrl?: string;
 }
 
 export interface Route {
@@ -109,6 +121,34 @@ export interface LocalShootPlan {
   objective: string;
   status: WorkflowStatus;
   createdAt: string;
+}
+
+export type VideoProjectStatus = "planning" | "ready" | "shooting" | "ingest" | "editing" | "review" | "published";
+export type VideoChannelMode = "vision" | "ambience" | "dual";
+export interface ProjectShot {
+  id: string;
+  locationId: string;
+  title: string;
+  purpose: "establishing" | "movement" | "detail" | "sound" | "transition" | "thumbnail";
+  devicePresetId?: string;
+  targetSeconds: number;
+  completed: boolean;
+  note: string;
+}
+export interface ProjectPackItem { id: string; group: "route" | "gear" | "weather" | "safety" | "sound" | "storage"; title: string; completed: boolean }
+export interface LocalVideoProject {
+  id: string;
+  planId?: string;
+  routeId: string;
+  title: string;
+  objective: string;
+  scheduledDate: string;
+  channelMode: VideoChannelMode;
+  status: VideoProjectStatus;
+  shots: ProjectShot[];
+  packItems: ProjectPackItem[];
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface FieldCheck {

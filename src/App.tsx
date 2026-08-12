@@ -1,4 +1,4 @@
-import { BarChart3, Bell, CalendarDays, Camera, Clapperboard, Compass, Map as MapIcon, Menu, Music2, Settings2, Videotape } from "lucide-react";
+import { ArrowRight, BarChart3, CalendarDays, Camera, Clapperboard, Compass, Map as MapIcon, Menu, Music2, Search, Videotape, X } from "lucide-react";
 import { lazy, Suspense, useCallback, useEffect, useMemo, useState } from "react";
 import type { DrivingSummary } from "./types/domain.js";
 import { Brand } from "./components/common/Brand.js";
@@ -31,6 +31,8 @@ export function App() {
   const [locationMessage, setLocationMessage] = useState("");
   const [routeLinkMessage, setRouteLinkMessage] = useState("");
   const [sharedRouteUnavailable, setSharedRouteUnavailable] = useState(false);
+  const [commandOpen, setCommandOpen] = useState(false);
+  const [commandQuery, setCommandQuery] = useState("");
   const handleDrivingSummary = useCallback((summary: DrivingSummary) => setDrivingSummary(summary), []);
   const locateCurrentCity = useCallback(async () => {
     setLocationStatus("locating");
@@ -80,6 +82,17 @@ export function App() {
     const timeout = window.setTimeout(() => setRouteLinkMessage(""), 5000);
     return () => window.clearTimeout(timeout);
   }, [routeLinkMessage]);
+  useEffect(() => {
+    const handleShortcut = (event: KeyboardEvent) => {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault();
+        setCommandOpen((open) => !open);
+      }
+      if (event.key === "Escape") setCommandOpen(false);
+    };
+    window.addEventListener("keydown", handleShortcut);
+    return () => window.removeEventListener("keydown", handleShortcut);
+  }, []);
   const routes = useMemo(() => resolvedRoutes.filter((item) => {
     const query = state.query.trim().toLowerCase();
     const matchesMode = state.mode === "all" || item.route.modes.includes(state.mode);
@@ -94,6 +107,15 @@ export function App() {
   const nearbyLocations = useMemo(() => currentRegion ? catalog.locations.filter((location) => location.province === currentRegion.province && location.city === currentRegion.city) : [], [currentRegion]);
 
   const selected = sharedRouteUnavailable ? undefined : routes.find((item) => item.route.id === state.selectedRouteId) ?? routes[0];
+  const commandRoutes = useMemo(() => {
+    const query = commandQuery.trim().toLowerCase();
+    return resolvedRoutes.filter((item) => !query || item.route.name.toLowerCase().includes(query) || item.route.cities.some((city) => city.includes(query))).slice(0, 7);
+  }, [commandQuery]);
+  const openView = (view: "dashboard" | "explore" | "plans" | "locations" | "cameras" | "post" | "creators" | "music") => {
+    state.setView(view);
+    setCommandOpen(false);
+    setCommandQuery("");
+  };
 
   return (
     <div className="app-shell">
@@ -104,16 +126,13 @@ export function App() {
           <button className={state.view === "explore" ? "active" : ""} onClick={() => state.setView("explore")}><Compass size={17} /> 探索路线</button>
           <button className={state.view === "plans" ? "active" : ""} onClick={() => state.setView("plans")}><CalendarDays size={17} /> 拍摄计划 <span className="nav-count">{state.plans.length}</span></button>
           <button className={state.view === "locations" ? "active" : ""} onClick={() => state.setView("locations")}><MapIcon size={17} /> 地点库</button>
-          <button className={state.view === "cameras" ? "active" : ""} onClick={() => state.setView("cameras")}><Camera size={17} /> 参数库</button>
           <button className={state.view === "post" ? "active" : ""} onClick={() => state.setView("post")}><Clapperboard size={17} /> 后期流程</button>
-          <button className={state.view === "creators" ? "active" : ""} onClick={() => state.setView("creators")}><Videotape size={17} /> 创作者</button>
-          <button className={state.view === "music" ? "active" : ""} onClick={() => state.setView("music")}><Music2 size={17} /> 音乐库</button>
+          <button className={["cameras", "creators", "music"].includes(state.view) ? "active" : ""} onClick={() => setCommandOpen(true)}><Menu size={17} /> 更多工作台</button>
         </nav>
         <div className="topbar-actions">
-          <button className="icon-button" aria-label="通知"><Bell size={18} /><i /></button>
-          <button className="icon-button" aria-label="设置"><Settings2 size={18} /></button>
+          <button className="command-trigger" onClick={() => setCommandOpen(true)} aria-label="打开快捷导航"><Search size={16} /><span>搜索与跳转</span><kbd>⌘ K</kbd></button>
           <span className="avatar">RL</span>
-          <button className="icon-button mobile-menu" aria-label="菜单"><Menu size={20} /></button>
+          <button className="icon-button mobile-menu" aria-label="打开更多功能" onClick={() => setCommandOpen(true)}><Menu size={20} /></button>
         </div>
       </header>
 
@@ -129,15 +148,26 @@ export function App() {
 
       {routeLinkMessage && <div className="route-link-notice" role="status" aria-live="polite">{routeLinkMessage}</div>}
 
+      {commandOpen && <div className="command-backdrop" onMouseDown={() => setCommandOpen(false)}>
+        <section className="command-palette" role="dialog" aria-modal="true" aria-label="快捷导航" onMouseDown={(event) => event.stopPropagation()}>
+          <header><Search size={18} /><input autoFocus value={commandQuery} onChange={(event) => setCommandQuery(event.target.value)} placeholder="搜索路线或打开工作台…" /><button onClick={() => setCommandOpen(false)} aria-label="关闭"><X size={17} /></button></header>
+          <div className="command-section"><small>工作台</small><div className="command-view-grid">
+            <button onClick={() => openView("cameras")}><Camera size={16} /><span>相机参数库</span></button>
+            <button onClick={() => openView("creators")}><Videotape size={16} /><span>创作者研究</span></button>
+            <button onClick={() => openView("music")}><Music2 size={16} /><span>音乐素材库</span></button>
+            <button onClick={() => openView("post")}><Clapperboard size={16} /><span>达芬奇流程</span></button>
+          </div></div>
+          <div className="command-section command-results"><small>路线结果 · {commandRoutes.length}</small>{commandRoutes.map((item) => <button key={item.route.id} onClick={() => { state.selectRoute(item.route.id); setCommandOpen(false); setCommandQuery(""); }}><span><strong>{item.route.name}</strong><small>{item.route.cities.join(" · ")} · {Math.round(item.route.estimatedDurationMinutes / 60)} 小时</small></span><ArrowRight size={15} /></button>)}{!commandRoutes.length && <p>没有匹配路线，试试城市名或景观关键词。</p>}</div>
+          <footer><span><kbd>⌘ K</kbd> 打开</span><span><kbd>Esc</kbd> 关闭</span><span>共 {resolvedRoutes.length} 条路线</span></footer>
+        </section>
+      </div>}
+
       <nav className="mobile-nav" aria-label="移动端导航">
         <button className={state.view === "dashboard" ? "active" : ""} onClick={() => state.setView("dashboard")}><BarChart3 size={19} /><span>资产</span></button>
         <button className={state.view === "explore" ? "active" : ""} onClick={() => state.setView("explore")}><Compass size={19} /><span>探索</span></button>
         <button className={state.view === "plans" ? "active" : ""} onClick={() => state.setView("plans")}><CalendarDays size={19} /><span>计划</span></button>
         <button className={state.view === "locations" ? "active" : ""} onClick={() => state.setView("locations")}><MapIcon size={19} /><span>地点</span></button>
-        <button className={state.view === "cameras" ? "active" : ""} onClick={() => state.setView("cameras")}><Camera size={19} /><span>参数</span></button>
-        <button className={state.view === "post" ? "active" : ""} onClick={() => state.setView("post")}><Clapperboard size={19} /><span>后期</span></button>
-        <button className={state.view === "creators" ? "active" : ""} onClick={() => state.setView("creators")}><Videotape size={19} /><span>创作者</span></button>
-        <button className={state.view === "music" ? "active" : ""} onClick={() => state.setView("music")}><Music2 size={19} /><span>音乐</span></button>
+        <button className={["cameras", "post", "creators", "music"].includes(state.view) ? "active" : ""} onClick={() => setCommandOpen(true)}><Menu size={19} /><span>更多</span></button>
       </nav>
     </div>
   );

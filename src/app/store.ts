@@ -1,8 +1,8 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import type { CaptureStyle, DavinciWorkflow, FieldCheck, LocalGpxTrack, LocalPostProject, LocalPostTask, LocalShootPlan, RouteMode, WorkflowStatus } from "../types/domain.js";
+import type { CaptureStyle, DavinciWorkflow, FieldCheck, LocalGpxTrack, LocalPostProject, LocalPostTask, LocalShootPlan, LocalVideoProject, RouteMode, VideoProjectStatus, WorkflowStatus } from "../types/domain.js";
 
-type AppView = "dashboard" | "explore" | "plans" | "locations" | "cameras" | "post" | "creators" | "music";
+type AppView = "dashboard" | "projects" | "explore" | "plans" | "locations" | "cameras" | "post" | "creators" | "music";
 
 interface PlannerState {
   view: AppView;
@@ -14,6 +14,8 @@ interface PlannerState {
   selectedRouteId: string;
   detailOpen: boolean;
   plans: LocalShootPlan[];
+  videoProjects: LocalVideoProject[];
+  activeVideoProjectId: string;
   fieldChecks: FieldCheck[];
   postTasks: LocalPostTask[];
   postProject: LocalPostProject | null;
@@ -29,6 +31,11 @@ interface PlannerState {
   addPlan: (input: Pick<LocalShootPlan, "routeId" | "scheduledDate" | "objective">) => void;
   removePlan: (planId: string) => void;
   updatePlanStatus: (planId: string, status: WorkflowStatus) => void;
+  saveVideoProject: (project: LocalVideoProject) => void;
+  selectVideoProject: (projectId: string) => void;
+  updateVideoProjectStatus: (projectId: string, status: VideoProjectStatus) => void;
+  toggleProjectShot: (projectId: string, shotId: string) => void;
+  toggleProjectPackItem: (projectId: string, itemId: string) => void;
   saveFieldCheck: (input: Omit<FieldCheck, "updatedAt">) => void;
   removeFieldCheck: (locationId: string) => void;
   importFieldChecks: (checks: FieldCheck[]) => void;
@@ -48,6 +55,8 @@ export const usePlannerStore = create<PlannerState>()(persist((set) => ({
   selectedRouteId: "gd-sz-bay-night",
   detailOpen: true,
   plans: [],
+  videoProjects: [],
+  activeVideoProjectId: "",
   fieldChecks: [],
   postTasks: [],
   postProject: null,
@@ -75,6 +84,11 @@ export const usePlannerStore = create<PlannerState>()(persist((set) => ({
   updatePlanStatus: (planId, status) => set((state) => ({
     plans: state.plans.map((plan) => plan.id === planId ? { ...plan, status } : plan)
   })),
+  saveVideoProject: (project) => set((state) => ({ videoProjects: [...state.videoProjects.filter((item) => item.id !== project.id), project], activeVideoProjectId: project.id, view: "projects" })),
+  selectVideoProject: (activeVideoProjectId) => set({ activeVideoProjectId, view: "projects" }),
+  updateVideoProjectStatus: (projectId, status) => set((state) => ({ videoProjects: state.videoProjects.map((project) => project.id === projectId ? { ...project, status, updatedAt: new Date().toISOString() } : project) })),
+  toggleProjectShot: (projectId, shotId) => set((state) => ({ videoProjects: state.videoProjects.map((project) => project.id === projectId ? { ...project, updatedAt: new Date().toISOString(), shots: project.shots.map((shot) => shot.id === shotId ? { ...shot, completed: !shot.completed } : shot) } : project) })),
+  toggleProjectPackItem: (projectId, itemId) => set((state) => ({ videoProjects: state.videoProjects.map((project) => project.id === projectId ? { ...project, updatedAt: new Date().toISOString(), packItems: project.packItems.map((item) => item.id === itemId ? { ...item, completed: !item.completed } : item) } : project) })),
   saveFieldCheck: (input) => set((state) => ({
     fieldChecks: [
       ...state.fieldChecks.filter((check) => check.locationId !== input.locationId),
@@ -89,5 +103,5 @@ export const usePlannerStore = create<PlannerState>()(persist((set) => ({
   setGpxTrack: (gpxTrack) => set({ gpxTrack })
 }), {
   name: "roadlens-planner-device-state",
-  partialize: (state) => ({ plans: state.plans, fieldChecks: state.fieldChecks, postTasks: state.postTasks, postProject: state.postProject, gpxTrack: state.gpxTrack })
+  partialize: (state) => ({ plans: state.plans, videoProjects: state.videoProjects, activeVideoProjectId: state.activeVideoProjectId, fieldChecks: state.fieldChecks, postTasks: state.postTasks, postProject: state.postProject, gpxTrack: state.gpxTrack })
 }));

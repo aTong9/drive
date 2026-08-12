@@ -1,62 +1,98 @@
-import { Aperture, Camera, CheckCircle2, ChevronRight, CircleGauge, Film, Focus, Gauge, Navigation, Search, SunMedium, ThermometerSun } from "lucide-react";
-import { useMemo, useState } from "react";
+import { Aperture, Camera, Check, ChevronRight, CircleGauge, Copy, Download, ExternalLink, Film, Focus, Gauge, Headphones, Layers3, Navigation, Search, ShieldCheck, SlidersHorizontal, Sparkles, SunMedium, ThermometerSun, Wind } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
 import type { CameraPreset, ResolvedRoute } from "../../types/domain.js";
 import { usePlannerStore } from "../../app/store.js";
 
 const sceneLabels: Record<CameraPreset["scene"], string> = {
   "coast-sunset": "海岸日落",
   "city-night-driving": "城市夜间驾驶",
-  "city-night-tripod": "城市夜景三脚架",
-  "forest-stream-static": "林间溪流定点"
+  "city-night-tripod": "城市夜景定点",
+  "forest-stream-static": "林间溪流定点",
+  "daylight-walk": "日间步行",
+  "rain-walk": "雨景步行",
+  "blue-hour-walk": "蓝调步行"
+};
+
+const routeMatchesScene = (route: ResolvedRoute, scene: CameraPreset["scene"]) => {
+  if (scene === "city-night-driving") return route.route.executionMode === "drive-only";
+  if (scene === "city-night-tripod" || scene === "blue-hour-walk") return route.route.type === "city-night" && route.route.executionMode !== "drive-only";
+  if (scene === "coast-sunset") return route.route.type === "coast";
+  if (scene === "forest-stream-static") return ["forest", "waterfall", "river", "lake"].includes(route.route.type) && route.route.executionMode !== "drive-only";
+  if (scene === "rain-walk") return route.route.captureStyle === "rain-walk";
+  return route.route.executionMode !== "drive-only";
 };
 
 export function CameraView({ presets, routes }: { presets: CameraPreset[]; routes: ResolvedRoute[] }) {
-  const cameras = ["全部设备", ...new Set(presets.map((preset) => preset.camera))];
-  const [camera, setCamera] = useState("全部设备");
+  const devices = ["全部设备", ...new Set(presets.map((preset) => preset.camera))];
+  const scenes = ["全部场景", ...new Set(presets.map((preset) => sceneLabels[preset.scene]))];
+  const [device, setDevice] = useState("全部设备");
+  const [scene, setScene] = useState("全部场景");
   const [query, setQuery] = useState("");
-  const [selectedId, setSelectedId] = useState(presets[0]?.id ?? "");
+  const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "error">("idle");
+  const [selectedId, setSelectedId] = useState(presets.find((preset) => preset.camera.includes("Pocket 3"))?.id ?? presets[0]?.id ?? "");
   const selectRoute = usePlannerStore((state) => state.selectRoute);
   const filtered = useMemo(() => presets.filter((preset) => {
     const needle = query.trim().toLowerCase();
-    return (camera === "全部设备" || preset.camera === camera) && (!needle || preset.camera.toLowerCase().includes(needle) || sceneLabels[preset.scene].includes(needle));
-  }), [camera, presets, query]);
-  const selected = presets.find((preset) => preset.id === selectedId) ?? filtered[0] ?? presets[0];
+    return (device === "全部设备" || preset.camera === device)
+      && (scene === "全部场景" || sceneLabels[preset.scene] === scene)
+      && (!needle || `${preset.camera} ${sceneLabels[preset.scene]} ${preset.notes} ${preset.settings.profile ?? ""}`.toLowerCase().includes(needle));
+  }), [device, presets, query, scene]);
+  useEffect(() => { const firstId = filtered[0]?.id; if (firstId && !filtered.some((preset) => preset.id === selectedId)) setSelectedId(firstId); }, [filtered, selectedId]);
+  const selected = filtered.find((preset) => preset.id === selectedId) ?? filtered[0] ?? presets[0];
   if (!selected) return null;
-  const relatedRoutes = routes.filter((route) => route.route.cameraPresetIds.includes(selected.id));
+  const explicitRoutes = routes.filter((route) => route.route.cameraPresetIds.includes(selected.id));
+  const relatedRoutes = (explicitRoutes.length ? explicitRoutes : routes.filter((route) => routeMatchesScene(route, selected.scene))).slice(0, 8);
+  const advancedSettings = [
+    ["编码", selected.settings.codec], ["色深", selected.settings.colorDepth], ["曝光补偿", selected.settings.exposureCompensation],
+    ["对焦", selected.settings.focus], ["稳定方式", selected.settings.stabilization], ["锐化", selected.settings.sharpness === undefined ? undefined : String(selected.settings.sharpness)],
+    ["降噪", selected.settings.noiseReduction === undefined ? undefined : String(selected.settings.noiseReduction)], ["滤镜", selected.settings.filter], ["收音", selected.settings.audio]
+  ].filter((item): item is string[] => Boolean(item[1]));
+  const parameterText = [
+    `${selected.camera}｜${sceneLabels[selected.scene]}`,
+    `${selected.settings.resolution}｜${selected.settings.fps} FPS｜${selected.settings.shutter}`,
+    `ISO ${selected.settings.iso.min}–${selected.settings.iso.max}｜WB ${selected.settings.whiteBalanceKelvin}K｜${selected.settings.aperture ?? "自动光圈"}`,
+    ...advancedSettings.map(([label, value]) => `${label}：${value}`),
+    `现场原则：${selected.notes}`
+  ].join("\n");
+  const copyParameters = async () => {
+    try { await navigator.clipboard.writeText(parameterText); setCopyStatus("copied"); window.setTimeout(() => setCopyStatus("idle"), 1600); }
+    catch { setCopyStatus("error"); }
+  };
+  const exportChecklist = () => {
+    const payload = { exportType: "roadlens-camera-playbook", exportVersion: "1.0.0", exportedAt: new Date().toISOString(), preset: selected, matchedRouteIds: relatedRoutes.map((route) => route.route.id) };
+    const url = URL.createObjectURL(new Blob([JSON.stringify(payload, null, 2)], { type: "application/json;charset=utf-8" }));
+    const anchor = document.createElement("a"); anchor.href = url; anchor.download = `${selected.id}-field-check.json`; document.body.append(anchor); anchor.click(); anchor.remove(); URL.revokeObjectURL(url);
+  };
 
-  return (
-    <main className="camera-page">
-      <section className="camera-browser">
-        <header className="camera-head"><div><p className="eyebrow">CAMERA PRESETS</p><h1>场景参数库</h1><p>不是万能参数，而是每次现场判断的可靠起点。</p></div><div className="camera-count"><strong>{presets.length}</strong><small>场景预设</small></div></header>
-        <label className="camera-search"><Search size={17} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="搜索设备或拍摄场景" /></label>
-        <div className="camera-tabs">{cameras.map((item) => <button key={item} className={camera === item ? "active" : ""} onClick={() => setCamera(item)}>{item}</button>)}</div>
-        <div className="preset-grid">
-          {filtered.map((preset) => <button key={preset.id} className={`preset-card ${selected.id === preset.id ? "active" : ""}`} onClick={() => setSelectedId(preset.id)}>
-            <div className="preset-card-top"><span><Camera size={17} /></span><small>{sceneLabels[preset.scene]}</small></div>
-            <h2>{preset.camera}</h2>
-            <p>{preset.notes}</p>
-            <div><span>{preset.settings.resolution}</span><span>{preset.settings.fps} FPS</span><span>{preset.settings.shutter}</span></div>
-          </button>)}
-        </div>
+  return <main className="camera-library-page">
+    <header className="camera-library-head"><div><p className="eyebrow">CAMERA PLAYBOOK</p><h1>相机参数库</h1><p>从设备能力出发，按场景选择参数，再用现场核验完成最后判断。</p></div><dl><div><dt>设备</dt><dd>{devices.length - 1}</dd></div><div><dt>参数方案</dt><dd>{presets.length}</dd></div><div><dt>场景覆盖</dt><dd>{scenes.length - 1}</dd></div></dl></header>
+
+    <section className="camera-library-flow" aria-label="参数使用流程"><span><b>01</b>选择设备</span><i /><span><b>02</b>匹配场景</span><i /><span><b>03</b>应用起点</span><i /><span><b>04</b>现场核验</span></section>
+
+    <section className="camera-library-toolbar">
+      <label><Search size={16} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="搜索设备、场景、色彩配置或拍摄提示" /></label>
+      <div className="camera-device-tabs">{devices.map((item) => <button key={item} className={device === item ? "active" : ""} onClick={() => setDevice(item)}>{item}</button>)}</div>
+      <div className="camera-scene-tabs">{scenes.map((item) => <button key={item} className={scene === item ? "active" : ""} onClick={() => setScene(item)}>{item}</button>)}</div>
+    </section>
+
+    <div className="camera-library-layout">
+      <section className="camera-preset-browser"><header><div><small>MATCHED PRESETS</small><h2>{device === "全部设备" ? "全部设备方案" : device}</h2></div><span>{filtered.length} 套可用</span></header>
+        <div className="camera-preset-list">{filtered.map((preset) => <button key={preset.id} className={selected.id === preset.id ? "active" : ""} onClick={() => setSelectedId(preset.id)}><span className="camera-preset-icon"><Camera size={19} /></span><div><small>{sceneLabels[preset.scene]}</small><strong>{preset.camera}</strong><p>{preset.notes}</p><footer><span>{preset.settings.resolution}</span><span>{preset.settings.fps} FPS</span><span>{preset.settings.profile ?? "标准色彩"}</span></footer></div><ChevronRight size={16} /></button>)}</div>
+        {!filtered.length && <div className="camera-empty">没有符合当前筛选条件的参数方案</div>}
       </section>
 
-      <aside className="camera-detail">
-        <div className="camera-detail-hero"><span className="camera-hero-icon"><Camera size={29} /></span><p>{sceneLabels[selected.scene]}</p><h2>{selected.camera}</h2><small>PRESET / {selected.id.toUpperCase()}</small></div>
-        <div className="camera-detail-scroll">
-          <section className="exposure-grid">
-            <div><Film size={18} /><small>分辨率</small><strong>{selected.settings.resolution}</strong></div>
-            <div><CircleGauge size={18} /><small>帧率</small><strong>{selected.settings.fps} FPS</strong></div>
-            <div><Gauge size={18} /><small>快门</small><strong>{selected.settings.shutter}</strong></div>
-            <div><Aperture size={18} /><small>光圈</small><strong>{selected.settings.aperture ?? "自动"}</strong></div>
-            <div><Focus size={18} /><small>ISO 范围</small><strong>{selected.settings.iso.min}–{selected.settings.iso.max}</strong></div>
-            <div><ThermometerSun size={18} /><small>白平衡</small><strong>{selected.settings.whiteBalanceKelvin}K</strong></div>
-          </section>
-          {selected.settings.profile && <div className="profile-bar"><SunMedium size={17} /><span><small>色彩配置</small><strong>{selected.settings.profile}</strong></span><CheckCircle2 size={15} /></div>}
-          <section className="camera-note"><p className="eyebrow">FIELD NOTES</p><h3>现场调整提示</h3><p>{selected.notes}</p></section>
-          <section><p className="eyebrow">EXPOSURE LOGIC</p><h3>参数逻辑</h3><ul><li>快门约为帧率两倍的倒数，保留自然运动模糊。</li><li>优先保护高光，再在允许范围内提升 ISO。</li><li>固定白平衡，避免连续镜头出现色温漂移。</li></ul></section>
-          <section><p className="eyebrow">RELATED ROUTES</p><h3>适用路线</h3>{relatedRoutes.length ? relatedRoutes.map((route) => <button className="camera-route" key={route.route.id} onClick={() => selectRoute(route.route.id)}><Navigation size={15} /><span>{route.route.name}<small>{route.route.cities.join(" · ")} · 约 {route.route.estimatedDurationMinutes} 分钟</small></span><ChevronRight size={15} /></button>) : <p className="camera-no-route">暂无关联路线</p>}</section>
+      <aside className="camera-playbook-detail">
+        <header><span><Camera size={24} /></span><div><small>{sceneLabels[selected.scene]}</small><h2>{selected.camera}</h2><p>{selected.id.toUpperCase()}</p></div>{selected.sourceUrl && <a href={selected.sourceUrl} target="_blank" rel="noreferrer" title="查看设备官方规格"><ExternalLink size={15} /></a>}</header>
+        <div className="camera-playbook-actions"><button onClick={copyParameters}><Copy size={13} />{copyStatus === "copied" ? "已复制参数" : copyStatus === "error" ? "复制失败" : "复制参数"}</button><button onClick={exportChecklist}><Download size={13} />导出现场清单</button></div>
+        <div className="camera-detail-body">
+          <section><div className="camera-section-title"><SlidersHorizontal size={15} /><div><small>BASE SETTINGS</small><h3>核心拍摄参数</h3></div></div><div className="camera-core-grid"><div><Film size={16} /><small>画幅</small><strong>{selected.settings.resolution}</strong></div><div><CircleGauge size={16} /><small>帧率</small><strong>{selected.settings.fps} FPS</strong></div><div><Gauge size={16} /><small>快门</small><strong>{selected.settings.shutter}</strong></div><div><Aperture size={16} /><small>光圈</small><strong>{selected.settings.aperture ?? "自动"}</strong></div><div><Focus size={16} /><small>ISO</small><strong>{selected.settings.iso.min}–{selected.settings.iso.max}</strong></div><div><ThermometerSun size={16} /><small>白平衡</small><strong>{selected.settings.whiteBalanceKelvin}K</strong></div></div></section>
+          {advancedSettings.length > 0 && <section><div className="camera-section-title"><Layers3 size={15} /><div><small>ADVANCED CONTROL</small><h3>高级控制</h3></div></div><dl className="camera-advanced-grid">{advancedSettings.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{label === "收音" ? <Headphones size={13} /> : label === "滤镜" ? <SunMedium size={13} /> : <Sparkles size={13} />}{value}</dd></div>)}</dl></section>}
+          <section className="camera-field-note"><Wind size={16} /><div><small>现场调整原则</small><p>{selected.notes}</p></div></section>
+          <section><div className="camera-section-title"><SlidersHorizontal size={15} /><div><small>SETUP ORDER</small><h3>开拍前设置顺序</h3></div></div><ol className="camera-check-list">{(selected.setup ?? ["设定分辨率、帧率与色彩配置", "按现场频闪确定快门", "固定白平衡并设置 ISO 上限", "回放短片后再正式录制"]).map((item, index) => <li key={item}><span>{index + 1}</span>{item}</li>)}</ol></section>
+          <section><div className="camera-section-title"><ShieldCheck size={15} /><div><small>FIELD VERIFICATION</small><h3>现场核验</h3></div></div><ul className="camera-verify-list">{(selected.fieldChecks ?? ["示波器与斑马纹确认高光", "放大检查对焦和运动模糊", "连续镜头白平衡不漂移", "试听环境声和风噪"]).map((item) => <li key={item}><Check size={13} />{item}</li>)}</ul></section>
+          <section><div className="camera-section-title"><Navigation size={15} /><div><small>SCENE MATCH</small><h3>适用路线</h3></div></div>{relatedRoutes.length ? relatedRoutes.map((route) => <button className="camera-route" key={route.route.id} onClick={() => selectRoute(route.route.id)}><Navigation size={15} /><span>{route.route.name}<small>{route.route.cities.join(" · ")} · 约 {route.route.estimatedDurationMinutes} 分钟</small></span><ChevronRight size={15} /></button>) : <p className="camera-no-route">暂无匹配路线</p>}</section>
         </div>
       </aside>
-    </main>
-  );
+    </div>
+  </main>;
 }

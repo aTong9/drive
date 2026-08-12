@@ -6,6 +6,7 @@ const familyOptions: Array<{ id: MusicFamily | "all"; label: string; icon: typeo
   { id: "all", label: "全部音乐", icon: Music2 },
   { id: "piano", label: "疗愈钢琴", icon: Piano },
   { id: "lofi", label: "柔和 Lo-Fi", icon: Headphones },
+  { id: "chillhop", label: "Chillhop", icon: Music2 },
   { id: "jazz", label: "少量爵士", icon: Sparkles }
 ];
 
@@ -42,13 +43,13 @@ export function MusicLibraryView() {
 
   return <main className="music-page">
     <header className="music-hero">
-      <div><p className="eyebrow">YOUTUBE MUSIC CLEARANCE DESK</p><h1>背景音乐库<br /><em>先匹配画面，再清除版权</em></h1><p>为乡村、雨景、日出与夜间驾驶建立可执行的钢琴、Lo-Fi 和轻爵士选曲入口。</p></div>
+      <div><p className="eyebrow">YOUTUBE MUSIC CLEARANCE DESK</p><h1>背景音乐库<br /><em>先匹配画面，再清除版权</em></h1><p>为乡村、雨景、日出与夜间驾驶建立可执行的钢琴、Lo-Fi、Chillhop 和轻爵士选曲入口。</p></div>
       <div className="music-summary"><span><strong>{youtubeMusicLibrary.platforms.length}</strong><small>授权平台</small></span><span><strong>{youtubeMusicLibrary.categories.length}</strong><small>声音方向</small></span><span><strong>7</strong><small>拍摄场景</small></span></div>
     </header>
 
     <section className="music-license-notice"><ShieldCheck size={20} /><div><strong>“免版税”不等于“无版权”</strong><p>{youtubeMusicLibrary.methodology}</p></div><small>核验日期 {youtubeMusicLibrary.accessedAt}</small></section>
 
-    <section className="music-family-tabs" aria-label="音乐大类">{familyOptions.map(({ id, label, icon: Icon }) => <button key={id} className={family === id ? "active" : ""} onClick={() => selectFamily(id)}><Icon size={17} /><span>{label}</span><small>{id === "piano" ? "慢旋律 · 多留白" : id === "lofi" ? "柔节拍 · 夜间流动" : id === "jazz" ? "轻点缀 · 都市蓝调" : "全部声音方向"}</small></button>)}</section>
+    <section className="music-family-tabs" aria-label="音乐大类">{familyOptions.map(({ id, label, icon: Icon }) => <button key={id} className={family === id ? "active" : ""} onClick={() => selectFamily(id)}><Icon size={17} /><span>{label}</span><small>{id === "piano" ? "慢旋律 · 多留白" : id === "lofi" ? "柔节拍 · 夜间流动" : id === "chillhop" ? "爵士和弦 · 松弛律动" : id === "jazz" ? "轻点缀 · 都市蓝调" : "全部声音方向"}</small></button>)}</section>
 
     <section className="music-category-strip" aria-label="细分音乐类型">
       <button className={categoryId === "all" ? "active" : ""} onClick={() => setCategoryId("all")}>当前大类全部</button>
@@ -56,7 +57,7 @@ export function MusicLibraryView() {
     </section>
 
     <section className="music-direction-grid">{categories.map((category) => <article key={category.id} className={`music-direction family-${category.family}`}>
-      <header><span>{category.family === "piano" ? <Piano size={17} /> : category.family === "lofi" ? <Headphones size={17} /> : <Sparkles size={17} />}</span><h2>{category.name}</h2></header>
+      <header><span>{category.family === "piano" ? <Piano size={17} /> : category.family === "lofi" ? <Headphones size={17} /> : category.family === "chillhop" ? <Music2 size={17} /> : <Sparkles size={17} />}</span><h2>{category.name}</h2></header>
       <p>{category.description}</p>
       <div>{category.scenes.map((item) => <small key={item}>{sceneLabels[item]}</small>)}</div>
       <footer><strong>混音提示</strong>{category.mixingNotes}</footer>

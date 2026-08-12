@@ -96,7 +96,17 @@ const provincesWithoutLocations = expectedProvinceNames.filter((name) => !covere
 if (provincesWithoutLocations.length) errors.push(`locations: province-level units without a source-checked location: ${provincesWithoutLocations.join(", ")}`);
 
 for (const preset of catalog.cameraPresets) {
+  const cameraScenes = new Set(["coast-sunset", "city-night-driving", "city-night-tripod", "forest-stream-static", "daylight-walk", "rain-walk", "blue-hour-walk"]);
+  if (!cameraScenes.has(preset.scene)) errors.push(`${preset.id}: unknown camera scene ${preset.scene}`);
   if (preset.settings.iso.min > preset.settings.iso.max) errors.push(`${preset.id}: ISO min exceeds max`);
+  if (!preset.settings.resolution || !Number.isFinite(preset.settings.fps) || preset.settings.fps <= 0) errors.push(`${preset.id}: invalid resolution or fps`);
+  if (!preset.settings.shutter || !Number.isFinite(preset.settings.whiteBalanceKelvin)) errors.push(`${preset.id}: missing shutter or white balance`);
+  for (const control of ["sharpness", "noiseReduction"]) {
+    if (preset.settings[control] !== undefined && (!Number.isInteger(preset.settings[control]) || preset.settings[control] < -2 || preset.settings[control] > 2)) errors.push(`${preset.id}: ${control} must be an integer from -2 to 2`);
+  }
+  if (preset.setup && preset.setup.length < 3) errors.push(`${preset.id}: setup must contain at least 3 steps`);
+  if (preset.fieldChecks && preset.fieldChecks.length < 3) errors.push(`${preset.id}: fieldChecks must contain at least 3 checks`);
+  if (preset.sourceUrl && !preset.sourceUrl.startsWith("https://")) errors.push(`${preset.id}: sourceUrl must use HTTPS`);
 }
 
 for (const route of catalog.routes) {
@@ -140,7 +150,7 @@ const routeCityKeys = new Set(catalog.routes.flatMap((route) => route.cities.map
 const locationCityKeys = new Set(catalog.locations.map((location) => `${location.province}/${location.city}`));
 const routeCityCount = routeCityKeys.size;
 const locationCityCount = locationCityKeys.size;
-const minimumCoveredDivisionCount = 238;
+const minimumCoveredDivisionCount = 391;
 if (locationCityCount < minimumCoveredDivisionCount) errors.push(`locations: division coverage regressed below ${minimumCoveredDivisionCount}`);
 if (routeCityCount < minimumCoveredDivisionCount) errors.push(`routes: division coverage regressed below ${minimumCoveredDivisionCount}`);
 for (const key of locationCityKeys) if (!routeCityKeys.has(key)) errors.push(`coverage: ${key} has locations but no route`);

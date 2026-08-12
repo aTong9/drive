@@ -1,4 +1,5 @@
-import { CarFront, Footprints, LocateFixed, MapPin, RefreshCw, Search, SlidersHorizontal, Trees, X } from "lucide-react";
+import { CarFront, Footprints, LocateFixed, MapPin, RefreshCw, RotateCcw, Search, SlidersHorizontal, Trees, X } from "lucide-react";
+import { useMemo, useState } from "react";
 import type { CaptureStyle, Location, ResolvedRoute, RouteMode } from "../../types/domain.js";
 import { usePlannerStore } from "../../app/store.js";
 import { RouteCard } from "./RouteCard.js";
@@ -30,6 +31,11 @@ interface RouteListProps {
 
 export function RouteList({ routes, nearbyLocations, currentRegion, locationStatus, locationMessage, onLocate, onClearLocation }: RouteListProps) {
   const state = usePlannerStore();
+  const [sort, setSort] = useState<"recommended" | "shortest" | "visual">("recommended");
+  const displayRoutes = useMemo(() => [...routes].sort((a, b) => sort === "shortest" ? a.route.estimatedDurationMinutes - b.route.estimatedDurationMinutes : sort === "visual" ? b.route.scores.visual - a.route.scores.visual || b.route.scores.youtubePotential - a.route.scores.youtubePotential : b.route.scores.youtubePotential - a.route.scores.youtubePotential || b.route.scores.visual - a.route.scores.visual), [routes, sort]);
+  const sortLabels = { recommended: "推荐排序", shortest: "行程最短", visual: "画面优先" } as const;
+  const cycleSort = () => setSort((value) => value === "recommended" ? "shortest" : value === "shortest" ? "visual" : "recommended");
+  const resetFilters = () => { state.setQuery(""); state.setMode("all"); state.setCaptureStyle("all"); state.setDriveOnly(false); state.setMaxDurationMinutes(960); onClearLocation(); };
 
   return (
     <aside className="route-sidebar">
@@ -86,11 +92,11 @@ export function RouteList({ routes, nearbyLocations, currentRegion, locationStat
 
       <div className="list-heading">
         <span><strong>{routes.length}</strong> 条匹配路线</span>
-        <button>推荐排序 <span>⌄</span></button>
+        <button onClick={cycleSort} aria-label="切换路线排序">{sortLabels[sort]} <span>⌄</span></button>
       </div>
 
       <div className="route-card-list">
-        {routes.length ? routes.map((item) => (
+        {displayRoutes.length ? displayRoutes.map((item) => (
           <RouteCard
             key={item.route.id}
             route={item.route}
@@ -103,6 +109,7 @@ export function RouteList({ routes, nearbyLocations, currentRegion, locationStat
             <Search size={22} />
             <strong>没有找到路线</strong>
             <span>{currentRegion ? `${currentRegion.city}暂无匹配路线，可清除位置筛选查看全国路线` : "试试清除拍摄方式、放宽最长行程或缩短搜索词"}</span>
+            <button className="empty-reset" onClick={resetFilters}><RotateCcw size={13} /> 重置全部筛选</button>
           </div>
         )}
       </div>
