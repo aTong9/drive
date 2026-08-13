@@ -1,6 +1,6 @@
 {
-  "schemaVersion": "1.0.0",
-  "accessedAt": "2026-08-12",
+  "schemaVersion": "1.1.0",
+  "accessedAt": "2026-08-13",
   "methodology": "仅收录具有官方许可说明或官方帮助中心证据的来源。平台标签表示典型工作流，不替代逐曲查看用途、地区、频道、视频类型与许可期限；下载时应保存许可证和账单，并在发布前完成频道或视频清除。本模块不调用第三方下载 API：download-import 表示手动下载音频文件后导入 DaVinci Resolve，platform-only 表示许可仅限指定平台。",
   "categories": [
     { "id": "healing-piano", "family": "piano", "name": "疗愈钢琴", "description": "慢速、柔软延音与较大留白，让自然环境声保留呼吸。", "scenes": ["countryside", "rain", "sunrise"], "searchTerms": ["healing piano", "meditative piano", "slow felt piano"], "mixingNotes": "建议置于环境声下方约 12–18 dB，避免连续高音抢走鸟鸣和雨声。" },
@@ -22,7 +22,7 @@
       "id": "youtube-audio-library", "name": "YouTube 音频库", "kind": "youtube-native", "importMode": "download-import", "url": "https://studio.youtube.com/channel/UC/music",
       "catalogFit": "首选低风险来源，可按氛围、类型、时长和是否要求署名筛选。",
       "supportedCategoryIds": ["healing-piano", "calm-piano", "gentle-piano", "soft-lofi", "warm-lofi", "night-drive-chillhop", "warm-sunset-chillhop", "rainy-day-chillhop", "relaxed-jazz-nocturne", "gentle-piano-jazz"],
-      "license": { "youtubeUse": "allowed-with-track-terms", "cost": "free", "attribution": "track-dependent", "contentId": "low", "risk": "low", "notes": "YouTube 官方建议长视频优先使用音频库；部分 Creative Commons 曲目必须按曲目要求署名，下载前复制署名文本。" },
+      "license": { "youtubeUse": "allowed-with-track-terms", "cost": "free", "attribution": "track-dependent", "contentId": "low", "monetization": "allowed", "audioEditing": "basic-edits", "risk": "low", "notes": "YouTube 官方建议长视频优先使用音频库；部分 Creative Commons 曲目必须按曲目要求署名，下载前复制署名文本。" },
       "workflow": ["在 YouTube Studio 音频库按 Piano、Ambient、Jazz、Calm 等词检索。", "确认是否需要署名；下载音频并把曲名、艺术家、许可截图存入项目。", "在 DaVinci Resolve 导入音轨，发布前再次核对说明栏署名。"],
       "evidence": [{ "title": "YouTube：寻找安全音乐", "url": "https://support.google.com/youtube/answer/15577610?hl=zh-Hans", "supports": ["youtube-use", "content-id"] }, { "title": "YouTube：许可类型", "url": "https://support.google.com/youtube/answer/2797468?hl=zh-Hans", "supports": ["youtube-use", "attribution"] }]
     },
@@ -30,7 +30,7 @@
       "id": "youtube-creator-music", "name": "YouTube Creator Music", "kind": "youtube-native", "importMode": "platform-only", "url": "https://studio.youtube.com/",
       "catalogFit": "适合需要更多商业曲库选择的长视频，但可用性、价格和分成按曲目变化。",
       "supportedCategoryIds": ["calm-piano", "gentle-piano", "soft-lofi", "japanese-lofi", "warm-lofi", "night-drive-chillhop", "jazzhop", "warm-sunset-chillhop", "rainy-day-chillhop", "japanese-chillhop", "relaxed-jazz-nocturne", "gentle-piano-jazz"],
-      "license": { "youtubeUse": "allowed-with-track-terms", "cost": "free-or-paid", "attribution": "track-dependent", "contentId": "track-dependent", "risk": "medium", "notes": "YouTube 官方当前说明为仅美国 YouTube Partner Program 创作者可用，其他地区仍待扩展；付费许可通常只覆盖单个 YouTube 长视频，不支持 Shorts、直播或跨平台，亦可能选择收入分成。" },
+      "license": { "youtubeUse": "allowed-with-track-terms", "cost": "free-or-paid", "attribution": "track-dependent", "contentId": "track-dependent", "monetization": "allowed-with-track-terms", "audioEditing": "track-dependent", "risk": "medium", "notes": "YouTube 官方当前说明为仅美国 YouTube Partner Program 创作者可用，其他地区仍待扩展；付费许可通常只覆盖单个 YouTube 长视频，不支持 Shorts、直播或跨平台，亦可能选择收入分成。" },
       "workflow": ["先确认账号所在地区是否可用，再逐曲打开 usage details。", "记录许可价格、地区、有效期、使用长度及是否收入分成。", "仅在授权的单个长视频使用，并保存购买记录。"],
       "evidence": [{ "title": "Creator Music 使用详情", "url": "https://support.google.com/youtube/answer/11611019?hl=zh-Hans", "supports": ["youtube-use", "content-id", "pricing", "territory"] }]
     },
@@ -38,7 +38,7 @@
       "id": "epidemic-sound", "name": "Epidemic Sound", "kind": "subscription", "importMode": "download-import", "url": "https://www.epidemicsound.com/music/",
       "catalogFit": "检索和分轨能力强，钢琴、Lo-Fi 与轻爵士覆盖全面，适合稳定周更。",
       "supportedCategoryIds": ["healing-piano", "calm-piano", "gentle-piano", "soft-lofi", "japanese-lofi", "warm-lofi", "night-drive-chillhop", "jazzhop", "warm-sunset-chillhop", "rainy-day-chillhop", "japanese-chillhop", "relaxed-jazz-nocturne", "gentle-piano-jazz"],
-      "license": { "youtubeUse": "allowed-with-active-license", "cost": "subscription", "attribution": "not-generally-required", "contentId": "clearlist-required", "risk": "low", "notes": "发布前必须在有效订阅期把频道或视频加入 Safelist；订阅有效期内发布的内容取消订阅后仍保持清除，新发布内容不再覆盖。" },
+      "license": { "youtubeUse": "allowed-with-active-license", "cost": "subscription", "attribution": "not-generally-required", "contentId": "clearlist-required", "monetization": "allowed", "audioEditing": "basic-edits", "risk": "low", "notes": "发布前必须在有效订阅期把频道或视频加入 Safelist；订阅有效期内发布的内容取消订阅后仍保持清除，新发布内容不再覆盖。" },
       "workflow": ["按 Mood、Genre、BPM 和 stems 筛选并下载许可范围内的曲目。", "发布前将 YouTube 频道或单条客户视频加入 Safelist。", "保存下载记录与订阅凭证，确认视频发布发生在有效期内。"],
       "evidence": [{ "title": "Epidemic Sound Safelisting", "url": "https://help.epidemicsound.com/hc/en-us/articles/26248340314258-Safelisting", "supports": ["youtube-use", "content-id"] }, { "title": "Epidemic Sound 许可选项", "url": "https://help.epidemicsound.com/hc/en-us/articles/26194316442258-What-are-the-options-when-licensing-a-track", "supports": ["pricing", "youtube-use"] }]
     },
@@ -46,7 +46,7 @@
       "id": "artlist", "name": "Artlist", "kind": "subscription", "importMode": "download-import", "url": "https://artlist.io/royalty-free-music",
       "catalogFit": "电影感与自然氛围曲目较丰富，适合日出、乡村和蓝调时刻成片。",
       "supportedCategoryIds": ["healing-piano", "calm-piano", "gentle-piano", "soft-lofi", "warm-lofi", "night-drive-chillhop", "jazzhop", "warm-sunset-chillhop", "rainy-day-chillhop", "relaxed-jazz-nocturne", "gentle-piano-jazz"],
-      "license": { "youtubeUse": "allowed-with-active-license", "cost": "subscription", "attribution": "not-generally-required", "contentId": "clearlist-required", "risk": "low", "notes": "音乐进入 YouTube Content ID；频道或视频应在有效订阅期加入 Clearlist。已在有效期发布并清除的项目可持续覆盖，但新项目不能使用过期订阅下载物。" },
+      "license": { "youtubeUse": "allowed-with-active-license", "cost": "subscription", "attribution": "not-generally-required", "contentId": "clearlist-required", "monetization": "allowed", "audioEditing": "basic-edits", "risk": "low", "notes": "音乐进入 YouTube Content ID；频道或视频应在有效订阅期加入 Clearlist。已在有效期发布并清除的项目可持续覆盖，但新项目不能使用过期订阅下载物。" },
       "workflow": ["按 Mood、Video Theme、Instrument 和 BPM 组合筛选。", "下载每首资产许可证，并在有效订阅期将频道或视频加入 Clearlist。", "客户项目选用覆盖客户工作的 Pro 或 Business 方案。"],
       "evidence": [{ "title": "Artlist Clearlist 说明", "url": "https://help.artlist.io/hc/en-us/articles/29648622402333-Understanding-Artlist-s-Clearlist", "supports": ["youtube-use", "content-id"] }, { "title": "Artlist 许可说明", "url": "https://help.artlist.io/hc/en-us/articles/29490991524253-Understanding-Artlist-s-license", "supports": ["youtube-use", "pricing"] }]
     },
@@ -54,7 +54,7 @@
       "id": "soundstripe", "name": "Soundstripe", "kind": "subscription", "importMode": "download-import", "url": "https://www.soundstripe.com/royalty-free-music",
       "catalogFit": "情绪和视频用途标签清楚，适合快速建立夜驾、Lo-Fi 与柔和钢琴候选池。",
       "supportedCategoryIds": ["calm-piano", "gentle-piano", "soft-lofi", "japanese-lofi", "warm-lofi", "night-drive-chillhop", "jazzhop", "warm-sunset-chillhop", "rainy-day-chillhop", "japanese-chillhop", "gentle-piano-jazz"],
-      "license": { "youtubeUse": "allowed-with-active-license", "cost": "subscription", "attribution": "credit-or-safelist", "contentId": "code-or-clearlist", "risk": "low", "notes": "个人频道可加入清除列表；客户或未列出的频道通常需为每首曲目生成单次 YouTube code，并在首次上传时放入视频说明。" },
+      "license": { "youtubeUse": "allowed-with-active-license", "cost": "subscription", "attribution": "credit-or-safelist", "contentId": "code-or-clearlist", "monetization": "allowed", "audioEditing": "basic-edits", "risk": "low", "notes": "个人频道可加入清除列表；客户或未列出的频道通常需为每首曲目生成单次 YouTube code，并在首次上传时放入视频说明。" },
       "workflow": ["将个人频道加入 Content ID 清除列表，或为客户视频逐曲生成代码。", "每首歌一个代码，并在首次上传时写入视频说明同一行。", "保存代码、许可证与对应视频 URL 的映射。"],
       "evidence": [{ "title": "Soundstripe YouTube 清除代码", "url": "https://docs.soundstripe.com/docs/clearing-youtube-claims-with-code", "supports": ["youtube-use", "attribution", "content-id"] }]
     },
@@ -62,7 +62,7 @@
       "id": "uppbeat", "name": "Uppbeat", "kind": "freemium", "importMode": "download-import", "url": "https://uppbeat.io/music",
       "catalogFit": "免费入口适合试片，Lo-Fi、钢琴和轻爵士标签对独立创作者友好。",
       "supportedCategoryIds": ["healing-piano", "calm-piano", "gentle-piano", "soft-lofi", "japanese-lofi", "warm-lofi", "night-drive-chillhop", "jazzhop", "warm-sunset-chillhop", "rainy-day-chillhop", "japanese-chillhop", "relaxed-jazz-nocturne", "gentle-piano-jazz"],
-      "license": { "youtubeUse": "allowed-with-active-license", "cost": "free-or-paid", "attribution": "credit-or-safelist", "contentId": "code-or-clearlist", "risk": "medium", "notes": "免费下载通常会生成唯一 Uppbeat Credit，需复制到视频说明以处理 Content ID；付费功能含频道 Safelist，具体覆盖仍按账号方案与曲目确认。" },
+      "license": { "youtubeUse": "allowed-with-active-license", "cost": "free-or-paid", "attribution": "credit-or-safelist", "contentId": "code-or-clearlist", "monetization": "allowed-with-track-terms", "audioEditing": "basic-edits", "risk": "medium", "notes": "免费下载通常会生成唯一 Uppbeat Credit，需复制到视频说明以处理 Content ID；付费功能含频道 Safelist，具体覆盖仍按账号方案与曲目确认。" },
       "workflow": ["下载时保存生成的 Uppbeat Credit 与许可页面。", "免费方案把完整 Credit 放入视频说明；付费方案先确认频道已 Safelist。", "上传后在 YouTube Studio 检查限制，再安排公开发布时间。"],
       "evidence": [{ "title": "Uppbeat：避免 YouTube 版权声明", "url": "https://uppbeat.io/blog/youtube/avoid-youtube-copyright-claims", "supports": ["youtube-use", "attribution", "content-id"] }, { "title": "Uppbeat 用户协议", "url": "https://uppbeat.io/user-agreement", "supports": ["youtube-use", "pricing", "content-id"] }]
     },
@@ -70,9 +70,89 @@
       "id": "lickd", "name": "Lickd", "kind": "per-track", "importMode": "download-import", "url": "https://lickd.co/",
       "catalogFit": "当片段确需更知名的商业音乐时使用；并非日常长时背景音乐的首选。",
       "supportedCategoryIds": ["calm-piano", "gentle-piano", "soft-lofi", "warm-lofi", "night-drive-chillhop", "jazzhop", "warm-sunset-chillhop", "relaxed-jazz-nocturne", "gentle-piano-jazz"],
-      "license": { "youtubeUse": "allowed-with-license", "cost": "per-track-or-subscription", "attribution": "track-dependent", "contentId": "clearlist-required", "risk": "medium", "notes": "必须将 YouTube 频道连接到账号并为具体曲目、具体视频取得许可；VOUCH 用于向 Content ID 与权利人系统清除已许可视频的版权声明。" },
+      "license": { "youtubeUse": "allowed-with-license", "cost": "per-track-or-subscription", "attribution": "track-dependent", "contentId": "clearlist-required", "monetization": "allowed-with-track-terms", "audioEditing": "track-dependent", "risk": "medium", "notes": "必须将 YouTube 频道连接到账号并为具体曲目、具体视频取得许可；VOUCH 用于向 Content ID 与权利人系统清除已许可视频的版权声明。" },
       "workflow": ["连接正确的 YouTube 频道，只筛选明确可用于 YouTube 的曲目。", "为目标视频购买或取得许可，按平台提示关联视频。", "保存发票与许可证；出现声明时先按 Lickd 流程处理，不要盲目争议。"],
       "evidence": [{ "title": "Lickd VOUCH 说明", "url": "https://help.lickd.co/knowledge/what-is-vouch", "supports": ["youtube-use", "content-id"] }, { "title": "Lickd 在 YouTube 使用音乐", "url": "https://help.lickd.co/knowledge/using-lickd-music-on-youtube-and-youtube-shorts", "supports": ["youtube-use", "attribution"] }]
+    },
+    {
+      "id": "zukisuzuki-bgm", "name": "zukisuzuki BGM", "kind": "creator-library", "importMode": "download-import", "url": "https://zukisuzukibgm.com/",
+      "catalogFit": "日系轻快、日常与 Lo-Fi 方向丰富，适合行车、城市散步和轻松转场。",
+      "supportedCategoryIds": ["soft-lofi", "japanese-lofi", "warm-lofi", "night-drive-chillhop", "warm-sunset-chillhop", "japanese-chillhop"],
+      "license": { "youtubeUse": "allowed-with-track-terms", "cost": "free", "attribution": "not-generally-required", "contentId": "low", "monetization": "allowed", "audioEditing": "derivatives-allowed", "risk": "low", "notes": "官方允许规则范围内免费商用、加工及 YouTube 使用，署名任意且声明未登记 Content ID；2026 年 5 月后的新曲仅在发布后 24 小时内免费提供 MP3，之后下载可能收费。" },
+      "workflow": ["从官网或对应 BOOTH 页面取得音频，不使用第三方抓取。", "保存下载日期与当时条款；新曲先确认免费窗口是否仍有效。", "可裁切或改编配画面，但不得冒充作者或违反单独转载限制。"],
+      "evidence": [{ "title": "zukisuzuki BGM 利用规约", "url": "https://zukisuzukibgm.com/terms/", "supports": ["youtube-use", "attribution", "content-id", "pricing"] }]
+    },
+    {
+      "id": "streambeats", "name": "StreamBeats / Harris Heller", "kind": "creator-library", "importMode": "download-import", "url": "https://streambeats.com/",
+      "catalogFit": "Lo-Fi、Synthwave、Ambient 等数量充足，适合长时夜驾和直播式连续背景。",
+      "supportedCategoryIds": ["calm-piano", "soft-lofi", "japanese-lofi", "warm-lofi", "night-drive-chillhop", "jazzhop", "warm-sunset-chillhop"],
+      "license": { "youtubeUse": "allowed-with-license", "cost": "free", "attribution": "not-generally-required", "contentId": "low", "monetization": "allowed", "audioEditing": "sync-only", "risk": "low", "notes": "官方免费永久同步许可允许 YouTube 视频盈利且无需署名；可把完整曲目叠加到视频，但禁止 remix、采样、衍生创作、音乐电台式使用和单独再分发。" },
+      "workflow": ["从 StreamBeats 官网下载 MP3、WAV 或 FLAC。", "以原曲配画面，可做视频时间线内的使用，但不要制作 remix 或采样衍生曲。", "若出现误判声明，保留曲名与视频 URL 并走官方 false-claim 流程。"],
+      "evidence": [{ "title": "StreamBeats Licensing", "url": "https://streambeats.com/licensing/", "supports": ["youtube-use", "attribution", "content-id", "pricing"] }]
+    },
+    {
+      "id": "dova-syndrome", "name": "DOVA-SYNDROME", "kind": "creator-library", "importMode": "download-import", "url": "https://www.dova-s.jp/",
+      "catalogFit": "日系免费 BGM 体量大，钢琴、轻爵士、和风与日常氛围覆盖全面。",
+      "supportedCategoryIds": ["healing-piano", "calm-piano", "gentle-piano", "soft-lofi", "japanese-lofi", "jazzhop", "rainy-day-chillhop", "japanese-chillhop", "gentle-piano-jazz"],
+      "license": { "youtubeUse": "allowed-with-track-terms", "cost": "free", "attribution": "track-dependent", "contentId": "track-dependent", "monetization": "allowed-with-track-terms", "audioEditing": "basic-edits", "risk": "medium", "notes": "站点总许可允许个人/法人、营利视频和背景音乐免费使用，并允许格式转换、效果、裁切及循环；作曲者可设置优先适用的附加条件，且禁止把音乐本身作为主内容。" },
+      "workflow": ["逐曲打开作曲者页面并检查附加条件，不能只看站点总许可。", "下载时保存曲目页、作者名和条款截图。", "可裁切、淡化、循环配画面；不要上传纯音乐合集或工作用 BGM 视频。"],
+      "evidence": [{ "title": "DOVA 可用范围与加工", "url": "https://dova-s.jp/help/articles/license-usage/", "supports": ["youtube-use", "attribution", "pricing"] }]
+    },
+    {
+      "id": "chillpeach", "name": "Chillpeach", "kind": "creator-library", "importMode": "download-import", "url": "https://www.youtube.com/@Chillpeach",
+      "catalogFit": "可爱、柔和的 Lo-Fi 与 Chillhop，适合城市日常、雨天和轻松驾驶段落。",
+      "supportedCategoryIds": ["soft-lofi", "japanese-lofi", "warm-lofi", "night-drive-chillhop", "rainy-day-chillhop", "japanese-chillhop"],
+      "license": { "youtubeUse": "allowed-with-track-terms", "cost": "free", "attribution": "track-dependent", "contentId": "track-dependent", "monetization": "allowed-with-track-terms", "audioEditing": "track-dependent", "risk": "medium", "notes": "公开曲目常在单条视频说明中给出免费使用与署名文本，但未找到覆盖全曲库、盈利及改编范围的统一官方条款；只能收录明确写明用途的曲目并逐曲复核。" },
+      "workflow": ["只从官方频道选择在说明栏明确给出使用许可的单曲。", "复制该曲完整署名文本并保存视频说明截图与访问日期。", "若未明确写明盈利或音频加工权限，只做基础配画面并在发布前复核。"],
+      "evidence": [{ "title": "Chillpeach 官方频道", "url": "https://www.youtube.com/@Chillpeach", "supports": ["youtube-use", "attribution"] }]
+    },
+    {
+      "id": "scott-buckley", "name": "Scott Buckley", "kind": "creator-library", "importMode": "download-import", "url": "https://www.scottbuckley.com.au/library/",
+      "catalogFit": "电影感、氛围与钢琴作品突出，适合日出、自然风景和情绪较强的路线段落。",
+      "supportedCategoryIds": ["healing-piano", "calm-piano", "gentle-piano", "relaxed-jazz-nocturne", "gentle-piano-jazz"],
+      "license": { "youtubeUse": "allowed-with-license", "cost": "free", "attribution": "credit-or-safelist", "contentId": "code-or-clearlist", "monetization": "allowed", "audioEditing": "derivatives-allowed", "risk": "low", "notes": "曲库以 CC BY 4.0 授权，可用于包括盈利在内的媒体项目并允许改编，但 YouTube 视频说明必须署名；缺少署名可能触发自动声明，补齐后可按作者流程申请释放。" },
+      "workflow": ["从作者曲库下载并确认曲目页标注 CC BY 4.0。", "在说明栏至少写明 Scott Buckley，并优先复制作者提供的完整署名格式。", "保存许可链接；若有声明，补齐署名后按 Copyright Claims Release 流程处理。"],
+      "evidence": [{ "title": "Scott Buckley Library FAQ", "url": "https://www.scottbuckley.com.au/library/faq/", "supports": ["youtube-use", "attribution", "content-id", "pricing"] }, { "title": "Creative Commons BY 4.0", "url": "https://creativecommons.org/licenses/by/4.0/", "supports": ["youtube-use", "attribution"] }]
+    },
+    {
+      "id": "purrple-cat", "name": "Purrple Cat", "kind": "creator-library", "importMode": "download-import", "url": "https://purrplecat.com/",
+      "catalogFit": "柔和、梦幻 Lo-Fi 适合雨夜、城市慢行和低密度长镜头。",
+      "supportedCategoryIds": ["soft-lofi", "warm-lofi", "night-drive-chillhop", "warm-sunset-chillhop", "rainy-day-chillhop"],
+      "license": { "youtubeUse": "allowed-with-track-terms", "cost": "free", "attribution": "track-dependent", "contentId": "track-dependent", "monetization": "allowed-with-track-terms", "audioEditing": "track-dependent", "risk": "medium", "notes": "部分曲目经分发页以 CC BY 形式免费提供并允许商业视频，但未找到稳定的全曲库官方统一条款；必须以具体下载页所示许可为准，不能从 Spotify 或 YouTube 收听页直接推断。" },
+      "workflow": ["从标有明确 CC BY 或商业使用说明的曲目下载页取得音频。", "逐曲保存许可、署名模板和下载来源，不把艺术家全部作品视为同一许可。", "只按曲目许可允许的范围裁切或加工，发布前检查 Content ID。"],
+      "evidence": [{ "title": "Purrple Cat 曲目许可示例", "url": "https://www.free-stock-music.com/artist.purrple-cat.html", "supports": ["youtube-use", "attribution", "pricing"] }]
+    },
+    {
+      "id": "roa-music", "name": "Roa Music", "kind": "creator-library", "importMode": "download-import", "url": "https://roa-music.com/",
+      "catalogFit": "明亮、轻松的旅行与日常音乐，适合公路、日落和城市建立镜头。",
+      "supportedCategoryIds": ["calm-piano", "gentle-piano", "soft-lofi", "warm-lofi", "warm-sunset-chillhop", "japanese-chillhop"],
+      "license": { "youtubeUse": "allowed-with-license", "cost": "free", "attribution": "credit-or-safelist", "contentId": "track-dependent", "monetization": "allowed-with-track-terms", "audioEditing": "basic-edits", "risk": "medium", "notes": "官方允许在 YouTube、TikTok、Instagram 等社交内容中免费使用，但必须正确署名；盈利、客户项目和较大幅度改编应继续按曲目页及最新条款确认。" },
+      "workflow": ["从作者官网取得曲目与对应署名模板。", "把完整 Credit 放入视频说明，不只写平台名称。", "保留条款截图并在公开视频前检查限制与 Content ID 状态。"],
+      "evidence": [{ "title": "Roa Music How to use", "url": "https://roa-music.com/how-to-use/", "supports": ["youtube-use", "attribution", "pricing"] }]
+    },
+    {
+      "id": "peritune", "name": "PeriTune", "kind": "creator-library", "importMode": "download-import", "url": "https://peritune.com/",
+      "catalogFit": "奇幻、民族、氛围与钢琴类别丰富，可补足自然、乡村和日系场景。",
+      "supportedCategoryIds": ["healing-piano", "calm-piano", "gentle-piano", "japanese-lofi", "japanese-chillhop", "relaxed-jazz-nocturne"],
+      "license": { "youtubeUse": "allowed-with-license", "cost": "free", "attribution": "not-generally-required", "contentId": "track-dependent", "monetization": "allowed", "audioEditing": "derivatives-allowed", "risk": "low", "notes": "官方条款允许跨媒介免费商业使用，报告和署名均非必需，并明确允许变速、效果、循环、演唱、演奏和组合加工；条款未承诺免 Content ID，仍需发布前检查且禁止音源再分发。" },
+      "workflow": ["从 PeriTune 官网下载目标音源并保存曲目页。", "可按画面自由变速、加效果、循环或组合，建议仍在说明栏标注 PeriTune。", "不得把原始或加工音源作为素材包再次分发。"],
+      "evidence": [{ "title": "PeriTune 利用规约", "url": "https://peritune.com/about/", "supports": ["youtube-use", "attribution", "pricing"] }]
+    },
+    {
+      "id": "khaim", "name": "Khaim", "kind": "creator-library", "importMode": "download-import", "url": "https://www.khaimmusic.com/",
+      "catalogFit": "免费 Lo-Fi 方向集中，适合夜驾、城市雨景与轻松背景段落。",
+      "supportedCategoryIds": ["soft-lofi", "japanese-lofi", "warm-lofi", "night-drive-chillhop", "rainy-day-chillhop", "japanese-chillhop"],
+      "license": { "youtubeUse": "allowed-with-license", "cost": "free", "attribution": "credit-or-safelist", "contentId": "low", "monetization": "allowed", "audioEditing": "basic-edits", "risk": "low", "notes": "官方允许个人和商业用途、YouTube 背景音乐及裁切编辑；使用前须订阅 YouTube 或关注 Spotify，并在 YouTube 说明中 @Khaim 或链接官网。禁止 remix、加唱后作为音乐作品上传及音乐主内容视频盈利。" },
+      "workflow": ["先订阅作者 YouTube 频道或关注 Spotify，再从官网下载。", "YouTube 说明中使用 @Khaim 或加入官网链接。", "可裁切配画面，但不要 remix、加唱、单独分发或将音乐作为视频主内容盈利。"],
+      "evidence": [{ "title": "Khaim Terms of Use", "url": "https://en.khaimmusic.com/termsofuse", "supports": ["youtube-use", "attribution", "content-id", "pricing"] }]
+    },
+    {
+      "id": "ncs", "name": "NCS", "kind": "creator-library", "importMode": "download-import", "url": "https://ncs.io/music",
+      "catalogFit": "电子、Chill 与节奏型曲目丰富，适合城市夜驾和节奏更明确的公路段落。",
+      "supportedCategoryIds": ["soft-lofi", "warm-lofi", "night-drive-chillhop", "jazzhop", "warm-sunset-chillhop"],
+      "license": { "youtubeUse": "allowed-with-track-terms", "cost": "free", "attribution": "credit-or-safelist", "contentId": "track-dependent", "monetization": "allowed-with-track-terms", "audioEditing": "sync-only", "risk": "medium", "notes": "NCS 面向独立创作者提供按规则使用的曲目，但须从 ncs.io 或官方上传确认该曲仍在政策覆盖内，并复制完整 Credit；品牌、商业组织、纯音乐上传及 remix 不应套用一般创作者许可。" },
+      "workflow": ["只从 ncs.io 曲目页或 NCS 官方上传取得音乐和完整 Credit。", "发布前逐曲确认创作者使用政策、频道类型与盈利条件。", "保持曲目作为视频背景，不 remix、不上传纯音乐或可替代原曲的内容。"],
+      "evidence": [{ "title": "NCS Usage Policy", "url": "https://ncs.io/usage-policy", "supports": ["youtube-use", "attribution", "content-id", "pricing"] }]
     }
   ]
 }

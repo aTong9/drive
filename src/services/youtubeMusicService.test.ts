@@ -24,3 +24,13 @@ test("platform filter combines category, scene and risk", () => {
   assert.ok(results.length > 0);
   assert.ok(results.every((platform) => platform.supportedCategoryIds.includes("warm-lofi") && platform.license.risk === "low"));
 });
+
+test("creator libraries expose free monetization and editing terms", () => {
+  const requestedIds = new Set(["zukisuzuki-bgm", "streambeats", "dova-syndrome", "chillpeach", "scott-buckley", "purrple-cat", "roa-music", "peritune", "khaim", "ncs"]);
+  const requested = youtubeMusicLibrary.platforms.filter((platform) => requestedIds.has(platform.id));
+  assert.equal(requested.length, requestedIds.size);
+  assert.ok(requested.every((platform) => platform.license.cost === "free"));
+  assert.ok(requested.every((platform) => platform.importMode === "download-import"));
+  assert.ok(requested.every((platform) => platform.license.monetization !== "not-covered"));
+  assert.ok(requested.every((platform) => platform.license.audioEditing !== undefined));
+});

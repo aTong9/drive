@@ -92,6 +92,8 @@ idea → planned → captured → published
 
 `1.0.0 → 2.0.0` 是破坏性升级：Route 新增必填 `captureStyle`，Location 新增必填 `soundEnvironment`，CameraPreset 场景扩展到林间溪流。旧 Catalog 必须先补齐这些字段再进入 v2 服务边界；设备内计划、核验和后期任务不复制 Catalog，因此无需迁移实体内容。
 
+YouTube 音乐素材库 `1.0.0 → 1.1.0` 为向后兼容的契约扩展：平台许可新增 `monetization` 与 `audioEditing`，并新增 `creator-library` 来源类型。迁移旧数据时，应根据官方条款补齐两个许可字段；无法确认的来源必须使用 `allowed-with-track-terms` / `track-dependent`，不得推断为无限制商用或改编。
+
 ## 5. 验证层次
 
 执行：

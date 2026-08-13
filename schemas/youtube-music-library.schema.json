@@ -6,7 +6,7 @@
   "additionalProperties": false,
   "required": ["schemaVersion", "accessedAt", "methodology", "categories", "platforms"],
   "properties": {
-    "schemaVersion": { "const": "1.0.0" },
+    "schemaVersion": { "const": "1.1.0" },
     "accessedAt": { "type": "string", "format": "date" },
     "methodology": { "type": "string", "minLength": 20 },
     "categories": {
@@ -37,7 +37,7 @@
         "properties": {
           "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
           "name": { "type": "string", "minLength": 2 },
-          "kind": { "enum": ["youtube-native", "subscription", "freemium", "per-track"] },
+          "kind": { "enum": ["youtube-native", "subscription", "freemium", "per-track", "creator-library"] },
           "importMode": { "enum": ["download-import", "platform-only"] },
           "url": { "type": "string", "format": "uri" },
           "catalogFit": { "type": "string", "minLength": 12 },
@@ -45,12 +45,14 @@
           "license": {
             "type": "object",
             "additionalProperties": false,
-            "required": ["youtubeUse", "cost", "attribution", "contentId", "risk", "notes"],
+            "required": ["youtubeUse", "cost", "attribution", "contentId", "monetization", "audioEditing", "risk", "notes"],
             "properties": {
               "youtubeUse": { "enum": ["allowed-with-track-terms", "allowed-with-active-license", "allowed-with-license"] },
               "cost": { "enum": ["free", "free-or-paid", "subscription", "per-track-or-subscription"] },
               "attribution": { "enum": ["track-dependent", "not-generally-required", "credit-or-safelist"] },
               "contentId": { "enum": ["low", "clearlist-required", "code-or-clearlist", "track-dependent"] },
+              "monetization": { "enum": ["allowed", "allowed-with-track-terms", "not-covered"] },
+              "audioEditing": { "enum": ["basic-edits", "derivatives-allowed", "sync-only", "track-dependent"] },
               "risk": { "enum": ["low", "medium", "high"] },
               "notes": { "type": "string", "minLength": 25 }
             }

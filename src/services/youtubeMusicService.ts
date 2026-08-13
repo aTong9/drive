@@ -17,7 +17,7 @@ export interface MusicCategory {
 export interface MusicPlatform {
   id: string;
   name: string;
-  kind: "youtube-native" | "subscription" | "freemium" | "per-track";
+  kind: "youtube-native" | "subscription" | "freemium" | "per-track" | "creator-library";
   importMode: "download-import" | "platform-only";
   url: string;
   catalogFit: string;
@@ -27,6 +27,8 @@ export interface MusicPlatform {
     cost: "free" | "free-or-paid" | "subscription" | "per-track-or-subscription";
     attribution: "track-dependent" | "not-generally-required" | "credit-or-safelist";
     contentId: "low" | "clearlist-required" | "code-or-clearlist" | "track-dependent";
+    monetization: "allowed" | "allowed-with-track-terms" | "not-covered";
+    audioEditing: "basic-edits" | "derivatives-allowed" | "sync-only" | "track-dependent";
     risk: MusicRisk;
     notes: string;
   };
@@ -35,7 +37,7 @@ export interface MusicPlatform {
 }
 
 export interface YoutubeMusicLibrary {
-  schemaVersion: "1.0.0";
+  schemaVersion: "1.1.0";
   accessedAt: string;
   methodology: string;
   categories: MusicCategory[];

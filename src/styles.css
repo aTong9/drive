@@ -1274,7 +1274,7 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--orange); ou
 .music-risk { display: flex; align-items: center; gap: 3px; padding: 4px 6px; border-radius: 10px; background: rgba(126,178,159,.08); color: #80b29f; font-size: 6px; }
 .music-risk.risk-medium { background: rgba(196,154,99,.09); color: #c49a63; }
 .music-platform-fit { min-height: 28px; margin: 13px 0; color: #898f86; font-size: 8px; line-height: 1.6; }
-.music-platform-card dl { display: grid; grid-template-columns: repeat(3,1fr); margin: 0; border: 1px solid rgba(255,255,255,.05); border-radius: 7px; background: #171a17; }
+.music-platform-card dl { display: grid; grid-template-columns: repeat(5,1fr); margin: 0; border: 1px solid rgba(255,255,255,.05); border-radius: 7px; background: #171a17; }
 .music-platform-card dl div { min-width: 0; padding: 9px; border-right: 1px solid rgba(255,255,255,.05); }
 .music-platform-card dl div:last-child { border: 0; }
 .music-platform-card dt { color: #626960; font-size: 6px; }

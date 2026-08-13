@@ -21,6 +21,8 @@ const riskLabels: Record<MusicRisk, string> = { low: "低风险", medium: "需�
 const costLabels = { free: "免费", "free-or-paid": "免费 / 付费", subscription: "订阅", "per-track-or-subscription": "单曲 / 订阅" } as const;
 const contentIdLabels = { low: "低 Content ID 风险", "clearlist-required": "发布前清除频道/视频", "code-or-clearlist": "需代码或清除列表", "track-dependent": "按曲目确认" } as const;
 const attributionLabels = { "track-dependent": "署名按曲目", "not-generally-required": "通常无需署名", "credit-or-safelist": "需 Credit 或清除列表" } as const;
+const monetizationLabels = { allowed: "支持盈利", "allowed-with-track-terms": "盈利需按曲复核", "not-covered": "未覆盖盈利" } as const;
+const editingLabels = { "basic-edits": "支持裁切 / 淡化", "derivatives-allowed": "支持加工改编", "sync-only": "仅配画面，不改编", "track-dependent": "剪辑权限按曲确认" } as const;
 
 export function MusicLibraryView() {
   const [family, setFamily] = useState<MusicFamily | "all">("all");
@@ -73,7 +75,7 @@ export function MusicLibraryView() {
       {platforms.map((platform) => <article className={`music-platform-card risk-${platform.license.risk}`} key={platform.id}>
         <header><span className="music-platform-icon">{platform.importMode === "download-import" ? <Download size={19} /> : <Library size={19} />}</span><div><small>{platform.importMode === "download-import" ? "下载后导入剪辑软件" : "仅限 YouTube 平台许可"}</small><h2>{platform.name}</h2></div><span className={`music-risk risk-${platform.license.risk}`}>{platform.license.risk === "low" ? <CheckCircle2 size={12} /> : <AlertTriangle size={12} />}{riskLabels[platform.license.risk]}</span></header>
         <p className="music-platform-fit">{platform.catalogFit}</p>
-        <dl><div><dt>费用</dt><dd>{costLabels[platform.license.cost]}</dd></div><div><dt>署名</dt><dd>{attributionLabels[platform.license.attribution]}</dd></div><div><dt>Content ID</dt><dd>{contentIdLabels[platform.license.contentId]}</dd></div></dl>
+        <dl><div><dt>费用</dt><dd>{costLabels[platform.license.cost]}</dd></div><div><dt>盈利</dt><dd>{monetizationLabels[platform.license.monetization]}</dd></div><div><dt>剪辑</dt><dd>{editingLabels[platform.license.audioEditing]}</dd></div><div><dt>署名</dt><dd>{attributionLabels[platform.license.attribution]}</dd></div><div><dt>Content ID</dt><dd>{contentIdLabels[platform.license.contentId]}</dd></div></dl>
         <div className="music-platform-styles">{platform.supportedCategoryIds.slice(0, 6).map((id) => <span key={id}>{youtubeMusicLibrary.categories.find((category) => category.id === id)?.name}</span>)}</div>
         <aside><AlertTriangle size={15} /><p>{platform.license.notes}</p></aside>
         <section><h3><FileCheck2 size={14} /> 导入与发布清单</h3><ol>{platform.workflow.map((step, index) => <li key={step}><i>{index + 1}</i><span>{step}</span></li>)}</ol></section>
