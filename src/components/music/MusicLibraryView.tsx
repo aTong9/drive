@@ -88,7 +88,7 @@ export function MusicLibraryView() {
           <header><span><Disc3 size={20} /></span><div><small>{album.kind === "official-album" ? "官方发行专辑" : "编辑精选合辑"} · {platform?.name}</small><h2>{album.title}</h2><p>{album.artist}</p></div></header>
           <p className="music-album-description">{album.description}</p>
           <div className="music-album-scenes">{album.scenes.map((item) => <span key={item}>{sceneLabels[item]}</span>)}</div>
-          <section><strong>推荐曲目 / 搜索方向</strong><ol>{album.trackHighlights.map((track) => <li key={track}>{track}</li>)}</ol></section>
+          <section><strong>{album.trackHighlights.length > 6 ? `严格筛选曲目 · ${album.trackHighlights.length} 首` : "推荐曲目 / 搜索方向"}</strong><ol>{album.trackHighlights.slice(0, 6).map((track) => <li key={track}>{track}</li>)}</ol>{album.trackHighlights.length > 6 && <details className="music-album-track-details"><summary>展开其余 {album.trackHighlights.length - 6} 首</summary><ol start={7}>{album.trackHighlights.slice(6).map((track) => <li key={track}>{track}</li>)}</ol></details>}</section>
           <aside><strong>{album.credit}</strong><p>{album.licenseNote}</p></aside>
           <footer><a href={album.listenUrl} target="_blank" rel="noreferrer"><Play size={12} />试听专辑</a><a className="primary" href={album.downloadUrl} target="_blank" rel="noreferrer"><Download size={12} />{album.downloadLabel}</a></footer>
         </article>;

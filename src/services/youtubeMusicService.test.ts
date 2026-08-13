@@ -58,7 +58,7 @@ test("albums reference known platforms and categories", () => {
 
 test("album filter combines platform and the three active families", () => {
   const lofi = filterMusicAlbums({ platformId: "streambeats", family: "lofi", scene: "road-driving" });
-  assert.ok(lofi.length >= 2);
+  assert.ok(lofi.length >= 10);
   assert.ok(lofi.every((album) => album.platformId === "streambeats"));
   assert.ok(filterMusicAlbums({ family: "piano" }).some((album) => album.id === "pixabay-healing-piano"));
   assert.ok(filterMusicAlbums({ family: "jazz" }).some((album) => album.id === "pixabay-night-jazz"));
@@ -82,4 +82,27 @@ test("track filter combines platform, family, scene and search", () => {
   assert.ok(nightLofi.every((track) => track.platformId === "streambeats"));
   assert.deepEqual(filterMusicTracks({ query: "George Street Shuffle" }).map((track) => track.id), ["incompetech-george-street-shuffle"]);
   assert.ok(filterMusicTracks({ family: "piano", scene: "rain" }).length >= 4);
+});
+
+test("DOVA gentle piano recommendations include the reference track and close alternatives", () => {
+  const dovaPiano = filterMusicTracks({ platformId: "dova-syndrome", family: "piano" });
+  assert.ok(dovaPiano.length >= 16);
+  assert.ok(dovaPiano.some((track) => track.id === "dova-pianissimo-of-the-gentleness"));
+  assert.ok(dovaPiano.some((track) => track.id === "dova-healing-morning"));
+  assert.ok(dovaPiano.some((track) => track.id === "dova-rain-garden"));
+  assert.ok(dovaPiano.every((track) => track.categoryIds.includes("gentle-piano")));
+});
+
+test("long-term signature profile has a 30-track native-loop DOVA collection", () => {
+  const profile = youtubeMusicLibrary.categories.find((category) => category.id === "signature-healing-loop");
+  const collection = youtubeMusicLibrary.albums.find((album) => album.id === "dova-signature-loopable-30");
+  assert.ok(profile);
+  assert.ok(collection);
+  assert.equal(collection.platformId, "dova-syndrome");
+  assert.equal(collection.trackHighlights.length, 30);
+  assert.match(collection.listenUrl, /loop=1/);
+  assert.match(collection.listenUrl, /tags_m=m03/);
+  assert.match(collection.listenUrl, /tags_m=m04/);
+  assert.match(collection.listenUrl, /tags_m=m05/);
+  assert.match(collection.listenUrl, /tags_r=r22/);
 });

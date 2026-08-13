@@ -1,11 +1,12 @@
 {
   "schemaVersion": "1.3.0",
   "accessedAt": "2026-08-13",
-  "methodology": "仅收录具有官方许可说明或官方帮助中心证据的来源。平台标签表示典型工作流，不替代逐曲查看用途、地区、频道、视频类型与许可期限；下载时应保存许可证和账单，并在发布前完成频道或视频清除。本模块不调用第三方下载 API：download-import 表示手动下载音频文件后导入 DaVinci Resolve，platform-only 表示许可仅限指定平台。",
+  "methodology": "长期主筛选标准：硬条件为 Healing + Warm + Calm + Gentle、YouTube 可商用/盈利、允许裁切时长、Fade 与 Loop；优先 Slow + Weak + Ambient + Lo-Fi + Piano + Synth Pad + Soft Guitar；排除或降级 Strong Drums、Funk、EDM、Energetic、Intense、Loud。来源顺序为 DOVA-SYNDROME、StreamBeats、其他授权清晰的公开平台。原生 Loopable 与仅允许后期循环必须分开标注。仅收录具有官方许可说明或官方帮助中心证据的来源；下载时保存曲目页、作者条件和许可快照。",
   "categories": [
     { "id": "healing-piano", "family": "piano", "name": "疗愈钢琴", "description": "慢速、柔软延音与较大留白，让自然环境声保留呼吸。", "scenes": ["countryside", "rain", "sunrise"], "searchTerms": ["healing piano", "meditative piano", "slow felt piano"], "mixingNotes": "建议置于环境声下方约 12–18 dB，避免连续高音抢走鸟鸣和雨声。" },
     { "id": "calm-piano", "family": "piano", "name": "平静钢琴", "description": "稳定和声与低密度音符，适合长镜头和缓慢移动。", "scenes": ["countryside", "rain", "sunrise", "blue-hour"], "searchTerms": ["calm piano", "peaceful piano", "minimal piano"], "mixingNotes": "保留 3–6 秒自然空白段，转场时用环境声桥接而非强行踩点。" },
     { "id": "gentle-piano", "family": "piano", "name": "温柔钢琴", "description": "温暖触键和轻微情绪起伏，适合晨光、乡村与雨后画面。", "scenes": ["countryside", "rain", "sunrise"], "searchTerms": ["gentle piano", "warm piano", "soft felt piano"], "mixingNotes": "首个旋律动机尽量放在建立镜头之后，削减 2–4 kHz 为旁白和自然声让位。" },
+    { "id": "signature-healing-loop", "family": "piano", "name": "主画像 · 原生循环疗愈", "description": "硬性要求 Healing、Warm、Calm、Gentle 与原生 Loopable；优先慢速、弱奏、Ambient、钢琴、Synth Pad 或柔和吉他，并排除强鼓、Funk、EDM 与激烈响亮编曲。", "scenes": ["countryside", "rain", "sunrise", "city-night", "road-driving", "blue-hour"], "searchTerms": ["loopable healing warm calm gentle", "slow weak ambient piano", "soft guitar synth pad seamless loop"], "mixingNotes": "只使用曲目页明确标注 Loop 或单独提供 Loop Track 的文件；长视频按原生循环边界拼接，转场处仍保留 2–4 秒环境声安全垫。" },
     { "id": "soft-lofi", "family": "lofi", "name": "柔和 Lo-Fi", "description": "鼓点克制、纹理柔软，不用明显重拍推动剪辑。", "scenes": ["city-night", "road-driving", "urban"], "searchTerms": ["soft lofi", "chill lofi no heavy drums", "night drive lofi"], "mixingNotes": "驾驶段避免重低音掩盖路噪；节拍只做流速参照，不要求镜头逐拍切换。" },
     { "id": "japanese-lofi", "family": "lofi", "name": "和风 Lo-Fi", "description": "轻量东亚音色与松弛节拍，强调夜色中的细腻层次。", "scenes": ["city-night", "road-driving", "rain"], "searchTerms": ["japanese lofi", "wafu lofi", "shamisen chillhop"], "mixingNotes": "选择点缀式民族音色，避免密集主旋律；雨刷与轮胎声应保持可辨认。" },
     { "id": "warm-lofi", "family": "lofi", "name": "温暖 Lo-Fi", "description": "柔和饱和感、温暖和弦与低存在感鼓组，适合连续夜驾。", "scenes": ["city-night", "road-driving", "blue-hour"], "searchTerms": ["warm lofi", "cozy lofi", "sunset drive chillhop"], "mixingNotes": "高通清理低频隆隆声，并把鼓组控制在不盖过车内空间感的电平。" },
@@ -61,7 +62,7 @@
     {
       "id": "dova-syndrome", "name": "DOVA-SYNDROME", "kind": "creator-library", "importMode": "download-import", "url": "https://www.dova-s.jp/",
       "catalogFit": "日系免费 BGM 体量大，钢琴、轻爵士、和风与日常氛围覆盖全面。",
-      "supportedCategoryIds": ["healing-piano", "calm-piano", "gentle-piano", "soft-lofi", "japanese-lofi", "jazzhop", "rainy-day-chillhop", "japanese-chillhop", "gentle-piano-jazz"],
+      "supportedCategoryIds": ["healing-piano", "calm-piano", "gentle-piano", "signature-healing-loop", "soft-lofi", "japanese-lofi", "jazzhop", "rainy-day-chillhop", "japanese-chillhop", "gentle-piano-jazz"],
       "license": { "youtubeUse": "allowed-with-track-terms", "cost": "free", "attribution": "track-dependent", "contentId": "track-dependent", "monetization": "allowed-with-track-terms", "audioEditing": "basic-edits", "risk": "medium", "notes": "站点总许可允许个人/法人、营利视频和背景音乐免费使用，并允许格式转换、效果、裁切及循环；作曲者可设置优先适用的附加条件，且禁止把音乐本身作为主内容。" },
       "workflow": ["逐曲打开作曲者页面并检查附加条件，不能只看站点总许可。", "下载时保存曲目页、作者名和条款截图。", "可裁切、淡化、循环配画面；不要上传纯音乐合集或工作用 BGM 视频。"],
       "evidence": [{ "title": "DOVA 可用范围与加工", "url": "https://dova-s.jp/help/articles/license-usage/", "supports": ["youtube-use", "attribution", "pricing"] }]
@@ -237,6 +238,14 @@
   ],
   "albums": [
     {
+      "id": "dova-signature-loopable-30", "title": "原生循环疗愈 · 严选 30 首", "artist": "DOVA-SYNDROME Curated", "platformId": "dova-syndrome", "kind": "curated-collection",
+      "categoryIds": ["signature-healing-loop", "healing-piano", "calm-piano", "gentle-piano"], "scenes": ["countryside", "rain", "sunrise", "city-night", "road-driving", "blue-hour"],
+      "description": "严格从 DOVA 原生 Loopable 中筛选：每首同时具备 Warm、Calm、Gentle、Healing，并以 Slow、Weak、Ambient、Piano、Synth Pad、Soft Guitar 加权；强鼓、Funk、EDM、激烈与响亮编曲不进入主推荐。",
+      "trackHighlights": ["優しい灯火 (Tenderly glow)", "高原の小さなカフェにて", "夏の氷華 (Summer ice flower)", "夏の面影", "昼の月", "Sunset Memories", "風の栞", "星は遥か", "別れと笑顔", "ゆったりくつろぎのピアノ", "新緑の丘", "beautiful sky", "約束の手紙", "ひらひらり", "優しい呼吸で (Breath, tenderly)", "夏の穏やかな海辺で", "夏の日差しに", "Chilly", "白い朝", "森林ループ", "星降る夜", "窓越しの雨", "新年の風", "落ち葉の影", "新しい朝、風に乗って", "露草", "日々と泉", "夕焼け", "Spring Riverside", "アサガオと始まり"],
+      "listenUrl": "https://dova-s.jp/bgm?sort=2&kind=1&duration=0&loop=1&tags_m=m03&tags_m=m04&tags_m=m05&tags_r=r22&tags_i=i03", "downloadUrl": "https://dova-s.jp/bgm?sort=2&kind=1&duration=0&loop=1&tags_m=m03&tags_m=m04&tags_m=m05&tags_r=r22&tags_i=i03", "downloadLabel": "打开严格筛选结果并逐曲下载 Loop Track",
+      "credit": "逐曲检查作者条件；建议始终署名曲名 / 作者 / DOVA-SYNDROME", "licenseNote": "仅下载曲目页明确标注 Loop 或单独提供的 Loop Track。DOVA 允许盈利视频背景、裁切、Fade 与 Loop，但禁止纯音乐、作业用 BGM、睡眠音乐等以音乐为主的替代性内容；作者附加条件优先。"
+    },
+    {
       "id": "streambeats-electric", "title": "Electric", "artist": "StreamBeats by Harris Heller", "platformId": "streambeats", "kind": "official-album",
       "categoryIds": ["soft-lofi", "warm-lofi", "night-drive-chillhop"], "scenes": ["city-night", "road-driving", "blue-hour"],
       "description": "30 首偏梦幻与温暖的 Lo-Fi，律动稳定，适合作为夜间驾驶的长段落底色。",
@@ -341,6 +350,70 @@
       "credit": "无需署名", "licenseNote": "可用于盈利 YouTube 视频并做配画面的基础剪辑；不可重新发行、采样或制作音乐衍生品。"
     },
     {
+      "id": "streambeats-prime", "title": "Prime", "artist": "StreamBeats by Harris Heller", "platformId": "streambeats", "kind": "official-album",
+      "categoryIds": ["soft-lofi", "warm-lofi", "warm-sunset-chillhop"], "scenes": ["road-driving", "blue-hour", "urban"],
+      "description": "29 首、总长 63:36 的 2024 Lo-Fi 专辑；兼具梦幻、温暖与轻微忧郁，适合日落公路和城市过场。",
+      "trackHighlights": ["Celestial Journeys", "Swiss Winters", "Amber Afterglow", "Cherry Blossoms", "Coffee Nook", "Lake View"],
+      "listenUrl": "https://streambeats.com/album/prime/", "downloadUrl": "https://streambeats.com/album/prime/", "downloadLabel": "官方页免费 Google Drive / Bandcamp $0",
+      "credit": "无需署名", "licenseNote": "官方标注 100% FREE 与 DMCA Safe；可用于 YouTube 盈利视频同步和基础剪辑，不可重新发行或 remix。"
+    },
+    {
+      "id": "streambeats-rain", "title": "Rain", "artist": "StreamBeats by Harris Heller", "platformId": "streambeats", "kind": "official-album",
+      "categoryIds": ["soft-lofi", "rainy-day-chillhop", "warm-lofi"], "scenes": ["rain", "city-night", "road-driving"],
+      "description": "14 首、总长 34:32 的雨天 Lo-Fi，氛围梦幻而略带忧郁，特别适合雨刷、湿地反光和低照度驾驶。",
+      "trackHighlights": ["雨日 Lo-Fi", "梦幻氛围", "低密度节拍", "雨夜连续驾驶"],
+      "listenUrl": "https://streambeats.com/album/rain/", "downloadUrl": "https://streambeats.com/album/rain/", "downloadLabel": "官方页免费 Google Drive / Bandcamp $0",
+      "credit": "无需署名", "licenseNote": "官方标注 100% FREE 与 DMCA Safe；将音乐作为画面背景使用，可裁切淡化，不可作为音乐内容重新上传。"
+    },
+    {
+      "id": "streambeats-sakura-dreams", "title": "Sakura Dreams", "artist": "StreamBeats by Harris Heller", "platformId": "streambeats", "kind": "official-album",
+      "categoryIds": ["japanese-lofi", "japanese-chillhop", "soft-lofi"], "scenes": ["city-night", "road-driving", "rain"],
+      "description": "30 首、总长 61:10 的 2020 和风取向 Lo-Fi；兼具梦幻、忧郁与轻微情绪起伏，适合日系街景和雨夜行车。",
+      "trackHighlights": ["和风 Lo-Fi", "樱花与夜色", "梦幻旋律", "雨夜城市"],
+      "listenUrl": "https://streambeats.com/album/sakura-dreams/", "downloadUrl": "https://streambeats.com/album/sakura-dreams/", "downloadLabel": "官方页免费 Google Drive / Bandcamp $0",
+      "credit": "无需署名", "licenseNote": "可免费用于 YouTube、直播和 Podcast；仅作为内容配乐使用，不可采样、remix 或重新发行。"
+    },
+    {
+      "id": "streambeats-certain-shade-of-blue", "title": "Certain Shade of Blue", "artist": "StreamBeats by Harris Heller", "platformId": "streambeats", "kind": "official-album",
+      "categoryIds": ["soft-lofi", "night-drive-chillhop", "warm-lofi"], "scenes": ["blue-hour", "city-night", "road-driving"],
+      "description": "30 首、总长 60:18 的 2020 蓝调氛围 Lo-Fi；梦幻、忧郁且偏暗，适合蓝调时刻到深夜城市的连续镜头。",
+      "trackHighlights": ["蓝调时刻", "忧郁 Lo-Fi", "深夜城市", "暗色道路氛围"],
+      "listenUrl": "https://streambeats.com/album/certain-shade-of-blue/", "downloadUrl": "https://streambeats.com/album/certain-shade-of-blue/", "downloadLabel": "官方页免费 Google Drive / Bandcamp $0",
+      "credit": "无需署名", "licenseNote": "官方提供免费同步许可；适合盈利视频背景与基础时间线剪辑，不允许独立分发或制作衍生音乐。"
+    },
+    {
+      "id": "streambeats-cherry-soda", "title": "Cherry Soda", "artist": "StreamBeats by Harris Heller", "platformId": "streambeats", "kind": "official-album",
+      "categoryIds": ["warm-lofi", "soft-lofi", "warm-sunset-chillhop"], "scenes": ["road-driving", "urban", "blue-hour"],
+      "description": "30 首、总长 69:25 的 2022 Lo-Fi 专辑；整体更明亮轻快，适合温暖城市、日落驾驶和节奏稍活跃的过场。",
+      "trackHighlights": ["明亮 Lo-Fi", "温暖和弦", "日落驾驶", "轻快都市过场"],
+      "listenUrl": "https://streambeats.com/album/cherry-soda/", "downloadUrl": "https://streambeats.com/album/cherry-soda/", "downloadLabel": "官方页免费 Google Drive / Bandcamp $0",
+      "credit": "无需署名", "licenseNote": "可用于盈利 YouTube 视频背景；可裁切、循环和淡化，但不可 remix、采样或将音乐单独上传。"
+    },
+    {
+      "id": "streambeats-secluded", "title": "Secluded", "artist": "StreamBeats by Harris Heller", "platformId": "streambeats", "kind": "official-album",
+      "categoryIds": ["soft-lofi", "warm-lofi", "rainy-day-chillhop"], "scenes": ["rain", "road-driving", "blue-hour"],
+      "description": "30 首、总长 67:49 的 2023 Lo-Fi；安静、内省并带少量明亮感，适合独行公路、阴雨与蓝调时刻。",
+      "trackHighlights": ["安静独行", "内省氛围", "阴雨公路", "柔和情绪转折"],
+      "listenUrl": "https://streambeats.com/album/secluded/", "downloadUrl": "https://streambeats.com/album/secluded/", "downloadLabel": "官方页免费 Google Drive / Bandcamp $0",
+      "credit": "无需署名", "licenseNote": "官方标注免费和 DMCA Safe；可作为盈利视频配乐，不可将原曲或改编版本重新发行。"
+    },
+    {
+      "id": "streambeats-reflection", "title": "Reflection", "artist": "StreamBeats by Harris Heller", "platformId": "streambeats", "kind": "official-album",
+      "categoryIds": ["soft-lofi", "warm-lofi", "warm-sunset-chillhop"], "scenes": ["road-driving", "blue-hour", "urban"],
+      "description": "30 首、总长 70:27 的 2023 Lo-Fi；温暖与忧郁并存，适合反思感旁白、暮色公路和城市慢镜。",
+      "trackHighlights": ["反思氛围", "温暖忧郁", "暮色道路", "城市慢镜"],
+      "listenUrl": "https://streambeats.com/album/reflection/", "downloadUrl": "https://streambeats.com/album/reflection/", "downloadLabel": "官方页免费 Google Drive / Bandcamp $0",
+      "credit": "无需署名", "licenseNote": "可免费同步到 YouTube、直播和 Podcast；只做配画面的裁切淡化，不可采样、remix 或再发行。"
+    },
+    {
+      "id": "streambeats-high-at-the-planetarium", "title": "High at the Planetarium", "artist": "StreamBeats by Harris Heller", "platformId": "streambeats", "kind": "official-album",
+      "categoryIds": ["soft-lofi", "night-drive-chillhop", "jazzhop"], "scenes": ["city-night", "road-driving", "blue-hour"],
+      "description": "30 首、总长 61:30 的 2020 深色梦幻 Lo-Fi；空间感更强，适合夜间高速、隧道、霓虹与较抽象的城市镜头。",
+      "trackHighlights": ["深色梦幻", "空间感 Lo-Fi", "夜间高速", "霓虹与隧道"],
+      "listenUrl": "https://streambeats.com/album/high-at-the-planetarium/", "downloadUrl": "https://streambeats.com/album/high-at-the-planetarium/", "downloadLabel": "官方页免费 Google Drive / Bandcamp $0",
+      "credit": "无需署名", "licenseNote": "官方标注 100% FREE 与 DMCA Safe；可用于视频同步和基础剪辑，不可制作音乐衍生品或重新上传。"
+    },
+    {
       "id": "purrple-cat-night-train", "title": "Night Train", "artist": "Purrple Cat", "platformId": "purrple-cat", "kind": "official-album",
       "categoryIds": ["soft-lofi", "night-drive-chillhop", "rainy-day-chillhop"], "scenes": ["city-night", "road-driving", "rain"],
       "description": "以列车、夜色与低照度城市为核心气质，适合雨夜车窗、道路灯轨和安静移动镜头。",
@@ -358,6 +431,118 @@
     }
   ],
   "tracks": [
+    {
+      "id": "dova-relaxing-piano", "title": "ゆったりくつろぎのピアノ", "artist": "今川彰人オーケストラ", "platformId": "dova-syndrome",
+      "categoryIds": ["healing-piano", "calm-piano", "gentle-piano"], "scenes": ["city-night", "road-driving", "rain"], "durationSeconds": 128,
+      "description": "温暖、安静的钢琴独奏，BPM 101 但听感舒缓；适合夜间回程、休息段落与车内慢镜。原曲支持无缝循环。",
+      "listenUrl": "https://dova-s.jp/bgm/detail/8218", "downloadUrl": "https://dova-s.jp/bgm/detail/8218/download", "downloadLabel": "DOVA 原生循环版免费下载",
+      "credit": "建议署名：ゆったりくつろぎのピアノ / 今川彰人オーケストラ", "licenseNote": "作者允许按 DOVA 许可直接用于视频且无需另行确认；该曲原生 Loopable，仍不得作为纯音乐内容再发布。"
+    },
+    {
+      "id": "dova-aya", "title": "aya", "artist": "風可＆葉羽", "platformId": "dova-syndrome",
+      "categoryIds": ["calm-piano", "gentle-piano", "gentle-piano-jazz"], "scenes": ["rain", "blue-hour", "city-night"], "durationSeconds": 53,
+      "description": "安静钢琴叠合成器 Pad 与爵士贝斯，温暖、怀旧而略带蓝调感，适合雨夜、短转场和都市蓝调时刻。",
+      "listenUrl": "https://dova-s.jp/en/bgm/detail/12951", "downloadUrl": "https://dova-s.jp/en/bgm/detail/12951/download", "downloadLabel": "DOVA 曲目页免费下载",
+      "credit": "建议署名：aya / 風可＆葉羽", "licenseNote": "作者标示遵循 DOVA 站点许可；短曲适合在后期以交叉淡化循环，先检查接缝且不可作为音乐主内容发布。"
+    },
+    {
+      "id": "dova-what-comes-into-being", "title": "What comes into being", "artist": "Heitaro Ashibe", "platformId": "dova-syndrome",
+      "categoryIds": ["healing-piano", "calm-piano", "gentle-piano"], "scenes": ["sunrise", "countryside", "blue-hour"], "durationSeconds": 173,
+      "description": "温暖、希望感和内敛感兼具的慢速钢琴独奏，旋律不抢画面，适合日出、海岸与新一天的建立镜头。",
+      "listenUrl": "https://dova-s.jp/bgm/detail/20083", "downloadUrl": "https://dova-s.jp/bgm/detail/20083/download", "downloadLabel": "DOVA 曲目页免费下载",
+      "credit": "建议署名：What comes into being / Heitaro Ashibe", "licenseNote": "作者使用 DOVA 站点许可；原曲非无缝循环，建议在尾音完全衰减后以环境声桥接，不发布纯音乐版本。"
+    },
+    {
+      "id": "dova-healing-morning", "title": "Healing Morning", "artist": "Noru", "platformId": "dova-syndrome",
+      "categoryIds": ["healing-piano", "calm-piano", "gentle-piano"], "scenes": ["sunrise", "countryside", "rain"], "durationSeconds": 249,
+      "description": "柔软钢琴与温暖 Ambient Pad 构成的长篇疗愈 BGM，适合清晨自然、航拍、延时与缓慢风景镜头。",
+      "listenUrl": "https://dova-s.jp/en/bgm/detail/22079", "downloadUrl": "https://dova-s.jp/bgm/detail/22079/download", "downloadLabel": "DOVA 曲目页免费下载",
+      "credit": "署名可选，建议标注：Healing Morning / Noru", "licenseNote": "可作为风景视频背景；作者明确禁止作业用 BGM、睡眠音乐或疗愈音乐等以音乐为主的视频。"
+    },
+    {
+      "id": "dova-on-a-silent-night", "title": "on a silent night", "artist": "Noru", "platformId": "dova-syndrome",
+      "categoryIds": ["healing-piano", "calm-piano", "gentle-piano"], "scenes": ["city-night", "blue-hour", "rain"], "durationSeconds": 221,
+      "description": "透明钢琴与柔和 Synth Pad 的慢速氛围曲，神秘但不阴暗，适合星空、安静夜景、雨夜与延时摄影。",
+      "listenUrl": "https://dova-s.jp/en/bgm/detail/20632", "downloadUrl": "https://dova-s.jp/en/bgm/detail/20632/download", "downloadLabel": "DOVA 曲目页免费下载",
+      "credit": "署名可选，建议标注：on a silent night / Noru", "licenseNote": "按 DOVA 许可用于画面背景；禁止制作以音乐为主的作业、睡眠或疗愈音乐视频。"
+    },
+    {
+      "id": "dova-the-beautiful-world", "title": "the beautiful world", "artist": "Noru", "platformId": "dova-syndrome",
+      "categoryIds": ["healing-piano", "calm-piano", "gentle-piano"], "scenes": ["countryside", "rain", "sunrise"], "durationSeconds": 245,
+      "description": "自由速度、透明和声与水面般缓慢起伏的疗愈钢琴，留白丰富，适合湖面、雨后、清晨和自然长镜头。",
+      "listenUrl": "https://dova-s.jp/en/bgm/detail/16769", "downloadUrl": "https://dova-s.jp/bgm/detail/16769/download", "downloadLabel": "DOVA 曲目页免费下载",
+      "credit": "署名可选，建议标注：the beautiful world / Noru", "licenseNote": "作者遵循 DOVA 许可且署名非强制；原曲非无缝循环，建议用环境声覆盖首尾交叉淡化。"
+    },
+    {
+      "id": "dova-look-up-at-night-sky", "title": "夜空を見上げて", "artist": "Noru", "platformId": "dova-syndrome",
+      "categoryIds": ["healing-piano", "calm-piano", "gentle-piano"], "scenes": ["city-night", "blue-hour", "countryside"], "durationSeconds": 193,
+      "description": "柔软和声主导的慢速钢琴独奏，安静且具有仰望感，适合星空、蓝调时刻、旷野与夜间结束段。",
+      "listenUrl": "https://dova-s.jp/bgm/detail/16902", "downloadUrl": "https://dova-s.jp/bgm/detail/16902/download", "downloadLabel": "DOVA 曲目页免费下载",
+      "credit": "署名可选，建议标注：夜空を見上げて / Noru", "licenseNote": "可按 DOVA 许可用于视频背景；若延长，应在自然尾音后以环境声桥接，不制作纯音乐循环视频。"
+    },
+    {
+      "id": "dova-star-travellers", "title": "Star Travellers", "artist": "Noru", "platformId": "dova-syndrome",
+      "categoryIds": ["healing-piano", "calm-piano", "gentle-piano"], "scenes": ["city-night", "blue-hour", "road-driving"], "durationSeconds": 191,
+      "description": "幻想 Synth Pad 与钢琴融合的星空疗愈 Ambient，空间感比参考曲更宽，适合夜驾、航拍、星轨与时间流逝。",
+      "listenUrl": "https://dova-s.jp/en/bgm/detail/19903", "downloadUrl": "https://dova-s.jp/en/bgm/detail/19903/download", "downloadLabel": "DOVA 曲目页免费下载",
+      "credit": "署名可选，建议标注：Star Travellers / Noru", "licenseNote": "可作为视频背景，但作者明确禁止作业、睡眠、疗愈音乐等音乐主内容；不要单独循环上传。"
+    },
+    {
+      "id": "dova-rain-garden", "title": "Rain Garden", "artist": "Noru", "platformId": "dova-syndrome",
+      "categoryIds": ["healing-piano", "calm-piano", "gentle-piano"], "scenes": ["rain", "blue-hour", "countryside"], "durationSeconds": 205,
+      "description": "漂浮感明显的钢琴与 Synth Pad，和声神秘、尾部自然消散，适合雨景、庭园、水面与安静的蓝调镜头。",
+      "listenUrl": "https://dova-s.jp/en/bgm/detail/16558", "downloadUrl": "https://dova-s.jp/en/bgm/detail/16558/download", "downloadLabel": "DOVA 曲目页免费下载",
+      "credit": "署名可选，建议标注：Rain Garden / Noru", "licenseNote": "作者说明尾部可单曲重复形成近似循环；使用短交叉淡化并保留环境声，禁止音乐主内容上传。"
+    },
+    {
+      "id": "dova-pianissimo-of-the-gentleness", "title": "Pianissimo of the gentleness", "artist": "MAKOOTO", "platformId": "dova-syndrome",
+      "categoryIds": ["healing-piano", "calm-piano", "gentle-piano"], "scenes": ["countryside", "rain", "sunrise"], "durationSeconds": 140,
+      "description": "你的参考曲：约 60 BPM 的温柔钢琴独奏，旋律缓慢、力度克制、留白自然，带温暖和平静的日常疗愈感。",
+      "listenUrl": "https://dova-s.jp/zh-tw/bgm/detail/11709", "downloadUrl": "https://dova-s.jp/zh-tw/bgm/detail/11709/download", "downloadLabel": "DOVA 曲目页免费下载",
+      "credit": "建议署名：Pianissimo of the gentleness / MAKOOTO", "licenseNote": "遵循 DOVA 总许可及 MAKOOTO 作者条件；可作为盈利视频背景并做裁切、淡化和循环，不可发布纯音乐或替代原曲的内容。"
+    },
+    {
+      "id": "dova-piano-comfort", "title": "Piano Comfort", "artist": "lei", "platformId": "dova-syndrome",
+      "categoryIds": ["healing-piano", "calm-piano", "gentle-piano"], "scenes": ["countryside", "rain", "sunrise", "blue-hour"], "durationSeconds": 84,
+      "description": "相似度很高：同为慢速、平和、温柔且略带感伤的钢琴独奏，适合安静风景、雨后与情绪留白。",
+      "listenUrl": "https://dova-s.jp/en/bgm/detail/10377", "downloadUrl": "https://dova-s.jp/en/bgm/detail/10377/download", "downloadLabel": "DOVA 曲目页免费下载",
+      "credit": "建议署名：Piano Comfort / lei", "licenseNote": "作者页面标示遵循站点许可；发布前仍需复核作者条件并保存曲目页，音乐只能作为作品背景使用。"
+    },
+    {
+      "id": "dova-window-drops", "title": "窓辺のドロップス", "artist": "すもち", "platformId": "dova-syndrome",
+      "categoryIds": ["healing-piano", "calm-piano", "gentle-piano"], "scenes": ["rain", "countryside", "blue-hour"], "durationSeconds": 132,
+      "description": "温暖、湿润而略带伤感的钢琴独奏，尤其适合窗边雨滴、湿地反光和缓慢移动的雨景。",
+      "listenUrl": "https://dova-s.jp/zh-tw/bgm/detail/13672", "downloadUrl": "https://dova-s.jp/bgm/detail/13672/download", "downloadLabel": "DOVA 曲目页免费下载",
+      "credit": "署名可选，建议标注：窓辺のドロップス / すもち", "licenseNote": "作者明确表示署名与使用报告任意；仍须遵循 DOVA 许可，不得把音乐作为主内容或独立音源再发布。"
+    },
+    {
+      "id": "dova-on-a-fine-morning", "title": "on a fine morning", "artist": "Noru", "platformId": "dova-syndrome",
+      "categoryIds": ["healing-piano", "calm-piano", "gentle-piano"], "scenes": ["sunrise", "countryside"], "durationSeconds": 198,
+      "description": "更明亮的同类选择：舒展温柔的钢琴旋律与柔软和声，适合晴朗清晨、乡村日出和慢速开场。",
+      "listenUrl": "https://dova-s.jp/en/bgm/detail/17723", "downloadUrl": "https://dova-s.jp/en/bgm/detail/17723/download", "downloadLabel": "DOVA 曲目页免费下载",
+      "credit": "署名可选，建议标注：on a fine morning / Noru", "licenseNote": "作者遵循 DOVA 音乐许可；保存下载页与作者条件，可作为视频背景使用并做基础剪辑。"
+    },
+    {
+      "id": "dova-hoshizukuyo-starry-night", "title": "Hoshizukuyo -starry night-", "artist": "Noru", "platformId": "dova-syndrome",
+      "categoryIds": ["healing-piano", "calm-piano", "gentle-piano"], "scenes": ["blue-hour", "city-night", "countryside"], "durationSeconds": 117,
+      "description": "柔软、梦境般的慢速钢琴独奏，音符密度低，适合星空、蓝调时刻、夜间风景和延时画面。",
+      "listenUrl": "https://dova-s.jp/en/bgm/detail/18954", "downloadUrl": "https://dova-s.jp/en/bgm/detail/18954/download", "downloadLabel": "DOVA 曲目页免费下载",
+      "credit": "署名可选，建议标注：Hoshizukuyo -starry night- / Noru", "licenseNote": "作者注明署名非强制并遵循 DOVA 许可；不得把音乐独立发布或制作替代原曲的音乐内容。"
+    },
+    {
+      "id": "dova-winter-arrival", "title": "冬の訪れ", "artist": "蒲鉾さちこ", "platformId": "dova-syndrome",
+      "categoryIds": ["healing-piano", "calm-piano", "gentle-piano"], "scenes": ["rain", "blue-hour", "city-night", "countryside"], "durationSeconds": 146,
+      "description": "湿润、安静而温暖的钢琴独奏，比参考曲多一点冬夜和怀旧感，适合雨季、夜景、独行与自然长镜头。",
+      "listenUrl": "https://dova-s.jp/bgm/detail/19842", "downloadUrl": "https://dova-s.jp/bgm/detail/19842/download", "downloadLabel": "DOVA 曲目页免费下载",
+      "credit": "署名可选，建议标注：冬の訪れ / 蒲鉾さちこ", "licenseNote": "作者说明正常合规使用无需单独许可，署名与报告任意；仍应保存 DOVA 条款和曲目页。"
+    },
+    {
+      "id": "dova-a-poet", "title": "A poet", "artist": "H.Lang", "platformId": "dova-syndrome",
+      "categoryIds": ["healing-piano", "calm-piano", "gentle-piano"], "scenes": ["countryside", "sunrise", "blue-hour"], "durationSeconds": 122,
+      "description": "包裹感明显的温柔钢琴独奏，保留少量寂寞和故事性，适合人物旁白、清晨和情绪过渡。",
+      "listenUrl": "https://dova-s.jp/bgm/detail/20852", "downloadUrl": "https://dova-s.jp/bgm/detail/20852/download", "downloadLabel": "DOVA 曲目页免费下载",
+      "credit": "建议署名：A poet / H.Lang", "licenseNote": "按 DOVA 站点许可及作者页面条件使用；可以作为作品背景，不得上传纯音乐、再分发或冒充原创。"
+    },
     {
       "id": "pixabay-calm-waves-soft-piano", "title": "Calm Waves (Soft Piano)", "artist": "Grand_Project", "platformId": "pixabay-music",
       "categoryIds": ["healing-piano", "calm-piano", "gentle-piano"], "scenes": ["countryside", "rain", "sunrise"], "durationSeconds": 199,
