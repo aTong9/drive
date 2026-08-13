@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.1.0",
+  "schemaVersion": "1.2.0",
   "accessedAt": "2026-08-13",
   "methodology": "仅收录具有官方许可说明或官方帮助中心证据的来源。平台标签表示典型工作流，不替代逐曲查看用途、地区、频道、视频类型与许可期限；下载时应保存许可证和账单，并在发布前完成频道或视频清除。本模块不调用第三方下载 API：download-import 表示手动下载音频文件后导入 DaVinci Resolve，platform-only 表示许可仅限指定平台。",
   "categories": [
@@ -153,6 +153,216 @@
       "license": { "youtubeUse": "allowed-with-track-terms", "cost": "free", "attribution": "credit-or-safelist", "contentId": "track-dependent", "monetization": "allowed-with-track-terms", "audioEditing": "sync-only", "risk": "medium", "notes": "NCS 面向独立创作者提供按规则使用的曲目，但须从 ncs.io 或官方上传确认该曲仍在政策覆盖内，并复制完整 Credit；品牌、商业组织、纯音乐上传及 remix 不应套用一般创作者许可。" },
       "workflow": ["只从 ncs.io 曲目页或 NCS 官方上传取得音乐和完整 Credit。", "发布前逐曲确认创作者使用政策、频道类型与盈利条件。", "保持曲目作为视频背景，不 remix、不上传纯音乐或可替代原曲的内容。"],
       "evidence": [{ "title": "NCS Usage Policy", "url": "https://ncs.io/usage-policy", "supports": ["youtube-use", "attribution", "content-id", "pricing"] }]
+    },
+    {
+      "id": "pixabay-music", "name": "Pixabay Music", "kind": "freemium", "importMode": "download-import", "url": "https://pixabay.com/music/",
+      "catalogFit": "跨风格大型社区曲库，适合快速搜索钢琴、Lo-Fi、电影感和驾驶音乐。",
+      "supportedCategoryIds": ["healing-piano", "calm-piano", "gentle-piano", "soft-lofi", "warm-lofi", "night-drive-chillhop", "jazzhop", "warm-sunset-chillhop", "rainy-day-chillhop", "relaxed-jazz-nocturne"],
+      "license": { "youtubeUse": "allowed-with-license", "cost": "free", "attribution": "not-generally-required", "contentId": "track-dependent", "monetization": "allowed", "audioEditing": "derivatives-allowed", "risk": "medium", "notes": "Pixabay Content License 允许免费、无需署名地使用、修改并嵌入商业视频；部分投稿者会登记 Content ID，必须下载该曲许可证明并避免音乐单独分发或冒充原创。" },
+      "workflow": ["登录后从官方曲目页下载音频与该曲 License Certificate。", "优先选择未标 Content ID 的曲目；有盾牌标记时预留申诉时间。", "可裁切、循环和改编配画面，上传后用曲目 URL 与许可证明处理声明。"],
+      "evidence": [{ "title": "Pixabay Content License", "url": "https://pixabay.com/service/license-summary/", "supports": ["youtube-use", "attribution", "pricing"] }, { "title": "Pixabay Music FAQ", "url": "https://pixabay.com/service/faq/", "supports": ["youtube-use", "content-id"] }]
+    },
+    {
+      "id": "mixkit", "name": "Mixkit", "kind": "creator-library", "importMode": "download-import", "url": "https://mixkit.co/free-stock-music/",
+      "catalogFit": "可直接下载的背景音乐库，Lo-Fi、电影感、城市和轻快旅行类别齐全。",
+      "supportedCategoryIds": ["calm-piano", "gentle-piano", "soft-lofi", "warm-lofi", "night-drive-chillhop", "jazzhop", "warm-sunset-chillhop", "rainy-day-chillhop"],
+      "license": { "youtubeUse": "allowed-with-license", "cost": "free", "attribution": "not-generally-required", "contentId": "track-dependent", "monetization": "allowed", "audioEditing": "basic-edits", "risk": "low", "notes": "Mixkit 明确允许免费音乐作为 YouTube、社交媒体、Podcast 和在线广告的背景音乐使用且无需署名；不得用于 CD、DVD、电子游戏、电视或广播，亦不可单独再分发。" },
+      "workflow": ["只从 Mixkit 官方音乐页下载并记录曲名、作者和下载日期。", "可在视频剪辑中裁切、循环、淡化和调整音量。", "不要将授权外推至电视、广播、游戏或音乐单独发行。"],
+      "evidence": [{ "title": "Mixkit Free Stock Music", "url": "https://mixkit.co/free-stock-music/", "supports": ["youtube-use", "attribution", "pricing"] }, { "title": "Mixkit License", "url": "https://mixkit.co/license/", "supports": ["youtube-use", "pricing"] }]
+    },
+    {
+      "id": "incompetech", "name": "Incompetech / Kevin MacLeod", "kind": "creator-library", "importMode": "download-import", "url": "https://incompetech.com/music/royalty-free/music.html",
+      "catalogFit": "经典 CC 曲库，情绪和类型覆盖广，适合纪录、旅行、自然与轻松段落。",
+      "supportedCategoryIds": ["healing-piano", "calm-piano", "gentle-piano", "soft-lofi", "warm-sunset-chillhop", "relaxed-jazz-nocturne", "gentle-piano-jazz"],
+      "license": { "youtubeUse": "allowed-with-license", "cost": "free", "attribution": "credit-or-safelist", "contentId": "track-dependent", "monetization": "allowed", "audioEditing": "derivatives-allowed", "risk": "low", "notes": "免费方案采用 CC BY 4.0，允许 YouTube 盈利与改编，但必须使用曲目对应的 Kevin MacLeod / Incompetech 署名；不便署名时需购买标准许可。" },
+      "workflow": ["从官网曲目页生成并复制准确的 CC BY 4.0 Credit。", "把曲名、作者、网站和许可证链接放入视频说明。", "保存下载与署名记录；第三方误登记 Content ID 时以 CC 许可申诉。"],
+      "evidence": [{ "title": "Incompetech Licenses", "url": "https://web.incompetech.com/music/royalty-free/licenses/", "supports": ["youtube-use", "attribution", "pricing"] }, { "title": "Incompetech FAQ", "url": "https://music.kevin.macleod.incompetech.com/music/royalty-free/faq.html", "supports": ["youtube-use", "attribution"] }]
+    },
+    {
+      "id": "audionautix", "name": "Audionautix", "kind": "creator-library", "importMode": "download-import", "url": "https://audionautix.com/",
+      "catalogFit": "Jason Shaw 的 CC BY 曲库，适合自然、日常、纪录和轻松公路画面。",
+      "supportedCategoryIds": ["calm-piano", "gentle-piano", "soft-lofi", "warm-lofi", "warm-sunset-chillhop", "relaxed-jazz-nocturne"],
+      "license": { "youtubeUse": "allowed-with-license", "cost": "free", "attribution": "credit-or-safelist", "contentId": "low", "monetization": "allowed", "audioEditing": "derivatives-allowed", "risk": "low", "notes": "全部可下载音乐由 Jason Shaw 创作并以 CC BY 4.0 提供，署名后可免费商业使用及作为视频、remix、Podcast 等作品的一部分；禁止原样转售。" },
+      "workflow": ["从 Audionautix 官方站下载并记录准确曲名。", "说明栏署名 Jason Shaw / Audionautix，并链接 CC BY 4.0。", "允许裁切和创作性处理，但不能把原音频原样转售。"],
+      "evidence": [{ "title": "Audionautix FAQ and License", "url": "https://audionautix.com/faqs.php", "supports": ["youtube-use", "attribution", "content-id", "pricing"] }]
+    },
+    {
+      "id": "bensound-free", "name": "Bensound Free Music", "kind": "freemium", "importMode": "download-import", "url": "https://www.bensound.com/free-music-for-videos",
+      "catalogFit": "免费区含企业、轻快、电影感和氛围音乐，适合偶尔使用的成片。",
+      "supportedCategoryIds": ["calm-piano", "gentle-piano", "soft-lofi", "warm-lofi", "warm-sunset-chillhop", "relaxed-jazz-nocturne"],
+      "license": { "youtubeUse": "allowed-with-license", "cost": "free", "attribution": "credit-or-safelist", "contentId": "code-or-clearlist", "monetization": "allowed", "audioEditing": "basic-edits", "risk": "medium", "notes": "仅 Free Music 区适用免费许可；允许公开视频和 YouTube 盈利，但每个视频必须重新下载并使用一次性的完整 Attribution Code。只允许起止点、选段和淡化等基础编辑，禁止 remix。" },
+      "workflow": ["每个视频、每首歌都重新从 Free Music 区下载并生成一次性署名码。", "公开前原样粘贴完整 Attribution Code，不能跨视频复用。", "只做裁切、选段和淡化；若误声明，以该次下载码申诉。"],
+      "evidence": [{ "title": "Bensound FAQ", "url": "https://www.bensound.com/faq", "supports": ["youtube-use", "attribution", "content-id", "pricing"] }, { "title": "Bensound Terms", "url": "https://www.bensound.com/terms-and-conditions", "supports": ["youtube-use", "attribution"] }]
+    },
+    {
+      "id": "freebgm-jp", "name": "FreeBGM.jp", "kind": "creator-library", "importMode": "download-import", "url": "https://www.freebgm.jp/",
+      "catalogFit": "日系大型曲库，适合综艺感、日常、旅行、Lo-Fi 与情绪背景的快速检索。",
+      "supportedCategoryIds": ["healing-piano", "calm-piano", "gentle-piano", "soft-lofi", "japanese-lofi", "warm-lofi", "night-drive-chillhop", "jazzhop", "japanese-chillhop"],
+      "license": { "youtubeUse": "allowed-with-license", "cost": "free", "attribution": "not-generally-required", "contentId": "low", "monetization": "allowed", "audioEditing": "basic-edits", "risk": "low", "notes": "官方 FAQ 明确允许免费商业使用、YouTube 盈利且署名任意，并允许裁切、循环、淡化、变速和音量调整；禁止再分发、转售或登记 Content ID。" },
+      "workflow": ["从官网直接下载并保存曲目 URL 与条款快照。", "可按成片需要裁切、循环、淡化、变速和调整音量。", "不得把音频单独再分发、销售或登记到 Content ID。"],
+      "evidence": [{ "title": "FreeBGM.jp FAQ", "url": "https://www.freebgm.jp/", "supports": ["youtube-use", "attribution", "content-id", "pricing"] }, { "title": "YouTube Monetization and Content ID", "url": "https://www.freebgm.jp/youtube-monetization-content-id/", "supports": ["youtube-use", "content-id"] }]
+    },
+    {
+      "id": "bgmer", "name": "BGMer", "kind": "creator-library", "importMode": "download-import", "url": "https://bgmer.net/",
+      "catalogFit": "日本视频常用的轻快、日常、可爱及情绪 BGM，适合 vlog 与路线叙事。",
+      "supportedCategoryIds": ["calm-piano", "gentle-piano", "soft-lofi", "japanese-lofi", "warm-lofi", "warm-sunset-chillhop", "japanese-chillhop"],
+      "license": { "youtubeUse": "allowed-with-license", "cost": "free", "attribution": "not-generally-required", "contentId": "low", "monetization": "allowed", "audioEditing": "derivatives-allowed", "risk": "low", "notes": "官方允许个人、商业及已盈利 YouTube 频道免费使用，署名与报告通常任意，并允许编曲、改编、歌唱和演奏；BGM 介绍或转载视频必须署名，禁止冒充作者或未经许可销售。" },
+      "workflow": ["从 BGMer 官网下载并保存曲目名与条款日期。", "可裁切、循环或改编用于正常视频背景。", "若视频以介绍或转载音乐为主，必须按条款标注 BGMer Credit。"],
+      "evidence": [{ "title": "BGMer Terms", "url": "https://bgmer.net/terms", "supports": ["youtube-use", "attribution", "content-id", "pricing"] }]
+    },
+    {
+      "id": "otologic", "name": "OtoLogic", "kind": "creator-library", "importMode": "download-import", "url": "https://otologic.jp/",
+      "catalogFit": "BGM、Jingle 与音效一体，适合需要音乐和转场声统一管理的视频项目。",
+      "supportedCategoryIds": ["calm-piano", "gentle-piano", "soft-lofi", "japanese-lofi", "warm-lofi", "japanese-chillhop", "gentle-piano-jazz"],
+      "license": { "youtubeUse": "allowed-with-license", "cost": "free", "attribution": "credit-or-safelist", "contentId": "track-dependent", "monetization": "allowed", "audioEditing": "derivatives-allowed", "risk": "low", "notes": "全站素材以 CC BY 4.0 提供，显示 OtoLogic Credit 后可免费用于个人、法人、商业和盈利内容，并可编辑、加工和编曲；不得用 Content ID 妨碍其他合法使用者。" },
+      "workflow": ["从官网素材页下载并记录素材名称。", "在视频或说明栏清楚显示 OtoLogic Credit。", "可加工与编曲，但包含素材的作品不可登记 Content ID 排他主张。"],
+      "evidence": [{ "title": "OtoLogic License", "url": "https://otologic.jp/free/license", "supports": ["youtube-use", "attribution", "pricing"] }, { "title": "OtoLogic FAQ", "url": "https://otologic.jp/free/faq", "supports": ["youtube-use", "content-id"] }]
+    },
+    {
+      "id": "maou-damashii", "name": "魔王魂", "kind": "creator-library", "importMode": "download-import", "url": "https://maou.audio/",
+      "catalogFit": "游戏感、摇滚、民族、钢琴和日系场景音乐丰富，适合叙事性较强的路线视频。",
+      "supportedCategoryIds": ["healing-piano", "calm-piano", "gentle-piano", "japanese-lofi", "japanese-chillhop", "relaxed-jazz-nocturne"],
+      "license": { "youtubeUse": "allowed-with-license", "cost": "free", "attribution": "track-dependent", "contentId": "track-dependent", "monetization": "allowed", "audioEditing": "derivatives-allowed", "risk": "low", "notes": "官方允许个人和商业内容免费使用、YouTube 盈利及广泛改造，包括标题、音量、音高和长度；建议标注“音乐：魔王魂”，禁止冒充作者、商店流媒体发行和将购买的聆听版当素材。" },
+      "workflow": ["仅使用魔王魂官网明确作为素材提供的下载文件。", "建议在说明栏写“音乐：魔王魂”，并保存曲名与规则页面。", "可裁切和改造，但不得冒充原创、登记流媒体发行或单独再分发。"],
+      "evidence": [{ "title": "魔王魂 Music Rules", "url": "https://maou.audio/rule/", "supports": ["youtube-use", "attribution", "pricing"] }, { "title": "魔王魂 FAQ", "url": "https://maou.audio/help-question/", "supports": ["youtube-use", "pricing"] }]
+    },
+    {
+      "id": "musmus", "name": "MusMus", "kind": "creator-library", "importMode": "download-import", "url": "https://musmus.main.jp/",
+      "catalogFit": "日系日常、爵士、轻快和游戏感 BGM 丰富，适合城市、乡村与叙事段落。",
+      "supportedCategoryIds": ["calm-piano", "gentle-piano", "soft-lofi", "japanese-lofi", "jazzhop", "japanese-chillhop", "relaxed-jazz-nocturne", "gentle-piano-jazz"],
+      "license": { "youtubeUse": "allowed-with-license", "cost": "free", "attribution": "credit-or-safelist", "contentId": "track-dependent", "monetization": "allowed", "audioEditing": "derivatives-allowed", "risk": "low", "notes": "从 MusMus 官网取得的素材在标注版权信息后，可免费用于商业或非商业内容及 YouTube BGM，条款明确加工自由；从 Spotify、YouTube 等其他来源取得的音源不适用素材许可。" },
+      "workflow": ["必须从 MusMus 官网下载，不使用串流平台提取的版本。", "在说明栏按官方格式标注 Music by MusMus 及下载链接。", "可裁切和加工，但保存下载页与当时条款作为许可证据。"],
+      "evidence": [{ "title": "MusMus Usage Terms", "url": "https://musmus.main.jp/info.html", "supports": ["youtube-use", "attribution", "content-id", "pricing"] }]
+    },
+    {
+      "id": "hmix-gallery", "name": "H/MIX GALLERY", "kind": "freemium", "importMode": "download-import", "url": "https://www.hmix.net/",
+      "catalogFit": "电影感、幻想、自然和钢琴音乐突出，适合风景、公路与纪录片式叙事。",
+      "supportedCategoryIds": ["healing-piano", "calm-piano", "gentle-piano", "warm-sunset-chillhop", "relaxed-jazz-nocturne", "gentle-piano-jazz"],
+      "license": { "youtubeUse": "allowed-with-license", "cost": "free", "attribution": "not-generally-required", "contentId": "track-dependent", "monetization": "allowed", "audioEditing": "basic-edits", "risk": "low", "notes": "YouTube 视频（含盈利、赞助和企业自有频道）免费且署名任意；付费广告投放、商业产品、广播电影等另需许可。允许为作品加工，但禁止把加工音频作为素材再分发或登记 Content ID。" },
+      "workflow": ["确认用途是普通 YouTube 发布而非付费广告投放。", "从官网下载并保存曲目页；建议在说明栏链接 H/MIX GALLERY。", "可做视频所需加工，若收到声明按官方流程提交视频 URL、曲名和截图。"],
+      "evidence": [{ "title": "H/MIX License Guide", "url": "https://www.hmix.net/terms.html", "supports": ["youtube-use", "attribution", "content-id", "pricing"] }]
+    },
+    {
+      "id": "amacha-music", "name": "甘茶の音楽工房", "kind": "creator-library", "importMode": "download-import", "url": "https://amachamusic.chagasi.com/",
+      "catalogFit": "超过 500 首日系背景音乐，覆盖温柔、治愈、日常、自然和轻悬疑。",
+      "supportedCategoryIds": ["healing-piano", "calm-piano", "gentle-piano", "japanese-lofi", "warm-sunset-chillhop", "japanese-chillhop", "relaxed-jazz-nocturne"],
+      "license": { "youtubeUse": "allowed-with-license", "cost": "free", "attribution": "not-generally-required", "contentId": "track-dependent", "monetization": "allowed", "audioEditing": "derivatives-allowed", "risk": "low", "notes": "官方允许公开素材免费用于个人或商业项目，并要求作为网页、视频、游戏、广播等作品的背景使用；允许加工但版权仍归作者，禁止单独销售、二次分发和登记 Content ID。" },
+      "workflow": ["从官网直接下载并记录曲名与访问日期。", "仅作为视频等作品的背景使用，可裁切和加工。", "不得单独销售、二次分发或把包含该素材的作品登记 Content ID。"],
+      "evidence": [{ "title": "Amacha Music Terms", "url": "https://amachamusic.chagasi.com/terms.html", "supports": ["youtube-use", "attribution", "content-id", "pricing"] }]
+    },
+    {
+      "id": "oto-note", "name": "おとのおと", "kind": "freemium", "importMode": "download-import", "url": "https://oto-note.net/freemusic/",
+      "catalogFit": "较新的日系创作者曲库，适合日常、温柔叙事和轻松旅行背景。",
+      "supportedCategoryIds": ["healing-piano", "calm-piano", "gentle-piano", "soft-lofi", "japanese-lofi", "warm-lofi", "japanese-chillhop"],
+      "license": { "youtubeUse": "allowed-with-license", "cost": "free", "attribution": "credit-or-safelist", "contentId": "track-dependent", "monetization": "allowed", "audioEditing": "derivatives-allowed", "risk": "low", "notes": "免费方案在完整标注作者和网站 Credit 的条件下，允许 YouTube、SNS、游戏及影视的商业或非商业使用，并允许编辑、回声、裁切和采样；音乐本身不得作为主要商品再分发或销售。" },
+      "workflow": ["从官网曲目页下载并保存对应页面。", "在说明栏完整标注“フリーBGMおとのおと 前田哲”及官方 URL。", "可裁切、采样与加工，但不得把音乐本身作为主要内容销售或再分发。"],
+      "evidence": [{ "title": "Oto Note Free BGM Terms", "url": "https://oto-note.net/freemusic/termsofservice/", "supports": ["youtube-use", "attribution", "pricing"] }]
+    },
+    {
+      "id": "red-bears", "name": "red bears", "kind": "creator-library", "importMode": "download-import", "url": "https://www.nakano-sound.com/free/",
+      "catalogFit": "小型日系免费 BGM 库，可补充轻松、日常和叙事用背景音乐。",
+      "supportedCategoryIds": ["calm-piano", "gentle-piano", "soft-lofi", "warm-lofi", "warm-sunset-chillhop"],
+      "license": { "youtubeUse": "allowed-with-license", "cost": "free", "attribution": "not-generally-required", "contentId": "track-dependent", "monetization": "allowed", "audioEditing": "derivatives-allowed", "risk": "low", "notes": "官方条款摘要明确商用、改编和 YouTube 使用均可，署名任意且免费；不得将含素材的作品登记 Content ID，也必须遵守再分发等完整禁止事项。" },
+      "workflow": ["从 red bears 官方素材页下载并保存曲名与条款快照。", "可用于盈利视频并裁切、循环或加工，建议仍标注来源。", "不得将素材或包含素材的作品登记 Content ID。"],
+      "evidence": [{ "title": "red bears Terms", "url": "https://www.nakano-sound.com/free/kiyaku.html", "supports": ["youtube-use", "attribution", "content-id", "pricing"] }]
+    }
+  ],
+  "albums": [
+    {
+      "id": "streambeats-electric", "title": "Electric", "artist": "StreamBeats by Harris Heller", "platformId": "streambeats", "kind": "official-album",
+      "categoryIds": ["soft-lofi", "warm-lofi", "night-drive-chillhop"], "scenes": ["city-night", "road-driving", "blue-hour"],
+      "description": "30 首偏梦幻与温暖的 Lo-Fi，律动稳定，适合作为夜间驾驶的长段落底色。",
+      "trackHighlights": ["Certain Shade of Blue", "Cherry Soda", "Fantasy Arcade", "Gold"],
+      "listenUrl": "https://streambeats.com/album/electric/", "downloadUrl": "https://streambeats.com/album/electric/", "downloadLabel": "官方页免费下载 / Bandcamp $0",
+      "credit": "无需署名", "licenseNote": "可用于盈利 YouTube 视频；保持原曲配画面，不可 remix、采样或制作衍生音乐。"
+    },
+    {
+      "id": "streambeats-in-4k", "title": "In 4K", "artist": "StreamBeats by Harris Heller", "platformId": "streambeats", "kind": "official-album",
+      "categoryIds": ["soft-lofi", "warm-lofi", "warm-sunset-chillhop"], "scenes": ["road-driving", "city-night", "blue-hour"],
+      "description": "30 首旋律柔和的 Lo-Fi 合辑，鼓点不过分突出，适合公路、日落到蓝调时刻的连续剪辑。",
+      "trackHighlights": ["Dreary Summer", "Nostalgia", "Dim Lights", "Because Rain", "Pixel Sunrise", "Midnight Stroll"],
+      "listenUrl": "https://streambeats.bandcamp.com/album/in-4k", "downloadUrl": "https://streambeats.bandcamp.com/album/in-4k", "downloadLabel": "Bandcamp 自定价格（可填 $0）",
+      "credit": "无需署名", "licenseNote": "允许 YouTube 盈利和视频同步；下载时选择 MP3、WAV 或 FLAC，不可单独再上传或 remix。"
+    },
+    {
+      "id": "purrple-cat-happy-place", "title": "Happy Place", "artist": "Purrple Cat", "platformId": "purrple-cat", "kind": "official-album",
+      "categoryIds": ["soft-lofi", "warm-lofi", "warm-sunset-chillhop"], "scenes": ["road-driving", "urban", "blue-hour"],
+      "description": "温暖、明亮且低压的 Lo-Fi 专辑，适合日落驾驶、城市慢行和轻松的建立镜头。",
+      "trackHighlights": ["Daydreams", "Golden Hour", "Earl Grey", "Wildflowers", "Sunshine Boulevard"],
+      "listenUrl": "https://purrplecat.bandcamp.com/album/happy-place", "downloadUrl": "https://freelofi.com/", "downloadLabel": "在 FreeLofi 搜索专辑并下载许可",
+      "credit": "署名可选：Music by Purrple Cat", "licenseNote": "仅下载 FreeLofi 目录中明确覆盖的曲目，并把书面许可随项目保存；不要从串流平台抓取。"
+    },
+    {
+      "id": "purrple-cat-city-nights", "title": "City Nights", "artist": "Purrple Cat", "platformId": "purrple-cat", "kind": "official-album",
+      "categoryIds": ["soft-lofi", "night-drive-chillhop", "rainy-day-chillhop"], "scenes": ["city-night", "road-driving", "rain"],
+      "description": "面向霓虹、雨夜与城市道路的柔和 Lo-Fi，适合环境声占主导的夜驾视频。",
+      "trackHighlights": ["Crescent Moon", "Star Bright", "Solitude", "Streetlights", "Dancing Shadows"],
+      "listenUrl": "https://purrplecat.bandcamp.com/album/city-nights", "downloadUrl": "https://freelofi.com/", "downloadLabel": "在 FreeLofi 逐曲确认并下载",
+      "credit": "署名可选：Music by Purrple Cat", "licenseNote": "发行专辑与可免费用于创作的目录可能不同；只有 FreeLofi 当前列出的曲目才进入下载工作流。"
+    },
+    {
+      "id": "pixabay-healing-piano", "title": "疗愈与留白钢琴精选", "artist": "Pixabay Contributors", "platformId": "pixabay-music", "kind": "curated-collection",
+      "categoryIds": ["healing-piano", "calm-piano", "gentle-piano"], "scenes": ["countryside", "rain", "sunrise"],
+      "description": "按疗愈、平静和温柔钢琴关键词整理，优先选择慢旋律、长延音和低密度音符。",
+      "trackHighlights": ["Piano Calm", "Relaxing Piano", "Calm Waves (Soft Piano)", "Healing Piano ~Usui~", "Land of Harmony"],
+      "listenUrl": "https://pixabay.com/music/search/healing%20piano/", "downloadUrl": "https://pixabay.com/music/search/healing%20piano/", "downloadLabel": "进入合辑后逐曲官方下载",
+      "credit": "通常无需署名，建议记录作者", "licenseNote": "逐曲检查 Content ID 盾牌并下载 License Certificate；优先选未登记 Content ID 的音乐。"
+    },
+    {
+      "id": "pixabay-soft-lofi", "title": "柔和 Lo-Fi 与夜驾精选", "artist": "Pixabay Contributors", "platformId": "pixabay-music", "kind": "curated-collection",
+      "categoryIds": ["soft-lofi", "japanese-lofi", "warm-lofi", "night-drive-chillhop"], "scenes": ["city-night", "road-driving", "rain"],
+      "description": "以轻鼓、钢琴和温暖纹理为主，适合城市夜景、公路驾驶和雨夜，不追求强烈踩点。",
+      "trackHighlights": ["Calm Lo-Fi", "Lo-Fi Chill", "Soft lo-fi piano melodies", "Rainy Keys", "Lost in Tokyo"],
+      "listenUrl": "https://pixabay.com/music/search/lo-fi-piano/", "downloadUrl": "https://pixabay.com/music/search/lo-fi-piano/", "downloadLabel": "进入合辑后逐曲官方下载",
+      "credit": "通常无需署名，建议记录作者", "licenseNote": "允许盈利和加工，但 Content ID 按投稿者变化；每首曲目都要单独保存许可证。"
+    },
+    {
+      "id": "pixabay-night-jazz", "title": "爵士夜曲与钢琴爵士精选", "artist": "Pixabay Contributors", "platformId": "pixabay-music", "kind": "curated-collection",
+      "categoryIds": ["relaxed-jazz-nocturne", "gentle-piano-jazz", "jazzhop"], "scenes": ["blue-hour", "city-night", "urban"],
+      "description": "偏轻柔钢琴、爵士和弦和低密度夜曲，适合蓝调时刻与安静都市镜头。",
+      "trackHighlights": ["Lofi Jazz - Study Music", "Cozy Room", "Chillhop Jazz Midnight Club", "Jazz Lounge Relaxing Background", "Calm Night Jazz"],
+      "listenUrl": "https://pixabay.com/music/search/lofi%20jazz/", "downloadUrl": "https://pixabay.com/music/search/lofi%20jazz/", "downloadLabel": "进入合辑后逐曲官方下载",
+      "credit": "通常无需署名，建议记录作者", "licenseNote": "排除铜管主奏过强和鼓组过密的曲目，并逐曲保存许可证及检查 Content ID。"
+    },
+    {
+      "id": "mixkit-calm-piano", "title": "Calm Piano Background Selection", "artist": "Mixkit Artists", "platformId": "mixkit", "kind": "curated-collection",
+      "categoryIds": ["healing-piano", "calm-piano", "gentle-piano"], "scenes": ["countryside", "rain", "sunrise"],
+      "description": "面向自然、日出与雨景整理的免费钢琴背景合辑，强调舒缓和较少节奏干扰。",
+      "trackHighlights": ["Reflective Piano", "Soft Documentary", "Calm Morning", "Gentle Emotional"],
+      "listenUrl": "https://mixkit.co/free-stock-music/mood/relaxed/", "downloadUrl": "https://mixkit.co/free-stock-music/mood/relaxed/", "downloadLabel": "Mixkit 单曲直接下载",
+      "credit": "无需署名", "licenseNote": "适用于 YouTube 和在线视频；不能把 Mixkit 音乐授权外推至电视、广播、CD、DVD 或电子游戏。"
+    },
+    {
+      "id": "mixkit-lofi-night", "title": "Lo-Fi Night Drive Selection", "artist": "Mixkit Artists", "platformId": "mixkit", "kind": "curated-collection",
+      "categoryIds": ["soft-lofi", "warm-lofi", "night-drive-chillhop"], "scenes": ["city-night", "road-driving", "urban"],
+      "description": "适合城市夜景和公路驾驶的 Lo-Fi 精选，优先低存在感鼓点与稳定温暖和弦。",
+      "trackHighlights": ["Hazy After Hours", "Hip Hop 02", "Chill Urban", "Late Night Study"],
+      "listenUrl": "https://mixkit.co/free-stock-music/lo-fi/", "downloadUrl": "https://mixkit.co/free-stock-music/lo-fi/", "downloadLabel": "Mixkit 单曲直接下载",
+      "credit": "无需署名", "licenseNote": "可用于盈利的 YouTube 背景视频并做基础时间线剪辑；禁止单独分发音乐。"
+    },
+    {
+      "id": "scott-buckley-quiet-piano", "title": "Quiet Cinematic Piano Selection", "artist": "Scott Buckley", "platformId": "scott-buckley", "kind": "curated-collection",
+      "categoryIds": ["healing-piano", "calm-piano", "gentle-piano"], "scenes": ["countryside", "rain", "sunrise", "blue-hour"],
+      "description": "从 Scott Buckley 曲库整理的安静电影感钢琴方向，适合自然风景、日出和情绪转折。",
+      "trackHighlights": ["There Is a Place", "Hiraeth", "A Kind of Hope", "Life in Motion"],
+      "listenUrl": "https://www.scottbuckley.com.au/library/", "downloadUrl": "https://www.scottbuckley.com.au/library/", "downloadLabel": "在作者曲库逐曲免费下载",
+      "credit": "必须署名 Scott Buckley / CC BY 4.0", "licenseNote": "可盈利和改编；必须复制曲目页提供的完整 Credit，缺少署名可能触发自动声明。"
+    },
+    {
+      "id": "incompetech-gentle-jazz", "title": "Gentle Piano & Jazz Selection", "artist": "Kevin MacLeod", "platformId": "incompetech", "kind": "curated-collection",
+      "categoryIds": ["gentle-piano", "relaxed-jazz-nocturne", "gentle-piano-jazz"], "scenes": ["blue-hour", "city-night", "urban"],
+      "description": "偏温柔钢琴和轻爵士的作者曲库入口，适合蓝调时刻、夜景与都市旁白段落。",
+      "trackHighlights": ["Night on the Docks", "Smooth Lovin", "George Street Shuffle", "Gymnopédie No. 1"],
+      "listenUrl": "https://incompetech.com/music/royalty-free/music.html", "downloadUrl": "https://incompetech.com/music/royalty-free/music.html", "downloadLabel": "按 Feel / Genre 筛选后下载",
+      "credit": "必须署名 Kevin MacLeod / Incompetech / CC BY 4.0", "licenseNote": "免费 CC BY 许可允许盈利和改编；每首曲名必须准确写入生成的署名文本。"
+    },
+    {
+      "id": "bgmer-japanese-calm", "title": "日系温柔背景精选", "artist": "BGMer", "platformId": "bgmer", "kind": "curated-collection",
+      "categoryIds": ["gentle-piano", "japanese-lofi", "warm-lofi", "japanese-chillhop"], "scenes": ["countryside", "rain", "urban", "road-driving"],
+      "description": "面向温柔钢琴、和风 Lo-Fi 与日常叙事整理，适合乡村慢镜头、雨景和城市移动。",
+      "trackHighlights": ["温柔钢琴方向", "和风 Lo-Fi 方向", "日常与旅行方向", "雨天氛围方向"],
+      "listenUrl": "https://bgmer.net/", "downloadUrl": "https://bgmer.net/", "downloadLabel": "BGMer 曲库逐曲下载",
+      "credit": "正常背景视频通常可选署名", "licenseNote": "允许盈利与改编；若内容以介绍或转载 BGM 为主则必须署名，普通视频仍建议记录曲名。"
     }
   ]
 }

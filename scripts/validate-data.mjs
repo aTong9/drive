@@ -52,6 +52,12 @@ for (const platform of youtubeMusic.platforms) {
   if (!supportsYoutube) errors.push(`youtubeMusic: ${platform.id} has no official YouTube-use evidence`);
   if (platform.license.contentId !== "track-dependent" && !supportsContentId) errors.push(`youtubeMusic: ${platform.id} has no Content ID evidence`);
 }
+const musicPlatformIds = new Set(youtubeMusic.platforms.map((platform) => platform.id));
+if (new Set(youtubeMusic.albums.map((album) => album.id)).size !== youtubeMusic.albums.length) errors.push("youtubeMusic: duplicate album id");
+for (const album of youtubeMusic.albums) {
+  if (!musicPlatformIds.has(album.platformId)) errors.push(`youtubeMusic: ${album.id} references unknown platform ${album.platformId}`);
+  for (const id of album.categoryIds) if (!musicCategoryIds.has(id)) errors.push(`youtubeMusic: ${album.id} references unknown category ${id}`);
+}
 for (const family of ["piano", "lofi", "jazz"]) if (!youtubeMusic.categories.some((category) => category.family === family)) errors.push(`youtubeMusic: missing ${family} category`);
 for (const scene of ["countryside", "rain", "sunrise", "city-night", "road-driving", "blue-hour", "urban"]) if (!youtubeMusic.categories.some((category) => category.scenes.includes(scene))) errors.push(`youtubeMusic: missing scene ${scene}`);
 

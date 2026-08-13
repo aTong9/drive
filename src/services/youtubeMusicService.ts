@@ -37,11 +37,29 @@ export interface MusicPlatform {
 }
 
 export interface YoutubeMusicLibrary {
-  schemaVersion: "1.1.0";
+  schemaVersion: "1.2.0";
   accessedAt: string;
   methodology: string;
   categories: MusicCategory[];
   platforms: MusicPlatform[];
+  albums: MusicAlbum[];
+}
+
+export interface MusicAlbum {
+  id: string;
+  title: string;
+  artist: string;
+  platformId: string;
+  kind: "official-album" | "curated-collection";
+  categoryIds: string[];
+  scenes: MusicScene[];
+  description: string;
+  trackHighlights: string[];
+  listenUrl: string;
+  downloadUrl: string;
+  downloadLabel: string;
+  credit: string;
+  licenseNote: string;
 }
 
 export const youtubeMusicLibrary = data as YoutubeMusicLibrary;
@@ -57,5 +75,19 @@ export function filterMusicPlatforms(input: { categoryId?: string; scene?: Music
     const riskMatch = !input.risk || platform.license.risk === input.risk;
     const searchable = [platform.name, platform.catalogFit, platform.license.notes, ...platform.supportedCategoryIds].join(" ").toLowerCase();
     return categoryMatch && sceneMatch && riskMatch && (!needle || searchable.includes(needle));
+  });
+}
+
+export function filterMusicAlbums(input: { platformId?: string; family?: MusicFamily; scene?: MusicScene; query?: string }) {
+  const categoryIds = input.family
+    ? new Set(youtubeMusicLibrary.categories.filter((category) => input.family === "lofi" ? category.family === "lofi" || category.family === "chillhop" : category.family === input.family).map((category) => category.id))
+    : null;
+  const needle = input.query?.trim().toLowerCase() ?? "";
+  return youtubeMusicLibrary.albums.filter((album) => {
+    const platformMatch = !input.platformId || album.platformId === input.platformId;
+    const familyMatch = !categoryIds || album.categoryIds.some((id) => categoryIds.has(id));
+    const sceneMatch = !input.scene || album.scenes.includes(input.scene);
+    const searchable = [album.title, album.artist, album.description, ...album.trackHighlights].join(" ").toLowerCase();
+    return platformMatch && familyMatch && sceneMatch && (!needle || searchable.includes(needle));
   });
 }

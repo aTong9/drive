@@ -94,6 +94,8 @@ idea → planned → captured → published
 
 YouTube 音乐素材库 `1.0.0 → 1.1.0` 为向后兼容的契约扩展：平台许可新增 `monetization` 与 `audioEditing`，并新增 `creator-library` 来源类型。迁移旧数据时，应根据官方条款补齐两个许可字段；无法确认的来源必须使用 `allowed-with-track-terms` / `track-dependent`，不得推断为无限制商用或改编。
 
+YouTube 音乐素材库 `1.1.0 → 1.2.0` 新增 `albums` 精选专辑目录。每项必须引用既有平台和音乐方向，并分别记录官方试听入口、官方下载入口、署名文本与许可提示；搜索结果整理只能标记为 `curated-collection`，不得冒充平台正式发行专辑。
+
 ## 5. 验证层次
 
 执行：
