@@ -1,6 +1,6 @@
 import { AlertTriangle, ArrowUpRight, CheckCircle2, Disc3, Download, ExternalLink, FileCheck2, Headphones, Library, Music2, Piano, Play, Search, ShieldCheck, Sparkles } from "lucide-react";
 import { useMemo, useState } from "react";
-import { filterMusicAlbums, filterMusicPlatforms, youtubeMusicLibrary, type MusicFamily, type MusicRisk, type MusicScene } from "../../services/youtubeMusicService.js";
+import { filterMusicAlbums, filterMusicPlatforms, filterMusicTracks, youtubeMusicLibrary, type MusicFamily, type MusicRisk, type MusicScene } from "../../services/youtubeMusicService.js";
 
 const familyOptions: Array<{ id: MusicFamily | "all"; label: string; icon: typeof Music2 }> = [
   { id: "all", label: "全部音乐", icon: Music2 },
@@ -22,6 +22,7 @@ const contentIdLabels = { low: "低 Content ID 风险", "clearlist-required": "�
 const attributionLabels = { "track-dependent": "署名按曲目", "not-generally-required": "通常无需署名", "credit-or-safelist": "需 Credit 或清除列表" } as const;
 const monetizationLabels = { allowed: "支持盈利", "allowed-with-track-terms": "盈利需按曲复核", "not-covered": "未覆盖盈利" } as const;
 const editingLabels = { "basic-edits": "支持裁切 / 淡化", "derivatives-allowed": "支持加工改编", "sync-only": "仅配画面，不改编", "track-dependent": "剪辑权限按曲确认" } as const;
+const formatDuration = (seconds: number) => `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, "0")}`;
 
 export function MusicLibraryView() {
   const [family, setFamily] = useState<MusicFamily | "all">("all");
@@ -44,7 +45,14 @@ export function MusicLibraryView() {
     ...(scene === "all" ? {} : { scene }),
     query
   }), [albumPlatformId, family, categoryId, scene, query]);
-  const albumPlatforms = useMemo(() => youtubeMusicLibrary.platforms.filter((platform) => youtubeMusicLibrary.albums.some((album) => album.platformId === platform.id)), []);
+  const tracks = useMemo(() => filterMusicTracks({
+    ...(albumPlatformId === "all" ? {} : { platformId: albumPlatformId }),
+    ...(family === "all" ? {} : { family }),
+    ...(categoryId === "all" ? {} : { categoryId }),
+    ...(scene === "all" ? {} : { scene }),
+    query
+  }), [albumPlatformId, family, categoryId, scene, query]);
+  const albumPlatforms = useMemo(() => youtubeMusicLibrary.platforms.filter((platform) => youtubeMusicLibrary.albums.some((album) => album.platformId === platform.id) || youtubeMusicLibrary.tracks.some((track) => track.platformId === platform.id)), []);
 
   function selectFamily(next: MusicFamily | "all") {
     setFamily(next);
@@ -54,7 +62,7 @@ export function MusicLibraryView() {
   return <main className="music-page">
     <header className="music-hero">
       <div><p className="eyebrow">YOUTUBE MUSIC CLEARANCE DESK</p><h1>背景音乐库<br /><em>先匹配画面，再清除版权</em></h1><p>为乡村、雨景、日出与夜间驾驶建立可执行的钢琴、Lo-Fi、Chillhop 和轻爵士选曲入口。</p></div>
-      <div className="music-summary"><span><strong>{youtubeMusicLibrary.albums.length}</strong><small>精选专辑</small></span><span><strong>{youtubeMusicLibrary.platforms.length}</strong><small>授权平台</small></span><span><strong>3</strong><small>当前分类</small></span></div>
+      <div className="music-summary"><span><strong>{youtubeMusicLibrary.albums.length}</strong><small>精选专辑</small></span><span><strong>{youtubeMusicLibrary.tracks.length}</strong><small>可用单曲</small></span><span><strong>{youtubeMusicLibrary.platforms.length}</strong><small>免费平台</small></span></div>
     </header>
 
     <section className="music-license-notice"><ShieldCheck size={20} /><div><strong>“免版税”不等于“无版权”</strong><p>{youtubeMusicLibrary.methodology}</p></div><small>核验日期 {youtubeMusicLibrary.accessedAt}</small></section>
@@ -72,7 +80,7 @@ export function MusicLibraryView() {
       </aside>
 
       <div className="music-results-panel">
-        <header className="music-album-heading"><div><p className="eyebrow">CURATED ALBUMS</p><h2>适合当前方向的专辑</h2><span>{albums.length} 个结果</span></div></header>
+        <header className="music-album-heading"><div><p className="eyebrow">CURATED ALBUMS</p><h2>适合当前方向的专辑</h2><span>{albums.length} 专辑 · {tracks.length} 单曲</span></div></header>
         <section className="music-album-grid">
       {albums.map((album) => {
         const platform = youtubeMusicLibrary.platforms.find((item) => item.id === album.platformId);
@@ -87,6 +95,18 @@ export function MusicLibraryView() {
       })}
         </section>
         {!albums.length && <div className="music-empty music-album-empty"><Disc3 size={23} /><strong>当前平台或分类暂无专辑</strong><span>切换平台、场景或清空搜索词</span></div>}
+        <header className="music-track-heading"><div><p className="eyebrow">READY-TO-USE TRACKS</p><h2>可直接试听与下载的单曲</h2></div><span>{tracks.length} 首</span></header>
+        <section className="music-track-list">
+          {tracks.map((track) => {
+            const platform = youtubeMusicLibrary.platforms.find((item) => item.id === track.platformId);
+            return <article className="music-track-card" key={track.id}>
+              <div className="music-track-index"><Music2 size={16} /></div>
+              <div className="music-track-copy"><header><div><h3>{track.title}</h3><p>{track.artist} · {platform?.name}</p></div><time>{formatDuration(track.durationSeconds)}</time></header><p>{track.description}</p><div className="music-album-scenes">{track.scenes.map((item) => <span key={item}>{sceneLabels[item]}</span>)}</div><aside><strong>{track.credit}</strong><p>{track.licenseNote}</p></aside></div>
+              <footer><a href={track.listenUrl} target="_blank" rel="noreferrer"><Play size={12} />试听</a><a className="primary" href={track.downloadUrl} target="_blank" rel="noreferrer"><Download size={12} />{track.downloadLabel}</a></footer>
+            </article>;
+          })}
+        </section>
+        {!tracks.length && <div className="music-empty music-track-empty"><Music2 size={23} /><strong>当前条件暂无单曲</strong><span>切换平台、场景或清空搜索词</span></div>}
       </div>
     </section>
 

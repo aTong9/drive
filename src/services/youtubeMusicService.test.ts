@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { filterMusicAlbums, filterMusicPlatforms, youtubeMusicLibrary } from "./youtubeMusicService.js";
+import { filterMusicAlbums, filterMusicPlatforms, filterMusicTracks, youtubeMusicLibrary } from "./youtubeMusicService.js";
 
 test("music library references valid category ids", () => {
   const ids = new Set(youtubeMusicLibrary.categories.map((category) => category.id));
@@ -57,4 +57,24 @@ test("album filter combines platform and the three active families", () => {
   assert.ok(lofi.every((album) => album.platformId === "streambeats"));
   assert.ok(filterMusicAlbums({ family: "piano" }).some((album) => album.id === "pixabay-healing-piano"));
   assert.ok(filterMusicAlbums({ family: "jazz" }).some((album) => album.id === "pixabay-night-jazz"));
+});
+
+test("tracks reference known platforms and categories", () => {
+  const platformIds = new Set(youtubeMusicLibrary.platforms.map((platform) => platform.id));
+  const categoryIds = new Set(youtubeMusicLibrary.categories.map((category) => category.id));
+  assert.ok(youtubeMusicLibrary.tracks.length >= 9);
+  for (const track of youtubeMusicLibrary.tracks) {
+    assert.ok(platformIds.has(track.platformId), track.id);
+    assert.ok(track.categoryIds.every((id) => categoryIds.has(id)), track.id);
+    assert.ok(track.durationSeconds > 0, track.id);
+    assert.match(track.downloadUrl, /^https:\/\//);
+  }
+});
+
+test("track filter combines platform, family, scene and search", () => {
+  const nightLofi = filterMusicTracks({ platformId: "streambeats", family: "lofi", scene: "road-driving" });
+  assert.ok(nightLofi.length >= 2);
+  assert.ok(nightLofi.every((track) => track.platformId === "streambeats"));
+  assert.deepEqual(filterMusicTracks({ query: "George Street Shuffle" }).map((track) => track.id), ["incompetech-george-street-shuffle"]);
+  assert.ok(filterMusicTracks({ family: "piano", scene: "rain" }).length >= 4);
 });

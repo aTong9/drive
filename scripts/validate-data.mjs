@@ -58,6 +58,11 @@ for (const album of youtubeMusic.albums) {
   if (!musicPlatformIds.has(album.platformId)) errors.push(`youtubeMusic: ${album.id} references unknown platform ${album.platformId}`);
   for (const id of album.categoryIds) if (!musicCategoryIds.has(id)) errors.push(`youtubeMusic: ${album.id} references unknown category ${id}`);
 }
+if (new Set(youtubeMusic.tracks.map((track) => track.id)).size !== youtubeMusic.tracks.length) errors.push("youtubeMusic: duplicate track id");
+for (const track of youtubeMusic.tracks) {
+  if (!musicPlatformIds.has(track.platformId)) errors.push(`youtubeMusic: ${track.id} references unknown platform ${track.platformId}`);
+  for (const id of track.categoryIds) if (!musicCategoryIds.has(id)) errors.push(`youtubeMusic: ${track.id} references unknown category ${id}`);
+}
 for (const family of ["piano", "lofi", "jazz"]) if (!youtubeMusic.categories.some((category) => category.family === family)) errors.push(`youtubeMusic: missing ${family} category`);
 for (const scene of ["countryside", "rain", "sunrise", "city-night", "road-driving", "blue-hour", "urban"]) if (!youtubeMusic.categories.some((category) => category.scenes.includes(scene))) errors.push(`youtubeMusic: missing scene ${scene}`);
 

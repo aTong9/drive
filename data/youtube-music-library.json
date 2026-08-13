@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.2.0",
+  "schemaVersion": "1.3.0",
   "accessedAt": "2026-08-13",
   "methodology": "仅收录具有官方许可说明或官方帮助中心证据的来源。平台标签表示典型工作流，不替代逐曲查看用途、地区、频道、视频类型与许可期限；下载时应保存许可证和账单，并在发布前完成频道或视频清除。本模块不调用第三方下载 API：download-import 表示手动下载音频文件后导入 DaVinci Resolve，platform-only 表示许可仅限指定平台。",
   "categories": [
@@ -331,6 +331,102 @@
       "trackHighlights": ["温柔钢琴方向", "和风 Lo-Fi 方向", "日常与旅行方向", "雨天氛围方向"],
       "listenUrl": "https://bgmer.net/", "downloadUrl": "https://bgmer.net/", "downloadLabel": "BGMer 曲库逐曲下载",
       "credit": "正常背景视频通常可选署名", "licenseNote": "允许盈利与改编；若内容以介绍或转载 BGM 为主则必须署名，普通视频仍建议记录曲名。"
+    },
+    {
+      "id": "streambeats-gold", "title": "Gold", "artist": "StreamBeats by Harris Heller", "platformId": "streambeats", "kind": "official-album",
+      "categoryIds": ["soft-lofi", "warm-lofi", "warm-sunset-chillhop"], "scenes": ["road-driving", "blue-hour", "urban"],
+      "description": "色调温暖、鼓点收敛的 Lo-Fi 专辑，适合日落后继续行驶、城市慢镜与咖啡感过场。",
+      "trackHighlights": ["官方 Gold 专辑", "温暖 Lo-Fi", "柔和节拍", "日落至蓝调过渡"],
+      "listenUrl": "https://streambeats.com/album/gold/", "downloadUrl": "https://streambeats.com/album/gold/", "downloadLabel": "官方专辑页免费下载",
+      "credit": "无需署名", "licenseNote": "可用于盈利 YouTube 视频并做配画面的基础剪辑；不可重新发行、采样或制作音乐衍生品。"
+    },
+    {
+      "id": "purrple-cat-night-train", "title": "Night Train", "artist": "Purrple Cat", "platformId": "purrple-cat", "kind": "official-album",
+      "categoryIds": ["soft-lofi", "night-drive-chillhop", "rainy-day-chillhop"], "scenes": ["city-night", "road-driving", "rain"],
+      "description": "以列车、夜色与低照度城市为核心气质，适合雨夜车窗、道路灯轨和安静移动镜头。",
+      "trackHighlights": ["夜行氛围", "低存在感鼓组", "雨夜与车窗", "连续驾驶段落"],
+      "listenUrl": "https://purrplecat.bandcamp.com/album/night-train", "downloadUrl": "https://freelofi.com/", "downloadLabel": "在 FreeLofi 逐曲核验并下载",
+      "credit": "署名可选：Music by Purrple Cat", "licenseNote": "Bandcamp 用于试听；只有 FreeLofi 当前目录明确覆盖的曲目才进入免费使用流程，并保存书面许可。"
+    },
+    {
+      "id": "scott-buckley-library-songs-4", "title": "Library Songs 4 · Quiet Piano", "artist": "Scott Buckley", "platformId": "scott-buckley", "kind": "curated-collection",
+      "categoryIds": ["healing-piano", "calm-piano", "gentle-piano"], "scenes": ["countryside", "rain", "sunrise", "blue-hour"],
+      "description": "从作者第四辑中挑选留白感明显的钢琴与氛围作品，适合自然长镜头、雨景和清晨情绪建立。",
+      "trackHighlights": ["There is a Place", "She Moved Mountains", "Childhood", "Intervention"],
+      "listenUrl": "https://www.scottbuckley.com.au/library/album/library-songs-4/", "downloadUrl": "https://www.scottbuckley.com.au/library/album/library-songs-4/", "downloadLabel": "作者曲目页逐曲免费下载",
+      "credit": "必须署名 Scott Buckley / CC BY 4.0", "licenseNote": "商业视频可免费使用和改编；每首都要在 YouTube 说明栏粘贴作者提供的完整 Attribution。"
+    }
+  ],
+  "tracks": [
+    {
+      "id": "pixabay-calm-waves-soft-piano", "title": "Calm Waves (Soft Piano)", "artist": "Grand_Project", "platformId": "pixabay-music",
+      "categoryIds": ["healing-piano", "calm-piano", "gentle-piano"], "scenes": ["countryside", "rain", "sunrise"], "durationSeconds": 199,
+      "description": "慢速柔和钢琴，旋律空间充足，适合日出建立镜头和雨后乡村长镜头。",
+      "listenUrl": "https://pixabay.com/music/modern-classical-calm-waves-soft-piano-314968/", "downloadUrl": "https://pixabay.com/music/modern-classical-calm-waves-soft-piano-314968/", "downloadLabel": "曲目页免费下载",
+      "credit": "Pixabay 通常无需署名；建议记录作者", "licenseNote": "页面标注 Content ID Registered；下载 License Certificate，并给上传后的声明处理预留时间。"
+    },
+    {
+      "id": "pixabay-healing-piano-usui", "title": "Healing Piano ~雨水 (Usui)~", "artist": "pianocafe_Kumi", "platformId": "pixabay-music",
+      "categoryIds": ["healing-piano", "gentle-piano"], "scenes": ["countryside", "rain", "sunrise"], "durationSeconds": 128,
+      "description": "日系疗愈独奏钢琴，触键轻、速度慢，适合细雨、田野与清晨空镜。",
+      "listenUrl": "https://pixabay.com/music/solo-piano-healing-piano%E9%9B%A8%E6%B0%B4-usui-493438/", "downloadUrl": "https://pixabay.com/music/solo-piano-healing-piano%E9%9B%A8%E6%B0%B4-usui-493438/", "downloadLabel": "曲目页免费下载",
+      "credit": "Pixabay 通常无需署名；建议记录作者", "licenseNote": "下载当天再次检查曲目页是否新增 Content ID 标记，并把 License Certificate 与工程一起归档。"
+    },
+    {
+      "id": "pixabay-lofi-jazz-study", "title": "Lofi Jazz - Study Music", "artist": "alex-morgan", "platformId": "pixabay-music",
+      "categoryIds": ["jazzhop", "gentle-piano-jazz", "relaxed-jazz-nocturne"], "scenes": ["city-night", "blue-hour", "urban"], "durationSeconds": 152,
+      "description": "轻爵士与 Lo-Fi 交界，钢琴和弦温和，适合蓝调时刻、都市街景和室内夜景。",
+      "listenUrl": "https://pixabay.com/cs/music/modern%C3%AD-jazz-lofi-jazz-study-music-564256/", "downloadUrl": "https://pixabay.com/cs/music/modern%C3%AD-jazz-lofi-jazz-study-music-564256/", "downloadLabel": "曲目页免费下载",
+      "credit": "Pixabay 通常无需署名；建议记录作者", "licenseNote": "页面标注 Content ID Registered；必须保存该曲许可证，并在正式发布前先用不公开上传测试声明。"
+    },
+    {
+      "id": "pixabay-calm-piano-alex-morgan", "title": "Calm Piano", "artist": "alex-morgan", "platformId": "pixabay-music",
+      "categoryIds": ["calm-piano", "gentle-piano"], "scenes": ["countryside", "rain", "sunrise", "blue-hour"], "durationSeconds": 118,
+      "description": "平静、偏电影感的钢琴短曲，可用于晨雾、雨景与蓝调时刻的短段落。",
+      "listenUrl": "https://pixabay.com/music/modern-classical-calm-piano-541028/", "downloadUrl": "https://pixabay.com/music/modern-classical-calm-piano-541028/", "downloadLabel": "曲目页免费下载",
+      "credit": "Pixabay 通常无需署名；建议记录作者", "licenseNote": "曲目页当前提供 Pixabay Content License 免费下载；下载时仍需检查 Content ID 状态并保存许可证。"
+    },
+    {
+      "id": "pixabay-soft-piano-leberch", "title": "Soft Piano", "artist": "leberch", "platformId": "pixabay-music",
+      "categoryIds": ["healing-piano", "calm-piano", "gentle-piano"], "scenes": ["countryside", "rain", "sunrise"], "durationSeconds": 120,
+      "description": "情绪柔软的独奏钢琴，适合自然声占主导的乡村、晨光与缓慢推镜。",
+      "listenUrl": "https://pixabay.com/music/solo-piano-soft-piano-501446/", "downloadUrl": "https://pixabay.com/music/solo-piano-soft-piano-501446/", "downloadLabel": "曲目页免费下载",
+      "credit": "Pixabay 通常无需署名；建议记录作者", "licenseNote": "以下载当天曲目页显示为准；保存 License Certificate，不要把音频作为独立音乐重新发布。"
+    },
+    {
+      "id": "incompetech-george-street-shuffle", "title": "George Street Shuffle", "artist": "Kevin MacLeod", "platformId": "incompetech",
+      "categoryIds": ["relaxed-jazz-nocturne", "gentle-piano-jazz", "jazzhop"], "scenes": ["city-night", "blue-hour", "urban"], "durationSeconds": 268,
+      "description": "轻松钢琴爵士与稳定律动，适合都市散步、蓝调时刻和较明亮的夜景。",
+      "listenUrl": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1300035", "downloadUrl": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1300035", "downloadLabel": "曲目页下载 MP3",
+      "credit": "必须署名 Kevin MacLeod / Incompetech / CC BY 4.0", "licenseNote": "盈利和改编均可；说明栏必须使用曲目页生成的完整署名，曲名与许可证链接不可省略。"
+    },
+    {
+      "id": "streambeats-dreary-summer", "title": "Dreary Summer", "artist": "StreamBeats by Harris Heller", "platformId": "streambeats",
+      "categoryIds": ["soft-lofi", "warm-lofi", "warm-sunset-chillhop"], "scenes": ["road-driving", "blue-hour", "urban"], "durationSeconds": 127,
+      "description": "温暖又略带阴郁的短 Lo-Fi，适合日落后公路、阴天城市和慢速移动镜头。",
+      "listenUrl": "https://streambeats.bandcamp.com/track/dreary-summer", "downloadUrl": "https://streambeats.bandcamp.com/track/dreary-summer", "downloadLabel": "Bandcamp 自定价格下载",
+      "credit": "无需署名", "licenseNote": "可用于盈利视频同步；允许剪短和淡化，不可 remix、采样、登记或重新发行音乐。"
+    },
+    {
+      "id": "streambeats-midnight-stroll", "title": "Midnight Stroll", "artist": "StreamBeats by Harris Heller", "platformId": "streambeats",
+      "categoryIds": ["soft-lofi", "night-drive-chillhop"], "scenes": ["city-night", "road-driving", "urban"], "durationSeconds": 178,
+      "description": "平稳柔和的深夜 Lo-Fi，适合霓虹道路、城市慢行和不强调踩点的连续驾驶。",
+      "listenUrl": "https://streambeats.bandcamp.com/track/midnight-stroll", "downloadUrl": "https://streambeats.bandcamp.com/track/midnight-stroll", "downloadLabel": "Bandcamp 自定价格下载",
+      "credit": "无需署名", "licenseNote": "可用于盈利视频同步与基础剪辑；不要把原曲作为音乐上传、remix 或采样素材。"
+    },
+    {
+      "id": "purrple-cat-golden-hour", "title": "Golden Hour", "artist": "Purrple Cat", "platformId": "purrple-cat",
+      "categoryIds": ["warm-lofi", "warm-sunset-chillhop"], "scenes": ["road-driving", "blue-hour", "urban"], "durationSeconds": 194,
+      "description": "色调明亮温暖、节拍克制，适合黄金时刻向蓝调时刻过渡的城市或公路镜头。",
+      "listenUrl": "https://purrplecat.bandcamp.com/track/golden-hour", "downloadUrl": "https://freelofi.com/", "downloadLabel": "在 FreeLofi 搜索并核验下载",
+      "credit": "署名可选：Music by Purrple Cat", "licenseNote": "Bandcamp 只用于试听；使用前必须确认此曲仍在 FreeLofi 免费许可目录并保存当时的书面许可。"
+    },
+    {
+      "id": "purrple-cat-streetlights", "title": "Streetlights", "artist": "Purrple Cat", "platformId": "purrple-cat",
+      "categoryIds": ["soft-lofi", "night-drive-chillhop", "rainy-day-chillhop"], "scenes": ["city-night", "road-driving", "rain"], "durationSeconds": 139,
+      "description": "安静的城市夜行 Lo-Fi，适合路灯轨迹、湿地反光和车内连续驾驶画面。",
+      "listenUrl": "https://purrplecat.bandcamp.com/track/streetlights", "downloadUrl": "https://freelofi.com/", "downloadLabel": "在 FreeLofi 搜索并核验下载",
+      "credit": "署名可选：Music by Purrple Cat", "licenseNote": "只在 FreeLofi 当前目录明确覆盖时使用；保存许可证明，不从 Bandcamp 或串流页面提取音频。"
     }
   ]
 }

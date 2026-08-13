@@ -1355,6 +1355,25 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--orange); ou
 .music-album-description { min-height: 42px; font-size: 12px; }
 .music-album-scenes span, .music-album-card > section ol, .music-album-card > aside strong, .music-album-card > aside p { font-size: 10px; }
 .music-album-card > footer a { min-height: 34px; padding: 0 11px; font-size: 10px; }
+.music-track-heading { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin: 28px 0 11px; }
+.music-track-heading h2 { margin: 3px 0 0; font-family: Georgia,"Songti SC",serif; font-size: 23px; font-weight: 500; }
+.music-track-heading > span { color: #747c72; font-size: 11px; }
+.music-track-list { display: grid; gap: 8px; }
+.music-track-card { display: grid; grid-template-columns: 34px minmax(0,1fr) auto; gap: 11px; align-items: start; padding: 13px; border: 1px solid var(--line); border-radius: 10px; background: linear-gradient(135deg,rgba(109,169,170,.035),#1a1e19 45%); }
+.music-track-index { display: grid; place-items: center; width: 31px; height: 31px; border-radius: 50%; background: rgba(109,169,170,.1); color: #78a8a6; }
+.music-track-copy { min-width: 0; }
+.music-track-copy > header { display: flex; align-items: start; justify-content: space-between; gap: 12px; }
+.music-track-copy h3 { margin: 0; overflow: hidden; font-family: Georgia,"Songti SC",serif; font-size: 16px; font-weight: 500; text-overflow: ellipsis; white-space: nowrap; }
+.music-track-copy header p { margin: 2px 0 0; color: #747c72; font-size: 9px; }
+.music-track-copy time { color: #8e968b; font-size: 10px; font-variant-numeric: tabular-nums; }
+.music-track-copy > p { margin: 8px 0; color: #8a9187; font-size: 11px; line-height: 1.55; }
+.music-track-copy > aside { padding: 7px 9px; margin-top: 8px; border-left: 2px solid rgba(169,151,212,.7); background: rgba(169,151,212,.04); }
+.music-track-copy > aside strong { color: #a99bc7; font-size: 9px; }
+.music-track-copy > aside p { margin: 2px 0 0; color: #747c72; font-size: 9px; line-height: 1.45; }
+.music-track-card > footer { display: flex; flex-direction: column; gap: 6px; min-width: 126px; }
+.music-track-card > footer a { display: flex; align-items: center; justify-content: center; gap: 4px; min-height: 31px; padding: 0 9px; border: 1px solid rgba(109,169,170,.2); border-radius: 5px; color: #83b4b2; font-size: 9px; }
+.music-track-card > footer a.primary { border-color: rgba(169,151,212,.2); background: rgba(169,151,212,.08); color: #b5a5db; }
+.music-track-empty { min-height: 120px; }
 .music-source-heading { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-top: 36px; }
 .music-source-heading h2 { font-size: 23px; }
 .music-source-heading select { min-width: 170px; height: 36px; padding: 0 10px; border: 1px solid var(--line); border-radius: 7px; background: #1b1f1a; color: #9da49a; font-size: 11px; }
@@ -1582,6 +1601,9 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--orange); ou
   .music-album-heading select { width: 100%; }
   .music-discovery-layout { grid-template-columns: 1fr; }
   .music-filter-panel { position: static; }
+  .music-track-card { grid-template-columns: 31px minmax(0,1fr); }
+  .music-track-card > footer { grid-column: 2; flex-direction: row; }
+  .music-track-card > footer a { flex: 1; }
   .music-source-heading { align-items: stretch; flex-direction: column; }
   .music-source-heading select { width: 100%; }
   .plan-page, .location-browser, .location-detail-scroll, .camera-page, .camera-library-page, .camera-browser, .camera-detail-scroll, .post-page, .dashboard-page, .project-page, .creator-page, .music-page, .detail-scroll, .command-palette {
