@@ -433,10 +433,59 @@
   "tracks": [
     {
       "id": "dova-relaxing-piano", "title": "ゆったりくつろぎのピアノ", "artist": "今川彰人オーケストラ", "platformId": "dova-syndrome",
-      "categoryIds": ["healing-piano", "calm-piano", "gentle-piano"], "scenes": ["city-night", "road-driving", "rain"], "durationSeconds": 128,
+      "categoryIds": ["signature-healing-loop", "healing-piano", "calm-piano", "gentle-piano"], "scenes": ["city-night", "road-driving", "rain"], "durationSeconds": 128,
       "description": "温暖、安静的钢琴独奏，BPM 101 但听感舒缓；适合夜间回程、休息段落与车内慢镜。原曲支持无缝循环。",
-      "listenUrl": "https://dova-s.jp/bgm/detail/8218", "downloadUrl": "https://dova-s.jp/bgm/detail/8218/download", "downloadLabel": "DOVA 原生循环版免费下载",
+      "listenUrl": "https://dova-s.jp/bgm/detail/8236", "downloadUrl": "https://dova-s.jp/bgm/detail/8236/download", "downloadLabel": "DOVA 原生循环版免费下载",
       "credit": "建议署名：ゆったりくつろぎのピアノ / 今川彰人オーケストラ", "licenseNote": "作者允许按 DOVA 许可直接用于视频且无需另行确认；该曲原生 Loopable，仍不得作为纯音乐内容再发布。"
+    },
+    {
+      "id": "dova-peace-and-slumber", "title": "安らぎと微睡み", "artist": "ゆーぎり", "platformId": "dova-syndrome",
+      "categoryIds": ["signature-healing-loop", "healing-piano", "calm-piano", "gentle-piano"], "scenes": ["rain", "city-night", "blue-hour"], "durationSeconds": 127,
+      "description": "只有钢琴、没有尖锐棱角的慢速疗愈 BGM；同时命中 Warm、Calm、Gentle、Slow、Healing 与原生 Loopable，适合雨夜、窗景和安静收尾。",
+      "listenUrl": "https://dova-s.jp/bgm/detail/9001", "downloadUrl": "https://dova-s.jp/bgm/detail/9001/download", "downloadLabel": "下载 DOVA 原生 Loop Track",
+      "credit": "建议署名：安らぎと微睡み / ゆーぎり", "licenseNote": "作者标示遵循 DOVA 站点许可；允许作为视频背景并做基础剪辑，使用原生循环文件，不得将音乐本身作为主要内容重新发布。"
+    },
+    {
+      "id": "dova-pleasant-place-loop", "title": "pleasant place（Track 2 Loop）", "artist": "のる", "platformId": "dova-syndrome",
+      "categoryIds": ["signature-healing-loop", "healing-piano", "calm-piano", "gentle-piano"], "scenes": ["countryside", "rain", "sunrise"], "durationSeconds": 116,
+      "description": "温暖和弦与低密度钢琴独奏，三拍子缓慢摇曳；曲目页明确说明 Track 2 是循环版，适合乡村窗景、细雨和柔和清晨。",
+      "listenUrl": "https://dova-s.jp/bgm/detail/15876/track/2", "downloadUrl": "https://dova-s.jp/bgm/detail/15876/track/2/download", "downloadLabel": "下载 Track 2 循环版",
+      "credit": "署名可选，建议标注：pleasant place / のる", "licenseNote": "必须选择 Track 2 循环文件；作者禁止作业用 BGM、睡眠音乐、疗愈音乐等以音乐为主的视频，风景画面背景使用仍须遵循 DOVA 许可。"
+    },
+    {
+      "id": "dova-spring-breeze", "title": "春の風", "artist": "チョコミント", "platformId": "dova-syndrome",
+      "categoryIds": ["signature-healing-loop", "healing-piano", "calm-piano", "gentle-piano"], "scenes": ["countryside", "sunrise", "blue-hour"], "durationSeconds": 72,
+      "description": "二胡与钢琴构成的简洁暖色旋律，力度弱、略带怀旧；命中 Warm、Calm、Gentle、Weak、Healing 与原生 Loopable。",
+      "listenUrl": "https://dova-s.jp/bgm/detail/6255", "downloadUrl": "https://dova-s.jp/bgm/detail/6255/download", "downloadLabel": "下载 DOVA 原生 Loop Track",
+      "credit": "建议署名：春の風 / チョコミント", "licenseNote": "作者遵循 DOVA 站点许可；可作为盈利视频背景并裁切、淡化或循环，下载时保存作者条件与曲目页快照。"
+    },
+    {
+      "id": "dova-little-garden", "title": "Little Garden", "artist": "MATSU", "platformId": "dova-syndrome",
+      "categoryIds": ["signature-healing-loop", "healing-piano", "calm-piano", "gentle-piano", "gentle-piano-jazz"], "scenes": ["countryside", "sunrise", "urban"], "durationSeconds": 63,
+      "description": "钢琴三重奏带轻微古典与室内乐气质，温暖、平静、优雅而不强势；原生 Loopable，适合花园、晨光和安静城市空镜。",
+      "listenUrl": "https://dova-s.jp/bgm/detail/1872", "downloadUrl": "https://dova-s.jp/bgm/detail/1872/download", "downloadLabel": "下载 DOVA 原生 Loop Track",
+      "credit": "建议署名：Little Garden / MATSU", "licenseNote": "作者标示遵循 DOVA 站点许可；可以同步至盈利视频并做时长调整，禁止独立再分发音源。"
+    },
+    {
+      "id": "dova-breeze-future", "title": "そよ風未来", "artist": "かずち", "platformId": "dova-syndrome",
+      "categoryIds": ["healing-piano", "calm-piano", "gentle-piano"], "scenes": ["countryside", "road-driving", "sunrise"], "durationSeconds": 51,
+      "description": "柔和木吉他、Ambient 纹理与弱打击乐组成的清爽循环，命中 Warm、Calm、Gentle、Weak、Ambient、Healing，适合清晨公路与田野。",
+      "listenUrl": "https://dova-s.jp/bgm/detail/9036", "downloadUrl": "https://dova-s.jp/bgm/detail/9036/download", "downloadLabel": "下载 DOVA 原生 Loop Track",
+      "credit": "使用前复核作者条件，建议署名：そよ風未来 / かずち", "licenseNote": "作者资料标为附条件许可；进入正式项目之前必须再次查看作者最新条件。仅使用为画面背景，不得注册 Content ID 或独立分发。"
+    },
+    {
+      "id": "dova-sangosho", "title": "Sangosho", "artist": "伊藤ケイスケ", "platformId": "dova-syndrome",
+      "categoryIds": ["signature-healing-loop", "healing-piano", "calm-piano", "gentle-piano", "japanese-lofi"], "scenes": ["countryside", "sunrise", "road-driving"], "durationSeconds": 155,
+      "description": "冲绳三味线、Synth Pad、弦乐与弱鼓构成的慢速 Ambient Healing；命中 Warm、Calm、Gentle、Weak、Slow 与原生 Loopable，适合海岸乡村和日出公路。",
+      "listenUrl": "https://dova-s.jp/bgm/detail/14117", "downloadUrl": "https://dova-s.jp/bgm/detail/14117/download", "downloadLabel": "下载 DOVA 原生 Loop Track",
+      "credit": "建议署名：Sangosho / 伊藤ケイスケ", "licenseNote": "作者标示遵循 DOVA 站点许可；鼓点标签存在但力度为 Weak，适合先试听确认。可作为画面背景剪辑和循环，不得独立再发布音源。"
+    },
+    {
+      "id": "dova-dream-loop", "title": "夢の中で（Track 2 Loop）", "artist": "Keido Honda", "platformId": "dova-syndrome",
+      "categoryIds": ["signature-healing-loop", "healing-piano", "calm-piano", "gentle-piano"], "scenes": ["rain", "city-night", "blue-hour"], "durationSeconds": 51,
+      "description": "BPM 74 的柔和八音盒独奏，温暖、安静、略带感伤；Track 2 去除了减速结尾并为循环制作，适合夜景细节和短暂留白。",
+      "listenUrl": "https://dova-s.jp/bgm/detail/5392/track/2", "downloadUrl": "https://dova-s.jp/bgm/detail/5392/track/2/download", "downloadLabel": "下载 Track 2 循环版",
+      "credit": "建议署名：夢の中で / Keido Honda", "licenseNote": "必须选择 Track 2 循环文件；作者允许在 DOVA 许可范围内使用且无需另行申请，音乐只能作为画面背景。"
     },
     {
       "id": "dova-aya", "title": "aya", "artist": "風可＆葉羽", "platformId": "dova-syndrome",
