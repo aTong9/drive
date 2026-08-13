@@ -40,6 +40,11 @@ test("library excludes paid-only subscription and per-track platforms", () => {
   assert.ok(youtubeMusicLibrary.platforms.every((platform) => platform.license.cost !== "subscription" && platform.license.cost !== "per-track-or-subscription"));
 });
 
+test("every platform is available through a free usage path", () => {
+  assert.ok(youtubeMusicLibrary.platforms.length > 0);
+  assert.ok(youtubeMusicLibrary.platforms.every((platform) => platform.license.cost === "free" || platform.license.cost === "free-or-paid"));
+});
+
 test("albums reference known platforms and categories", () => {
   const platformIds = new Set(youtubeMusicLibrary.platforms.map((platform) => platform.id));
   const categoryIds = new Set(youtubeMusicLibrary.categories.map((category) => category.id));

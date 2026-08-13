@@ -52,7 +52,7 @@ export function MusicLibraryView() {
     ...(scene === "all" ? {} : { scene }),
     query
   }), [albumPlatformId, family, categoryId, scene, query]);
-  const albumPlatforms = useMemo(() => youtubeMusicLibrary.platforms.filter((platform) => youtubeMusicLibrary.albums.some((album) => album.platformId === platform.id) || youtubeMusicLibrary.tracks.some((track) => track.platformId === platform.id)), []);
+  const freePlatforms = useMemo(() => youtubeMusicLibrary.platforms.filter((platform) => platform.license.cost === "free" || platform.license.cost === "free-or-paid"), []);
 
   function selectFamily(next: MusicFamily | "all") {
     setFamily(next);
@@ -73,7 +73,7 @@ export function MusicLibraryView() {
       <aside className="music-filter-panel">
         <header><p className="eyebrow">FILTER</p><h2>筛选音乐</h2></header>
         <label className="music-search"><Search size={15} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="搜索专辑、曲目或平台" /></label>
-        <label><span>音乐平台</span><select value={albumPlatformId} onChange={(event) => setAlbumPlatformId(event.target.value)}><option value="all">全部免费平台</option>{albumPlatforms.map((platform) => <option key={platform.id} value={platform.id}>{platform.name}</option>)}</select></label>
+        <label><span>免费音乐平台（{freePlatforms.length}）</span><select value={albumPlatformId} onChange={(event) => setAlbumPlatformId(event.target.value)}><option value="all">全部免费平台</option>{freePlatforms.map((platform) => <option key={platform.id} value={platform.id}>{platform.name}</option>)}</select></label>
         <label><span>适用画面</span><select value={scene} onChange={(event) => setScene(event.target.value as MusicScene | "all")}>{sceneOptions.map((item) => <option key={item.id} value={item.id}>{item.label}</option>)}</select></label>
         <div className="music-filter-group"><span>细分方向</span><div className="music-category-strip" aria-label="细分音乐类型"><button className={categoryId === "all" ? "active" : ""} onClick={() => setCategoryId("all")}>全部</button>{categories.map((category) => <button key={category.id} className={categoryId === category.id ? "active" : ""} onClick={() => setCategoryId(category.id)}>{category.name}</button>)}</div></div>
         <div className="music-filter-tip"><ShieldCheck size={15} /><p>当前只展示有免费使用路径的平台。下载后仍需保存曲目许可与署名文本。</p></div>

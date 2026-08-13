@@ -1412,15 +1412,15 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--orange); ou
   .topbar-actions { padding-right: 9px; }
   .mobile-menu { display: grid; }
   .workspace, .workspace.has-detail { position: relative; grid-template-columns: 1fr; grid-template-rows: 44% 56%; height: calc(100dvh - 116px); }
-  .route-sidebar { grid-row: 2; padding: 13px 11px 0; border-right: 0; border-top: 1px solid var(--line); }
+  .route-sidebar { grid-row: 2; padding: 13px 11px 24px; overflow-y: auto; border-right: 0; border-top: 1px solid var(--line); -webkit-overflow-scrolling: touch; overscroll-behavior-y: contain; touch-action: pan-y; }
   .route-sidebar-head h1, .route-sidebar-head .eyebrow { display: none; }
   .route-sidebar-head { position: absolute; right: 9px; top: 12px; padding: 0; }
   .mobile-filter { display: grid; }
   .search-field { margin-right: 45px; margin-bottom: 10px; }
   .mode-tabs { padding-bottom: 10px; }
   .list-heading { padding-bottom: 8px; }
-  .route-card-list { display: flex; overflow-x: auto; overflow-y: hidden; padding-bottom: 12px; scroll-snap-type: x mandatory; touch-action: pan-x; }
-  .route-card { min-width: 82vw; margin: 0 8px 0 0; scroll-snap-align: start; }
+  .route-card-list { display: block; flex: none; overflow: visible; padding-bottom: 12px; touch-action: inherit; }
+  .route-card { min-width: 0; margin: 0 0 9px; scroll-snap-align: none; }
   .map-canvas { grid-row: 1; }
   .map-label { display: none; }
   .map-toolbar { top: 10px; right: 10px; }
