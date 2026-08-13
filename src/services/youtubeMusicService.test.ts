@@ -109,7 +109,7 @@ test("long-term signature profile has a 30-track native-loop DOVA collection", (
 
 test("signature profile exposes individually verified native-loop tracks", () => {
   const tracks = youtubeMusicLibrary.tracks.filter((track) => track.categoryIds.includes("signature-healing-loop"));
-  assert.ok(tracks.length >= 6);
+  assert.ok(tracks.length >= 15);
   assert.ok(tracks.every((track) => track.platformId === "dova-syndrome"));
   assert.ok(tracks.every((track) => /loop|循环/i.test(`${track.description} ${track.downloadLabel} ${track.licenseNote}`)));
 });

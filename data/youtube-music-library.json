@@ -481,6 +481,62 @@
       "credit": "建议署名：Sangosho / 伊藤ケイスケ", "licenseNote": "作者标示遵循 DOVA 站点许可；鼓点标签存在但力度为 Weak，适合先试听确认。可作为画面背景剪辑和循环，不得独立再发布音源。"
     },
     {
+      "id": "dova-yesterdays-tears", "title": "Yesterday's tears", "artist": "shimtone", "platformId": "dova-syndrome",
+      "categoryIds": ["signature-healing-loop", "healing-piano", "calm-piano", "gentle-piano"], "scenes": ["rain", "blue-hour", "sunrise"], "durationSeconds": 121,
+      "description": "钢琴与小提琴组成的温柔 Ambient，力度弱、旋律克制；同时命中 Warm、Calm、Gentle、Weak、Healing 和原生 Loopable，适合雨后、蓝调与晨光。",
+      "listenUrl": "https://dova-s.jp/bgm/detail/11819", "downloadUrl": "https://dova-s.jp/bgm/detail/11819/download", "downloadLabel": "下载 DOVA 原生 Loop Track",
+      "credit": "署名通常非强制，建议标注：Yesterday's tears / shimtone", "licenseNote": "作者标示遵循 DOVA 站点许可；允许作为盈利视频背景并裁切、淡化和循环，不得将音源独立再发布或作为音乐主内容。"
+    },
+    {
+      "id": "dova-peace-of-mind", "title": "peace of mind", "artist": "MATSU", "platformId": "dova-syndrome",
+      "categoryIds": ["signature-healing-loop", "healing-piano", "calm-piano", "gentle-piano"], "scenes": ["countryside", "sunrise", "road-driving"], "durationSeconds": 156,
+      "description": "慢速木吉他独奏，温暖、平静且没有强鼓干扰；命中 Warm、Calm、Gentle、Slow、Healing 和原生 Loopable，适合乡村、公路晨光与自然长镜头。",
+      "listenUrl": "https://dova-s.jp/bgm/detail/2029", "downloadUrl": "https://dova-s.jp/bgm/detail/2029/download", "downloadLabel": "下载 DOVA 原生 Loop Track",
+      "credit": "建议署名：peace of mind / MATSU", "licenseNote": "作者标示遵循 DOVA 站点许可；可同步至盈利视频并进行时长剪辑、Fade 与 Loop，禁止把音乐本身重新分发。"
+    },
+    {
+      "id": "dova-fantasy-exploration", "title": "幻想探訪", "artist": "ゆーぎり", "platformId": "dova-syndrome",
+      "categoryIds": ["signature-healing-loop", "healing-piano", "calm-piano", "gentle-piano"], "scenes": ["rain", "city-night", "blue-hour"], "durationSeconds": 134,
+      "description": "漂浮、慵懒的 Synth Pad 疗愈氛围，没有明显强节拍；命中 Warm、Calm、Gentle、Healing 和原生 Loopable，适合雾景、雨夜与缓慢城市移动。",
+      "listenUrl": "https://dova-s.jp/bgm/detail/8438", "downloadUrl": "https://dova-s.jp/bgm/detail/8438/download", "downloadLabel": "下载 DOVA 原生 Loop Track",
+      "credit": "建议署名：幻想探訪 / ゆーぎり", "licenseNote": "作者标示遵循 DOVA 站点许可；可以作为画面背景裁切、淡化和循环，禁止制作替代原曲的纯音乐或长时间音乐内容。"
+    },
+    {
+      "id": "dova-white-light-transparent", "title": "white, light and transparent", "artist": "shimtone", "platformId": "dova-syndrome",
+      "categoryIds": ["signature-healing-loop", "healing-piano", "calm-piano", "gentle-piano"], "scenes": ["sunrise", "countryside", "road-driving"], "durationSeconds": 134,
+      "description": "钢琴与 Synth Pad 构成的暖色慢速 Healing，整体平稳柔和；虽含极轻合成鼓，未标 Strong 或 Energetic，适合日出、公路和通透自然画面。",
+      "listenUrl": "https://dova-s.jp/bgm/detail/18177", "downloadUrl": "https://dova-s.jp/bgm/detail/18177/download", "downloadLabel": "下载 DOVA 原生 Loop Track",
+      "credit": "署名通常非强制，建议标注：white, light and transparent / shimtone", "licenseNote": "作者标示遵循 DOVA 站点许可；该曲原生 Loopable。正式采用前先试听确认合成鼓存在感，允许视频同步与基础剪辑但不可独立再发行。"
+    },
+    {
+      "id": "dova-where-next", "title": "次はどこに？", "artist": "ゆーぎり", "platformId": "dova-syndrome",
+      "categoryIds": ["signature-healing-loop", "healing-piano", "calm-piano", "gentle-piano"], "scenes": ["city-night", "road-driving", "rain"], "durationSeconds": 36,
+      "description": "短小、湿润且不吵的 Synth Pad Ambient 循环，作者明确定位为在画面背后流动的 BGM；命中 Warm、Calm、Gentle、Healing 与原生 Loopable。",
+      "listenUrl": "https://dova-s.jp/bgm/detail/7925", "downloadUrl": "https://dova-s.jp/bgm/detail/7925/download", "downloadLabel": "下载 DOVA 原生 Loop Track",
+      "credit": "建议署名：次はどこに？ / ゆーぎり", "licenseNote": "作者标示遵循 DOVA 站点许可；含低存在感鼓声，正式采用前先试听。适合延长为背景循环，不得独立上传或制作音乐主内容。"
+    },
+    {
+      "id": "dova-blue-landscape-painting", "title": "Blue landscape painting", "artist": "shimtone", "platformId": "dova-syndrome",
+      "categoryIds": ["signature-healing-loop", "healing-piano", "calm-piano", "gentle-piano"], "scenes": ["blue-hour", "rain", "countryside"], "durationSeconds": 120,
+      "description": "慢速暖色钢琴，以平静和克制为主，没有强鼓或激烈发展；命中 Warm、Calm、Gentle、Slow、Healing 与原生 Loopable，适合蓝调山水和雨后远景。",
+      "listenUrl": "https://dova-s.jp/bgm/detail/14025", "downloadUrl": "https://dova-s.jp/bgm/detail/14025/download", "downloadLabel": "下载 DOVA 原生 Loop Track",
+      "credit": "署名通常非强制，建议标注：Blue landscape painting / shimtone", "licenseNote": "作者标示遵循 DOVA 站点许可；允许盈利视频同步、裁切、Fade 与 Loop，禁止把音源本身重新分发。"
+    },
+    {
+      "id": "dova-water-surface", "title": "water surface", "artist": "shimtone", "platformId": "dova-syndrome",
+      "categoryIds": ["signature-healing-loop", "healing-piano", "calm-piano", "gentle-piano"], "scenes": ["rain", "sunrise", "countryside"], "durationSeconds": 156,
+      "description": "钢琴与柔和合成器营造水面般缓慢起伏的 Healing Ambient，空间充足、旋律密度低；命中 Warm、Calm、Gentle、Slow 与原生 Loopable。",
+      "listenUrl": "https://dova-s.jp/bgm/detail/13847", "downloadUrl": "https://dova-s.jp/bgm/detail/13847/download", "downloadLabel": "下载 DOVA 原生 Loop Track",
+      "credit": "署名通常非强制，建议标注：water surface / shimtone", "licenseNote": "作者标示遵循 DOVA 站点许可；适合雨景、水面和清晨风景的盈利视频背景，可裁切、淡化和循环，不可独立再发行。"
+    },
+    {
+      "id": "dova-grain-of-wood", "title": "grain of wood", "artist": "MATSU", "platformId": "dova-syndrome",
+      "categoryIds": ["signature-healing-loop", "healing-piano", "calm-piano", "gentle-piano"], "scenes": ["countryside", "sunrise", "road-driving"], "durationSeconds": 59,
+      "description": "钢琴、木吉他和低弦构成的极简木质纹理，温暖、平静、轻盈且不喧闹；原生 Loopable，适合林间、木屋、乡村与晨间行驶。",
+      "listenUrl": "https://dova-s.jp/bgm/detail/1946", "downloadUrl": "https://dova-s.jp/bgm/detail/1946/download", "downloadLabel": "下载 DOVA 原生 Loop Track",
+      "credit": "建议署名：grain of wood / MATSU", "licenseNote": "作者标示遵循 DOVA 站点许可；可作为盈利介绍或风景视频背景并进行基础剪辑、Fade 与 Loop，禁止音源再分发。"
+    },
+    {
       "id": "dova-dream-loop", "title": "夢の中で（Track 2 Loop）", "artist": "Keido Honda", "platformId": "dova-syndrome",
       "categoryIds": ["signature-healing-loop", "healing-piano", "calm-piano", "gentle-piano"], "scenes": ["rain", "city-night", "blue-hour"], "durationSeconds": 51,
       "description": "BPM 74 的柔和八音盒独奏，温暖、安静、略带感伤；Track 2 去除了减速结尾并为循环制作，适合夜景细节和短暂留白。",
