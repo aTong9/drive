@@ -1,4 +1,4 @@
-import { AlertTriangle, ArrowUpRight, CheckCircle2, Disc3, Download, ExternalLink, FileCheck2, Headphones, Library, Music2, Piano, Play, Search, ShieldCheck, Sparkles } from "lucide-react";
+import { AlertTriangle, ArrowUpRight, CheckCircle2, Disc3, Download, ExternalLink, FileCheck2, Headphones, Library, Music2, Piano, Play, Repeat2, RotateCcw, Search, ShieldCheck, SlidersHorizontal, Sparkles } from "lucide-react";
 import { useMemo, useState } from "react";
 import { filterMusicAlbums, filterMusicPlatforms, filterMusicTracks, youtubeMusicLibrary, type MusicFamily, type MusicRisk, type MusicScene } from "../../services/youtubeMusicService.js";
 
@@ -59,6 +59,24 @@ export function MusicLibraryView() {
     setCategoryId("all");
   }
 
+  function activateSignatureProfile() {
+    setFamily("piano");
+    setCategoryId("signature-healing-loop");
+    setScene("all");
+    setRisk("all");
+    setQuery("");
+    setAlbumPlatformId("dova-syndrome");
+  }
+
+  function resetDiscovery() {
+    setFamily("all");
+    setCategoryId("all");
+    setScene("all");
+    setRisk("all");
+    setQuery("");
+    setAlbumPlatformId("all");
+  }
+
   return <main className="music-page">
     <header className="music-hero">
       <div><p className="eyebrow">YOUTUBE MUSIC CLEARANCE DESK</p><h1>背景音乐库<br /><em>先匹配画面，再清除版权</em></h1><p>为乡村、雨景、日出与夜间驾驶建立可执行的钢琴、Lo-Fi、Chillhop 和轻爵士选曲入口。</p></div>
@@ -67,11 +85,17 @@ export function MusicLibraryView() {
 
     <section className="music-license-notice"><ShieldCheck size={20} /><div><strong>“免版税”不等于“无版权”</strong><p>{youtubeMusicLibrary.methodology}</p></div><small>核验日期 {youtubeMusicLibrary.accessedAt}</small></section>
 
+    <section className="music-signature-profile">
+      <header><div className="music-signature-icon"><SlidersHorizontal size={19} /></div><div><p className="eyebrow">PRIMARY MUSIC PROFILE</p><h2>长期主筛选标准</h2><span>先验授权，再验原生循环，最后听感筛选</span></div><div className="music-signature-actions"><button className="primary" onClick={activateSignatureProfile}><Repeat2 size={14} />查看原生循环严选</button><button onClick={resetDiscovery}><RotateCcw size={13} />重置</button></div></header>
+      <div className="music-profile-rules"><article><small>必须全部满足</small><div>{["Healing", "Warm", "Calm", "Gentle", "YouTube 盈利", "可裁切 / Fade / Loop"].map((item) => <span key={item}>{item}</span>)}</div></article><article><small>优先加权</small><div>{["Slow", "Weak", "Ambient", "Lo-Fi", "Piano", "Synth Pad", "Soft Guitar"].map((item) => <span key={item}>{item}</span>)}</div></article><article className="avoid"><small>排除或降级</small><div>{["Strong Drums", "Funk", "EDM", "Energetic", "Intense", "Loud"].map((item) => <span key={item}>{item}</span>)}</div></article></div>
+      <footer><strong>来源优先级</strong><ol><li><i>1</i>DOVA-SYNDROME</li><li><i>2</i>StreamBeats</li><li><i>3</i>其他授权清晰平台</li></ol><p><Repeat2 size={13} />“原生 Loopable”与“仅允许后期循环”分开管理</p></footer>
+    </section>
+
     <section className="music-family-tabs" aria-label="音乐大类">{familyOptions.map(({ id, label, icon: Icon }) => <button key={id} className={family === id ? "active" : ""} onClick={() => selectFamily(id)}><Icon size={17} /><span>{label}</span><small>{id === "piano" ? "慢旋律 · 多留白" : id === "lofi" ? "柔节拍 · 夜间驾驶" : id === "jazz" ? "夜曲 · 都市蓝调" : "全部三个分类"}</small></button>)}</section>
 
     <section className="music-discovery-layout">
       <aside className="music-filter-panel">
-        <header><p className="eyebrow">FILTER</p><h2>筛选音乐</h2></header>
+        <header><p className="eyebrow">FILTER</p><h2>筛选音乐</h2>{categoryId === "signature-healing-loop" && <span className="music-filter-active"><Repeat2 size={12} />原生循环严格模式</span>}</header>
         <label className="music-search"><Search size={15} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="搜索专辑、曲目或平台" /></label>
         <label><span>免费音乐平台（{freePlatforms.length}）</span><select value={albumPlatformId} onChange={(event) => setAlbumPlatformId(event.target.value)}><option value="all">全部免费平台</option>{freePlatforms.map((platform) => <option key={platform.id} value={platform.id}>{platform.name}</option>)}</select></label>
         <label><span>适用画面</span><select value={scene} onChange={(event) => setScene(event.target.value as MusicScene | "all")}>{sceneOptions.map((item) => <option key={item.id} value={item.id}>{item.label}</option>)}</select></label>
