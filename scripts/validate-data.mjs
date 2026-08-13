@@ -104,7 +104,8 @@ if (provincesWithoutLocations.length) errors.push(`locations: province-level uni
 for (const preset of catalog.cameraPresets) {
   const cameraScenes = new Set(["coast-sunset", "city-night-driving", "city-night-tripod", "forest-stream-static", "daylight-walk", "rain-walk", "blue-hour-walk"]);
   if (!cameraScenes.has(preset.scene)) errors.push(`${preset.id}: unknown camera scene ${preset.scene}`);
-  if (preset.settings.iso.min > preset.settings.iso.max) errors.push(`${preset.id}: ISO min exceeds max`);
+  if (!preset.settings) continue;
+  if (preset.settings.iso && preset.settings.iso.min > preset.settings.iso.max) errors.push(`${preset.id}: ISO min exceeds max`);
   if (!preset.settings.resolution || !Number.isFinite(preset.settings.fps) || preset.settings.fps <= 0) errors.push(`${preset.id}: invalid resolution or fps`);
   if (!preset.settings.shutter || !Number.isFinite(preset.settings.whiteBalanceKelvin)) errors.push(`${preset.id}: missing shutter or white balance`);
   for (const control of ["sharpness", "noiseReduction"]) {
