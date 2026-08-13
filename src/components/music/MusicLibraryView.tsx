@@ -40,9 +40,10 @@ export function MusicLibraryView() {
   const albums = useMemo(() => filterMusicAlbums({
     ...(albumPlatformId === "all" ? {} : { platformId: albumPlatformId }),
     ...(family === "all" ? {} : { family }),
+    ...(categoryId === "all" ? {} : { categoryId }),
     ...(scene === "all" ? {} : { scene }),
     query
-  }), [albumPlatformId, family, scene, query]);
+  }), [albumPlatformId, family, categoryId, scene, query]);
   const albumPlatforms = useMemo(() => youtubeMusicLibrary.platforms.filter((platform) => youtubeMusicLibrary.albums.some((album) => album.platformId === platform.id)), []);
 
   function selectFamily(next: MusicFamily | "all") {
@@ -60,26 +61,19 @@ export function MusicLibraryView() {
 
     <section className="music-family-tabs" aria-label="音乐大类">{familyOptions.map(({ id, label, icon: Icon }) => <button key={id} className={family === id ? "active" : ""} onClick={() => selectFamily(id)}><Icon size={17} /><span>{label}</span><small>{id === "piano" ? "慢旋律 · 多留白" : id === "lofi" ? "柔节拍 · 夜间驾驶" : id === "jazz" ? "夜曲 · 都市蓝调" : "全部三个分类"}</small></button>)}</section>
 
-    <section className="music-category-strip" aria-label="细分音乐类型">
-      <button className={categoryId === "all" ? "active" : ""} onClick={() => setCategoryId("all")}>当前大类全部</button>
-      {categories.map((category) => <button key={category.id} className={categoryId === category.id ? "active" : ""} onClick={() => setCategoryId(category.id)}>{category.name}</button>)}
-    </section>
+    <section className="music-discovery-layout">
+      <aside className="music-filter-panel">
+        <header><p className="eyebrow">FILTER</p><h2>筛选音乐</h2></header>
+        <label className="music-search"><Search size={15} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="搜索专辑、曲目或平台" /></label>
+        <label><span>音乐平台</span><select value={albumPlatformId} onChange={(event) => setAlbumPlatformId(event.target.value)}><option value="all">全部免费平台</option>{albumPlatforms.map((platform) => <option key={platform.id} value={platform.id}>{platform.name}</option>)}</select></label>
+        <label><span>适用画面</span><select value={scene} onChange={(event) => setScene(event.target.value as MusicScene | "all")}>{sceneOptions.map((item) => <option key={item.id} value={item.id}>{item.label}</option>)}</select></label>
+        <div className="music-filter-group"><span>细分方向</span><div className="music-category-strip" aria-label="细分音乐类型"><button className={categoryId === "all" ? "active" : ""} onClick={() => setCategoryId("all")}>全部</button>{categories.map((category) => <button key={category.id} className={categoryId === category.id ? "active" : ""} onClick={() => setCategoryId(category.id)}>{category.name}</button>)}</div></div>
+        <div className="music-filter-tip"><ShieldCheck size={15} /><p>当前只展示有免费使用路径的平台。下载后仍需保存曲目许可与署名文本。</p></div>
+      </aside>
 
-    <section className="music-direction-grid">{categories.map((category) => <article key={category.id} className={`music-direction family-${category.family}`}>
-      <header><span>{category.family === "piano" ? <Piano size={17} /> : category.family === "lofi" ? <Headphones size={17} /> : category.family === "chillhop" ? <Music2 size={17} /> : <Sparkles size={17} />}</span><h2>{category.name}</h2></header>
-      <p>{category.description}</p>
-      <div>{category.scenes.map((item) => <small key={item}>{sceneLabels[item]}</small>)}</div>
-      <footer><strong>混音提示</strong>{category.mixingNotes}</footer>
-    </article>)}</section>
-
-    <section className="music-toolbar">
-      <label><Search size={15} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="搜索平台、授权说明或音乐方向" /></label>
-      <select value={scene} onChange={(event) => setScene(event.target.value as MusicScene | "all")} aria-label="适用场景">{sceneOptions.map((item) => <option key={item.id} value={item.id}>{item.label}</option>)}</select>
-      <select value={risk} onChange={(event) => setRisk(event.target.value as MusicRisk | "all")} aria-label="许可风险"><option value="all">全部风险</option><option value="low">低风险</option><option value="medium">需复核</option></select>
-    </section>
-
-    <section className="music-album-heading"><div><p className="eyebrow">CURATED ALBUMS</p><h2>适合当前三个方向的专辑</h2></div><select value={albumPlatformId} onChange={(event) => setAlbumPlatformId(event.target.value)} aria-label="按平台筛选专辑"><option value="all">全部专辑平台</option>{albumPlatforms.map((platform) => <option key={platform.id} value={platform.id}>{platform.name}</option>)}</select></section>
-    <section className="music-album-grid">
+      <div className="music-results-panel">
+        <header className="music-album-heading"><div><p className="eyebrow">CURATED ALBUMS</p><h2>适合当前方向的专辑</h2><span>{albums.length} 个结果</span></div></header>
+        <section className="music-album-grid">
       {albums.map((album) => {
         const platform = youtubeMusicLibrary.platforms.find((item) => item.id === album.platformId);
         return <article className="music-album-card" key={album.id}>
@@ -91,18 +85,19 @@ export function MusicLibraryView() {
           <footer><a href={album.listenUrl} target="_blank" rel="noreferrer"><Play size={12} />试听专辑</a><a className="primary" href={album.downloadUrl} target="_blank" rel="noreferrer"><Download size={12} />{album.downloadLabel}</a></footer>
         </article>;
       })}
+        </section>
+        {!albums.length && <div className="music-empty music-album-empty"><Disc3 size={23} /><strong>当前平台或分类暂无专辑</strong><span>切换平台、场景或清空搜索词</span></div>}
+      </div>
     </section>
-    {!albums.length && <div className="music-empty music-album-empty"><Disc3 size={23} /><strong>当前平台或分类暂无专辑</strong><span>切换平台、场景或清空搜索词</span></div>}
 
-    <section className="music-source-heading"><p className="eyebrow">LICENSED SOURCES</p><h2>平台授权与导入说明</h2></section>
+    <section className="music-source-heading"><div><p className="eyebrow">FREE LICENSED SOURCES</p><h2>免费平台与授权说明</h2><span>{platforms.length} 个符合当前方向的平台</span></div><select value={risk} onChange={(event) => setRisk(event.target.value as MusicRisk | "all")} aria-label="许可风险"><option value="all">全部许可风险</option><option value="low">优先：低风险</option><option value="medium">需逐曲复核</option></select></section>
     <section className="music-platform-grid">
       {platforms.map((platform) => <article className={`music-platform-card risk-${platform.license.risk}`} key={platform.id}>
         <header><span className="music-platform-icon">{platform.importMode === "download-import" ? <Download size={19} /> : <Library size={19} />}</span><div><small>{platform.importMode === "download-import" ? "下载后导入剪辑软件" : "仅限 YouTube 平台许可"}</small><h2>{platform.name}</h2></div><span className={`music-risk risk-${platform.license.risk}`}>{platform.license.risk === "low" ? <CheckCircle2 size={12} /> : <AlertTriangle size={12} />}{riskLabels[platform.license.risk]}</span></header>
         <p className="music-platform-fit">{platform.catalogFit}</p>
         <dl><div><dt>费用</dt><dd>{costLabels[platform.license.cost]}</dd></div><div><dt>盈利</dt><dd>{monetizationLabels[platform.license.monetization]}</dd></div><div><dt>剪辑</dt><dd>{editingLabels[platform.license.audioEditing]}</dd></div><div><dt>署名</dt><dd>{attributionLabels[platform.license.attribution]}</dd></div><div><dt>Content ID</dt><dd>{contentIdLabels[platform.license.contentId]}</dd></div></dl>
-        <div className="music-platform-styles">{platform.supportedCategoryIds.slice(0, 6).map((id) => <span key={id}>{youtubeMusicLibrary.categories.find((category) => category.id === id)?.name}</span>)}</div>
-        <aside><AlertTriangle size={15} /><p>{platform.license.notes}</p></aside>
-        <section><h3><FileCheck2 size={14} /> 导入与发布清单</h3><ol>{platform.workflow.map((step, index) => <li key={step}><i>{index + 1}</i><span>{step}</span></li>)}</ol></section>
+        <div className="music-platform-styles">{platform.supportedCategoryIds.slice(0, 4).map((id) => <span key={id}>{youtubeMusicLibrary.categories.find((category) => category.id === id)?.name}</span>)}</div>
+        <details><summary><FileCheck2 size={14} />查看许可重点与发布清单</summary><aside><AlertTriangle size={15} /><p>{platform.license.notes}</p></aside><section><h3>导入与发布清单</h3><ol>{platform.workflow.map((step, index) => <li key={step}><i>{index + 1}</i><span>{step}</span></li>)}</ol></section></details>
         <footer><a href={platform.url} target="_blank" rel="noreferrer">打开曲库 <ArrowUpRight size={13} /></a><div>{platform.evidence.map((source) => <a key={source.url} href={source.url} target="_blank" rel="noreferrer">授权依据 <ExternalLink size={11} /></a>)}</div></footer>
       </article>)}
     </section>

@@ -35,44 +35,12 @@
       "evidence": [{ "title": "Creator Music 使用详情", "url": "https://support.google.com/youtube/answer/11611019?hl=zh-Hans", "supports": ["youtube-use", "content-id", "pricing", "territory"] }]
     },
     {
-      "id": "epidemic-sound", "name": "Epidemic Sound", "kind": "subscription", "importMode": "download-import", "url": "https://www.epidemicsound.com/music/",
-      "catalogFit": "检索和分轨能力强，钢琴、Lo-Fi 与轻爵士覆盖全面，适合稳定周更。",
-      "supportedCategoryIds": ["healing-piano", "calm-piano", "gentle-piano", "soft-lofi", "japanese-lofi", "warm-lofi", "night-drive-chillhop", "jazzhop", "warm-sunset-chillhop", "rainy-day-chillhop", "japanese-chillhop", "relaxed-jazz-nocturne", "gentle-piano-jazz"],
-      "license": { "youtubeUse": "allowed-with-active-license", "cost": "subscription", "attribution": "not-generally-required", "contentId": "clearlist-required", "monetization": "allowed", "audioEditing": "basic-edits", "risk": "low", "notes": "发布前必须在有效订阅期把频道或视频加入 Safelist；订阅有效期内发布的内容取消订阅后仍保持清除，新发布内容不再覆盖。" },
-      "workflow": ["按 Mood、Genre、BPM 和 stems 筛选并下载许可范围内的曲目。", "发布前将 YouTube 频道或单条客户视频加入 Safelist。", "保存下载记录与订阅凭证，确认视频发布发生在有效期内。"],
-      "evidence": [{ "title": "Epidemic Sound Safelisting", "url": "https://help.epidemicsound.com/hc/en-us/articles/26248340314258-Safelisting", "supports": ["youtube-use", "content-id"] }, { "title": "Epidemic Sound 许可选项", "url": "https://help.epidemicsound.com/hc/en-us/articles/26194316442258-What-are-the-options-when-licensing-a-track", "supports": ["pricing", "youtube-use"] }]
-    },
-    {
-      "id": "artlist", "name": "Artlist", "kind": "subscription", "importMode": "download-import", "url": "https://artlist.io/royalty-free-music",
-      "catalogFit": "电影感与自然氛围曲目较丰富，适合日出、乡村和蓝调时刻成片。",
-      "supportedCategoryIds": ["healing-piano", "calm-piano", "gentle-piano", "soft-lofi", "warm-lofi", "night-drive-chillhop", "jazzhop", "warm-sunset-chillhop", "rainy-day-chillhop", "relaxed-jazz-nocturne", "gentle-piano-jazz"],
-      "license": { "youtubeUse": "allowed-with-active-license", "cost": "subscription", "attribution": "not-generally-required", "contentId": "clearlist-required", "monetization": "allowed", "audioEditing": "basic-edits", "risk": "low", "notes": "音乐进入 YouTube Content ID；频道或视频应在有效订阅期加入 Clearlist。已在有效期发布并清除的项目可持续覆盖，但新项目不能使用过期订阅下载物。" },
-      "workflow": ["按 Mood、Video Theme、Instrument 和 BPM 组合筛选。", "下载每首资产许可证，并在有效订阅期将频道或视频加入 Clearlist。", "客户项目选用覆盖客户工作的 Pro 或 Business 方案。"],
-      "evidence": [{ "title": "Artlist Clearlist 说明", "url": "https://help.artlist.io/hc/en-us/articles/29648622402333-Understanding-Artlist-s-Clearlist", "supports": ["youtube-use", "content-id"] }, { "title": "Artlist 许可说明", "url": "https://help.artlist.io/hc/en-us/articles/29490991524253-Understanding-Artlist-s-license", "supports": ["youtube-use", "pricing"] }]
-    },
-    {
-      "id": "soundstripe", "name": "Soundstripe", "kind": "subscription", "importMode": "download-import", "url": "https://www.soundstripe.com/royalty-free-music",
-      "catalogFit": "情绪和视频用途标签清楚，适合快速建立夜驾、Lo-Fi 与柔和钢琴候选池。",
-      "supportedCategoryIds": ["calm-piano", "gentle-piano", "soft-lofi", "japanese-lofi", "warm-lofi", "night-drive-chillhop", "jazzhop", "warm-sunset-chillhop", "rainy-day-chillhop", "japanese-chillhop", "gentle-piano-jazz"],
-      "license": { "youtubeUse": "allowed-with-active-license", "cost": "subscription", "attribution": "credit-or-safelist", "contentId": "code-or-clearlist", "monetization": "allowed", "audioEditing": "basic-edits", "risk": "low", "notes": "个人频道可加入清除列表；客户或未列出的频道通常需为每首曲目生成单次 YouTube code，并在首次上传时放入视频说明。" },
-      "workflow": ["将个人频道加入 Content ID 清除列表，或为客户视频逐曲生成代码。", "每首歌一个代码，并在首次上传时写入视频说明同一行。", "保存代码、许可证与对应视频 URL 的映射。"],
-      "evidence": [{ "title": "Soundstripe YouTube 清除代码", "url": "https://docs.soundstripe.com/docs/clearing-youtube-claims-with-code", "supports": ["youtube-use", "attribution", "content-id"] }]
-    },
-    {
       "id": "uppbeat", "name": "Uppbeat", "kind": "freemium", "importMode": "download-import", "url": "https://uppbeat.io/music",
       "catalogFit": "免费入口适合试片，Lo-Fi、钢琴和轻爵士标签对独立创作者友好。",
       "supportedCategoryIds": ["healing-piano", "calm-piano", "gentle-piano", "soft-lofi", "japanese-lofi", "warm-lofi", "night-drive-chillhop", "jazzhop", "warm-sunset-chillhop", "rainy-day-chillhop", "japanese-chillhop", "relaxed-jazz-nocturne", "gentle-piano-jazz"],
       "license": { "youtubeUse": "allowed-with-active-license", "cost": "free-or-paid", "attribution": "credit-or-safelist", "contentId": "code-or-clearlist", "monetization": "allowed-with-track-terms", "audioEditing": "basic-edits", "risk": "medium", "notes": "免费下载通常会生成唯一 Uppbeat Credit，需复制到视频说明以处理 Content ID；付费功能含频道 Safelist，具体覆盖仍按账号方案与曲目确认。" },
       "workflow": ["下载时保存生成的 Uppbeat Credit 与许可页面。", "免费方案把完整 Credit 放入视频说明；付费方案先确认频道已 Safelist。", "上传后在 YouTube Studio 检查限制，再安排公开发布时间。"],
       "evidence": [{ "title": "Uppbeat：避免 YouTube 版权声明", "url": "https://uppbeat.io/blog/youtube/avoid-youtube-copyright-claims", "supports": ["youtube-use", "attribution", "content-id"] }, { "title": "Uppbeat 用户协议", "url": "https://uppbeat.io/user-agreement", "supports": ["youtube-use", "pricing", "content-id"] }]
-    },
-    {
-      "id": "lickd", "name": "Lickd", "kind": "per-track", "importMode": "download-import", "url": "https://lickd.co/",
-      "catalogFit": "当片段确需更知名的商业音乐时使用；并非日常长时背景音乐的首选。",
-      "supportedCategoryIds": ["calm-piano", "gentle-piano", "soft-lofi", "warm-lofi", "night-drive-chillhop", "jazzhop", "warm-sunset-chillhop", "relaxed-jazz-nocturne", "gentle-piano-jazz"],
-      "license": { "youtubeUse": "allowed-with-license", "cost": "per-track-or-subscription", "attribution": "track-dependent", "contentId": "clearlist-required", "monetization": "allowed-with-track-terms", "audioEditing": "track-dependent", "risk": "medium", "notes": "必须将 YouTube 频道连接到账号并为具体曲目、具体视频取得许可；VOUCH 用于向 Content ID 与权利人系统清除已许可视频的版权声明。" },
-      "workflow": ["连接正确的 YouTube 频道，只筛选明确可用于 YouTube 的曲目。", "为目标视频购买或取得许可，按平台提示关联视频。", "保存发票与许可证；出现声明时先按 Lickd 流程处理，不要盲目争议。"],
-      "evidence": [{ "title": "Lickd VOUCH 说明", "url": "https://help.lickd.co/knowledge/what-is-vouch", "supports": ["youtube-use", "content-id"] }, { "title": "Lickd 在 YouTube 使用音乐", "url": "https://help.lickd.co/knowledge/using-lickd-music-on-youtube-and-youtube-shorts", "supports": ["youtube-use", "attribution"] }]
     },
     {
       "id": "zukisuzuki-bgm", "name": "zukisuzuki BGM", "kind": "creator-library", "importMode": "download-import", "url": "https://zukisuzukibgm.com/",

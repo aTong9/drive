@@ -35,6 +35,11 @@ test("creator libraries expose free monetization and editing terms", () => {
   assert.ok(requested.every((platform) => platform.license.audioEditing !== undefined));
 });
 
+test("library excludes paid-only subscription and per-track platforms", () => {
+  assert.ok(youtubeMusicLibrary.platforms.every((platform) => platform.kind !== "subscription" && platform.kind !== "per-track"));
+  assert.ok(youtubeMusicLibrary.platforms.every((platform) => platform.license.cost !== "subscription" && platform.license.cost !== "per-track-or-subscription"));
+});
+
 test("albums reference known platforms and categories", () => {
   const platformIds = new Set(youtubeMusicLibrary.platforms.map((platform) => platform.id));
   const categoryIds = new Set(youtubeMusicLibrary.categories.map((category) => category.id));
