@@ -105,6 +105,9 @@ export default defineConfig(() => {
               return moduleId.slice("\0catalog-shard:".length);
             }
             if (moduleId.endsWith("/data/youtube-creators.json")) return "creator-data";
+            if (moduleId.endsWith("/data/youtube-music-library.json")) return "music-library-core";
+            const musicCatalogMatch = /\/data\/music-catalogs\/([^/]+)\.json$/.exec(moduleId);
+            if (musicCatalogMatch) return `music-catalog-${musicCatalogMatch[1]}`;
             if (moduleId.includes("node_modules/react") || moduleId.includes("node_modules/zustand")) return "react-runtime";
             if (moduleId.includes("node_modules/ajv")) return "data-validation";
             if (moduleId.includes("node_modules/@amap/amap-jsapi-loader")) return "amap-loader";

@@ -1,0 +1,910 @@
+{
+  "platformId": "teknoaxe",
+  "artist": "TeknoAXE",
+  "description": "官方 Piano 与 Soft 分类严格筛选；排除标题或分类明确指向 Funk、Dark、强动作和喜剧推动的曲目。Piano 为核心匹配，Soft 为低刺激相邻匹配。",
+  "downloadLabel": "从 TeknoAXE 官方曲目页下载 MP3",
+  "credit": "Music: TITLE by TeknoAXE (https://teknoaxe.com/) / CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/；如有裁切、淡入淡出或循环，请注明已修改。",
+  "licenseNote": "TeknoAXE 官方逐曲标注 CC BY 4.0：允许 YouTube 商用与盈利，并允许复制、裁切、Fade、Loop 和其他改编；必须署名、链接许可证并说明是否修改。不得暗示作者背书，也不得对原曲施加额外限制。",
+  "items": [
+    {
+      "id": "2417",
+      "genre": "Piano",
+      "title": "Walking in the Metro",
+      "videoId": "EuxK4fo6k2Y",
+      "file": "Walking_in_the_Metro.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "2407",
+      "genre": "Piano",
+      "title": "Imperfection",
+      "videoId": "XuvG3XRDYs0",
+      "file": "Imperfection.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "2401",
+      "genre": "Piano",
+      "title": "Square Recital",
+      "videoId": "vZwm1sPB2Ec",
+      "file": "Square_Recital.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "2370",
+      "genre": "Piano",
+      "title": "Weekend Waltz",
+      "videoId": "ZuUKBn2IRq8",
+      "file": "Weekend_Waltz.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "2293",
+      "genre": "Piano",
+      "title": "Monday's Lulliby",
+      "videoId": "vS-PDzDGbVc",
+      "file": "Mondays_Lulliby.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "2241",
+      "genre": "Piano",
+      "title": "Waltz of the Past",
+      "videoId": "fPwYw3H7kaA",
+      "file": "Waltz_of_the_Past.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "2217",
+      "genre": "Piano",
+      "title": "Regular Sunset",
+      "videoId": "EFjQD91QIVE",
+      "file": "Regular_Sunset.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "1960",
+      "genre": "Piano",
+      "title": "Sideways Buster",
+      "videoId": "eleNV_Dj-w4",
+      "file": "Sideways_Buster.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "1540",
+      "genre": "Piano",
+      "title": "Peaceful Orbits",
+      "videoId": "g19F4Dkk3CM",
+      "file": "Peaceful_Orbits.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "1487",
+      "genre": "Piano",
+      "title": "Simple Piano Medley 1 ",
+      "videoId": "wV7eAh6_n_w",
+      "file": "Simple_Piano_Medley_1.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "1408",
+      "genre": "Piano",
+      "title": "Inspiration For Another Day",
+      "videoId": "I_JFLUSeZ8A",
+      "file": "Inspiration_For_Another_Day.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "1381",
+      "genre": "Piano",
+      "title": "Adrift in My Own Thoughts",
+      "videoId": "VUFMHODlP1s",
+      "file": "Adrift_in_My_Own_Thoughts.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "1342",
+      "genre": "Piano",
+      "title": "Charlies Interlude",
+      "videoId": "TO295vm3WWU",
+      "file": "Charlies_Interlude.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "1338",
+      "genre": "Piano",
+      "title": "Deep Space Ballet",
+      "videoId": "YtvqyhEWfts",
+      "file": "Deep_Space_Ballet.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "1320",
+      "genre": "Piano",
+      "title": "Inside a Clock",
+      "videoId": "PDWVricT4jY",
+      "file": "Inside_a_Clock.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "1299",
+      "genre": "Piano",
+      "title": "A Pans Journey",
+      "videoId": "RptNjOX7ZGs",
+      "file": "A_Pans_Journey.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "1286",
+      "genre": "Piano",
+      "title": "Bedtime Story Adventures",
+      "videoId": "Os2qMeavGug",
+      "file": "Bedtime_Story_Adventures.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "1260",
+      "genre": "Piano",
+      "title": "Sea of Tranquility",
+      "videoId": "HDXeSjT0_Ek",
+      "file": "Sea_of_Tranquility.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "1251",
+      "genre": "Piano",
+      "title": "Counting Lots of Sheep",
+      "videoId": "biwjsfyYsMM",
+      "file": "Counting_Lots_of_Sheep.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "1233",
+      "genre": "Piano",
+      "title": "Silent Screen Shenanigans",
+      "videoId": "dQyasOBU6A4",
+      "file": "Silent_Screen_Shenanigans.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "1162",
+      "genre": "Piano",
+      "title": "Moment in Time",
+      "videoId": "usUZmb_jE0M",
+      "file": "Moment_in_Time.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "1145",
+      "genre": "Piano",
+      "title": "It's a Willy Green Christmas",
+      "videoId": "odUjP9K0ZMc",
+      "file": "Its_a_Willy_Green_Christmas.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "1141",
+      "genre": "Piano",
+      "title": "Winter Fun",
+      "videoId": "lFkrqJsEA50",
+      "file": "Winter_Fun.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "1118",
+      "genre": "Piano",
+      "title": "Break in the Clouds",
+      "videoId": "7HT8zdFAF9Q",
+      "file": "Break_in_the_Clouds.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "1079",
+      "genre": "Piano",
+      "title": "Charlie Chaplin's Walking Stick",
+      "videoId": "Gx_Iw_wAvuo",
+      "file": "Charlie_Chaplins_Walking_Stick.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "1052",
+      "genre": "Piano",
+      "title": "New Frontiers Piano Only",
+      "videoId": "ua1Jf2G-X7s",
+      "file": "New_Frontiers_Piano_Only.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "1035",
+      "genre": "Piano",
+      "title": "Baby Steps in Reaper in Piano",
+      "videoId": "o_zz5afVCvM",
+      "file": "Baby_Steps_in_Reaper_in_Piano.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "1017",
+      "genre": "Piano",
+      "title": "Overly Emotional Cooking Show Piano Only",
+      "videoId": "l6xCbaxlhQU",
+      "file": "Overly_Emotional_Cooking_Show_Piano_Only.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "1016",
+      "genre": "Piano",
+      "title": "Overly Emotional Cooking Show",
+      "videoId": "1vRqbDVUUk8",
+      "file": "Overly_Emotional_Cooking_Show.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "1000",
+      "genre": "Piano",
+      "title": "Foggy Bottom Scurvy Harbor [Piano]",
+      "videoId": "4ualUgjhqzU",
+      "file": "Foggy_Bottom_Scurvy_Harbor_[Piano].mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "986",
+      "genre": "Piano",
+      "title": "Doctor Fraud and his Quack Medicine",
+      "videoId": "irvoo3_fSaQ",
+      "file": "Doctor_Fraud_and_his_Quack_Medicine.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "971",
+      "genre": "Piano",
+      "title": "Warm by the Fire",
+      "videoId": "tRObcSVCI-I",
+      "file": "Warm_by_the_Fire.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "903",
+      "genre": "Piano",
+      "title": "Under the Moonrise",
+      "videoId": "RTyyoqFxTCU",
+      "file": "Under_the_Moonrise.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "887",
+      "genre": "Piano",
+      "title": "Gentle Embrace",
+      "videoId": "3HXykj2PLTM",
+      "file": "Gentle_Embrace.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "857",
+      "genre": "Piano",
+      "title": "Shutting Out the World",
+      "videoId": "ln4ouwTOts0",
+      "file": "Shutting_Out_the_World.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "835",
+      "genre": "Piano",
+      "title": "My Little Medley",
+      "videoId": "P1pHPjX-PlM",
+      "file": "My_Little_Medley.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "825",
+      "genre": "Piano",
+      "title": "Ripples in the Water",
+      "videoId": "9WuZjG91zT8",
+      "file": "Ripples_in_the_Water.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "824",
+      "genre": "Piano",
+      "title": "Piano Hollow Moon Red Moon Edition Remastered",
+      "videoId": "wTE0Bku3kBI",
+      "file": "Piano_Hollow_Moon_Red_Mood_Edition_Remastered.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "822",
+      "genre": "Piano",
+      "title": "Rest Your Head with Strings",
+      "videoId": "6cYcgjXqXUI",
+      "file": "Rest_Your_Head_with_Strings.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "815",
+      "genre": "Piano",
+      "title": "Rest Your Head",
+      "videoId": "YPPecLAx1bo",
+      "file": "Rest_Your_Head.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "774",
+      "genre": "Piano",
+      "title": "Puppy Love Piano Only",
+      "videoId": "_iv0PkITQbs",
+      "file": "Puppy_Love_Piano_Only.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "771",
+      "genre": "Piano",
+      "title": "Puppy Love",
+      "videoId": "UihXUkin_bc",
+      "file": "Puppy_Love.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "763",
+      "genre": "Piano",
+      "title": "Roses For Your Girl",
+      "videoId": "lSfBzBPqcps",
+      "file": "Roses_For_Your_Girl.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "648",
+      "genre": "Piano",
+      "title": "Pianolated Baseball",
+      "videoId": "V2eH-0aw7pQ",
+      "file": "Pianolated_Baseball.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "639",
+      "genre": "Piano",
+      "title": "Lazy Pirouettes",
+      "videoId": "flGLWmi5mnc",
+      "file": "Lazy_Pirouettes.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "620",
+      "genre": "Piano",
+      "title": "Waltz of Yesterday",
+      "videoId": "8Q3DGVN9rzI",
+      "file": "Waltz_of_Yesterday.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "594",
+      "genre": "Piano",
+      "title": "Urban Street Speak",
+      "videoId": "fYznJIVLmpg",
+      "file": "Urban_Street_Speak.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "535",
+      "genre": "Piano",
+      "title": "At the End of All Things Revised",
+      "videoId": "1qdjcE6F-zk",
+      "file": "At_the_End_of_All_Things_Revised.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "534",
+      "genre": "Piano",
+      "title": "Waltzes_and_Duets.mp3",
+      "videoId": "tvOJIyPNkp4",
+      "file": "Waltzes_and_Duets.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "507",
+      "genre": "Piano",
+      "title": "Drifting Away from the World",
+      "videoId": "4fD2c9zRuCE",
+      "file": "Drifting_Away_from_the_World.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "488",
+      "genre": "Piano",
+      "title": "Building Vistas Together with More Piano",
+      "videoId": "-sIEFhDW0e4",
+      "file": "Building_Vistas_Together_with_More_Piano.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "480",
+      "genre": "Piano",
+      "title": "Crafting Melodies and Pickaxes",
+      "videoId": "LmWX4oVOu6k",
+      "file": "Crafting_Melodies_and_Pickaxes.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "340",
+      "genre": "Piano",
+      "title": "Piano Hollow Night Red Moon Edition",
+      "videoId": "FazkUAkVurU",
+      "file": "Piano_Hollow_Night_Red_Moon_Edition.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "339",
+      "genre": "Piano",
+      "title": "Piano Hollow Night",
+      "videoId": "tBU_ehkREAc",
+      "file": "Piano_Hollow_Night.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "245",
+      "genre": "Piano",
+      "title": "Charlie Brown Walks Home in the Snow",
+      "videoId": "3ZuzGcywP0Y",
+      "file": "Charlie_Brown_Walks_Home_in_the_Snow.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "218",
+      "genre": "Piano",
+      "title": "Chariots of the Sun",
+      "videoId": "I5JeGk0O-0g",
+      "file": "Chariots_of_the_Sun.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "141",
+      "genre": "Piano",
+      "title": "On the Edge of Forever",
+      "videoId": "KuKAJO21V1E",
+      "file": "On_the_Edge_of_Forever.mp3",
+      "kind": "piano",
+      "tier": "core"
+    },
+    {
+      "id": "2316",
+      "genre": "Soft",
+      "title": "Head in the Clouds",
+      "videoId": "jxx6HxfeXyk",
+      "file": "Head_in_the_Clouds.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "2247",
+      "genre": "Soft",
+      "title": "The Snow Falls Gently",
+      "videoId": "o0V642d8frE",
+      "file": "The_Snow_Falls_Gently.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "2205",
+      "genre": "Soft",
+      "title": "November Chill",
+      "videoId": "z1d5GjpUPqs",
+      "file": "November_Chill.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "2079",
+      "genre": "Soft",
+      "title": "Dane Meditation 5",
+      "videoId": "uMXtx2oPeYY",
+      "file": "Dane_Meditation_5.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "2061",
+      "genre": "Soft",
+      "title": "Lost in the Aether",
+      "videoId": "bR-rBYaet0Y",
+      "file": "Lost_in_the_Aether.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "2057",
+      "genre": "Soft",
+      "title": "Dane Meditation 4",
+      "videoId": "lNsOEJrB7G8",
+      "file": "Dane_Meditation_4.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "2042",
+      "genre": "Soft",
+      "title": "Outside My Mind",
+      "videoId": "As7BJvn0dCI",
+      "file": "Outside_My_Mind.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "2036",
+      "genre": "Soft",
+      "title": "Dane Meditation 3",
+      "videoId": "rXNDrPyb69E",
+      "file": "Dane_Meditation_3.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "2028",
+      "genre": "Soft",
+      "title": "Gretsch Meditation",
+      "videoId": "gJSdxtZ2upE",
+      "file": "Gretsch_Mediation.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "1879",
+      "genre": "Soft",
+      "title": "Breakfast on a New Day",
+      "videoId": "RpZ6UyTrz9E",
+      "file": "Breakfast_on_a_New_Day.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "1877",
+      "genre": "Soft",
+      "title": "Zen on a Baritone",
+      "videoId": "-zWWmDfveEU",
+      "file": "Zen_on_a_Baritone.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "1868",
+      "genre": "Soft",
+      "title": "Glass Lounge",
+      "videoId": "yZxwbIxrQ6A",
+      "file": "Glass_Lounge.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "1855",
+      "genre": "Soft",
+      "title": "Summer Fields Forever",
+      "videoId": "-CjCbN14Anw",
+      "file": "Summer_Fields_Forever.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "1833",
+      "genre": "Soft",
+      "title": "Shores of Glass",
+      "videoId": "iYREWPwxA9o",
+      "file": "Shores_of_Glass.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "1786",
+      "genre": "Soft",
+      "title": "Break from it All",
+      "videoId": "e7Lg9BdTWnI",
+      "file": "Break_from_it_All.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "1783",
+      "genre": "Soft",
+      "title": "Monster Chill Lounge",
+      "videoId": "fI9ye6qmLLo",
+      "file": "Monster_Chill_Lounge.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "1777",
+      "genre": "Soft",
+      "title": "Shifting Sands",
+      "videoId": "6EouMmYZf9s",
+      "file": "Shifting_Sands.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "1739",
+      "genre": "Soft",
+      "title": "Random Slow Jammer",
+      "videoId": "lb7sVA3hiAI",
+      "file": "Random_Slow_Jammer.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "1731",
+      "genre": "Soft",
+      "title": "Summer Highway Cruising",
+      "videoId": "bjkROCQsndE",
+      "file": "Summer_Highway_Cruising.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "1566",
+      "genre": "Soft",
+      "title": "Shifting Winds",
+      "videoId": "wqpyPGSnJUo",
+      "file": "Shifting_Winds.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "1537",
+      "genre": "Soft",
+      "title": "On a Ray of Hope",
+      "videoId": "QbXWIL1GL00",
+      "file": "On_a_Ray_of_Hope.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "1523",
+      "genre": "Soft",
+      "title": "Playing it Cool",
+      "videoId": "Uw_9djvrpDU",
+      "file": "Playing_it_Cool.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "1515",
+      "genre": "Soft",
+      "title": "Serene Acoustic Vibes",
+      "videoId": "wYKdkeIw_uI",
+      "file": "Serene_Acoustic_Vibes.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "1478",
+      "genre": "Soft",
+      "title": "Missing You",
+      "videoId": "QX506IrzP3I",
+      "file": "Missing_You.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "1436",
+      "genre": "Soft",
+      "title": "Fading into the Dream",
+      "videoId": "ZNx70nnSXEA",
+      "file": "Fading_into_the_Dream.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "1421",
+      "genre": "Soft",
+      "title": "Strolling in Bliss",
+      "videoId": "3SaR8gXLByY",
+      "file": "Strolling_in_Bliss.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "1412",
+      "genre": "Soft",
+      "title": "A Little Patience",
+      "videoId": "xq3d7aMy6b4",
+      "file": "A_Little_Patience.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "1392",
+      "genre": "Soft",
+      "title": "Rhodes Reflection",
+      "videoId": "FwsZ4jQzXTA",
+      "file": "Rhodes_Reflection.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "1192",
+      "genre": "Soft",
+      "title": "Dusty Tear-Jerker",
+      "videoId": "6r2fvU8XBUw",
+      "file": "Dusty_Tear_Jerker.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "1183",
+      "genre": "Soft",
+      "title": "Dreaming in Tides",
+      "videoId": "_nw4_s06l_Q",
+      "file": "Dreaming_in_Tides.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "1134",
+      "genre": "Soft",
+      "title": "And so the Story Goes",
+      "videoId": "Tnu2sNpUo9c",
+      "file": "And_so_the_Story_Goes.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "1073",
+      "genre": "Soft",
+      "title": "One Pinky Toe In",
+      "videoId": "pytkscIwDGA",
+      "file": "One_Pinky_Toe_In.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "993",
+      "genre": "Soft",
+      "title": "Overcast in Aberdeen",
+      "videoId": "PB73kyYupy0",
+      "file": "Overcast_in_Aberdeen.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "967",
+      "genre": "Soft",
+      "title": "Coming Home",
+      "videoId": "Iqg29Ck66ho",
+      "file": "Coming_Home.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "932",
+      "genre": "Soft",
+      "title": "Rebellious Love",
+      "videoId": "n78e6RYibr8",
+      "file": "Rebellious_Love.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "926",
+      "genre": "Soft",
+      "title": "Megalopolis Love",
+      "videoId": "BFld4f_ypC8",
+      "file": "Megalopolis_Love.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "767",
+      "genre": "Soft",
+      "title": "Eighties Reflections",
+      "videoId": "nuSbRLcsmvI",
+      "file": "Eighties_Reflections.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "704",
+      "genre": "Soft",
+      "title": "Slow Night at the Saloon",
+      "videoId": "StIsdEZeRUI",
+      "file": "Slow_Night_at_the_Saloon.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "556",
+      "genre": "Soft",
+      "title": "Fallen Starlight",
+      "videoId": "ukA15_kMq0k",
+      "file": "Fallen_Starlight.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "412",
+      "genre": "Soft",
+      "title": "Banjos and Lazy Sunsets",
+      "videoId": "6ygSQul06jI",
+      "file": "Banjos_and_Lazy_Sunsets.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "389",
+      "genre": "Soft",
+      "title": "Rain and Sunshine",
+      "videoId": "MjO_cRKJqP8",
+      "file": "Rain_and_Sunshine.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "292",
+      "genre": "Soft",
+      "title": "Pathway to the Moon",
+      "videoId": "yMuyWMSlaws",
+      "file": "Pathway_to_the_Moon.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    },
+    {
+      "id": "52",
+      "genre": "Soft",
+      "title": "Ethereal Dream",
+      "videoId": "wIaAif_O4Oc",
+      "file": "Ethereal_Dreamscape.mp3",
+      "kind": "soft",
+      "tier": "adjacent"
+    }
+  ]
+}

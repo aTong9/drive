@@ -1,0 +1,910 @@
+{
+  "platformId": "incompetech",
+  "artist": "Kevin MacLeod",
+  "description": "Incompetech 官方目录中按 Calm / Calming / Relaxed 硬筛，并排除强烈情绪；保留官方 Feel、乐器与 BPM 供复核",
+  "downloadLabel": "官方曲目页 / Download",
+  "credit": "曲名 — Kevin MacLeod (incompetech.com)，按曲目页所示 CC BY 许可署名",
+  "licenseNote": "可用于 YouTube 盈利及剪时长、Fade、Loop 等改编；必须保留对应曲目页要求的署名与许可证链接。",
+  "items": [
+    [
+      "A Very Brady Special",
+      "USUAN1900054",
+      388,
+      "piano",
+      "Calm, Calming, Relaxed",
+      "Piano",
+      55
+    ],
+    [
+      "Deep Relaxation",
+      "USUAN1900045",
+      3068,
+      "piano",
+      "Calm, Calming, Relaxed",
+      "Piano, Synth",
+      0
+    ],
+    [
+      "Ebbs and Flows",
+      "USUAN1900034",
+      3534,
+      "piano",
+      "Calm, Calming, Relaxed",
+      "Piano, Synths",
+      0
+    ],
+    [
+      "Mana Two - Part 1",
+      "USUAN1900036",
+      234,
+      "piano",
+      "Calm, Calming, Relaxed",
+      "Electric Piano",
+      0
+    ],
+    [
+      "Mana Two - Part 2",
+      "USUAN1900037",
+      362,
+      "piano",
+      "Calm, Calming, Relaxed",
+      "Electric Piano",
+      0
+    ],
+    [
+      "Mana Two - Part 3",
+      "USUAN1900038",
+      192,
+      "piano",
+      "Calm, Calming, Relaxed",
+      "Electric Piano",
+      0
+    ],
+    [
+      "Wind of the Rainforest",
+      "USUAN1900044",
+      3534,
+      "piano",
+      "Calm, Calming, Relaxed",
+      "Electric Piano, Synths",
+      0
+    ],
+    [
+      "Almost in F",
+      "USUAN1100394",
+      1962,
+      "piano",
+      "Calming, Mystical, Relaxed",
+      "Piano, Basses",
+      0
+    ],
+    [
+      "Ambiment",
+      "USUAN1100630",
+      1373,
+      "piano",
+      "Calming, Mystical, Relaxed",
+      "Piano, Synths",
+      0
+    ],
+    [
+      "Avec Soin",
+      "USUAN1100860",
+      145,
+      "piano",
+      "Calming, Relaxed",
+      "Piano",
+      64
+    ],
+    [
+      "Blue Paint",
+      "USUAN1100566",
+      131,
+      "piano",
+      "Calming, Relaxed, Somber",
+      "Piano",
+      64
+    ],
+    [
+      "Clean Soul",
+      "USUAN1300033",
+      307,
+      "piano",
+      "Calming, Mysterious, Relaxed",
+      "Electric Piano, Bass",
+      0
+    ],
+    [
+      "Comfortable Mystery 2",
+      "USUAN1100537",
+      54,
+      "piano",
+      "Calming, Mystical, Relaxed, Somber",
+      "Electric Piano",
+      65
+    ],
+    [
+      "Drone in D",
+      "USUAN1200044",
+      1283,
+      "piano",
+      "Calming, Relaxed",
+      "Piano, Synth",
+      0
+    ],
+    [
+      "Facile",
+      "USUAN1100858",
+      212,
+      "piano",
+      "Calming, Relaxed",
+      "Piano",
+      59
+    ],
+    [
+      "Friday Morning",
+      "USUAN1100224",
+      210,
+      "piano",
+      "Relaxed, Calming",
+      "Piano",
+      0
+    ],
+    [
+      "Garden Music",
+      "USUAN1500081",
+      2477,
+      "piano",
+      "Relaxed, Calming, Mystical",
+      "Synths, Piano",
+      0
+    ],
+    [
+      "Immersed",
+      "USUAN1600010",
+      249,
+      "piano",
+      "Calming, Mystical, Relaxed, Somber",
+      "Piano, Strings",
+      64
+    ],
+    [
+      "Meditation Impromptu 01",
+      "USUAN1100163",
+      212,
+      "piano",
+      "Relaxed, Calming",
+      "Piano",
+      0
+    ],
+    [
+      "Meditation Impromptu 02",
+      "USUAN1100162",
+      249,
+      "piano",
+      "Relaxed, Calming",
+      "Piano",
+      0
+    ],
+    [
+      "Meditation Impromptu 03",
+      "USUAN1100161",
+      255,
+      "piano",
+      "Relaxed, Calming",
+      "Piano",
+      0
+    ],
+    [
+      "Moonstone",
+      "USUAN1100145",
+      255,
+      "piano",
+      "Relaxed, Calming",
+      "Piano",
+      0
+    ],
+    [
+      "Music for Manatees",
+      "USUAN1400009",
+      1056,
+      "piano",
+      "Calming, Relaxed",
+      "Piano, Electric Piano, Strings, Synth",
+      0
+    ],
+    [
+      "Organic Meditations Three",
+      "USUAN1100759",
+      967,
+      "piano",
+      "Calming, Relaxed",
+      "Piano, Strings",
+      0
+    ],
+    [
+      "Peace of Mind",
+      "USUAN1200099",
+      2158,
+      "piano",
+      "Calming, Relaxed",
+      "Piano, Synth, Strings",
+      0
+    ],
+    [
+      "Relaxing Piano Music",
+      "USUAN1500075",
+      1494,
+      "piano",
+      "Relaxed, Calming",
+      "Piano, Synths",
+      0
+    ],
+    [
+      "Wisps of Whorls",
+      "USUAN1200082",
+      856,
+      "piano",
+      "Calming, Relaxed",
+      "Electric Piano (EP), Synths",
+      0
+    ],
+    [
+      "Continue Life",
+      "USUAN1100282",
+      114,
+      "piano",
+      "Relaxed, Calming, Uplifting",
+      "Piano",
+      0
+    ],
+    [
+      "Eternal Hope",
+      "USUAN1100238",
+      284,
+      "piano",
+      "Calming, Uplifting, Relaxed",
+      "Piano, Strings, Helicon, French Horn, Choir",
+      0
+    ],
+    [
+      "Fresh Air",
+      "USUAN1500084",
+      294,
+      "piano",
+      "Calming, Relaxed",
+      "Piano",
+      44
+    ],
+    [
+      "Late Night Radio",
+      "USUAN2100003",
+      264,
+      "piano",
+      "Calm, Calming, Relaxed",
+      "Electric Piano, Bass, Drums, Synth",
+      72
+    ],
+    [
+      "Midsummer Sky",
+      "USUAN1100158",
+      114,
+      "piano",
+      "Relaxed, Calming, Uplifting",
+      "Piano",
+      0
+    ],
+    [
+      "Parting of the Ways - Part 1",
+      "USUAN1100119",
+      563,
+      "piano",
+      "Relaxed, Calming",
+      "Piano",
+      0
+    ],
+    [
+      "Parting of the Ways - Part 2",
+      "USUAN1100118",
+      398,
+      "piano",
+      "Relaxed, Calming",
+      "Piano",
+      0
+    ],
+    [
+      "Reawakening",
+      "USUAN1400017",
+      214,
+      "piano",
+      "Calming, Relaxed, Uplifting",
+      "Piano, Cello",
+      56
+    ],
+    [
+      "Reminiscing",
+      "USUAN1100097",
+      152,
+      "piano",
+      "Calming, Relaxed",
+      "Piano",
+      54
+    ],
+    [
+      "Sapphire Isle",
+      "USUAN1100087",
+      131,
+      "piano",
+      "Relaxed, Calming, Uplifting",
+      "Piano",
+      0
+    ],
+    [
+      "Stages of Grief",
+      "USUAN1100408",
+      108,
+      "piano",
+      "Calming, Relaxed, Somber",
+      "Piano, Basses, Violin",
+      0
+    ],
+    [
+      "Swimmey Texture",
+      "USUAN1100572",
+      65,
+      "piano",
+      "Calming, Relaxed",
+      "Piano, synths",
+      56
+    ],
+    [
+      "There is Romance",
+      "USUAN1100044",
+      197,
+      "piano",
+      "Calming, Relaxed, Uplifting",
+      "Piano",
+      93
+    ],
+    [
+      "Trio for Piano, Cello, and Clarinet",
+      "USUAN1100033",
+      159,
+      "piano",
+      "Relaxed, Calming, Somber",
+      "Piano, Cello, Clarinet",
+      56
+    ],
+    [
+      "Water Lily",
+      "USUAN1400035",
+      130,
+      "piano",
+      "Relaxed, Calming",
+      "Piano, Basses, Cellos",
+      62
+    ],
+    [
+      "White",
+      "USUAN1100010",
+      184,
+      "piano",
+      "Relaxed, Calming",
+      "Piano",
+      0
+    ],
+    [
+      "White Lotus",
+      "USUAN1300044",
+      2072,
+      "piano",
+      "Calming, Relaxed",
+      "Metals, Synths, Psaltery, Piano",
+      0
+    ],
+    [
+      "Amazing Grace 2011",
+      "USUAN1100820",
+      189,
+      "piano",
+      "Calming, Relaxed, Somber",
+      "Clarinet, Pipe Organ, Piano",
+      79
+    ],
+    [
+      "Bittersweet",
+      "USUAN1700004",
+      202,
+      "piano",
+      "Calming, Relaxed, Somber",
+      "Synth, Cello, Piano, Choir",
+      73
+    ],
+    [
+      "Danse Morialta",
+      "USUAN1200026",
+      236,
+      "piano",
+      "Calming, Relaxed, Somber, Uplifting",
+      "Piano",
+      70
+    ],
+    [
+      "Feather Waltz",
+      "USUAN1100658",
+      90,
+      "piano",
+      "Calming, Relaxed, Somber",
+      "Piano",
+      75
+    ],
+    [
+      "Gymnopedie No. 1",
+      "USUAN1100787",
+      187,
+      "piano",
+      "Calming, Relaxed, Uplifting",
+      "Piano",
+      77
+    ],
+    [
+      "Thinking of You",
+      "USUAN1100637",
+      110,
+      "piano",
+      "Calming, Relaxed",
+      "Electric Piano",
+      72
+    ],
+    [
+      "Dreams Become Real",
+      "USUAN1500027",
+      410,
+      "piano",
+      "Calming, Somber",
+      "Piano, Synths",
+      60
+    ],
+    [
+      "Promises to Keep",
+      "USUAN1200004",
+      304,
+      "piano",
+      "Calming, Somber, Uplifting",
+      "Piano",
+      0
+    ],
+    [
+      "Shores of Avalon",
+      "USUAN1100633",
+      236,
+      "piano",
+      "Calming, Mysterious, Mystical, Somber",
+      "Piano, Synths, Solo Voice",
+      0
+    ],
+    [
+      "Dream Culture",
+      "USUAN1300046",
+      214,
+      "piano",
+      "Calming, Relaxed, Uplifting",
+      "Piano, Percussion",
+      70
+    ],
+    [
+      "Gymnopedie No. 3",
+      "USUAN1100785",
+      145,
+      "piano",
+      "Calming, Mysterious",
+      "Piano",
+      77
+    ],
+    [
+      "Infinite Perspective",
+      "USUAN1500024",
+      345,
+      "piano",
+      "Calming, Bright",
+      "Synths, Voices, Piano, Harp, English Horn, French Horn, Flute",
+      80
+    ],
+    [
+      "On the Passing of Time",
+      "USUAN1100520",
+      225,
+      "piano",
+      "Calming, Mystical, Somber",
+      "Piano",
+      80
+    ],
+    [
+      "Aretes",
+      "USUAN1100325",
+      276,
+      "piano",
+      "Calming, Uplifting",
+      "Piano, Synths, Choir",
+      57
+    ],
+    [
+      "At Rest",
+      "USUAN1100748",
+      207,
+      "piano",
+      "Relaxed, Somber",
+      "Piano, Voice, Strings, Choir",
+      57
+    ],
+    [
+      "Calmant",
+      "USUAN1100859",
+      200,
+      "piano",
+      "Relaxed, Somber",
+      "Piano",
+      58
+    ],
+    [
+      "Ancient Winds",
+      "USUAN1900043",
+      3534,
+      "ambient",
+      "Calm, Calming, Relaxed",
+      "Harp, Strings, Synths",
+      0
+    ],
+    [
+      "Elf Meditation",
+      "USUAN1900035",
+      3534,
+      "ambient",
+      "Calm, Calming, Relaxed",
+      "Harp, Bass, Synths",
+      0
+    ],
+    [
+      "Kalimba Relaxation Music",
+      "USUAN1900039",
+      428,
+      "ambient",
+      "Calm, Calming, Relaxed",
+      "Kalimba, Synth",
+      0
+    ],
+    [
+      "Dewdrop Fantasy",
+      "USUAN1700001",
+      2098,
+      "ambient",
+      "Bright, Calming, Relaxed",
+      "Synths, Rain",
+      55
+    ],
+    [
+      "Eastminster",
+      "USUAN1100719",
+      405,
+      "ambient",
+      "Calming, Relaxed",
+      "Plucked Strings, Synths",
+      51
+    ],
+    [
+      "Ever Mindful",
+      "USUAN1700033",
+      1599,
+      "ambient",
+      "Relaxed, Bright, Calming",
+      "Cellos, Basses, Violas, Violins, Choir, Flutes, Clarinets",
+      40
+    ],
+    [
+      "Fluidscape",
+      "USUAN1100393",
+      1821,
+      "ambient",
+      "Calming, Mystical, Relaxed",
+      "Synths, Flute, Harp",
+      0
+    ],
+    [
+      "Overheat",
+      "USUAN1100477",
+      423,
+      "ambient",
+      "Calming, Mystical, Relaxed",
+      "Flute, Synth, Violin",
+      55
+    ],
+    [
+      "River Flute",
+      "USUAN1900005",
+      1228,
+      "ambient",
+      "Calming, Relaxed, Mystical",
+      "Synth, Flute, River",
+      0
+    ],
+    [
+      "Senbazuru",
+      "USUAN1100821",
+      94,
+      "ambient",
+      "Calming, Relaxed, Uplifting",
+      "Koto, Synth, Cello, Flute",
+      48
+    ],
+    [
+      "Soaring",
+      "USUAN1600040",
+      380,
+      "ambient",
+      "Mystical, Calming, Relaxed",
+      "Synths",
+      0
+    ],
+    [
+      "Tranquility",
+      "USUAN1100581",
+      987,
+      "ambient",
+      "Calming, Relaxed",
+      "Synths",
+      0
+    ],
+    [
+      "Transition One",
+      "USUAN1100035",
+      40,
+      "ambient",
+      "Relaxed, Calming, Uplifting,",
+      "Orchestral - Flute, Clarinet, Bass Clarinet, Bass, Cello, Viola, Violin, Glock, Harp",
+      0
+    ],
+    [
+      "Winter Reflections",
+      "USUAN1100580",
+      142,
+      "ambient",
+      "Calming, Relaxed",
+      "Synths",
+      0
+    ],
+    [
+      "Deliberate Thought",
+      "USUAN1100261",
+      177,
+      "ambient",
+      "Calming, Relaxed",
+      "Synths, Choir",
+      69
+    ],
+    [
+      "Windswept",
+      "USUAN1100757",
+      208,
+      "ambient",
+      "Calming, Relaxed",
+      "Guitar, Strings",
+      79
+    ],
+    [
+      "Morning",
+      "USUAN2300003",
+      153,
+      "ambient",
+      "Bright, Calm, Relaxed",
+      "Classical Guitar, Harp, Flutes",
+      60
+    ],
+    [
+      "Frozen Star",
+      "USUAN1100356",
+      221,
+      "ambient",
+      "Calming, Mystical, Relaxed, Uplifting",
+      "Harp, Choir, Helicons, Flutes",
+      88
+    ],
+    [
+      "Nu Flute",
+      "USUAN1100680",
+      83,
+      "ambient",
+      "Calming, Relaxed, Somber, Uplifting",
+      "Flute, Strings",
+      60
+    ],
+    [
+      "Ranz des Vaches",
+      "USUAN1100676",
+      85,
+      "ambient",
+      "Calming, Relaxed, Uplifting",
+      "English Horn, Flute, Bassoons, Strings",
+      56
+    ],
+    [
+      "Silver Blue Light",
+      "USUAN1100718",
+      350,
+      "ambient",
+      "Bright, Calming, Relaxed",
+      "Guitar, Synths",
+      47
+    ],
+    [
+      "The Parting",
+      "USUAN1100638",
+      184,
+      "ambient",
+      "Calming, Relaxed, Somber, Uplifting",
+      "Oboe, Flute, Strings, Trombones, Horn, Tuba",
+      42
+    ],
+    [
+      "With Regards",
+      "USUAN1100822",
+      177,
+      "ambient",
+      "Calming, Relaxed, Somber",
+      "Trombone, Tuba, Guitar",
+      66
+    ],
+    [
+      "Ethereal Relaxation",
+      "USUAN2100031",
+      1686,
+      "ambient",
+      "Bright, Relaxed, Calming",
+      "Tongue Drum, Strings",
+      0
+    ],
+    [
+      "Heart of Nowhere",
+      "USUAN1400045",
+      172,
+      "ambient",
+      "Calming, Mystical, Somber",
+      "Choir, Cellos, Basses",
+      47
+    ],
+    [
+      "New Direction",
+      "USUAN1100677",
+      680,
+      "ambient",
+      "Calming",
+      "Synths",
+      0
+    ],
+    [
+      "Organic Meditations One",
+      "USUAN1100760",
+      988,
+      "ambient",
+      "Calming, Relaxed",
+      "Strings, Bells, Percussion",
+      0
+    ],
+    [
+      "When The Wind Blows",
+      "USUAN1100717",
+      266,
+      "ambient",
+      "Calming, Somber",
+      "Guitar, Synths",
+      58
+    ],
+    [
+      "Airship Serenity",
+      "USUAN1600046",
+      240,
+      "ambient",
+      "Calming, Uplifting",
+      "Synths",
+      74
+    ],
+    [
+      "Midnight Tale",
+      "USUAN1900004",
+      162,
+      "ambient",
+      "Calm, Relaxed",
+      "Guitar, Lute",
+      73
+    ],
+    [
+      "Cool Vibes",
+      "USUAN1100863",
+      218,
+      "jazz",
+      "Calming, Relaxed",
+      "Vibes, Bass, Kit",
+      83
+    ],
+    [
+      "Groove Grove",
+      "USUAN1200054",
+      206,
+      "jazz",
+      "Calming, Grooving, Mysterious, Relaxed",
+      "Percussion, Electric Piano, Synth",
+      70
+    ],
+    [
+      "Vibing Over Venus",
+      "USUAN2300005",
+      411,
+      "jazz",
+      "Calm, Grooving, Relaxed",
+      "Vibraphone, Bass, Drum kit, Percussion, Strings, Piano",
+      94
+    ],
+    [
+      "Past Sadness",
+      "USUAN1900007",
+      213,
+      "jazz",
+      "Calm, Grooving, Relaxed",
+      "EP, Bass, Percussion",
+      72
+    ],
+    [
+      "Smooth Lovin",
+      "USUAN1700077",
+      259,
+      "jazz",
+      "Grooving, Calm, Relaxed",
+      "Bass, Guitar, Drums, Piano, Organ",
+      75
+    ],
+    [
+      "Study And Relax",
+      "USUAN1900030",
+      223,
+      "jazz",
+      "Calm, Grooving, Relaxed",
+      "Saxophones, Piano, Bass, Percussion",
+      72
+    ],
+    [
+      "Space Jazz",
+      "USUAN2100030",
+      370,
+      "jazz",
+      "Bright, Grooving, Relaxed",
+      "Synths",
+      89
+    ],
+    [
+      "Bossa Antigua",
+      "USUAN1700069",
+      283,
+      "jazz",
+      "Bright, Grooving, Relaxed",
+      "Guitar, Bass, Drums",
+      70
+    ],
+    [
+      "Poppers and Prosecco",
+      "USUAN1700014",
+      194,
+      "jazz",
+      "Grooving, Bright, Relaxed",
+      "Trombone, Piano, Bass, Drums",
+      70
+    ],
+    [
+      "Almost New",
+      "USUAN1800008",
+      203,
+      "piano",
+      "Bright, Calming, Mysterious",
+      "Piano, Basses",
+      80
+    ]
+  ]
+}

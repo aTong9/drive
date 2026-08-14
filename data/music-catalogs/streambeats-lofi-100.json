@@ -1,0 +1,36 @@
+{
+  "platformId": "streambeats",
+  "artist": "StreamBeats by Harris Heller",
+  "categoryIds": ["soft-lofi", "warm-lofi", "night-drive-chillhop", "warm-sunset-chillhop", "rainy-day-chillhop"],
+  "scenes": ["city-night", "road-driving", "blue-hour", "urban", "rain"],
+  "description": "官方 Lo-Fi 专辑曲目；整体以稳定柔和节拍、温暖和弦和低干扰旋律为主，采用前仍按具体画面试听筛选。",
+  "downloadLabel": "Bandcamp 自定价格（可填 $0）",
+  "credit": "无需署名",
+  "licenseNote": "StreamBeats 官方标注 100% FREE 与 DMCA Safe；可用于盈利 YouTube 视频同步及基础裁切、淡化，不可 remix、采样、登记 Content ID 或重新发行音乐。",
+  "albums": [
+    {
+      "id": "prime", "url": "https://streambeats.bandcamp.com/album/prime",
+      "tracks": [
+        ["Celestial Journeys",133],["Swiss Winters",128],["Amber Afterglow",145],["Peel and Stick",132],["Palette of Dreams",137],["Hazy Monicle",133],["Fluffy Cotton",132],["Fading Frequencies",136],["Zinnia Whispers",131],["Sand Dollar",138],["French Pastries",121],["Willow Breeze",114],["Pipe Dreams",128],["Restrained Again",134],["Deep Water Dive",144],["Daylily",134],["Myrtle Ravine",125],["Sea Salt",138],["Oyster Bay",129],["Cherry Blossoms",137],["Charming Smile",118],["Castle Cream",140],["Stone Walkways",138],["Moody Fig",123],["Carriage Rides",144],["Whipped Plaster",124],["In Bloom",122],["Coffee Nook",125],["Lake View",122]
+      ]
+    },
+    {
+      "id": "quest", "url": "https://streambeats.bandcamp.com/album/quest",
+      "tracks": [
+        ["Blue Waves",151],["Monday's Routine",156],["Viola Stems",190],["Field Harvesting",150],["Creamy Tea",130],["Countryside Drive",127],["Quaint Village",120],["Prairie Air",140],["Tulip Fields",146],["Cozy Up",150],["Swimming the English Channel",138],["Fresh Looks",115],["Weathered Windmill",182],["Shroom Living",130],["Stuck on my Plateau",130],["River Rock Fireplace",127],["Tea Party for Two",130],["Summer Heat",139],["Homebody",155],["Marmalade",114],["Park Time",126],["Weatherman",139],["Clay Mountains",138],["Green Giant Canopy",141],["Aging Juniper",132],["Lone Tree Haze",131],["Pleasure Bay",130],["Gold Rush Canyon",120],["Sunshine Rain",115],["Devil's Ivy",136]
+      ]
+    },
+    {
+      "id": "neon", "url": "https://streambeats.bandcamp.com/album/neon",
+      "tracks": [
+        ["Regal Estate",126],["Basking Turtles",127],["Afternoon Delight",144],["Vanilla Rain",134],["Poppy Seed Ivy",124],["Ashes",138],["Dream About You",124],["Antique Rose",125],["Pearly Whites",139],["Warm Chocolate Swirls",125],["Absolutely Zero Cares",141],["Twilight",159],["Olive Grove",174],["Wildflower Acres",216],["Blue Mint Road",128],["Cinnamon Sugar Bun",139],["Clean Slate Again",145],["Cloudy Grey",138],["Riverdale Express",124],["Morning Run",144],["High Tide",191],["Hint of Lime",214],["Sea Star",183],["Rustic Oak",149],["Watering the Garden",130],["Elemental",140],["Classic Look",144],["Natural Lips",138],["Platinum Streaks",139],["Silver Feather",139]
+      ]
+    },
+    {
+      "id": "secluded", "url": "https://streambeats.bandcamp.com/album/secluded",
+      "tracks": [
+        ["Vintage Crown",135],["Watch Me Burn",140],["Morning Calm",146],["Climax",128],["Vibrant Adventures",123],["Honey Juice",120],["Coffee and You",125],["Tapestry Thread",124],["Warm Peach",128],["Wooded Acres",130],["Camouflaged Underneath",128]
+      ]
+    }
+  ]
+}

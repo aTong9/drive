@@ -1,0 +1,258 @@
+{
+  "platformId": "audionautix",
+  "artist": "Jason Shaw",
+  "description": "Audionautix 官方完整柔和标签并集复核：只保留 Slow/Medium，并排除 Fast、Driving、Bouncy、Energy、Grooving、Epic、Dark、Funk/Rock、Vocal 等高刺激或非器乐项；这是当前官方曲库能满足主画像的全部严格子集。",
+  "downloadLabel": "Audionautix 官方 MP3 直链",
+  "credit": "Music by Jason Shaw on Audionautix.com — Creative Commons Attribution 4.0 — https://creativecommons.org/licenses/by/4.0/；如有裁切、Fade 或 Loop，请注明已修改。",
+  "licenseNote": "Audionautix 官方允许包括 YouTube 盈利在内的商业用途，曲目须作为视频等其他创作的一部分；CC BY 4.0 允许裁切、Fade 与 Loop，但必须署名 Jason Shaw / Audionautix、链接许可证并说明修改，不得单独再分发或冒充作者。",
+  "items": [
+    [
+      "12 Mornings",
+      "/Music/12Mornings.mp3",
+      153,
+      "EASY LISTENING",
+      "Slow",
+      "Calming, Relaxing, Uplifting"
+    ],
+    [
+      "Acoustic Guitar #1",
+      "/Music/AcousticGuitar1.mp3",
+      174,
+      "ACOUSTIC",
+      "Medium",
+      "Calming, Cool, Relaxing"
+    ],
+    [
+      "Acoustic Meditation",
+      "/Music/AcousticMeditation2.mp3",
+      null,
+      "FOLK",
+      "Slow",
+      "Calming, Relaxing"
+    ],
+    [
+      "Amazing Grace",
+      "/Music/AmazingGrace.mp3",
+      null,
+      "FOLK",
+      "Slow",
+      "Relaxing, Calming, Meditative"
+    ],
+    [
+      "Autumn Sunset",
+      "/Music/AutumnSunset.mp3",
+      null,
+      "Acoustic",
+      "Slow",
+      "Calming, Relaxing"
+    ],
+    [
+      "Calm Blue Lake",
+      "/Music/CalmBlueLake.mp3",
+      null,
+      "SOUNDTRACK",
+      "Slow",
+      "Calming, Relaxing, Meditation"
+    ],
+    [
+      "Closer To Jazz",
+      "/Music/CloserToJazz.mp3",
+      null,
+      "JAZZ",
+      "Medium",
+      "Calming, Relaxing, Uplifting"
+    ],
+    [
+      "Cool Ride",
+      "/Music/CoolRide.mp3",
+      null,
+      "Soundtrack",
+      "Medium",
+      "Relaxing, Bright, Cool"
+    ],
+    [
+      "Cool Steel Breeze",
+      "/Music/CoolSteelBreeze.mp3",
+      188,
+      "acoustic",
+      "Medium",
+      "Calming, Relaxing, Bright"
+    ],
+    [
+      "Front Porch Sitter",
+      "/Music/FrontPorchSitter.mp3",
+      null,
+      "soundtrack",
+      "Slow",
+      "Calming, Sad, Pensive"
+    ],
+    [
+      "Fur Elise",
+      "/Music/FurElise.mp3",
+      null,
+      "SOUNDTRACK",
+      "Slow",
+      "Bright, Relaxing"
+    ],
+    [
+      "Green Leaves",
+      "/Music/GreenLeaves.mp3",
+      null,
+      "Acoustic",
+      "Slow",
+      "Calming, Relaxing, Uplifting"
+    ],
+    [
+      "I Saw Three Ships",
+      "/Music/ISawThreeShips.mp3",
+      null,
+      "SOUNDTRACK",
+      "Slow",
+      "Christmas, Relaxing, Bright"
+    ],
+    [
+      "Landra's Dream",
+      "/Music/LandrasDream.mp3",
+      null,
+      "Acoustic",
+      "Medium",
+      "Bright, Relaxing, Uplifting"
+    ],
+    [
+      "Meditation 1",
+      "/Music/Meditation1.mp3",
+      240,
+      "Other",
+      "Medium",
+      "Calming, Relaxing, Meditation"
+    ],
+    [
+      "Navajo Night",
+      "/Music/NavajoNight.mp3",
+      1440,
+      "Meditative",
+      "Slow",
+      "Calming, Relaxing, Meditation"
+    ],
+    [
+      "Nice And Easy",
+      "/Music/NiceAndEasy.mp3",
+      null,
+      "COUNTRY",
+      "Medium",
+      "Calming, Relaxing"
+    ],
+    [
+      "Noel",
+      "/Music/Noel.mp3",
+      null,
+      "FOLK",
+      "Slow",
+      "Calming, Uplifting, Christmas"
+    ],
+    [
+      "On Walden Pond",
+      "/Music/OnWaldenPond.mp3",
+      202,
+      "Soundtrack",
+      "Slow",
+      "Somber, Pensive, Calming"
+    ],
+    [
+      "One Fine Day",
+      "/Music/OneFineDay.mp3",
+      null,
+      "Acoustic",
+      "Slow",
+      "Calming, Relaxing, Soothing"
+    ],
+    [
+      "Paper Wings",
+      "/Music/PaperWings.mp3",
+      196,
+      "acoustic",
+      "Slow",
+      "Calming, Relaxing, Bright"
+    ],
+    [
+      "Running Waters",
+      "/Music/RunningWaters.mp3",
+      null,
+      "Meditative",
+      "Medium",
+      "Calming, Relaxing"
+    ],
+    [
+      "Second Nature",
+      "/Music/SecondNature.mp3",
+      null,
+      "Acoustic",
+      "Medium",
+      "Calming, Relaxing"
+    ],
+    [
+      "Serenity",
+      "/Music/Serenity.mp3",
+      null,
+      "Acoustic",
+      "Slow",
+      "Calming, Relaxing"
+    ],
+    [
+      "Sideways Samba",
+      "/Music/SidewaysSamba.mp3",
+      null,
+      "JAZZ",
+      "Medium",
+      "Relaxing, Calming, Bright"
+    ],
+    [
+      "Solo Acoustic #3",
+      "/Music/SoloAcoustic3.mp3",
+      126,
+      "ACOUSTIC",
+      "Slow",
+      "Relaxing, Calming, Bright"
+    ],
+    [
+      "Solo Acoustic #5",
+      "/Music/SoloAcoustic5.mp3",
+      141,
+      "acoustic",
+      "Medium",
+      "Bright, Pensive, Calming"
+    ],
+    [
+      "Standard Jazz Bars",
+      "/Music/StandardJazzBars.mp3",
+      182,
+      "jazz",
+      "Slow",
+      "Relaxing, Melancholy, Smooth"
+    ],
+    [
+      "Transcend",
+      "/Music/Transcend.mp3",
+      270,
+      "soundtrack",
+      "Slow",
+      "Calming, Soothing, Meditation"
+    ],
+    [
+      "Tropical Contact",
+      "/Music/TropicalContact.mp3",
+      205,
+      "Lo-Fi",
+      "Medium",
+      "Cool, Chill, Bossa Nova, Jazz"
+    ],
+    [
+      "Words",
+      "/Music/Words.mp3",
+      155,
+      "Acoustic",
+      "Medium",
+      "Relaxing, Bright, Uplifting"
+    ]
+  ]
+}

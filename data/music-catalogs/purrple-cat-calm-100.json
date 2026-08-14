@@ -1,0 +1,810 @@
+{
+  "platformId": "purrple-cat",
+  "artist": "Purrple Cat",
+  "description": "逐曲限定 Free Stock Music 明示 CC BY-SA 3.0 的 Purrple Cat Lo-Fi，并要求 calm / gentle / dreamy / chill / downtempo / ambient 等柔和标签，排除 horror、scary、aggressive、energetic、upbeat、epic 与 action",
+  "downloadLabel": "官方授权分发页 MP3 直链",
+  "credit": "曲名 by Purrple Cat | https://purrplecat.com\nRoyalty Free Music by https://www.free-stock-music.com\nCreative Commons / Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)\nhttps://creativecommons.org/licenses/by-sa/3.0/",
+  "licenseNote": "每首均由分发页逐曲标示 CC BY-SA 3.0，可用于含 YouTube 盈利的商业视频并允许裁切、Fade、Loop 等改编；必须署名，改编版本需以同一许可证分享，禁止 Content ID 排他登记。",
+  "items": [
+    [
+      "Shelter",
+      "purrple-cat-shelter.html",
+      "/music/purrple-cat/mp3/purrple-cat-shelter.mp3",
+      154,
+      120,
+      "lo-fi hip-hop, chill-hop, melancholic, nostalgic, calm, emotional, dreamy"
+    ],
+    [
+      "Equinox",
+      "purrple-cat-equinox.html",
+      "/music/purrple-cat/mp3/purrple-cat-equinox.mp3",
+      139,
+      65,
+      "lo-fi hip-hop, ambient, calm, dreamy, romantic, gentle"
+    ],
+    [
+      "Birds of a Feather",
+      "purrple-cat-birds-of-a-feather.html",
+      "/music/purrple-cat/mp3/purrple-cat-birds-of-a-feather.mp3",
+      177,
+      83,
+      "lo-fi hip-hop, chill-hop, calm, gentle, romantic, smooth"
+    ],
+    [
+      "Wild Strawberry",
+      "purrple-cat-wild-strawberry.html",
+      "/music/purrple-cat/mp3/purrple-cat-wild-strawberry.mp3",
+      160,
+      60,
+      "lo-fi hip-hop, chill-hop, calm, dreamy, romantic, sensual"
+    ],
+    [
+      "Green Tea",
+      "purrple-cat-green-tea.html",
+      "/music/purrple-cat/mp3/purrple-cat-green-tea.mp3",
+      197,
+      80,
+      "lo-fi hip-hop, chill-hop, calm, gentle, rainy, romantic"
+    ],
+    [
+      "Flourish",
+      "purrple-cat-flourish.html",
+      "/music/purrple-cat/mp3/purrple-cat-flourish.mp3",
+      157,
+      170,
+      "lo-fi hip-hop, chill-hop, calm, romantic, dreamy, gentle"
+    ],
+    [
+      "Lost Paradise",
+      "purrple-cat-lost-paradise.html",
+      "/music/purrple-cat/mp3/purrple-cat-lost-paradise.mp3",
+      120,
+      73,
+      "lo-fi hip-hop, chill-out, calm, nostalgic, dreamy, gentle"
+    ],
+    [
+      "Sandstorm",
+      "purrple-cat-sandstorm.html",
+      "/music/purrple-cat/mp3/purrple-cat-sandstorm.mp3",
+      142,
+      66,
+      "lo-fi hip-hop, piano, melancholic, sad, nostalgic, pensive, chill"
+    ],
+    [
+      "Frolic",
+      "purrple-cat-frolic.html",
+      "/music/purrple-cat/mp3/purrple-cat-frolic.mp3",
+      162,
+      65,
+      "lo-fi hip-hop, chill-hop, jazzy, calm, smooth"
+    ],
+    [
+      "Gentle Breeze",
+      "purrple-cat-gentle-breeze.html",
+      "/music/purrple-cat/mp3/purrple-cat-gentle-breeze.mp3",
+      196,
+      45,
+      "lo-fi hip-hop, chill-hop, chill-out, calm, dreamy, melancholic, pensive"
+    ],
+    [
+      "Field Of Fireflies",
+      "purrple-cat-field-of-fireflies.html",
+      "/music/purrple-cat/mp3/purrple-cat-field-of-fireflies.mp3",
+      161,
+      112,
+      "lo-fi hip-hop, ambient, calm, gentle, romantic, meditation"
+    ],
+    [
+      "Wishing Well",
+      "purrple-cat-wishing-well.html",
+      "/music/purrple-cat/mp3/purrple-cat-wishing-well.mp3",
+      116,
+      62,
+      "lo-fi hip-hop, chill-out, calm, dreamy, rainy, melancholic"
+    ],
+    [
+      "Please Hold Me",
+      "purrple-cat-please-hold-me.html",
+      "/music/purrple-cat/mp3/purrple-cat-please-hold-me.mp3",
+      272,
+      114,
+      "lo-fi hip-hop, chill-hop, calm, sad, emotional, romantic"
+    ],
+    [
+      "Star Bright",
+      "purrple-cat-star-bright.html",
+      "/music/purrple-cat/mp3/purrple-cat-star-bright.mp3",
+      149,
+      65,
+      "lo-fi hip-hop, chill-hop, calm, dreamy, gentle, romantic"
+    ],
+    [
+      "Bloom",
+      "purrple-cat-bloom.html",
+      "/music/purrple-cat/mp3/purrple-cat-bloom.mp3",
+      151,
+      60,
+      "lo-fi hip-hop, chill-hop, calm, dreamy, romantic, gentle"
+    ],
+    [
+      "Sand Castles",
+      "purrple-cat-sand-castles.html",
+      "/music/purrple-cat/mp3/purrple-cat-sand-castles.mp3",
+      151,
+      70,
+      "lo-fi hip-hop, chill-out, calm, rainy, gentle, dreamy"
+    ],
+    [
+      "Embrace",
+      "purrple-cat-embrace.html",
+      "/music/purrple-cat/mp3/purrple-cat-embrace.mp3",
+      147,
+      59,
+      "lo-fi hip-hop, chill-hop, calm, gentle, smooth, nostalgic"
+    ],
+    [
+      "Exhale",
+      "purrple-cat-exhale.html",
+      "/music/purrple-cat/mp3/purrple-cat-exhale.mp3",
+      175,
+      65,
+      "lo-fi, ambient, chill-out, downtempo, calm, pensive, sad, melancholic"
+    ],
+    [
+      "Crescent Moon",
+      "purrple-cat-crescent-moon.html",
+      "/music/purrple-cat/mp3/purrple-cat-crescent-moon.mp3",
+      142,
+      55,
+      "lo-fi hip-hop, chill-hop, calm, dreamy, meditation, gentle"
+    ],
+    [
+      "Spring Showers",
+      "purrple-cat-spring-showers.html",
+      "/music/purrple-cat/mp3/purrple-cat-spring-showers.mp3",
+      182,
+      60,
+      "lo-fi hip-hop, chill-out, calm, romantic, meditation"
+    ],
+    [
+      "Solitude",
+      "purrple-cat-solitude.html",
+      "/music/purrple-cat/mp3/purrple-cat-solitude.mp3",
+      149,
+      65,
+      "lo-fi hip-hop, chill-hop, calm, dreamy, pensive, meditation"
+    ],
+    [
+      "Lost And Found",
+      "purrple-cat-lost-and-found.html",
+      "/music/purrple-cat/mp3/purrple-cat-lost-and-found.mp3",
+      158,
+      134,
+      "lo-fi hip-hop, chill-hop, calm, gentle, smooth, rainy"
+    ],
+    [
+      "Glowing Tides",
+      "purrple-cat-glowing-tides.html",
+      "/music/purrple-cat/mp3/purrple-cat-glowing-tides.mp3",
+      208,
+      83,
+      "lo-fi hip-hop, chill-hop, calm, dreamy, gentle, sensual"
+    ],
+    [
+      "Day’s End",
+      "purrple-cat-days-end.html",
+      "/music/purrple-cat/mp3/purrple-cat-days-end.mp3",
+      165,
+      60,
+      "lo-fi hip-hop, chill-hop, calm, dreamy, meditation, sensual"
+    ],
+    [
+      "Calm Waters",
+      "purrple-cat-calm-waters.html",
+      "/music/purrple-cat/mp3/purrple-cat-calm-waters.mp3",
+      129,
+      90,
+      "lo-fi hip-hop, chill-out, calm, meditation, gentle, romantic"
+    ],
+    [
+      "Secret Of The Forest",
+      "purrple-cat-secret-of-the-forest.html",
+      "/music/purrple-cat/mp3/purrple-cat-secret-of-the-forest.mp3",
+      190,
+      62,
+      "lo-fi hip-hop, downtempo, calm, dreamy, pensive, gentle"
+    ],
+    [
+      "Aether",
+      "purrple-cat-aether.html",
+      "/music/purrple-cat/mp3/purrple-cat-aether.mp3",
+      140,
+      95,
+      "lo-fi, chill-hop, piano, downtempo, calm, nostalgic, emotional, gentle"
+    ],
+    [
+      "Beautiful Day",
+      "purrple-cat-beautiful-day.html",
+      "/music/purrple-cat/mp3/purrple-cat-beautiful-day.mp3",
+      201,
+      100,
+      "lo-fi hip-hop, chill-hop, calm, dreamy, gentle, smooth"
+    ],
+    [
+      "Meteorites",
+      "purrple-cat-meteorites.html",
+      "/music/purrple-cat/mp3/purrple-cat-meteorites.mp3",
+      183,
+      126,
+      "lo-fi, chill-hop, piano, downtempo, calm, positive, emotional, gentle"
+    ],
+    [
+      "Discovery",
+      "purrple-cat-discovery.html",
+      "/music/purrple-cat/mp3/purrple-cat-discovery.mp3",
+      144,
+      65,
+      "lo-fi hip-hop, chill-hop, calm, gentle, dreamy, melancholic"
+    ],
+    [
+      "Creation",
+      "purrple-cat-creation.html",
+      "/music/purrple-cat/mp3/purrple-cat-creation.mp3",
+      193,
+      136,
+      "lo-fi, chill-hop, chill-out, ambient, calm, dreamy, nostalgic, sad"
+    ],
+    [
+      "Out Of The Blue",
+      "purrple-cat-out-of-the-blue.html",
+      "/music/purrple-cat/mp3/purrple-cat-out-of-the-blue.mp3",
+      197,
+      90,
+      "lo-fi hip-hop, chill-hop, calm, dreamy, sensual, smooth"
+    ],
+    [
+      "In The Moment",
+      "purrple-cat-in-the-moment.html",
+      "/music/purrple-cat/mp3/purrple-cat-in-the-moment.mp3",
+      143,
+      116,
+      "lo-fi hip-hop, chill-hop, calm, smooth, romantic, nostalgic, sentimental, chill, love"
+    ],
+    [
+      "Dream Machine",
+      "purrple-cat-dream-machine.html",
+      "/music/purrple-cat/mp3/purrple-cat-dream-machine.mp3",
+      147,
+      67,
+      "lo-fi, chill-hop, downtempo, chill-out, calm, dreamy, gentle, smooth"
+    ],
+    [
+      "Daydreams",
+      "purrple-cat-daydreams.html",
+      "/music/purrple-cat/mp3/purrple-cat-daydreams.mp3",
+      202,
+      116,
+      "lo-fi hip-hop, chill-hop, inspirational, calm, romantic, dreamy, chill"
+    ],
+    [
+      "Somewhere New",
+      "purrple-cat-somewhere-new.html",
+      "/music/purrple-cat/mp3/purrple-cat-somewhere-new.mp3",
+      123,
+      70,
+      "lo-fi hip-hop, chill-hop, calm, dreamy, smooth, gentle"
+    ],
+    [
+      "Phantom Waltz",
+      "purrple-cat-phantom-waltz.html",
+      "/music/purrple-cat/mp3/purrple-cat-phantom-waltz.mp3",
+      178,
+      119,
+      "lo-fi, chill-hop, downtempo, calm, emotional, nostalgic"
+    ],
+    [
+      "Moving Landscapes",
+      "purrple-cat-moving-landscapes.html",
+      "/music/purrple-cat/mp3/purrple-cat-moving-landscapes.mp3",
+      194,
+      90,
+      "lo-fi hip-hop, downtempo, calm, dreamy, pensive"
+    ],
+    [
+      "Sea Of Stars",
+      "purrple-cat-sea-of-stars.html",
+      "/music/purrple-cat/mp3/purrple-cat-sea-of-stars.mp3",
+      141,
+      66,
+      "lo-fi hip-hop, downtempo, calm, inspirational, romantic, smooth"
+    ],
+    [
+      "Take Me With You",
+      "purrple-cat-take-me-with-you.html",
+      "/music/purrple-cat/mp3/purrple-cat-take-me-with-you.mp3",
+      203,
+      104,
+      "lo-fi hip-hop, chill-hop, calm, dreamy, romantic, nostalgic"
+    ],
+    [
+      "Forget-Me-Not",
+      "purrple-cat-forget-me-not.html",
+      "/music/purrple-cat/mp3/purrple-cat-forget-me-not.mp3",
+      160,
+      120,
+      "lo-fi, chill-hop, shoegaze, piano, sad, rainy, melancholic, calm"
+    ],
+    [
+      "Wish You Were Here",
+      "purrple-cat-wish-you-were-here.html",
+      "/music/purrple-cat/mp3/purrple-cat-wish-you-were-here.mp3",
+      166,
+      65,
+      "lo-fi hip-hop, chill-hop, calm, dreamy, gentle, romantic"
+    ],
+    [
+      "Lullaby",
+      "purrple-cat-lullaby.html",
+      "/music/purrple-cat/mp3/purrple-cat-lullaby.mp3",
+      156,
+      65,
+      "lo-fi, romantic, piano, calm, romantic, gentle, rainy"
+    ],
+    [
+      "Bird Bath",
+      "purrple-cat-bird-bath.html",
+      "/music/purrple-cat/mp3/purrple-cat-bird-bath.mp3",
+      130,
+      120,
+      "lo-fi, chill-hop, piano, downtempo, calm, nostalgic, gentle, rainy"
+    ],
+    [
+      "Deja Vu",
+      "purrple-cat-deja-vu.html",
+      "/music/purrple-cat/mp3/purrple-cat-deja-vu.mp3",
+      212,
+      64,
+      "lo-fi hip-hop, chill-hop, calm, dreamy, smooth, nostalgic"
+    ],
+    [
+      "Wishes",
+      "purrple-cat-wishes.html",
+      "/music/purrple-cat/mp3/purrple-cat-wishes.mp3",
+      196,
+      65,
+      "lo-fi hip-hop, chill-hop, calm, dreamy, gentle, smooth"
+    ],
+    [
+      "Timeless",
+      "purrple-cat-timeless.html",
+      "/music/purrple-cat/mp3/purrple-cat-timeless.mp3",
+      189,
+      100,
+      "lo-fi, chill-hop, piano, downtempo, calm, inspirational, positive"
+    ],
+    [
+      "Stars Collide",
+      "purrple-cat-stars-collide.html",
+      "/music/purrple-cat/mp3/purrple-cat-stars-collide.mp3",
+      148,
+      120,
+      "lo-fi, chill-hop, downtempo, chill-out, calm, dreamy, smooth, pensive"
+    ],
+    [
+      "A Place To Hide",
+      "purrple-cat-a-place-to-hide.html",
+      "/music/purrple-cat/mp3/purrple-cat-a-place-to-hide.mp3",
+      175,
+      114,
+      "lo-fi hip-hop, chill-hop, calm, sad, nostalgic, melancholic"
+    ],
+    [
+      "Swingin’",
+      "purrple-cat-swingin.html",
+      "/music/purrple-cat/mp3/purrple-cat-swingin.mp3",
+      144,
+      75,
+      "lo-fi hip-hop, chill-hop, calm, smooth, dreamy, gentle"
+    ],
+    [
+      "Stasis",
+      "purrple-cat-stasis.html",
+      "/music/purrple-cat/mp3/purrple-cat-stasis.mp3",
+      148,
+      90,
+      "lo-fi, chill-hop, downtempo, chill-out, calm, gentle, smooth, nostalgic"
+    ],
+    [
+      "Pitter Patter",
+      "purrple-cat-pitter-patter.html",
+      "/music/purrple-cat/mp3/purrple-cat-pitter-patter.mp3",
+      180,
+      96,
+      "lo-fi hip-hop, chill-hop, calm, dreamy, rainy, gentle"
+    ],
+    [
+      "Supernova",
+      "purrple-cat-supernova.html",
+      "/music/purrple-cat/mp3/purrple-cat-supernova.mp3",
+      160,
+      120,
+      "lo-fi hip-hop, chill-hop, calm, gentle, meditation, smooth"
+    ],
+    [
+      "Heart Of The Ocean",
+      "purrple-cat-heart-of-the-ocean.html",
+      "/music/purrple-cat/mp3/purrple-cat-heart-of-the-ocean.mp3",
+      175,
+      63,
+      "lo-fi hip-hop, chill-hop, calm, dreamy, pensive, romantic"
+    ],
+    [
+      "Stranded",
+      "purrple-cat-stranded.html",
+      "/music/purrple-cat/mp3/purrple-cat-stranded.mp3",
+      216,
+      57,
+      "lo-fi hip-hop, chill-hop, calm, nostalgic, melancholic, pensive"
+    ],
+    [
+      "Ghost Town",
+      "purrple-cat-ghost-town.html",
+      "/music/purrple-cat/mp3/purrple-cat-ghost-town.mp3",
+      188,
+      126,
+      "lo-fi hip-hop, chill-hop, calm, emotional, melancholic, emotional"
+    ],
+    [
+      "In The Past",
+      "purrple-cat-in-the-past.html",
+      "/music/purrple-cat/mp3/purrple-cat-in-the-past.mp3",
+      164,
+      120,
+      "lo-fi hip-hop, chill-hop, calm, smooth, gentle, pensive"
+    ],
+    [
+      "Time To Think",
+      "purrple-cat-time-to-think.html",
+      "/music/purrple-cat/mp3/purrple-cat-time-to-think.mp3",
+      179,
+      55,
+      "lo-fi hip-hop, chill-hop, calm, dreamy, gentle, pensive"
+    ],
+    [
+      "Silent Wood",
+      "purrple-cat-silent-wood.html",
+      "/music/purrple-cat/mp3/purrple-cat-silent-wood.mp3",
+      187,
+      100,
+      "lo-fi hip-hop, chill-hop, calm, nostalgic, melancholic, emotional"
+    ],
+    [
+      "Palm Tree",
+      "purrple-cat-palm-tree.html",
+      "/music/purrple-cat/mp3/purrple-cat-palm-tree.mp3",
+      140,
+      90,
+      "lo-fi hip-hop, chill-hop, calm, dreamy, romantic, pensive"
+    ],
+    [
+      "Drifting",
+      "purrple-cat-drifting.html",
+      "/music/purrple-cat/mp3/purrple-cat-drifting.mp3",
+      159,
+      46,
+      "lo-fi hip-hop, chill-hop, calm, dreamy, pensive, gentle"
+    ],
+    [
+      "Message In A Bottle",
+      "purrple-cat-message-in-a-bottle.html",
+      "/music/purrple-cat/mp3/purrple-cat-message-in-a-bottle.mp3",
+      205,
+      104,
+      "lo-fi hip-hop, chill-hop, calm, emotional, romantic"
+    ],
+    [
+      "Long Day",
+      "purrple-cat-long-day.html",
+      "/music/purrple-cat/mp3/purrple-cat-long-day.mp3",
+      185,
+      95,
+      "lo-fi hip-hop, chill-hop, calm, pensive, nostalgic, melancholic"
+    ],
+    [
+      "Waiting For The Sun",
+      "purrple-cat-waiting-for-the-sun.html",
+      "/music/purrple-cat/mp3/purrple-cat-waiting-for-the-sun.mp3",
+      190,
+      108,
+      "lo-fi hip-hop, chill-hop, calm, positive, inspirational, romantic"
+    ],
+    [
+      "Sky Lake",
+      "purrple-cat-sky-lake.html",
+      "/music/purrple-cat/mp3/purrple-cat-sky-lake.mp3",
+      158,
+      70,
+      "lo-fi hip-hop, chill-hop, calm, emotional"
+    ],
+    [
+      "Night Train",
+      "purrple-cat-night-train.html",
+      "/music/purrple-cat/mp3/purrple-cat-night-train.mp3",
+      183,
+      124,
+      "lo-fi hip-hop, chill-hop, calm, dreamy, smooth, pensive"
+    ],
+    [
+      "Underwater Cavern",
+      "purrple-cat-underwater-cavern.html",
+      "/music/purrple-cat/mp3/purrple-cat-underwater-cavern.mp3",
+      199,
+      82,
+      "lo-fi, chill-hop, jazz-hop, ambient, calm, dreamy, meditation, pensive"
+    ],
+    [
+      "Low Tide",
+      "purrple-cat-low-tide.html",
+      "/music/purrple-cat/mp3/purrple-cat-low-tide.mp3",
+      175,
+      54,
+      "lo-fi hip-hop, chill-hop, nostalgic, melancholic, pensive, sad"
+    ],
+    [
+      "Seashells",
+      "purrple-cat-seashells.html",
+      "/music/purrple-cat/mp3/purrple-cat-seashells.mp3",
+      178,
+      90,
+      "lo-fi hip-hop, chill-hop, calm, melancholic, emotional, sensual"
+    ],
+    [
+      "Pillow Fort",
+      "purrple-cat-pillow-fort.html",
+      "/music/purrple-cat/mp3/purrple-cat-pillow-fort.mp3",
+      197,
+      116,
+      "lo-fi hip-hop, chill-hop, calm, gentle, bright, pensive"
+    ],
+    [
+      "Going With The Flow",
+      "purrple-cat-going-with-the-flow.html",
+      "/music/purrple-cat/mp3/purrple-cat-going-with-the-flow.mp3",
+      199,
+      82,
+      "lo-fi, downtempo, ambient, calm, strange"
+    ],
+    [
+      "Visions",
+      "purrple-cat-visions.html",
+      "/music/purrple-cat/mp3/purrple-cat-visions.mp3",
+      161,
+      120,
+      "lo-fi hip-hop, chill-hop, calm, dreamy, smooth, gentle"
+    ],
+    [
+      "Dark Forest",
+      "purrple-cat-dark-forest.html",
+      "/music/purrple-cat/mp3/purrple-cat-dark-forest.mp3",
+      134,
+      59,
+      "lo-fi hip-hop, chill-hop, sad, melancholic, nostalgic, emotional"
+    ],
+    [
+      "Happy Trails",
+      "purrple-cat-happy-trails.html",
+      "/music/purrple-cat/mp3/purrple-cat-happy-trails.mp3",
+      139,
+      69,
+      "lo-fi hip-hop, chill-hop, calm, positive, happy, inspirational"
+    ],
+    [
+      "Rocky Shores",
+      "purrple-cat-rocky-shores.html",
+      "/music/purrple-cat/mp3/purrple-cat-rocky-shores.mp3",
+      137,
+      59,
+      "lo-fi hip-hop, chill-hop, calm, melancholic, pensive, sad"
+    ],
+    [
+      "Through The Trees",
+      "purrple-cat-through-the-trees.html",
+      "/music/purrple-cat/mp3/purrple-cat-through-the-trees.mp3",
+      192,
+      100,
+      "lo-fi hip-hop, chill-hop, calm, melancholic, nostalgic, sad"
+    ],
+    [
+      "Birdhouse",
+      "purrple-cat-birdhouse.html",
+      "/music/purrple-cat/mp3/purrple-cat-birdhouse.mp3",
+      156,
+      88,
+      "lo-fi, chill-hop, downtempo, chill-out, calm, dreamy"
+    ],
+    [
+      "Echoes Of Yesterday",
+      "purrple-cat-echoes-of-yesterday.html",
+      "/music/purrple-cat/mp3/purrple-cat-echoes-of-yesterday.mp3",
+      152,
+      126,
+      "lo-fi hip-hop, chill-hop, calm, dreamy, gentle, pensive"
+    ],
+    [
+      "Magical Moments",
+      "purrple-cat-magical-moments.html",
+      "/music/purrple-cat/mp3/purrple-cat-magical-moments.mp3",
+      151,
+      152,
+      "lo-fi hip-hop, chill-hop, calm, dreamy, romantic"
+    ],
+    [
+      "Once In A Lifetime",
+      "purrple-cat-once-in-a-lifetime.html",
+      "/music/purrple-cat/mp3/purrple-cat-once-in-a-lifetime.mp3",
+      160,
+      150,
+      "lo-fi hip-hop, chill-hop, calm, dreamy, gentle, romantic"
+    ],
+    [
+      "Pineapple Popsicle",
+      "purrple-cat-pineapple-popsicle.html",
+      "/music/purrple-cat/mp3/purrple-cat-pineapple-popsicle.mp3",
+      167,
+      62,
+      "lo-fi hip-hop, chill-hop, calm, nostalgic, melancholic, pensive"
+    ],
+    [
+      "Changes",
+      "purrple-cat-changes.html",
+      "/music/purrple-cat/mp3/purrple-cat-changes.mp3",
+      195,
+      78,
+      "lo-fi, chill-hop, piano, calm, nostalgic, gentle"
+    ],
+    [
+      "Rooftop Rendezvous",
+      "purrple-cat-rooftop-rendezvous.html",
+      "/music/purrple-cat/mp3/purrple-cat-rooftop-rendezvous.mp3",
+      184,
+      120,
+      "lo-fi, chill-hop, ambient, downtempo, calm, dreamy, gentle, smooth"
+    ],
+    [
+      "Passing Time",
+      "purrple-cat-passing-time.html",
+      "/music/purrple-cat/mp3/purrple-cat-passing-time.mp3",
+      165,
+      90,
+      "lo-fi hip-hop, chill-hop, calm, dreamy"
+    ],
+    [
+      "Crossroads",
+      "purrple-cat-crossroads.html",
+      "/music/purrple-cat/mp3/purrple-cat-crossroads.mp3",
+      178,
+      70,
+      "lo-fi, chill-hop, jazz-hop, downtempo, calm, smooth, dreamy"
+    ],
+    [
+      "After Hours",
+      "purrple-cat-after-hours.html",
+      "/music/purrple-cat/mp3/purrple-cat-after-hours.mp3",
+      184,
+      130,
+      "lo-fi hip-hop, chill-hop, calm, pensive"
+    ],
+    [
+      "Exploration",
+      "purrple-cat-exploration.html",
+      "/music/purrple-cat/mp3/purrple-cat-exploration.mp3",
+      130,
+      65,
+      "lo-fi, chill-hop, piano, calm"
+    ],
+    [
+      "Desert Rain",
+      "purrple-cat-desert-rain.html",
+      "/music/purrple-cat/mp3/purrple-cat-desert-rain.mp3",
+      177,
+      114,
+      "lo-fi, chill-hop, emotional, calm"
+    ],
+    [
+      "Chugging Along",
+      "purrple-cat-chugging-along.html",
+      "/music/purrple-cat/mp3/purrple-cat-chugging-along.mp3",
+      140,
+      84,
+      "lo-fi hip-hop, chill-hop, calm, smooth"
+    ],
+    [
+      "Tunnels",
+      "purrple-cat-tunnels.html",
+      "/music/purrple-cat/mp3/purrple-cat-tunnels.mp3",
+      164,
+      128,
+      "lo-fi hip-hop, chill-hop, calm, sad, nostalgic, melancholic"
+    ],
+    [
+      "Morning Dew",
+      "purrple-cat-morning-dew.html",
+      "/music/purrple-cat/mp3/purrple-cat-morning-dew.mp3",
+      164,
+      62,
+      "lo-fi, chill-hop, downtempo, calm, gentle"
+    ],
+    [
+      "Ripples",
+      "purrple-cat-ripples.html",
+      "/music/purrple-cat/mp3/purrple-cat-ripples.mp3",
+      172,
+      124,
+      "lo-fi, downtempo, chill-hop, ambient, calm, relaxing, dreamy, gentle, smooth"
+    ],
+    [
+      "Midnight Snack",
+      "purrple-cat-midnight-snack.html",
+      "/music/purrple-cat/mp3/purrple-cat-midnight-snack.mp3",
+      188,
+      60,
+      "lo-fi, downtempo, chill-hop, slow, calm, relaxing, dreamy, pensive"
+    ],
+    [
+      "Where The Waves Take Us",
+      "purrple-cat-where-the-waves-take-us.html",
+      "/music/purrple-cat/mp3/purrple-cat-where-the-waves-take-us.mp3",
+      197,
+      90,
+      "lo-fi, chill-hop, slow, calm, relaxing, gentle, smooth"
+    ],
+    [
+      "Through The Wormhole",
+      "purrple-cat-through-the-wormhole.html",
+      "/music/purrple-cat/mp3/purrple-cat-through-the-wormhole.mp3",
+      126,
+      80,
+      "lo-fi, downtempo, chill-hop, calm, relaxing, gentle, pensive, melancholic"
+    ],
+    [
+      "Mysterious Lights",
+      "purrple-cat-mysterious-lights.html",
+      "/music/purrple-cat/mp3/purrple-cat-mysterious-lights.mp3",
+      206,
+      67,
+      "lo-fi, ambient, chill-hop, calm, relaxing, gentle, smooth, romantic"
+    ],
+    [
+      "Ferris Wheel",
+      "purrple-cat-ferris-wheel.html",
+      "/music/purrple-cat/mp3/purrple-cat-ferris-wheel.mp3",
+      149,
+      90,
+      "lo-fi, downtempo, chill-hop, calm, relaxing, gentle, pensive, dreamy"
+    ],
+    [
+      "First Snow",
+      "purrple-cat-first-snow.html",
+      "/music/purrple-cat/mp3/purrple-cat-first-snow.mp3",
+      144,
+      93,
+      "lo-fi, piano, ambient, downtempo, calm, relaxing, gentle, nostalgic"
+    ],
+    [
+      "Pillars Of Creation",
+      "purrple-cat-pillars-of-creation.html",
+      "/music/purrple-cat/mp3/purrple-cat-pillars-of-creation.mp3",
+      149,
+      59,
+      "lo-fi, slow, chill-hop, calm, relaxing, dreamy, nostalgic, pensive"
+    ],
+    [
+      "Muse",
+      "purrple-cat-muse.html",
+      "/music/purrple-cat/mp3/purrple-cat-muse.mp3",
+      184,
+      58,
+      "lo-fi, piano, downtempo, chill-hop, calm, relaxing, nostalgic, romantic"
+    ]
+  ]
+}

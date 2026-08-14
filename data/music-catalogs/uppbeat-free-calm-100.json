@@ -1,0 +1,3550 @@
+[
+  {
+    "trackId": "14704",
+    "title": "Red Violets",
+    "artist": "Holly Jones",
+    "artistSlug": "holly-jones",
+    "trackSlug": "red-violets",
+    "duration": 144,
+    "tempo": 58,
+    "energy": "Calm",
+    "kind": "piano",
+    "genres": [],
+    "moods": [
+      "Hopeful",
+      "Relaxing",
+      "Chill",
+      "Romantic",
+      "Calm",
+      "Emotional"
+    ],
+    "featuredTags": [
+      {
+        "name": "Piano",
+        "slug": "/music/category/piano"
+      },
+      {
+        "name": "Emotional",
+        "slug": "/music/category/emotional"
+      },
+      {
+        "name": "Neo-Classical",
+        "slug": "/music/category/classical/neo-classical"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/0f0f1366b3fc3c69e430f4ad2b1bbf10/1c9c530c4f490da2fe6b610344066fe6/48925966d3f2df0406e9f7a505ce251a/STREAMING-red-violets-holly-jones-main-version-49483-02-24.mp3"
+  },
+  {
+    "trackId": "14696",
+    "title": "Tree Cover",
+    "artist": "Ben McElroy",
+    "artistSlug": "ben-mcelroy",
+    "trackSlug": "tree-cover",
+    "duration": 158,
+    "tempo": 0,
+    "energy": "Calm",
+    "kind": "ambient",
+    "genres": [
+      "Folk",
+      "Acoustic",
+      "Ambient"
+    ],
+    "moods": [
+      "Relaxing",
+      "Chill",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Guitar",
+        "slug": "/music/category/guitar"
+      },
+      {
+        "name": "Ambient",
+        "slug": "/music/category/ambient"
+      },
+      {
+        "name": "Folk",
+        "slug": "/music/category/folk"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/24550aa886bd8e3e8d10053efe2bcad7/cda2bb42336f12aff91e108367cccd46/a424acddb8b1b8d8b58759b067a219bf/STREAMING-tree-cover-ben-mcelroy-main-version-49473-02-38.mp3"
+  },
+  {
+    "trackId": "14689",
+    "title": "In Your Arms",
+    "artist": "Jeremy Mayfield",
+    "artistSlug": "jeremy-mayfield",
+    "trackSlug": "in-your-arms",
+    "duration": 124,
+    "tempo": 80,
+    "energy": "Calm",
+    "kind": "piano",
+    "genres": [
+      "Cinematic"
+    ],
+    "moods": [
+      "Romantic",
+      "Emotional",
+      "Hopeful",
+      "Happy",
+      "Sad",
+      "Calm",
+      "Uplifting"
+    ],
+    "featuredTags": [
+      {
+        "name": "Wedding",
+        "slug": "/music/category/wedding"
+      },
+      {
+        "name": "Piano",
+        "slug": "/music/category/piano"
+      },
+      {
+        "name": "Emotional",
+        "slug": "/music/category/emotional"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/f391ac13502100ccdf37b4f97d6e60a5/1994036372f99e41af6bc2494b70f08a/0fc732b9f0022e968646325fea9e3f44/STREAMING-in-your-arms-jeremy-mayfield-main-version-49449-02-04.mp3"
+  },
+  {
+    "trackId": "14635",
+    "title": "Infinite Void",
+    "artist": "RA",
+    "artistSlug": "ra",
+    "trackSlug": "infinite-void",
+    "duration": 137,
+    "tempo": 80,
+    "energy": "Very Calm",
+    "kind": "ambient",
+    "genres": [
+      "Cinematic",
+      "Ambient"
+    ],
+    "moods": [
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Ambient",
+        "slug": "/music/category/ambient"
+      },
+      {
+        "name": "Meditation",
+        "slug": "/music/category/spiritual/meditation"
+      },
+      {
+        "name": "Mindfulness",
+        "slug": "/music/category/mindfulness"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/fd6f99da8569b8fae0e89b28891fc96a/f9b89882ea66a655f7e0a685cc7cb0ee/b7209107d23233a3f19e0157637d28d8/STREAMING-infinite-void-ra-main-version-49206-02-17.mp3"
+  },
+  {
+    "trackId": "14671",
+    "title": "Mysterium",
+    "artist": "Anthem Falls",
+    "artistSlug": "anthem-falls",
+    "trackSlug": "mysterium",
+    "duration": 116,
+    "tempo": 0,
+    "energy": "Very Calm",
+    "kind": "piano",
+    "genres": [
+      "Cinematic"
+    ],
+    "moods": [
+      "Hopeful",
+      "Emotional",
+      "Sad",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Piano",
+        "slug": "/music/category/piano"
+      },
+      {
+        "name": "Sentimental",
+        "slug": "/music/category/sentimental"
+      },
+      {
+        "name": "Peaceful",
+        "slug": "/music/category/relaxing/peaceful"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/d0d3cfe77484d18f3436f43bb7517098/1843fe5ababde307f73a773fc4609f10/483935998cdadd7941bda0e9aecce68c/STREAMING-mysterium-anthem-falls-main-version-49367-01-56.mp3"
+  },
+  {
+    "trackId": "4335",
+    "title": "Green Fields",
+    "artist": "Brock Hewitt: Stories in Sound",
+    "artistSlug": "brock-hewitt-stories-in-sound",
+    "trackSlug": "green-fields",
+    "duration": 250,
+    "tempo": 0,
+    "energy": "Calm",
+    "kind": "piano",
+    "genres": [
+      "Cinematic",
+      "Classical"
+    ],
+    "moods": [
+      "Emotional",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Emotional",
+        "slug": "/music/category/emotional"
+      },
+      {
+        "name": "Piano",
+        "slug": "/music/category/piano"
+      },
+      {
+        "name": "Beautiful",
+        "slug": "/music/category/beautiful"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/5dfbc12f82c94629f611d67857f9856a/8dce9e7120857eb67afdb9afd4511d74/97a43a62ca75bef31085c0b519252c11/STREAMING-green-fields-brock-hewitt-stories-in-sound-main-version-16213-04-10.mp3"
+  },
+  {
+    "trackId": "14608",
+    "title": "Beyond The Hedgerow",
+    "artist": "Peter Lainson",
+    "artistSlug": "peter-lainson",
+    "trackSlug": "beyond-the-hedgerow",
+    "duration": 176,
+    "tempo": 64,
+    "energy": "Calm",
+    "kind": "acoustic",
+    "genres": [
+      "Country",
+      "Folk",
+      "Acoustic"
+    ],
+    "moods": [
+      "Emotional",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Acoustic",
+        "slug": "/music/category/acoustic"
+      },
+      {
+        "name": "Sentimental",
+        "slug": "/music/category/sentimental"
+      },
+      {
+        "name": "Bittersweet",
+        "slug": "/music/category/sad/bittersweet"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/80b29687a1620cd9bb590bfb9d3e6842/c310726dd940c4227b19cc99f2c117b2/174ae55b437e07b00a38e6feabad5d22/STREAMING-beyond-the-hedgerow-peter-lainson-main-version-49072-02-56.mp3"
+  },
+  {
+    "trackId": "14588",
+    "title": "Jazz Street",
+    "artist": "Nicolas Kluzek",
+    "artistSlug": "nicolas-kluzek",
+    "trackSlug": "jazz-street",
+    "duration": 117,
+    "tempo": 80,
+    "energy": "Calm",
+    "kind": "lofi",
+    "genres": [
+      "Lofi",
+      "Beats",
+      "Chillhop"
+    ],
+    "moods": [
+      "Relaxing",
+      "Chill",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Jazzhop",
+        "slug": "/music/category/jazz/jazzhop"
+      },
+      {
+        "name": "Bar",
+        "slug": "/music/category/bar"
+      },
+      {
+        "name": "Vlog",
+        "slug": "/music/category/vlog"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/b90989c8ba0b62e8eb948123e09825ac/4468f001cb73ab63a219701d84aaac15/3f6baf00390705dfa34c69faba9b2022/STREAMING-jazz-street-nicolas-kluzek-main-version-48939-01-57.mp3"
+  },
+  {
+    "trackId": "14585",
+    "title": "Floats",
+    "artist": "Swoop",
+    "artistSlug": "swoop",
+    "trackSlug": "floats",
+    "duration": 302,
+    "tempo": 70,
+    "energy": "Very Calm",
+    "kind": "ambient",
+    "genres": [
+      "Cinematic",
+      "Ambient",
+      "Electronic"
+    ],
+    "moods": [
+      "Relaxing",
+      "Chill",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Meditation",
+        "slug": "/music/category/spiritual/meditation"
+      },
+      {
+        "name": "Ambient",
+        "slug": "/music/category/ambient"
+      },
+      {
+        "name": "Relaxing",
+        "slug": "/music/category/relaxing"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/ca51760c641519bcff2c32cdf8e83fff/ddd5d22eef8749e517fcf694ab8af67a/9baf42f4457cc7ff6a36a0ac1f558040/STREAMING-floats-swoop-main-version-48932-05-02.mp3"
+  },
+  {
+    "trackId": "14581",
+    "title": "Above The Clouds",
+    "artist": "Peter Lainson",
+    "artistSlug": "peter-lainson",
+    "trackSlug": "above-the-clouds",
+    "duration": 130,
+    "tempo": 58,
+    "energy": "Calm",
+    "kind": "acoustic",
+    "genres": [
+      "Country",
+      "Folk",
+      "Acoustic"
+    ],
+    "moods": [
+      "Emotional",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Acoustic",
+        "slug": "/music/category/acoustic"
+      },
+      {
+        "name": "Sentimental",
+        "slug": "/music/category/sentimental"
+      },
+      {
+        "name": "Intimate",
+        "slug": "/music/category/intimate"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/80b29687a1620cd9bb590bfb9d3e6842/e67bf9b679a2125359bb7a21b410b6a0/1b626b4e5934b7cdb1d26fd8b9796a62/STREAMING-above-the-clouds-peter-lainson-main-version-48913-02-10.mp3"
+  },
+  {
+    "trackId": "14579",
+    "title": "Midnight Walk",
+    "artist": "Danijel Zambo",
+    "artistSlug": "danijel-zambo",
+    "trackSlug": "midnight-walk",
+    "duration": 114,
+    "tempo": 88,
+    "energy": "Calm",
+    "kind": "lofi",
+    "genres": [
+      "Lofi",
+      "Beats",
+      "Chillhop",
+      "Electronic"
+    ],
+    "moods": [
+      "Calm",
+      "Relaxing",
+      "Cute",
+      "Chill"
+    ],
+    "featuredTags": [
+      {
+        "name": "Wholesome",
+        "slug": "/music/category/wholesome"
+      },
+      {
+        "name": "Lofi Beats",
+        "slug": "/music/category/lo-fi-beats"
+      },
+      {
+        "name": "Chill",
+        "slug": "/music/category/chill"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/32ed1ea8a647cae58ad0a4b0b67bcef9/5236db290b9e81e612e15d26750299cc/3eb5696b28d84f04c5d1b71407ae4b3a/STREAMING-midnight-walk-danijel-zambo-main-version-48911-01-54.mp3"
+  },
+  {
+    "trackId": "14557",
+    "title": "City Rain",
+    "artist": "Otto.mp3",
+    "artistSlug": "ottomp3",
+    "trackSlug": "city-rain",
+    "duration": 125,
+    "tempo": 94,
+    "energy": "Calm",
+    "kind": "piano",
+    "genres": [],
+    "moods": [
+      "Hopeful",
+      "Emotional",
+      "Sad",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Piano",
+        "slug": "/music/category/piano"
+      },
+      {
+        "name": "Reflective",
+        "slug": "/music/category/reflective"
+      },
+      {
+        "name": "Emotional",
+        "slug": "/music/category/emotional"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/8a6e5cc971b8ec9e3a0db60d88c398b8/b9bad32d078eeb77ee8df7ce01ebcb4e/46d2bf1945441f1abc7266e2e0d12785/STREAMING-city-rain-otto-mp3-main-version-48835-02-05.mp3"
+  },
+  {
+    "trackId": "14502",
+    "title": "Behind The Days",
+    "artist": "Vens Adams",
+    "artistSlug": "vens-adams",
+    "trackSlug": "behind-the-days",
+    "duration": 176,
+    "tempo": 0,
+    "energy": "Calm",
+    "kind": "piano",
+    "genres": [
+      "Classical"
+    ],
+    "moods": [
+      "Hopeful",
+      "Sad",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Nostalgic",
+        "slug": "/music/category/nostalgic"
+      },
+      {
+        "name": "Reflective",
+        "slug": "/music/category/reflective"
+      },
+      {
+        "name": "Piano",
+        "slug": "/music/category/piano"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/90460af8401a0c906aa65f33459c4428/081dcc91be32fa92c225c5a506928e99/82b1d1055eb92883563787ea00ff7c90/STREAMING-behind-the-days-vens-adams-main-version-48633-02-56.mp3"
+  },
+  {
+    "trackId": "14449",
+    "title": "Sucre",
+    "artist": "Peter Lainson",
+    "artistSlug": "peter-lainson",
+    "trackSlug": "sucre",
+    "duration": 122,
+    "tempo": 54,
+    "energy": "Calm",
+    "kind": "acoustic",
+    "genres": [
+      "Country",
+      "Folk",
+      "Acoustic"
+    ],
+    "moods": [
+      "Emotional",
+      "Romantic",
+      "Chill",
+      "Calm",
+      "Uplifting"
+    ],
+    "featuredTags": [
+      {
+        "name": "Acoustic",
+        "slug": "/music/category/acoustic"
+      },
+      {
+        "name": "Soft",
+        "slug": "/music/category/soft"
+      },
+      {
+        "name": "Emotional",
+        "slug": "/music/category/emotional"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/80b29687a1620cd9bb590bfb9d3e6842/6bf29f41c55de3021e73744c511971d5/74774dc06690aeebe2eca2aa1b2a795e/STREAMING-sucre-peter-lainson-main-version-48382-02-02.mp3"
+  },
+  {
+    "trackId": "14446",
+    "title": "Afterglow",
+    "artist": "Nicolas Kluzek",
+    "artistSlug": "nicolas-kluzek",
+    "trackSlug": "afterglow",
+    "duration": 105,
+    "tempo": 75,
+    "energy": "Calm",
+    "kind": "lofi",
+    "genres": [
+      "Lofi",
+      "Beats",
+      "Chillhop"
+    ],
+    "moods": [
+      "Chill",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Lofi Beats",
+        "slug": "/music/category/lo-fi-beats"
+      },
+      {
+        "name": "Jazzy",
+        "slug": "/music/category/jazzy"
+      },
+      {
+        "name": "Saxophone",
+        "slug": "/music/category/saxophone"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/b90989c8ba0b62e8eb948123e09825ac/592b3ec9c21c0e038f0d6108536e8792/5de62524e21e868e16d16408d4715366/STREAMING-afterglow-nicolas-kluzek-main-version-48374-01-45.mp3"
+  },
+  {
+    "trackId": "14437",
+    "title": "Another Life",
+    "artist": "Dope Cat",
+    "artistSlug": "dope-cat",
+    "trackSlug": "another-life",
+    "duration": 139,
+    "tempo": 88,
+    "energy": "Calm",
+    "kind": "lofi",
+    "genres": [
+      "Beats",
+      "Chillhop",
+      "Electronic"
+    ],
+    "moods": [
+      "Chill",
+      "Relaxing",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Chillhop",
+        "slug": "/music/category/chillhop"
+      },
+      {
+        "name": "Technology",
+        "slug": "/music/category/technology"
+      },
+      {
+        "name": "Product Review",
+        "slug": "/music/category/product-review"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/73b1b73e653510791dae84f765479e57/7a1b3f0acc45b63e79b602868808326b/237171db4a2eecb21d7fe931ca011ed4/STREAMING-another-life-dope-cat-main-version-48361-02-19.mp3"
+  },
+  {
+    "trackId": "14466",
+    "title": "Hollowlights",
+    "artist": "Abstract Aprils",
+    "artistSlug": "abstract-aprils",
+    "trackSlug": "hollowlights",
+    "duration": 578,
+    "tempo": 0,
+    "energy": "Very Calm",
+    "kind": "ambient",
+    "genres": [
+      "Cinematic",
+      "Ambient"
+    ],
+    "moods": [
+      "Calm",
+      "Relaxing",
+      "Emotional",
+      "Sad"
+    ],
+    "featuredTags": [
+      {
+        "name": "Reflective",
+        "slug": "/music/category/reflective"
+      },
+      {
+        "name": "Ambient",
+        "slug": "/music/category/ambient"
+      },
+      {
+        "name": "Sad",
+        "slug": "/music/category/sad"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/235bc0b11ae1cea20d1b0a93702d5072/5a2f4aed08290983fb69aefdc8bfe8fa/8187203105ab713e87b7fb5595ffbcb3/STREAMING-hollowlights-abstract-aprils-main-version-48485-09-38.mp3"
+  },
+  {
+    "trackId": "13821",
+    "title": "Another Year",
+    "artist": "Pryces",
+    "artistSlug": "pryces",
+    "trackSlug": "another-year",
+    "duration": 73,
+    "tempo": 81,
+    "energy": "Calm",
+    "kind": "lofi",
+    "genres": [
+      "Lofi",
+      "Chillhop",
+      "Beats"
+    ],
+    "moods": [
+      "Chill",
+      "Relaxing",
+      "Happy",
+      "Calm",
+      "Uplifting"
+    ],
+    "featuredTags": [
+      {
+        "name": "Chill Beats",
+        "slug": "/music/category/chill/chill-beats"
+      },
+      {
+        "name": "Lofi Beats",
+        "slug": "/music/category/lo-fi-beats"
+      },
+      {
+        "name": "Easy",
+        "slug": "/music/category/easy"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/b959962d120516577fa4ce048c890ca8/770da998fa71b615a1210cd5fd3a72be/7f658bf2bfb03c6d5f8dec20a6f18e96/STREAMING-another-year-pryces-main-version-46261-01-13.mp3"
+  },
+  {
+    "trackId": "14405",
+    "title": "Polaroid Memoirs",
+    "artist": "Anthem Falls",
+    "artistSlug": "anthem-falls",
+    "trackSlug": "polaroid-memoirs",
+    "duration": 52,
+    "tempo": 96,
+    "energy": "Calm",
+    "kind": "ambient",
+    "genres": [
+      "Folk",
+      "Acoustic",
+      "Indie",
+      "Ambient"
+    ],
+    "moods": [
+      "Cute",
+      "Emotional",
+      "Hopeful",
+      "Happy",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Acoustic",
+        "slug": "/music/category/acoustic"
+      },
+      {
+        "name": "Peaceful",
+        "slug": "/music/category/relaxing/peaceful"
+      },
+      {
+        "name": "Hopeful",
+        "slug": "/music/category/hopeful"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/d0d3cfe77484d18f3436f43bb7517098/be422b1cfdb3471b3ff40bfc718c0a00/57d0007b788520c808683ad41bf72413/STREAMING-polaroid-memoirs-anthem-falls-main-version-48304-00-52.mp3"
+  },
+  {
+    "trackId": "14401",
+    "title": "The Wind Answered Me",
+    "artist": "Anthem Falls",
+    "artistSlug": "anthem-falls",
+    "trackSlug": "the-wind-answered-me",
+    "duration": 235,
+    "tempo": 80,
+    "energy": "Very Calm",
+    "kind": "piano",
+    "genres": [
+      "Cinematic",
+      "Ambient"
+    ],
+    "moods": [
+      "Calm",
+      "Relaxing",
+      "Emotional",
+      "Sad"
+    ],
+    "featuredTags": [
+      {
+        "name": "Somber",
+        "slug": "/music/category/sad/somber"
+      },
+      {
+        "name": "Background",
+        "slug": "/music/category/background"
+      },
+      {
+        "name": "Documentary",
+        "slug": "/music/category/documentary"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/d0d3cfe77484d18f3436f43bb7517098/63a72d206ec4c6fb902da24a18b2ea2e/68e1c34fdcdb511b47a9ec463504fb28/STREAMING-the-wind-answered-me-anthem-falls-main-version-48290-03-55.mp3"
+  },
+  {
+    "trackId": "14393",
+    "title": "Paliano",
+    "artist": "Anthem Falls",
+    "artistSlug": "anthem-falls",
+    "trackSlug": "paliano",
+    "duration": 159,
+    "tempo": 97,
+    "energy": "Very Calm",
+    "kind": "piano",
+    "genres": [
+      "Cinematic",
+      "Ambient"
+    ],
+    "moods": [
+      "Calm",
+      "Relaxing",
+      "Hopeful",
+      "Emotional",
+      "Happy",
+      "Uplifting"
+    ],
+    "featuredTags": [
+      {
+        "name": "Piano",
+        "slug": "/music/category/piano"
+      },
+      {
+        "name": "Ambient",
+        "slug": "/music/category/ambient"
+      },
+      {
+        "name": "Profound",
+        "slug": "/music/category/profound"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/d0d3cfe77484d18f3436f43bb7517098/4a79b13d6a702aafbd8073b8f580fc5e/2b2024b7a8ab9a3c1c881795f6432619/STREAMING-paliano-anthem-falls-main-version-48261-02-39.mp3"
+  },
+  {
+    "trackId": "14390",
+    "title": "Stretching Heart",
+    "artist": "Anthem Falls",
+    "artistSlug": "anthem-falls",
+    "trackSlug": "stretching-heart",
+    "duration": 230,
+    "tempo": 73,
+    "energy": "Very Calm",
+    "kind": "piano",
+    "genres": [
+      "Cinematic",
+      "Ambient"
+    ],
+    "moods": [
+      "Hopeful",
+      "Emotional",
+      "Calm",
+      "Relaxing",
+      "Sad",
+      "Romantic"
+    ],
+    "featuredTags": [
+      {
+        "name": "Meditation",
+        "slug": "/music/category/spiritual/meditation"
+      },
+      {
+        "name": "Ambient",
+        "slug": "/music/category/ambient"
+      },
+      {
+        "name": "Guitar",
+        "slug": "/music/category/guitar"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/d0d3cfe77484d18f3436f43bb7517098/bca042d24b44a48a970055ffdb2cdf00/ccdde2eb4d2d5beed3530dd6e97f67f9/STREAMING-stretching-heart-anthem-falls-main-version-48244-03-50.mp3"
+  },
+  {
+    "trackId": "14388",
+    "title": "The Sound Of Water",
+    "artist": "Anthem Falls",
+    "artistSlug": "anthem-falls",
+    "trackSlug": "the-sound-of-water",
+    "duration": 139,
+    "tempo": 90,
+    "energy": "Very Calm",
+    "kind": "piano",
+    "genres": [
+      "Ambient"
+    ],
+    "moods": [
+      "Emotional",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Soft",
+        "slug": "/music/category/soft"
+      },
+      {
+        "name": "Peaceful",
+        "slug": "/music/category/relaxing/peaceful"
+      },
+      {
+        "name": "Ambient",
+        "slug": "/music/category/ambient"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/d0d3cfe77484d18f3436f43bb7517098/5fc31c88e55376190c9301e2f2a61e7b/2e44f0a8d4d27b567b24796b436a7abb/STREAMING-the-sound-of-water-anthem-falls-main-version-48232-02-19.mp3"
+  },
+  {
+    "trackId": "14350",
+    "title": "Girl With The Grey Blue Eyes",
+    "artist": "Holly Jones",
+    "artistSlug": "holly-jones",
+    "trackSlug": "girl-with-the-grey-blue-eyes",
+    "duration": 211,
+    "tempo": 59,
+    "energy": "Calm",
+    "kind": "piano",
+    "genres": [
+      "Cinematic",
+      "Classical"
+    ],
+    "moods": [
+      "Sad",
+      "Happy",
+      "Calm",
+      "Emotional"
+    ],
+    "featuredTags": [
+      {
+        "name": "Piano",
+        "slug": "/music/category/piano"
+      },
+      {
+        "name": "Emotional",
+        "slug": "/music/category/emotional"
+      },
+      {
+        "name": "Wholesome",
+        "slug": "/music/category/wholesome"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/0f0f1366b3fc3c69e430f4ad2b1bbf10/f1aa66e37011978b7915175b5f87f058/cd7043d964dac0144053aa8f3c8bb0cc/STREAMING-girl-with-the-grey-blue-eyes-holly-jones-main-version-48126-03-31.mp3"
+  },
+  {
+    "trackId": "14343",
+    "title": "Wabisabi",
+    "artist": "T. Check",
+    "artistSlug": "t-check",
+    "trackSlug": "wabisabi",
+    "duration": 113,
+    "tempo": 60,
+    "energy": "Calm",
+    "kind": "lofi",
+    "genres": [
+      "Chillhop"
+    ],
+    "moods": [
+      "Calm",
+      "Happy",
+      "Sad"
+    ],
+    "featuredTags": [
+      {
+        "name": "Lofi Beats",
+        "slug": "/music/category/lo-fi-beats"
+      },
+      {
+        "name": "Mellow",
+        "slug": "/music/category/chill/mellow"
+      },
+      {
+        "name": "Cozy",
+        "slug": "/music/category/relaxing/cozy"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/a2e4f3986dfcf06204b73b4da8054019/e4f264e25a556b0dbb23a182e12728df/ca29a5b88877863ec8171f0040a02fde/STREAMING-wabisabi-t-check-main-version-48091-01-53.mp3"
+  },
+  {
+    "trackId": "14250",
+    "title": "Verde",
+    "artist": "Danijel Zambo",
+    "artistSlug": "danijel-zambo",
+    "trackSlug": "verde",
+    "duration": 68,
+    "tempo": 0,
+    "energy": "Calm",
+    "kind": "acoustic",
+    "genres": [
+      "Folk",
+      "Acoustic"
+    ],
+    "moods": [
+      "Cute",
+      "Happy",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Ukulele",
+        "slug": "/music/category/ukulele"
+      },
+      {
+        "name": "Bittersweet",
+        "slug": "/music/category/sad/bittersweet"
+      },
+      {
+        "name": "Soft",
+        "slug": "/music/category/soft"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/32ed1ea8a647cae58ad0a4b0b67bcef9/a34b87474c3d1bf9f7f7c77b462f8a91/4c3b24b3f7d19d9abf45a9bdb9e7cf50/STREAMING-verde-danijel-zambo-main-version-47798-01-08.mp3"
+  },
+  {
+    "trackId": "14249",
+    "title": "Formentera",
+    "artist": "Nicolas Kluzek",
+    "artistSlug": "nicolas-kluzek",
+    "trackSlug": "formentera",
+    "duration": 132,
+    "tempo": 80,
+    "energy": "Calm",
+    "kind": "lofi",
+    "genres": [
+      "Lofi",
+      "Beats",
+      "Chillhop"
+    ],
+    "moods": [
+      "Relaxing",
+      "Chill",
+      "Happy",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Lofi Beats",
+        "slug": "/music/category/lo-fi-beats"
+      },
+      {
+        "name": "Vlog",
+        "slug": "/music/category/vlog"
+      },
+      {
+        "name": "Chill",
+        "slug": "/music/category/chill"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/b90989c8ba0b62e8eb948123e09825ac/51c0d897376f41ffa7539a694a89835b/3c1a600371e3e71e24a6a2f12e5233b9/STREAMING-formentera-nicolas-kluzek-main-version-47791-02-12.mp3"
+  },
+  {
+    "trackId": "14215",
+    "title": "The Farwatch Plains",
+    "artist": "Ian Aisling",
+    "artistSlug": "ian-aisling",
+    "trackSlug": "the-farwatch-plains",
+    "duration": 190,
+    "tempo": 0,
+    "energy": "Very Calm",
+    "kind": "ambient",
+    "genres": [
+      "Cinematic",
+      "Ambient"
+    ],
+    "moods": [
+      "Calm",
+      "Relaxing",
+      "Hopeful"
+    ],
+    "featuredTags": [
+      {
+        "name": "Dreamy",
+        "slug": "/music/category/relaxing/dreamy"
+      },
+      {
+        "name": "Spiritual",
+        "slug": "/music/category/spiritual"
+      },
+      {
+        "name": "Ambient",
+        "slug": "/music/category/ambient"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/d86b5dc87412daa6133085b96040752d/a73f78cf94f5b8a526e994a314c3d0c3/d5b35add36f5996488764ac076d77f22/STREAMING-the-farwatch-plains-ian-aisling-main-version-47698-03-10.mp3"
+  },
+  {
+    "trackId": "14177",
+    "title": "The Garden",
+    "artist": "Corals",
+    "artistSlug": "corals",
+    "trackSlug": "the-garden",
+    "duration": 122,
+    "tempo": 63,
+    "energy": "Calm",
+    "kind": "ambient",
+    "genres": [
+      "Country",
+      "Folk",
+      "Cinematic",
+      "Acoustic",
+      "Indie"
+    ],
+    "moods": [
+      "Hopeful",
+      "Sad",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Hopeful",
+        "slug": "/music/category/hopeful"
+      },
+      {
+        "name": "Nature",
+        "slug": "/music/category/nature"
+      },
+      {
+        "name": "Acoustic",
+        "slug": "/music/category/acoustic"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/67d9c0735c60608843ffdbc67ccd9e9e/8419527089fa14eadea195c689bc240d/eed19ee856eadfc936d0bbfc630e7aac/STREAMING-the-garden-corals-main-version-47534-02-02.mp3"
+  },
+  {
+    "trackId": "14144",
+    "title": "About U",
+    "artist": "Fourth Dogma",
+    "artistSlug": "fourth-dogma",
+    "trackSlug": "about-u",
+    "duration": 108,
+    "tempo": 82,
+    "energy": "Calm",
+    "kind": "lofi",
+    "genres": [
+      "Lofi",
+      "Beats",
+      "Chillhop"
+    ],
+    "moods": [
+      "Chill",
+      "Relaxing",
+      "Happy",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Lofi Beats",
+        "slug": "/music/category/lo-fi-beats"
+      },
+      {
+        "name": "Jazzy",
+        "slug": "/music/category/jazzy"
+      },
+      {
+        "name": "Piano",
+        "slug": "/music/category/piano"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/03f8d3de461a735878384149c2158899/ce124459e4c7488036864db67c384d1c/ad5385fdf09ff2af2613fc0bceb37853/STREAMING-about-u-fourth-dogma-main-version-47428-01-48.mp3"
+  },
+  {
+    "trackId": "13984",
+    "title": "Nimbus",
+    "artist": "Peter Hawkey",
+    "artistSlug": "peter-hawkey",
+    "trackSlug": "nimbus",
+    "duration": 92,
+    "tempo": 0,
+    "energy": "Calm",
+    "kind": "piano",
+    "genres": [
+      "Acoustic"
+    ],
+    "moods": [
+      "Relaxing",
+      "Happy",
+      "Calm",
+      "Cute"
+    ],
+    "featuredTags": [
+      {
+        "name": "Wholesome",
+        "slug": "/music/category/wholesome"
+      },
+      {
+        "name": "Acoustic",
+        "slug": "/music/category/acoustic"
+      },
+      {
+        "name": "Love",
+        "slug": "/music/category/love"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/e11963d2a9c768b9bbe12e6ffa1cac44/b82de4985a07af4787595739d475880a/6af475511142db3899a0f33b8b16709c/STREAMING-nimbus-peter-hawkey-main-version-46878-01-32.mp3"
+  },
+  {
+    "trackId": "13972",
+    "title": "Beneath The Moon",
+    "artist": "Peter Hawkey",
+    "artistSlug": "peter-hawkey",
+    "trackSlug": "beneath-the-moon",
+    "duration": 100,
+    "tempo": 96,
+    "energy": "Calm",
+    "kind": "acoustic",
+    "genres": [
+      "Folk",
+      "Acoustic"
+    ],
+    "moods": [
+      "Cute",
+      "Happy",
+      "Sad",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Wholesome",
+        "slug": "/music/category/wholesome"
+      },
+      {
+        "name": "Cute",
+        "slug": "/music/category/cuteness"
+      },
+      {
+        "name": "Acoustic",
+        "slug": "/music/category/acoustic"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/e11963d2a9c768b9bbe12e6ffa1cac44/1c312eeb0efbb4f543871eb821e48c50/fc9dde56cb7f910372bf078fa0ae15d2/STREAMING-beneath-the-moon-peter-hawkey-main-version-46866-01-40.mp3"
+  },
+  {
+    "trackId": "4392",
+    "title": "There Was Something",
+    "artist": "T. Check",
+    "artistSlug": "t-check",
+    "trackSlug": "there-was-something",
+    "duration": 152,
+    "tempo": 73,
+    "energy": "Calm",
+    "kind": "jazz",
+    "genres": [
+      "Jazz",
+      "Lofi",
+      "Beats",
+      "Chillhop"
+    ],
+    "moods": [
+      "Chill",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Lofi Beats",
+        "slug": "/music/category/lo-fi-beats"
+      },
+      {
+        "name": "Jazz",
+        "slug": "/music/category/jazz"
+      },
+      {
+        "name": "Beats",
+        "slug": "/music/category/beats"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/a2e4f3986dfcf06204b73b4da8054019/15311b30a6af7176fd45cea311d0adc1/3b297650419244b56a0c181952c1c908/STREAMING-there-was-something-t-check-main-version-16312-02-32.mp3"
+  },
+  {
+    "trackId": "14124",
+    "title": "Her Song",
+    "artist": "Northwestern",
+    "artistSlug": "northwestern",
+    "trackSlug": "her-song",
+    "duration": 149,
+    "tempo": 0,
+    "energy": "Calm",
+    "kind": "piano",
+    "genres": [
+      "Cinematic"
+    ],
+    "moods": [
+      "Romantic",
+      "Happy",
+      "Sad",
+      "Calm",
+      "Uplifting"
+    ],
+    "featuredTags": [
+      {
+        "name": "Piano",
+        "slug": "/music/category/piano"
+      },
+      {
+        "name": "Wholesome",
+        "slug": "/music/category/wholesome"
+      },
+      {
+        "name": "Gentle",
+        "slug": "/music/category/gentle"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/1c719b2f1be4b891ebd153a3e0e18335/8e043f95a37e02e4315dbf418b9011ea/8dc0b929ae1300182a081d0da35a6e76/STREAMING-her-song-northwestern-main-version-47338-02-29.mp3"
+  },
+  {
+    "trackId": "14087",
+    "title": "Lucia",
+    "artist": "Danijel Zambo",
+    "artistSlug": "danijel-zambo",
+    "trackSlug": "lucia",
+    "duration": 89,
+    "tempo": 0,
+    "energy": "Calm",
+    "kind": "acoustic",
+    "genres": [
+      "Country",
+      "Folk",
+      "Acoustic"
+    ],
+    "moods": [
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Background",
+        "slug": "/music/category/background"
+      },
+      {
+        "name": "Acoustic",
+        "slug": "/music/category/acoustic"
+      },
+      {
+        "name": "Understated",
+        "slug": "/music/category/understated"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/32ed1ea8a647cae58ad0a4b0b67bcef9/01839c4af5eac45b093e4583ebd9d5e7/0c1f4b6b51cc6d886e0d151f3f756e78/STREAMING-lucia-danijel-zambo-main-version-47200-01-29.mp3"
+  },
+  {
+    "trackId": "14084",
+    "title": "Sunny Groove",
+    "artist": "Nicolas Kluzek",
+    "artistSlug": "nicolas-kluzek",
+    "trackSlug": "sunny-groove",
+    "duration": 120,
+    "tempo": 80,
+    "energy": "Calm",
+    "kind": "lofi",
+    "genres": [
+      "Lofi",
+      "Beats",
+      "Chillhop"
+    ],
+    "moods": [
+      "Chill",
+      "Relaxing",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Jazzhop",
+        "slug": "/music/category/jazz/jazzhop"
+      },
+      {
+        "name": "Relaxing",
+        "slug": "/music/category/relaxing"
+      },
+      {
+        "name": "Elegant",
+        "slug": "/music/category/elegant"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/b90989c8ba0b62e8eb948123e09825ac/5e618bd65bb55e41b21752c38276659f/c4be93c3a631297598fe4980b986f621/STREAMING-sunny-groove-nicolas-kluzek-main-version-47178-02-00.mp3"
+  },
+  {
+    "trackId": "14083",
+    "title": "Distant Skies",
+    "artist": "Peter Lainson",
+    "artistSlug": "peter-lainson",
+    "trackSlug": "distant-skies",
+    "duration": 158,
+    "tempo": 58,
+    "energy": "Calm",
+    "kind": "acoustic",
+    "genres": [
+      "Country",
+      "Folk",
+      "Acoustic"
+    ],
+    "moods": [
+      "Romantic",
+      "Emotional",
+      "Sad",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Intimate",
+        "slug": "/music/category/intimate"
+      },
+      {
+        "name": "Acoustic",
+        "slug": "/music/category/acoustic"
+      },
+      {
+        "name": "Emotional",
+        "slug": "/music/category/emotional"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/80b29687a1620cd9bb590bfb9d3e6842/d195c2994559a121cf181ca294de206b/ebab47c26e3dd6b6b60c1b93387ba06d/STREAMING-distant-skies-peter-lainson-main-version-47177-02-38.mp3"
+  },
+  {
+    "trackId": "14000",
+    "title": "Two",
+    "artist": "The Magical Egg",
+    "artistSlug": "the-magical-egg",
+    "trackSlug": "two",
+    "duration": 79,
+    "tempo": 85,
+    "energy": "Calm",
+    "kind": "acoustic",
+    "genres": [],
+    "moods": [
+      "Cute",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Love",
+        "slug": "/music/category/love"
+      },
+      {
+        "name": "Drama",
+        "slug": "/music/category/drama"
+      },
+      {
+        "name": "Cute",
+        "slug": "/music/category/cuteness"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/0f83dc25ca7b5a831b908dc68c816b90/c6eb9fa5373bc9d2a9a63aed97256183/74bab444b468b4ba69965fad20e2a3d4/STREAMING-two-the-magical-egg-main-version-46917-01-19.mp3"
+  },
+  {
+    "trackId": "14057",
+    "title": "Quiet Spaces",
+    "artist": "Ben McElroy",
+    "artistSlug": "ben-mcelroy",
+    "trackSlug": "quiet-spaces",
+    "duration": 177,
+    "tempo": 0,
+    "energy": "Very Calm",
+    "kind": "ambient",
+    "genres": [
+      "Cinematic",
+      "Folk",
+      "Ambient"
+    ],
+    "moods": [
+      "Calm",
+      "Happy",
+      "Sad"
+    ],
+    "featuredTags": [
+      {
+        "name": "Mellow",
+        "slug": "/music/category/chill/mellow"
+      },
+      {
+        "name": "Folk",
+        "slug": "/music/category/folk"
+      },
+      {
+        "name": "Meditation",
+        "slug": "/music/category/spiritual/meditation"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/24550aa886bd8e3e8d10053efe2bcad7/d85a299fd03fa978697284b8729d8813/219df342715fb13db92cb8f803565f82/STREAMING-quiet-spaces-ben-mcelroy-main-version-47038-02-57.mp3"
+  },
+  {
+    "trackId": "13965",
+    "title": "Slow Latitude",
+    "artist": "Nicolas Kluzek",
+    "artistSlug": "nicolas-kluzek",
+    "trackSlug": "slow-latitude",
+    "duration": 123,
+    "tempo": 80,
+    "energy": "Calm",
+    "kind": "jazz",
+    "genres": [
+      "Jazz",
+      "Lofi",
+      "Beats",
+      "Chillhop"
+    ],
+    "moods": [
+      "Chill",
+      "Relaxing",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Lofi Beats",
+        "slug": "/music/category/lo-fi-beats"
+      },
+      {
+        "name": "Vlog",
+        "slug": "/music/category/vlog"
+      },
+      {
+        "name": "Relaxing",
+        "slug": "/music/category/relaxing"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/b90989c8ba0b62e8eb948123e09825ac/68deb4607a71e0bd44acf82812270e04/a5e6037223d7fc61e3fa93edbfe91ad8/STREAMING-slow-latitude-nicolas-kluzek-main-version-46850-02-03.mp3"
+  },
+  {
+    "trackId": "13949",
+    "title": "Slow Dance",
+    "artist": "Peter Lainson",
+    "artistSlug": "peter-lainson",
+    "trackSlug": "slow-dance",
+    "duration": 131,
+    "tempo": 84,
+    "energy": "Calm",
+    "kind": "acoustic",
+    "genres": [
+      "Country",
+      "Folk",
+      "Acoustic"
+    ],
+    "moods": [
+      "Hopeful",
+      "Emotional",
+      "Happy",
+      "Calm",
+      "Uplifting",
+      "Romantic"
+    ],
+    "featuredTags": [
+      {
+        "name": "Romantic",
+        "slug": "/music/category/romantic"
+      },
+      {
+        "name": "Wedding",
+        "slug": "/music/category/wedding"
+      },
+      {
+        "name": "Acoustic",
+        "slug": "/music/category/acoustic"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/80b29687a1620cd9bb590bfb9d3e6842/057126dbf8bbdae28b3012ad9a483f04/8bb12d53a5e5391c7aea972c99413433/STREAMING-slow-dance-peter-lainson-main-version-46801-02-11.mp3"
+  },
+  {
+    "trackId": "13946",
+    "title": "Shimmer",
+    "artist": "Peter Lainson",
+    "artistSlug": "peter-lainson",
+    "trackSlug": "shimmer",
+    "duration": 133,
+    "tempo": 110,
+    "energy": "Calm",
+    "kind": "acoustic",
+    "genres": [
+      "Folk",
+      "Acoustic"
+    ],
+    "moods": [
+      "Cute",
+      "Hopeful",
+      "Happy",
+      "Calm",
+      "Uplifting"
+    ],
+    "featuredTags": [
+      {
+        "name": "Sentimental",
+        "slug": "/music/category/sentimental"
+      },
+      {
+        "name": "Beautiful",
+        "slug": "/music/category/beautiful"
+      },
+      {
+        "name": "Acoustic",
+        "slug": "/music/category/acoustic"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/80b29687a1620cd9bb590bfb9d3e6842/b6bca33f887aef41575a64efc9ea7111/a5ae330ca0f63af9b3a752933805e578/STREAMING-shimmer-peter-lainson-main-version-46798-02-13.mp3"
+  },
+  {
+    "trackId": "13940",
+    "title": "Mediterranean Elegance",
+    "artist": "Nicolas Kluzek",
+    "artistSlug": "nicolas-kluzek",
+    "trackSlug": "mediterranean-elegance",
+    "duration": 142,
+    "tempo": 75,
+    "energy": "Calm",
+    "kind": "lofi",
+    "genres": [
+      "Beats",
+      "Lofi",
+      "Chillhop"
+    ],
+    "moods": [
+      "Relaxing",
+      "Chill",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Lofi Beats",
+        "slug": "/music/category/lo-fi-beats"
+      },
+      {
+        "name": "Elegant",
+        "slug": "/music/category/elegant"
+      },
+      {
+        "name": "Jazzy",
+        "slug": "/music/category/jazzy"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/b90989c8ba0b62e8eb948123e09825ac/54cbee63cf0e0167f16e1706411aad9c/1e97f4692bab0a2b998eb1a52e55b498/STREAMING-mediterranean-elegance-nicolas-kluzek-main-version-46775-02-22.mp3"
+  },
+  {
+    "trackId": "13938",
+    "title": "Double Exposure",
+    "artist": "AVBE",
+    "artistSlug": "avbe",
+    "trackSlug": "double-exposure",
+    "duration": 112,
+    "tempo": 79,
+    "energy": "Calm",
+    "kind": "lofi",
+    "genres": [
+      "Lofi",
+      "Beats",
+      "Chillhop"
+    ],
+    "moods": [
+      "Relaxing",
+      "Chill",
+      "Aesthetic",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Lofi Beats",
+        "slug": "/music/category/lo-fi-beats"
+      },
+      {
+        "name": "Cozy",
+        "slug": "/music/category/relaxing/cozy"
+      },
+      {
+        "name": "Relaxing",
+        "slug": "/music/category/relaxing"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/f54ab6f74b5438a7286ea064f94b7d81/c80b87545acdc3cf1b80b07f09f6a0f4/0f3980619a98588cfa0cf338c14946d8/STREAMING-double-exposure-avbe-main-version-46763-01-52.mp3"
+  },
+  {
+    "trackId": "13868",
+    "title": "Apricity",
+    "artist": "Good Vibes Only",
+    "artistSlug": "good-vibes-only",
+    "trackSlug": "apricity",
+    "duration": 178,
+    "tempo": 83,
+    "energy": "Calm",
+    "kind": "jazz",
+    "genres": [
+      "Jazz",
+      "Lofi",
+      "Chillhop"
+    ],
+    "moods": [
+      "Chill",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Jazzy",
+        "slug": "/music/category/jazzy"
+      },
+      {
+        "name": "Trumpet",
+        "slug": "/music/category/brass/trumpet"
+      },
+      {
+        "name": "Sentimental",
+        "slug": "/music/category/sentimental"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/fe00b9a892f605ebb4457b8e4f690d4b/dec801368cece4f5a00fc8b7b0a50e54/ca11245e76cd99520ce2a4834d499740/STREAMING-apricity-good-vibes-only-main-version-46384-02-58.mp3"
+  },
+  {
+    "trackId": "13863",
+    "title": "Dreams Of The Saints",
+    "artist": "Good Vibes Only",
+    "artistSlug": "good-vibes-only",
+    "trackSlug": "dreams-of-the-saints",
+    "duration": 167,
+    "tempo": 100,
+    "energy": "Calm",
+    "kind": "lofi",
+    "genres": [
+      "Lofi",
+      "Chillhop"
+    ],
+    "moods": [
+      "Sad",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Reflective",
+        "slug": "/music/category/reflective"
+      },
+      {
+        "name": "Lofi Beats",
+        "slug": "/music/category/lo-fi-beats"
+      },
+      {
+        "name": "Sad",
+        "slug": "/music/category/sad"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/fe00b9a892f605ebb4457b8e4f690d4b/51cc4e110f6c676c16c8bfcadf2977e8/9e45e63d88a3ac52e70ac0b7f68c35a2/STREAMING-dreams-of-the-saints-good-vibes-only-main-version-46360-02-47.mp3"
+  },
+  {
+    "trackId": "13861",
+    "title": "Bei-Fi Bossa",
+    "artist": "Good Vibes Only",
+    "artistSlug": "good-vibes-only",
+    "trackSlug": "bei-fi-bossa",
+    "duration": 131,
+    "tempo": 66,
+    "energy": "Calm",
+    "kind": "lofi",
+    "genres": [
+      "Lofi",
+      "Chillhop"
+    ],
+    "moods": [
+      "Chill",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Chill",
+        "slug": "/music/category/chill"
+      },
+      {
+        "name": "Beach",
+        "slug": "/music/category/summer/beach"
+      },
+      {
+        "name": "Easygoing",
+        "slug": "/music/category/easygoing"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/fe00b9a892f605ebb4457b8e4f690d4b/7c2a89d234541068f22b608f49232c1a/a26c557524a629ad77147f729c642055/STREAMING-bei-fi-bossa-good-vibes-only-main-version-46358-02-11.mp3"
+  },
+  {
+    "trackId": "13911",
+    "title": "Where I Belong",
+    "artist": "Yair Cohen",
+    "artistSlug": "yair-cohen",
+    "trackSlug": "where-i-belong",
+    "duration": 124,
+    "tempo": 58,
+    "energy": "Very Calm",
+    "kind": "ambient",
+    "genres": [
+      "Cinematic",
+      "Ambient"
+    ],
+    "moods": [
+      "Relaxing",
+      "Calm",
+      "Happy",
+      "Sad",
+      "Uplifting"
+    ],
+    "featuredTags": [
+      {
+        "name": "Blissful",
+        "slug": "/music/category/happy/blissful"
+      },
+      {
+        "name": "Meditation",
+        "slug": "/music/category/spiritual/meditation"
+      },
+      {
+        "name": "Ambient",
+        "slug": "/music/category/ambient"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/d0ce028e267d4b673251ceb640af6f73/ce556276ca77587595de9c1185c081e8/3b0e1fcfaeb68f9658c1c2f4e763ffa1/STREAMING-where-i-belong-yair-cohen-main-version-46670-02-04.mp3"
+  },
+  {
+    "trackId": "13896",
+    "title": "Cold Love",
+    "artist": "Dope Cat",
+    "artistSlug": "dope-cat",
+    "trackSlug": "cold-love",
+    "duration": 173,
+    "tempo": 76,
+    "energy": "Calm",
+    "kind": "lofi",
+    "genres": [
+      "Lofi",
+      "Beats",
+      "Chillhop",
+      "Electronic"
+    ],
+    "moods": [
+      "Chill",
+      "Relaxing",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Lofi Beats",
+        "slug": "/music/category/lo-fi-beats"
+      },
+      {
+        "name": "Peaceful",
+        "slug": "/music/category/relaxing/peaceful"
+      },
+      {
+        "name": "Downtempo",
+        "slug": "/music/category/chill/downtempo"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/73b1b73e653510791dae84f765479e57/d097d9fbbec55be6f2d86dfa4c0d902c/ab382722f1a5ff47edc88ba8c3e255c5/STREAMING-cold-love-dope-cat-main-version-46571-02-53.mp3"
+  },
+  {
+    "trackId": "13885",
+    "title": "Serene",
+    "artist": "Nicolas Kluzek",
+    "artistSlug": "nicolas-kluzek",
+    "trackSlug": "serene",
+    "duration": 89,
+    "tempo": 80,
+    "energy": "Calm",
+    "kind": "lofi",
+    "genres": [
+      "Lofi",
+      "Beats",
+      "Chillhop"
+    ],
+    "moods": [
+      "Relaxing",
+      "Chill",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Gentle",
+        "slug": "/music/category/gentle"
+      },
+      {
+        "name": "Kids",
+        "slug": "/music/category/kids"
+      },
+      {
+        "name": "Peaceful",
+        "slug": "/music/category/relaxing/peaceful"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/b90989c8ba0b62e8eb948123e09825ac/f596e115aeaf41149c2b8fa8fe6c54ac/9e9a34ed1c7b43a0b5460549d3c1bd6a/STREAMING-serene-nicolas-kluzek-main-version-46500-01-29.mp3"
+  },
+  {
+    "trackId": "13876",
+    "title": "Emberlights",
+    "artist": "Abstract Aprils",
+    "artistSlug": "abstract-aprils",
+    "trackSlug": "emberlights",
+    "duration": 260,
+    "tempo": 0,
+    "energy": "Very Calm",
+    "kind": "ambient",
+    "genres": [
+      "Cinematic",
+      "Ambient"
+    ],
+    "moods": [
+      "Chill",
+      "Relaxing",
+      "Emotional",
+      "Happy",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Soft",
+        "slug": "/music/category/soft"
+      },
+      {
+        "name": "Ambient",
+        "slug": "/music/category/ambient"
+      },
+      {
+        "name": "Beautiful",
+        "slug": "/music/category/beautiful"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/235bc0b11ae1cea20d1b0a93702d5072/704eb0b0d3d540d4f3e60d6e11cc151e/7e7b7ca12aee5b5996ecf25b83eddda0/STREAMING-emberlights-abstract-aprils-main-version-46412-04-20.mp3"
+  },
+  {
+    "trackId": "13875",
+    "title": "Barrenlights",
+    "artist": "Abstract Aprils",
+    "artistSlug": "abstract-aprils",
+    "trackSlug": "barrenlights",
+    "duration": 207,
+    "tempo": 0,
+    "energy": "Very Calm",
+    "kind": "ambient",
+    "genres": [
+      "Cinematic",
+      "Ambient"
+    ],
+    "moods": [
+      "Chill",
+      "Relaxing",
+      "Emotional",
+      "Happy",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Ambient",
+        "slug": "/music/category/ambient"
+      },
+      {
+        "name": "Reflective",
+        "slug": "/music/category/reflective"
+      },
+      {
+        "name": "Peaceful",
+        "slug": "/music/category/relaxing/peaceful"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/235bc0b11ae1cea20d1b0a93702d5072/212e51d31887c0fe7529c0094982cab3/cc3ee9f5acc707ef4ad8365887a15a86/STREAMING-barrenlights-abstract-aprils-main-version-46411-03-27.mp3"
+  },
+  {
+    "trackId": "13849",
+    "title": "Blue And Gray",
+    "artist": "Flow State",
+    "artistSlug": "flow-state",
+    "trackSlug": "blue-and-gray",
+    "duration": 118,
+    "tempo": 0,
+    "energy": "Very Calm",
+    "kind": "ambient",
+    "genres": [
+      "Ambient"
+    ],
+    "moods": [
+      "Calm",
+      "Sad"
+    ],
+    "featuredTags": [
+      {
+        "name": "Ambient",
+        "slug": "/music/category/ambient"
+      },
+      {
+        "name": "Mindfulness",
+        "slug": "/music/category/mindfulness"
+      },
+      {
+        "name": "Eerie",
+        "slug": "/music/category/scary/eerie"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/7f08d20637a6b40e5b4998747d8f9e44/bf2700bbf136f2545f58abed47b292e2/bd14b0a94536c52c671ed44332ad280f/STREAMING-blue-and-gray-flow-state-main-version-46317-01-58.mp3"
+  },
+  {
+    "trackId": "13848",
+    "title": "Ambient Cat",
+    "artist": "Flow State",
+    "artistSlug": "flow-state",
+    "trackSlug": "ambient-cat",
+    "duration": 95,
+    "tempo": 0,
+    "energy": "Very Calm",
+    "kind": "ambient",
+    "genres": [
+      "Ambient"
+    ],
+    "moods": [
+      "Calm",
+      "Sad"
+    ],
+    "featuredTags": [
+      {
+        "name": "Nature documentary",
+        "slug": "/music/category/documentary/nature-documentary"
+      },
+      {
+        "name": "Peaceful",
+        "slug": "/music/category/relaxing/peaceful"
+      },
+      {
+        "name": "Ambient",
+        "slug": "/music/category/ambient"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/7f08d20637a6b40e5b4998747d8f9e44/319eb7de5a52475f804baf60b2a6ee34/4d47137ac23be084d300b298c0549602/STREAMING-ambient-cat-flow-state-main-version-46314-01-35.mp3"
+  },
+  {
+    "trackId": "13847",
+    "title": "Revachol no.14",
+    "artist": "Flow State",
+    "artistSlug": "flow-state",
+    "trackSlug": "revachol-no14",
+    "duration": 128,
+    "tempo": 0,
+    "energy": "Very Calm",
+    "kind": "ambient",
+    "genres": [
+      "Ambient"
+    ],
+    "moods": [
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Blissful",
+        "slug": "/music/category/happy/blissful"
+      },
+      {
+        "name": "Peaceful",
+        "slug": "/music/category/relaxing/peaceful"
+      },
+      {
+        "name": "Dreamy",
+        "slug": "/music/category/relaxing/dreamy"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/7f08d20637a6b40e5b4998747d8f9e44/7fa4fdad9f5e279a6a6dd80684b944e7/d3c70e0c983dc32aebabb541d1ce5886/STREAMING-revachol-no-14-flow-state-main-version-46313-02-08.mp3"
+  },
+  {
+    "trackId": "11702",
+    "title": "Pulses",
+    "artist": "Yair Cohen",
+    "artistSlug": "yair-cohen",
+    "trackSlug": "pulses",
+    "duration": 168,
+    "tempo": 96,
+    "energy": "Calm",
+    "kind": "ambient",
+    "genres": [
+      "Cinematic",
+      "Ambient"
+    ],
+    "moods": [
+      "Calm",
+      "Sad"
+    ],
+    "featuredTags": [
+      {
+        "name": "Cinematic",
+        "slug": "/music/category/cinematic"
+      },
+      {
+        "name": "Ambient",
+        "slug": "/music/category/ambient"
+      },
+      {
+        "name": "Atmospheric",
+        "slug": "/music/category/atmospheric"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/d0ce028e267d4b673251ceb640af6f73/c3ff61f84f8d56ca882e93add2888bdd/5ec548beac709bd65d555f7474d17693/STREAMING-pulses-yair-cohen-main-version-39480-02-48.mp3"
+  },
+  {
+    "trackId": "13830",
+    "title": "Lofted",
+    "artist": "Realizer",
+    "artistSlug": "realizer",
+    "trackSlug": "lofted",
+    "duration": 141,
+    "tempo": 65,
+    "energy": "Calm",
+    "kind": "acoustic",
+    "genres": [
+      "Folk",
+      "Acoustic",
+      "Country"
+    ],
+    "moods": [
+      "Cute",
+      "Hopeful",
+      "Emotional",
+      "Sad",
+      "Calm",
+      "Uplifting"
+    ],
+    "featuredTags": [
+      {
+        "name": "Country Folk",
+        "slug": "/music/category/country/country-folk"
+      },
+      {
+        "name": "Gentle",
+        "slug": "/music/category/gentle"
+      },
+      {
+        "name": "Emotional",
+        "slug": "/music/category/emotional"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/4b001c0bf51288dd163cfeefe778d876/9c0795b1acef22a230d1bf967f684c99/876f3a49133ffba6108427c09cc1b5d7/STREAMING-lofted-realizer-main-version-46270-02-21.mp3"
+  },
+  {
+    "trackId": "13829",
+    "title": "Wash",
+    "artist": "Realizer",
+    "artistSlug": "realizer",
+    "trackSlug": "wash",
+    "duration": 150,
+    "tempo": 65,
+    "energy": "Calm",
+    "kind": "acoustic",
+    "genres": [
+      "Folk",
+      "Acoustic",
+      "Country"
+    ],
+    "moods": [
+      "Emotional",
+      "Hopeful",
+      "Happy",
+      "Sad",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Soothing",
+        "slug": "/music/category/relaxing/soothing"
+      },
+      {
+        "name": "Country Folk",
+        "slug": "/music/category/country/country-folk"
+      },
+      {
+        "name": "Love",
+        "slug": "/music/category/love"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/4b001c0bf51288dd163cfeefe778d876/ade0c8974970e73abb83fc26fe946169/b9e3751e0190d5668e02f543f329534c/STREAMING-wash-realizer-main-version-46269-02-30.mp3"
+  },
+  {
+    "trackId": "13777",
+    "title": "Pertranseo (Slower Headspace)",
+    "artist": "all:ambient",
+    "artistSlug": "all-ambient",
+    "trackSlug": "pertranseo-slower-headspace",
+    "duration": 217,
+    "tempo": 0,
+    "energy": "Very Calm",
+    "kind": "ambient",
+    "genres": [
+      "Ambient"
+    ],
+    "moods": [
+      "Calm",
+      "Relaxing"
+    ],
+    "featuredTags": [
+      {
+        "name": "Yoga",
+        "slug": "/music/category/fitness/exercise/yoga"
+      },
+      {
+        "name": "Calm",
+        "slug": "/music/category/calm"
+      },
+      {
+        "name": "Meditation",
+        "slug": "/music/category/spiritual/meditation"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/0c1958b592be802b8bd81d3fdfb51688/96d41722687df1bcab1ec6c3c9183841/a8e40246eb587e8db4bf7b18c6cf9eb7/STREAMING-pertranseo-slower-headspace-all-ambient-main-version-46177-03-37.mp3"
+  },
+  {
+    "trackId": "13776",
+    "title": "A Vessel",
+    "artist": "all:ambient",
+    "artistSlug": "all-ambient",
+    "trackSlug": "a-vessel",
+    "duration": 134,
+    "tempo": 0,
+    "energy": "Very Calm",
+    "kind": "ambient",
+    "genres": [
+      "Cinematic",
+      "Ambient"
+    ],
+    "moods": [
+      "Calm",
+      "Relaxing",
+      "Emotional"
+    ],
+    "featuredTags": [
+      {
+        "name": "Dreamy",
+        "slug": "/music/category/relaxing/dreamy"
+      },
+      {
+        "name": "Ambient",
+        "slug": "/music/category/ambient"
+      },
+      {
+        "name": "Meditation",
+        "slug": "/music/category/spiritual/meditation"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/0c1958b592be802b8bd81d3fdfb51688/f8f45e8dc46a1fa8f1aaf4bc86eeefe8/a5d2c167690218ec8b214058a9203a2b/STREAMING-a-vessel-all-ambient-main-version-46176-02-14.mp3"
+  },
+  {
+    "trackId": "13757",
+    "title": "Willow Of The Depths",
+    "artist": "all:ambient",
+    "artistSlug": "all-ambient",
+    "trackSlug": "willow-of-the-depths",
+    "duration": 176,
+    "tempo": 0,
+    "energy": "Very Calm",
+    "kind": "piano",
+    "genres": [
+      "Cinematic",
+      "Ambient"
+    ],
+    "moods": [
+      "Calm",
+      "Relaxing"
+    ],
+    "featuredTags": [
+      {
+        "name": "Yoga",
+        "slug": "/music/category/fitness/exercise/yoga"
+      },
+      {
+        "name": "Calm",
+        "slug": "/music/category/calm"
+      },
+      {
+        "name": "Dreamy",
+        "slug": "/music/category/relaxing/dreamy"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/0c1958b592be802b8bd81d3fdfb51688/321e1b8a707359079fceb94e01cff51a/184e0320551c8a8be819e3a40087dae6/STREAMING-willow-of-the-depths-all-ambient-main-version-46157-02-56.mp3"
+  },
+  {
+    "trackId": "13792",
+    "title": "Wintertime Waltz",
+    "artist": "Albert Behar",
+    "artistSlug": "albert-behar",
+    "trackSlug": "wintertime-waltz",
+    "duration": 125,
+    "tempo": 92,
+    "energy": "Calm",
+    "kind": "jazz",
+    "genres": [
+      "Jazz"
+    ],
+    "moods": [
+      "Chill",
+      "Relaxing",
+      "Romantic",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Lounge",
+        "slug": "/music/category/jazz/lounge"
+      },
+      {
+        "name": "Jazz",
+        "slug": "/music/category/jazz"
+      },
+      {
+        "name": "Romantic",
+        "slug": "/music/category/romantic"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/48c197ea701573c6a391cd76382175f7/32e97a54f7978422db7f191a9a0ade88/059c12584e1b08dbda7d322bc6f9c164/STREAMING-wintertime-waltz-albert-behar-main-version-46196-02-05.mp3"
+  },
+  {
+    "trackId": "13729",
+    "title": "Slow Lift",
+    "artist": "SKYGAZE",
+    "artistSlug": "skygaze",
+    "trackSlug": "slow-lift",
+    "duration": 132,
+    "tempo": 60,
+    "energy": "Calm",
+    "kind": "lofi",
+    "genres": [
+      "Lofi",
+      "Beats",
+      "Chillhop"
+    ],
+    "moods": [
+      "Relaxing",
+      "Chill",
+      "Happy",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Lofi Beats",
+        "slug": "/music/category/lo-fi-beats"
+      },
+      {
+        "name": "Jazzy",
+        "slug": "/music/category/jazzy"
+      },
+      {
+        "name": "Calming",
+        "slug": "/music/category/calming"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/692044cf27c34b6eaca0eb6d7bb12739/64f28661f3ba1ec3c156a9e112b6db5f/ce2c048c3381235a8db214672b02e836/STREAMING-slow-lift-skygaze-main-version-46066-02-12.mp3"
+  },
+  {
+    "trackId": "13809",
+    "title": "Sundays (w Kainbeats)",
+    "artist": "wooll",
+    "artistSlug": "wooll",
+    "trackSlug": "sundays-w-kainbeats",
+    "duration": 169,
+    "tempo": 74,
+    "energy": "Calm",
+    "kind": "lofi",
+    "genres": [
+      "Beats",
+      "Chillhop",
+      "Lofi"
+    ],
+    "moods": [
+      "Chill",
+      "Sad",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Lofi Beats",
+        "slug": "/music/category/lo-fi-beats"
+      },
+      {
+        "name": "Gentle",
+        "slug": "/music/category/gentle"
+      },
+      {
+        "name": "Mellow",
+        "slug": "/music/category/chill/mellow"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/95efc2c018c6c8d9e52ae87eb7af0395/5aae8e161fc0eff4f95de4a984722854/f2dcc3938cff40bc666974dd333d72a6/STREAMING-sundays-w-kainbeats-wooll-main-version-46219-02-49.mp3"
+  },
+  {
+    "trackId": "13806",
+    "title": "Evening Fluff",
+    "artist": "wooll",
+    "artistSlug": "wooll",
+    "trackSlug": "evening-fluff",
+    "duration": 145,
+    "tempo": 60,
+    "energy": "Calm",
+    "kind": "lofi",
+    "genres": [
+      "Beats",
+      "Chillhop",
+      "Lofi"
+    ],
+    "moods": [
+      "Chill",
+      "Sad",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Lofi Beats",
+        "slug": "/music/category/lo-fi-beats"
+      },
+      {
+        "name": "Soft",
+        "slug": "/music/category/soft"
+      },
+      {
+        "name": "Peaceful",
+        "slug": "/music/category/relaxing/peaceful"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/95efc2c018c6c8d9e52ae87eb7af0395/64bcd5f34aa30ca4585d663acd0444eb/66f80b713539a94796665f0ef83f08c1/STREAMING-evening-fluff-wooll-main-version-46216-02-25.mp3"
+  },
+  {
+    "trackId": "13804",
+    "title": "Renew",
+    "artist": "Tranquilium",
+    "artistSlug": "tranquilium",
+    "trackSlug": "renew",
+    "duration": 208,
+    "tempo": 50,
+    "energy": "Very Calm",
+    "kind": "ambient",
+    "genres": [
+      "Cinematic",
+      "Ambient"
+    ],
+    "moods": [
+      "Relaxing",
+      "Chill",
+      "Happy",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Relaxing",
+        "slug": "/music/category/relaxing"
+      },
+      {
+        "name": "Ambient",
+        "slug": "/music/category/ambient"
+      },
+      {
+        "name": "Meditation",
+        "slug": "/music/category/spiritual/meditation"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/447d178a4aa6eb62d0b26988ccd5ed7d/fdc024699f65d23188f8a7a12c8ef552/6797b8c6e80b6260499fd2e0ab9a4dce/STREAMING-renew-tranquilium-main-version-46214-03-28.mp3"
+  },
+  {
+    "trackId": "13803",
+    "title": "Ceremonial",
+    "artist": "Tranquilium",
+    "artistSlug": "tranquilium",
+    "trackSlug": "ceremonial",
+    "duration": 199,
+    "tempo": 50,
+    "energy": "Very Calm",
+    "kind": "ambient",
+    "genres": [
+      "Ambient"
+    ],
+    "moods": [
+      "Calm",
+      "Relaxing",
+      "Happy"
+    ],
+    "featuredTags": [
+      {
+        "name": "Ambient",
+        "slug": "/music/category/ambient"
+      },
+      {
+        "name": "Meditation",
+        "slug": "/music/category/spiritual/meditation"
+      },
+      {
+        "name": "Relaxing",
+        "slug": "/music/category/relaxing"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/447d178a4aa6eb62d0b26988ccd5ed7d/dac9c75747d967078211e922d55171be/844e9a137684ef25fb91c325171cf26b/STREAMING-ceremonial-tranquilium-main-version-46213-03-19.mp3"
+  },
+  {
+    "trackId": "13541",
+    "title": "Under My Sea",
+    "artist": "Nicolas Kluzek",
+    "artistSlug": "nicolas-kluzek",
+    "trackSlug": "under-my-sea",
+    "duration": 151,
+    "tempo": 65,
+    "energy": "Calm",
+    "kind": "lofi",
+    "genres": [
+      "Lofi",
+      "Chillhop"
+    ],
+    "moods": [
+      "Relaxing",
+      "Chill",
+      "Sad",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Relaxing",
+        "slug": "/music/category/relaxing"
+      },
+      {
+        "name": "Lofi Beats",
+        "slug": "/music/category/lo-fi-beats"
+      },
+      {
+        "name": "Late Night Beats",
+        "slug": "/music/category/late-night-beats"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/b90989c8ba0b62e8eb948123e09825ac/d0a661cc09ff8f1d45151e5c3d1af30b/e7c97154d1e513f2eb37d9bff18294ea/STREAMING-under-my-sea-nicolas-kluzek-main-version-45320-02-31.mp3"
+  },
+  {
+    "trackId": "13624",
+    "title": "Letters",
+    "artist": "T. Check",
+    "artistSlug": "t-check",
+    "trackSlug": "letters",
+    "duration": 107,
+    "tempo": 81,
+    "energy": "Calm",
+    "kind": "lofi",
+    "genres": [
+      "Lofi",
+      "Chillhop",
+      "Beats"
+    ],
+    "moods": [
+      "Chill",
+      "Calm",
+      "Sad"
+    ],
+    "featuredTags": [
+      {
+        "name": "Lofi Beats",
+        "slug": "/music/category/lo-fi-beats"
+      },
+      {
+        "name": "Chill",
+        "slug": "/music/category/chill"
+      },
+      {
+        "name": "Sleep",
+        "slug": "/music/category/relaxing/sleep"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/a2e4f3986dfcf06204b73b4da8054019/5c76e557c102b714ee8f641b1e137fb6/15994bdb7b9f2be7cbbe0843f47ccca8/STREAMING-letters-t-check-main-version-45512-01-47.mp3"
+  },
+  {
+    "trackId": "13558",
+    "title": "Natural World",
+    "artist": "Albert Behar",
+    "artistSlug": "albert-behar",
+    "trackSlug": "natural-world",
+    "duration": 128,
+    "tempo": 60,
+    "energy": "Very Calm",
+    "kind": "ambient",
+    "genres": [
+      "Ambient"
+    ],
+    "moods": [
+      "Relaxing",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Yoga",
+        "slug": "/music/category/fitness/exercise/yoga"
+      },
+      {
+        "name": "Spiritual",
+        "slug": "/music/category/spiritual"
+      },
+      {
+        "name": "Reflective",
+        "slug": "/music/category/reflective"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/48c197ea701573c6a391cd76382175f7/9b16639028bd8edf28eddd642372cd5a/948fd3ebf62cd7d3c17f28fe492aca5e/STREAMING-natural-world-albert-behar-main-version-45367-02-08.mp3"
+  },
+  {
+    "trackId": "13518",
+    "title": "Archetype",
+    "artist": "all:ambient",
+    "artistSlug": "all-ambient",
+    "trackSlug": "archetype",
+    "duration": 228,
+    "tempo": 0,
+    "energy": "Very Calm",
+    "kind": "piano",
+    "genres": [
+      "Cinematic",
+      "Ambient"
+    ],
+    "moods": [
+      "Hopeful",
+      "Calm",
+      "Relaxing"
+    ],
+    "featuredTags": [
+      {
+        "name": "Spiritual",
+        "slug": "/music/category/spiritual"
+      },
+      {
+        "name": "Blissful",
+        "slug": "/music/category/happy/blissful"
+      },
+      {
+        "name": "Calm",
+        "slug": "/music/category/calm"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/0c1958b592be802b8bd81d3fdfb51688/a1528ec030a098c46e3b1e55d56cc4ba/e251f4a29a77aabbfde1c5cc97896e42/STREAMING-archetype-all-ambient-main-version-45208-03-48.mp3"
+  },
+  {
+    "trackId": "13502",
+    "title": "First Inhale",
+    "artist": "all:ambient",
+    "artistSlug": "all-ambient",
+    "trackSlug": "first-inhale",
+    "duration": 166,
+    "tempo": 0,
+    "energy": "Very Calm",
+    "kind": "ambient",
+    "genres": [
+      "Cinematic",
+      "Ambient"
+    ],
+    "moods": [
+      "Calm",
+      "Relaxing"
+    ],
+    "featuredTags": [
+      {
+        "name": "Yoga",
+        "slug": "/music/category/fitness/exercise/yoga"
+      },
+      {
+        "name": "Peaceful",
+        "slug": "/music/category/relaxing/peaceful"
+      },
+      {
+        "name": "Calm",
+        "slug": "/music/category/calm"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/0c1958b592be802b8bd81d3fdfb51688/9f7421d48ac91aeb8e9e79c15a24c6be/05754c67489ac5da2cf783292e53de04/STREAMING-first-inhale-all-ambient-main-version-45192-02-46.mp3"
+  },
+  {
+    "trackId": "13496",
+    "title": "Lantern",
+    "artist": "all:ambient",
+    "artistSlug": "all-ambient",
+    "trackSlug": "lantern",
+    "duration": 181,
+    "tempo": 0,
+    "energy": "Very Calm",
+    "kind": "piano",
+    "genres": [
+      "Ambient"
+    ],
+    "moods": [
+      "Calm",
+      "Relaxing"
+    ],
+    "featuredTags": [
+      {
+        "name": "Ocean",
+        "slug": "/music/category/ocean"
+      },
+      {
+        "name": "Yoga",
+        "slug": "/music/category/fitness/exercise/yoga"
+      },
+      {
+        "name": "Peaceful",
+        "slug": "/music/category/relaxing/peaceful"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/0c1958b592be802b8bd81d3fdfb51688/27d8a220afc8382183c0fe0f08285413/7c7e48f221fa7b4640676f044353f0fb/STREAMING-lantern-all-ambient-main-version-45186-03-01.mp3"
+  },
+  {
+    "trackId": "13493",
+    "title": "Evergreen Dreams",
+    "artist": "all:ambient",
+    "artistSlug": "all-ambient",
+    "trackSlug": "evergreen-dreams",
+    "duration": 211,
+    "tempo": 0,
+    "energy": "Very Calm",
+    "kind": "piano",
+    "genres": [
+      "Cinematic",
+      "Ambient"
+    ],
+    "moods": [
+      "Calm",
+      "Relaxing",
+      "Sad"
+    ],
+    "featuredTags": [
+      {
+        "name": "Nature",
+        "slug": "/music/category/nature"
+      },
+      {
+        "name": "Profound",
+        "slug": "/music/category/profound"
+      },
+      {
+        "name": "Reflective",
+        "slug": "/music/category/reflective"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/0c1958b592be802b8bd81d3fdfb51688/b6a1964107460d5024860964baa09d3e/b54f53c44230a8159fa0b9887b92fa64/STREAMING-evergreen-dreams-all-ambient-main-version-45183-03-31.mp3"
+  },
+  {
+    "trackId": "13487",
+    "title": "Ethe",
+    "artist": "all:ambient",
+    "artistSlug": "all-ambient",
+    "trackSlug": "ethe",
+    "duration": 173,
+    "tempo": 0,
+    "energy": "Very Calm",
+    "kind": "ambient",
+    "genres": [
+      "Cinematic",
+      "Ambient"
+    ],
+    "moods": [
+      "Calm",
+      "Relaxing"
+    ],
+    "featuredTags": [
+      {
+        "name": "Ambient",
+        "slug": "/music/category/ambient"
+      },
+      {
+        "name": "Meditation",
+        "slug": "/music/category/spiritual/meditation"
+      },
+      {
+        "name": "Sleep",
+        "slug": "/music/category/relaxing/sleep"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/0c1958b592be802b8bd81d3fdfb51688/0a38ec8556f07ca55e81807492cea94c/d79163d10c86fa5539db67793151705f/STREAMING-ethe-all-ambient-main-version-45177-02-53.mp3"
+  },
+  {
+    "trackId": "13485",
+    "title": "Low And Slow",
+    "artist": "Doug Organ",
+    "artistSlug": "doug-organ",
+    "trackSlug": "low-and-slow",
+    "duration": 140,
+    "tempo": 70,
+    "energy": "Calm",
+    "kind": "lofi",
+    "genres": [
+      "Lofi"
+    ],
+    "moods": [
+      "Calm",
+      "Chill"
+    ],
+    "featuredTags": [
+      {
+        "name": "Mellow",
+        "slug": "/music/category/chill/mellow"
+      },
+      {
+        "name": "Soul",
+        "slug": "/music/category/soul"
+      },
+      {
+        "name": "Chill",
+        "slug": "/music/category/chill"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/f93c8e77454845446796ae2986bdf193/264b69b7d9b2fa2736d7168bdf1ae18f/42a4d13bcf86cf9f0256c9f6e140a621/STREAMING-low-and-slow-doug-organ-main-version-45175-02-20.mp3"
+  },
+  {
+    "trackId": "13613",
+    "title": "Antiquity",
+    "artist": "Ben McElroy",
+    "artistSlug": "ben-mcelroy",
+    "trackSlug": "antiquity",
+    "duration": 314,
+    "tempo": 0,
+    "energy": "Calm",
+    "kind": "ambient",
+    "genres": [
+      "Folk",
+      "Cinematic",
+      "Ambient",
+      "Acoustic"
+    ],
+    "moods": [
+      "Sad",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Folk",
+        "slug": "/music/category/folk"
+      },
+      {
+        "name": "String",
+        "slug": "/music/category/string"
+      },
+      {
+        "name": "Mellow",
+        "slug": "/music/category/chill/mellow"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/24550aa886bd8e3e8d10053efe2bcad7/312c6a9a65b5818e0f25e3855b4db975/586a74afc442dcffb9cffd22c3428acd/STREAMING-antiquity-ben-mcelroy-main-version-45491-05-14.mp3"
+  },
+  {
+    "trackId": "13610",
+    "title": "A Different Kind Of Stillness",
+    "artist": "Ben McElroy",
+    "artistSlug": "ben-mcelroy",
+    "trackSlug": "a-different-kind-of-stillness",
+    "duration": 131,
+    "tempo": 0,
+    "energy": "Very Calm",
+    "kind": "ambient",
+    "genres": [
+      "Ambient"
+    ],
+    "moods": [
+      "Relaxing",
+      "Calm",
+      "Happy"
+    ],
+    "featuredTags": [
+      {
+        "name": "Meditation",
+        "slug": "/music/category/spiritual/meditation"
+      },
+      {
+        "name": "Kalimba",
+        "slug": "/music/category/kalimba"
+      },
+      {
+        "name": "Gentle",
+        "slug": "/music/category/gentle"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/24550aa886bd8e3e8d10053efe2bcad7/e10d1c40bdaeef6bd90651b16ed6d88d/10a409396b1dcc35255afeb10b0ed5cd/STREAMING-a-different-kind-of-stillness-ben-mcelroy-main-version-45484-02-11.mp3"
+  },
+  {
+    "trackId": "13421",
+    "title": "Quiet Streams",
+    "artist": "Brock Hewitt: Stories in Sound",
+    "artistSlug": "brock-hewitt-stories-in-sound",
+    "trackSlug": "quiet-streams",
+    "duration": 434,
+    "tempo": 0,
+    "energy": "Calm",
+    "kind": "piano",
+    "genres": [
+      "Classical"
+    ],
+    "moods": [
+      "Relaxing",
+      "Calm",
+      "Sad",
+      "Emotional"
+    ],
+    "featuredTags": [
+      {
+        "name": "Piano",
+        "slug": "/music/category/piano"
+      },
+      {
+        "name": "Emotional",
+        "slug": "/music/category/emotional"
+      },
+      {
+        "name": "Minimalist",
+        "slug": "/music/category/minimalist"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/5dfbc12f82c94629f611d67857f9856a/3b14b8363aa97d8ba034dc34158f9848/cbc913859a38e8aaffecf02543fa405f/STREAMING-quiet-streams-brock-hewitt-stories-in-sound-main-version-45026-07-14.mp3"
+  },
+  {
+    "trackId": "13403",
+    "title": "Ease The Pain",
+    "artist": "Danijel Zambo",
+    "artistSlug": "danijel-zambo",
+    "trackSlug": "ease-the-pain",
+    "duration": 102,
+    "tempo": 0,
+    "energy": "Calm",
+    "kind": "piano",
+    "genres": [
+      "Indie"
+    ],
+    "moods": [
+      "Hopeful",
+      "Happy",
+      "Sad",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Slide Guitar",
+        "slug": "/music/category/guitar/slide-guitar"
+      },
+      {
+        "name": "Piano",
+        "slug": "/music/category/piano"
+      },
+      {
+        "name": "Gentle",
+        "slug": "/music/category/gentle"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/32ed1ea8a647cae58ad0a4b0b67bcef9/e20a527d4e836ceca224bc773b02e31a/d429da948c5e9742a8ad9327207ce3ae/STREAMING-ease-the-pain-danijel-zambo-main-version-44908-01-42.mp3"
+  },
+  {
+    "trackId": "13361",
+    "title": "Earth & Sea",
+    "artist": "Christopher Galovan",
+    "artistSlug": "christopher-galovan",
+    "trackSlug": "earth-sea",
+    "duration": 187,
+    "tempo": 68,
+    "energy": "Very Calm",
+    "kind": "piano",
+    "genres": [
+      "Cinematic",
+      "Ambient"
+    ],
+    "moods": [
+      "Hopeful",
+      "Emotional",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Meditation",
+        "slug": "/music/category/spiritual/meditation"
+      },
+      {
+        "name": "Reflective",
+        "slug": "/music/category/reflective"
+      },
+      {
+        "name": "Peaceful",
+        "slug": "/music/category/relaxing/peaceful"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/7888d18c8749f47e19e47f67830ed616/60940200b51b3681c867517d848414ab/d639914b1abd03ebf68d74cb64cb7982/STREAMING-earth-sea-christopher-galovan-main-version-44727-03-07.mp3"
+  },
+  {
+    "trackId": "13360",
+    "title": "Horizon",
+    "artist": "Christopher Galovan",
+    "artistSlug": "christopher-galovan",
+    "trackSlug": "horizon",
+    "duration": 209,
+    "tempo": 93,
+    "energy": "Very Calm",
+    "kind": "piano",
+    "genres": [
+      "Cinematic",
+      "Ambient"
+    ],
+    "moods": [
+      "Hopeful",
+      "Emotional",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Piano",
+        "slug": "/music/category/piano"
+      },
+      {
+        "name": "Emotional",
+        "slug": "/music/category/emotional"
+      },
+      {
+        "name": "Ambient",
+        "slug": "/music/category/ambient"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/7888d18c8749f47e19e47f67830ed616/4590f2582eb432fdb46cd3d19c8dcabf/65ea5105c9ca418335dc62a036ef8d49/STREAMING-horizon-christopher-galovan-main-version-44726-03-29.mp3"
+  },
+  {
+    "trackId": "13306",
+    "title": "Last Sunset Drinks",
+    "artist": "Nicolas Kluzek",
+    "artistSlug": "nicolas-kluzek",
+    "trackSlug": "last-sunset-drinks",
+    "duration": 93,
+    "tempo": 63,
+    "energy": "Calm",
+    "kind": "lofi",
+    "genres": [
+      "Lofi",
+      "Beats",
+      "Chillhop"
+    ],
+    "moods": [
+      "Relaxing",
+      "Chill",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Jazzhop",
+        "slug": "/music/category/jazz/jazzhop"
+      },
+      {
+        "name": "Elegant",
+        "slug": "/music/category/elegant"
+      },
+      {
+        "name": "Bar",
+        "slug": "/music/category/bar"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/b90989c8ba0b62e8eb948123e09825ac/27d4f34319a04315205a3dfab291fb80/3d1fd24f33e4d8efd48e25770f6dc52b/STREAMING-last-sunset-drinks-nicolas-kluzek-main-version-44542-01-33.mp3"
+  },
+  {
+    "trackId": "13305",
+    "title": "Paros",
+    "artist": "Nicolas Kluzek",
+    "artistSlug": "nicolas-kluzek",
+    "trackSlug": "paros",
+    "duration": 126,
+    "tempo": 80,
+    "energy": "Calm",
+    "kind": "lofi",
+    "genres": [
+      "Lofi",
+      "Beats",
+      "Chillhop"
+    ],
+    "moods": [
+      "Relaxing",
+      "Sad",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Lofi Beats",
+        "slug": "/music/category/lo-fi-beats"
+      },
+      {
+        "name": "Relaxing",
+        "slug": "/music/category/relaxing"
+      },
+      {
+        "name": "Jazzy",
+        "slug": "/music/category/jazzy"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/b90989c8ba0b62e8eb948123e09825ac/cc9b90600712953e3274e973d449e98b/a924300421813001d1b49f70a9ca2bf7/STREAMING-paros-nicolas-kluzek-main-version-44532-02-06.mp3"
+  },
+  {
+    "trackId": "13302",
+    "title": "Autumn In The Park",
+    "artist": "AVBE",
+    "artistSlug": "avbe",
+    "trackSlug": "autumn-in-the-park",
+    "duration": 147,
+    "tempo": 62,
+    "energy": "Calm",
+    "kind": "jazz",
+    "genres": [
+      "Jazz"
+    ],
+    "moods": [
+      "Romantic",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Lounge",
+        "slug": "/music/category/jazz/lounge"
+      },
+      {
+        "name": "Guitar Solo",
+        "slug": "/music/category/guitar-solo"
+      },
+      {
+        "name": "Piano",
+        "slug": "/music/category/piano"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/f54ab6f74b5438a7286ea064f94b7d81/cf97df5657b09f33fd5ad16addaa0be8/0eb9358c78a6b97da97a87de2d08aef6/STREAMING-autumn-in-the-park-avbe-main-version-44526-02-27.mp3"
+  },
+  {
+    "trackId": "13295",
+    "title": "Setting Sun",
+    "artist": "Danijel Zambo",
+    "artistSlug": "danijel-zambo",
+    "trackSlug": "setting-sun",
+    "duration": 117,
+    "tempo": 0,
+    "energy": "Calm",
+    "kind": "acoustic",
+    "genres": [
+      "Folk",
+      "Acoustic"
+    ],
+    "moods": [
+      "Cute",
+      "Relaxing",
+      "Emotional",
+      "Happy",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Ukulele",
+        "slug": "/music/category/ukulele"
+      },
+      {
+        "name": "Quiet",
+        "slug": "/music/category/quiet"
+      },
+      {
+        "name": "Love",
+        "slug": "/music/category/love"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/32ed1ea8a647cae58ad0a4b0b67bcef9/3f0c0b3a6e72926c8ce74afc86cb4216/bc65b43305415eb2029d73cd7c07aaec/STREAMING-setting-sun-danijel-zambo-main-version-44508-01-57.mp3"
+  },
+  {
+    "trackId": "13284",
+    "title": "The Low Country",
+    "artist": "Ben McElroy",
+    "artistSlug": "ben-mcelroy",
+    "trackSlug": "the-low-country",
+    "duration": 248,
+    "tempo": 0,
+    "energy": "Very Calm",
+    "kind": "ambient",
+    "genres": [
+      "Folk",
+      "Cinematic",
+      "Acoustic",
+      "Ambient"
+    ],
+    "moods": [
+      "Calm",
+      "Happy"
+    ],
+    "featuredTags": [
+      {
+        "name": "Meditation",
+        "slug": "/music/category/spiritual/meditation"
+      },
+      {
+        "name": "Folk",
+        "slug": "/music/category/folk"
+      },
+      {
+        "name": "Ambient",
+        "slug": "/music/category/ambient"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/24550aa886bd8e3e8d10053efe2bcad7/da9ab347fc08f98e941285dd31a4be1d/8a4a78a3fbc783f06d197ecb20745ea6/STREAMING-the-low-country-ben-mcelroy-main-version-44486-04-08.mp3"
+  },
+  {
+    "trackId": "13244",
+    "title": "Floating Threads",
+    "artist": "all:ambient",
+    "artistSlug": "all-ambient",
+    "trackSlug": "floating-threads",
+    "duration": 225,
+    "tempo": 0,
+    "energy": "Very Calm",
+    "kind": "ambient",
+    "genres": [
+      "Ambient"
+    ],
+    "moods": [
+      "Calm",
+      "Relaxing"
+    ],
+    "featuredTags": [
+      {
+        "name": "Yoga",
+        "slug": "/music/category/fitness/exercise/yoga"
+      },
+      {
+        "name": "Meditation",
+        "slug": "/music/category/spiritual/meditation"
+      },
+      {
+        "name": "Ambient",
+        "slug": "/music/category/ambient"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/0c1958b592be802b8bd81d3fdfb51688/d187186bbee616b65cd8e766daa18461/ee46756818261d36b6cb77a930ffe2e1/STREAMING-floating-threads-all-ambient-main-version-44353-03-45.mp3"
+  },
+  {
+    "trackId": "13242",
+    "title": "Moonstone",
+    "artist": "all:ambient",
+    "artistSlug": "all-ambient",
+    "trackSlug": "moonstone",
+    "duration": 164,
+    "tempo": 0,
+    "energy": "Very Calm",
+    "kind": "ambient",
+    "genres": [
+      "Ambient"
+    ],
+    "moods": [
+      "Calm",
+      "Relaxing"
+    ],
+    "featuredTags": [
+      {
+        "name": "Calm",
+        "slug": "/music/category/calm"
+      },
+      {
+        "name": "Gentle",
+        "slug": "/music/category/gentle"
+      },
+      {
+        "name": "Yoga",
+        "slug": "/music/category/fitness/exercise/yoga"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/0c1958b592be802b8bd81d3fdfb51688/2688cf29e093bc6edeb5ca922f9d96ed/071fd09d6adeea70209f419ed45e2a78/STREAMING-moonstone-all-ambient-main-version-44351-02-44.mp3"
+  },
+  {
+    "trackId": "13233",
+    "title": "Hymn For The Morning",
+    "artist": "all:ambient",
+    "artistSlug": "all-ambient",
+    "trackSlug": "hymn-for-the-morning",
+    "duration": 180,
+    "tempo": 0,
+    "energy": "Very Calm",
+    "kind": "ambient",
+    "genres": [
+      "Cinematic",
+      "Ambient"
+    ],
+    "moods": [
+      "Calm",
+      "Relaxing"
+    ],
+    "featuredTags": [
+      {
+        "name": "Spiritual",
+        "slug": "/music/category/spiritual"
+      },
+      {
+        "name": "Blissful",
+        "slug": "/music/category/happy/blissful"
+      },
+      {
+        "name": "Dreamy",
+        "slug": "/music/category/relaxing/dreamy"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/0c1958b592be802b8bd81d3fdfb51688/6a8d537b86bdba12a36368eb9ee1ffac/1cf41332a3fddc442515d4dc920a233b/STREAMING-hymn-for-the-morning-all-ambient-main-version-44342-03-00.mp3"
+  },
+  {
+    "trackId": "13320",
+    "title": "Smiling On The Inside",
+    "artist": "Holly Jones",
+    "artistSlug": "holly-jones",
+    "trackSlug": "smiling-on-the-inside",
+    "duration": 140,
+    "tempo": 74,
+    "energy": "Calm",
+    "kind": "piano",
+    "genres": [
+      "Cinematic",
+      "Classical"
+    ],
+    "moods": [
+      "Hopeful",
+      "Emotional",
+      "Happy",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Piano",
+        "slug": "/music/category/piano"
+      },
+      {
+        "name": "Wholesome",
+        "slug": "/music/category/wholesome"
+      },
+      {
+        "name": "Calm",
+        "slug": "/music/category/calm"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/0f0f1366b3fc3c69e430f4ad2b1bbf10/744cd8660d84a9f10c5e08a319362b57/a9e0d7afd9eb7f8a989d9bda86dd4541/STREAMING-smiling-on-the-inside-holly-jones-main-version-44561-02-20.mp3"
+  },
+  {
+    "trackId": "13316",
+    "title": "Thirteen",
+    "artist": "Holly Jones",
+    "artistSlug": "holly-jones",
+    "trackSlug": "thirteen",
+    "duration": 200,
+    "tempo": 65,
+    "energy": "Calm",
+    "kind": "piano",
+    "genres": [
+      "Cinematic",
+      "Classical"
+    ],
+    "moods": [
+      "Emotional",
+      "Happy",
+      "Sad",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Piano",
+        "slug": "/music/category/piano"
+      },
+      {
+        "name": "Emotional",
+        "slug": "/music/category/emotional"
+      },
+      {
+        "name": "Wholesome",
+        "slug": "/music/category/wholesome"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/0f0f1366b3fc3c69e430f4ad2b1bbf10/cc1c71d6363ec2ac366e9855a23d5849/bb871c7fcdfbf0c7b3d583de33e261d3/STREAMING-thirteen-holly-jones-main-version-44557-03-20.mp3"
+  },
+  {
+    "trackId": "13220",
+    "title": "Wind In The Trees",
+    "artist": "Peter Lainson",
+    "artistSlug": "peter-lainson",
+    "trackSlug": "wind-in-the-trees",
+    "duration": 148,
+    "tempo": 72,
+    "energy": "Calm",
+    "kind": "ambient",
+    "genres": [
+      "Folk",
+      "Cinematic",
+      "Acoustic"
+    ],
+    "moods": [
+      "Relaxing",
+      "Romantic",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Beautiful",
+        "slug": "/music/category/beautiful"
+      },
+      {
+        "name": "Intimate",
+        "slug": "/music/category/intimate"
+      },
+      {
+        "name": "Acoustic",
+        "slug": "/music/category/acoustic"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/80b29687a1620cd9bb590bfb9d3e6842/9e96372a76248c0850cdd5c2dbda0248/58b8069417c7e9ec8eba767ebbf26cb7/STREAMING-wind-in-the-trees-peter-lainson-main-version-44316-02-28.mp3"
+  },
+  {
+    "trackId": "13198",
+    "title": "Mafalda",
+    "artist": "Nicolas Kluzek",
+    "artistSlug": "nicolas-kluzek",
+    "trackSlug": "mafalda",
+    "duration": 145,
+    "tempo": 74,
+    "energy": "Calm",
+    "kind": "lofi",
+    "genres": [
+      "Lofi",
+      "Beats",
+      "Chillhop"
+    ],
+    "moods": [
+      "Relaxing",
+      "Chill",
+      "Happy",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Lofi Beats",
+        "slug": "/music/category/lo-fi-beats"
+      },
+      {
+        "name": "Jazzhop",
+        "slug": "/music/category/jazz/jazzhop"
+      },
+      {
+        "name": "Relaxing",
+        "slug": "/music/category/relaxing"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/b90989c8ba0b62e8eb948123e09825ac/3e6b121b3cb0258866b891a210c6deb7/2a651b011489d055064e6587f7bc1b5a/STREAMING-mafalda-nicolas-kluzek-main-version-44234-02-25.mp3"
+  },
+  {
+    "trackId": "13181",
+    "title": "Calm River",
+    "artist": "Dope Cat",
+    "artistSlug": "dope-cat",
+    "trackSlug": "calm-river",
+    "duration": 162,
+    "tempo": 80,
+    "energy": "Calm",
+    "kind": "lofi",
+    "genres": [
+      "Lofi",
+      "Beats",
+      "Chillhop"
+    ],
+    "moods": [
+      "Chill",
+      "Relaxing",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Lofi Beats",
+        "slug": "/music/category/lo-fi-beats"
+      },
+      {
+        "name": "Cozy",
+        "slug": "/music/category/relaxing/cozy"
+      },
+      {
+        "name": "Vlog",
+        "slug": "/music/category/vlog"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/73b1b73e653510791dae84f765479e57/eab4865a8b3c124d0b947347941264a2/c7db32f37142ddab177724d5e11d1c7e/STREAMING-calm-river-dope-cat-main-version-44019-02-42.mp3"
+  },
+  {
+    "trackId": "13093",
+    "title": "Memaloric",
+    "artist": "Abstract Aprils",
+    "artistSlug": "abstract-aprils",
+    "trackSlug": "memaloric",
+    "duration": 256,
+    "tempo": 0,
+    "energy": "Very Calm",
+    "kind": "ambient",
+    "genres": [
+      "Cinematic",
+      "Ambient"
+    ],
+    "moods": [
+      "Hopeful",
+      "Relaxing",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Ambient",
+        "slug": "/music/category/ambient"
+      },
+      {
+        "name": "Mindfulness",
+        "slug": "/music/category/mindfulness"
+      },
+      {
+        "name": "Documentary",
+        "slug": "/music/category/documentary"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/235bc0b11ae1cea20d1b0a93702d5072/5b9e871f57659a6501725dcad9faba88/13783a079cd5ecda2bad48e7c5878993/STREAMING-memaloric-abstract-aprils-main-version-43710-04-16.mp3"
+  },
+  {
+    "trackId": "13084",
+    "title": "Faded Memories",
+    "artist": "Vens Adams",
+    "artistSlug": "vens-adams",
+    "trackSlug": "faded-memories",
+    "duration": 146,
+    "tempo": 110,
+    "energy": "Very Calm",
+    "kind": "ambient",
+    "genres": [
+      "Ambient",
+      "Electronic"
+    ],
+    "moods": [
+      "Sad",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Mystery",
+        "slug": "/music/category/mystery"
+      },
+      {
+        "name": "Science",
+        "slug": "/music/category/science"
+      },
+      {
+        "name": "Dreamy",
+        "slug": "/music/category/relaxing/dreamy"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/90460af8401a0c906aa65f33459c4428/708744b93a9e2ef55d2e896ba492c347/df79970ec6eb1228e163e232002de0c7/STREAMING-faded-memories-vens-adams-main-version-43696-02-26.mp3"
+  },
+  {
+    "trackId": "13022",
+    "title": "Cozy Corner",
+    "artist": "Pecan Pie",
+    "artistSlug": "pecan-pie",
+    "trackSlug": "cozy-corner",
+    "duration": 78,
+    "tempo": 75,
+    "energy": "Calm",
+    "kind": "jazz",
+    "genres": [
+      "Jazz",
+      "Lofi",
+      "Beats",
+      "Chillhop"
+    ],
+    "moods": [
+      "Cute",
+      "Chill",
+      "Relaxing",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Coffee Shop",
+        "slug": "/music/category/coffee-shop"
+      },
+      {
+        "name": "Lofi Beats",
+        "slug": "/music/category/lo-fi-beats"
+      },
+      {
+        "name": "Jazzhop",
+        "slug": "/music/category/jazz/jazzhop"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/6fe37c64db62e03d698e462645fa35a7/3ce6705deecc48cc1646f7956ef744cb/7035191675fc3a8bdccfaff9ffc1c87f/STREAMING-cozy-corner-pecan-pie-main-version-43354-01-18.mp3"
+  },
+  {
+    "trackId": "13014",
+    "title": "Little Dream",
+    "artist": "Simon Folwar",
+    "artistSlug": "simon-folwar",
+    "trackSlug": "little-dream",
+    "duration": 60,
+    "tempo": 100,
+    "energy": "Very Calm",
+    "kind": "piano",
+    "genres": [
+      "Ambient",
+      "Classical"
+    ],
+    "moods": [
+      "Cute",
+      "Calm",
+      "Relaxing"
+    ],
+    "featuredTags": [
+      {
+        "name": "Lullaby",
+        "slug": "/music/category/children/lullaby"
+      },
+      {
+        "name": "Sleep",
+        "slug": "/music/category/relaxing/sleep"
+      },
+      {
+        "name": "Kids",
+        "slug": "/music/category/kids"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/0e5573c69208594d8a7e799df2ff2bcc/512e7b26ae139f13a8e08150e5154116/dbbbccdd9e70e182782d34739afd13fe/STREAMING-little-dream-simon-folwar-main-version-43262-01-00.mp3"
+  },
+  {
+    "trackId": "12985",
+    "title": "Kamakura",
+    "artist": "Flow State",
+    "artistSlug": "flow-state",
+    "trackSlug": "kamakura",
+    "duration": 156,
+    "tempo": 65,
+    "energy": "Calm",
+    "kind": "lofi",
+    "genres": [
+      "Beats",
+      "Chillhop",
+      "Lofi"
+    ],
+    "moods": [
+      "Relaxing",
+      "Sad",
+      "Calm"
+    ],
+    "featuredTags": [
+      {
+        "name": "Lofi Beats",
+        "slug": "/music/category/lo-fi-beats"
+      },
+      {
+        "name": "Mellow",
+        "slug": "/music/category/chill/mellow"
+      },
+      {
+        "name": "Peaceful",
+        "slug": "/music/category/relaxing/peaceful"
+      }
+    ],
+    "previewUrl": "https://cdn.uppbeat.io/audio-files/7f08d20637a6b40e5b4998747d8f9e44/96cfe8f406cd596c6360e5f55b98ccfd/dbca18aeacafe8b8ec97c6313826ae3f/STREAMING-kamakura-flow-state-main-version-43121-02-36.mp3"
+  }
+]

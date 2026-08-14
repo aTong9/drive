@@ -1,0 +1,910 @@
+{
+  "platformId": "bgmer",
+  "artist": "BGMer",
+  "description": "BGMer 官方 540 首目录中严格限定「のんびり」，优先 Chill、優雅、ムーディー、钢琴、Ambient、Chill Hop 与 Acoustic，并排除 EDM、Rock、Battle、Horror、Intense 等风险标签",
+  "downloadLabel": "官方 LONG MP3 下载",
+  "credit": "BGMer（普通背景音乐使用署名非强制，建议保留）",
+  "licenseNote": "官网允许个人与商业用途、YouTube 盈利及编辑/改编；可裁切、Fade 与后期循环。音乐介绍或转载型内容须署名，禁止冒充作者、未经许可销售或妨碍其他使用者。",
+  "items": [
+    [
+      "手紙を出すよ",
+      "https://bgmer.net/music/210",
+      "https://bgmer.net/wp-content/uploads/2021/12/210_long_BPM105.mp3",
+      602,
+      "piano",
+      "クラシック, ピアノ",
+      "日常, 嬉しい, 感動, ムーディー, のんびり, 優雅, おしゃれ"
+    ],
+    [
+      "笑顔ある厨房",
+      "https://bgmer.net/music/442",
+      "https://bgmer.net/wp-content/uploads/2025/01/442_long_BPM160.mp3",
+      633,
+      "piano",
+      "クラシック, ピアノ",
+      "日常, 感動, ムーディー, のんびり, 優雅, おしゃれ"
+    ],
+    [
+      "手をとりあって",
+      "https://bgmer.net/music/183",
+      "https://bgmer.net/wp-content/uploads/2021/12/183_long_BPM100.mp3",
+      625,
+      "piano",
+      "クラシック, ピアノ",
+      "嬉しい, 感動, ムーディー, のんびり, 優雅, おしゃれ"
+    ],
+    [
+      "BBQブルース",
+      "https://bgmer.net/music/107",
+      "https://bgmer.net/wp-content/uploads/2021/07/107_long_BPM104.mp3",
+      275,
+      "piano",
+      "ピアノ, R&B･JAZZ, アコースティック",
+      "ムーディー, のんびり, 優雅, おしゃれ"
+    ],
+    [
+      "ヒーリングファイア",
+      "https://bgmer.net/music/360",
+      "https://bgmer.net/wp-content/uploads/2023/01/360_long_BPM84.mp3",
+      589,
+      "piano",
+      "ピアノ, アンビエント",
+      "切ない, 感動, クール, ムーディー, のんびり, 優雅, おしゃれ"
+    ],
+    [
+      "いつかのカフェで ピアノver.",
+      "https://bgmer.net/music/m10_pf",
+      "https://bgmer.net/wp-content/uploads/2023/01/M10_Piano_long_BPM95.mp3",
+      667,
+      "piano",
+      "ピアノ",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "いつかの夏休み ピアノver.",
+      "https://bgmer.net/music/m02_pf",
+      "https://bgmer.net/wp-content/uploads/2023/01/M02_Piano_long_BPM80.mp3",
+      618,
+      "piano",
+      "ピアノ",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "うたたね ピアノver.",
+      "https://bgmer.net/music/m15_pf",
+      "https://bgmer.net/wp-content/uploads/2023/01/M15_Piano_long_BPM92.mp3",
+      634,
+      "piano",
+      "ピアノ",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "さよならのかわりに ピアノver.",
+      "https://bgmer.net/music/m12_pf",
+      "https://bgmer.net/wp-content/uploads/2023/01/M12_Piano_long_BPM68.mp3",
+      690,
+      "piano",
+      "ピアノ",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "また、あした。 ピアノver.",
+      "https://bgmer.net/music/m14_pf",
+      "https://bgmer.net/wp-content/uploads/2023/01/M14_Piano_long_BPM72.mp3",
+      679,
+      "piano",
+      "ピアノ",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "まどろみのしらべ ピアノver.",
+      "https://bgmer.net/music/m11_pf",
+      "https://bgmer.net/wp-content/uploads/2023/01/M11_Piano_long_BPM92.mp3",
+      632,
+      "piano",
+      "ピアノ",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "ゆれる花筏 ピアノver.",
+      "https://bgmer.net/music/m03_pf",
+      "https://bgmer.net/wp-content/uploads/2023/01/M03_Piano_long_BPM70.mp3",
+      568,
+      "piano",
+      "ピアノ",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "雨上がりの林道 ピアノver.",
+      "https://bgmer.net/music/m17_pf",
+      "https://bgmer.net/wp-content/uploads/2023/01/M17_Piano_long_BPM100.mp3",
+      588,
+      "piano",
+      "ピアノ",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "故郷の夕日 ピアノver.",
+      "https://bgmer.net/music/m01_pf",
+      "https://bgmer.net/wp-content/uploads/2023/01/M01_Piano_long_BPM70.mp3",
+      694,
+      "piano",
+      "ピアノ",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "紫陽花の夢 ピアノver.",
+      "https://bgmer.net/music/m16_pf",
+      "https://bgmer.net/wp-content/uploads/2023/01/M16_Piano_long_BPM60.mp3",
+      658,
+      "piano",
+      "ピアノ",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "秋の行方 ピアノver.",
+      "https://bgmer.net/music/m04_pf",
+      "https://bgmer.net/wp-content/uploads/2023/01/M04_Piano_long_BPM63.mp3",
+      565,
+      "piano",
+      "ピアノ",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "神無月 ピアノver.",
+      "https://bgmer.net/music/m06_pf",
+      "https://bgmer.net/wp-content/uploads/2023/01/M06_Piano_long_BPM80.mp3",
+      561,
+      "piano",
+      "ピアノ",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "星空の子守唄 ピアノver.",
+      "https://bgmer.net/music/m13_pf",
+      "https://bgmer.net/wp-content/uploads/2023/01/M13_Piano_long_BPM73.mp3",
+      813,
+      "piano",
+      "ピアノ",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "雪とマフラー ピアノver.",
+      "https://bgmer.net/music/m05_pf",
+      "https://bgmer.net/wp-content/uploads/2023/01/M05_Piano_long_BPM90-80.mp3",
+      560,
+      "piano",
+      "ピアノ",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "淡い記憶 ピアノver.",
+      "https://bgmer.net/music/m20_pf",
+      "https://bgmer.net/wp-content/uploads/2023/01/M20_Piano_long_BPM80-65.mp3",
+      679,
+      "piano",
+      "ピアノ",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "潮風に乗せて ピアノver.",
+      "https://bgmer.net/music/m07_pf",
+      "https://bgmer.net/wp-content/uploads/2023/01/M07_Piano_long_BPM75.mp3",
+      644,
+      "piano",
+      "ピアノ",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "湯けむりの里 ピアノver.",
+      "https://bgmer.net/music/m09_pf",
+      "https://bgmer.net/wp-content/uploads/2023/01/M09_Piano_long_BPM75.mp3",
+      679,
+      "piano",
+      "ピアノ",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "謎解きの時間 ピアノver.",
+      "https://bgmer.net/music/m18_pf",
+      "https://bgmer.net/wp-content/uploads/2023/01/M18_Piano_long_BPM98.mp3",
+      719,
+      "piano",
+      "ピアノ",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "秘密の森 ピアノver.",
+      "https://bgmer.net/music/m08_pf",
+      "https://bgmer.net/wp-content/uploads/2023/01/M08_Piano_long_BPM65.mp3",
+      713,
+      "piano",
+      "ピアノ",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "夕焼けと分かれ道",
+      "https://bgmer.net/music/003",
+      "https://bgmer.net/wp-content/uploads/2021/05/003_long_BPM95.mp3",
+      302,
+      "piano",
+      "ピアノ, R&B･JAZZ",
+      "嬉しい, 切ない, 感動, ムーディー, のんびり, おしゃれ"
+    ],
+    [
+      "三日月のカクテル",
+      "https://bgmer.net/music/256",
+      "https://bgmer.net/wp-content/uploads/2022/03/256_long_BPM118.mp3",
+      668,
+      "piano",
+      "クラシック, ピアノ, R&B･JAZZ",
+      "切ない, 感動, クール, ムーディー, のんびり, おしゃれ"
+    ],
+    [
+      "母なる海へ",
+      "https://bgmer.net/music/216",
+      "https://bgmer.net/wp-content/uploads/2022/03/216_long_BPM65.mp3",
+      644,
+      "piano",
+      "ピアノ",
+      "日常, 嬉しい, 悲しい, 切ない, 感動, ムーディー, のんびり, おしゃれ"
+    ],
+    [
+      "廻想のレコード",
+      "https://bgmer.net/music/339",
+      "https://bgmer.net/wp-content/uploads/2023/01/339_long_BPM88.mp3",
+      681,
+      "piano",
+      "ピアノ, エレクトロ･8bit, アコースティック",
+      "嬉しい, 切ない, クール, ムーディー, のんびり, おしゃれ"
+    ],
+    [
+      "僕らのエピローグ",
+      "https://bgmer.net/music/314",
+      "https://bgmer.net/wp-content/uploads/2022/05/314_long_BPM73.mp3",
+      650,
+      "piano",
+      "クラシック, ピアノ",
+      "日常, 嬉しい, 切ない, 感動, のんびり"
+    ],
+    [
+      "悠久庭園",
+      "https://bgmer.net/music/228",
+      "https://bgmer.net/wp-content/uploads/2022/03/228_long_BPM72.mp3",
+      654,
+      "piano",
+      "和風, ピアノ",
+      "日常, 嬉しい, 切ない, 感動, のんびり"
+    ],
+    [
+      "ふたりだけの小道",
+      "https://bgmer.net/music/411",
+      "https://bgmer.net/wp-content/uploads/2023/06/411_long_BPM70.mp3",
+      604,
+      "piano",
+      "ピアノ",
+      "嬉しい, 感動, のんびり"
+    ],
+    [
+      "記念日のたびに",
+      "https://bgmer.net/music/349",
+      "https://bgmer.net/wp-content/uploads/2023/01/349_long_BPM70.mp3",
+      665,
+      "piano",
+      "クラシック, ピアノ",
+      "嬉しい, 悲しい, 切ない, 感動, クール, ムーディー, のんびり, おしゃれ"
+    ],
+    [
+      "宇宙の誕生",
+      "https://bgmer.net/music/359",
+      "https://bgmer.net/wp-content/uploads/2023/01/359_long_BPM120.mp3",
+      684,
+      "ambient",
+      "アンビエント, エレクトロ･8bit",
+      "切ない, 感動, クール, ムーディー, のんびり, 優雅, おしゃれ"
+    ],
+    [
+      "深海と宇宙",
+      "https://bgmer.net/music/358",
+      "https://bgmer.net/wp-content/uploads/2023/01/358_long_BPM78.mp3",
+      623,
+      "ambient",
+      "アンビエント",
+      "感動, クール, ムーディー, のんびり, 優雅, おしゃれ"
+    ],
+    [
+      "プラネタリウム",
+      "https://bgmer.net/music/362",
+      "https://bgmer.net/wp-content/uploads/2023/01/362_long_BPM68.mp3",
+      620,
+      "ambient",
+      "アンビエント, エレクトロ･8bit",
+      "切ない, クール, ムーディー, のんびり, 優雅, おしゃれ"
+    ],
+    [
+      "J4U Liquid Bed 11PM",
+      "https://bgmer.net/music/lt098",
+      "https://bgmer.net/wp-content/uploads/2021/12/LT098_LONG.mp3",
+      638,
+      "jazz",
+      "R&B･JAZZ, Chill Hop",
+      "切ない, クール, ムーディー, のんびり, Chill, おしゃれ"
+    ],
+    [
+      "Lunar Eclipse Crack",
+      "https://bgmer.net/music/lt012",
+      "https://bgmer.net/wp-content/uploads/2021/11/12_BPM84_LONG.mp3",
+      280,
+      "lofi",
+      "Chill Hop",
+      "切ない, 感動, クール, ムーディー, のんびり, 優雅, Chill, おしゃれ"
+    ],
+    [
+      "ヒッピーになりたい",
+      "https://bgmer.net/music/382",
+      "https://bgmer.net/wp-content/uploads/2023/06/382_long_BPM80.mp3",
+      604,
+      "lofi",
+      "エレクトロ･8bit, Chill Hop",
+      "感動, クール, ムーディー, のんびり, 優雅, Chill, おしゃれ"
+    ],
+    [
+      "Chilled Cow Vinyl tape",
+      "https://bgmer.net/music/lt056",
+      "https://bgmer.net/wp-content/uploads/2021/11/56_BPM100_LONG.mp3",
+      244,
+      "lofi",
+      "Chill Hop",
+      "切ない, クール, ムーディー, のんびり, 優雅, Chill, おしゃれ"
+    ],
+    [
+      "EnNen Invisible town",
+      "https://bgmer.net/music/lt037",
+      "https://bgmer.net/wp-content/uploads/2021/11/37_BPM85_LONG.mp3",
+      269,
+      "lofi",
+      "Chill Hop",
+      "切ない, クール, ムーディー, のんびり, 優雅, Chill, おしゃれ"
+    ],
+    [
+      "Plums Light there",
+      "https://bgmer.net/music/lt067",
+      "https://bgmer.net/wp-content/uploads/2021/11/67_BPM100_LONG.mp3",
+      271,
+      "lofi",
+      "Chill Hop",
+      "切ない, クール, ムーディー, のんびり, 優雅, Chill, おしゃれ"
+    ],
+    [
+      "Plums See Through HighWay",
+      "https://bgmer.net/music/lt017",
+      "https://bgmer.net/wp-content/uploads/2021/11/17_BPM79_LONG.mp3",
+      272,
+      "lofi",
+      "Chill Hop",
+      "切ない, クール, ムーディー, のんびり, 優雅, Chill, おしゃれ"
+    ],
+    [
+      "Zodd Youth movie",
+      "https://bgmer.net/music/lt046",
+      "https://bgmer.net/wp-content/uploads/2021/11/46_BPM86_LONG.mp3",
+      249,
+      "lofi",
+      "Chill Hop",
+      "切ない, クール, ムーディー, のんびり, 優雅, Chill, おしゃれ"
+    ],
+    [
+      "摩天楼を見下ろして",
+      "https://bgmer.net/music/134",
+      "https://bgmer.net/wp-content/uploads/2022/03/134_long_BPM90.mp3",
+      688,
+      "lofi",
+      "エレクトロ･8bit, Chill Hop",
+      "切ない, 不思議, 感動, クール, ムーディー, のんびり, 優雅, Chill, おしゃれ"
+    ],
+    [
+      "Chilled Cow Charcoal pillow",
+      "https://bgmer.net/music/lt076",
+      "https://bgmer.net/wp-content/uploads/2021/11/76_bpm76_LONG.mp3",
+      250,
+      "lofi",
+      "Chill Hop",
+      "悲しい, 切ない, 感動, クール, ムーディー, のんびり, 優雅, Chill, おしゃれ"
+    ],
+    [
+      "Chilled Cow Clock strikes",
+      "https://bgmer.net/music/lt032",
+      "https://bgmer.net/wp-content/uploads/2021/11/32_BPM77_LONG.mp3",
+      291,
+      "lofi",
+      "Chill Hop",
+      "不思議, クール, ムーディー, のんびり, 優雅, Chill, おしゃれ"
+    ],
+    [
+      "Daryl Beat Pill case",
+      "https://bgmer.net/music/lt052",
+      "https://bgmer.net/wp-content/uploads/2021/11/52_BPM76_LONG.mp3",
+      257,
+      "lofi",
+      "Chill Hop",
+      "切ない, 不思議, クール, ムーディー, のんびり, 優雅, Chill, おしゃれ"
+    ],
+    [
+      "Lunar Eclipse Dreambox",
+      "https://bgmer.net/music/lt011",
+      "https://bgmer.net/wp-content/uploads/2021/11/11_BPM90_LONG.mp3",
+      188,
+      "lofi",
+      "Chill Hop",
+      "切ない, 不思議, クール, ムーディー, のんびり, 優雅, Chill, おしゃれ"
+    ],
+    [
+      "Showa Pudding harassment",
+      "https://bgmer.net/music/lt042",
+      "https://bgmer.net/wp-content/uploads/2021/11/42_BPM64_LONG.mp3",
+      244,
+      "lofi",
+      "Chill Hop",
+      "切ない, 不思議, クール, ムーディー, のんびり, 優雅, Chill, おしゃれ"
+    ],
+    [
+      "Chilled Cow Sine Symphony",
+      "https://bgmer.net/music/lt057",
+      "https://bgmer.net/wp-content/uploads/2021/11/57_BPM70_LONG.mp3",
+      248,
+      "lofi",
+      "Chill Hop",
+      "切ない, 感動, クール, ムーディー, のんびり, Chill, おしゃれ"
+    ],
+    [
+      "疲れたパリピ",
+      "https://bgmer.net/music/419",
+      "https://bgmer.net/wp-content/uploads/2023/12/419_long_BPM78.mp3",
+      709,
+      "lofi",
+      "エレクトロ･8bit, Chill Hop",
+      "切ない, 感動, クール, ムーディー, のんびり, Chill, おしゃれ"
+    ],
+    [
+      "Aktk 12sec",
+      "https://bgmer.net/music/lt025",
+      "https://bgmer.net/wp-content/uploads/2021/12/25_BPM75_LONG.mp3",
+      277,
+      "lofi",
+      "Chill Hop",
+      "切ない, クール, ムーディー, のんびり, Chill, おしゃれ"
+    ],
+    [
+      "Aktk Hillside Store",
+      "https://bgmer.net/music/lt088",
+      "https://bgmer.net/wp-content/uploads/2021/12/88_BPM80_LONG.mp3",
+      246,
+      "lofi",
+      "Chill Hop",
+      "切ない, クール, ムーディー, のんびり, Chill, おしゃれ"
+    ],
+    [
+      "Aktk Magician and boy",
+      "https://bgmer.net/music/lt087",
+      "https://bgmer.net/wp-content/uploads/2021/12/87_BPM90_LONG.mp3",
+      270,
+      "lofi",
+      "Chill Hop",
+      "切ない, クール, ムーディー, のんびり, Chill, おしゃれ"
+    ],
+    [
+      "Aktk Moon Balloon",
+      "https://bgmer.net/music/lt089",
+      "https://bgmer.net/wp-content/uploads/2021/12/89_BPM90_LONG.mp3",
+      272,
+      "lofi",
+      "Chill Hop",
+      "切ない, クール, ムーディー, のんびり, Chill, おしゃれ"
+    ],
+    [
+      "Aktk Plastictic",
+      "https://bgmer.net/music/lt024",
+      "https://bgmer.net/wp-content/uploads/2021/12/24_BPM82_LONG.mp3",
+      230,
+      "lofi",
+      "Chill Hop",
+      "切ない, クール, ムーディー, のんびり, Chill, おしゃれ"
+    ],
+    [
+      "Aktk Seven Forty Seven",
+      "https://bgmer.net/music/lt022",
+      "https://bgmer.net/wp-content/uploads/2021/11/22_BPM88_LONG.mp3",
+      253,
+      "lofi",
+      "Chill Hop",
+      "切ない, クール, ムーディー, のんびり, Chill, おしゃれ"
+    ],
+    [
+      "Aktk Talking Bed",
+      "https://bgmer.net/music/lt086",
+      "https://bgmer.net/wp-content/uploads/2021/12/86_BPM79_LONG.mp3",
+      271,
+      "lofi",
+      "Chill Hop",
+      "切ない, クール, ムーディー, のんびり, Chill, おしゃれ"
+    ],
+    [
+      "Aktk Telephone Call",
+      "https://bgmer.net/music/lt023",
+      "https://bgmer.net/wp-content/uploads/2021/11/23_BPM66_LONG.mp3",
+      265,
+      "lofi",
+      "Chill Hop",
+      "切ない, クール, ムーディー, のんびり, Chill, おしゃれ"
+    ],
+    [
+      "Chill Zombie All About Nightttime",
+      "https://bgmer.net/music/lt005",
+      "https://bgmer.net/wp-content/uploads/2021/12/5_BPM81_LONG.mp3",
+      289,
+      "lofi",
+      "Chill Hop",
+      "切ない, クール, ムーディー, のんびり, Chill, おしゃれ"
+    ],
+    [
+      "Chill Zombie Ancient Whispers",
+      "https://bgmer.net/music/lt108",
+      "https://bgmer.net/wp-content/uploads/2024/02/LT108_BPM68_LONG.mp3",
+      273,
+      "lofi",
+      "Chill Hop",
+      "切ない, クール, ムーディー, のんびり, Chill, おしゃれ"
+    ],
+    [
+      "Chill Zombie Ape Son",
+      "https://bgmer.net/music/lt075",
+      "https://bgmer.net/wp-content/uploads/2021/12/75_bpm85_LONG.mp3",
+      263,
+      "lofi",
+      "Chill Hop",
+      "切ない, クール, ムーディー, のんびり, Chill, おしゃれ"
+    ],
+    [
+      "Chill Zombie Carousel",
+      "https://bgmer.net/music/lt001",
+      "https://bgmer.net/wp-content/uploads/2021/11/1_BPM87_LONG.mp3",
+      270,
+      "lofi",
+      "Chill Hop",
+      "クール, ムーディー, のんびり, Chill, おしゃれ"
+    ],
+    [
+      "Chill Zombie Cozy Cafe",
+      "https://bgmer.net/music/lt110",
+      "https://bgmer.net/wp-content/uploads/2024/02/LT110_BPM75_LONG.mp3",
+      259,
+      "lofi",
+      "Chill Hop",
+      "切ない, クール, ムーディー, のんびり, Chill, おしゃれ"
+    ],
+    [
+      "Chill Zombie Dolphin",
+      "https://bgmer.net/music/lt074",
+      "https://bgmer.net/wp-content/uploads/2021/12/74_bpm62_LONG.mp3",
+      236,
+      "lofi",
+      "Chill Hop",
+      "切ない, クール, ムーディー, のんびり, Chill, おしゃれ"
+    ],
+    [
+      "Chill Zombie In Your Head",
+      "https://bgmer.net/music/lt071",
+      "https://bgmer.net/wp-content/uploads/2021/11/71_bpm86_LONG.mp3",
+      243,
+      "lofi",
+      "Chill Hop",
+      "切ない, クール, ムーディー, のんびり, Chill, おしゃれ"
+    ],
+    [
+      "Chill Zombie Juice Dripper",
+      "https://bgmer.net/music/lt003",
+      "https://bgmer.net/wp-content/uploads/2021/11/3_BPM80_LONG.mp3",
+      236,
+      "lofi",
+      "Chill Hop",
+      "切ない, クール, ムーディー, のんびり, Chill, おしゃれ"
+    ],
+    [
+      "Chill Zombie Mellow Moonlit Moments",
+      "https://bgmer.net/music/lt109",
+      "https://bgmer.net/wp-content/uploads/2024/02/LT109_BPM55_LONG.mp3",
+      277,
+      "lofi",
+      "Chill Hop",
+      "切ない, クール, ムーディー, のんびり, Chill, おしゃれ"
+    ],
+    [
+      "Chill Zombie Room in my Fumes",
+      "https://bgmer.net/music/lt002",
+      "https://bgmer.net/wp-content/uploads/2021/11/2_BPM77_LONG.mp3",
+      297,
+      "lofi",
+      "Chill Hop",
+      "切ない, クール, ムーディー, のんびり, Chill, おしゃれ"
+    ],
+    [
+      "Chill Zombie Selphy",
+      "https://bgmer.net/music/lt073",
+      "https://bgmer.net/wp-content/uploads/2021/11/73_bpm78_LONG.mp3",
+      262,
+      "lofi",
+      "Chill Hop",
+      "切ない, クール, ムーディー, のんびり, Chill, おしゃれ"
+    ],
+    [
+      "Chill Zombie Soothing Drops",
+      "https://bgmer.net/music/lt107",
+      "https://bgmer.net/wp-content/uploads/2024/02/LT107_BPM81_LONG.mp3",
+      280,
+      "lofi",
+      "Chill Hop",
+      "切ない, クール, ムーディー, のんびり, Chill, おしゃれ"
+    ],
+    [
+      "何年経っても",
+      "https://bgmer.net/music/167",
+      "https://bgmer.net/wp-content/uploads/2021/10/167_long_BPM66.mp3",
+      661,
+      "acoustic",
+      "ポップ, アコースティック",
+      "日常, 嬉しい, 感動, ムーディー, のんびり, 優雅, Chill"
+    ],
+    [
+      "遠くの景色",
+      "https://bgmer.net/music/294",
+      "https://bgmer.net/wp-content/uploads/2022/05/294_long_BPM88.mp3",
+      612,
+      "acoustic",
+      "アコースティック",
+      "日常, 切ない, 感動, クール, ムーディー, のんびり, 優雅, Chill, おしゃれ"
+    ],
+    [
+      "買い物日和",
+      "https://bgmer.net/music/432",
+      "https://bgmer.net/wp-content/uploads/2024/09/432_long_BPM100.mp3",
+      660,
+      "acoustic",
+      "アコースティック",
+      "日常, クール, ムーディー, のんびり, 優雅, Chill, おしゃれ"
+    ],
+    [
+      "ハンモッカー",
+      "https://bgmer.net/music/384",
+      "https://bgmer.net/wp-content/uploads/2023/06/384_long_BPM75.mp3",
+      635,
+      "acoustic",
+      "エレクトロ･8bit, アコースティック",
+      "日常, クール, ムーディー, のんびり, Chill, おしゃれ"
+    ],
+    [
+      "受け継がれゆく心",
+      "https://bgmer.net/music/296",
+      "https://bgmer.net/wp-content/uploads/2022/05/296_long_BPM85.mp3",
+      676,
+      "acoustic",
+      "アコースティック",
+      "日常, ムーディー, のんびり, 優雅, おしゃれ"
+    ],
+    [
+      "コーヒーブレイク",
+      "https://bgmer.net/music/278",
+      "https://bgmer.net/wp-content/uploads/2023/01/278_long_BPM118.mp3",
+      692,
+      "acoustic",
+      "アコースティック",
+      "日常, クール, ムーディー, のんびり, 優雅, おしゃれ"
+    ],
+    [
+      "いつかのカフェで オルゴールver.",
+      "https://bgmer.net/music/m10_musicbox",
+      "https://bgmer.net/wp-content/uploads/2023/01/M10_MusicBox_long_BPM95.mp3",
+      667,
+      "acoustic",
+      "クラシック, アコースティック",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "いつかのカフェで ハープver.",
+      "https://bgmer.net/music/m10_harp",
+      "https://bgmer.net/wp-content/uploads/2023/01/M10_Harp_long_BPM95.mp3",
+      667,
+      "acoustic",
+      "クラシック, アコースティック",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "いつかのカフェで 木琴ver.",
+      "https://bgmer.net/music/m10_marimba",
+      "https://bgmer.net/wp-content/uploads/2023/01/M10_Marimba_long_BPM95.mp3",
+      667,
+      "acoustic",
+      "アコースティック",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "いつかの夏休み オルゴールver.",
+      "https://bgmer.net/music/m02_musicbox",
+      "https://bgmer.net/wp-content/uploads/2023/01/M02_MusicBox_long_BPM80.mp3",
+      618,
+      "acoustic",
+      "クラシック, アコースティック",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "いつかの夏休み ハープver.",
+      "https://bgmer.net/music/m02_harp",
+      "https://bgmer.net/wp-content/uploads/2023/01/M02_Harp_long_BPM80.mp3",
+      618,
+      "acoustic",
+      "クラシック, アコースティック",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "うたたね オルゴールver.",
+      "https://bgmer.net/music/m15_musicbox",
+      "https://bgmer.net/wp-content/uploads/2023/01/M15_MusicBox_long_BPM92.mp3",
+      634,
+      "acoustic",
+      "クラシック, アコースティック",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "うたたね ハープver.",
+      "https://bgmer.net/music/m15_harp",
+      "https://bgmer.net/wp-content/uploads/2023/01/M15_Harp_long_BPM92.mp3",
+      634,
+      "acoustic",
+      "クラシック, アコースティック",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "うたたね 木琴ver.",
+      "https://bgmer.net/music/m15_marimba",
+      "https://bgmer.net/wp-content/uploads/2023/01/M15_Marimba_long_BPM92.mp3",
+      634,
+      "acoustic",
+      "アコースティック",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "さよならのかわりに オルゴールver.",
+      "https://bgmer.net/music/m12_musicbox",
+      "https://bgmer.net/wp-content/uploads/2023/01/M12_MusicBox_long_BPM68.mp3",
+      690,
+      "acoustic",
+      "クラシック, アコースティック",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "さよならのかわりに ハープver.",
+      "https://bgmer.net/music/m12_harp",
+      "https://bgmer.net/wp-content/uploads/2023/01/M12_Harp_long_BPM68.mp3",
+      690,
+      "acoustic",
+      "クラシック, アコースティック",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "また、あした。 オルゴールver.",
+      "https://bgmer.net/music/m14_musicbox",
+      "https://bgmer.net/wp-content/uploads/2023/01/M14_MusicBox_long_BPM72.mp3",
+      679,
+      "acoustic",
+      "クラシック, アコースティック",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "また、あした。 ハープver.",
+      "https://bgmer.net/music/m14_harp",
+      "https://bgmer.net/wp-content/uploads/2023/01/M14_Harp_long_BPM72.mp3",
+      679,
+      "acoustic",
+      "クラシック, アコースティック",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "また、あした。 木琴ver.",
+      "https://bgmer.net/music/m14_marimba",
+      "https://bgmer.net/wp-content/uploads/2023/01/M14_Marimba_long_BPM72_Key-3.mp3",
+      679,
+      "acoustic",
+      "アコースティック",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "まどろみのしらべ オルゴールver.",
+      "https://bgmer.net/music/m11_musicbox",
+      "https://bgmer.net/wp-content/uploads/2023/01/M11_MusicBox_long_BPM92.mp3",
+      632,
+      "acoustic",
+      "クラシック, アコースティック",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "まどろみのしらべ ハープver.",
+      "https://bgmer.net/music/m11_harp",
+      "https://bgmer.net/wp-content/uploads/2023/01/M11_Harp_long_BPM92.mp3",
+      632,
+      "acoustic",
+      "クラシック, アコースティック",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "まどろみのしらべ 木琴ver.",
+      "https://bgmer.net/music/m11_marimba",
+      "https://bgmer.net/wp-content/uploads/2023/01/M11_Marimba_long_BPM92_Key-4.mp3",
+      632,
+      "acoustic",
+      "アコースティック",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "やすらぎのしらべ",
+      "https://bgmer.net/music/295",
+      "https://bgmer.net/wp-content/uploads/2022/05/295_long_BPM94.mp3",
+      685,
+      "acoustic",
+      "アコースティック",
+      "日常, 感動, ムーディー, のんびり, おしゃれ"
+    ],
+    [
+      "ゆれる花筏 オルゴールver.",
+      "https://bgmer.net/music/m03_musicbox",
+      "https://bgmer.net/wp-content/uploads/2023/01/M03_MusicBox_long_BPM70.mp3",
+      568,
+      "acoustic",
+      "クラシック, アコースティック",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "ゆれる花筏 ハープver.",
+      "https://bgmer.net/music/m03_harp",
+      "https://bgmer.net/wp-content/uploads/2023/01/M03_Harp_long_BPM70.mp3",
+      568,
+      "acoustic",
+      "クラシック, アコースティック",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり"
+    ],
+    [
+      "ソメイヨシノ",
+      "https://bgmer.net/music/220",
+      "https://bgmer.net/wp-content/uploads/2022/03/220_long_BPM86.mp3",
+      627,
+      "acoustic",
+      "和風",
+      "日常, 嬉しい, 切ない, 感動, ムーディー, のんびり, 優雅, Chill, おしゃれ"
+    ],
+    [
+      "のんびり逃避行",
+      "https://bgmer.net/music/383",
+      "https://bgmer.net/wp-content/uploads/2023/06/383_long_BPM85.mp3",
+      641,
+      "acoustic",
+      "エレクトロ･8bit",
+      "日常, クール, ムーディー, のんびり, 優雅, Chill, おしゃれ"
+    ],
+    [
+      "想い出の魔法",
+      "https://bgmer.net/music/445",
+      "https://bgmer.net/wp-content/uploads/2024/03/445_long_BPM170.mp3",
+      629,
+      "acoustic",
+      "エレクトロ･8bit",
+      "切ない, 不思議, クール, ムーディー, のんびり, 優雅, Chill, おしゃれ"
+    ],
+    [
+      "Chill Zombie Tranquiloop Drift",
+      "https://bgmer.net/music/lt106",
+      "https://bgmer.net/wp-content/uploads/2024/02/LT106_BPM59_LONG.mp3",
+      255,
+      "lofi",
+      "Chill Hop",
+      "切ない, クール, ムーディー, のんびり, Chill, おしゃれ"
+    ]
+  ]
+}

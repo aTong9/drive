@@ -4,9 +4,13 @@ import path from "node:path";
 const args = process.argv.slice(2);
 const dumpPaths = [];
 let provinceFilter;
+let target = 20;
+let prefix = "exp20-";
 for (let index = 0; index < args.length; index += 1) {
   if (args[index] === "--dump") dumpPaths.push(args[++index]);
   else if (args[index] === "--province") provinceFilter = args[++index];
+  else if (args[index] === "--target") target = Number(args[++index]);
+  else if (args[index] === "--prefix") prefix = args[++index];
 }
 if (dumpPaths.length === 0) {
   console.error("Usage: node scripts/import-geonames-expansion.mjs --dump /path/CN.txt [--dump /path/TW.txt] [--province 广东]");
@@ -16,8 +20,8 @@ if (dumpPaths.length === 0) {
 const catalogPath = new URL("../data/catalog.json", import.meta.url);
 const regions = JSON.parse(await readFile(new URL("../data/regions.json", import.meta.url), "utf8"));
 const catalog = JSON.parse(await readFile(catalogPath, "utf8"));
-const target = 20;
-const prefix = "exp20-";
+if (!Number.isInteger(target) || target < 1) throw new Error("--target must be a positive integer");
+if (!/^[a-z0-9-]+-$/u.test(prefix)) throw new Error("--prefix must be a lowercase ID prefix ending in '-'");
 const records = [];
 
 for (const dumpPath of dumpPaths) {

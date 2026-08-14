@@ -1,0 +1,809 @@
+{
+  "platformId": "mixkit",
+  "description": "Mixkit 官方 Ambient、Piano、Jazz、Relaxed、Smooth、Meditation、Relaxation、Slow、Soft 与 Lo-Fi 分类交叉去重，并排除 Aggressive、Eerie、Horror、Energetic、EDM、Rock、Disturbing、Driving、Trailer、Epic、Dance、House 等强烈方向",
+  "downloadLabel": "Mixkit 官方下载页",
+  "credit": "Mixkit 免费音乐通常无需署名；建议保留“曲名 — 作者 / Mixkit”",
+  "licenseNote": "Mixkit Free License 允许免费用于 YouTube、社交媒体、Podcast 与在线广告背景音乐且无需署名，可在视频剪辑中裁切、Fade、Loop 和调整音量；不得单独再分发，且许可不覆盖电视、广播、电子游戏、CD 或 DVD。",
+  "items": [
+    [
+      "Voxscape",
+      571,
+      "Eugenio Mininni",
+      300,
+      "https://assets.mixkit.co/music/571/571.mp3",
+      "Ambient, Atmospheric, Mystical, Bass, Synth, Background"
+    ],
+    [
+      "Rest Now",
+      584,
+      "Eugenio Mininni",
+      300,
+      "https://assets.mixkit.co/music/584/584.mp3",
+      "Ambient, Atmospheric, Meditative, Synth, Space"
+    ],
+    [
+      "Opalescent",
+      593,
+      "Eugenio Mininni",
+      284,
+      "https://assets.mixkit.co/music/593/593.mp3",
+      "Ambient, Electronica, Atmospheric, Meditative, Bass, Drums, Melodic"
+    ],
+    [
+      "Nield Grohm Hanging 4",
+      541,
+      "Eugenio Mininni",
+      231,
+      "https://assets.mixkit.co/music/541/541.mp3",
+      "World, Traditional, Mystical, Meditative, Percussion, Wildlife"
+    ],
+    [
+      "Vastness",
+      184,
+      "Andrew Ev",
+      230,
+      "https://assets.mixkit.co/music/184/184.mp3",
+      "Ambient, Electronica, Atmospheric, Relaxed, Bass, Drums, Cinematic, Relaxation"
+    ],
+    [
+      "Charlotte",
+      586,
+      "Eugenio Mininni",
+      225,
+      "https://assets.mixkit.co/music/586/586.mp3",
+      "Relaxed, Soothing, Electric Guitar, Piano, Arabic, Relaxation"
+    ],
+    [
+      "Skyline",
+      601,
+      "Eugenio Mininni",
+      206,
+      "https://assets.mixkit.co/music/601/601.mp3",
+      "Classical, Film Score, Romantic, Reflective, Cello, Wedding, Human Drama"
+    ],
+    [
+      "Piano Reflections",
+      22,
+      "Ahjay Stelino",
+      199,
+      "https://assets.mixkit.co/music/22/22.mp3",
+      "Corporate Music, Reflective, Melancholic, Bass, Drums, Love, Instrumental"
+    ],
+    [
+      "Classical 4",
+      711,
+      "Jonny S.",
+      189,
+      "https://assets.mixkit.co/music/711/711.mp3",
+      "Film Score, Romantic, Hopeful, Piano, Human Drama"
+    ],
+    [
+      "Silent Descent",
+      614,
+      "Eugenio Mininni",
+      160,
+      "https://assets.mixkit.co/music/614/614.mp3",
+      "Film Score, Reflective, Melancholic, Piano, Strings, Cinematic, Melodic"
+    ],
+    [
+      "Romantic",
+      659,
+      "Francisco Alvear",
+      159,
+      "https://assets.mixkit.co/music/659/659.mp3",
+      "Film Score, Romantic, Reflective, Double Bass, Wedding, Human Drama"
+    ],
+    [
+      "Possible Dreams",
+      599,
+      "Eugenio Mininni",
+      159,
+      "https://assets.mixkit.co/music/599/599.mp3",
+      "Classical, Romantic, Reflective, Strings, Wedding, Human Drama"
+    ],
+    [
+      "Smooth Like Jazz",
+      24,
+      "Ahjay Stelino",
+      158,
+      "https://assets.mixkit.co/music/24/24.mp3",
+      "Jazz, Blues, Relaxed, Melancholic, Clarinet, Double Bass, Cocktail Lounge, Comedy"
+    ],
+    [
+      "Classical 7",
+      714,
+      "Jonny S.",
+      156,
+      "https://assets.mixkit.co/music/714/714.mp3",
+      "Film Score, Reflective, Melancholic, Piano, Human Drama"
+    ],
+    [
+      "Smooth Meditation",
+      324,
+      "Arulo",
+      154,
+      "https://assets.mixkit.co/music/324/324.mp3",
+      "Ambient, New Age, Atmospheric, Relaxed, Bass, Keyboard, Underwater"
+    ],
+    [
+      "Pop 05",
+      695,
+      "Grigoriy Nuzhny",
+      154,
+      "https://assets.mixkit.co/music/695/695.mp3",
+      "Lounge, Chillout, Sensual, Relaxed, Bass, Drums, Melodic"
+    ],
+    [
+      "Deep Meditation",
+      109,
+      "Alejandro Magaña (A. M.)",
+      147,
+      "https://assets.mixkit.co/music/109/109.mp3",
+      "Chillout, Atmospheric, Relaxed, Bass, Drums, Relaxation, Space"
+    ],
+    [
+      "Wedding 01",
+      657,
+      "Francisco Alvear",
+      146,
+      "https://assets.mixkit.co/music/657/657.mp3",
+      "Film Score, Reflective, Emotional, Harp, Wedding, Nature"
+    ],
+    [
+      "Relaxation 07",
+      760,
+      "Lily J",
+      144,
+      "https://assets.mixkit.co/music/760/760.mp3",
+      "Atmospheric, Reflective, Electric Guitar, Piano, Relaxation, Documentary"
+    ],
+    [
+      "Discover",
+      587,
+      "Eugenio Mininni",
+      144,
+      "https://assets.mixkit.co/music/587/587.mp3",
+      "Orchestral Pop, Film Score, Hopeful, Reflective, Strings, Intro, Wedding"
+    ],
+    [
+      "Chillax",
+      655,
+      "Francisco Alvear",
+      144,
+      "https://assets.mixkit.co/music/655/655.mp3",
+      "New Age, Meditative, Reflective, Acoustic Guitar, Relaxation, Slow"
+    ],
+    [
+      "Summer Fun",
+      13,
+      "Ahjay Stelino",
+      139,
+      "https://assets.mixkit.co/music/13/13.mp3",
+      "Folk Pop, Relaxed, Friendly, Acoustic Guitar, Bass, Cinematic, Summer"
+    ],
+    [
+      "Soothe Me",
+      29,
+      "Ahjay Stelino",
+      138,
+      "https://assets.mixkit.co/music/29/29.mp3",
+      "Blues, Relaxed, Melancholic, Bass, Drums, Sea, Love"
+    ],
+    [
+      "Classical vibes 4",
+      684,
+      "Grigoriy Nuzhny",
+      137,
+      "https://assets.mixkit.co/music/684/684.mp3",
+      "Film Score, Uplifting, Hopeful, Strings, Instrumental, Documentary"
+    ],
+    [
+      "Romantic 04",
+      758,
+      "Lily J",
+      135,
+      "https://assets.mixkit.co/music/758/758.mp3",
+      "Atmospheric, Meditative, Bass, Drums, Cinematic, Wedding"
+    ],
+    [
+      "Soul Jazz",
+      652,
+      "Francisco Alvear",
+      135,
+      "https://assets.mixkit.co/music/652/652.mp3",
+      "Friendly, Peaceful, Double Bass, Drums, Melodic, Relaxation"
+    ],
+    [
+      "Finding Myself",
+      993,
+      "Michael Ramir C.",
+      134,
+      "https://assets.mixkit.co/music/993/993.mp3",
+      "Ambient, New Age, Atmospheric, Meditative, Synth, Space"
+    ],
+    [
+      "Singing Bowl Meditation",
+      18,
+      "Ahjay Stelino",
+      132,
+      "https://assets.mixkit.co/music/18/18.mp3",
+      "Film Score, Atmospheric, Reflective, Acoustic Guitar, Bass, Human Drama, Drama"
+    ],
+    [
+      "My Little Prince",
+      815,
+      "Michael Ramir C.",
+      132,
+      "https://assets.mixkit.co/music/815/815.mp3",
+      "Corporate Music, Reflective, Emotional, Acoustic Guitar, Wedding"
+    ],
+    [
+      "Nostalgic Night",
+      1112,
+      "Michael Ramir C.",
+      125,
+      "https://assets.mixkit.co/music/1112/1112.mp3",
+      "Relaxed, Friendly, Bass, Drums, Cocktail Lounge"
+    ],
+    [
+      "Classical vibes 3",
+      683,
+      "Grigoriy Nuzhny",
+      125,
+      "https://assets.mixkit.co/music/683/683.mp3",
+      "Film Score, Hopeful, Reflective, Strings, Melodic, Human Drama"
+    ],
+    [
+      "Just Chill",
+      16,
+      "Ahjay Stelino",
+      125,
+      "https://assets.mixkit.co/music/16/16.mp3",
+      "World, Atmospheric, Meditative, Bass, Harp, Nature"
+    ],
+    [
+      "Classical 2",
+      709,
+      "Jonny S.",
+      124,
+      "https://assets.mixkit.co/music/709/709.mp3",
+      "Film Score, Hopeful, Reflective, Melodic, Wedding"
+    ],
+    [
+      "Classical vibes 5",
+      688,
+      "Grigoriy Nuzhny",
+      123,
+      "https://assets.mixkit.co/music/688/688.mp3",
+      "Film Score, Reflective, Melancholic, Melodic, Wedding"
+    ],
+    [
+      "Harp Relax",
+      669,
+      "Francisco Alvear",
+      121,
+      "https://assets.mixkit.co/music/669/669.mp3",
+      "New Age, Relaxed, Reflective, Acoustic Guitar, Harp, Arabic, Relaxation"
+    ],
+    [
+      "Sleepy Cat",
+      135,
+      "Alejandro Magaña (A. M.)",
+      119,
+      "https://assets.mixkit.co/music/135/135.mp3",
+      "Chillout, Downtempo, Atmospheric, Sensual, Bass, Drums, City"
+    ],
+    [
+      "I'm Sorry Babe",
+      809,
+      "Michael Ramir C.",
+      119,
+      "https://assets.mixkit.co/music/809/809.mp3",
+      "Country, Folk, Relaxed, Friendly, Acoustic Guitar, Mallets, Melodic"
+    ],
+    [
+      "Relaxation 05",
+      749,
+      "Lily J",
+      118,
+      "https://assets.mixkit.co/music/749/749.mp3",
+      "Ambient, Corporate Music, Atmospheric, Meditative, Flute, Harp, Relaxation"
+    ],
+    [
+      "Meditation",
+      441,
+      "Arulo",
+      118,
+      "https://assets.mixkit.co/music/441/441.mp3",
+      "Ambient, Atmospheric, Meditative, Synth, Background, Relaxation"
+    ],
+    [
+      "Thinking About You",
+      234,
+      "Arulo",
+      118,
+      "https://assets.mixkit.co/music/234/234.mp3",
+      "Chillout, Lounge, Sensual, Relaxed, Bass, Drums, Background, Relaxation"
+    ],
+    [
+      "Ambient",
+      251,
+      "Arulo",
+      114,
+      "https://assets.mixkit.co/music/251/251.mp3",
+      "Ambient, Atmospheric, Meditative, Synth, Space"
+    ],
+    [
+      "Serene View",
+      443,
+      "Arulo",
+      114,
+      "https://assets.mixkit.co/music/443/443.mp3",
+      "Chillout, Atmospheric, Relaxed, Bass, Drums, Background, Relaxation"
+    ],
+    [
+      "Zanarkand Forest",
+      169,
+      "Alejandro Magaña (A. M.)",
+      113,
+      "https://assets.mixkit.co/music/169/169.mp3",
+      "Ambient, Electronica, Atmospheric, Relaxed, Bass, Drums, Science"
+    ],
+    [
+      "Lo-Fi 03",
+      765,
+      "Lily J",
+      113,
+      "https://assets.mixkit.co/music/765/765.mp3",
+      "Lounge, Sensual, Sexy, Bass, Brass, Cinematic, Melodic"
+    ],
+    [
+      "Classical vibes 2",
+      682,
+      "Grigoriy Nuzhny",
+      113,
+      "https://assets.mixkit.co/music/682/682.mp3",
+      "Film Score, Children, Uplifting, Hopeful, Piano, Love"
+    ],
+    [
+      "Romantic Vacation",
+      89,
+      "Ahjay Stelino",
+      112,
+      "https://assets.mixkit.co/music/89/89.mp3",
+      "Jazz Blues, Jazz, Sensual, Sexy, Bass, Brass, Cinematic, Cocktail Lounge"
+    ],
+    [
+      "Romantic 05",
+      759,
+      "Lily J",
+      112,
+      "https://assets.mixkit.co/music/759/759.mp3",
+      "Underscore, Corporate Music, Relaxed, Calm, Bass, Drums, Cinematic"
+    ],
+    [
+      "Time Out",
+      92,
+      "Ahjay Stelino",
+      112,
+      "https://assets.mixkit.co/music/92/92.mp3",
+      "Dream Pop, Atmospheric, Reflective, Bass, Drums, Cinematic, Relaxation"
+    ],
+    [
+      "Yoga Music 04",
+      386,
+      "Arulo",
+      111,
+      "https://assets.mixkit.co/music/386/386.mp3",
+      "Ambient, Atmospheric, Relaxed, Synth, Underwater, Science"
+    ],
+    [
+      "Classical 6",
+      713,
+      "Jonny S.",
+      110,
+      "https://assets.mixkit.co/music/713/713.mp3",
+      "Film Score, Hopeful, Reflective, Piano, Documentary"
+    ],
+    [
+      "Relax Beat",
+      292,
+      "Arulo",
+      108,
+      "https://assets.mixkit.co/music/292/292.mp3",
+      "Ambient, Atmospheric, Meditative, Synth, Underwater"
+    ],
+    [
+      "Meditation 05",
+      382,
+      "Arulo",
+      108,
+      "https://assets.mixkit.co/music/382/382.mp3",
+      "Atmospheric, Relaxed, Synth, Cinematic, Relaxation"
+    ],
+    [
+      "Classical 3",
+      710,
+      "Jonny S.",
+      108,
+      "https://assets.mixkit.co/music/710/710.mp3",
+      "Film Score, Hopeful, Reflective, Piano, Wedding"
+    ],
+    [
+      "RnB 2",
+      226,
+      "Arulo",
+      108,
+      "https://assets.mixkit.co/music/226/226.mp3",
+      "Electronica, Reflective, Calm, Drums, Percussion, Melodic"
+    ],
+    [
+      "A Love Affair",
+      1050,
+      "Michael Ramir C.",
+      106,
+      "https://assets.mixkit.co/music/1050/1050.mp3",
+      "Hip Hop, Serious, Insistent, Bass, Drums, City"
+    ],
+    [
+      "Trap Hamza",
+      267,
+      "Arulo",
+      105,
+      "https://assets.mixkit.co/music/267/267.mp3",
+      "Trap, Hip Hop, Calm, Bass, Bells, Melodic, City"
+    ],
+    [
+      "Trap Sad",
+      266,
+      "Arulo",
+      105,
+      "https://assets.mixkit.co/music/266/266.mp3",
+      "Hip Hop, Contemporary R&B, Sensual, Relaxed, Bass, Drums, Relaxation"
+    ],
+    [
+      "We'll Be Okay",
+      1081,
+      "Michael Ramir C.",
+      104,
+      "https://assets.mixkit.co/music/1081/1081.mp3",
+      "Film Score, Reflective, Emotional, Piano, Love"
+    ],
+    [
+      "Nap Time",
+      340,
+      "Arulo",
+      103,
+      "https://assets.mixkit.co/music/340/340.mp3",
+      "Ambient, Atmospheric, Meditative, Synth, Relaxation, Space"
+    ],
+    [
+      "Island Beat",
+      250,
+      "Arulo",
+      102,
+      "https://assets.mixkit.co/music/250/250.mp3",
+      "Contemporary R&B, Pop, Relaxed, Calm, Bass, Drums, City"
+    ],
+    [
+      "Reflections on the Shore",
+      145,
+      "Alejandro Magaña (A. M.)",
+      101,
+      "https://assets.mixkit.co/music/145/145.mp3",
+      "Electronica, Electropop, Atmospheric, Sensual, Bass, Drums, Drama"
+    ],
+    [
+      "Nature Meditation",
+      345,
+      "Arulo",
+      100,
+      "https://assets.mixkit.co/music/345/345.mp3",
+      "Ambient, Atmospheric, Meditative, Synth, Space"
+    ],
+    [
+      "You Got Jazz",
+      528,
+      "Diego Nava",
+      100,
+      "https://assets.mixkit.co/music/528/528.mp3",
+      "Jazz, Jazz Funk, Lighthearted, Bass, Brass, Melodic, City"
+    ],
+    [
+      "Chill Bro",
+      494,
+      "Diego Nava",
+      100,
+      "https://assets.mixkit.co/music/494/494.mp3",
+      "Jazz Fusion, Sensual, Relaxed, Bass, Drums, Cocktail Lounge, Lifestyle"
+    ],
+    [
+      "Romantic 01",
+      752,
+      "Lily J",
+      99,
+      "https://assets.mixkit.co/music/752/752.mp3",
+      "Jazz, Lounge, Sensual, Sexy, Bass, Brass, Lifestyle, Cocktail Lounge"
+    ],
+    [
+      "C.B.P.D",
+      400,
+      "Arulo",
+      99,
+      "https://assets.mixkit.co/music/400/400.mp3",
+      "Hip Hop, Trap, Sensual, Bass, Drums, Travel, City"
+    ],
+    [
+      "Sweet September",
+      282,
+      "Arulo",
+      99,
+      "https://assets.mixkit.co/music/282/282.mp3",
+      "Hip Hop, Chillout, Relaxed, Calm, Bass, Drums, Melodic"
+    ],
+    [
+      "Slow Pop",
+      351,
+      "Arulo",
+      98,
+      "https://assets.mixkit.co/music/351/351.mp3",
+      "Dream Pop, Hopeful, Relaxed, Acoustic Guitar, Electric Guitar, Lifestyle"
+    ],
+    [
+      "The Hamptons",
+      331,
+      "Arulo",
+      98,
+      "https://assets.mixkit.co/music/331/331.mp3",
+      "Folktronica, Chillout, Relaxed, Serious, Acoustic Guitar, Bass, City"
+    ],
+    [
+      "Beautiful Dream",
+      493,
+      "Diego Nava",
+      97,
+      "https://assets.mixkit.co/music/493/493.mp3",
+      "Jazz, Romantic, Melancholic, Acoustic Guitar, Drums, Love"
+    ],
+    [
+      "Papa",
+      879,
+      "Michael Ramir C.",
+      97,
+      "https://assets.mixkit.co/music/879/879.mp3",
+      "Corporate Music, Friendly, Lighthearted, Organ, Cinematic, Religion"
+    ],
+    [
+      "Relaxing in Nature",
+      522,
+      "Diego Nava",
+      97,
+      "https://assets.mixkit.co/music/522/522.mp3",
+      "Electronica, Ethereal, Reflective, Bass, Drums, Cinematic, Drama"
+    ],
+    [
+      "Pilates and Yoga",
+      419,
+      "Arulo",
+      96,
+      "https://assets.mixkit.co/music/419/419.mp3",
+      "Electronica, Futuristic, Calm, Piano, Synth, Relaxation, Medical"
+    ],
+    [
+      "Just Walk",
+      497,
+      "Diego Nava",
+      96,
+      "https://assets.mixkit.co/music/497/497.mp3",
+      "Lounge, Relaxed, Emotional, Bass, Drums, Lifestyle"
+    ],
+    [
+      "Latin Lovers",
+      39,
+      "Ahjay Stelino",
+      95,
+      "https://assets.mixkit.co/music/39/39.mp3",
+      "Jazz, Bossa Nova, Romantic, Sensual, Brass, Double Bass, Cocktail Lounge"
+    ],
+    [
+      "Lounging By Moonlight",
+      40,
+      "Ahjay Stelino",
+      94,
+      "https://assets.mixkit.co/music/40/40.mp3",
+      "Romantic, Relaxed, Bass, Drums, Cocktail Lounge, Love"
+    ],
+    [
+      "Winter Wind",
+      502,
+      "Diego Nava",
+      92,
+      "https://assets.mixkit.co/music/502/502.mp3",
+      "Jazz, Lounge, Relaxed, Friendly, Bass, Drums, Melodic"
+    ],
+    [
+      "Lonely in the Bar",
+      518,
+      "Diego Nava",
+      92,
+      "https://assets.mixkit.co/music/518/518.mp3",
+      "Lounge, Sensual, Relaxed, Bass, Drums, Melodic, Cocktail Lounge"
+    ],
+    [
+      "Danger",
+      495,
+      "Diego Nava",
+      90,
+      "https://assets.mixkit.co/music/495/495.mp3",
+      "Jazz Fusion, Relaxed, Friendly, Bass, Drums, Cocktail Lounge, Lifestyle"
+    ],
+    [
+      "Follow Me Home",
+      350,
+      "Arulo",
+      74,
+      "https://assets.mixkit.co/music/350/350.mp3",
+      "Pop, Uplifting, Confident, Bass, Electric Guitar, Cinematic"
+    ],
+    [
+      "Night Sky Hip Hop",
+      970,
+      "Michael Ramir C.",
+      257,
+      "https://assets.mixkit.co/music/970/970.mp3",
+      "Pop, Positive, Acoustic Guitar, Bass, Motivational, Beach"
+    ],
+    [
+      "Pop 03",
+      700,
+      "Grigoriy Nuzhny",
+      171,
+      "https://assets.mixkit.co/music/700/700.mp3",
+      "Sexy, Positive, Bass, Drums, Melodic, Relaxation"
+    ],
+    [
+      "Classical Jazz",
+      689,
+      "Grigoriy Nuzhny",
+      161,
+      "https://assets.mixkit.co/music/689/689.mp3",
+      "World, Carefree, Relaxed, Acoustic Guitar, Bass, Motivational"
+    ],
+    [
+      "Feeling Happy",
+      5,
+      "Ahjay Stelino",
+      148,
+      "https://assets.mixkit.co/music/5/5.mp3",
+      "Children, Pop, Happy, Carefree, Acoustic Guitar, Bass, Lifestyle, Comedy"
+    ],
+    [
+      "Tears of Joy",
+      839,
+      "Michael Ramir C.",
+      140,
+      "https://assets.mixkit.co/music/839/839.mp3",
+      "Folk Pop, Happy, Uplifting, Acoustic Guitar, Bass, Lifestyle, Travel"
+    ],
+    [
+      "Fun and Games",
+      6,
+      "Ahjay Stelino",
+      139,
+      "https://assets.mixkit.co/music/6/6.mp3",
+      "Film Score, Humorous, Quirky, Brass, Flute, Comedy, Fairytale"
+    ],
+    [
+      "Jazz 1",
+      639,
+      "Francisco Alvear",
+      134,
+      "https://assets.mixkit.co/music/639/639.mp3",
+      "Lounge, Humorous, Ironic, Double Bass, Drums, Relaxation, Cocktail Lounge"
+    ],
+    [
+      "A Very Happy Christmas",
+      897,
+      "Michael Ramir C.",
+      130,
+      "https://assets.mixkit.co/music/897/897.mp3",
+      "Folk Pop, Children, Carefree, Acoustic Guitar, Mallets, Motivational, Cooking"
+    ],
+    [
+      "My Pride and Joy",
+      1069,
+      "Michael Ramir C.",
+      129,
+      "https://assets.mixkit.co/music/1069/1069.mp3",
+      "Children, Happy, Carefree, Drums, Mallets, Melodic"
+    ],
+    [
+      "Just Keep Walking",
+      963,
+      "Michael Ramir C.",
+      125,
+      "https://assets.mixkit.co/music/963/963.mp3",
+      "Indie Pop, Carefree, Uplifting, Acoustic Guitar, Bass, Travel, Lifestyle"
+    ],
+    [
+      "Hip Hop 02",
+      738,
+      "Lily J",
+      115,
+      "https://assets.mixkit.co/music/738/738.mp3",
+      "Hip Hop, Contemporary R&B, Relaxed, Positive, Bass, Drums, Motivational, City"
+    ],
+    [
+      "Lost in a Dream",
+      1033,
+      "Michael Ramir C.",
+      112,
+      "https://assets.mixkit.co/music/1033/1033.mp3",
+      "Friendly, Cheerful, Acoustic Guitar, Bass, Melodic, Lifestyle"
+    ],
+    [
+      "Happy Home",
+      801,
+      "Michael Ramir C.",
+      110,
+      "https://assets.mixkit.co/music/801/801.mp3",
+      "Pop, Happy, Acoustic Guitar, Bass, Melodic, Motivational"
+    ],
+    [
+      "Swing is the Answer",
+      526,
+      "Diego Nava",
+      109,
+      "https://assets.mixkit.co/music/526/526.mp3",
+      "Lounge, Humorous, Lighthearted, Bass, Double Bass, Melodic, Cocktail Lounge"
+    ],
+    [
+      "Chalie Puth",
+      326,
+      "Arulo",
+      103,
+      "https://assets.mixkit.co/music/326/326.mp3",
+      "Contemporary R&B, Relaxed, Positive, Bass, Drums, Fashion"
+    ],
+    [
+      "Traveling Along",
+      94,
+      "Ahjay Stelino",
+      100,
+      "https://assets.mixkit.co/music/94/94.mp3",
+      "Pop, Relaxed, Positive, Bass, Drums, Travel, Relaxation"
+    ],
+    [
+      "A Special Feeling",
+      1087,
+      "Michael Ramir C.",
+      100,
+      "https://assets.mixkit.co/music/1087/1087.mp3",
+      "Pop, Indie Pop, Relaxed, Positive, Bass, Drums, Lifestyle"
+    ],
+    [
+      "Life is a Dream",
+      837,
+      "Michael Ramir C.",
+      99,
+      "https://assets.mixkit.co/music/837/837.mp3",
+      "Disco, Pop, Positive, Bass, Drums, Motivational, Beach"
+    ],
+    [
+      "Raising Me Higher",
+      34,
+      "Ahjay Stelino",
+      98,
+      "https://assets.mixkit.co/music/34/34.mp3",
+      "Corporate Music, Lighthearted, Bass, Drums, Intro, Motivational"
+    ],
+    [
+      "Smile",
+      1076,
+      "Michael Ramir C.",
+      97,
+      "https://assets.mixkit.co/music/1076/1076.mp3",
+      "Children, Folk Pop, Happy, Fun, Acoustic Guitar, Bass, Lifestyle"
+    ]
+  ]
+}

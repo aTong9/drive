@@ -1,5 +1,5 @@
-import { AlertTriangle, ArrowUpRight, CheckCircle2, Disc3, Download, ExternalLink, FileCheck2, Headphones, Library, Music2, Piano, Play, Repeat2, RotateCcw, Search, ShieldCheck, SlidersHorizontal, Sparkles } from "lucide-react";
-import { useMemo, useState } from "react";
+import { AlertTriangle, ArrowUpRight, CheckCircle2, ChevronLeft, ChevronRight, Disc3, Download, ExternalLink, FileCheck2, Headphones, Library, Music2, Piano, Play, Repeat2, RotateCcw, Search, ShieldCheck, SlidersHorizontal, Sparkles } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
 import { filterMusicAlbums, filterMusicPlatforms, filterMusicTracks, youtubeMusicLibrary, type MusicFamily, type MusicRisk, type MusicScene } from "../../services/youtubeMusicService.js";
 
 const familyOptions: Array<{ id: MusicFamily | "all"; label: string; icon: typeof Music2 }> = [
@@ -22,7 +22,8 @@ const contentIdLabels = { low: "低 Content ID 风险", "clearlist-required": "�
 const attributionLabels = { "track-dependent": "署名按曲目", "not-generally-required": "通常无需署名", "credit-or-safelist": "需 Credit 或清除列表" } as const;
 const monetizationLabels = { allowed: "支持盈利", "allowed-with-track-terms": "盈利需按曲复核", "not-covered": "未覆盖盈利" } as const;
 const editingLabels = { "basic-edits": "支持裁切 / 淡化", "derivatives-allowed": "支持加工改编", "sync-only": "仅配画面，不改编", "track-dependent": "剪辑权限按曲确认" } as const;
-const formatDuration = (seconds: number) => `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, "0")}`;
+const formatDuration = (seconds: number | null) => seconds === null ? "曲目页" : `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, "0")}`;
+const TRACKS_PER_PAGE = 24;
 
 export function MusicLibraryView() {
   const [family, setFamily] = useState<MusicFamily | "all">("all");
@@ -31,6 +32,7 @@ export function MusicLibraryView() {
   const [risk, setRisk] = useState<MusicRisk | "all">("all");
   const [query, setQuery] = useState("");
   const [albumPlatformId, setAlbumPlatformId] = useState("all");
+  const [trackPage, setTrackPage] = useState(1);
   const categories = useMemo(() => youtubeMusicLibrary.categories.filter((category) => family === "all" || (family === "lofi" ? category.family === "lofi" || category.family === "chillhop" : category.family === family)), [family]);
   const platforms = useMemo(() => filterMusicPlatforms({
     ...(categoryId === "all" ? {} : { categoryId }),
@@ -53,6 +55,11 @@ export function MusicLibraryView() {
     query
   }), [albumPlatformId, family, categoryId, scene, query]);
   const freePlatforms = useMemo(() => youtubeMusicLibrary.platforms.filter((platform) => platform.license.cost === "free" || platform.license.cost === "free-or-paid"), []);
+  const trackPageCount = Math.max(1, Math.ceil(tracks.length / TRACKS_PER_PAGE));
+  const visibleTracks = tracks.slice((trackPage - 1) * TRACKS_PER_PAGE, trackPage * TRACKS_PER_PAGE);
+  const selectedPlatformTrackCount = albumPlatformId === "all" ? youtubeMusicLibrary.tracks.length : youtubeMusicLibrary.tracks.filter((track) => track.platformId === albumPlatformId).length;
+
+  useEffect(() => setTrackPage(1), [albumPlatformId, categoryId, family, query, scene]);
 
   function selectFamily(next: MusicFamily | "all") {
     setFamily(next);
@@ -120,8 +127,13 @@ export function MusicLibraryView() {
         </section>
         {!albums.length && <div className="music-empty music-album-empty"><Disc3 size={23} /><strong>当前平台或分类暂无专辑</strong><span>切换平台、场景或清空搜索词</span></div>}
         <header className="music-track-heading"><div><p className="eyebrow">READY-TO-USE TRACKS</p><h2>可直接试听与下载的单曲</h2></div><span>{tracks.length} 首</span></header>
+        <section className="music-catalog-progress" aria-label="曲库扩充进度">
+          <div><strong>{albumPlatformId === "all" ? "全部平台当前收录" : `${freePlatforms.find((platform) => platform.id === albumPlatformId)?.name ?? "当前平台"}收录进度`}</strong><span>{selectedPlatformTrackCount} / {albumPlatformId === "all" ? freePlatforms.length * 100 : 100}</span></div>
+          <progress value={Math.min(selectedPlatformTrackCount, albumPlatformId === "all" ? freePlatforms.length * 100 : 100)} max={albumPlatformId === "all" ? freePlatforms.length * 100 : 100} />
+          <small>阶段目标：每个免费平台至少 100 首；再按平台适配类型检查各分类覆盖。</small>
+        </section>
         <section className="music-track-list">
-          {tracks.map((track) => {
+          {visibleTracks.map((track) => {
             const platform = youtubeMusicLibrary.platforms.find((item) => item.id === track.platformId);
             return <article className="music-track-card" key={track.id}>
               <div className="music-track-index"><Music2 size={16} /></div>
@@ -130,6 +142,7 @@ export function MusicLibraryView() {
             </article>;
           })}
         </section>
+        {tracks.length > TRACKS_PER_PAGE && <nav className="music-track-pagination" aria-label="单曲分页"><button disabled={trackPage === 1} onClick={() => setTrackPage((page) => Math.max(1, page - 1))}><ChevronLeft size={14} />上一页</button><span>第 {trackPage} / {trackPageCount} 页 · 每页 {TRACKS_PER_PAGE} 首</span><button disabled={trackPage === trackPageCount} onClick={() => setTrackPage((page) => Math.min(trackPageCount, page + 1))}>下一页<ChevronRight size={14} /></button></nav>}
         {!tracks.length && <div className="music-empty music-track-empty"><Music2 size={23} /><strong>当前条件暂无单曲</strong><span>切换平台、场景或清空搜索词</span></div>}
       </div>
     </section>

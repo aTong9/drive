@@ -1,0 +1,910 @@
+{
+  "platformId": "roa-music",
+  "artist": "Roa Music",
+  "description": "从 Roa Music 官方频道逐条核对视频说明后筛出的 100 首低刺激背景音乐；优先 Lo-Fi、雨景、夜景、钢琴、Ambient、Chill、怀旧与温暖自然意象，并排除说明明确标注 EDM、强烈 Dance、高能或激烈用途的曲目。",
+  "downloadLabel": "官方说明栏免费获取页",
+  "credit": "Music by Roa\nhttps://www.youtube.com/@RoaMusic",
+  "licenseNote": "每首官方说明均明确允许配合 YouTube、Instagram、TikTok、Facebook 等内容使用，并要求按说明提供 Roa Music 署名；下载入口来自同一视频说明。允许作为视频背景音乐使用，裁切、Fade 与 Loop 前仍应复核最新 How to use，禁止冒充作者、单独再发布音源或登记 Content ID。",
+  "items": [
+    [
+      "kAqXF2Agnjc",
+      "Haru (LoFi version)",
+      245,
+      "lofi",
+      "core",
+      "LoFi version of my track “Haru”. A softer and more relaxing vibe. Hope you enjoy it. 🎵 Feel free to use this track in your content (see usage guidelines on my website).",
+      "https://hypeddit.com/roamusic/harulofi"
+    ],
+    [
+      "DtsCjXT5bJ4",
+      "Morning Sky",
+      202,
+      "acoustic",
+      "adjacent",
+      "New morning vibes track☀️ Some of you may remember it from Demo #3. Hope you like it ✨ 🎵 Feel free to use this track in your content (see usage guidelines on my website).",
+      "https://hypeddit.com/roamusic/morningsky"
+    ],
+    [
+      "Mp-OE05OP8c",
+      "Sakura Breeze",
+      191,
+      "acoustic",
+      "adjacent",
+      "New spring track 🌸 Some of you may know this song from my short video, \"Demo 4.\" I hope you enjoy the sakura vibes in this track. 🎵 Feel free to use this track in your content (see usage guidelines on my website).",
+      "https://hypeddit.com/roamusic/sakurabreeze"
+    ],
+    [
+      "cNts7trLVVw",
+      "Stay a Little",
+      169,
+      "acoustic",
+      "adjacent",
+      "New tropical, feel good track🏝️✨ I tried to capture that slightly bittersweet sunset vibe. I actually made this track based on the comments from my “A or B” short video. Hope you enjoy the warm atmosphere of the track. 🎵 Feel free to use ",
+      "https://hypeddit.com/roamusic/stayalittle"
+    ],
+    [
+      "zwW6RbjzX2E",
+      "Embrace",
+      192,
+      "acoustic",
+      "core",
+      "New peaceful uplifting track is out✨ motivational and peaceful electronic track brings calm energy and positive vibes. Hope you enjoy this one!! 🎵 Feel free to use this track in your content (see usage guidelines on my website).",
+      "https://hypeddit.com/roamusic/embrace"
+    ],
+    [
+      "Hy45aiVuXWM",
+      "Beloved",
+      203,
+      "lofi",
+      "core",
+      "New electronic chill music is out😊✨ Hope you enjoy this one!! 🎵 Feel free to use this track in your content (see usage guidelines on my website).",
+      "https://hypeddit.com/roamusic/beloved"
+    ],
+    [
+      "eg5kk03gRmA",
+      "Orange",
+      251,
+      "acoustic",
+      "core",
+      "New cozy Autumn music🍁✨. I made this track imagining a peaceful afternoon, the sound of falling leaves, warm sunlight. I hope you enjoy this one. 🎵 Feel free to use this track in your content (see usage guidelines on my website).",
+      "https://hypeddit.com/roamusic/orange"
+    ],
+    [
+      "vp0g5_8PCjk",
+      "Alone In The Rain",
+      234,
+      "lofi",
+      "core",
+      "New Rainy vibes LoFi music is out🌧️✨ I hope you will like this one. Feel free to use this track in your content!",
+      "https://hypeddit.com/roamusic/aloneintherain"
+    ],
+    [
+      "G0Cq8-7sSpw",
+      "Good Old Days",
+      233,
+      "acoustic",
+      "adjacent",
+      "New track is out☺️🎶 I hope you will like this one. Feel free to use this track in your content.",
+      "https://hypeddit.com/roamusic/goodolddays"
+    ],
+    [
+      "5z6EZo2oWsM",
+      "Serenity",
+      173,
+      "acoustic",
+      "adjacent",
+      "New summer vibes track is out✨ I hope you will like this one. Feel free to use this track in your content.",
+      "https://hypeddit.com/roamusic/serenity"
+    ],
+    [
+      "OvX-3uDLvzM",
+      "Dusk",
+      194,
+      "lofi",
+      "adjacent",
+      "Hey! New track is out🎶 I hope you will like this one. Feel free to use this track in your content.",
+      "https://hypeddit.com/roamusic/duskbyroa"
+    ],
+    [
+      "2CO2IdMEW8o",
+      "Blue (chill version)",
+      348,
+      "lofi",
+      "core",
+      "Hey! This is a new version of my track \"Blue\". I hope you like it. Please let me know if you have any request for making new version of my tracks. I hope you will like this one. Feel free to use this track in your content.",
+      "https://hypeddit.com/roamusic/bluechill"
+    ],
+    [
+      "UEXF-SPpqpM",
+      "Better Days",
+      205,
+      "acoustic",
+      "adjacent",
+      "This is my first track for 2025. Hoping this year brings you so much joy. Cheers to 2025!! I hope you will like this one. Feel free to use this track in your content.",
+      "https://hypeddit.com/roamusic/betterdays"
+    ],
+    [
+      "4UzDzBl9n1g",
+      "Message",
+      168,
+      "acoustic",
+      "adjacent",
+      "This is my last track of 2024. Thank you so much for your support!! Your \"Likes\" and \"Comments\" always help my creation. I really appreciate it. I hope you will like this one. Feel free to use this track in your content.",
+      "https://hypeddit.com/roamusic/message"
+    ],
+    [
+      "0OOjb7L_2is",
+      "Solitude",
+      178,
+      "lofi",
+      "core",
+      "New track is out😊👍 I hope you will like it!! Feel free to use this track in your content.",
+      "https://hypeddit.com/roamusic/solitude"
+    ],
+    [
+      "hJVKP1fGlhM",
+      "Like a Dream",
+      227,
+      "ambient",
+      "core",
+      "New happy track is out😌✨ I hope you will like it!! Feel free to use this track in your content.",
+      "https://hypeddit.com/roamusic/likeadream"
+    ],
+    [
+      "mPvs-Zteyco",
+      "Maple",
+      179,
+      "acoustic",
+      "adjacent",
+      "New Autumn track is out😊🍁 I hope you will like it! Feel free to use this track in your content.",
+      "https://hypeddit.com/roamusic/maple"
+    ],
+    [
+      "77GyS8M0mHw",
+      "Summer Night",
+      148,
+      "lofi",
+      "core",
+      "New summer vibes track is out😊🎶 I hope you will like it! Feel free to use this track in your content.",
+      "https://hypeddit.com/roamusic/summernight"
+    ],
+    [
+      "QcT19AvCOCI",
+      "Blurry Sky",
+      227,
+      "acoustic",
+      "adjacent",
+      "New summer track is out😆🏖️ I hope you will like it! Feel free to use this track in your content.",
+      "https://hypeddit.com/roamusic/blurrysky"
+    ],
+    [
+      "5K3EeQlDnWw",
+      "Never Alone",
+      215,
+      "acoustic",
+      "adjacent",
+      "New track with sunset mood✨ I hope you will like it! Feel free to use it in your content.",
+      "https://hypeddit.com/roamusic/neveralone"
+    ],
+    [
+      "IVgg9P5C8so",
+      "Summer Wind",
+      231,
+      "acoustic",
+      "adjacent",
+      "New summer track is out🏖️✨ I hope you will like it! Feel free to use it in your content.",
+      "https://hypeddit.com/roamusic/summerwind"
+    ],
+    [
+      "NfsLTSDPYXg",
+      "Twilight",
+      204,
+      "lofi",
+      "core",
+      "New summer chill music😌🎶 I hope you will like it! Feel free to use it in your content.",
+      "https://hypeddit.com/roamusic/twilight"
+    ],
+    [
+      "LS3qw2p8XEQ",
+      "Bird Song",
+      167,
+      "acoustic",
+      "adjacent",
+      "New free track for morning mood🌿✨ I hope you will like it! Big Thanks to everyone for your kind support!!",
+      "https://hypeddit.com/roamusic/birdsong"
+    ],
+    [
+      "c9mEftlh8DU",
+      "Healing",
+      173,
+      "acoustic",
+      "core",
+      "New free uplifting track😆✨ I hope you will like it! Big Thanks to everyone for your kind support!!",
+      "https://hypeddit.com/roamusic/healing"
+    ],
+    [
+      "vr_kVTPuP_A",
+      "Dear",
+      242,
+      "acoustic",
+      "adjacent",
+      "New free track😊✨ I hope you will like it! Big Thanks to everyone for your kind support!!",
+      "https://hypeddit.com/roamusic/dearbyroa"
+    ],
+    [
+      "jN9Ot-eWddU",
+      "Haru",
+      303,
+      "acoustic",
+      "adjacent",
+      "New spring music is out🌸 (Haru (春) = Spring) I hope you will like it! Big Thanks to everyone for your kind support!!",
+      "https://hypeddit.com/roamusic/harubyroa"
+    ],
+    [
+      "WoSf6bpWRGA",
+      "Natural",
+      193,
+      "lofi",
+      "core",
+      "Chill and uplifting track☺️✨ I hope you will like it! Big Thanks to everyone for your kind support!!",
+      "https://hypeddit.com/roamusic/natural"
+    ],
+    [
+      "40MCwmnQAaM",
+      "Last Summer",
+      212,
+      "acoustic",
+      "adjacent",
+      "New summer vibes track🏖️✨ I hope you will like it! Big Thanks to everyone for your kind support!!",
+      "https://hypeddit.com/roamusic/lastsummer"
+    ],
+    [
+      "XLclOT7WBvE",
+      "Aurora",
+      186,
+      "ambient",
+      "adjacent",
+      "New track😊✨ I hope you will like it! Big Thanks to everyone for your kind support!!",
+      "https://hypeddit.com/roamusic/aurora"
+    ],
+    [
+      "y0uQ7fa9cb8",
+      "Snowflakes",
+      222,
+      "acoustic",
+      "adjacent",
+      "New winter music❄️✨ This is my last track of 2023. I hope you like it. Big Thanks to everyone for your kind support!! I will keep making more music in 2024. Please stay tuned👍",
+      "https://hypeddit.com/roamusic/snowflakes"
+    ],
+    [
+      "TRTFptomo9E",
+      "Beautiful Rain",
+      179,
+      "lofi",
+      "core",
+      "New free track with rain sounds🌦️✨ I hope you like it.",
+      "https://hypeddit.com/roamusic/beautifulrain"
+    ],
+    [
+      "kZ084LJdMU4",
+      "Timeless",
+      182,
+      "acoustic",
+      "adjacent",
+      "New free track out😊👍 I hope you like it.",
+      "https://hypeddit.com/roamusic/timeless"
+    ],
+    [
+      "C10Zy_8dho8",
+      "Northern Town",
+      205,
+      "acoustic",
+      "adjacent",
+      "New free track out😊👍 This is the track inspired by my traveling to Hokkaido.",
+      "https://hypeddit.com/roamusic/northerntown"
+    ],
+    [
+      "l0Nuqfwj3IQ",
+      "Innocence 【LoFi ver.】",
+      196,
+      "lofi",
+      "core",
+      "LoFi version of my track \"Innocence\"😆👍 I Hope you like it. Roa - Innocence (https://youtu.be/IxfT0tW8f2Y)",
+      "https://hypeddit.com/roamusic/innocencelofi"
+    ],
+    [
+      "541Z43BRxUE",
+      "Reflection",
+      181,
+      "acoustic",
+      "adjacent",
+      "New free track!! I hope you will like it.",
+      "https://hypeddit.com/roamusic/reflection"
+    ],
+    [
+      "Nvr3Ly5kipY",
+      "Autumn Sky",
+      205,
+      "acoustic",
+      "adjacent",
+      "New track for the beginning of Autumn🍁🍂 A happy vibes track. I hope you will like it and find the way of using it!",
+      "https://hypeddit.com/roamusic/autumnsky"
+    ],
+    [
+      "VG8n3Vefjr4",
+      "Feels",
+      198,
+      "acoustic",
+      "adjacent",
+      "New track for the end of the summer😌✨ When I create music in my room, I feel a lot of things like \"Hope\", \"Happiness\", \"Loneliness\" and \"Love\". Then I find the sounds and melodies from my feelings. Sometimes It's difficult to put them into",
+      "https://hypeddit.com/roamusic/feels"
+    ],
+    [
+      "S_jokI9QP4Q",
+      "Eternity",
+      197,
+      "acoustic",
+      "adjacent",
+      "New track😆✨ This reminds me of my old days. When I was a kid, I used to play soccer and play video games on weekends. And I wanted the good days to last for eternity. Please let me know if you like this one. I hope you will enjoy and find ",
+      "https://hypeddit.com/roamusic/eternity"
+    ],
+    [
+      "Ijt62WviCg0",
+      "Twinkle",
+      218,
+      "acoustic",
+      "adjacent",
+      "New track out✨ I hope you will like this one!!",
+      "https://hypeddit.com/roamusic/twinkle"
+    ],
+    [
+      "LJq68NyLO50",
+      "Melody",
+      217,
+      "acoustic",
+      "adjacent",
+      "New track out✨ I hope you will like this one!!",
+      "https://hypeddit.com/roamusic/melody"
+    ],
+    [
+      "pblFgPJIYZs",
+      "Deep Blue",
+      244,
+      "lofi",
+      "core",
+      "New summer chill vibes track🫧✨ I hope you will like this one!!",
+      "https://hypeddit.com/roamusic/deepblue"
+    ],
+    [
+      "rxY-CKW_N5U",
+      "Omoide",
+      218,
+      "acoustic",
+      "adjacent",
+      "New summer track is out🏖️✨ \"Omoide\" means \"Memories\" in Japanese. Thank you everyone for your kind support!!",
+      "https://hypeddit.com/roamusic/omoide"
+    ],
+    [
+      "UQua4liqGVw",
+      "Walk Around 【LoFi ver.】",
+      224,
+      "lofi",
+      "core",
+      "LoFi version of my track \"Walk Around\"😊✨ I Hope you like it.",
+      "https://hypeddit.com/roamusic/walkaroundlofi"
+    ],
+    [
+      "MNye2ZkDjd8",
+      "Skyline",
+      201,
+      "acoustic",
+      "adjacent",
+      "New free track~🎵 Hope you like it.",
+      "https://hypeddit.com/roamusic/skyline"
+    ],
+    [
+      "YwLtWld8gDw",
+      "Cherish",
+      236,
+      "piano",
+      "core",
+      "New track~!! Happy and chill piano music😊✨ I hope you will like it🎵",
+      "https://hypeddit.com/roamusic/cherish"
+    ],
+    [
+      "8LSn-lWU40s",
+      "Feel The Wind",
+      204,
+      "acoustic",
+      "adjacent",
+      "New track~!!",
+      "https://hypeddit.com/roamusic/feelthewind"
+    ],
+    [
+      "NzW7OzBpxK0",
+      "Daybreak",
+      228,
+      "lofi",
+      "core",
+      "New track🌴☀️ Chill and motivational music. I hope you will like it and use it in your content!",
+      "https://hypeddit.com/roamusic/daybreak"
+    ],
+    [
+      "irLF3gDZ9iE",
+      "Teatime",
+      185,
+      "lofi",
+      "core",
+      "New Happy track for your video😊🎬 Chill and relaxing pop track. I hope you will like it and use it in your content!",
+      "https://hypeddit.com/roamusic/teatime"
+    ],
+    [
+      "y29TwSJmbiQ",
+      "Trees",
+      198,
+      "acoustic",
+      "core",
+      "New free music for your video😊🎬 Cinematic calm track. I hope you will find the way of using this for your video. Please let me know if you like this kind of track. Have a nice day everyone✨",
+      "https://hypeddit.com/roamusic/trees"
+    ],
+    [
+      "AUfGr7g4dkM",
+      "Feather",
+      324,
+      "acoustic",
+      "core",
+      "New track for your video😊🎬 Happy rhythmic pop track. I think It's good for refreshing and relaxing. Hope you will enjoy and use it in your content!",
+      "https://hypeddit.com/roamusic/feather"
+    ],
+    [
+      "NKhEzKnlhyo",
+      "Afterglow",
+      248,
+      "lofi",
+      "core",
+      "New track for your video😊🎬 Chill and relaxing ambient track. Please let me know if you like this kind of track. I hope you will enjoy and use it in your content!",
+      "https://hypeddit.com/roamusic/afterglow"
+    ],
+    [
+      "a0JkBkcVuq4",
+      "Cocktail",
+      174,
+      "acoustic",
+      "adjacent",
+      "Hey! I haven't drunk cocktails for a while. I usually drink whisky with soda or wine or beer. But, when I make music (especially tropical type music) , I feel like I want to drink cocktails. strange thing😂",
+      "https://hypeddit.com/roamusic/cocktail"
+    ],
+    [
+      "pYv7048p_5Q",
+      "Pathway Home",
+      261,
+      "acoustic",
+      "adjacent",
+      "Hey! Thank you for listening my new track🎵",
+      "https://hypeddit.com/roamusic/pathwayhome"
+    ],
+    [
+      "kU5dYzHIs5I",
+      "See you",
+      234,
+      "acoustic",
+      "adjacent",
+      "Hey guys! 🙌 I made this track to simulate how I felt about leaving my hometown of Hyogo to live in Tokyo. It was bittersweet leaving everything I knew and loved. Sadness and hope consumed my heart at times and I just wanted to express my f",
+      "https://hypeddit.com/roamusic/seeyou"
+    ],
+    [
+      "IxfT0tW8f2Y",
+      "Innocence",
+      249,
+      "acoustic",
+      "adjacent",
+      "Thank you guys for supporting my music. I'm still growing up as a music creator. and having a lot of experiences for music career. Your comments and massages always make me to look on the bright side. so much appreciated!! These are the lis",
+      "https://hypeddit.com/roamusic/innocence"
+    ],
+    [
+      "MEhqMwZUyI0",
+      "One Day",
+      230,
+      "acoustic",
+      "adjacent",
+      "New track!! A nostalgic electronic track🎵 These are the lists who support my music work. I really appreciate them and I can keep making music. It greatly helps me out if you consider becoming a Patron!",
+      "https://hypeddit.com/roamusic/oneday"
+    ],
+    [
+      "VLsSAgLIGh8",
+      "Memories",
+      227,
+      "lofi",
+      "core",
+      "Hey! This is my new track, a emotional chill music🎵 I hope you enjoy and feel free to use it in your content. These are the lists who support my music work. I really appreciate them and I can keep making music. It greatly helps me out if y",
+      "https://hypeddit.com/roamusic/memories"
+    ],
+    [
+      "qWqEI4u4VQo",
+      "One Wish",
+      187,
+      "acoustic",
+      "adjacent",
+      "Hey! This is my new track🎵 I hope you enjoy and feel free to use it in your content. These are the lists who support my music work. I really appreciate them and I can keep making music. It greatly helps me out if you consider becoming a Pa",
+      "https://hypeddit.com/roamusic/onewish"
+    ],
+    [
+      "YUuVvq2RFyM",
+      "Cozy Fall",
+      186,
+      "lofi",
+      "core",
+      "Hey! This is my new track, a chill and happy vibes for Autumn🎵 I hope you enjoy and feel free to use it in your content. These are the lists who support my music work. I really appreciate them and I can keep making music. It greatly helps ",
+      "https://hypeddit.com/link/t8jhx2"
+    ],
+    [
+      "MllQB1B0WsY",
+      "Pure",
+      260,
+      "acoustic",
+      "adjacent",
+      "Free to use my music in your video. (YouTube, Instagram, TikTok, Facebook etc...) My music is copyrighted, but you have my permission to use it in your content on social media as long as credit is given. (Please read user guidelines on my w",
+      "https://hypeddit.com/link/74brnj"
+    ],
+    [
+      "6_Y4JmdD5mI",
+      "Dreamy",
+      237,
+      "ambient",
+      "core",
+      "Free to use my music in your video. (YouTube, Instagram, TikTok, Facebook etc...) My music is copyrighted, but you have my permission to use it in your content on social media as long as credit is given. (Please read user guidelines on my w",
+      "https://hypeddit.com/link/q8j3ah"
+    ],
+    [
+      "Wbj4s4jUXEY",
+      "City Nights",
+      227,
+      "lofi",
+      "core",
+      "Free to use my music in your video. (YouTube, Instagram, TikTok, Facebook etc...) My music is copyrighted, but you have my permission to use it in your content on social media as long as credit is given. (Please read user guidelines on my w",
+      "https://hypeddit.com/track/oi513w"
+    ],
+    [
+      "qrohy3kR6SQ",
+      "Moonlight pt.2",
+      236,
+      "lofi",
+      "adjacent",
+      "\"Roa - Moonlight\" is here↓↓🎶 https://youtu.be/Umefib9zCvA Free to use my music in your video. (YouTube, Instagram, TikTok, Facebook etc...) My music is copyrighted, but you have my permission to use it in your content on social media as lo",
+      "https://hypeddit.com/link/g4geh7"
+    ],
+    [
+      "Umefib9zCvA",
+      "Moonlight",
+      236,
+      "lofi",
+      "adjacent",
+      "Free to use my music in your video. (YouTube, Instagram, TikTok, Facebook etc...) My music is copyrighted, but you have my permission to use it in your content on social media as long as credit is given. (Please read user guidelines on my w",
+      "https://hypeddit.com/link/bx6y3g"
+    ],
+    [
+      "K0W-XvBYaGc",
+      "Think of U",
+      243,
+      "acoustic",
+      "adjacent",
+      "Free to use my music in your video. (YouTube, Instagram, TikTok, Facebook etc...) My music is copyrighted, but you have my permission to use it in your content on social media as long as credit is given. (Please read user guidelines on my w",
+      "https://hypeddit.com/link/90ymf9"
+    ],
+    [
+      "Jku4N2-FI54",
+      "Floating",
+      242,
+      "acoustic",
+      "adjacent",
+      "You can also listen to this on Spotify🎶 https://open.spotify.com/track/4b8Qa6etrsn3PHXCRelJ0T free to use my music in your video. (YouTube, Instagram, Facebook etc…) My music is copyrighted, but you have my permission to use it in your con",
+      "https://hypeddit.com/link/xzz7jt"
+    ],
+    [
+      "wJQDN7P-Vmg",
+      "Stardust",
+      214,
+      "ambient",
+      "adjacent",
+      "You can Free to use my music in your video. (YouTube, Instagram, Facebook etc…) My music is copyrighted, but you have my permission to use it in your content on social media as long as credit is given. (Please read user guidelines on my web",
+      "https://hypeddit.com/link/3c6g9s"
+    ],
+    [
+      "_X1S0-Mv5aw",
+      "Breathe",
+      228,
+      "ambient",
+      "adjacent",
+      "You can also listen to this track on Spotify🎶 https://open.spotify.com/track/1c05xqQA1SnkjR9BulgQg6 free to use my music in your video. (YouTube, Instagram, Facebook etc…) My music is copyrighted, but you have my permission to use it in yo",
+      "https://hypeddit.com/link/32536o"
+    ],
+    [
+      "l027hPxjWsA",
+      "Underwater",
+      283,
+      "ambient",
+      "adjacent",
+      "You can listen it on Spotify : https://open.spotify.com/track/3wXFYjqbLXjrRwJmFgVK8f free to use my music in your video. (YouTube, Instagram, Facebook etc…) My music is copyrighted, but you have my permission to use it in your content on so",
+      "https://hypeddit.com/roamusic/underwater"
+    ],
+    [
+      "U9cPc39fUQE",
+      "After the Rain",
+      277,
+      "lofi",
+      "core",
+      "You can free to use my music in your video. (YouTube, Instagram, Facebook etc…) My music is copyrighted, but you have my permission to use it in your content on social media as long as credit is given. (Please read user guidelines on my web",
+      "https://hypeddit.com/mfgnvf"
+    ],
+    [
+      "WUkIiQ8pje0",
+      "Chill",
+      225,
+      "lofi",
+      "core",
+      "You can free to use my music in your video. (YouTube, Instagram, Facebook etc…) My music is copyrighted, but you have my permission to use it in your content on social media as long as credit is given. (Please read user guidelines on my web",
+      "https://streamlink.to/Roa_Chill"
+    ],
+    [
+      "KRRaYx7T4w8",
+      "Relax",
+      244,
+      "acoustic",
+      "core",
+      "You can use my track in your video, (YouTube, Instagram, Facebook etc…) Please put the following links in your description! ＜Stream / Free Download＞ : https://streamlink.to/Roa_Relax (Copy & Paste↓↓)★Important★ 〜Music by Roa〜 ▶YouTube https",
+      "https://streamlink.to/Roa_Relax"
+    ],
+    [
+      "3M1suzMpR2s",
+      "2am",
+      199,
+      "lofi",
+      "adjacent",
+      "You can use my track in your video, (YouTube, Instagram, Facebook etc…) Please put the following links in your description! ＜Stream / Free Download＞ : https://streamlink.to/Roa_2am (Copy & Paste↓↓)★Important★ 〜Music by Roa〜 ▶YouTube https:/",
+      "https://streamlink.to/Roa_2am"
+    ],
+    [
+      "zY9BcfPKqKs",
+      "Little Dream",
+      168,
+      "ambient",
+      "core",
+      "You can use my track in your video, (YouTube, Instagram, Facebook etc…) Please put the following links in your description! ＜Stream / Free Download＞ : https://streamlink.to/Roa_LittleDream (Copy & Paste↓↓)★Important★ Roa - Little Dream ▶You",
+      "https://streamlink.to/Roa_LittleDream"
+    ],
+    [
+      "uMGsosygz6Q",
+      "Campfire",
+      220,
+      "acoustic",
+      "adjacent",
+      "I create music for vlog and youtube video. All of my track are Royalty free. You can use my track in your video, But, You need to put the following link in your description! Free Download : https://hypeddit.com/track/vguhpn (Copy & Paste↓↓)",
+      "https://hypeddit.com/track/vguhpn"
+    ],
+    [
+      "YNDtfGtjSCc",
+      "Nightfall",
+      269,
+      "lofi",
+      "core",
+      "I create music for vlog and youtube video. All of my track are Royalty free. You can use my track in your video, But, You need to put the following link in your description! Free Download : https://hypeddit.com/track/kpe5pl (Copy & Paste↓↓)",
+      "https://hypeddit.com/track/kpe5pl"
+    ],
+    [
+      "280glfpkDA0",
+      "Sleepless Nights",
+      223,
+      "lofi",
+      "core",
+      "I create music for vlog and youtube video. All of my track are Royalty free. You can use my track in your video, But, You need to put the following link in your description! Free Download : https://hypeddit.com/track/m4m2l5 (Copy & Paste↓↓)",
+      "https://hypeddit.com/track/m4m2l5"
+    ],
+    [
+      "g487qvUDMt0",
+      "Remember",
+      179,
+      "acoustic",
+      "adjacent",
+      "I create music for vlog and youtube video. All of my track are Royalty free. You can use my track in your video, But, You need to put the following link in your description! Free Download : https://hypeddit.com/track/6wdzgy (Copy & Paste↓↓)",
+      "https://hypeddit.com/track/6wdzgy"
+    ],
+    [
+      "udrgjX2oUT0",
+      "Waves",
+      196,
+      "acoustic",
+      "adjacent",
+      "I create music for vlog and youtube video. All of my track are Royalty free. You can use my track in your video, But, You need to put the following link in your description! Free Download : https://hypeddit.com/track/7oe7je (Copy & Paste↓↓)",
+      "https://hypeddit.com/track/7oe7je"
+    ],
+    [
+      "qtNzEA93dcw",
+      "Solo",
+      224,
+      "acoustic",
+      "adjacent",
+      "I create music for vlog and youtube video. All of my track are Royalty free. You can use my track in your video, But, You need to put the following link in your description! Free Download : https://hypeddit.com/track/p9vwqv (Copy & Paste↓↓)",
+      "https://hypeddit.com/track/p9vwqv"
+    ],
+    [
+      "pFmPj1TyPFU",
+      "Just Chillin'",
+      199,
+      "lofi",
+      "core",
+      "I create music for vlog and youtube video. All of my track are Royalty free. You can use my track in your video, But, You need to put the following link in your description! Free Download : https://hypeddit.com/track/gy65ya (Copy & Paste↓↓)",
+      "https://hypeddit.com/track/gy65ya"
+    ],
+    [
+      "frfe3PGPN_c",
+      "Home Town",
+      244,
+      "acoustic",
+      "adjacent",
+      "I create music for vlog and youtube video. All of my track are Royalty free. (You need to put the following in your description) You can use it in your videos, Please put the following link in your description! Free Download : https://hyped",
+      "https://hypeddit.com/track/o3ugle"
+    ],
+    [
+      "ZfGdfHM10iY",
+      "Alley",
+      282,
+      "acoustic",
+      "adjacent",
+      "I create music for vlog and youtube video. All of my track are no copyrighted. You can use it in your videos, just leave a link and mention my page! I would appreciate if you use my music in your video!! Free Download : https://hypeddit.com",
+      "https://hypeddit.com/track/mw843u"
+    ],
+    [
+      "84DQx2alRjI",
+      "Walk Around",
+      207,
+      "acoustic",
+      "adjacent",
+      "You can free to use my music in your video. (YouTube, Instagram, Facebook etc…) My music is copyrighted, but you have my permission to use it in your content on social media as long as credit is given. (Please read user guidelines on my web",
+      "https://hypeddit.com/y6zd77"
+    ],
+    [
+      "LwAvBPKIy3I",
+      "Coastline",
+      209,
+      "acoustic",
+      "adjacent",
+      "I create music for vlog and youtube video. All of my track are no copyrighted. You can use it in your videos, just leave a link and mention my page! I would appreciate if you use my music in your video!! Free Download :https://hypeddit.com/",
+      "https://hypeddit.com/track/l30jb7"
+    ],
+    [
+      "iub7PcI4tTU",
+      "Chillaxing Waves",
+      261,
+      "lofi",
+      "core",
+      "I create music for vlog and youtube video. All of my track are no copyrighted. You can use it in your videos, just leave a link and mention my page! I would appreciate if you use my music in your video!! Free Download :https://hypeddit.com/",
+      "https://hypeddit.com/track/9g1acp"
+    ],
+    [
+      "odTGGVyzvc0",
+      "Clouds",
+      206,
+      "ambient",
+      "adjacent",
+      "I create music for vlog and youtube video. All of my track are no copyrighted. You can use it in your videos, just leave a link and mention my page! I would appreciate if you use my music in your video!! Free Download :https://hypeddit.com/",
+      "https://hypeddit.com/track/jsorti"
+    ],
+    [
+      "wyQGfGfioGo",
+      "Blue",
+      311,
+      "acoustic",
+      "adjacent",
+      "I create music for vlog and youtube video. All of my track are no copyrighted. You can use it in your videos, just leave a link and mention my page! I would appreciate if you use my music in your video!! Free Download :https://hypeddit.com/",
+      "https://hypeddit.com/track/bxtjlh"
+    ],
+    [
+      "86FUHEepx1c",
+      "Calm Water",
+      207,
+      "acoustic",
+      "core",
+      "I create music for vlog and youtube video. All of my track are no copyrighted. You can use it in your videos, just leave a link and mention my page! I would appreciate if you use my music in your video!! Free Download :https://hypeddit.com/",
+      "https://hypeddit.com/track/tsko7t"
+    ],
+    [
+      "A8UOOIci4DE",
+      "Wishes",
+      200,
+      "acoustic",
+      "adjacent",
+      "This is my new track named “Wishes“ hope you will like it!! You can use it in your videos, just leave a link and mention my page! I would appreciate if you use my music in your video!! Free Download :https://hypeddit.com/track/xlxesk (Copy ",
+      "https://hypeddit.com/track/xlxesk"
+    ],
+    [
+      "UrawYtN36Lc",
+      "Drops",
+      168,
+      "acoustic",
+      "adjacent",
+      "This is my new track named “Drops“ I hope you will like it!! You can use it in your videos, just leave a link and mention my page! I would appreciate if you use my music in your video!! Free Download https://hypeddit.com/track/pjh50t (Copy ",
+      "https://hypeddit.com/track/pjh50t"
+    ],
+    [
+      "7TX1_KxxiHE",
+      "Silhouette",
+      171,
+      "acoustic",
+      "adjacent",
+      "This is my new track named “Silhouette“ I hope you will like it!! You can use it in your videos, just leave a link and mention my page! I would appreciate if you use my music in your video!! Free Download :https://hypeddit.com/track/072zr1 ",
+      "https://hypeddit.com/track/072zr1"
+    ],
+    [
+      "APTLZhdhZOY",
+      "Seashore",
+      206,
+      "acoustic",
+      "adjacent",
+      "This is my new track named “Seashore“ I hope you will like it!! You can use it in your videos, just leave a link to my page! I would appreciate if you use my music in your video!! Free Download :https://hypeddit.com/track/72458u (Copy & Pas",
+      "https://hypeddit.com/track/72458u"
+    ],
+    [
+      "c6l92_jT_24",
+      "Leaves",
+      177,
+      "acoustic",
+      "adjacent",
+      "This is my new track named “Leaves“ I hope you will like it!! You can use it in your videos, just leave a link to my page! I would appreciate if you use my music in your video!! Free Download :https://hypeddit.com/track/ru9a6c (Copy & Paste",
+      "https://hypeddit.com/track/ru9a6c"
+    ],
+    [
+      "h5cI8jQSU98",
+      "Chill Day",
+      187,
+      "lofi",
+      "core",
+      "This is my new track named “Chill Day“ I hope you will like it!! You can use it in your videos, just leave a link to my page! I would appreciate if you use my music in your video!! Free Download :https://hypeddit.com/track/73hwfy (Copy & Pa",
+      "https://hypeddit.com/track/73hwfy"
+    ],
+    [
+      "KoNnNGkJngc",
+      "Break Time",
+      197,
+      "acoustic",
+      "adjacent",
+      "This is my new track named “Break Time“ I hope you will like it!! You can use it in your videos, just leave a link to my page! I would appreciate if you use my music in your video!! Free Download :https://hypeddit.com/track/72rcgx (Copy & P",
+      "https://hypeddit.com/track/72rcgx"
+    ],
+    [
+      "-QaicjiU1Tc",
+      "Chill Time (Chill House)",
+      180,
+      "lofi",
+      "core",
+      "This is my new track named “Chill Time“ I hope you will like it!! You can use it in your videos, just leave a link to my page! I would appreciate if you use my music in your video!! Free Download :https://hypeddit.com/track/hnj8lh (Copy & P",
+      "https://hypeddit.com/track/hnj8lh"
+    ],
+    [
+      "Bv1XdJjIA8A",
+      "Buddy",
+      206,
+      "acoustic",
+      "adjacent",
+      "New track is out👍 Thank you everyone for your kind support!!",
+      "https://hypeddit.com/roamusic/buddy"
+    ],
+    [
+      "G_LM_OYlJOk",
+      "My Way",
+      172,
+      "acoustic",
+      "adjacent",
+      "Thank you everyone for your kind support!! New Summer vibes track😊✨ I Hope you like it.",
+      "https://hypeddit.com/roamusic/myway"
+    ],
+    [
+      "1f5fR_UIrks",
+      "Blossom",
+      214,
+      "acoustic",
+      "adjacent",
+      "New spring track is out☺️🌸 I hope you will like this one. Feel free to use this track in your content.",
+      "https://hypeddit.com/roamusic/blossom"
+    ]
+  ]
+}

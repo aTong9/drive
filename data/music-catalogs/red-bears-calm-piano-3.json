@@ -1,0 +1,14 @@
+{
+  "platformId": "red-bears",
+  "artist": "red bears",
+  "description": "red bears 官方钢琴分类的严格低刺激子集；结合分类、曲目语义与官方 MP3 的响度/动态复核，排除偏活泼的《小人の踊り》及响度较高的 Jazz、Bossa Nova 候选。",
+  "downloadLabel": "red bears 官方钢琴下载页",
+  "credit": "Music: red bears — https://www.nakano-sound.com/ （署名非强制，建议保留）",
+  "licenseNote": "red bears 官方允许免费商用、YouTube 使用及改编，因此可裁切、Fade 和为画面制作循环；署名任意。禁止冒充作者、原样二次分发、素材直链，以及登记 YouTube Content ID 或其他会妨碍他人使用的版权管理。",
+  "pageUrl": "https://www.nakano-sound.com/free/piano.html",
+  "items": [
+    ["考えさせる曲1", 85, "沉静思考型钢琴；综合响度约 -14.7 LUFS，适合城市蓝调时刻"],
+    ["キミだけのキミ ピアノVer", 88, "最柔和的钢琴版本；综合响度约 -22.1 LUFS，动态留白充足"],
+    ["piano", 73, "低刺激纯钢琴；综合响度约 -18.2 LUFS，适合雨景与安静背景"]
+  ]
+}

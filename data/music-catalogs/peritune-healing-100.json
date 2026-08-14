@@ -1,0 +1,810 @@
+{
+  "platformId": "peritune",
+  "artist": "PeriTune",
+  "description": "按用户长期画像逐曲核对 PeriTune 官方 Healing／Piano 页面后收入的严格曲目与独立音频版本；保留官方明确提供的 Piano Solo、Soft Guitar、Music Box、Melody Off、Healing 与 loop 文件版本，排除战斗、壮大、恐怖、强力、激烈和明显高能曲。",
+  "downloadLabel": "官方曲目页下载 MP3／循环版 ZIP",
+  "credit": "Music: PeriTune https://peritune.com/（2026 年 3 月后署名任意；建议保留曲名与链接）",
+  "licenseNote": "官网独立条款允许在视频等作品中免费商业使用与 YouTube 盈利，并允许裁切、淡入淡出、循环等必要加工；2026 年 2 月以前曲目仍可按 CC BY 4.0 使用，官网允许优先采用其署名任意规则。禁止冒充作者、把音乐本身作为主体重新上传或登记 Content ID；使用前保存曲目页与最新条款。",
+  "items": [
+    [
+      "Sylblanc",
+      "https://peritune.com/blog/tag/healing/",
+      88,
+      "ambient",
+      false,
+      "healing, gentle, beautiful, forest"
+    ],
+    [
+      "Frosylva",
+      "https://peritune.com/blog/tag/healing/",
+      62,
+      "ambient",
+      false,
+      "healing, quiet, forest night"
+    ],
+    [
+      "Oceanfront",
+      "https://peritune.com/blog/tag/healing/",
+      100,
+      "acoustic",
+      false,
+      "healing, calm seaside, natural"
+    ],
+    [
+      "Glistening Ripples",
+      "https://peritune.com/blog/2026/03/21/glistening-ripples/",
+      90,
+      "piano",
+      false,
+      "ambient, healing, piano, gentle, calm, quiet"
+    ],
+    [
+      "Morning Snowfields",
+      "https://peritune.com/blog/tag/healing/",
+      95,
+      "ambient",
+      true,
+      "ambient, healing, quiet, snow"
+    ],
+    [
+      "Hanadoki",
+      "https://peritune.com/blog/tag/healing/",
+      0,
+      "piano",
+      true,
+      "healing, Japanese piano, gentle, calm, quiet"
+    ],
+    [
+      "Pale Warmth",
+      "https://peritune.com/blog/tag/healing/",
+      0,
+      "piano",
+      true,
+      "ambient, healing, piano, gentle, calm, quiet"
+    ],
+    [
+      "Misty Hollow",
+      "https://peritune.com/blog/tag/healing/",
+      0,
+      "acoustic",
+      true,
+      "healing, calm, ambient folk"
+    ],
+    [
+      "Mystic Tides",
+      "https://peritune.com/blog/tag/healing/",
+      0,
+      "ambient",
+      true,
+      "ambient, healing, calm sea"
+    ],
+    [
+      "Tender Gaze",
+      "https://peritune.com/blog/tag/healing/",
+      105,
+      "piano",
+      true,
+      "ambient, healing, piano, gentle, calm, quiet"
+    ],
+    [
+      "Nocturnal Bloom",
+      "https://peritune.com/blog/tag/healing/",
+      0,
+      "piano",
+      true,
+      "healing, gentle, calm, night forest"
+    ],
+    [
+      "Quiet Ocean",
+      "https://peritune.com/blog/tag/healing/",
+      0,
+      "ambient",
+      true,
+      "ambient, healing, gentle, quiet ocean"
+    ],
+    [
+      "Cerulean Relics",
+      "https://peritune.com/blog/tag/healing/",
+      0,
+      "piano",
+      true,
+      "ambient, healing, piano, gentle, quiet"
+    ],
+    [
+      "Forest Sage",
+      "https://peritune.com/blog/tag/healing/",
+      0,
+      "acoustic",
+      true,
+      "healing, gentle, calm, forest"
+    ],
+    [
+      "Lost in the Woods",
+      "https://peritune.com/blog/tag/healing/",
+      0,
+      "piano",
+      true,
+      "healing, piano, gentle, calm, forest"
+    ],
+    [
+      "Shizima3",
+      "https://peritune.com/blog/2018/06/17/shizima3/",
+      82,
+      "ambient",
+      true,
+      "ambient, healing, gentle, calm, quiet, Japanese"
+    ],
+    [
+      "Shizima3 Piano Solo",
+      "https://peritune.com/blog/2018/06/17/shizima3/",
+      82,
+      "piano",
+      true,
+      "healing, gentle piano, calm, quiet, Japanese"
+    ],
+    [
+      "Piano Sad2 Piano Solo",
+      "https://peritune.com/blog/2018/09/06/piano_sad2/",
+      132,
+      "piano",
+      true,
+      "healing, gentle piano, calm, quiet"
+    ],
+    [
+      "Piano Sad2 Piano & Strings",
+      "https://peritune.com/blog/2018/09/06/piano_sad2/",
+      132,
+      "piano",
+      true,
+      "healing, piano strings, calm"
+    ],
+    [
+      "Piano Melancholy3",
+      "https://peritune.com/blog/2016/12/05/piano_melancholy3/",
+      143,
+      "piano",
+      true,
+      "healing, piano solo, reflective"
+    ],
+    [
+      "Gentle Theme Piano",
+      "https://peritune.com/blog/2018/04/24/gentle_theme/",
+      112,
+      "piano",
+      true,
+      "healing, warm, gentle, calm, quiet"
+    ],
+    [
+      "Gentle Theme Guitar",
+      "https://peritune.com/blog/2018/04/24/gentle_theme/",
+      112,
+      "acoustic",
+      true,
+      "healing, warm, soft guitar, calm"
+    ],
+    [
+      "Gentle Theme Music Box",
+      "https://peritune.com/blog/2018/04/24/gentle_theme/",
+      112,
+      "ambient",
+      true,
+      "healing, warm, gentle, calm"
+    ],
+    [
+      "Wonder5",
+      "https://peritune.com/blog/2017/03/27/wonder5/",
+      87,
+      "ambient",
+      true,
+      "ambient, healing, mellow, gentle, calm"
+    ],
+    [
+      "Whisper3",
+      "https://peritune.com/blog/2018/07/09/whisper3/",
+      90,
+      "ambient",
+      true,
+      "healing, mellow, gentle, calm, night forest"
+    ],
+    [
+      "Shizima",
+      "https://peritune.com/blog/2017/08/28/shizima/",
+      80,
+      "ambient",
+      true,
+      "ambient, healing, gentle, calm, quiet, Japanese"
+    ],
+    [
+      "Hanagoyomi2",
+      "https://peritune.com/blog/2021/03/29/hanagoyomi2/",
+      95,
+      "ambient",
+      true,
+      "healing, Japanese, gentle, calm, quiet"
+    ],
+    [
+      "Hanagoyomi2 Piano Solo",
+      "https://peritune.com/blog/2021/03/29/hanagoyomi2/",
+      95,
+      "piano",
+      true,
+      "healing, Japanese piano, gentle, calm, quiet"
+    ],
+    [
+      "Chinatown Healing",
+      "https://peritune.com/blog/2017/06/22/chinatown/",
+      88,
+      "acoustic",
+      true,
+      "healing version, gentle, calm"
+    ],
+    [
+      "Healing1-a",
+      "https://peritune.com/blog/2016/11/22/healing1-3/",
+      0,
+      "piano",
+      false,
+      "healing, piano, calm, quiet"
+    ],
+    [
+      "SnowChill",
+      "https://peritune.com/blog/2022/12/08/snowchill/",
+      0,
+      "piano",
+      true,
+      "healing, lo-fi, chillout, gentle piano, calm, snowy ambient"
+    ],
+    [
+      "Afternoon Garden",
+      "https://peritune.com/blog/2022/07/16/afternoon_garden/",
+      0,
+      "acoustic",
+      false,
+      "healing, gentle, calm, classical garden, fairy tale"
+    ],
+    [
+      "RainDrop",
+      "https://peritune.com/blog/2022/07/11/raindrop/",
+      0,
+      "piano",
+      true,
+      "healing, piano ambient, gentle, calm, quiet, rain"
+    ],
+    [
+      "Deep Sea",
+      "https://peritune.com/blog/2022/07/05/deep_sea/",
+      0,
+      "ambient",
+      true,
+      "healing, ambient, gentle, calm, quiet sea, chillout"
+    ],
+    [
+      "Recollection",
+      "https://peritune.com/blog/2022/05/03/recollection/",
+      0,
+      "piano",
+      true,
+      "healing, gentle piano solo, calm, quiet, recollection"
+    ],
+    [
+      "Hesitation",
+      "https://peritune.com/blog/2022/02/26/hesitation/",
+      0,
+      "piano",
+      false,
+      "healing, gentle classical waltz, calm, quiet, night"
+    ],
+    [
+      "Powder Snow",
+      "https://peritune.com/blog/2021/12/24/powder_snow/",
+      100,
+      "ambient",
+      true,
+      "healing, gentle, calm, mellow, snow, synth pad"
+    ],
+    [
+      "Frozen Forest",
+      "https://peritune.com/blog/2021/11/24/frozen_forest/",
+      100,
+      "ambient",
+      true,
+      "healing, ambient, gentle, calm, forest, snow, synth pad"
+    ],
+    [
+      "Memories6",
+      "https://peritune.com/blog/2021/06/10/memories6/",
+      108,
+      "piano",
+      true,
+      "healing, gentle piano and strings, calm, quiet, warm memories"
+    ],
+    [
+      "Memories6 Piano Solo",
+      "https://peritune.com/blog/2021/06/10/memories6/",
+      108,
+      "piano",
+      true,
+      "healing, gentle piano solo, calm, quiet, warm memories"
+    ],
+    [
+      "Shizima4",
+      "https://peritune.com/blog/2021/06/06/shizima4/",
+      85,
+      "ambient",
+      true,
+      "healing, Japanese ambient, gentle, calm, quiet, rain, moon"
+    ],
+    [
+      "Shizima4 Piano Solo",
+      "https://peritune.com/blog/2021/06/06/shizima4/",
+      85,
+      "piano",
+      true,
+      "healing, Japanese gentle piano solo, calm, quiet, rain"
+    ],
+    [
+      "A Wish",
+      "https://peritune.com/blog/2015/11/12/a-wish/",
+      90,
+      "acoustic",
+      false,
+      "healing, gentle harp and strings, calm, warm, peaceful"
+    ],
+    [
+      "A Wish3 Harp Only",
+      "https://peritune.com/blog/2016/08/24/a-wish3/",
+      113,
+      "acoustic",
+      false,
+      "healing, gentle harp solo, calm, quiet, romantic"
+    ],
+    [
+      "A Wish3 Harp & Strings",
+      "https://peritune.com/blog/2016/08/24/a-wish3/",
+      113,
+      "acoustic",
+      false,
+      "healing, gentle harp and strings, calm, romantic"
+    ],
+    [
+      "Hanagoyomi",
+      "https://peritune.com/blog/2017/10/08/hanagoyomi/",
+      94,
+      "piano",
+      false,
+      "healing, Japanese piano, gentle, calm, quiet, spring garden"
+    ],
+    [
+      "Snowy Day2",
+      "https://peritune.com/blog/2017/11/19/snowy_day2/",
+      125,
+      "acoustic",
+      true,
+      "healing, gentle, calm, quiet, snowy village, harp"
+    ],
+    [
+      "Firmament2 Calm",
+      "https://peritune.com/blog/2018/05/16/firmament2/",
+      128,
+      "ambient",
+      true,
+      "healing, ambient, calm, synth pad, piano, sky"
+    ],
+    [
+      "Grief2",
+      "https://peritune.com/blog/2021/03/23/grief2/",
+      128,
+      "ambient",
+      true,
+      "healing, gentle, calm, quiet, music box and strings"
+    ],
+    [
+      "Grief2 Music Box",
+      "https://peritune.com/blog/2021/03/23/grief2/",
+      128,
+      "ambient",
+      true,
+      "healing, gentle music box, calm, quiet, reflective"
+    ],
+    [
+      "Limpid Water",
+      "https://peritune.com/blog/2022/04/12/limpid_water/",
+      88,
+      "acoustic",
+      true,
+      "healing, ambient folk, gentle guitar, harp, piano, calm water"
+    ],
+    [
+      "Limpid Water Melody Off",
+      "https://peritune.com/blog/2022/04/12/limpid_water/",
+      88,
+      "ambient",
+      true,
+      "healing, melody off ambient, gentle, calm, synth pad, water"
+    ],
+    [
+      "Taohua Melody Off",
+      "https://peritune.com/blog/2021/03/03/taohua/",
+      96,
+      "acoustic",
+      true,
+      "healing, melody off, gentle, calm, Chinese garden"
+    ],
+    [
+      "Snowy Day",
+      "https://peritune.com/blog/2015/12/07/snowy-day/",
+      95,
+      "acoustic",
+      true,
+      "healing, gentle piano and soft guitar, calm, quiet, snowy village"
+    ],
+    [
+      "Daybreak",
+      "https://peritune.com/blog/2015/11/07/daybreak/",
+      125,
+      "piano",
+      false,
+      "healing, gentle piano and acoustic guitar, calm, quiet morning"
+    ],
+    [
+      "Healing1-b",
+      "https://peritune.com/blog/2016/11/22/healing1-3/",
+      0,
+      "piano",
+      false,
+      "healing, gentle piano, calm, quiet jingle version"
+    ],
+    [
+      "Healing2-a",
+      "https://peritune.com/blog/2016/11/22/healing1-3/",
+      0,
+      "acoustic",
+      false,
+      "healing, gentle classical guitar, calm jingle"
+    ],
+    [
+      "Healing2-b",
+      "https://peritune.com/blog/2016/11/22/healing1-3/",
+      0,
+      "acoustic",
+      false,
+      "healing, gentle classical guitar, calm jingle version"
+    ],
+    [
+      "Healing3-a",
+      "https://peritune.com/blog/2016/11/22/healing1-3/",
+      0,
+      "ambient",
+      false,
+      "healing, gentle, calm, quiet fantasy jingle"
+    ],
+    [
+      "Healing3-b",
+      "https://peritune.com/blog/2016/11/22/healing1-3/",
+      0,
+      "ambient",
+      false,
+      "healing, gentle, calm, quiet fantasy jingle version"
+    ],
+    [
+      "Snowy Day4",
+      "https://peritune.com/blog/2020/12/04/snowy_day4/",
+      85,
+      "ambient",
+      true,
+      "healing, ambient, gentle, calm, quiet, snow, piano, synth pad"
+    ],
+    [
+      "Poema",
+      "https://peritune.com/blog/2020/01/04/poema/",
+      85,
+      "acoustic",
+      true,
+      "healing, warm, calm, gentle, Celtic folk, harp, soft guitar"
+    ],
+    [
+      "Poema2",
+      "https://peritune.com/blog/2020/11/13/poema2/",
+      115,
+      "acoustic",
+      true,
+      "healing, warm, calm, gentle, Celtic folk, harp, soft guitar"
+    ],
+    [
+      "Poema2 Guitar Solo",
+      "https://peritune.com/blog/2020/11/13/poema2/",
+      115,
+      "acoustic",
+      true,
+      "healing, warm, calm, gentle, soft guitar, solo version"
+    ],
+    [
+      "Guitar Gentle",
+      "https://peritune.com/blog/2016/12/16/guitar_gentle/",
+      120,
+      "acoustic",
+      true,
+      "healing, warm, calm, gentle, soft guitar"
+    ],
+    [
+      "Piano Refreshing",
+      "https://peritune.com/blog/2016/07/13/piano_refreshing/",
+      89,
+      "piano",
+      true,
+      "healing, warm, calm, gentle, piano"
+    ],
+    [
+      "Memories5",
+      "https://peritune.com/blog/2016/09/18/memories5/",
+      128,
+      "piano",
+      false,
+      "healing, calm, gentle, nostalgic piano"
+    ],
+    [
+      "Piano Melancholy2",
+      "https://peritune.com/blog/2016/10/21/piano_melancholy2/",
+      83,
+      "piano",
+      false,
+      "healing, slow, calm, gentle, melancholy piano"
+    ],
+    [
+      "Minamo",
+      "https://peritune.com/blog/2016/06/12/minamo/",
+      85,
+      "piano",
+      true,
+      "healing, calm, gentle, water, piano"
+    ],
+    [
+      "Pray",
+      "https://peritune.com/blog/2016/01/10/pray/",
+      90,
+      "ambient",
+      true,
+      "healing, calm, gentle, piano, ambient"
+    ],
+    [
+      "Piano Melancholy",
+      "https://peritune.com/blog/2016/07/05/piano_melancholy/",
+      83,
+      "piano",
+      false,
+      "healing, slow, calm, gentle, melancholy piano"
+    ],
+    [
+      "Sakuya3",
+      "https://peritune.com/blog/2016/10/18/sakuya3/",
+      85,
+      "piano",
+      true,
+      "healing, warm, calm, gentle, Japanese piano"
+    ],
+    [
+      "Snowy Village",
+      "https://peritune.com/blog/2019/01/16/snowy_village/",
+      124,
+      "acoustic",
+      true,
+      "healing, warm, calm, gentle, snowy village, acoustic"
+    ],
+    [
+      "Memories4",
+      "https://peritune.com/blog/2016/02/24/memories4/",
+      0,
+      "piano",
+      false,
+      "healing, slow, calm, gentle, nostalgic piano"
+    ],
+    [
+      "Snowy Day3",
+      "https://peritune.com/blog/2018/12/12/snowy_day3/",
+      145,
+      "piano",
+      true,
+      "healing, calm, gentle, snow, piano"
+    ],
+    [
+      "Nostalgic2",
+      "https://peritune.com/blog/2017/10/21/nostalgic2/",
+      122,
+      "acoustic",
+      true,
+      "healing, warm, calm, gentle, nostalgic acoustic"
+    ],
+    [
+      "Starry",
+      "https://peritune.com/blog/2018/10/20/starry/",
+      77,
+      "piano",
+      true,
+      "healing, slow, calm, gentle, starry night, piano"
+    ],
+    [
+      "Music-box Gentle2",
+      "https://peritune.com/blog/2017/09/19/music-box_gentle2/",
+      95,
+      "ambient",
+      false,
+      "healing, warm, calm, gentle, music box"
+    ],
+    [
+      "Sakuya4",
+      "https://peritune.com/blog/2018/12/21/sakuya4/",
+      80,
+      "piano",
+      false,
+      "healing, slow, calm, gentle, Japanese piano"
+    ],
+    [
+      "A Wish4 Harp Only",
+      "https://peritune.com/blog/2016/12/03/a-wish4/",
+      108,
+      "acoustic",
+      true,
+      "healing, warm, calm, gentle, harp only"
+    ],
+    [
+      "A Wish4 Harp & Strings",
+      "https://peritune.com/blog/2016/12/03/a-wish4/",
+      108,
+      "acoustic",
+      true,
+      "healing, warm, calm, gentle, harp, strings"
+    ],
+    [
+      "Glass Cradle",
+      "https://peritune.com/blog/tag/healing/",
+      115,
+      "ambient",
+      true,
+      "healing, calm, gentle, fantasy, glass, ambient"
+    ],
+    [
+      "Awayuki",
+      "https://peritune.com/blog/2023/01/07/awayuki/",
+      85,
+      "piano",
+      false,
+      "healing, slow, calm, gentle, snow, piano"
+    ],
+    [
+      "Grief",
+      "https://peritune.com/blog/2021/02/06/grief/",
+      98,
+      "ambient",
+      true,
+      "healing, slow, calm, gentle, ambient"
+    ],
+    [
+      "Grief Inst",
+      "https://peritune.com/blog/2021/02/06/grief/",
+      98,
+      "ambient",
+      true,
+      "healing, slow, calm, gentle, instrumental, ambient"
+    ],
+    [
+      "Endless Woods Inst",
+      "https://peritune.com/blog/2021/06/16/endless_woods/",
+      100,
+      "acoustic",
+      true,
+      "healing, warm, calm, gentle, forest, instrumental"
+    ],
+    [
+      "Endless Woods Melody Off",
+      "https://peritune.com/blog/2021/06/16/endless_woods/",
+      100,
+      "ambient",
+      true,
+      "healing, calm, gentle, forest, melody off"
+    ],
+    [
+      "Taohua",
+      "https://peritune.com/blog/2021/03/03/taohua/",
+      96,
+      "acoustic",
+      true,
+      "healing, warm, calm, gentle, Chinese, acoustic"
+    ],
+    [
+      "Heartwarming1",
+      "https://peritune.com/blog/2016/05/12/j_heartwarming1-3/",
+      0,
+      "acoustic",
+      false,
+      "healing, warm, calm, gentle, heartwarming acoustic"
+    ],
+    [
+      "Heartwarming2",
+      "https://peritune.com/blog/2016/05/12/j_heartwarming1-3/",
+      0,
+      "acoustic",
+      false,
+      "healing, warm, calm, gentle, heartwarming acoustic"
+    ],
+    [
+      "Heartwarming3",
+      "https://peritune.com/blog/2016/05/12/j_heartwarming1-3/",
+      0,
+      "acoustic",
+      false,
+      "healing, warm, calm, gentle, heartwarming acoustic"
+    ],
+    [
+      "Gentle Theme2 Piano",
+      "https://peritune.com/blog/2018/11/21/gentle_theme2/",
+      102,
+      "piano",
+      true,
+      "healing, warm, calm, gentle, piano version"
+    ],
+    [
+      "Gentle Theme2 Music Box",
+      "https://peritune.com/blog/2018/11/21/gentle_theme2/",
+      102,
+      "ambient",
+      true,
+      "healing, warm, calm, gentle, music box version"
+    ],
+    [
+      "Gentle Theme2 Guitar",
+      "https://peritune.com/blog/2018/11/21/gentle_theme2/",
+      102,
+      "acoustic",
+      true,
+      "healing, warm, calm, gentle, soft guitar version"
+    ],
+    [
+      "Memories",
+      "https://peritune.com/blog/2015/08/21/memories/",
+      94,
+      "piano",
+      true,
+      "healing, warm, calm, gentle, nostalgic piano"
+    ],
+    [
+      "A Wish2",
+      "https://peritune.com/blog/2016/07/07/a-wish2/",
+      90,
+      "acoustic",
+      false,
+      "healing, warm, calm, gentle, harp, strings"
+    ],
+    [
+      "Wonder",
+      "https://peritune.com/blog/2015/05/04/wonder1/",
+      0,
+      "ambient",
+      false,
+      "healing, slow, calm, gentle, fantasy ambient"
+    ],
+    [
+      "Wonder2",
+      "https://peritune.com/blog/2015/07/09/wonder2/",
+      108,
+      "ambient",
+      true,
+      "healing, warm, calm, gentle, fantasy ambient"
+    ],
+    [
+      "Wonder4",
+      "https://peritune.com/blog/2015/10/12/wonder4/",
+      87,
+      "ambient",
+      true,
+      "healing, slow, calm, gentle, fantasy ambient"
+    ],
+    [
+      "Whisper2",
+      "https://peritune.com/blog/2017/02/25/whisper2/",
+      138,
+      "ambient",
+      true,
+      "healing, calm, gentle, whisper, ambient"
+    ]
+  ]
+}
