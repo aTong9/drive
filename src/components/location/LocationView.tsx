@@ -1,10 +1,11 @@
 import { AudioLines, Camera, CarFront, CheckCircle2, ChevronRight, Clock3, CloudRain, CloudSun, Download, ExternalLink, Footprints, Globe2, MapPin, Navigation, Search, ShieldCheck, Trees, Trash2, X } from "lucide-react";
-import { useEffect, useMemo, useRef, useState, type ChangeEvent, type FormEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type ChangeEvent, type FormEvent, type WheelEvent } from "react";
 import type { FieldCheck, Location, ResolvedRoute } from "../../types/domain.js";
 import { usePlannerStore } from "../../app/store.js";
 import { downloadFieldChecks, importFieldChecks as readFieldChecks } from "../../services/fieldCheckExport.js";
 import { administrativeDivisionCount, administrativeGroups, divisionLabel, findProvince, provinceLabel, provincesForGroup, type AdministrativeGroupId } from "../../services/regionService.js";
 import { paginateItems } from "../../services/localPagination.js";
+import { horizontalScrollDelta } from "../../services/horizontalScroll.js";
 import { GeoPhotoThumbnail } from "../common/GeoPhotoThumbnail.js";
 import { CityWeather } from "../common/CityWeather.js";
 import { LocalPaginationControls } from "../common/LocalPaginationControls.js";
@@ -136,6 +137,14 @@ export function LocationView({ locations, routes, catalogSchemaVersion }: { loca
     setPage(page);
     resultsTopRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
+  const scrollRegionOptions = (event: WheelEvent<HTMLDivElement>) => {
+    const rail = event.currentTarget;
+    if (rail.scrollWidth <= rail.clientWidth) return;
+    const delta = horizontalScrollDelta(event.deltaX, event.deltaY);
+    if (!delta) return;
+    event.preventDefault();
+    rail.scrollLeft += delta;
+  };
 
   return (
     <main className={`location-page mode-${browseMode}`}>
@@ -152,7 +161,7 @@ export function LocationView({ locations, routes, catalogSchemaVersion }: { loca
             <button className={regionGroup === "all" ? "active" : ""} onClick={() => setRegionGroup("all")}>全部 34</button>
             {administrativeGroups.map((group) => <button key={group.id} className={regionGroup === group.id ? "active" : ""} onClick={() => setRegionGroup(group.id)}>{group.label} {group.provinces.length}</button>)}
           </div>}
-          <div className={`region-options ${!region.province ? "province-options" : ""}`}>
+          <div className={`region-options ${!region.province ? "province-options" : ""}`} onWheel={region.province ? scrollRegionOptions : undefined}>
             {!region.province ? provinces.map((province) => {
               const locationCount = locations.filter((location) => location.province === province.name).length;
               const routeCount = routes.filter((route) => route.route.province === province.name).length;

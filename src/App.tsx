@@ -1,4 +1,4 @@
-import { ArrowRight, BarChart3, CalendarDays, Camera, Clapperboard, Compass, FolderKanban, Map as MapIcon, Menu, Music2, Search, Videotape, X } from "lucide-react";
+import { ArrowRight, BarChart3, CalendarDays, Camera, Clapperboard, Compass, FolderKanban, Map as MapIcon, Menu, Moon, Music2, Search, Sun, Videotape, X } from "lucide-react";
 import { lazy, Suspense, useCallback, useEffect, useMemo, useState } from "react";
 import type { DrivingSummary } from "./types/domain.js";
 import { Brand } from "./components/common/Brand.js";
@@ -26,6 +26,7 @@ function ViewLoadingState() {
 
 export function App() {
   const state = usePlannerStore();
+  const [theme, setTheme] = useState<"dark" | "light">(() => localStorage.getItem("roadlens-theme") === "light" ? "light" : "dark");
   const [drivingSummary, setDrivingSummary] = useState<DrivingSummary | null>(null);
   const [currentRegion, setCurrentRegion] = useState<CurrentRegion | null>(null);
   const [locationStatus, setLocationStatus] = useState<LocationDetectionStatus>("idle");
@@ -35,6 +36,10 @@ export function App() {
   const [commandOpen, setCommandOpen] = useState(false);
   const [commandQuery, setCommandQuery] = useState("");
   const handleDrivingSummary = useCallback((summary: DrivingSummary) => setDrivingSummary(summary), []);
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    localStorage.setItem("roadlens-theme", theme);
+  }, [theme]);
   const locateCurrentCity = useCallback(async () => {
     setLocationStatus("locating");
     setLocationMessage("");
@@ -133,6 +138,7 @@ export function App() {
         </nav>
         <div className="topbar-actions">
           <button className="command-trigger" onClick={() => setCommandOpen(true)} aria-label="打开快捷导航"><Search size={16} /><span>搜索与跳转</span><kbd>⌘ K</kbd></button>
+          <button className="icon-button theme-toggle" onClick={() => setTheme((value) => value === "dark" ? "light" : "dark")} aria-label={theme === "dark" ? "切换到白天模式" : "切换到暗黑模式"} title={theme === "dark" ? "白天模式" : "暗黑模式"}>{theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}</button>
           <span className="avatar">RL</span>
           <button className="icon-button mobile-menu" aria-label="打开更多功能" onClick={() => setCommandOpen(true)}><Menu size={20} /></button>
         </div>
