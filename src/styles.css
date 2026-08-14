@@ -1502,6 +1502,14 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--orange); ou
 .music-platform-card > footer a, .music-platform-card > footer div a { font-size: 10px; }
 .mobile-nav { display: none; }
 
+/* Readability baseline: keep dense information, but never render primary UI copy at micro-label sizes. */
+body { font-size: 12px; }
+:where(button, input, select, textarea) { font-size: 12px !important; }
+:where(p, li, dt, dd, label) { font-size: 12px !important; }
+small { font-size: 10px !important; }
+:where(.eyebrow, .creator-patterns span, .upload-tags span, .route-card-meta, .location-card-meta, .music-category-strip button) { font-size: 10px !important; }
+:where(.topbar nav button, .mobile-nav button, .creator-card footer a, .socialblade-panel > a) { font-size: 11px !important; }
+
 /* Light theme keeps maps and photographic previews untouched while lifting the workspace chrome. */
 :root[data-theme="light"] {
   color-scheme: light;
@@ -1552,6 +1560,51 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--orange); ou
 :root[data-theme="light"] .camera-detail-hero { background-color: #f0eee7; }
 :root[data-theme="light"] .mobile-nav { background: #faf9f5; }
 :root[data-theme="light"] .theme-toggle { color: #b9552e; background: rgba(239,108,53,.08); border-color: rgba(239,108,53,.18); }
+:root[data-theme="light"] :where(
+  .creator-categories button, .creator-toolbar > label, .creator-proof,
+  .socialblade-panel input, .upload-controls select, .upload-template-picker button,
+  .music-family-tabs button, .music-direction, .music-toolbar label,
+  .music-toolbar select, .music-album-heading select, .music-platform-card dl,
+  .music-filter-panel select, .music-search, .music-source-heading select,
+  .condition-grid > div, .camera-preset, .camera-values span,
+  .location-facts > span, .field-check-form, .source-link, .related-route,
+  .camera-library-head dl div, .camera-library-toolbar > label,
+  .camera-device-tabs, .camera-scene-tabs, .camera-preset-browser,
+  .camera-playbook-detail, .camera-preset-list > button, .camera-playbook-actions,
+  .camera-playbook-actions button, .camera-core-grid > div, .exposure-grid > div,
+  .camera-route, .post-mode, .post-overview-grid > section,
+  .post-overview-grid > aside, .post-stage-body, .grade-presets-page > header,
+  .beginner-tutorial > header, .grade-preset-tabs button, .grade-preset-card,
+  .tutorial-layout > nav button, .tutorial-chapters > article, .post-progress,
+  .post-master-status article, .pipeline-step-nav, .pipeline-step-nav button,
+  .pipeline-stage, .pipeline-stage > div button, .project-file-actions label,
+  .project-file-actions button, .project-switcher button, .project-status-flow button,
+  .project-shots, .project-pack, .project-shot-card, .project-production-grid > article,
+  .project-workflow-checks button, .project-track-list button, .media-batch-list > section,
+  .project-track-card, .retrospective-metrics, .retrospective-insights,
+  .project-empty, .project-empty-actions button, .project-empty-actions label,
+  .dashboard-head > button, .dashboard-panel > button, .dashboard-stats article,
+  .dashboard-panel, .recommend-panel, .recommend-results > button
+) { background: #fff; color: #343b33; border-color: rgba(31,39,31,.13); }
+:root[data-theme="light"] :where(
+  .creator-proof strong, .creator-proof p, .creator-proof small,
+  .creator-categories button, .creator-toolbar input, .music-direction > p,
+  .music-platform-card dt, .music-platform-card dd, .upload-fields p,
+  .upload-fields pre, .upload-settings dt, .upload-settings dd
+) { color: #596359; }
+:root[data-theme="light"] :where(
+  .socialblade-panel input, .upload-controls select, .music-toolbar input,
+  .music-toolbar select, .music-album-heading select, .music-filter-panel select,
+  .music-search input, .music-source-heading select, .plan-dialog input,
+  .plan-dialog textarea, .field-check-form input, .field-check-form textarea,
+  .media-batch-add input, .media-batch-list textarea, .project-music-add input,
+  .project-music-add select, .project-publish-fields input,
+  .project-publish-fields textarea, .project-track-card input,
+  .retrospective-metrics input, .recommend-controls select
+) { background: #faf9f5; color: #252a24; border-color: rgba(31,39,31,.16); }
+:root[data-theme="light"] .creator-proof { border-color: rgba(31,39,31,.1); }
+:root[data-theme="light"] .upload-template-picker button.active,
+:root[data-theme="light"] .music-family-tabs button.active { background: color-mix(in srgb, currentColor 5%, #fff); }
 
 @media (max-width: 1180px) {
   .workspace.has-detail { grid-template-columns: 300px minmax(360px, 1fr); }

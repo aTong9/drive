@@ -1019,6 +1019,87 @@
       "patterns": ["自然底噪配少量近场事件", "按使用时长制作版本", "控制音效出现频率", "保持低亮度和慢变化"],
       "caution": "魔法学校等高度可识别设定可能涉及版权；应转化为原创空间，并避免医疗或助眠疗效承诺。",
       "evidence": [{ "title": "RainRider Ambience 官方频道", "url": "https://www.youtube.com/@RainRiderAmbience" }]
+    },
+    {
+      "id": "car-drive", "name": "Car Drive", "region": "欧洲 / 乡村公路、雨后道路与真实车声", "category": "scenic-drive", "channelUrl": "https://www.youtube.com/@CarDrive",
+      "positioning": "用连续车载视角记录欧洲乡村和山地道路，突出真实车声、天气与道路空间。",
+      "representative": { "title": "European countryside drives after rain", "url": "https://www.youtube.com/@CarDrive/videos", "observedPerformance": "雨后乡村、公路名称与真实车声形成稳定的路线观看入口。" },
+      "whyItWorks": ["道路和天气承诺明确。", "真实车声加强速度与空间感。", "普通乡村路线补足热门景点之外的内容。"],
+      "patterns": ["道路名与天气前置", "保留完整连续路线", "控制挡风玻璃反光", "记录起终点和时间"],
+      "caution": "设备必须出发前固定，驾驶者全程不操作、不追景、不违规降速或靠边。",
+      "evidence": [{ "title": "Car Drive 官方频道", "url": "https://www.youtube.com/@CarDrive" }]
+    },
+    {
+      "id": "visual-walk-uk", "name": "Visual Walk UK", "region": "英国 / 暴雨、雪景与乡村步行", "category": "rain-walk", "channelUrl": "https://www.youtube.com/@VisualWalkUK",
+      "positioning": "把英国村庄、暴雨和雪景制作成高天气辨识度的短中长步行影像。",
+      "representative": { "title": "Picturesque English Village under Storm and Heavy Rain", "url": "https://www.youtube.com/@VisualWalkUK/videos", "observedPerformance": "强天气与英格兰乡村组合形成直观的情绪和地点卖点。" },
+      "whyItWorks": ["暴雨和雪景在缩略图中立即可见。", "村庄建筑提供连续视觉细节。", "短片适合发现，合集适合长时观看。"],
+      "patterns": ["天气作为核心选题", "先确认安全退路", "保留雨雪真实声", "短片与合集互相导流"],
+      "caution": "风暴不是冒险拍摄理由；雷电、强风、积水、结冰或道路无步行空间时必须取消。",
+      "evidence": [{ "title": "Visual Walk UK 官方频道", "url": "https://www.youtube.com/@VisualWalkUK" }]
+    },
+    {
+      "id": "explore-birds-bats-bees", "name": "Explore Birds Bats Bees", "region": "美国 / 鸟巢、蝙蝠、传粉者与固定直播", "category": "stationary-nature", "channelUrl": "https://www.youtube.com/@ExploreBirdsBatsBees",
+      "positioning": "通过固定摄像头与精彩片段观察鸟类、蝙蝠和传粉者，把日常自然行为积累成长期档案。",
+      "representative": { "title": "Wildlife cams and backyard nature observations", "url": "https://www.youtube.com/@ExploreBirdsBatsBees/videos", "observedPerformance": "固定地点的长期观察让微小行为变化成为持续观看理由。" },
+      "whyItWorks": ["真实野生动物行为不可预测，持续带来事件期待。", "固定机位便于比较时间变化。", "物种主题有教育和资料价值。"],
+      "patterns": ["直播配精彩片段", "标记日期物种和行为", "避免人为干预", "建立季节时间线"],
+      "caution": "不得暴露敏感巢址、诱拍或干扰繁殖；设备维护应避开活跃时段。",
+      "evidence": [{ "title": "Explore Birds Bats Bees 官方频道", "url": "https://www.youtube.com/@ExploreBirdsBatsBees" }]
+    },
+    {
+      "id": "visiting-pov", "name": "Visiting POV — The Paris Guide", "region": "法国 / 巴黎街区、路线建议与 4K 步行", "category": "urban-walk", "channelUrl": "https://www.youtube.com/@VisitingPOV",
+      "positioning": "以本地视角组织巴黎一日路线、街区和季节活动，让连续步行同时具备沉浸和规划价值。",
+      "representative": { "title": "Experience a Local's Perfect One-Day Walk in Paris 4K", "url": "https://www.youtube.com/watch?v=dojKAqmumv8", "observedPerformance": "本地人路线承诺、巴黎地点词和 4K 步行形成清晰的搜索入口。" },
+      "whyItWorks": ["一日路线直接解决规划问题。", "本地视角提供地点选择理由。", "连续步行保留街区空间关系。"],
+      "patterns": ["先定义路线主题", "用章节标记街区", "保留地标间连接", "标题组合城市路线和画质"],
+      "caution": "路线信息需注明日期；商业空间、人物隐私和现场音乐仍需分别处理。",
+      "evidence": [{ "title": "Visiting POV 官方频道", "url": "https://www.youtube.com/@VisitingPOV" }]
+    },
+    {
+      "id": "geography-now", "name": "Geography Now", "region": "美国 / 国家地理、文化结构与旅行背景", "category": "guided-walk", "channelUrl": "https://www.youtube.com/@GeographyNow",
+      "positioning": "用固定栏目结构解释国家、地貌、人口和文化，为目的地影像提供可理解的地理背景。",
+      "representative": { "title": "Country profiles and geography explainers", "url": "https://www.youtube.com/@GeographyNow/videos", "observedPerformance": "统一国家档案结构让大量目的地知识易于搜索和连续学习。" },
+      "whyItWorks": ["固定栏目结构稳定，观众能快速建立理解框架。", "地图与现场素材互相验证。", "国家级主题具有长期搜索价值。"],
+      "patterns": ["先解释地貌与城市关系", "地图绑定现场画面", "区分事实和文化概括", "为路线补充简短背景"],
+      "caution": "国家和文化概括必须避免刻板印象并引用可靠来源；不可复制其脚本、图形和节目结构细节。",
+      "evidence": [{ "title": "Geography Now 官方频道", "url": "https://www.youtube.com/@GeographyNow" }]
+    },
+    {
+      "id": "daniel-kordan", "name": "Daniel Kordan", "region": "全球 / 极地、山地与高完成度风景摄影", "category": "cinematic-landscape", "channelUrl": "https://www.youtube.com/@DanielKordan",
+      "positioning": "以极地、山地和遥远目的地的高完成度摄影、航拍及幕后过程连接视觉奇观与现场执行。",
+      "representative": { "title": "Landscape photography expeditions and cinematic destinations", "url": "https://www.youtube.com/@DanielKordan/videos", "observedPerformance": "高辨识目的地和精致视觉形成强烈的电影风景定位。" },
+      "whyItWorks": ["目的地本身具备视觉稀缺性。", "幕后过程证明成片成本。", "照片与运动影像互相强化。"],
+      "patterns": ["先定义关键光线窗口", "用远中近景建立尺度", "保留天气和等待过程", "照片与视频统一调色方向"],
+      "caution": "极地和山地拍摄需要专业保障；不可因视觉目标忽略许可、天气、野生动物距离与团队安全。",
+      "evidence": [{ "title": "Daniel Kordan 官方频道", "url": "https://www.youtube.com/@DanielKordan" }]
+    },
+    {
+      "id": "naturaleza-viva", "name": "Naturaleza Viva", "region": "西班牙语地区 / 海浪、自然白噪声与整夜睡眠", "category": "nature-ambience", "channelUrl": "https://www.youtube.com/@NaturalezaViva",
+      "positioning": "以海浪和自然声制作超长睡眠版本，强调稳定声场和低视觉刺激。",
+      "representative": { "title": "Ocean sounds for deep sleeping", "url": "https://www.youtube.com/@NaturalezaViva/videos", "observedPerformance": "海浪、整夜片长和睡眠用途形成跨语言的功能型内容。" },
+      "whyItWorks": ["海浪节奏天然适合长时播放。", "十一小时版本覆盖整夜。", "用途与声音写得清楚。"],
+      "patterns": ["制作整夜版本", "控制浪声峰值", "提供低亮或黑屏版本", "标题先写声音和时长"],
+      "caution": "不做医疗承诺；海边收音必须考虑潮汐、风浪和设备安全，并标明循环与素材来源。",
+      "evidence": [{ "title": "Naturaleza Viva 官方频道", "url": "https://www.youtube.com/@NaturalezaViva" }]
+    },
+    {
+      "id": "nemos-dreamscapes", "name": "Relax with Nemo's Dreamscapes", "region": "数字影像 / 老电影音乐、火车与复古环境", "category": "ambient-cinema", "channelUrl": "https://www.youtube.com/@NemosDreamscapes",
+      "positioning": "把复古音乐、雨夜火车和模糊空间感组合成超长梦境场景，服务睡眠与怀旧陪伴。",
+      "representative": { "title": "Rainy Night Train Journey Dreamscape", "url": "https://www.youtube.com/@NemosDreamscapes/videos", "observedPerformance": "复古声音处理、交通空间和超长片长形成鲜明的梦境感。" },
+      "whyItWorks": ["复古声音具有即时年代感。", "火车空间提供缓慢进程。", "长时版本适合睡眠陪伴。"],
+      "patterns": ["定义年代和空间", "声音做距离与带宽处理", "动画保持极慢变化", "检查音乐权利状态"],
+      "caution": "老录音并不自动属于公版，必须逐曲核验录音版权、作品版权和地区期限。",
+      "evidence": [{ "title": "Nemo's Dreamscapes 官方频道", "url": "https://www.youtube.com/@NemosDreamscapes" }]
+    },
+    {
+      "id": "white-noise-space", "name": "White Noise Space", "region": "数字影像 / 飞船、深空低频与睡眠 ASMR", "category": "asmr-nature", "channelUrl": "https://www.youtube.com/@WhiteNoiseSpace",
+      "positioning": "用飞船舱室、深空低频和稳定白噪声构建十小时睡眠场景，把自然声方法迁移到科幻空间。",
+      "representative": { "title": "Starship Sleeping Quarters | Deep Bass White Noise", "url": "https://www.youtube.com/@WhiteNoiseSpace/videos", "observedPerformance": "科幻舱室、深低频和整夜片长形成明确的睡眠使用场景。" },
+      "whyItWorks": ["科幻空间有强辨识度。", "稳定低频适合屏蔽环境干扰。", "十小时满足整夜使用。"],
+      "patterns": ["场景先确定声音频谱", "低频留足动态余量", "画面降低亮度", "加入合理音量提醒"],
+      "caution": "深低频需避免过大音量和削波；不应宣称治疗睡眠问题，视觉与音效必须原创或授权。",
+      "evidence": [{ "title": "White Noise Space 官方频道", "url": "https://www.youtube.com/@WhiteNoiseSpace" }]
     }
   ]
 }
