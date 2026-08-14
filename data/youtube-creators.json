@@ -938,6 +938,87 @@
       "patterns": ["建立季节发布日历", "让室内细节声与窗外天气互补", "保持低亮度和慢动画", "同场景制作雨夜壁炉与厨房版本"],
       "caution": "可学习季节、室内与自然声的组合，不复制其插画、动画、声音层、标题或具体场景设计。",
       "evidence": [{ "title": "Autumn Cozy 官方频道", "url": "https://www.youtube.com/@AutumnCozy" }]
+    },
+    {
+      "id": "switzerland-is-life", "name": "Switzerland is Life", "region": "瑞士 / 阿尔卑斯道路、山谷与火车景观", "category": "scenic-drive", "channelUrl": "https://www.youtube.com/@SwitzerlandisLife",
+      "positioning": "以瑞士山谷道路、雨中驾驶、火车和阿尔卑斯景观制作短中长路线影像，突出单一地点的即时视觉回报。",
+      "representative": { "title": "Scenic drives and train rides in the Swiss Alps", "url": "https://www.youtube.com/@SwitzerlandisLife/videos", "observedPerformance": "Lauterbrunnen、Pilatus 等高辨识地点持续形成驾车和铁路景观系列。" },
+      "whyItWorks": ["世界级地点在标题和缩略图中立即可识别。", "短片易发现，长路线适合沉浸观看。", "雨雪和季节让相同道路持续产生新版本。"],
+      "patterns": ["地点名放在标题最前", "同一路线记录季节版本", "保留雨雪道路真实声", "短精华导向完整路线"],
+      "caution": "山地驾驶必须服从天气、道路和停车规定，不为画面降速、靠边、掉头或在驾驶中操作设备。",
+      "evidence": [{ "title": "Switzerland is Life 官方频道", "url": "https://www.youtube.com/@SwitzerlandisLife" }]
+    },
+    {
+      "id": "moony-apartment-rain", "name": "Moony Apartment / Cat Life", "region": "韩国 / 城市夜雨、长时步行与 ASMR", "category": "rain-walk", "channelUrl": "https://www.youtube.com/@moonyapartmentcatlife",
+      "positioning": "以数小时城市夜雨步行和连续雨声服务睡眠与放松，把路线变化融入稳定的 ASMR 声场。",
+      "representative": { "title": "Walking in Heavy Rain at Night | 3 Hours 4K", "url": "https://www.youtube.com/watch?v=YwPCKNuM1mg", "observedPerformance": "长时无切换雨夜步行成为频道具有辨识度的观看入口。" },
+      "whyItWorks": ["三小时片长覆盖完整放松时段。", "夜间灯光与雨面反射持续提供变化。", "路线行走避免纯雨声画面过于静止。"],
+      "patterns": ["先测试夜雨路线照明和积水", "连续记录并保留空间变化", "控制伞面近场雨声", "提供完整无剪辑版本"],
+      "caution": "雨夜长时步行需要严格控制雷电、积水、车辆、疲劳和设备防水风险，不应边走边调设备。",
+      "evidence": [{ "title": "Moony Apartment 官方频道", "url": "https://www.youtube.com/@moonyapartmentcatlife" }]
+    },
+    {
+      "id": "cornell-bird-cams", "name": "Cornell Lab Bird Cams", "region": "美国与全球 / 野生鸟类直播和固定机位观察", "category": "stationary-nature", "channelUrl": "https://www.youtube.com/@CornellBirdCams",
+      "positioning": "通过固定直播机位长期观察鸟巢、喂食点和自然行为，让真实时间、科学背景与不可预测事件共同驱动观看。",
+      "representative": { "title": "Live bird cams and wildlife highlights", "url": "https://www.youtube.com/@CornellBirdCams/videos", "observedPerformance": "长期直播、精彩片段和物种说明共同构成自然观察档案。" },
+      "whyItWorks": ["真实时间带来不可替代的事件期待。", "固定构图方便观众长期建立地点熟悉感。", "物种知识让观察拥有学习价值。"],
+      "patterns": ["固定机位配事件标记", "直播与精彩片段并行", "简介记录物种和观察时间", "不干预自然行为"],
+      "caution": "野生动物拍摄必须保持距离，避免诱拍、投喂、暴露巢址或为设备维护干扰繁殖行为。",
+      "evidence": [{ "title": "Cornell Lab Bird Cams 官方频道", "url": "https://www.youtube.com/@CornellBirdCams" }]
+    },
+    {
+      "id": "daves-walks", "name": "Dave's Walks", "region": "英国 / 英格兰乡村、历史街区与天气步行", "category": "urban-walk", "channelUrl": "https://www.youtube.com/@DavesWalks",
+      "positioning": "以科茨沃尔德村庄、历史城镇和英国日常街道为核心，制作长时连续步行和季节天气版本。",
+      "representative": { "title": "Bibury & Arlington Row | Iconic Cotswolds Village Walk", "url": "https://www.youtube.com/@DavesWalks/videos", "observedPerformance": "村庄名称、历史地标和天气情境形成稳定的目的地长尾。" },
+      "whyItWorks": ["小镇细节补充热门大城市之外的内容缺口。", "连续路线具有真实行前参考价值。", "天气和季节让地点获得重复观看理由。"],
+      "patterns": ["从地标进入普通街巷", "标题写清村镇与区域", "保留脚步和生活环境声", "建立季节复拍计划"],
+      "caution": "乡村道路常缺人行空间，拍摄需注意车辆、私人住宅、农地边界和居民隐私。",
+      "evidence": [{ "title": "Dave's Walks 官方频道", "url": "https://www.youtube.com/@DavesWalks" }]
+    },
+    {
+      "id": "rick-steves-europe", "name": "Rick Steves' Europe", "region": "美国 / 欧洲旅行教育、文化背景与路线导览", "category": "guided-walk", "channelUrl": "https://www.youtube.com/@ricksteves",
+      "positioning": "将欧洲城市、文化、历史和实用路线压缩成结构明确的旅行教育内容，由现场讲解和空间证据共同推进。",
+      "representative": { "title": "European travel guides, cities and cultural context", "url": "https://www.youtube.com/@ricksteves/videos", "observedPerformance": "完整节目、目的地片段和实用提示形成覆盖广泛的长期旅行资料库。" },
+      "whyItWorks": ["每段内容都回答具体旅行问题。", "历史背景与眼前空间紧密对应。", "成熟结构能在有限时间内建立地点全貌。"],
+      "patterns": ["先交代路线和学习目标", "讲解绑定现场可见证据", "章节覆盖交通文化和取舍", "结尾给出行动建议"],
+      "caution": "实用信息会随时间变化，发布时需注明核验日期；不可复制其脚本、节目镜头、地图和品牌表达。",
+      "evidence": [{ "title": "Rick Steves 官方频道", "url": "https://www.youtube.com/@ricksteves" }]
+    },
+    {
+      "id": "expressive-photography", "name": "Alister Benn / Expressive Photography", "region": "苏格兰 / 风景摄影、情绪表达与视觉设计", "category": "cinematic-landscape", "channelUrl": "https://www.youtube.com/@ExpressivePhotography",
+      "positioning": "把风景摄影从器材参数转向情绪、视觉设计和个人表达，通过现场分析与后期复盘解释画面为何成立。",
+      "representative": { "title": "Expressive landscape photography and visual design", "url": "https://www.youtube.com/@ExpressivePhotography/videos", "observedPerformance": "频道以表达方法、现场决策和深入教学建立区别于地点打卡的价值。" },
+      "whyItWorks": ["先讨论情绪目标再谈技术。", "现场失败和取舍让方法更可信。", "视觉设计语言可迁移到不同地点。"],
+      "patterns": ["拍摄前写一句情绪目标", "用形状明暗和节奏组织镜头", "保留失败构图用于复盘", "调色服务现场感受"],
+      "caution": "表达性后期不应把合成结果包装成纪实现场；可学习方法，不复制照片、课程、预设和具体案例。",
+      "evidence": [{ "title": "Expressive Photography 官方频道", "url": "https://www.youtube.com/@ExpressivePhotography" }]
+    },
+    {
+      "id": "relaxing-sounds-of-nature", "name": "Relaxing Sounds Of Nature", "region": "全球 / 雨、森林、海浪与长时自然声", "category": "nature-ambience", "channelUrl": "https://www.youtube.com/@RelaxingSoundsOfNature",
+      "positioning": "围绕单一自然声音制作适合睡眠、专注和放松的长时版本，以声音功能和稳定画面降低选择成本。",
+      "representative": { "title": "Rain, forest and ocean nature sounds", "url": "https://www.youtube.com/@RelaxingSoundsOfNature/videos", "observedPerformance": "明确的声音主题与功能词形成可重复使用的自然声目录。" },
+      "whyItWorks": ["单一声源减少注意力负担。", "长时版本适合完整使用周期。", "标题直接覆盖声音与用途搜索。"],
+      "patterns": ["一个视频只突出一个主声源", "提供黑屏或低亮度版本", "检查循环接缝和响度", "明确实录与素材来源"],
+      "caution": "不得宣称医学疗效；真实录音、授权素材和合成声音必须准确标注，避免误导观众。",
+      "evidence": [{ "title": "Relaxing Sounds Of Nature 官方频道", "url": "https://www.youtube.com/@RelaxingSoundsOfNature" }]
+    },
+    {
+      "id": "new-bliss", "name": "New Bliss", "region": "数字影像 / 舒适室内、雨夜与电影感环境", "category": "ambient-cinema", "channelUrl": "https://www.youtube.com/@NewBliss",
+      "positioning": "以舒适室内、窗外天气和电影化光线制作长时氛围场景，把视觉安全感与环境声音结合。",
+      "representative": { "title": "Cozy rooms, rain and cinematic ambience", "url": "https://www.youtube.com/@NewBliss/videos", "observedPerformance": "室内空间、雨雪和温暖光源形成易识别的背景观看体验。" },
+      "whyItWorks": ["室内外对比快速建立情绪。", "细微动画让固定画面保持生命感。", "长时低刺激声场适合工作和休息。"],
+      "patterns": ["窗口作为室内外视觉连接", "暖光与冷色天气对比", "限制动画元素数量", "按房间天气和时段组合选题"],
+      "caution": "场景、插画、模型、音乐和音效都需要原创或授权；不可复制其具体空间和缩略图。",
+      "evidence": [{ "title": "New Bliss 官方频道", "url": "https://www.youtube.com/@NewBliss" }]
+    },
+    {
+      "id": "rainrider-ambience", "name": "RainRider Ambience", "region": "数字影像 / 魔法空间、雨声与超长睡眠氛围", "category": "asmr-nature", "channelUrl": "https://www.youtube.com/@RainRiderAmbience",
+      "positioning": "将雨声、火焰、翻书和魔法空间组合成数小时 ASMR 场景，强调睡眠、学习与舒适陪伴。",
+      "representative": { "title": "Magical room ambience with rain and soft ASMR", "url": "https://www.youtube.com/@RainRiderAmbience/videos", "observedPerformance": "超长片长、魔法空间和细节音效构成稳定的功能型氛围系列。" },
+      "whyItWorks": ["空间主题比通用雨声更有记忆点。", "近场细节和远场雨声形成声场深度。", "超长版本减少睡眠和学习中的切换。"],
+      "patterns": ["自然底噪配少量近场事件", "按使用时长制作版本", "控制音效出现频率", "保持低亮度和慢变化"],
+      "caution": "魔法学校等高度可识别设定可能涉及版权；应转化为原创空间，并避免医疗或助眠疗效承诺。",
+      "evidence": [{ "title": "RainRider Ambience 官方频道", "url": "https://www.youtube.com/@RainRiderAmbience" }]
     }
   ]
 }
