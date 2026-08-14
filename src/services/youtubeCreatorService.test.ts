@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { socialBladeUrl, youtubeCreatorResearch } from "./youtubeCreatorService.js";
+import { socialBladeUrl, viewStatsUrl, youtubeCreatorResearch } from "./youtubeCreatorService.js";
 
 test("includes the three ambience research categories", () => {
   for (const category of ["nature-ambience", "ambient-cinema", "asmr-nature"] as const) {
@@ -17,4 +17,13 @@ test("keeps every creator model represented by a useful research set", () => {
 
 test("builds a Social Blade handle link from a YouTube channel", () => {
   assert.equal(socialBladeUrl("https://www.youtube.com/@AmbientWorlds"), "https://socialblade.com/youtube/handle/ambientworlds");
+});
+
+test("builds a ViewStats channel analytics link from a YouTube handle", () => {
+  assert.equal(viewStatsUrl("https://www.youtube.com/@AmbientWorlds/videos"), "https://www.viewstats.com/@ambientworlds/channelytics");
+});
+
+test("falls back to analytics homepages when a channel has no handle", () => {
+  assert.equal(socialBladeUrl("https://www.youtube.com/channel/example"), "https://socialblade.com/youtube/");
+  assert.equal(viewStatsUrl("https://www.youtube.com/channel/example"), "https://www.viewstats.com/");
 });

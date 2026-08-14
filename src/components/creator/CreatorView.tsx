@@ -1,6 +1,6 @@
 import { ArrowUpRight, Calculator, CarFront, ExternalLink, Film, Footprints, Headphones, Search, Sparkles, Trees, Video, Videotape, Volume2, Waves } from "lucide-react";
 import { useMemo, useState } from "react";
-import { estimateSocialBladeEarnings, socialBladeUrl, youtubeCreatorResearch, type CreatorCategory } from "../../services/youtubeCreatorService.js";
+import { creatorAnalyticsTools, estimateSocialBladeEarnings, socialBladeUrl, viewStatsUrl, youtubeCreatorResearch, type CreatorCategory } from "../../services/youtubeCreatorService.js";
 
 const categories: Array<{ value: CreatorCategory | "all"; label: string; icon: typeof Video }> = [
   { value: "all", label: "全部", icon: Videotape },
@@ -50,7 +50,15 @@ export function CreatorView() {
         <a className="creator-proof" href={creator.representative.url} target="_blank" rel="noreferrer"><Video size={15} /><span><small>代表内容 / 公开表现</small><strong>{creator.representative.title}</strong><p>{creator.representative.observedPerformance}</p></span><ArrowUpRight size={14} /></a>
         <section><h3>为什么获得播放</h3><ol>{creator.whyItWorks.map((reason, reasonIndex) => <li key={reason}><i>{reasonIndex + 1}</i><span>{reason}</span></li>)}</ol></section>
         <section><h3>可转成你的工作流</h3><div className="creator-patterns">{creator.patterns.map((pattern) => <span key={pattern}>{pattern}</span>)}</div></section>
-        <footer><strong>边界</strong><p>{creator.caution}</p><span><a href={socialBladeUrl(creator.channelUrl)} target="_blank" rel="noreferrer">Social Blade <ExternalLink size={12} /></a><a href={creator.evidence[0]?.url ?? creator.channelUrl} target="_blank" rel="noreferrer">查看证据 <ExternalLink size={12} /></a></span></footer>
+        <footer><strong>边界</strong><p>{creator.caution}</p></footer>
+        <nav className="creator-analytics" aria-label={`${creator.name} 频道分析工具`}>
+          <a href={creator.channelUrl} target="_blank" rel="noreferrer"><span>YouTube<small>免费 · 频道</small></span><ExternalLink size={12} /></a>
+          <a href={viewStatsUrl(creator.channelUrl)} target="_blank" rel="noreferrer"><span>ViewStats<small>部分免费 · 收益</small></span><ExternalLink size={12} /></a>
+          <a href={socialBladeUrl(creator.channelUrl)} target="_blank" rel="noreferrer"><span>Social Blade<small>部分免费 · 趋势</small></span><ExternalLink size={12} /></a>
+          <a href={creatorAnalyticsTools.hypeAuditor} target="_blank" rel="noreferrer"><span>HypeAuditor<small>免费试算 · 商单</small></span><ExternalLink size={12} /></a>
+          <a href={creatorAnalyticsTools.noxInfluencer} target="_blank" rel="noreferrer"><span>NoxInfluencer<small>免费试算 · 交叉验证</small></span><ExternalLink size={12} /></a>
+          <a href={creator.evidence[0]?.url ?? creator.channelUrl} target="_blank" rel="noreferrer"><span>研究证据<small>公开来源</small></span><ExternalLink size={12} /></a>
+        </nav>
       </article>)}
     </section>
     {!creators.length && <div className="creator-empty"><Search size={22} /><strong>没有匹配创作者</strong><span>尝试清除分类或缩短搜索词</span></div>}

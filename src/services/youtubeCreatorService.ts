@@ -19,9 +19,23 @@ export interface YoutubeCreator {
 export const youtubeCreatorResearch = data as { schemaVersion: "1.1.0"; methodology: string; accessedAt: string; creators: YoutubeCreator[] };
 
 export function socialBladeUrl(channelUrl: string) {
-  const handle = /youtube\.com\/@([^/?]+)/i.exec(channelUrl)?.[1];
+  const handle = youtubeHandle(channelUrl);
   return handle ? `https://socialblade.com/youtube/handle/${handle.toLowerCase()}` : "https://socialblade.com/youtube/";
 }
+
+export function youtubeHandle(channelUrl: string) {
+  return /youtube\.com\/@([^/?]+)/i.exec(channelUrl)?.[1];
+}
+
+export function viewStatsUrl(channelUrl: string) {
+  const handle = youtubeHandle(channelUrl);
+  return handle ? `https://www.viewstats.com/@${handle.toLowerCase()}/channelytics` : "https://www.viewstats.com/";
+}
+
+export const creatorAnalyticsTools = {
+  hypeAuditor: "https://hypeauditor.com/free-tools/youtube-pricing-calculator/",
+  noxInfluencer: "https://www.noxinfluencer.com/youtube/channel-calculator",
+} as const;
 
 export function estimateSocialBladeEarnings(monthlyViews: number) {
   const views = Number.isFinite(monthlyViews) ? Math.max(0, monthlyViews) : 0;
