@@ -1,0 +1,72 @@
+name: Release Electron
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build ${{ matrix.platform }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: macOS
+            os: macos-latest
+            command: npm run package:mac
+          - platform: Windows
+            os: windows-latest
+            command: npm run package:win
+          - platform: Linux
+            os: ubuntu-latest
+            command: npm run package:linux
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Test
+        run: npm test
+
+      - name: Package desktop app
+        run: ${{ matrix.command }}
+        env:
+          AMAP_KEY: ${{ secrets.AMAP_KEY }}
+          AMAP_SECURITY_CODE: ${{ secrets.AMAP_SECURITY_CODE }}
+
+      - name: Upload installers to GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          files: |
+            release/*.dmg
+            release/*.zip
+            release/*.exe
+            release/*.AppImage
+            release/*.deb
+
+      - name: Upload workflow artifact
+        if: ${{ !startsWith(github.ref, 'refs/tags/') }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: RoadLens-${{ matrix.platform }}
+          path: |
+            release/*.dmg
+            release/*.zip
+            release/*.exe
+            release/*.AppImage
+            release/*.deb

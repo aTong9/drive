@@ -1,11 +1,13 @@
 import { AudioLines, Camera, CarFront, CheckCircle2, ChevronRight, Clock3, CloudRain, CloudSun, Download, ExternalLink, Footprints, Globe2, MapPin, Navigation, Search, ShieldCheck, Trees, Trash2, X } from "lucide-react";
-import { useMemo, useRef, useState, type ChangeEvent, type FormEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type ChangeEvent, type FormEvent } from "react";
 import type { FieldCheck, Location, ResolvedRoute } from "../../types/domain.js";
 import { usePlannerStore } from "../../app/store.js";
 import { downloadFieldChecks, importFieldChecks as readFieldChecks } from "../../services/fieldCheckExport.js";
 import { administrativeDivisionCount, administrativeGroups, divisionLabel, findProvince, provinceLabel, provincesForGroup, type AdministrativeGroupId } from "../../services/regionService.js";
+import { paginateItems } from "../../services/localPagination.js";
 import { GeoPhotoThumbnail } from "../common/GeoPhotoThumbnail.js";
 import { CityWeather } from "../common/CityWeather.js";
+import { LocalPaginationControls } from "../common/LocalPaginationControls.js";
 
 const typeLabels: Record<Location["type"], string> = {
   coast: "海岸",
@@ -25,6 +27,9 @@ const riskLabels = { low: "低", medium: "中", high: "高" } as const;
 const captureLabels = { "scenic-drive": "风景驾车", "rain-walk": "雨天步行", "stationary-nature": "林间定点" } as const;
 const captureDescriptions = { "scenic-drive": "真实道路 · 长距离转场", "rain-walk": "停车进入 · 慢行取景", "stationary-nature": "固定机位 · 自然收音" } as const;
 const captureIcons = { "scenic-drive": CarFront, "rain-walk": CloudRain, "stationary-nature": Trees } as const;
+const LOCATION_PAGE_SIZE = 24;
+const ROUTE_PAGE_SIZE = 12;
+
 interface CheckDraft {
   visitedAt: string;
   parkingNote: string;
@@ -51,11 +56,14 @@ export function LocationView({ locations, routes, catalogSchemaVersion }: { loca
   const [driveOnly, setDriveOnly] = useState(false);
   const [region, setRegion] = useState<{ province?: string; city?: string }>({});
   const [regionGroup, setRegionGroup] = useState<AdministrativeGroupId | "all">("all");
+  const [locationPage, setLocationPage] = useState(1);
+  const [routePage, setRoutePage] = useState(1);
   const [selectedId, setSelectedId] = useState(locations[0]?.id ?? "");
   const [detailVisible, setDetailVisible] = useState(true);
   const [editing, setEditing] = useState(false);
   const [importMessage, setImportMessage] = useState("");
   const importInputRef = useRef<HTMLInputElement>(null);
+  const resultsTopRef = useRef<HTMLDivElement>(null);
   const fieldChecks = usePlannerStore((state) => state.fieldChecks);
   const saveFieldCheck = usePlannerStore((state) => state.saveFieldCheck);
   const removeFieldCheck = usePlannerStore((state) => state.removeFieldCheck);
@@ -93,6 +101,11 @@ export function LocationView({ locations, routes, catalogSchemaVersion }: { loca
     const matchesQuery = !needle || route.name.toLowerCase().includes(needle) || route.cities.some((city) => city.includes(needle)) || waypoints.some((point) => point.name.toLowerCase().includes(needle));
     return matchesRegion && matchesQuery && (captureStyle === "all" || route.captureStyle === captureStyle) && (!driveOnly || route.executionMode === "drive-only");
   }), [routes, query, region, captureStyle, driveOnly]);
+  const pagedLocations = useMemo(() => paginateItems(filtered, locationPage, LOCATION_PAGE_SIZE), [filtered, locationPage]);
+  const pagedRoutes = useMemo(() => paginateItems(filteredRoutes, routePage, ROUTE_PAGE_SIZE), [filteredRoutes, routePage]);
+
+  useEffect(() => setLocationPage(1), [query, region.province, region.city, type]);
+  useEffect(() => setRoutePage(1), [query, region.province, region.city, captureStyle, driveOnly]);
 
   if (!selected) return null;
   const relatedRoutes = routes.filter((route) => route.route.waypointLocationIds.includes(selected.id));
@@ -118,6 +131,10 @@ export function LocationView({ locations, routes, catalogSchemaVersion }: { loca
     } catch (error) {
       setImportMessage(error instanceof Error ? error.message : "导入失败");
     }
+  };
+  const changePage = (page: number, setPage: (page: number) => void) => {
+    setPage(page);
+    resultsTopRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
@@ -162,13 +179,14 @@ export function LocationView({ locations, routes, catalogSchemaVersion }: { loca
           {region.city && <CityWeather cities={[region.city]} />}
         </section>
         <div className="library-switch" role="tablist" aria-label="浏览内容"><button role="tab" aria-selected={browseMode === "locations"} onClick={() => setBrowseMode("locations")}><MapPin size={16} /><span>地点</span><small>{filtered.length} 个可用地点</small></button><button role="tab" aria-selected={browseMode === "routes"} onClick={() => setBrowseMode("routes")}><Navigation size={16} /><span>路线</span><small>{filteredRoutes.length} 条完整流程</small></button></div>
+        <div ref={resultsTopRef} className="location-results-anchor" />
         <label className="location-search"><Search size={17} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder={browseMode === "locations" ? "搜索地点或城市" : "搜索路线、途经点或城市"} /></label>
         {browseMode === "locations" ? <><div className="location-filters">
           <button className={type === "all" ? "active" : ""} onClick={() => setType("all")}>全部</button>
           {[...new Set(locations.map((location) => location.type))].map((item) => <button key={item} className={type === item ? "active" : ""} onClick={() => setType(item)}>{typeLabels[item]}</button>)}
         </div>
         <div className="location-grid">
-          {filtered.map((location) => {
+          {pagedLocations.items.map((location) => {
             const fieldChecked = fieldChecks.some((item) => item.locationId === location.id);
             return <button key={location.id} className={`location-card ${selected.id === location.id ? "active" : ""}`} onClick={() => openLocation(location)}>
               <GeoPhotoThumbnail id={location.id} label={location.name} type={location.type} points={[location]} variant="location" />
@@ -176,7 +194,7 @@ export function LocationView({ locations, routes, catalogSchemaVersion }: { loca
               <span className={`location-check ${fieldChecked ? "field" : ""}`}>{fieldChecked ? <CheckCircle2 size={13} /> : <ShieldCheck size={13} />}{fieldChecked ? "实地" : "来源"}</span>
             </button>;
           })}
-        </div></> : <><div className="capture-library-filters"><button className={captureStyle === "all" && !driveOnly ? "active" : ""} onClick={() => { setCaptureStyle("all"); setDriveOnly(false); }}><Navigation size={18} /><span><strong>全部路线</strong><small>查看所有创作流程</small></span></button>{(["scenic-drive", "rain-walk", "stationary-nature"] as const).map((style) => { const Icon = captureIcons[style]; return <button key={style} className={`${captureStyle === style && !driveOnly ? "active" : ""} style-${style}`} onClick={() => { setCaptureStyle(style); setDriveOnly(false); }}><Icon size={18} /><span><strong>{captureLabels[style]}</strong><small>{captureDescriptions[style]}</small></span></button>; })}<button className={`drive-only-library-filter ${driveOnly ? "active" : ""}`} aria-pressed={driveOnly} onClick={() => { setDriveOnly(!driveOnly); setCaptureStyle(!driveOnly ? "scenic-drive" : "all"); }}><CarFront size={18} /><span><strong>只看纯驾车</strong><small>全程不停车 · 无需下车</small></span></button></div><div className="library-route-grid">{filteredRoutes.map(({ route, waypoints }) => { const Icon = captureIcons[route.captureStyle]; const routeDriveOnly = route.executionMode === "drive-only"; return <article className={`library-route-card style-${route.captureStyle}`} key={route.id}><GeoPhotoThumbnail id={route.id} label={route.name} type={route.type} points={waypoints} /><div className="library-route-top"><span><Icon size={16} /> {routeDriveOnly ? "纯驾车 · 无需下车" : captureLabels[route.captureStyle]}</span><small><ShieldCheck size={12} /> 来源核验</small></div><h2>{route.name}</h2><div className="library-route-meta"><span><Clock3 size={13} /> 约 {route.estimatedDurationMinutes} 分钟</span><span><MapPin size={13} /> {waypoints.length} 个{routeDriveOnly ? "道路锚点" : "拍摄点"}</span><span>{route.cities.join(" · ")}</span></div><ol>{waypoints.map((point, index) => <li key={point.id}><i>{String(index + 1).padStart(2, "0")}</i><span><strong>{point.name}</strong><small>{routeDriveOnly ? "连续驾车经过" : point.access.mode === "drive" ? "驾车到达" : "停车后步行"}</small></span></li>)}</ol><p>{route.shootAdvice}</p><button onClick={() => selectRoute(route.id)}>在地图中打开路线 <ChevronRight size={15} /></button></article>; })}</div>{filteredRoutes.length === 0 && <div className="library-empty"><Navigation size={24} /><strong>当前区域没有匹配路线</strong><span>尝试切换城市或拍摄方式</span></div>}</>}
+        </div><LocalPaginationControls {...pagedLocations} onPageChange={(page) => changePage(page, setLocationPage)} /></> : <><div className="capture-library-filters"><button className={captureStyle === "all" && !driveOnly ? "active" : ""} onClick={() => { setCaptureStyle("all"); setDriveOnly(false); }}><Navigation size={18} /><span><strong>全部路线</strong><small>查看所有创作流程</small></span></button>{(["scenic-drive", "rain-walk", "stationary-nature"] as const).map((style) => { const Icon = captureIcons[style]; return <button key={style} className={`${captureStyle === style && !driveOnly ? "active" : ""} style-${style}`} onClick={() => { setCaptureStyle(style); setDriveOnly(false); }}><Icon size={18} /><span><strong>{captureLabels[style]}</strong><small>{captureDescriptions[style]}</small></span></button>; })}<button className={`drive-only-library-filter ${driveOnly ? "active" : ""}`} aria-pressed={driveOnly} onClick={() => { setDriveOnly(!driveOnly); setCaptureStyle(!driveOnly ? "scenic-drive" : "all"); }}><CarFront size={18} /><span><strong>只看纯驾车</strong><small>全程不停车 · 无需下车</small></span></button></div><div className="library-route-grid">{pagedRoutes.items.map(({ route, waypoints }) => { const Icon = captureIcons[route.captureStyle]; const routeDriveOnly = route.executionMode === "drive-only"; return <article className={`library-route-card style-${route.captureStyle}`} key={route.id}><GeoPhotoThumbnail id={route.id} label={route.name} type={route.type} points={waypoints} /><div className="library-route-top"><span><Icon size={16} /> {routeDriveOnly ? "纯驾车 · 无需下车" : captureLabels[route.captureStyle]}</span><small><ShieldCheck size={12} /> 来源核验</small></div><h2>{route.name}</h2><div className="library-route-meta"><span><Clock3 size={13} /> 约 {route.estimatedDurationMinutes} 分钟</span><span><MapPin size={13} /> {waypoints.length} 个{routeDriveOnly ? "道路锚点" : "拍摄点"}</span><span>{route.cities.join(" · ")}</span></div><ol>{waypoints.map((point, index) => <li key={point.id}><i>{String(index + 1).padStart(2, "0")}</i><span><strong>{point.name}</strong><small>{routeDriveOnly ? "连续驾车经过" : point.access.mode === "drive" ? "驾车到达" : "停车后步行"}</small></span></li>)}</ol><p>{route.shootAdvice}</p><button onClick={() => selectRoute(route.id)}>在地图中打开路线 <ChevronRight size={15} /></button></article>; })}</div><LocalPaginationControls {...pagedRoutes} onPageChange={(page) => changePage(page, setRoutePage)} />{filteredRoutes.length === 0 && <div className="library-empty"><Navigation size={24} /><strong>当前区域没有匹配路线</strong><span>尝试切换城市或拍摄方式</span></div>}</>}
         {browseMode === "locations" && filtered.length === 0 && <div className="library-empty"><MapPin size={24} /><strong>该区域已进入全国行政目录</strong><span>拍摄地点与路线仍待来源核验，暂无虚构占位数据</span></div>}
       </section>
 

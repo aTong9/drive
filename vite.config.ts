@@ -1,6 +1,7 @@
 import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
+import { VitePWA } from "vite-plugin-pwa";
 import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
@@ -96,7 +97,36 @@ export default defineConfig(() => {
   const amap = readAmapCredentials();
   return {
     base: process.env.VITE_BASE_PATH || "/",
-    plugins: [catalogShardPlugin(), react(), tailwindcss()],
+    plugins: [
+      catalogShardPlugin(),
+      react(),
+      tailwindcss(),
+      VitePWA({
+        registerType: "autoUpdate",
+        includeAssets: ["icons/roadlens.svg"],
+        manifest: {
+          name: "RoadLens Planner",
+          short_name: "RoadLens",
+          description: "为自驾摄影创作者规划真实、可执行的拍摄路线。",
+          theme_color: "#121512",
+          background_color: "#121512",
+          display: "standalone",
+          orientation: "any",
+          start_url: ".",
+          scope: ".",
+          lang: "zh-CN",
+          icons: [
+            { src: "icons/roadlens.svg", sizes: "any", type: "image/svg+xml", purpose: "any" },
+            { src: "icons/roadlens-maskable.svg", sizes: "any", type: "image/svg+xml", purpose: "maskable" }
+          ]
+        },
+        workbox: {
+          globPatterns: ["**/*.{js,css,html,svg}"],
+          cleanupOutdatedCaches: true,
+          navigateFallback: "index.html"
+        }
+      })
+    ],
     build: {
       rollupOptions: {
         output: {

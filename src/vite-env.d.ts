@@ -1,4 +1,5 @@
 /// <reference types="vite/client" />
+/// <reference types="vite-plugin-pwa/client" />
 /// <reference types="@amap/amap-jsapi-types" />
 
 declare const __AMAP_KEY__: string;

@@ -424,6 +424,16 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--orange); ou
 .location-filters button { flex: 0 0 auto; padding: 7px 11px; border: 1px solid var(--line); border-radius: 16px; background: transparent; color: #757c72; font-size: 8px; cursor: pointer; }
 .location-filters button.active { border-color: rgba(239,108,53,.35); color: #ed8e66; background: var(--orange-soft); }
 .location-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 9px; max-width: 900px; margin: 0 auto; }
+.location-results-anchor { scroll-margin-top: 14px; }
+.local-pagination { display: flex; align-items: center; justify-content: space-between; gap: 16px; max-width: 900px; margin: 18px auto 0; padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; background: #181c17; }
+.local-pagination > span { color: #737c72; font-size: 9px; }
+.local-pagination > div { display: flex; align-items: center; gap: 6px; }
+.local-pagination button { display: inline-flex; align-items: center; justify-content: center; gap: 4px; min-height: 32px; padding: 0 10px; border: 1px solid var(--line); border-radius: 7px; background: #20251f; color: #a8afa4; font-size: 8px; }
+.local-pagination button:not(:disabled):hover { border-color: rgba(239,108,53,.38); color: #e4e7df; }
+.local-pagination button:disabled { opacity: .35; cursor: not-allowed; }
+.local-pagination label { display: inline-flex; align-items: center; gap: 5px; color: #7b847a; font-size: 8px; white-space: nowrap; }
+.local-pagination input { width: 52px; height: 32px; padding: 0 6px; text-align: center; border: 1px solid var(--line); border-radius: 7px; outline: none; background: #121511; color: #d8ddd4; font: inherit; }
+.local-pagination input:focus { border-color: rgba(239,108,53,.45); }
 .location-card { display: grid; grid-template-columns: 76px minmax(0,1fr) auto; align-items: center; gap: 10px; min-height: 92px; padding: 9px; text-align: left; border: 1px solid var(--line); border-radius: 10px; background: #1a1e19; cursor: pointer; }
 .location-card:hover, .location-card.active { border-color: rgba(239,108,53,.35); background: linear-gradient(120deg, rgba(239,108,53,.06), #1b1f1a 55%); }
 .location-card-icon { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 9px; color: #dc865f; background: rgba(239,108,53,.09); }
@@ -1492,6 +1502,9 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--orange); ou
   .location-head-stats { display: none; }
   .export-checks { height: 31px; white-space: nowrap; }
   .location-grid { grid-template-columns: 1fr; }
+  .local-pagination { align-items: stretch; flex-direction: column; }
+  .local-pagination > div { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .local-pagination label { grid-column: 1 / -1; justify-content: center; grid-row: 1; }
   .library-switch { grid-template-columns: 1fr 1fr; }
   .capture-library-filters { display: flex; overflow-x: auto; }
   .capture-library-filters button { min-width: 145px; }

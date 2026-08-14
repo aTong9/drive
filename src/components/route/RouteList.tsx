@@ -1,9 +1,13 @@
 import { CarFront, Footprints, LocateFixed, MapPin, RefreshCw, RotateCcw, Search, SlidersHorizontal, Trees, X } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { CaptureStyle, Location, ResolvedRoute, RouteMode } from "../../types/domain.js";
 import { usePlannerStore } from "../../app/store.js";
 import { RouteCard } from "./RouteCard.js";
 import type { CurrentRegion, LocationDetectionStatus } from "../../services/currentCityService.js";
+import { paginateItems } from "../../services/localPagination.js";
+import { LocalPaginationControls } from "../common/LocalPaginationControls.js";
+
+const ROUTE_PAGE_SIZE = 12;
 
 const modes: Array<{ value: RouteMode | "all"; label: string }> = [
   { value: "all", label: "全部" },
@@ -32,10 +36,19 @@ interface RouteListProps {
 export function RouteList({ routes, nearbyLocations, currentRegion, locationStatus, locationMessage, onLocate, onClearLocation }: RouteListProps) {
   const state = usePlannerStore();
   const [sort, setSort] = useState<"recommended" | "shortest" | "visual">("recommended");
+  const [page, setPage] = useState(1);
+  const listTopRef = useRef<HTMLDivElement>(null);
   const displayRoutes = useMemo(() => [...routes].sort((a, b) => sort === "shortest" ? a.route.estimatedDurationMinutes - b.route.estimatedDurationMinutes : sort === "visual" ? b.route.scores.visual - a.route.scores.visual || b.route.scores.youtubePotential - a.route.scores.youtubePotential : b.route.scores.youtubePotential - a.route.scores.youtubePotential || b.route.scores.visual - a.route.scores.visual), [routes, sort]);
+  const pagedRoutes = useMemo(() => paginateItems(displayRoutes, page, ROUTE_PAGE_SIZE), [displayRoutes, page]);
   const sortLabels = { recommended: "推荐排序", shortest: "行程最短", visual: "画面优先" } as const;
   const cycleSort = () => setSort((value) => value === "recommended" ? "shortest" : value === "shortest" ? "visual" : "recommended");
   const resetFilters = () => { state.setQuery(""); state.setMode("all"); state.setCaptureStyle("all"); state.setDriveOnly(false); state.setMaxDurationMinutes(960); onClearLocation(); };
+  const changePage = (nextPage: number) => {
+    setPage(nextPage);
+    listTopRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  useEffect(() => setPage(1), [state.query, state.mode, state.captureStyle, state.driveOnly, state.maxDurationMinutes, currentRegion?.province, currentRegion?.city, sort]);
 
   return (
     <aside className="route-sidebar">
@@ -90,13 +103,13 @@ export function RouteList({ routes, nearbyLocations, currentRegion, locationStat
 
       <label className="duration-filter"><span>最长行程</span><select value={state.maxDurationMinutes} onChange={(event) => state.setMaxDurationMinutes(Number(event.target.value))}><option value={120}>2 小时</option><option value={180}>3 小时</option><option value={240}>4 小时</option><option value={360}>6 小时</option><option value={480}>8 小时</option><option value={600}>10 小时</option><option value={720}>2—3 日</option><option value={960}>多日路线</option></select></label>
 
-      <div className="list-heading">
+      <div ref={listTopRef} className="list-heading">
         <span><strong>{routes.length}</strong> 条匹配路线</span>
         <button onClick={cycleSort} aria-label="切换路线排序">{sortLabels[sort]} <span>⌄</span></button>
       </div>
 
       <div className="route-card-list">
-        {displayRoutes.length ? displayRoutes.map((item) => (
+        {displayRoutes.length ? pagedRoutes.items.map((item) => (
           <RouteCard
             key={item.route.id}
             route={item.route}
@@ -113,6 +126,7 @@ export function RouteList({ routes, nearbyLocations, currentRegion, locationStat
           </div>
         )}
       </div>
+      <LocalPaginationControls {...pagedRoutes} onPageChange={changePage} />
     </aside>
   );
 }
