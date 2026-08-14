@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.1.0",
   "methodology": "基于公开频道与代表视频的标题、时长、画面、声音、系列结构和可见播放表现进行编辑分析；播放量会持续变化，原因归纳属于可验证素材上的策略推断，不代表 YouTube 官方归因。",
-  "accessedAt": "2026-08-09",
+  "accessedAt": "2026-08-14",
   "creators": [
     {
       "id": "nomadic-ambience", "name": "Nomadic Ambience", "region": "美国 / 全球取景", "category": "asmr-nature", "channelUrl": "https://www.youtube.com/@NomadicAmbience",
@@ -1100,6 +1100,87 @@
       "patterns": ["场景先确定声音频谱", "低频留足动态余量", "画面降低亮度", "加入合理音量提醒"],
       "caution": "深低频需避免过大音量和削波；不应宣称治疗睡眠问题，视觉与音效必须原创或授权。",
       "evidence": [{ "title": "White Noise Space 官方频道", "url": "https://www.youtube.com/@WhiteNoiseSpace" }]
+    },
+    {
+      "id": "csv-wade", "name": "中国街景 CSV_Wade", "region": "中国 / 城市道路、街景与连续行车观察", "category": "scenic-drive", "channelUrl": "https://www.youtube.com/@CSV_Wade",
+      "positioning": "以中国城市街景和道路空间为核心观察对象，持续记录不同城市、城区与交通环境，为中文地点的第一视角路线影像提供直接参照。",
+      "representative": { "title": "中国城市街景与道路影像系列", "url": "https://www.youtube.com/@CSV_Wade/videos", "observedPerformance": "频道名称、地点和连续街景形成清晰的中国城市影像定位，适合研究道路选择与城市空间呈现。" },
+      "whyItWorks": ["中国城市和具体地点天然具备搜索入口。", "连续道路记录保留城区之间的真实空间关系。", "长期覆盖不同城市可逐步形成可比较的中国街景档案。"],
+      "patterns": ["城市与道路名放在标题前部", "保留进入核心城区的建立过程", "记录天气时段和行驶方向", "同城拆分道路与片区系列"],
+      "caution": "只借鉴公开影像的选路与包装方法；车内设备必须出发前固定，严格遵守交通、地图测绘、隐私与当地拍摄规定。",
+      "evidence": [{ "title": "中国街景 CSV_Wade 官方频道", "url": "https://www.youtube.com/@CSV_Wade" }, { "title": "公开频道索引中的中国街景账号记录", "url": "https://s3v3n534s.nobody.jp/YouTube.htm" }]
+    },
+    {
+      "id": "healing-streets-china", "name": "Healing Streets", "region": "中国 / 雨天城市、河岸与自然声慢电视", "category": "rain-walk", "channelUrl": "https://www.youtube.com/@HealingStreets",
+      "positioning": "以中国城市的阴雨、河岸和低刺激街道制作无旁白4K步行，把真实雨声、脚步与城市底噪组织成可放松观看的慢电视。",
+      "representative": { "title": "Moody Riverside Walk Under Soft Overcast Skies", "url": "https://healingstreets.com/", "observedPerformance": "官网持续发布 No Talking、Natural Sounds 与 Rainy Walking Tour 内容，声音承诺和观看用途非常明确。" },
+      "whyItWorks": ["雨天、无旁白和自然声在打开前就完成预期管理。", "河岸与低密度路线减少视觉噪声。", "步行、骑行与慢电视共享统一的安静频道气质。"],
+      "patterns": ["雨势与地点同时入题", "保留脚步和环境声", "优先河岸与连贯步道", "不过度降噪或添加音乐"],
+      "caution": "低播放量的新频道更适合作为格式实验样本而非成功规模证明；雨天必须优先防滑、防雷和设备防水。",
+      "evidence": [{ "title": "Healing Streets 官方定位与内容目录", "url": "https://healingstreets.com/" }, { "title": "Healing Streets 官方频道", "url": "https://www.youtube.com/@HealingStreets" }]
+    },
+    {
+      "id": "ipanda", "name": "iPanda", "region": "中国 / 大熊猫、保护地与固定观察", "category": "stationary-nature", "channelUrl": "https://www.youtube.com/@ipandachannel",
+      "positioning": "围绕大熊猫及其保护研究建立直播、日常观察和精选片段，让固定地点的小动作累积为全球观众可持续追看的自然角色档案。",
+      "representative": { "title": "Giant panda live cams and daily observation clips", "url": "https://www.youtube.com/@ipandachannel/videos", "observedPerformance": "公开创作者榜单显示频道拥有数百万级订阅，熊猫这一全球识别物种支撑长期观看。" },
+      "whyItWorks": ["熊猫具有跨语言即时识别度。", "固定机位让进食、玩耍和成长变化成为持续事件。", "直播与短精选互相承担陪伴和发现。"],
+      "patterns": ["固定机位配事件精选", "标记日期地点与个体", "让真实行为主导节奏", "建立季节和成长播放列表"],
+      "caution": "机构级保护区条件不可直接复制；个人拍摄必须保持野生动物距离，不诱拍、不暴露敏感位置。",
+      "evidence": [{ "title": "iPanda 官方频道", "url": "https://www.youtube.com/@ipandachannel" }, { "title": "中国旅行频道公开榜单中的 iPanda 数据", "url": "https://yoloco.io/travel-youtube_channels-china" }]
+    },
+    {
+      "id": "china-walking-tour", "name": "China Walking Tour 漫游中国", "region": "中国 / 城市街道、景区与无旁白步行", "category": "urban-walk", "channelUrl": "https://www.youtube.com/channel/UCf2ZGQmDpLSkTo9hgo56FpA",
+      "positioning": "以 No Talk, Just Walk 的方式持续走访中国城市和景区，把真实街道、人流与声音直接交给海外观众。",
+      "representative": { "title": "No-talk walking tours across China", "url": "https://www.youtube.com/channel/UCf2ZGQmDpLSkTo9hgo56FpA/videos", "observedPerformance": "公开频道资料明确其持续旅行中国、无旁白展示真实中国的定位。" },
+      "whyItWorks": ["无旁白降低语言门槛。", "连续步行保留街区尺度与人流变化。", "全国城市覆盖可以形成地点检索库。"],
+      "patterns": ["城市景区和4K前置", "连续路线少跳切", "保留真实公共空间声", "同城按街区建立播放列表"],
+      "caution": "公共空间拍摄仍需处理近距离人脸、儿童、店内音乐和限制区域，不能把“真实”当作忽略隐私的理由。",
+      "evidence": [{ "title": "China Walking Tour 公开频道资料", "url": "https://vling.net/en/channel/UCf2ZGQmDpLSkTo9hgo56FpA/channel-info" }, { "title": "China Walking Tour 官方频道", "url": "https://www.youtube.com/channel/UCf2ZGQmDpLSkTo9hgo56FpA" }]
+    },
+    {
+      "id": "blondie-in-china", "name": "Blondie in China", "region": "中国 / 城市、乡村、美食与人物导览", "category": "guided-walk", "channelUrl": "https://www.youtube.com/@BlondieinChina",
+      "positioning": "以主持人体验串联中国城市、乡村、食物和当地人物，用明确问题与现场交流帮助海外观众理解地点。",
+      "representative": { "title": "China travel, food and local-culture field stories", "url": "https://www.youtube.com/@BlondieinChina/videos", "observedPerformance": "长期中国旅行主题与人物互动形成鲜明主持人视角，适合研究导览型现场叙事。" },
+      "whyItWorks": ["主持人好奇心给每段路线明确问题。", "食物和人物让地点不只剩风景。", "跨文化解释帮助海外观众进入陌生语境。"],
+      "patterns": ["每条路线先确定一个问题", "地标与人物交替", "现场信息配后期核验", "保留真实移动与到达过程"],
+      "caution": "仅借鉴导览结构；涉及人物、文化和民族主题时必须取得同意、核验翻译并避免把个体经验概括为整体。",
+      "evidence": [{ "title": "Blondie in China 官方频道", "url": "https://www.youtube.com/@BlondieinChina" }, { "title": "中国创作者公开目录", "url": "https://videos.feedspot.com/china_youtube_channels/" }]
+    },
+    {
+      "id": "institute-for-planets", "name": "星球研究所 Institute for Planets", "region": "中国 / 地理、航拍与视觉化国土叙事", "category": "cinematic-landscape", "channelUrl": "https://www.youtube.com/@instituteforplanets",
+      "positioning": "用大尺度地理结构、摄影、航拍与信息视觉化解释中国山河和城市，把漂亮画面组织成有知识主线的视觉地理作品。",
+      "representative": { "title": "中国地理与山河视觉叙事系列", "url": "https://www.youtube.com/@instituteforplanets/videos", "observedPerformance": "以统一品牌视觉和地理解释连接自然奇观、基础设施与城市发展。" },
+      "whyItWorks": ["先提出地理问题，奇观镜头不再只是拼接。", "宏观航拍与地图信息建立尺度。", "统一视觉风格让不同地域进入同一系列。"],
+      "patterns": ["先确定一个地理命题", "远中近景建立尺度", "地图与实景互证", "旁白事实逐项留源"],
+      "caution": "其航拍、数据可视化与团队制作规模不可直接复制；无人机、地图、自然保护区和版权素材必须逐项合规。",
+      "evidence": [{ "title": "星球研究所官方频道", "url": "https://www.youtube.com/@instituteforplanets" }, { "title": "公开频道目录中的星球研究所记录", "url": "https://s3v3n534s.nobody.jp/YouTube.htm" }]
+    },
+    {
+      "id": "walk-china-natural", "name": "Walk China 行走中国", "region": "中国 / 山路、古城、驾车与自然环境声", "category": "nature-ambience", "channelUrl": "https://www.youtube.com/@WalkChina",
+      "positioning": "跨越中国城市、古城和山地公路制作4K HDR步行、驾车与航拍，以地点、路线和现场空间感建立大型中国影像目录。",
+      "representative": { "title": "China Mountain Road — Highway G317 Scenic Drive 4K HDR", "url": "https://www.youtube.com/@WalkChina/videos", "observedPerformance": "公开频道页面显示川西G317等山路内容达到十万级播放，地点和道路编号带来长期检索价值。" },
+      "whyItWorks": ["道路编号、地区和4K HDR构成强搜索组合。", "城市、古城、山路覆盖形成全国目录深度。", "连续运动与环境声适合作为沉浸式背景观看。"],
+      "patterns": ["道路编号和省份前置", "保留真实自然与道路声", "系列化覆盖相邻路线", "说明拍摄日期天气与起终点"],
+      "caution": "频道包含步行、驾驶和航拍多种形式，此处只研究其自然声与山路沉浸方法；不可在驾驶中操作设备。",
+      "evidence": [{ "title": "Walk China 官方频道与公开视频", "url": "https://www.youtube.com/@WalkChina" }, { "title": "大理古城4K HDR视频说明", "url": "https://www.youtube.com/watch?v=10i8uldtlHg" }]
+    },
+    {
+      "id": "links-tv-china", "name": "Links TV", "region": "中国 / 城市、旅行摄影与电影感短片", "category": "ambient-cinema", "channelUrl": "https://www.youtube.com/@linksphotograph",
+      "positioning": "以摄影和旅行影像方法呈现中国城市与目的地，强调构图、光线、色彩和节奏所形成的电影化空间情绪。",
+      "representative": { "title": "中国城市与旅行电影感影像", "url": "https://www.youtube.com/@linksphotograph/videos", "observedPerformance": "公开频道目录将其列为中文影像创作者，适合研究摄影语言如何转化为短篇氛围片。" },
+      "whyItWorks": ["明确视觉风格让普通城市空间具有作者辨识度。", "光线和运动匹配形成情绪连续性。", "短片结构适合提炼地点的核心感受。"],
+      "patterns": ["先设定色彩与运动母题", "环境声承担空间连接", "强镜头克制使用", "结尾回到地点而非器材"],
+      "caution": "需进一步逐片核验音乐授权与拍摄地点；只借鉴节奏和空间组织，不复制镜头、调色或音乐组合。",
+      "evidence": [{ "title": "Links TV 官方频道", "url": "https://www.youtube.com/@linksphotograph" }, { "title": "公开频道目录中的 Links TV 记录", "url": "https://s3v3n534s.nobody.jp/YouTube.htm" }]
+    },
+    {
+      "id": "longmeimei", "name": "Longmeimei", "region": "中国乡村 / 烹饪、劳作与自然生活声", "category": "asmr-nature", "channelUrl": "https://www.youtube.com/@Longmeimei",
+      "positioning": "以中国乡村的采集、备料、烹饪和家庭劳动构成低语言依赖的生活影像，真实火、水、刀具与户外环境声提供自然ASMR层次。",
+      "representative": { "title": "Chinese rural cooking and daily-life films", "url": "https://www.youtube.com/@Longmeimei/videos", "observedPerformance": "乡村劳动过程、食物完成感和自然环境共同构成跨语言观看价值。" },
+      "whyItWorks": ["动作流程天然提供开始、变化和完成。", "火、水、切配和环境声具有丰富近场质感。", "乡村空间和季节食材形成持续选题。"],
+      "patterns": ["动作声优先收录", "远景交代季节环境", "流程剪辑保留因果", "避免用音乐覆盖关键声音"],
+      "caution": "其核心是乡村生活与烹饪而非纯自然声；拍摄家人、劳动和动物时须取得同意并保证卫生、用火与工具安全。",
+      "evidence": [{ "title": "Longmeimei 官方频道", "url": "https://www.youtube.com/@Longmeimei" }]
     }
   ]
 }
