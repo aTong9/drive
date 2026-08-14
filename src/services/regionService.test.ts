@@ -25,6 +25,22 @@ test("every province-level unit has a source-checked location and an explorable 
   assert.deepEqual(routeProvinces, expected);
 });
 
+test("drive-only library exposes the newly added Guangdong routes", () => {
+  const visibleDriveRoutes = catalog.routes.filter(
+    (route) => route.captureStyle === "scenic-drive" && route.executionMode === "drive-only",
+  );
+  const expectedBatches = [
+    ["gd-sz-drive-extra20-", 20],
+    ["gd-hz-drive-extra50-", 50],
+    ["gd-sz-drive-extra50-", 50],
+    ["gd-gz-drive-extra50-", 50],
+  ] as const;
+  for (const [prefix, expected] of expectedBatches) {
+    assert.equal(visibleDriveRoutes.filter((route) => route.id.startsWith(prefix)).length, expected);
+  }
+  assert.equal(visibleDriveRoutes.filter((route) => route.province === "广东" && route.cities.includes("深圳")).length, 101);
+});
+
 test("geographic groups partition the national directory", () => {
   const grouped = administrativeGroups.flatMap((group) => [...group.provinces]);
   assert.equal(grouped.length, 34);

@@ -2,6 +2,30 @@ import { readFile, writeFile } from "node:fs/promises";
 
 const catalogUrl = new URL("../data/catalog.json", import.meta.url);
 const catalog = JSON.parse(await readFile(catalogUrl, "utf8"));
+const guangzhouDriveAnchors = [
+  ["gd-gz-drive-linjiang-huacheng", "临江大道花城广场段驾车锚点", 23.117, 113.325],
+  ["gd-gz-drive-yuejiang-canton-tower", "阅江西路广州塔段驾车锚点", 23.105, 113.327],
+  ["gd-gz-drive-yanjiang-haizhu", "沿江中路海珠广场段驾车锚点", 23.116, 113.265],
+  ["gd-gz-drive-dongfeng-yuexiu", "东风中路越秀段驾车锚点", 23.132, 113.269],
+  ["gd-gz-drive-huanshi-taojin", "环市东路淘金段驾车锚点", 23.14, 113.291],
+  ["gd-gz-drive-guangyuan-baiyun", "广园中路白云山南段驾车锚点", 23.169, 113.286],
+  ["gd-gz-drive-huangpu-zhujiang", "黄埔大道珠江新城段驾车锚点", 23.124, 113.337],
+  ["gd-gz-drive-keyun-pazhou", "科韵路琶洲段驾车锚点", 23.105, 113.376],
+  ["gd-gz-drive-xingang-exhibition", "新港东路会展中心段驾车锚点", 23.099, 113.359],
+  ["gd-gz-drive-panyu-wanbo", "番禺大道万博段驾车锚点", 23.006, 113.347],
+  ["gd-gz-drive-shinan-jiaomen", "市南大道蕉门段驾车锚点", 22.797, 113.537],
+  ["gd-gz-drive-gangqian-nansha", "港前大道南沙段驾车锚点", 22.775, 113.592],
+];
+for (const [id, name, lat, lng] of guangzhouDriveAnchors) {
+  if (catalog.locations.some((item) => item.id === id)) continue;
+  catalog.locations.push({
+    id, name, province: "广东", city: "广州", type: "city-night", coordinate: { lat, lng, crs: "GCJ-02" },
+    access: { mode: "drive", note: "仅作为广州公共道路途经导航锚点，不是停车目的地；按高德实时道路、信号灯、限速、车道、施工与交警指引连续通行，不停车、不下车、不驶入广场、公园、场馆、社区、园区或内部道路。" },
+    shooting: { bestTimes: ["golden-hour", "blue-hour", "night"], bestWeather: ["sunny", "cloudy", "after-rain"], modes: ["driving-video"], advice: "只允许由出发前固定并启动的车载设备自动记录道路环境；驾驶者不看屏、不操作设备、不降速追景、不变道取景、不在路口、匝道或路肩停留。" },
+    soundEnvironment: { character: ["traffic", "urban"], noiseRisk: "high", crowdRisk: "low", weatherSensitivity: "拥堵、施工、降雨、积水、能见度和临时交通组织会改变路线与画面", recordingAdvice: "仅保留车内道路环境声，出发前关闭设备提示音；行车中不打开车窗或操作收音设备。" },
+    verification: { status: "source-checked", sources: [{ title: `${name}（高德地图道路检索）`, url: `https://ditu.amap.com/search?query=${encodeURIComponent(name.replace("驾车锚点", ""))}`, accessedAt: "2026-08-14", supports: ["existence", "coordinate", "access"] }] },
+  });
+}
 const locationById = new Map(catalog.locations.map((item) => [item.id, item]));
 
 const cityPools = [
@@ -10,8 +34,7 @@ const cityPools = [
     ids: [
       "gd-hz-drive-huizhou-avenue-jiangbei", "gd-hz-drive-dongjiang-bridge", "gd-hz-drive-huizhou-avenue-shuikou",
       "gd-hz-drive-yanda-henan-bank", "gd-hz-drive-jinshan-avenue", "gd-hz-drive-dayabay-aotou",
-      "gd-hz-drive-dayabay-central", "gd-hz-drive-dayabay-xiachong", "gd-hz-west-lake", "gd-hz-honghua-lake",
-      "gd-hz-xunliao-bay", "gd-hz-double-moon-resort", "gd-hz-double-moon-viewpoint", "gd-hz-luofu-mountain", "gd-hz-nankun-forest",
+      "gd-hz-drive-dayabay-central", "gd-hz-drive-dayabay-xiachong",
     ],
   },
   {
@@ -22,14 +45,7 @@ const cityPools = [
   },
   {
     city: "广州", code: "gz",
-    ids: [
-      "gd-gz-baiyun-mountain", "gd-gz-haixinsha", "gd-gz-haizhu-lake", "gd-gz-ersha-art-park", "gd-gz-yuexiu-park",
-      "gd-gz-liuhua-lake-park", "gd-gz-nansha-wetland", "gd-gz-dafushan-forest-park", "gd-gz-liwan-lake", "gd-gz-shamian-island",
-      "gd-gz-liuxihe-forest-park", "gd-gz-shimen-forest-park", "gd-gz-canton-tower", "gd-gz-huacheng-square",
-      "gd-gz-south-china-botanical-garden", "gd-gz-maofeng-mountain", "gd-gz-baiyun-lake-park", "gd-gz-luhu-park",
-      "gd-gz-baomo-garden", "gd-gz-lotus-mountain", "gd-gz-nansha-tin-hau-palace", "gd-gz-huangpu-ancient-port",
-      "gd-gz-chen-clan-academy", "gd-gz-yongqingfang", "gd-gz-beijing-road", "gd-gz-baietan-art-center", "gd-gz-seagull-island",
-    ],
+    ids: guangzhouDriveAnchors.map(([id]) => id),
   },
 ];
 
@@ -66,7 +82,7 @@ for (const { city, code, ids } of cityPools) {
     return {
       id: `${prefix}${String(index + 1).padStart(2, "0")}`,
       name: `${city}${cleanName(from.name)}—${cleanName(to.name)}纯驾车路线第${String(index + 1).padStart(2, "0")}线`,
-      province: "广东", cities: [city], type: coastal ? "coast" : "city-night", captureStyle: "scenic-drive",
+      province: "广东", cities: [city], type: coastal ? "coast" : "city-night", captureStyle: "scenic-drive", executionMode: "drive-only",
       modes: ["day", "sunset", "asmr"], estimatedDurationMinutes: coastal ? 150 : 120,
       waypointLocationIds,
       best: { seasons: ["spring", "autumn", "winter"], times: ["golden-hour", "sunset", "blue-hour", "night"], weather: ["sunny", "cloudy", "after-rain"] },

@@ -9,7 +9,7 @@ for (const [city, code] of targets) {
   const routes = catalog.routes.filter((item) => item.id.startsWith(`gd-${code}-drive-extra50-`));
   for (const route of routes) {
     if (route.province !== "广东" || route.cities.length !== 1 || route.cities[0] !== city) problems.push(`${route.id}: wrong city`);
-    if (route.captureStyle !== "scenic-drive" || !route.name.includes("纯驾车")) problems.push(`${route.id}: not drive-only`);
+    if (route.captureStyle !== "scenic-drive" || route.executionMode !== "drive-only" || !route.name.includes("纯驾车")) problems.push(`${route.id}: not drive-only`);
     if (route.waypointLocationIds.length < 2) problems.push(`${route.id}: too few waypoints`);
     for (const id of route.waypointLocationIds) {
       const location = locations.get(id);

@@ -35,7 +35,7 @@ if (catalog.routes.some((item) => item.id.startsWith(prefix))) throw new Error("
 catalog.routes.push(...definitions.map(([label, waypointLocationIds, duration, type], index) => ({
   id: `${prefix}${String(index + 1).padStart(2, "0")}`,
   name: `深圳${label}纯驾车路线`, province: "广东", cities: ["深圳"], type,
-  captureStyle: "scenic-drive", modes: ["day", "sunset", "asmr"], estimatedDurationMinutes: duration,
+  captureStyle: "scenic-drive", executionMode: "drive-only", modes: ["day", "sunset", "asmr"], estimatedDurationMinutes: duration,
   waypointLocationIds,
   best: { seasons: ["spring", "autumn", "winter"], times: ["golden-hour", "sunset", "blue-hour", "night"], weather: ["sunny", "cloudy", "after-rain"] },
   cameraPresetIds: ["gopro12-city-night-driving"],
