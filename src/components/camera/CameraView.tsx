@@ -8,6 +8,7 @@ const sceneLabels: Record<CameraPreset["scene"], string> = {
   "city-night-driving": "城市夜间驾驶",
   "city-night-tripod": "城市夜景定点",
   "forest-stream-static": "林间溪流定点",
+  "daylight-general": "MR2 白天通用",
   "daylight-walk": "日间步行",
   "rain-walk": "雨景步行",
   "blue-hour-walk": "蓝调步行"
@@ -19,6 +20,7 @@ const routeMatchesScene = (route: ResolvedRoute, scene: CameraPreset["scene"]) =
   if (scene === "coast-sunset") return route.route.type === "coast";
   if (scene === "forest-stream-static") return ["forest", "waterfall", "river", "lake"].includes(route.route.type) && route.route.executionMode !== "drive-only";
   if (scene === "rain-walk") return route.route.captureStyle === "rain-walk";
+  if (scene === "daylight-general") return route.route.modes.includes("day");
   return route.route.executionMode !== "drive-only";
 };
 
@@ -43,8 +45,10 @@ export function CameraView({ presets, routes }: { presets: CameraPreset[]; route
   const explicitRoutes = routes.filter((route) => route.route.cameraPresetIds.includes(selected.id));
   const relatedRoutes = (explicitRoutes.length ? explicitRoutes : routes.filter((route) => routeMatchesScene(route, selected.scene))).slice(0, 8);
   const advancedSettings = [
-    ["编码", selected.settings.codec], ["色深", selected.settings.colorDepth], ["曝光补偿", selected.settings.exposureCompensation],
+    ["编码", selected.settings.codec], ["色深", selected.settings.colorDepth], ["曝光模式", selected.settings.exposureMode], ["曝光补偿", selected.settings.exposureCompensation],
     ["对焦", selected.settings.focus], ["稳定方式", selected.settings.stabilization], ["锐化", selected.settings.sharpness === undefined ? undefined : String(selected.settings.sharpness)],
+    ["被摄物识别", selected.settings.subjectRecognition], ["APS-C / S35", selected.settings.cropMode], ["斑马线", selected.settings.zebra],
+    ["Proxy", selected.settings.proxy], ["Log监看", selected.settings.logMonitoring],
     ["降噪", selected.settings.noiseReduction === undefined ? undefined : String(selected.settings.noiseReduction)], ["滤镜", selected.settings.filter], ["收音", selected.settings.audio]
   ].filter((item): item is string[] => Boolean(item[1]));
   const parameterText = [

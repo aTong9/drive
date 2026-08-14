@@ -61,6 +61,7 @@ export interface CameraPreset {
     | "city-night-driving"
     | "city-night-tripod"
     | "forest-stream-static"
+    | "daylight-general"
     | "daylight-walk"
     | "rain-walk"
     | "blue-hour-walk";
@@ -81,6 +82,12 @@ export interface CameraPreset {
     noiseReduction?: number;
     audio?: string;
     filter?: string;
+    exposureMode?: string;
+    zebra?: string;
+    proxy?: string;
+    cropMode?: string;
+    subjectRecognition?: string;
+    logMonitoring?: string;
   };
   notes: string;
   setup?: string[];

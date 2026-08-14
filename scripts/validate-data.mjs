@@ -434,7 +434,7 @@ const provincesWithoutLocations = expectedProvinceNames.filter((name) => !covere
 if (provincesWithoutLocations.length) errors.push(`locations: province-level units without a source-checked location: ${provincesWithoutLocations.join(", ")}`);
 
 for (const preset of catalog.cameraPresets) {
-  const cameraScenes = new Set(["coast-sunset", "city-night-driving", "city-night-tripod", "forest-stream-static", "daylight-walk", "rain-walk", "blue-hour-walk"]);
+  const cameraScenes = new Set(["coast-sunset", "city-night-driving", "city-night-tripod", "forest-stream-static", "daylight-general", "daylight-walk", "rain-walk", "blue-hour-walk"]);
   if (!cameraScenes.has(preset.scene)) errors.push(`${preset.id}: unknown camera scene ${preset.scene}`);
   if (!preset.settings) continue;
   if (preset.settings.iso && preset.settings.iso.min > preset.settings.iso.max) errors.push(`${preset.id}: ISO min exceeds max`);
