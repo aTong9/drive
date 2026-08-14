@@ -4,7 +4,7 @@
   "type": "object", "additionalProperties": false,
   "required": ["schemaVersion", "methodology", "accessedAt", "creators"],
   "properties": {
-    "schemaVersion": { "const": "1.0.0" },
+    "schemaVersion": { "const": "1.1.0" },
     "methodology": { "type": "string", "minLength": 20 },
     "accessedAt": { "type": "string", "format": "date" },
     "creators": { "type": "array", "minItems": 8, "items": { "$ref": "#/$defs/creator" } }
@@ -17,7 +17,7 @@
       "required": ["id", "name", "region", "category", "channelUrl", "positioning", "representative", "whyItWorks", "patterns", "caution", "evidence"],
       "properties": {
         "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" }, "name": { "type": "string", "minLength": 2 }, "region": { "type": "string", "minLength": 2 },
-        "category": { "enum": ["scenic-drive", "rain-walk", "stationary-nature", "urban-walk", "guided-walk", "cinematic-landscape"] },
+        "category": { "enum": ["scenic-drive", "rain-walk", "stationary-nature", "urban-walk", "guided-walk", "cinematic-landscape", "nature-ambience", "ambient-cinema", "asmr-nature"] },
         "channelUrl": { "type": "string", "format": "uri" }, "positioning": { "type": "string", "minLength": 10 },
         "representative": { "$ref": "#/$defs/representative" },
         "whyItWorks": { "type": "array", "minItems": 3, "items": { "type": "string", "minLength": 10 } },

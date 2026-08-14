@@ -1,10 +1,10 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "1.1.0",
   "methodology": "基于公开频道与代表视频的标题、时长、画面、声音、系列结构和可见播放表现进行编辑分析；播放量会持续变化，原因归纳属于可验证素材上的策略推断，不代表 YouTube 官方归因。",
   "accessedAt": "2026-08-09",
   "creators": [
     {
-      "id": "nomadic-ambience", "name": "Nomadic Ambience", "region": "美国 / 全球取景", "category": "rain-walk", "channelUrl": "https://www.youtube.com/@NomadicAmbience",
+      "id": "nomadic-ambience", "name": "Nomadic Ambience", "region": "美国 / 全球取景", "category": "asmr-nature", "channelUrl": "https://www.youtube.com/@NomadicAmbience",
       "positioning": "把真实雨中步行、城市与自然声做成长时间沉浸体验。",
       "representative": { "title": "Relaxing Walk in Thunderstorm, Binaural Rain and Nature Sounds for Sleep and Study | 4K ASMR", "url": "https://www.youtube.com/watch?v=I-zPNQYHSvU", "observedPerformance": "公开页面在核验时显示约 819 万播放、13.5 万点赞。" },
       "whyItWorks": ["同一条视频同时满足旅行代入、睡眠、学习和 ASMR 四种使用场景。", "标题把天气、环境声、用途、4K 和 ASMR 等搜索意图完整写出。", "双耳实地录音与连续长镜头降低叙事负担，让观众可长期后台播放。"],
@@ -22,7 +22,7 @@
       "evidence": [{ "title": "Italy 4K 代表视频", "url": "https://www.youtube.com/watch?v=2b2gJu-g3qE" }]
     },
     {
-      "id": "nature-relaxation-films", "name": "Nature Relaxation Films", "region": "美国 / 全球取景", "category": "stationary-nature", "channelUrl": "https://www.youtube.com/@NatureRelaxationFilms",
+      "id": "nature-relaxation-films", "name": "Nature Relaxation Films", "region": "美国 / 全球取景", "category": "nature-ambience", "channelUrl": "https://www.youtube.com/@NatureRelaxationFilms",
       "positioning": "用超长自然影像服务电视背景、冥想、睡眠和专注。",
       "representative": { "title": "7 HOUR 4K DRONE FILM: Earth from Above", "url": "https://www.youtube.com/results?search_query=Nature+Relaxation+Films+Earth+from+Above+7+hour", "observedPerformance": "公开 YouTube 搜索结果在核验时显示约 1600 万播放。" },
       "whyItWorks": ["七小时内容覆盖完整睡眠、工作或电视背景时段，扩大总观看时间。", "Earth from Above 提供一眼能懂的全球尺度承诺。", "稳定镜头和连续氛围音乐避免频繁刺激，适合重复使用。"],
@@ -76,7 +76,7 @@
       "evidence": [{ "title": "Prowalk Tours 官方频道", "url": "https://www.youtube.com/@ProWalks" }]
     },
     {
-      "id": "naturescapes", "name": "Naturescapes", "region": "加拿大 / 美国自然保护地", "category": "stationary-nature", "channelUrl": "https://www.youtube.com/@NaturescapesYouTube",
+      "id": "naturescapes", "name": "Naturescapes", "region": "加拿大 / 美国自然保护地", "category": "nature-ambience", "channelUrl": "https://www.youtube.com/@NaturescapesYouTube",
       "positioning": "以真实溪流、瀑布、鸟鸣和森林固定机位制作无音乐长时自然声景。",
       "representative": { "title": "Forest River Nature Sounds - Gentle Stream with Birdsong | 4K Relaxing Nature Ambience for Sleep", "url": "https://www.youtube.com/watch?v=29XymHesxa0", "observedPerformance": "公开视频索引在核验时显示约 340 万播放、2.9 万点赞。" },
       "whyItWorks": ["单一稳定画面减少视觉干扰，让溪流和鸟鸣成为真正的内容主体。", "森林、溪流、鸟鸣、睡眠与专注构成清晰且长期有效的搜索组合。", "同一声景提供三至十小时版本，能够覆盖午休、工作和整夜睡眠时段。"],
@@ -281,6 +281,60 @@
       "patterns": ["标题写清道路地点画质与时长", "保持地平线稳定和挡风玻璃清洁", "用自然路段变化划分章节", "在说明中注明季节和道路条件"],
       "caution": "长时驾驶拍摄必须使用出发前固定的设备，不能手持或途中操作；公开视频不能替代实时导航、封路与天气信息。",
       "evidence": [{ "title": "King Ridge Road 4K 驾驶代表视频", "url": "https://www.youtube.com/watch?v=JHAcW9cU0mY" }, { "title": "Amazing Scenic Drives 频道", "url": "https://www.youtube.com/@amazingscenicdrives" }]
+    },
+    {
+      "id": "the-relaxed-guy", "name": "The Relaxed Guy", "region": "新西兰 / 雨声、溪流、海浪与自然白噪声", "category": "nature-ambience", "channelUrl": "https://www.youtube.com/@TheRelaxedGuy",
+      "positioning": "以真实自然声和长时固定景观服务睡眠、专注与放松，画面克制，让声音成为主要产品。",
+      "representative": { "title": "Rain, thunder, ocean and forest ambience", "url": "https://www.youtube.com/@TheRelaxedGuy/videos", "observedPerformance": "频道长期围绕雨、雷、海浪和流水建立可重复收听的长时内容目录。" },
+      "whyItWorks": ["单一声音主题让观众能快速选择使用场景。", "长时版本减少睡眠和工作时的中断。", "自然画面与声音语义一致，降低人工拼贴感。"],
+      "patterns": ["标题先写声音与使用场景", "保留稳定连续的自然底噪", "制作 1 小时与更长版本", "缩略图只突出一种天气或地貌"],
+      "caution": "不能把循环素材标成实时连续录音；需记录声音来源、降噪和循环位置，并确认画面与音频版权。",
+      "evidence": [{ "title": "The Relaxed Guy 官方频道", "url": "https://www.youtube.com/@TheRelaxedGuy" }]
+    },
+    {
+      "id": "ambient-cinematics", "name": "Ambient Cinematics", "region": "美国 / 电影世界、奇幻空间与长时氛围", "category": "ambient-cinema", "channelUrl": "https://www.youtube.com/@ambientcinematics",
+      "positioning": "用电影化场景、环境层和长时声景创造可停留的虚构空间，服务阅读、工作与沉浸观看。",
+      "representative": { "title": "Cinematic ambience and immersive soundscapes", "url": "https://www.youtube.com/@ambientcinematics/videos", "observedPerformance": "频道以持续统一的电影氛围包装获得稳定的长时背景观看。" },
+      "whyItWorks": ["每支视频先建立明确世界观和情绪。", "微动效让固定场景在大屏上仍有生命感。", "声音层次维持长时观看而不抢注意力。"],
+      "patterns": ["一句话定义场景与情绪", "用前中后景建立空间层次", "控制微动效频率", "按工作睡眠阅读建立播放列表"],
+      "caution": "电影、游戏角色和视觉资产可能受版权保护；应使用原创或明确授权的画面、音乐与音效。",
+      "evidence": [{ "title": "Ambient Cinematics 官方频道", "url": "https://www.youtube.com/@ambientcinematics" }]
+    },
+    {
+      "id": "ambient-worlds", "name": "Ambient Worlds", "region": "美国 / 奇幻、文学与电影灵感环境", "category": "ambient-cinema", "channelUrl": "https://www.youtube.com/@AmbientWorlds",
+      "positioning": "把观众熟悉的奇幻空间转成适合学习和放松的长时声画场景，以地点感而非情节推进观看。",
+      "representative": { "title": "Fantasy worlds for relaxation and study", "url": "https://www.youtube.com/@AmbientWorlds/videos", "observedPerformance": "主题世界、季节和功能型场景构成清晰的长期内容矩阵。" },
+      "whyItWorks": ["熟悉的空间意象降低点击理解成本。", "天气、火光和远景声创造可感知的空间深度。", "标题同时覆盖世界观和学习放松需求。"],
+      "patterns": ["用地点而非剧情组织内容", "建立天气与空间声音层", "统一系列封面语法", "为不同使用时长制作版本"],
+      "caution": "借鉴空间叙事即可，不应直接使用受保护的角色、剧照、配乐、标识或高度可识别的视觉设计。",
+      "evidence": [{ "title": "Ambient Worlds 官方频道", "url": "https://www.youtube.com/@AmbientWorlds" }]
+    },
+    {
+      "id": "ambient-renders", "name": "Ambient Renders", "region": "数字影像 / 科幻建筑、室内空间与环境声景", "category": "ambient-cinema", "channelUrl": "https://www.youtube.com/@AmbientRenders",
+      "positioning": "以原创数字场景和精细声景呈现科幻、建筑与静谧室内空间，把一张概念图发展成长时氛围作品。",
+      "representative": { "title": "Original rendered environments and soundscapes", "url": "https://www.youtube.com/@AmbientRenders/videos", "observedPerformance": "原创渲染、空间主题和连续声音形成容易识别的频道风格。" },
+      "whyItWorks": ["原创视觉语言减少素材同质化。", "镜头几乎不移动但环境细节持续变化。", "建筑尺度和声场共同制造在场感。"],
+      "patterns": ["先做场景概念板", "只让少量环境元素循环", "声音按距离分层", "渲染前预留缩略图构图"],
+      "caution": "渲染资产、纹理、模型和音效同样需要商业许可；生成式素材也应保留来源与使用条款记录。",
+      "evidence": [{ "title": "Ambient Renders 官方频道", "url": "https://www.youtube.com/@AmbientRenders" }]
+    },
+    {
+      "id": "relaxing-ambience-asmr", "name": "Relaxing Ambience ASMR", "region": "全球 / 雨夜、森林、海边与舒缓声景", "category": "asmr-nature", "channelUrl": "https://www.youtube.com/@relaxingambienceasmr",
+      "positioning": "把自然天气、轻微近场细节和长时环境声组合成低刺激 ASMR 场景，兼顾睡眠与背景播放。",
+      "representative": { "title": "Relaxing nature ambience and ASMR soundscapes", "url": "https://www.youtube.com/@relaxingambienceasmr/videos", "observedPerformance": "雨声与自然声主题形成明确的睡眠、放松和专注入口。" },
+      "whyItWorks": ["近场水滴与远场天气形成细腻声场。", "低刺激画面避免打断入睡。", "标题明确写出声音、场景和使用目的。"],
+      "patterns": ["同时录制近场与远场声音", "削减突发峰值但保留动态", "避免频繁转场", "标明真实录音或后期设计"],
+      "caution": "ASMR 效果因设备和个人差异而异，不应做医疗或助眠疗效承诺；声音素材和循环必须透明。",
+      "evidence": [{ "title": "Relaxing Ambience ASMR 官方频道", "url": "https://www.youtube.com/@relaxingambienceasmr" }]
+    },
+    {
+      "id": "calmed-by-nature", "name": "Calmed By Nature", "region": "美国 / 舒适室内、自然天气与环境 ASMR", "category": "asmr-nature", "channelUrl": "https://www.youtube.com/@CalmedByNature",
+      "positioning": "以舒适室内视角连接窗外雨雪、森林和夜色，通过原创氛围场景与自然声满足放松、学习和睡眠。",
+      "representative": { "title": "Cozy ambience with rain and nature sounds", "url": "https://www.youtube.com/@CalmedByNature/videos", "observedPerformance": "舒适空间、天气和季节主题构成辨识度高的长时氛围系列。" },
+      "whyItWorks": ["室内安全感与窗外自然变化形成情绪对比。", "季节主题带来可重复的年度搜索需求。", "细节动画和稳定声场适合电视与桌面背景播放。"],
+      "patterns": ["用窗口连接室内与自然", "围绕季节建立发布日历", "控制动画与音量峰值", "将同一场景拆成雨雪夜晚版本"],
+      "caution": "可学习舒适空间与自然声的组合，但不要复制其插画、动画、音乐、声音设计和缩略图构图。",
+      "evidence": [{ "title": "Calmed By Nature 官方频道", "url": "https://www.youtube.com/@CalmedByNature" }]
     }
     ,{
       "id": "solo-solo-travel", "name": "Solo Solo Travel", "region": "日本 / 全球铁路、渡轮与长途交通", "category": "guided-walk", "channelUrl": "https://www.youtube.com/@SoloSoloTravel",
@@ -776,6 +830,114 @@
       "patterns": ["先提出一个可在现场验证的地质问题", "用广景定位再切岩石和地层细节", "把地图剖面与眼前地貌来回对应", "明确区分观察推断与尚未确定的信息"],
       "caution": "地质讲解不能成为进入封闭火山、热泉、崖壁、矿区、保护区或不安全路肩的理由；现场判断须服从景区、自然保护和灾害预警，涉及活跃地热与地震事件应引用主管机构。可借鉴证据链与同行探索结构，不复制其课程、书籍、影片、地图绘图、标题、缩略图或具体讲稿。",
       "evidence": [{ "title": "Shawn Willsey 官方经历与野外地质定位", "url": "https://www.willseygeology.com/about-me" }, { "title": "Shawn Willsey 官方 YouTube 频道", "url": "https://www.youtube.com/@shawnwillsey" }, { "title": "Shawn Willsey 公开频道规模与内容说明", "url": "https://socialcounts.org/youtube-live-subscriber-count/UCB1t-8MBhxyDVabeUcTj0Zw" }]
+    },
+    {
+      "id": "relaxing-white-noise", "name": "Relaxing White Noise", "region": "美国 / 自然白噪声、睡眠与专注", "category": "nature-ambience", "channelUrl": "https://www.youtube.com/@RelaxingWhiteNoise",
+      "positioning": "把雨、海浪、河流和稳定白噪声制作成长时功能型内容，以清晰用途和一致声场服务睡眠、学习与工作。",
+      "representative": { "title": "Nature sounds and white noise for sleeping", "url": "https://www.youtube.com/@RelaxingWhiteNoise/videos", "observedPerformance": "频道长期以多小时自然声和白噪声建立大型功能型内容目录。" },
+      "whyItWorks": ["声音类型和用途在标题中一眼可见。", "长时版本覆盖整夜睡眠和完整工作时段。", "稳定更新让观众形成固定使用习惯。"],
+      "patterns": ["标题先写声音再写用途", "控制突发峰值和底噪变化", "制作 3 小时与 10 小时版本", "按雨水海浪溪流建立播放列表"],
+      "caution": "白噪声不能宣传为医疗治疗；应提醒合理音量，并透明标注真实录音、合成和循环。",
+      "evidence": [{ "title": "Relaxing White Noise 官方频道", "url": "https://www.youtube.com/@RelaxingWhiteNoise" }]
+    },
+    {
+      "id": "johnnie-lawson", "name": "Johnnie Lawson", "region": "爱尔兰 / 森林溪流、瀑布与真实自然声", "category": "nature-ambience", "channelUrl": "https://www.youtube.com/@johnnielawson",
+      "positioning": "以固定机位记录森林、溪流和瀑布，让真实地点、连续水声与克制画面成为长时放松体验。",
+      "representative": { "title": "Forest river and waterfall nature sounds", "url": "https://www.youtube.com/@johnnielawson/videos", "observedPerformance": "真实自然地点和水声主题形成了长期被重复使用的经典内容。" },
+      "whyItWorks": ["固定构图让声音成为主角。", "真实地点提供比素材循环更可信的细节变化。", "水流声适合跨语言长时使用。"],
+      "patterns": ["先听声场再确定构图", "保留水流层次和鸟声距离", "减少转场与数码推拉", "记录地点天气和收音条件"],
+      "caution": "临水布机必须预留涨水、湿滑和撤离边界；不能为了连续录音进入封闭或危险区域。",
+      "evidence": [{ "title": "Johnnie Lawson 官方频道", "url": "https://www.youtube.com/@johnnielawson" }]
+    },
+    {
+      "id": "guild-of-ambience", "name": "The Guild of Ambience", "region": "数字场景 / 奇幻、科幻与角色扮演环境", "category": "ambient-cinema", "channelUrl": "https://www.youtube.com/@GuildofAmbience",
+      "positioning": "围绕旅店、森林、飞船和幻想地点设计长时环境声，用有限动画和声音叙事建立适合阅读与角色扮演的空间。",
+      "representative": { "title": "Fantasy and sci-fi ambient environments", "url": "https://www.youtube.com/@GuildofAmbience/videos", "observedPerformance": "地点型主题与长时环境声形成辨识度很高的沉浸目录。" },
+      "whyItWorks": ["每支视频都是一个用途明确的可停留地点。", "声音事件暗示空间之外仍有世界运行。", "奇幻与科幻分类便于连续播放。"],
+      "patterns": ["用一句话定义地点规则", "设计远中近三层环境声", "微动画只服务空间变化", "按世界观建立系列封面"],
+      "caution": "角色扮演和类型灵感不等于可以使用现成电影、游戏或文学资产；画面、模型和声音必须原创或授权。",
+      "evidence": [{ "title": "The Guild of Ambience 官方频道", "url": "https://www.youtube.com/@GuildofAmbience" }]
+    },
+    {
+      "id": "miracle-forest", "name": "Miracle Forest", "region": "数字场景 / 超现实森林、神秘室内与暗色氛围", "category": "ambient-cinema", "channelUrl": "https://www.youtube.com/@MiracleForest",
+      "positioning": "以原创超现实空间、暗色灯光和细节声音制作带故事暗示的长时氛围，让观众自行想象未讲出的情节。",
+      "representative": { "title": "Original fantasy ambience and soundscapes", "url": "https://www.youtube.com/@MiracleForest/videos", "observedPerformance": "独特美术和神秘空间叙事使频道区别于通用雨声及壁炉素材。" },
+      "whyItWorks": ["原创视觉设定提供即时辨识度。", "不完整故事线制造想象空间。", "暗色低刺激画面适合夜间背景播放。"],
+      "patterns": ["先写场景背后的未解问题", "让声音承担画外叙事", "用局部光源控制视觉注意", "统一暗色缩略图和系列命名"],
+      "caution": "可学习原创世界观和画外叙事，不复制具体场景、美术风格、声音组合或故事设定。",
+      "evidence": [{ "title": "Miracle Forest 官方频道", "url": "https://www.youtube.com/@MiracleForest" }]
+    },
+    {
+      "id": "silent-watcher", "name": "The Silent Watcher", "region": "欧洲 / 雨、雷暴、森林与现场自然声", "category": "asmr-nature", "channelUrl": "https://www.youtube.com/@TheSilentWatcher",
+      "positioning": "以安静观察者视角记录雨落森林、雷暴和水边环境，用现场声音和低干预画面服务 ASMR 与放松观看。",
+      "representative": { "title": "Rainstorms and forest nature ambience", "url": "https://www.youtube.com/@TheSilentWatcher/videos", "observedPerformance": "雨、雷和森林组合持续覆盖睡眠、放松与自然观察需求。" },
+      "whyItWorks": ["观察者不出声，降低语言和人物干扰。", "真实天气带来不可完全重复的声音细节。", "雨势与雷声变化提供缓慢但持续的进程。"],
+      "patterns": ["天气前完成安全布机", "分别控制雨滴和远雷层次", "避免过度压缩动态", "标题标明雷声强度与耳机建议"],
+      "caution": "雷暴录制必须把人身安全置于素材之前；不要在雷电、山洪、倒木或湿滑风险中守机。",
+      "evidence": [{ "title": "The Silent Watcher 官方频道", "url": "https://www.youtube.com/@TheSilentWatcher" }]
+    },
+    {
+      "id": "the-indian-ambience", "name": "The Indian Ambience", "region": "印度 / 雨中步行、热带天气与双耳环境声", "category": "asmr-nature", "channelUrl": "https://www.youtube.com/@TheIndianAmbience",
+      "positioning": "用团队实地录制的雨中步行、雨棚和自然天气声音制作 ASMR 内容，强调真实录音和合理收听音量。",
+      "representative": { "title": "Rain walks and nature ambience ASMR", "url": "https://www.youtube.com/@TheIndianAmbience/videos", "observedPerformance": "雨中步行与睡眠用途结合，形成兼具路线变化和稳定声场的内容。" },
+      "whyItWorks": ["步行路线给长时雨声加入自然空间变化。", "现场录音声明增强来源可信度。", "健康音量提醒为功能型观看建立责任边界。"],
+      "patterns": ["记录步行与固定雨声两个版本", "说明录音设备和真实性", "加入合理音量提醒", "用天气地点和用途组织标题"],
+      "caution": "不能把娱乐内容包装成睡眠障碍治疗；雨中步行需优先考虑积水、雷电、交通和设备防水。",
+      "evidence": [{ "title": "The Indian Ambience 官方频道", "url": "https://www.youtube.com/@TheIndianAmbience" }]
+    },
+    {
+      "id": "audio-zen-garden", "name": "Audio Zen Garden", "region": "美国 / 雨、森林、海洋与自然声音播客", "category": "nature-ambience", "channelUrl": "https://www.youtube.com/@AudioZenGarden",
+      "positioning": "把雨、森林、海浪等自然声音整理成短中长不同时长的放松内容，并延伸到播客与音频平台。",
+      "representative": { "title": "Nature Sounds: Soft Rain Tickling Forest Leaves", "url": "https://www.youtube.com/@AudioZenGarden/videos", "observedPerformance": "频道以自然声音主题和跨音频平台分发建立可重复收听的内容库。" },
+      "whyItWorks": ["声音主题足够具体，便于按需求选择。", "纯音频也能跨平台复用。", "短集与长时版本覆盖不同使用场景。"],
+      "patterns": ["同一录音制作视频和音频版", "按声音来源建立系列", "简介写清素材与许可来源", "为播客平台制作短版"],
+      "caution": "使用 Freesound 等素材时必须逐条核验许可、署名与商用范围，不能把授权素材描述为自己的实地录音。",
+      "evidence": [{ "title": "Audio Zen Garden 官方频道", "url": "https://www.youtube.com/@AudioZenGarden" }]
+    },
+    {
+      "id": "4k-relaxation-channel", "name": "4K Relaxation Channel", "region": "美国 / 全球自然、旅行影像与大屏放松", "category": "nature-ambience", "channelUrl": "https://www.youtube.com/@RelaxationChannel",
+      "positioning": "以全球山海、瀑布、野生动物和旅行风景制作适合电视大屏的 4K 自然电影，并结合环境声或舒缓音乐。",
+      "representative": { "title": "4K nature films, ambient nature and wildlife", "url": "https://www.youtube.com/@RelaxationChannel/videos", "observedPerformance": "频道通过统一的高分辨率自然主题覆盖旅行预览、电视背景和放松用途。" },
+      "whyItWorks": ["4K 与自然地点形成清晰的大屏观看承诺。", "不同地貌提供持续的视觉变化。", "地点、动物和用途词带来广泛搜索入口。"],
+      "patterns": ["为电视端保留稳定长镜头", "地点名与画质规格前置", "自然声版和音乐版分开", "按地貌建立播放列表"],
+      "caution": "HDR、4K、8K 等规格必须与真实母版一致；航拍、野生动物和素材授权需要单独核验。",
+      "evidence": [{ "title": "4K Relaxation Channel 官方频道", "url": "https://www.youtube.com/@RelaxationChannel" }]
+    },
+    {
+      "id": "fantasy-and-ambience", "name": "Fantasy and Ambience", "region": "数字影像 / 奇幻世界、音乐与视觉场景", "category": "ambient-cinema", "channelUrl": "https://www.youtube.com/@fantasyandambience",
+      "positioning": "将奇幻音乐、环境视觉和类型文化内容组织成可供放松、写作与灵感探索的世界观频道。",
+      "representative": { "title": "Fantasy ambience, visuals and genre worlds", "url": "https://www.youtube.com/@fantasyandambience/videos", "observedPerformance": "频道围绕奇幻世界与氛围体验建立连续主题。" },
+      "whyItWorks": ["类型定位明确，目标观众理解成本低。", "音乐与视觉共同强化世界观。", "氛围内容和类型分析可以互相导流。"],
+      "patterns": ["先确定世界观关键词", "建立统一色彩和声音母题", "用场景内容连接研究内容", "邀请观众提出下一期地点"],
+      "caution": "类型研究和灵感不授权使用影视、游戏、插画或配乐素材；引用与原创内容必须清楚区分。",
+      "evidence": [{ "title": "Fantasy and Ambience 官方频道", "url": "https://www.youtube.com/@fantasyandambience" }]
+    },
+    {
+      "id": "fantasy-ambience", "name": "Fantasy Ambience", "region": "数字影像 / 社群共创奇幻声景", "category": "ambient-cinema", "channelUrl": "https://www.youtube.com/@fantasy-ambience",
+      "positioning": "根据观众建议持续制作奇幻地点和情境声景，把评论区需求转化为下一批长时氛围主题。",
+      "representative": { "title": "Community-inspired fantasy ambience", "url": "https://www.youtube.com/@fantasy-ambience/videos", "observedPerformance": "频道公开邀请观众提出创意和反馈，以社群参与维持题材更新。" },
+      "whyItWorks": ["观众建议降低选题与需求之间的距离。", "地点和情境可以形成几乎无限的系列。", "反馈循环增强长期订阅关系。"],
+      "patterns": ["每月收集场景提案", "投票选择下一主题", "保留统一片长和包装", "发布后记录声音与视觉反馈"],
+      "caution": "观众提出的点子可能包含受保护 IP；采用前需转化为原创世界、通用类型或取得许可。",
+      "evidence": [{ "title": "Fantasy Ambience 官方频道", "url": "https://www.youtube.com/@fantasy-ambience" }]
+    },
+    {
+      "id": "asmr-weekly", "name": "ASMR Weekly", "region": "数字影像 / 奇幻空间、自然声与轻柔 ASMR", "category": "asmr-nature", "channelUrl": "https://www.youtube.com/@ASMRWeekly",
+      "positioning": "以奇幻森林、帐篷、雨夜和舒适空间组合自然声、轻柔音效与长时画面，服务睡眠和放松。",
+      "representative": { "title": "Fantasy nature ambience and soft ASMR", "url": "https://www.youtube.com/@ASMRWeekly/videos", "observedPerformance": "奇幻地点、自然声和数小时片长构成稳定的睡眠氛围系列。" },
+      "whyItWorks": ["奇幻视觉提供比通用雨声更强的点击识别。", "柔和细节声增强耳机近场体验。", "长时版本减少睡眠过程中的内容切换。"],
+      "patterns": ["自然底噪上只叠少量近场细节", "控制高频和突发声", "缩略图突出一个安全舒适空间", "按睡眠时长制作版本"],
+      "caution": "幻想题材不能直接复用知名角色、场景与配乐；ASMR 内容也不应宣称治疗睡眠或焦虑。",
+      "evidence": [{ "title": "ASMR Weekly 官方频道", "url": "https://www.youtube.com/@ASMRWeekly" }]
+    },
+    {
+      "id": "autumn-cozy", "name": "Autumn Cozy", "region": "数字影像 / 秋季厨房、壁炉、雨声与舒适 ASMR", "category": "asmr-nature", "channelUrl": "https://www.youtube.com/@AutumnCozy",
+      "positioning": "围绕秋季、厨房、壁炉和窗外天气设计舒适长时场景，以烹饪细节、鸟声、雨声和火焰声构成低刺激声景。",
+      "representative": { "title": "Cozy Kitchen Ambience with cooking sounds and birdsong", "url": "https://www.youtube.com/@AutumnCozy/videos", "observedPerformance": "季节视觉与细节声音让频道形成鲜明、可重复回访的舒适感。" },
+      "whyItWorks": ["秋季色彩和室内安全感拥有强烈情绪识别。", "烹饪与自然声提供缓慢声音事件。", "季节性内容每年都能重新进入使用周期。"],
+      "patterns": ["建立季节发布日历", "让室内细节声与窗外天气互补", "保持低亮度和慢动画", "同场景制作雨夜壁炉与厨房版本"],
+      "caution": "可学习季节、室内与自然声的组合，不复制其插画、动画、声音层、标题或具体场景设计。",
+      "evidence": [{ "title": "Autumn Cozy 官方频道", "url": "https://www.youtube.com/@AutumnCozy" }]
     }
   ]
 }

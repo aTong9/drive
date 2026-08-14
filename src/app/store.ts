@@ -24,7 +24,8 @@ type AppView =
   | "cameras"
   | "post"
   | "creators"
-  | "music";
+  | "music"
+  | "upload";
 
 interface PlannerState {
   view: AppView;
