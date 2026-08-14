@@ -5,7 +5,7 @@ import { usePlannerStore } from "../../app/store.js";
 import { buildYoutubeUploadGuide, type YoutubeChannelVariant, type YoutubeUploadTemplate } from "../../services/youtubeUploadService.js";
 
 const templates: Array<{ value: YoutubeUploadTemplate; label: string; note: string }> = [
-  { value: "search", label: "搜索优先", note: "地点和内容类型放在标题前部" },
+  { value: "search", label: "aBin 专属默认", note: "地点优先；固定夜驾、4K HDR 与声音承诺" },
   { value: "immersive", label: "沉浸观看", note: "强调情绪、睡眠与专注用途" },
   { value: "archive", label: "路线档案", note: "突出线路、城市与长期收藏价值" },
 ];
