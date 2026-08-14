@@ -1,7 +1,8 @@
 import { readdir, stat } from "node:fs/promises";
 import { join } from "node:path";
+import { fileUrlPath } from "./file-url-path.mjs";
 
-const assetsDirectory = new URL("../dist/assets/", import.meta.url);
+const assetsDirectory = fileUrlPath(new URL("../dist/assets/", import.meta.url));
 const maximumEntryBytes = 500 * 1024;
 const maximumCatalogShardBytes = 180 * 1024;
 const files = await readdir(assetsDirectory);
@@ -13,7 +14,7 @@ if (javascriptFiles.length === 0) {
 
 const assets = await Promise.all(javascriptFiles.map(async (file) => ({
   file,
-  bytes: (await stat(join(assetsDirectory.pathname, file))).size
+  bytes: (await stat(join(assetsDirectory, file))).size
 })));
 const largest = assets.sort((left, right) => right.bytes - left.bytes)[0];
 const formattedKiB = (bytes) => `${(bytes / 1024).toFixed(1)} KiB`;
