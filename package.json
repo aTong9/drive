@@ -10,6 +10,8 @@
     "validate:data": "node scripts/validate-data.mjs",
     "audit:expansion-20": "node scripts/audit-expansion-20.mjs",
     "audit:municipalities-100": "node scripts/audit-municipality-expansion-100.mjs",
+    "audit:shenzhen-drive-20": "node scripts/audit-shenzhen-drive-routes-20.mjs",
+    "audit:greater-bay-drive-50": "node scripts/audit-greater-bay-drive-routes-50.mjs",
     "import:geonames-expansion": "node scripts/import-geonames-expansion.mjs",
     "demo:plan": "tsx src/cli/plan.ts",
     "dev": "vite",

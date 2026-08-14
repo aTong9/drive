@@ -27,7 +27,7 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--orange); ou
 .view-loading { min-height: calc(100vh - 68px); display: flex; align-items: center; justify-content: center; gap: 10px; color: var(--muted); font-size: 12px; }
 .view-loading-dot { width: 8px; height: 8px; border-radius: 999px; background: var(--orange); box-shadow: 0 0 0 5px rgba(239, 108, 53, .14); animation: view-loading-pulse 1.1s ease-in-out infinite; }
 @keyframes view-loading-pulse { 50% { opacity: .4; transform: scale(.78); } }
-.topbar { position: relative; z-index: 50; display: grid; grid-template-columns: 320px 1fr auto; align-items: center; height: 68px; border-bottom: 1px solid var(--line); background: rgba(18, 21, 17, 0.97); }
+.topbar { position: relative; z-index: 50; display: grid; grid-template-columns: 380px 1fr auto; align-items: center; height: 68px; border-bottom: 1px solid var(--line); background: rgba(18, 21, 17, 0.97); }
 .brand { height: 100%; display: flex; align-items: center; gap: 11px; padding: 0 22px; border-right: 1px solid var(--line); }
 .brand-mark { display: grid; place-items: center; width: 34px; height: 34px; color: #121510; background: var(--orange); border-radius: 9px; box-shadow: 0 8px 24px rgba(239, 108, 53, 0.24); }
 .brand-copy { display: flex; align-items: baseline; gap: 6px; letter-spacing: 0.1em; }
@@ -50,9 +50,9 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--orange); ou
 .avatar { display: grid; place-items: center; width: 34px; height: 34px; margin-left: 5px; border: 1px solid rgba(183, 206, 120, .3); border-radius: 50%; background: #242b20; color: var(--lime); font-size: 10px; font-weight: 700; }
 .mobile-menu, .mobile-filter { display: none; }
 
-.workspace { display: grid; grid-template-columns: 320px minmax(360px, 1fr); min-height: 0; height: calc(100vh - 68px); }
-.workspace.has-detail { grid-template-columns: 320px minmax(360px, 1fr) 390px; }
-.route-sidebar { position: relative; z-index: 20; display: flex; flex-direction: column; min-width: 0; min-height: 0; padding: 28px 16px 0; border-right: 1px solid var(--line); background: #151814; }
+.workspace { display: grid; grid-template-columns: 380px minmax(360px, 1fr); min-height: 0; height: calc(100vh - 68px); }
+.workspace.has-detail { grid-template-columns: 380px minmax(360px, 1fr) 390px; }
+.route-sidebar { position: relative; z-index: 20; display: flex; flex-direction: column; min-width: 0; min-height: 0; padding: 28px 16px 0; overflow-y: auto; overflow-x: hidden; border-right: 1px solid var(--line); background: #151814; scrollbar-width: thin; scrollbar-color: #33382f transparent; }
 .route-sidebar-head { display: flex; align-items: flex-start; justify-content: space-between; padding: 0 6px; }
 .eyebrow, .section-title p, .detail-hero-copy > p { margin: 0 0 8px; color: var(--orange); font-size: 8px; font-weight: 700; letter-spacing: .22em; }
 .route-sidebar h1 { margin: 0 0 22px; color: #e9e9e2; font-family: Georgia, "Songti SC", serif; font-size: 27px; font-weight: 500; line-height: 1.12; letter-spacing: -.025em; }
@@ -1515,6 +1515,36 @@ small { font-size: 10px !important; }
 :where(.eyebrow, .creator-patterns span, .upload-tags span, .route-card-meta, .location-card-meta, .music-category-strip button) { font-size: 10px !important; }
 :where(.topbar nav button, .mobile-nav button, .creator-card footer a, .socialblade-panel > a) { font-size: 11px !important; }
 
+/* Explore is a dense three-column workspace: keep the new readable scale without
+   letting global 12px controls overflow the fixed route rail. */
+.route-sidebar :where(button, input, select, label) { font-size: 11px !important; }
+.route-sidebar small { font-size: 10px !important; }
+.route-sidebar > .local-pagination {
+  width: calc(100% - 8px);
+  max-width: none;
+  align-items: stretch;
+  flex-direction: column;
+  gap: 7px;
+  padding: 8px;
+  margin: 8px 4px 12px;
+}
+.route-sidebar > .local-pagination > span { text-align: center; }
+.route-sidebar > .local-pagination > div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 100%;
+}
+.route-sidebar > .local-pagination label {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  justify-content: center;
+}
+.route-sidebar > .local-pagination button:first-child,
+.route-sidebar > .local-pagination button:last-child { display: none; }
+.route-sidebar > .route-card-list {
+  flex: 0 0 clamp(280px, 38vh, 380px);
+}
+
 /* Light theme keeps maps and photographic previews untouched while lifting the workspace chrome. */
 :root[data-theme="light"] {
   color-scheme: light;
@@ -1614,8 +1644,8 @@ small { font-size: 10px !important; }
 :root[data-theme="light"] .music-family-tabs button.active { background: color-mix(in srgb, currentColor 5%, #fff); }
 
 @media (max-width: 1180px) {
-  .workspace.has-detail { grid-template-columns: 300px minmax(360px, 1fr); }
-  .topbar { grid-template-columns: 300px 1fr auto; }
+  .workspace, .workspace.has-detail { grid-template-columns: 340px minmax(360px, 1fr); }
+  .topbar { grid-template-columns: 340px 1fr auto; }
   .detail-panel { position: absolute; top: 68px; right: 0; bottom: 0; width: 390px; }
   .topbar nav button { padding: 0 10px; }
   .music-platform-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
