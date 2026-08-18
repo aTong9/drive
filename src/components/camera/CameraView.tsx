@@ -12,7 +12,7 @@ const sceneLabels: Record<CameraPreset["scene"], string> = {
   "city-night-driving": "城市夜间驾驶",
   "city-night-tripod": "城市夜景定点",
   "forest-stream-static": "林间溪流定点",
-  "daylight-general": "MR2 白天通用",
+  "daylight-general": "白天 HDR 通用",
   "daylight-walk": "日间步行",
   "rain-walk": "雨景步行",
   "blue-hour-walk": "蓝调步行"

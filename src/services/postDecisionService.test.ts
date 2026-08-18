@@ -8,6 +8,13 @@ test("post pipeline keeps HLG and PQ distinct", () => {
   assert.match(pipeline.output, /ST2084/);
 });
 
+test("MR3 can stay HLG from input through delivery", () => {
+  const pipeline = recommendPostPipeline("hlg", "hlg");
+  assert.equal(pipeline.id, "hlg-hlg");
+  assert.match(pipeline.timeline, /HLG/);
+  assert.match(pipeline.output, /HLG/);
+});
+
 test("post render calculators estimate storage and duration", () => {
   assert.equal(renderStorageGb(80, 90), 54);
   assert.equal(estimateRenderMinutes(90, 0.5), 180);

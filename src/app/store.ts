@@ -24,6 +24,7 @@ type AppView =
   | "locations"
   | "cameras"
   | "post"
+  | "longform"
   | "creators"
   | "music"
   | "upload";
@@ -120,7 +121,7 @@ export const usePlannerStore = create<PlannerState>()(
       gpxTrack: null,
       favoriteCameraPresetIds: [],
       favoriteDavinciPresetIds: [],
-      cameraMrAssignments: {},
+      cameraMrAssignments: { MR1: "a7c2-mr1-night-slog3", MR2: "a7c2-mr2-daylight-general", MR3: "a7c2-mr3-day-hlg" },
       customCameraPresets: [],
       setView: (view) => set({ view }),
       setMode: (mode) => set({ mode }),
@@ -331,7 +332,7 @@ export const usePlannerStore = create<PlannerState>()(
           gpxTrack: state.gpxTrack ?? null,
           favoriteCameraPresetIds: state.favoriteCameraPresetIds ?? [],
           favoriteDavinciPresetIds: state.favoriteDavinciPresetIds ?? [],
-          cameraMrAssignments: state.cameraMrAssignments ?? {},
+          cameraMrAssignments: { MR1: "a7c2-mr1-night-slog3", MR2: "a7c2-mr2-daylight-general", MR3: "a7c2-mr3-day-hlg", ...(state.cameraMrAssignments ?? {}) },
           customCameraPresets: state.customCameraPresets ?? [],
         };
       },

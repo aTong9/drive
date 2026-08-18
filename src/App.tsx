@@ -1,4 +1,4 @@
-import { ArrowRight, BarChart3, CalendarDays, Camera, Clapperboard, Compass, FolderKanban, Map as MapIcon, Menu, Moon, Music2, Search, Sun, UploadCloud, Videotape, X } from "lucide-react";
+import { ArrowRight, BarChart3, CalendarDays, Camera, Clapperboard, Compass, Film, FolderKanban, Map as MapIcon, Menu, Moon, Music2, Search, Sun, UploadCloud, Videotape, X } from "lucide-react";
 import { lazy, Suspense, useCallback, useEffect, useMemo, useState } from "react";
 import type { DrivingSummary } from "./types/domain.js";
 import { Brand } from "./components/common/Brand.js";
@@ -20,6 +20,7 @@ const PostWorkflowView = lazy(() => import("./components/post/PostWorkflowView.j
 const CreatorView = lazy(() => import("./components/creator/CreatorView.js").then((module) => ({ default: module.CreatorView })));
 const MusicLibraryView = lazy(() => import("./components/music/MusicLibraryView.js").then((module) => ({ default: module.MusicLibraryView })));
 const YoutubeUploadView = lazy(() => import("./components/upload/YoutubeUploadView.js").then((module) => ({ default: module.YoutubeUploadView })));
+const LongformGuideView = lazy(() => import("./components/longform/LongformGuideView.js").then((module) => ({ default: module.LongformGuideView })));
 
 function ViewLoadingState() {
   return <main className="view-loading" role="status" aria-live="polite"><span className="view-loading-dot" />正在加载工作区…</main>;
@@ -118,7 +119,7 @@ export function App() {
     const query = commandQuery.trim().toLowerCase();
     return resolvedRoutes.filter((item) => !query || item.route.name.toLowerCase().includes(query) || item.route.cities.some((city) => city.includes(query))).slice(0, 7);
   }, [commandQuery]);
-  const openView = (view: "dashboard" | "projects" | "explore" | "plans" | "locations" | "cameras" | "post" | "creators" | "music" | "upload") => {
+  const openView = (view: "dashboard" | "projects" | "explore" | "plans" | "locations" | "cameras" | "post" | "longform" | "creators" | "music" | "upload") => {
     state.setView(view);
     setCommandOpen(false);
     setCommandQuery("");
@@ -136,7 +137,7 @@ export function App() {
           <button className={state.view === "locations" ? "active" : ""} onClick={() => state.setView("locations")}><MapIcon size={17} /> 地点库</button>
           <button className={state.view === "post" ? "active" : ""} onClick={() => state.setView("post")}><Clapperboard size={17} /> 后期流程</button>
           <button className={state.view === "upload" ? "active" : ""} onClick={() => state.setView("upload")}><UploadCloud size={17} /> 上传参数</button>
-          <button className={["cameras", "creators", "music"].includes(state.view) ? "active" : ""} onClick={() => setCommandOpen(true)}><Menu size={17} /> 更多工作台</button>
+          <button className={["cameras", "longform", "creators", "music"].includes(state.view) ? "active" : ""} onClick={() => setCommandOpen(true)}><Menu size={17} /> 更多工作台</button>
         </nav>
         <div className="topbar-actions">
           <button className="command-trigger" onClick={() => setCommandOpen(true)} aria-label="打开快捷导航"><Search size={16} /><span>搜索与跳转</span><kbd>⌘ K</kbd></button>
@@ -153,7 +154,7 @@ export function App() {
             <MapCanvas selected={selected} nearbyLocations={nearbyLocations} onDrivingSummary={handleDrivingSummary} />
             {state.detailOpen && selected && <RouteDetail selected={selected} drivingSummary={drivingSummary?.routeId === selected.route.id ? drivingSummary : null} />}
           </main>
-        ) : state.view === "plans" ? <PlanView routes={resolvedRoutes} /> : state.view === "locations" ? <LocationView locations={catalog.locations} routes={resolvedRoutes} catalogSchemaVersion={catalog.schemaVersion} /> : state.view === "cameras" ? <CameraView presets={catalog.cameraPresets} routes={resolvedRoutes} /> : state.view === "post" ? <PostWorkflowView workflow={davinciWorkflow} routes={resolvedRoutes} /> : state.view === "creators" ? <CreatorView /> : state.view === "upload" ? <YoutubeUploadView routes={resolvedRoutes} /> : <MusicLibraryView />}
+        ) : state.view === "plans" ? <PlanView routes={resolvedRoutes} /> : state.view === "locations" ? <LocationView locations={catalog.locations} routes={resolvedRoutes} catalogSchemaVersion={catalog.schemaVersion} /> : state.view === "cameras" ? <CameraView presets={catalog.cameraPresets} routes={resolvedRoutes} /> : state.view === "post" ? <PostWorkflowView workflow={davinciWorkflow} routes={resolvedRoutes} /> : state.view === "longform" ? <LongformGuideView /> : state.view === "creators" ? <CreatorView /> : state.view === "upload" ? <YoutubeUploadView routes={resolvedRoutes} /> : <MusicLibraryView />}
       </Suspense>
 
       {routeLinkMessage && <div className="route-link-notice" role="status" aria-live="polite">{routeLinkMessage}</div>}
@@ -163,6 +164,7 @@ export function App() {
           <header><Search size={18} /><input autoFocus value={commandQuery} onChange={(event) => setCommandQuery(event.target.value)} placeholder="搜索路线或打开工作台…" /><button onClick={() => setCommandOpen(false)} aria-label="关闭"><X size={17} /></button></header>
           <div className="command-section"><small>工作台</small><div className="command-view-grid">
             <button onClick={() => openView("cameras")}><Camera size={16} /><span>相机参数库</span></button>
+            <button onClick={() => openView("longform")}><Film size={16} /><span>长片制作指南</span></button>
             <button onClick={() => openView("projects")}><FolderKanban size={16} /><span>视频项目工作台</span></button>
             <button onClick={() => openView("creators")}><Videotape size={16} /><span>创作者研究</span></button>
             <button onClick={() => openView("music")}><Music2 size={16} /><span>音乐素材库</span></button>
@@ -180,7 +182,7 @@ export function App() {
         <button className={state.view === "explore" ? "active" : ""} onClick={() => state.setView("explore")}><Compass size={19} /><span>探索</span></button>
         <button className={state.view === "plans" ? "active" : ""} onClick={() => state.setView("plans")}><CalendarDays size={19} /><span>计划</span></button>
         <button className={state.view === "locations" ? "active" : ""} onClick={() => state.setView("locations")}><MapIcon size={19} /><span>地点</span></button>
-        <button className={["cameras", "post", "creators", "music", "upload"].includes(state.view) ? "active" : ""} onClick={() => setCommandOpen(true)}><Menu size={19} /><span>更多</span></button>
+        <button className={["cameras", "post", "longform", "creators", "music", "upload"].includes(state.view) ? "active" : ""} onClick={() => setCommandOpen(true)}><Menu size={19} /><span>更多</span></button>
       </nav>
     </div>
   );
