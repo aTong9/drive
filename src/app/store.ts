@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import type {
   CaptureStyle,
+  CameraPreset,
   DavinciWorkflow,
   FieldCheck,
   LocalGpxTrack,
@@ -43,6 +44,9 @@ interface PlannerState {
   postTasks: LocalPostTask[];
   postProject: LocalPostProject | null;
   gpxTrack: LocalGpxTrack | null;
+  favoriteCameraPresetIds: string[];
+  cameraMrAssignments: Partial<Record<"MR1" | "MR2" | "MR3", string>>;
+  customCameraPresets: CameraPreset[];
   setView: (view: AppView) => void;
   setMode: (mode: RouteMode | "all") => void;
   setCaptureStyle: (captureStyle: CaptureStyle | "all") => void;
@@ -88,6 +92,10 @@ interface PlannerState {
   togglePostTask: (taskId: string) => void;
   clearPostWorkflow: () => void;
   setGpxTrack: (track: LocalGpxTrack | null) => void;
+  toggleFavoriteCameraPreset: (presetId: string) => void;
+  assignCameraMr: (slot: "MR1" | "MR2" | "MR3", presetId: string) => void;
+  saveCustomCameraPreset: (preset: CameraPreset) => void;
+  removeCustomCameraPreset: (presetId: string) => void;
 }
 
 export const usePlannerStore = create<PlannerState>()(
@@ -108,6 +116,9 @@ export const usePlannerStore = create<PlannerState>()(
       postTasks: [],
       postProject: null,
       gpxTrack: null,
+      favoriteCameraPresetIds: [],
+      cameraMrAssignments: {},
+      customCameraPresets: [],
       setView: (view) => set({ view }),
       setMode: (mode) => set({ mode }),
       setCaptureStyle: (captureStyle) => set({ captureStyle }),
@@ -296,6 +307,10 @@ export const usePlannerStore = create<PlannerState>()(
         })),
       clearPostWorkflow: () => set({ postTasks: [], postProject: null }),
       setGpxTrack: (gpxTrack) => set({ gpxTrack }),
+      toggleFavoriteCameraPreset: (presetId) => set((state) => ({ favoriteCameraPresetIds: state.favoriteCameraPresetIds.includes(presetId) ? state.favoriteCameraPresetIds.filter((id) => id !== presetId) : [...state.favoriteCameraPresetIds, presetId] })),
+      assignCameraMr: (slot, presetId) => set((state) => ({ cameraMrAssignments: { ...state.cameraMrAssignments, [slot]: presetId } })),
+      saveCustomCameraPreset: (preset) => set((state) => ({ customCameraPresets: [...state.customCameraPresets.filter((item) => item.id !== preset.id), preset] })),
+      removeCustomCameraPreset: (presetId) => set((state) => ({ customCameraPresets: state.customCameraPresets.filter((item) => item.id !== presetId), favoriteCameraPresetIds: state.favoriteCameraPresetIds.filter((id) => id !== presetId) })),
     }),
     {
       name: "roadlens-planner-device-state",

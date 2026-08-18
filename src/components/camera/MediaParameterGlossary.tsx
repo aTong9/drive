@@ -2,9 +2,9 @@ import { ExternalLink, Film, Headphones, Search } from "lucide-react";
 import { useMemo, useState } from "react";
 import { filterMediaParameters, mediaParameterEntries, mediaParameterSources, type MediaParameterDomain } from "../../services/mediaParameterService.js";
 
-export function MediaParameterGlossary() {
+export function MediaParameterGlossary({ initialQuery = "" }: { initialQuery?: string }) {
   const [domain, setDomain] = useState<MediaParameterDomain>("video");
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(initialQuery);
   const entries = useMemo(() => filterMediaParameters(domain, query), [domain, query]);
   const grouped = useMemo(() => entries.reduce((result, entry) => {
     const group = result.get(entry.category) ?? [];

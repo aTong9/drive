@@ -602,6 +602,13 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--orange); ou
 .camera-library-head dl div { min-width: 78px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; background: #1a1e1a; }
 .camera-library-head dt { color: #666e65; font-size: 6px; }
 .camera-library-head dd { margin: 3px 0 0; color: #e1e4dc; font-family: Georgia, serif; font-size: 19px; }
+.camera-workspace-tabs { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 7px; max-width: 1240px; margin: 0 auto 10px; }
+.camera-workspace-tabs button { display: grid; grid-template-columns: 24px 1fr; align-items: center; gap: 7px; min-height: 54px; padding: 9px 11px; border: 1px solid var(--line); border-radius: 8px; background: #1a1e19; color: #747c72; text-align: left; cursor: pointer; }
+.camera-workspace-tabs button > svg { color: #727a71; }
+.camera-workspace-tabs button span { display: flex; min-width: 0; flex-direction: column; gap: 3px; color: #a7ada4; font-size: 10px; }
+.camera-workspace-tabs button small { overflow: hidden; color: #666e65; font-size: 8px; text-overflow: ellipsis; white-space: nowrap; }
+.camera-workspace-tabs button.active { border-color: rgba(239,108,53,.33); background: linear-gradient(115deg,rgba(239,108,53,.1),#1a1e19 65%); }
+.camera-workspace-tabs button.active > svg, .camera-workspace-tabs button.active span { color: #df815d; }
 .camera-library-flow { display: flex; max-width: 1240px; height: 43px; align-items: center; padding: 0 15px; margin: 0 auto 9px; border: 1px solid rgba(239,108,53,.15); border-radius: 9px; background: rgba(239,108,53,.035); }
 .camera-library-flow span { display: flex; align-items: center; gap: 7px; color: #959c92; font-size: 7px; white-space: nowrap; }
 .camera-library-flow span b { color: #da805d; font-family: Georgia, serif; font-size: 9px; font-weight: 500; }
@@ -675,16 +682,18 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--orange); ou
 .camera-playbook-detail header h2 { margin: 3px 0; font-family: Georgia, "Songti SC", serif; font-size: 18px; font-weight: 500; }
 .camera-playbook-detail header p { margin: 0; color: #5f665f; font-size: 5px; letter-spacing: .06em; }
 .camera-playbook-detail header a { display: grid; place-items: center; width: 29px; height: 29px; border: 1px solid var(--line); border-radius: 7px; color: #777f76; }
-.camera-playbook-actions { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; padding: 8px 10px; border-bottom: 1px solid var(--line); background: #191d19; }
+.camera-playbook-actions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; padding: 8px 10px; border-bottom: 1px solid var(--line); background: #191d19; }
 .camera-playbook-actions button { display: flex; min-height: 31px; align-items: center; justify-content: center; gap: 6px; border: 1px solid var(--line); border-radius: 6px; background: #1e231e; color: #8d958b; font-size: 7px; cursor: pointer; }
-.camera-playbook-actions button:last-child { border-color: rgba(82,153,138,.2); color: #7eafa5; background: rgba(82,153,138,.045); }
+.camera-playbook-actions button.active { border-color: rgba(239,108,53,.28); color: #df815d; background: rgba(239,108,53,.07); }
 .camera-detail-body { max-height: calc(100vh - 300px); padding: 18px; overflow-y: auto; }
 .camera-detail-body > section { margin-bottom: 21px; }
 .camera-section-title { display: flex; align-items: center; gap: 8px; margin-bottom: 9px; color: #b8c58d; }
 .camera-section-title small { color: #626b63; font-size: 5px; letter-spacing: .09em; }
 .camera-section-title h3 { margin: 2px 0 0; color: #d5d9d1; font-family: Georgia, "Songti SC", serif; font-size: 13px; font-weight: 500; }
 .camera-core-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
-.camera-core-grid > div { display: grid; grid-template-columns: 20px 1fr; grid-template-rows: auto auto; gap: 2px 6px; padding: 9px; border: 1px solid var(--line); border-radius: 7px; background: #1d211d; }
+.camera-core-grid > div, .camera-core-grid > button { display: grid; grid-template-columns: 20px 1fr; grid-template-rows: auto auto; gap: 2px 6px; padding: 9px; border: 1px solid var(--line); border-radius: 7px; background: #1d211d; color: inherit; text-align: left; }
+.camera-core-grid > button { cursor: help; }
+.camera-core-grid > button:hover { border-color: rgba(239,108,53,.28); background: rgba(239,108,53,.045); }
 .camera-core-grid svg { grid-row: 1 / 3; color: #acb989; }
 .camera-core-grid small { color: #626a62; font-size: 5px; }
 .camera-core-grid strong { overflow: hidden; color: #aeb5ab; font-size: 7px; font-weight: 500; text-overflow: ellipsis; white-space: nowrap; }
@@ -693,6 +702,125 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--orange); ou
 .camera-advanced-grid dt { color: #626a62; font-size: 5px; }
 .camera-advanced-grid dd { display: flex; align-items: center; gap: 6px; margin: 4px 0 0; color: #9ea69c; font-size: 7px; }
 .camera-advanced-grid dd svg { flex: 0 0 auto; color: #bd785c; }
+.camera-advanced-grid > div.explainable { cursor: help; }
+.camera-advanced-grid > div.explainable:hover { border-color: rgba(239,108,53,.25); background: rgba(239,108,53,.04); }
+.camera-personal-controls { display: grid; grid-template-columns: 1fr auto; gap: 7px; }
+.camera-personal-controls > label { display: flex; flex-direction: column; gap: 5px; color: #687168; font-size: 8px; }
+.camera-personal-controls > label.name { grid-column: 1 / -1; }
+.camera-personal-controls input { min-width: 0; height: 31px; padding: 0 8px; border: 1px solid var(--line); border-radius: 5px; background: #171a17; color: #aeb4aa; }
+.camera-personal-controls > button { display: flex; align-items: center; justify-content: center; gap: 5px; padding: 0 10px; border: 1px solid var(--line); border-radius: 5px; background: #1d211d; color: #899187; cursor: pointer; }
+.camera-personal-controls > div { display: grid; grid-column: 1 / -1; grid-template-columns: repeat(3,1fr); gap: 5px; }
+.camera-personal-values label { display: flex; flex-direction: column; gap: 4px; color: #687168; font-size: 7px; }
+.camera-personal-values input { width: 100%; }
+.camera-personal-controls > button:not(.danger) { grid-column: 1 / -1; min-height: 34px; }
+.camera-personal-controls > div.camera-mr-buttons button { display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 36px; border: 1px solid var(--line); border-radius: 5px; background: #1d211d; color: #8c948a; cursor: pointer; }
+.camera-personal-controls > div.camera-mr-buttons button small { color: #626a62; }
+.camera-personal-controls > div.camera-mr-buttons button.active { border-color: rgba(239,108,53,.28); color: #df815d; background: rgba(239,108,53,.06); }
+.camera-personal-controls > button.danger { grid-column: 1 / -1; min-height: 32px; color: #bb7468; }
+.camera-compare-workspace, .camera-tools-workspace { max-width: 1240px; margin: 18px auto 0; }
+.camera-compare-workspace > header, .camera-tools-workspace > header { display: flex; align-items: flex-end; justify-content: space-between; gap: 22px; padding-bottom: 15px; border-bottom: 1px solid var(--line); }
+.camera-compare-workspace > header h2, .camera-tools-workspace > header h2 { margin: 3px 0 6px; color: #c0c5bc; font: 500 27px/1.2 Georgia,"Songti SC",serif; }
+.camera-compare-workspace > header p, .camera-tools-workspace > header p { margin: 0; color: #747c72; font-size: 10px; }
+.camera-compare-workspace > header button { display: flex; align-items: center; gap: 5px; min-height: 34px; padding: 0 11px; border: 1px solid var(--line); border-radius: 6px; background: #1a1e19; color: #82aa9f; }
+.camera-compare-selectors { display: grid; grid-template-columns: repeat(3,1fr); gap: 7px; margin: 13px 0 8px; }
+.camera-compare-selectors label { color: #697168; font-size: 8px; }
+.camera-compare-selectors label > span { display: flex; gap: 4px; margin-top: 5px; }
+.camera-compare-selectors select { min-width: 0; height: 37px; flex: 1; padding: 0 8px; border: 1px solid var(--line); border-radius: 6px; background: #1a1e19; color: #9da49a; }
+.camera-compare-selectors button { width: 37px; border: 1px solid var(--line); border-radius: 6px; background: #1a1e19; color: #8c6f69; }
+.camera-compare-table { overflow: hidden; border: 1px solid var(--line); border-radius: 9px; background: #191d19; }
+.camera-compare-row { display: grid; grid-template-columns: 130px repeat(3,minmax(0,1fr)); border-bottom: 1px solid var(--line); }
+.camera-compare-row:last-child { border: 0; }
+.camera-compare-row > strong, .camera-compare-row > span, .camera-compare-row > p, .camera-compare-row > div { min-width: 0; padding: 11px 12px; border-right: 1px solid var(--line); }
+.camera-compare-row > :last-child { border-right: 0; }
+.camera-compare-row > strong { display: flex; align-items: center; gap: 5px; color: #747c72; font-size: 9px; }
+.camera-compare-row > strong svg { color: #6da28a; }
+.camera-compare-row > span { color: #a0a79e; font-size: 10px; line-height: 1.5; }
+.camera-compare-row.head { background: rgba(239,108,53,.045); }
+.camera-compare-row.head > div { display: flex; align-items: center; gap: 8px; color: #d47e5d; }
+.camera-compare-row.head > div span { display: flex; flex-direction: column; gap: 3px; }
+.camera-compare-row.head small { color: #6f776e; font-size: 8px; }
+.camera-compare-row.notes p { margin: 0; color: #858d83; font-size: 9px; line-height: 1.6; }
+.camera-generator-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 9px; margin-top: 13px; }
+.camera-generator-layout form, .camera-generator-result { padding: 16px; border: 1px solid var(--line); border-radius: 9px; background: #191d19; }
+.camera-generator-layout form { display: grid; grid-template-columns: repeat(2,1fr); gap: 9px; }
+.camera-generator-layout label { display: flex; flex-direction: column; gap: 5px; color: #687168; font-size: 8px; }
+.camera-generator-layout select { height: 34px; padding: 0 8px; border: 1px solid var(--line); border-radius: 5px; background: #151815; color: #a2a99f; }
+.camera-generator-layout form > button { grid-column: 1 / -1; min-height: 35px; border: 1px solid var(--line); border-radius: 6px; background: #1d211d; color: #848c82; }
+.camera-generator-layout form > button.active { color: #daa469; background: rgba(218,164,105,.06); }
+.camera-generator-result > header { display: grid; grid-template-columns: 30px 1fr auto; align-items: center; gap: 9px; }
+.camera-generator-result > header > svg { color: #dd815e; }
+.camera-generator-result h3 { margin: 2px 0; color: #bdc2ba; font-size: 16px; }
+.camera-generator-result header p, .camera-generator-result header small { margin: 0; color: #6e766d; font-size: 8px; }
+.camera-generator-result header button { min-height: 32px; padding: 0 9px; border: 1px solid rgba(239,108,53,.2); border-radius: 5px; background: rgba(239,108,53,.06); color: #d37b5a; }
+.camera-result-values { display: grid; grid-template-columns: repeat(4,1fr); gap: 5px; margin: 14px 0; }
+.camera-result-values span { display: flex; min-width: 0; flex-direction: column; gap: 4px; padding: 9px; border-radius: 6px; background: rgba(255,255,255,.025); color: #a4aba1; font-size: 9px; }
+.camera-result-values small { color: #646c63; font-size: 7px; }
+.camera-generator-result ol { display: grid; gap: 8px; padding: 0; margin: 0; list-style: none; }
+.camera-generator-result li { display: grid; grid-template-columns: 17px 1fr; gap: 6px; color: #858d83; font-size: 9px; line-height: 1.55; }
+.camera-generator-result li svg { color: #6da28a; }
+.camera-calculators { display: grid; grid-template-columns: repeat(2,1fr); gap: 9px; margin-top: 9px; }
+.camera-calculators article { display: grid; grid-template-columns: 26px 1fr auto auto; align-items: center; gap: 10px; padding: 15px; border: 1px solid var(--line); border-radius: 9px; background: #191d19; }
+.camera-calculators article > svg { color: #d47e5d; }
+.camera-calculators h3 { margin: 0 0 4px; color: #aeb4aa; font-size: 11px; }
+.camera-calculators p { margin: 0; color: #70786f; font-size: 8px; line-height: 1.45; }
+.camera-calculators label { display: flex; align-items: center; gap: 5px; color: #6d756c; font-size: 8px; }
+.camera-calculators input { width: 58px; height: 31px; padding: 0 6px; border: 1px solid var(--line); border-radius: 5px; background: #151815; color: #aeb4aa; }
+.camera-calculators output { min-width: 72px; padding: 8px; border-radius: 5px; background: rgba(239,108,53,.07); color: #dc815e; text-align: center; font-size: 11px; }
+.camera-calculators output small { display: block; margin-top: 4px; color: #8d968e; font-size: 8px; line-height: 1.35; }
+.camera-calc-fields { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 5px; }
+.camera-calc-fields label { flex: 0 0 auto; }
+.camera-calc-fields input { width: 52px; }
+.camera-frequency-switch { display: flex; gap: 4px; }
+.camera-frequency-switch button { padding: 7px 9px; border: 1px solid var(--line); border-radius: 5px; background: transparent; color: #727a72; font-size: 9px; cursor: pointer; }
+.camera-frequency-switch button.active { border-color: rgba(239,108,53,.4); background: rgba(239,108,53,.08); color: #dc815e; }
+.camera-preset-audit { padding: 14px; border: 1px solid rgba(82,153,138,.18); border-radius: 9px; background: rgba(82,153,138,.035); }
+.camera-preset-audit .camera-section-title { margin-bottom: 10px; }
+.camera-preset-audit .camera-section-title > strong { margin-left: auto; color: #7db2a5; font: 500 24px/1 Georgia,serif; }
+.camera-audit-meter { height: 4px; margin-bottom: 11px; overflow: hidden; border-radius: 99px; background: rgba(255,255,255,.05); }
+.camera-audit-meter i { display: block; height: 100%; border-radius: inherit; background: #52998a; }
+.camera-preset-audit ul { display: grid; gap: 6px; padding: 0; margin: 0 0 9px; list-style: none; }
+.camera-preset-audit li { display: grid; grid-template-columns: auto 1fr; gap: 7px; align-items: start; color: #858d84; font-size: 9px; line-height: 1.5; }
+.camera-preset-audit li span { padding: 2px 5px; border-radius: 3px; background: rgba(239,108,53,.09); color: #cc7758; font-size: 7px; white-space: nowrap; }
+.camera-preset-audit > p { display: flex; align-items: flex-start; gap: 5px; margin: 5px 0 0; color: #78877f; font-size: 9px; line-height: 1.45; }
+.camera-pipeline-guide { display: grid; grid-template-columns: 24px 1fr; gap: 8px; padding: 13px; margin-top: 9px; border: 1px solid rgba(82,153,138,.18); border-radius: 8px; background: rgba(82,153,138,.045); color: #78a99e; }
+.camera-pipeline-guide strong { color: #9eaaa2; font-size: 10px; }
+.camera-pipeline-guide p { margin: 4px 0 0; color: #778078; font-size: 9px; line-height: 1.55; }
+.camera-device-capabilities { margin-top: 18px; }
+.camera-device-capabilities > header { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 8px; }
+.camera-device-capabilities > header small { color: #d47e5d; font-size: 8px; }
+.camera-device-capabilities > header h3 { margin: 3px 0 0; color: #afb5ac; font-size: 14px; }
+.camera-device-capabilities > header p { max-width: 560px; margin: 0; color: #6f776e; font-size: 8px; line-height: 1.5; }
+.camera-device-capabilities > div { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 7px; }
+.camera-device-capabilities article { display: grid; grid-template-columns: 28px 1fr; gap: 8px; padding: 13px; border: 1px solid var(--line); border-radius: 8px; background: #191d19; }
+.camera-device-capabilities article > svg { color: #d47e5d; }
+.camera-device-capabilities h4 { margin: 0 0 4px; color: #b3b9b0; font-size: 11px; }
+.camera-device-capabilities article p { margin: 0 0 7px; color: #7f877d; font-size: 8px; }
+.camera-device-capabilities article span { display: block; margin-top: 3px; color: #929a90; font-size: 8px; line-height: 1.4; }
+.camera-device-capabilities article small { display: block; margin-top: 8px; color: #6d756c; font-size: 7px; }
+.camera-parameter-backdrop { position: fixed; z-index: 210; inset: 0; display: grid; place-items: center; padding: 20px; background: rgba(4,6,4,.72); backdrop-filter: blur(5px); }
+.camera-parameter-backdrop aside { position: relative; width: min(440px,100%); padding: 24px; border: 1px solid var(--line); border-radius: 12px; background: #1b1f1a; box-shadow: 0 24px 80px rgba(0,0,0,.4); }
+.camera-parameter-backdrop aside > button:first-child { position: absolute; top: 10px; right: 10px; width: 32px; height: 32px; border: 0; background: transparent; color: #747c72; }
+.camera-parameter-backdrop small { color: #d47e5d; }
+.camera-parameter-backdrop h2 { max-width: 360px; margin: 8px 0; color: #c4c9c1; font-size: 19px; }
+.camera-parameter-backdrop p { color: #858d83; font-size: 11px; line-height: 1.65; }
+.camera-parameter-backdrop .primary { display: flex; align-items: center; justify-content: space-between; width: 100%; min-height: 40px; padding: 0 12px; border: 1px solid rgba(239,108,53,.22); border-radius: 6px; background: rgba(239,108,53,.07); color: #dc815e; }
+.camera-field-mode { position: fixed; z-index: 220; inset: 0; padding: clamp(18px,4vw,52px); overflow-y: auto; background: #0f120f; }
+.camera-field-mode > header { display: flex; align-items: center; justify-content: space-between; max-width: 980px; margin: 0 auto 20px; }
+.camera-field-mode > header small { color: #df815d; }
+.camera-field-mode > header h2 { margin: 5px 0 0; font-size: clamp(22px,4vw,38px); }
+.camera-field-mode > header button { width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 50%; background: #191d19; color: #a0a89e; }
+.camera-field-values { display: grid; grid-template-columns: repeat(4,1fr); gap: 9px; max-width: 980px; margin: 0 auto; }
+.camera-field-values article { padding: 18px; border: 1px solid var(--line); border-radius: 9px; background: #191d19; }
+.camera-field-values small { display: block; margin-bottom: 8px; color: #747c72; font-size: 10px; }
+.camera-field-values strong { color: #d9ddd5; font: 19px/1.45 Georgia,serif; }
+.camera-field-mode > section, .camera-field-mode > ol, .camera-field-mode > footer { max-width: 980px; margin: 12px auto 0; }
+.camera-field-mode > section { padding: 17px; border-left: 3px solid #df815d; background: rgba(239,108,53,.055); }
+.camera-field-mode > section h3 { margin: 0 0 7px; color: #d18a6f; }
+.camera-field-mode > section p { margin: 0; color: #afb5ad; font-size: 14px; line-height: 1.7; }
+.camera-field-mode > ol { display: grid; gap: 7px; padding: 0; list-style: none; }
+.camera-field-mode > ol li { display: grid; grid-template-columns: 25px 1fr; gap: 8px; padding: 14px; border: 1px solid var(--line); border-radius: 7px; color: #b5bbb2; font-size: 13px; }
+.camera-field-mode > ol svg { color: #72aa8d; }
+.camera-field-mode > footer button { display: flex; align-items: center; justify-content: center; gap: 7px; width: 100%; min-height: 46px; border: 1px solid rgba(239,108,53,.25); border-radius: 7px; background: rgba(239,108,53,.08); color: #df815d; }
 .camera-field-note { display: flex; gap: 10px; padding: 12px; border: 1px solid rgba(239,108,53,.15); border-radius: 8px; background: rgba(239,108,53,.035); color: #d18060; }
 .camera-field-note small { color: #c2785b; font-size: 6px; }
 .camera-field-note p { margin: 5px 0 0; color: #888f86; font-size: 7px; line-height: 1.6; }
@@ -1656,6 +1784,9 @@ small { font-size: 10px !important; }
   .plan-card, .region-options button, .library-switch button, .location-card,
   .capture-library-filters button, .library-route-card, .local-pagination,
   .camera-device-tabs, .camera-scene-tabs, .camera-preset-list button,
+  .camera-workspace-tabs button, .camera-compare-table, .camera-compare-selectors select,
+  .camera-generator-layout form, .camera-generator-result, .camera-calculators article,
+  .camera-device-capabilities article,
   .media-glossary > header dl div, .media-glossary-toolbar [role="tablist"],
   .media-glossary-toolbar label, .media-glossary-groups article,
   .post-stage-hero, .pipeline-stage, .project-hero, .project-shot-card,
@@ -1692,7 +1823,11 @@ small { font-size: 10px !important; }
   .camera-playbook-detail, .camera-preset-list > button, .camera-playbook-actions,
   .media-glossary > header dl div, .media-glossary-toolbar [role="tablist"],
   .media-glossary-toolbar label, .media-glossary-groups article,
-  .camera-playbook-actions button, .camera-core-grid > div, .exposure-grid > div,
+  .camera-playbook-actions button, .camera-core-grid > div, .camera-core-grid > button, .exposure-grid > div,
+  .camera-personal-controls input, .camera-personal-controls > button, .camera-personal-controls > div button,
+  .camera-workspace-tabs button, .camera-compare-table, .camera-compare-selectors select,
+  .camera-generator-layout form, .camera-generator-result, .camera-calculators article,
+  .camera-device-capabilities article,
   .camera-route, .post-mode, .post-overview-grid > section,
   .post-overview-grid > aside, .post-stage-body, .grade-presets-page > header,
   .beginner-tutorial > header, .grade-preset-tabs button, .grade-preset-card,
@@ -1817,6 +1952,21 @@ small { font-size: 10px !important; }
   .camera-device-tabs, .camera-scene-tabs { min-height: 38px; }
   .camera-library-layout { grid-template-columns: 1fr; }
   .camera-playbook-detail { position: static; }
+  .camera-workspace-tabs { display: flex; overflow-x: auto; }
+  .camera-workspace-tabs button { min-width: 170px; }
+  .camera-playbook-actions { grid-template-columns: repeat(2,1fr); }
+  .camera-compare-workspace, .camera-tools-workspace { margin-top: 14px; }
+  .camera-compare-selectors { display: flex; overflow-x: auto; }
+  .camera-compare-selectors label { min-width: 250px; }
+  .camera-compare-table { overflow-x: auto; }
+  .camera-compare-row { min-width: 780px; }
+  .camera-generator-layout, .camera-calculators { grid-template-columns: 1fr; }
+  .camera-calculators article { grid-template-columns: 26px 1fr; }
+  .camera-calculators article label, .camera-calculators article output { grid-column: 2; }
+  .camera-result-values { grid-template-columns: repeat(2,1fr); }
+  .camera-field-values { grid-template-columns: repeat(2,1fr); }
+  .camera-device-capabilities > header { align-items: flex-start; flex-direction: column; }
+  .camera-device-capabilities > div { grid-template-columns: 1fr; }
   .media-glossary { margin-top: 28px; }
   .media-glossary > header { align-items: flex-start; flex-direction: column; gap: 13px; }
   .media-glossary > header dl { width: 100%; }
