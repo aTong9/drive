@@ -5,28 +5,723 @@
   "product": "DaVinci Resolve 21",
   "sourceUrl": "https://www.blackmagicdesign.com/products/davinciresolve/",
   "gradePresets": [
-    { "id": "daylight-natural", "name": "日间自然", "scene": "晴天、公路、乡村", "accent": "#D5B45B", "intent": "保留真实天空与植被层次，建立干净通透但不过饱和的日间基准。", "exposure": "Offset 0.00 起步；18% 灰 41–43 IRE、漫反射白 70–75 IRE；HDR 天空高光建议 200–400 nits", "whiteBalance": "Temperature 5600K、Tint 0 起步；阴天 6200K，正午 5200K；RGB Parade 中性物三通道对齐", "contrast": "Contrast 1.08、Pivot 0.45；Highlights -8、Shadows +3；Soft Clip High 0.020", "saturation": "Saturation 48、Color Boost 8；Hue vs Sat：绿色 -8%、蓝色 -5%", "nodeAdjustments": ["01 Input Balance：Offset 调至 18% 灰 41–43 IRE，Lift 0.00 / Gamma 0.00 / Gain 1.00 起步", "02 White Balance：Temperature 5600K、Tint 0；每镜以中性物和 RGB Parade 微调", "03 Highlight Recovery：Highlights -8、High Range 0.65，天空目标 200–400 nits", "04 Density：Saturation 48、Color Boost 8、Midtone Detail +10", "05 Output Trim：Contrast 1.08、Pivot 0.45；检查 Rec.2100 PQ 不硬截"], "cautions": ["数值基于 DaVinci Wide Gamut / Intermediate 管理流程，是起始值而非跨相机固定答案；不要把天空强行推成青色。"] },
-    { "id": "sunset-warm", "name": "日落暖金", "scene": "海岸、山路、黄金时刻", "accent": "#E9854D", "intent": "保留落日高光与暖色方向，同时让阴影维持中性，不把整幅画面染成橙色。", "exposure": "Offset -0.05 起步；主体中灰 38–42 IRE；太阳与水面反射允许 400–700 nits，云层纹理不得硬截", "whiteBalance": "Temperature 6200K、Tint +2 起步；日落前 5800K、落日后 6500K；阴影用 Log Shadow 色轮向青蓝推 0.01", "contrast": "Contrast 1.12、Pivot 0.42；Highlights -15、Shadows -2；Soft Clip High 0.035", "saturation": "Saturation 52、Color Boost 12；Hue vs Sat：橙红 -6%，避免肤色与晚霞溢出", "nodeAdjustments": ["01 Balance：Offset -0.05，主体中灰控制 38–42 IRE", "02 Warm Key：Temperature 6200K、Tint +2；Log High 向橙色推 0.015", "03 Cool Shadow：Log Shadow 向青蓝推 0.010，Range 0.35", "04 Highlight Roll-off：Highlights -15、Soft Clip High 0.035，峰值限制 700 nits", "05 Sky Window：上方渐变窗 Feather 0.35、Gain -0.08，逐镜跟踪"], "cautions": ["日落亮度每几分钟都变化，按时段拆组匹配；太阳入镜时峰值可高于 700 nits，但必须以母版监视器和示波器判断。"] },
-    { "id": "night-hdr-base", "name": "夜晚 HDR", "scene": "城市夜景、夜间驾驶", "accent": "#6B82D9", "intent": "以深黑承托车灯、霓虹和反光峰值，保持城市夜晚真实且不抬灰。", "exposure": "Offset -0.12 起步；路面 5–15 nits、普通白 80–120 nits、招牌 200–400 nits、车灯峰值上限 600–800 nits", "whiteBalance": "Temperature 4500K、Tint +3 起步；钠灯路段 4000K、LED 路段 4700K；保留 2800–3200K 暖灯", "contrast": "Contrast 1.18、Pivot 0.38；Lift -0.02、Gamma -0.03、Highlights -20；Temporal NR 2 frames / Better / Luma 5 / Chroma 8", "saturation": "Saturation 44、Color Boost 6；Hue vs Sat：红 -12%、蓝 -10%、绿 -15%", "nodeAdjustments": ["01 Input Balance：Offset -0.12；道路暗部 5–15 nits，禁止整体抬灰", "02 White Balance：Temperature 4500K、Tint +3；按路灯类型逐段匹配", "03 Highlight Recovery：Highlights -20、Specular -12，车灯峰值限制 600–800 nits", "04 Black Floor：Lift -0.02、Gamma -0.03、Contrast 1.18、Pivot 0.38", "05 RGB Control：Saturation 44；红 -12%、蓝 -10%、绿 -15%", "06 Cool Night：Log Shadow 向青色推 0.008，暖灯限定器内 Saturation +5", "07 HDR Safety：Max Output 1000 nits，普通白维持 80–120 nits"], "cautions": ["这是 aBin_NightDrive_HDR_Base_v1 的可抄录起始参数，不代表已保存为 Resolve PowerGrade。", "降噪数值只适合轻噪素材；运动拖影、尾灯残影或塑料感出现时立即降低或关闭。"] },
-    { "id": "blue-hour-clean", "name": "蓝调时刻", "scene": "日落后、城市亮灯前后", "accent": "#528AB7", "intent": "平衡冷蓝环境光与初亮暖灯，保留天空渐变和建筑轮廓。", "exposure": "Offset -0.06 起步；天空 80–180 nits、建筑中间调 25–60 nits、初亮灯具 150–350 nits", "whiteBalance": "Temperature 4700K、Tint +2 起步；偏紫天空将 Tint 调至 0，暖灯限定器内保持 3000–3600K 观感", "contrast": "Contrast 1.10、Pivot 0.40；Highlights -10、Shadows +2；Midtone Detail +8", "saturation": "Saturation 46、Color Boost 10；蓝色 Hue vs Sat -8%，暖灯局部 +6%", "nodeAdjustments": ["01 Match：Offset -0.06，按 5–10 分钟时间段拆组；天空控制 80–180 nits", "02 Sky Protect：蓝色限定器 Denoise 10、Blur Radius 8，Saturation -8%", "03 Practical Lights：暖灯限定器 Gamma +0.03、Saturation +6%，峰值不超 350 nits", "04 Structure：Contrast 1.10、Pivot 0.40、Midtone Detail +8", "05 Temporal Check：每个剪辑点回看 3–5 秒，检查天空闪烁与 10-bit 色阶"], "cautions": ["蓝调窗口变化很快；若素材为 8-bit，降低限定器强度与饱和度，避免天空色带。"] },
-    { "id": "cinematic-road", "name": "克制电影感", "scene": "公路叙事、预告与章节镜头", "accent": "#8D7A59", "intent": "用色彩密度、柔和高光和有限冷暖分离建立叙事感，不依赖夸张 LUT。", "exposure": "中灰 38–42 IRE；Offset -0.03 起步；HDR 普通白 90–120 nits、叙事重点高光 250–500 nits", "whiteBalance": "先按现场中性点校正；风格节点 Log Shadow 向青色推 0.008、Log High 向橙色推 0.010", "contrast": "Contrast 1.15、Pivot 0.40；Custom Curve 高光点下压 3%、暗部点下压 2%；Soft Clip High 0.025", "saturation": "Saturation 42、Color Boost 15、Luma Mix 85；肤色与重点色局部恢复 +5%", "nodeAdjustments": ["01 Neutral Match：中灰 38–42 IRE，Temperature/Tint 先恢复现场中性", "02 Film Curve：Contrast 1.15、Pivot 0.40、Soft Clip High 0.025", "03 Density：Saturation 42、Color Boost 15、Luma Mix 85", "04 Split Tone：Log Shadow 青色 0.008、Log High 橙色 0.010，Low/High Range 0.35/0.65", "05 Grain Optional：35mm 400T、Strength 0.18、Size 0.25、Softness 0.20", "06 Output Trim：普通白 90–120 nits，重点高光 250–500 nits，Max Output 1000 nits"], "cautions": ["所有数字都是 DWG/Intermediate 管理项目的起点；先完成技术匹配再启用风格节点，LUT 不替代输入转换和白平衡。"] }
+    {
+      "id": "daylight-natural",
+      "name": "日间自然",
+      "scene": "晴天、公路、乡村",
+      "accent": "#D5B45B",
+      "intent": "保留真实天空与植被层次，建立干净通透但不过饱和的日间基准。",
+      "exposure": "Offset 0.00 起步；18% 灰 41–43 IRE、漫反射白 70–75 IRE；HDR 天空高光建议 200–400 nits",
+      "whiteBalance": "Temperature 5600K、Tint 0 起步；阴天 6200K，正午 5200K；RGB Parade 中性物三通道对齐",
+      "contrast": "Contrast 1.08、Pivot 0.45；Highlights -8、Shadows +3；Soft Clip High 0.020",
+      "saturation": "Saturation 48、Color Boost 8；Hue vs Sat：绿色 -8%、蓝色 -5%",
+      "timelineParameters": {
+        "temperature": "0",
+        "tint": "0.00",
+        "contrast": "1.080",
+        "pivot": "0.450",
+        "colorBoost": "+8.00",
+        "shadows": "+3.00",
+        "highlights": "-8.00",
+        "saturation": "48.00",
+        "hueMix": "100.00（保持）",
+        "lumaMix": "100.00",
+        "midtoneDetail": "+10.00"
+      },
+      "nodeAdjustments": [
+        "01 Input Balance：Offset 调至 18% 灰 41–43 IRE，Lift 0.00 / Gamma 0.00 / Gain 1.00 起步",
+        "02 White Balance：Temperature 5600K、Tint 0；每镜以中性物和 RGB Parade 微调",
+        "03 Highlight Recovery：Highlights -8、High Range 0.65，天空目标 200–400 nits",
+        "04 Density：Saturation 48、Color Boost 8、Midtone Detail +10",
+        "05 Output Trim：Contrast 1.08、Pivot 0.45；检查 Rec.2100 PQ 不硬截"
+      ],
+      "cautions": [
+        "数值基于 DaVinci Wide Gamut / Intermediate 管理流程，是起始值而非跨相机固定答案；不要把天空强行推成青色。"
+      ]
+    },
+    {
+      "id": "sunset-warm",
+      "name": "日落暖金",
+      "scene": "海岸、山路、黄金时刻",
+      "accent": "#E9854D",
+      "intent": "保留落日高光与暖色方向，同时让阴影维持中性，不把整幅画面染成橙色。",
+      "exposure": "Offset -0.05 起步；主体中灰 38–42 IRE；太阳与水面反射允许 400–700 nits，云层纹理不得硬截",
+      "whiteBalance": "Temperature 6200K、Tint +2 起步；日落前 5800K、落日后 6500K；阴影用 Log Shadow 色轮向青蓝推 0.01",
+      "contrast": "Contrast 1.12、Pivot 0.42；Highlights -15、Shadows -2；Soft Clip High 0.035",
+      "saturation": "Saturation 52、Color Boost 12；Hue vs Sat：橙红 -6%，避免肤色与晚霞溢出",
+      "timelineParameters": {
+        "temperature": "+220",
+        "tint": "+2.00",
+        "contrast": "1.120",
+        "pivot": "0.420",
+        "colorBoost": "+12.00",
+        "shadows": "-2.00",
+        "highlights": "-15.00",
+        "saturation": "52.00",
+        "hueMix": "100.00（保持）",
+        "lumaMix": "100.00",
+        "midtoneDetail": "+4.00"
+      },
+      "nodeAdjustments": [
+        "01 Balance：Offset -0.05，主体中灰控制 38–42 IRE",
+        "02 Warm Key：Temperature 6200K、Tint +2；Log High 向橙色推 0.015",
+        "03 Cool Shadow：Log Shadow 向青蓝推 0.010，Range 0.35",
+        "04 Highlight Roll-off：Highlights -15、Soft Clip High 0.035，峰值限制 700 nits",
+        "05 Sky Window：上方渐变窗 Feather 0.35、Gain -0.08，逐镜跟踪"
+      ],
+      "cautions": [
+        "日落亮度每几分钟都变化，按时段拆组匹配；太阳入镜时峰值可高于 700 nits，但必须以母版监视器和示波器判断。"
+      ]
+    },
+    {
+      "id": "night-hdr-base",
+      "name": "夜晚 HDR",
+      "scene": "城市夜景、夜间驾驶",
+      "accent": "#6B82D9",
+      "intent": "以深黑承托车灯、霓虹和反光峰值，保持城市夜晚真实且不抬灰。",
+      "exposure": "Offset -0.12 起步；路面 5–15 nits、普通白 80–120 nits、招牌 200–400 nits、车灯峰值上限 600–800 nits",
+      "whiteBalance": "先按 4500K 左右完成镜头技术匹配；时间线 Look 使用 Temperature -120、Tint +1.00，轻减夜景偏绿",
+      "contrast": "时间线 Contrast 1.056、Pivot 0.397；Shadows -5、Highlights -9；更重的灯牌恢复放在逐镜节点",
+      "saturation": "时间线 Saturation 45、Color Boost -4；Hue 与 Luma Mix 保持 100",
+      "timelineParameters": {
+        "temperature": "-120",
+        "tint": "+1.00",
+        "contrast": "1.056",
+        "pivot": "0.397",
+        "colorBoost": "-4.00",
+        "shadows": "-5.00",
+        "highlights": "-9.00",
+        "saturation": "45.00",
+        "hueMix": "100.00（保持）",
+        "lumaMix": "100.00",
+        "midtoneDetail": "0.00"
+      },
+      "nodeAdjustments": [
+        "01 Input Balance：Offset -0.12；道路暗部 5–15 nits，禁止整体抬灰",
+        "02 White Balance：逐镜先按路灯类型匹配；时间线 Look 为 Temperature -120、Tint +1.00",
+        "03 Highlight Recovery：时间线 Highlights -9；必要时逐镜追加 Specular，车灯峰值限制 600–800 nits",
+        "04 Black Floor：时间线 Shadows -5、Contrast 1.056、Pivot 0.397",
+        "05 RGB Control：Saturation 45、Color Boost -4；Hue Mix 与 Luma Mix 保持 100",
+        "06 Cool Night：Log Shadow 向青色推 0.008，暖灯限定器内 Saturation +5",
+        "07 HDR Safety：Max Output 1000 nits，普通白维持 80–120 nits"
+      ],
+      "cautions": [
+        "这是 aBin_NightDrive_HDR_Base_v1 的可抄录起始参数，不代表已保存为 Resolve PowerGrade。",
+        "降噪数值只适合轻噪素材；运动拖影、尾灯残影或塑料感出现时立即降低或关闭。"
+      ]
+    },
+    {
+      "id": "blue-hour-clean",
+      "name": "蓝调时刻",
+      "scene": "日落后、城市亮灯前后",
+      "accent": "#528AB7",
+      "intent": "平衡冷蓝环境光与初亮暖灯，保留天空渐变和建筑轮廓。",
+      "exposure": "Offset -0.06 起步；天空 80–180 nits、建筑中间调 25–60 nits、初亮灯具 150–350 nits",
+      "whiteBalance": "Temperature 4700K、Tint +2 起步；偏紫天空将 Tint 调至 0，暖灯限定器内保持 3000–3600K 观感",
+      "contrast": "Contrast 1.10、Pivot 0.40；Highlights -10、Shadows +2；Midtone Detail +8",
+      "saturation": "Saturation 46、Color Boost 10；蓝色 Hue vs Sat -8%，暖灯局部 +6%",
+      "timelineParameters": {
+        "temperature": "-80",
+        "tint": "+2.00",
+        "contrast": "1.100",
+        "pivot": "0.400",
+        "colorBoost": "+10.00",
+        "shadows": "+2.00",
+        "highlights": "-10.00",
+        "saturation": "46.00",
+        "hueMix": "100.00（保持）",
+        "lumaMix": "100.00",
+        "midtoneDetail": "+8.00"
+      },
+      "nodeAdjustments": [
+        "01 Match：Offset -0.06，按 5–10 分钟时间段拆组；天空控制 80–180 nits",
+        "02 Sky Protect：蓝色限定器 Denoise 10、Blur Radius 8，Saturation -8%",
+        "03 Practical Lights：暖灯限定器 Gamma +0.03、Saturation +6%，峰值不超 350 nits",
+        "04 Structure：Contrast 1.10、Pivot 0.40、Midtone Detail +8",
+        "05 Temporal Check：每个剪辑点回看 3–5 秒，检查天空闪烁与 10-bit 色阶"
+      ],
+      "cautions": [
+        "蓝调窗口变化很快；若素材为 8-bit，降低限定器强度与饱和度，避免天空色带。"
+      ]
+    },
+    {
+      "id": "cinematic-road",
+      "name": "克制电影感",
+      "scene": "公路叙事、预告与章节镜头",
+      "accent": "#8D7A59",
+      "intent": "用色彩密度、柔和高光和有限冷暖分离建立叙事感，不依赖夸张 LUT。",
+      "exposure": "中灰 38–42 IRE；Offset -0.03 起步；HDR 普通白 90–120 nits、叙事重点高光 250–500 nits",
+      "whiteBalance": "先按现场中性点校正；风格节点 Log Shadow 向青色推 0.008、Log High 向橙色推 0.010",
+      "contrast": "Contrast 1.15、Pivot 0.40；Custom Curve 高光点下压 3%、暗部点下压 2%；Soft Clip High 0.025",
+      "saturation": "Saturation 42、Color Boost 15、Luma Mix 85；肤色与重点色局部恢复 +5%",
+      "timelineParameters": {
+        "temperature": "-40",
+        "tint": "+1.00",
+        "contrast": "1.150",
+        "pivot": "0.400",
+        "colorBoost": "+15.00",
+        "shadows": "-2.00",
+        "highlights": "-8.00",
+        "saturation": "42.00",
+        "hueMix": "100.00（保持）",
+        "lumaMix": "85.00",
+        "midtoneDetail": "-5.00"
+      },
+      "nodeAdjustments": [
+        "01 Neutral Match：中灰 38–42 IRE，Temperature/Tint 先恢复现场中性",
+        "02 Film Curve：Contrast 1.15、Pivot 0.40、Soft Clip High 0.025",
+        "03 Density：Saturation 42、Color Boost 15、Luma Mix 85",
+        "04 Split Tone：Log Shadow 青色 0.008、Log High 橙色 0.010，Low/High Range 0.35/0.65",
+        "05 Grain Optional：35mm 400T、Strength 0.18、Size 0.25、Softness 0.20",
+        "06 Output Trim：普通白 90–120 nits，重点高光 250–500 nits，Max Output 1000 nits"
+      ],
+      "cautions": [
+        "所有数字都是 DWG/Intermediate 管理项目的起点；先完成技术匹配再启用风格节点，LUT 不替代输入转换和白平衡。"
+      ]
+    },
+    {
+      "id": "overcast-soft",
+      "name": "阴天柔和",
+      "scene": "阴天城市、乡村、人物纪实",
+      "accent": "#9DA8A2",
+      "intent": "恢复阴天素材的层次与肤色，但保留柔和光线，不用过强对比制造假晴天。",
+      "exposure": "中灰 42–45 IRE，漫反射白 68–73 IRE；HDR 云层 150–300 nits",
+      "whiteBalance": "以 6200K / Tint +2 为拍摄参考；时间线先对齐中性灰，再按肤色微调",
+      "contrast": "Contrast 1.06、Pivot 0.46；Shadows +5、Highlights -6",
+      "saturation": "Saturation 47、Color Boost 12；绿色 -6% 防止湿润植被荧光化",
+      "timelineParameters": {
+        "temperature": "+80",
+        "tint": "+2.00",
+        "contrast": "1.060",
+        "pivot": "0.460",
+        "colorBoost": "+12.00",
+        "shadows": "+5.00",
+        "highlights": "-6.00",
+        "saturation": "47.00",
+        "hueMix": "100.00（保持）",
+        "lumaMix": "100.00",
+        "midtoneDetail": "+5.00"
+      },
+      "nodeAdjustments": [
+        "01 Neutral Match：RGB Parade 对齐中性物，中灰 42–45 IRE",
+        "02 Cloud Detail：Highlights -6，云层保持 150–300 nits",
+        "03 Soft Contrast：Contrast 1.06、Pivot 0.46，避免压死暗部",
+        "04 Density：Color Boost 12，绿色 Hue vs Sat -6%",
+        "05 Skin Check：矢量示波器核对肤色线，不用全局 Tint 修单个人脸"
+      ],
+      "cautions": [
+        "若画面本身有冷雨氛围，不要为了所谓正确白平衡把所有环境冷色消掉。"
+      ]
+    },
+    {
+      "id": "rain-neon",
+      "name": "雨夜霓虹",
+      "scene": "湿地反光、夜间城市、车窗雨滴",
+      "accent": "#A45EC7",
+      "intent": "保留湿路反射和霓虹色彩分离，压制灯牌溢色与车灯硬截，同时维持夜色。",
+      "exposure": "路面 5–18 nits、反光 80–250 nits、灯牌 200–450 nits、车灯不超过 800 nits",
+      "whiteBalance": "4300K / Tint +4 起步；按 LED、钠灯与车内玻璃偏色分组匹配",
+      "contrast": "Contrast 1.14、Pivot 0.39；Shadows -4、Highlights -18",
+      "saturation": "Saturation 43、Color Boost 4；品红 -10%、蓝 -8%、红 -12%",
+      "timelineParameters": {
+        "temperature": "-100",
+        "tint": "+4.00",
+        "contrast": "1.140",
+        "pivot": "0.390",
+        "colorBoost": "+4.00",
+        "shadows": "-4.00",
+        "highlights": "-18.00",
+        "saturation": "43.00",
+        "hueMix": "100.00（保持）",
+        "lumaMix": "95.00",
+        "midtoneDetail": "-8.00"
+      },
+      "nodeAdjustments": [
+        "01 Wet Road Match：按道路段匹配黑位与反射亮度",
+        "02 Neon Control：Hue vs Sat 分别压红、蓝、品红",
+        "03 Highlight Roll-off：Highlights -18，车灯峰值不超 800 nits",
+        "04 Rain Texture：Midtone Detail -8，避免雨滴和噪声过硬",
+        "05 Temporal Check：回看反光闪烁、降噪拖影和雨刷跳变"
+      ],
+      "cautions": [
+        "霓虹限定器必须带去噪与柔化；不要把所有反光都推成 HDR 峰值。"
+      ]
+    },
+    {
+      "id": "forest-stream",
+      "name": "森林溪流",
+      "scene": "树林、溪流、瀑布、自然环境声",
+      "accent": "#4C9171",
+      "intent": "保护水面与亮叶高光，分离多层绿色并保留潮湿空气感，不把植被做成荧光绿。",
+      "exposure": "树干中间调 30–45 IRE，亮叶 60–75 IRE；水面反射 180–400 nits",
+      "whiteBalance": "5200K / Tint +3 起步；用灰石、树皮或灰卡判断偏绿，不以叶片为中性点",
+      "contrast": "Contrast 1.07、Pivot 0.44；Shadows +4、Highlights -12",
+      "saturation": "Saturation 46、Color Boost 8；黄绿 -10%、深绿 -6%",
+      "timelineParameters": {
+        "temperature": "-30",
+        "tint": "+3.00",
+        "contrast": "1.070",
+        "pivot": "0.440",
+        "colorBoost": "+8.00",
+        "shadows": "+4.00",
+        "highlights": "-12.00",
+        "saturation": "46.00",
+        "hueMix": "100.00（保持）",
+        "lumaMix": "100.00",
+        "midtoneDetail": "+6.00"
+      },
+      "nodeAdjustments": [
+        "01 Exposure Match：按林冠遮蔽分组，树干保持 30–45 IRE",
+        "02 Green Neutralize：Tint +3 起步，以灰石和树皮检查",
+        "03 Water Protect：Highlights -12，水面反射 180–400 nits",
+        "04 Green Separation：Hue vs Hue 轻分黄绿与深绿，Hue vs Sat 分别降低",
+        "05 Texture：Midtone Detail +6，只用于清晰且低噪素材"
+      ],
+      "cautions": ["流水高光已剪切时无法恢复；风吹树叶会放大时域降噪伪影。"]
+    },
+    {
+      "id": "coast-midday",
+      "name": "海岸正午",
+      "scene": "海边、强光、水面反射、白色建筑",
+      "accent": "#4CA7B8",
+      "intent": "控制强烈水面和白墙高光，维持天空、海水与肤色的自然关系。",
+      "exposure": "中灰 40–43 IRE、白墙 70–78 IRE；水面闪光允许 400–700 nits但不得大面积剪切",
+      "whiteBalance": "5400K / Tint 0 起步；避免为了蓝海把整体色温降得过低",
+      "contrast": "Contrast 1.09、Pivot 0.47；Shadows +2、Highlights -16",
+      "saturation": "Saturation 47、Color Boost 6；青蓝 -5%，肤色保持",
+      "timelineParameters": {
+        "temperature": "-20",
+        "tint": "0.00",
+        "contrast": "1.090",
+        "pivot": "0.470",
+        "colorBoost": "+6.00",
+        "shadows": "+2.00",
+        "highlights": "-16.00",
+        "saturation": "47.00",
+        "hueMix": "100.00（保持）",
+        "lumaMix": "100.00",
+        "midtoneDetail": "+8.00"
+      },
+      "nodeAdjustments": [
+        "01 Neutral Match：白墙和灰卡核对白平衡",
+        "02 Specular Control：Highlights -16，局部水面用 HDR Light 控制",
+        "03 Sky/Sea Split：天空和海水分别限定，避免同向过饱和",
+        "04 Texture：Midtone Detail +8 仅加在岩石和建筑",
+        "05 HDR Trim：普通白不冒充峰值高光"
+      ],
+      "cautions": [
+        "偏振镜造成的天空不均匀不能靠全局蓝色调整修复；严重过曝水面不可恢复。"
+      ]
+    },
+    {
+      "id": "mist-atmosphere",
+      "name": "雾景层次",
+      "scene": "山雾、晨雾、低云、潮湿城市",
+      "accent": "#829AA0",
+      "intent": "保留空气透视和低对比氛围，只恢复必要的主体层次，不把雾强行去除。",
+      "exposure": "雾面主体 45–60 IRE，亮雾 70–82 IRE；HDR 亮雾通常 120–250 nits",
+      "whiteBalance": "5600K / Tint +1 起步；晨雾可稍冷，但应保留中性参照物",
+      "contrast": "Contrast 1.03、Pivot 0.50；Shadows +2、Highlights -5",
+      "saturation": "Saturation 40、Color Boost 5；远景保持低饱和",
+      "timelineParameters": {
+        "temperature": "-60",
+        "tint": "+1.00",
+        "contrast": "1.030",
+        "pivot": "0.500",
+        "colorBoost": "+5.00",
+        "shadows": "+2.00",
+        "highlights": "-5.00",
+        "saturation": "40.00",
+        "hueMix": "100.00（保持）",
+        "lumaMix": "100.00",
+        "midtoneDetail": "-12.00"
+      },
+      "nodeAdjustments": [
+        "01 Fog Exposure：亮雾保持 70–82 IRE，不压成灰泥",
+        "02 Neutral Reference：用道路、岩石或建筑判断色偏",
+        "03 Gentle Structure：Contrast 1.03、Pivot 0.50",
+        "04 Depth Window：只对近景主体轻加对比，远景保持空气感",
+        "05 Texture Soften：Midtone Detail -12，检查是否损失细枝"
+      ],
+      "cautions": ["不要用 Dehaze 或高对比全局消灭雾；雾是场景信息而不是故障。"]
+    },
+    {
+      "id": "snow-clean",
+      "name": "雪景纯净",
+      "scene": "雪地、冰面、阴雪与晴雪",
+      "accent": "#B7CED7",
+      "intent": "让雪保持明亮且有纹理，校正蓝偏但不过度变黄，并保护人物与车辆颜色。",
+      "exposure": "雪面 70–82 IRE；HDR 阳光雪面 200–450 nits，闪光可更高但纹理区不得剪切",
+      "whiteBalance": "6000K / Tint +2 起步；阴影可保留轻微蓝色，阳光雪面接近中性",
+      "contrast": "Contrast 1.06、Pivot 0.52；Shadows +3、Highlights -14",
+      "saturation": "Saturation 43、Color Boost 8；蓝色阴影 -8%",
+      "timelineParameters": {
+        "temperature": "+90",
+        "tint": "+2.00",
+        "contrast": "1.060",
+        "pivot": "0.520",
+        "colorBoost": "+8.00",
+        "shadows": "+3.00",
+        "highlights": "-14.00",
+        "saturation": "43.00",
+        "hueMix": "100.00（保持）",
+        "lumaMix": "100.00",
+        "midtoneDetail": "+4.00"
+      },
+      "nodeAdjustments": [
+        "01 Snow Exposure：纹理雪面保持 70–82 IRE",
+        "02 WB Split：阳光雪中性，阴影允许轻微冷蓝",
+        "03 Highlight Protect：Highlights -14，观察 RGB 通道是否单独剪切",
+        "04 Blue Control：蓝色 Hue vs Sat -8%",
+        "05 Subject Restore：人物和车辆用窗口恢复正常密度"
+      ],
+      "cautions": [
+        "不要把所有雪都压到普通中灰；同时检查单通道剪切造成的彩色高光。"
+      ]
+    },
+    {
+      "id": "indoor-tungsten",
+      "name": "室内暖光",
+      "scene": "咖啡馆、酒店、家居、钨丝灯",
+      "accent": "#C98955",
+      "intent": "校正混合光源下的主体肤色，同时保留灯具本身的温暖，不把室内做成无色办公室。",
+      "exposure": "肤色 50–65 IRE（按肤色深浅调整），普通墙面 55–75 IRE，灯具 150–350 nits",
+      "whiteBalance": "3600K / Tint +5 起步；窗光、LED 与钨丝灯分区处理",
+      "contrast": "Contrast 1.08、Pivot 0.43；Shadows +3、Highlights -10",
+      "saturation": "Saturation 47、Color Boost 7；橙色 -5%，肤色局部恢复",
+      "timelineParameters": {
+        "temperature": "+140",
+        "tint": "+5.00",
+        "contrast": "1.080",
+        "pivot": "0.430",
+        "colorBoost": "+7.00",
+        "shadows": "+3.00",
+        "highlights": "-10.00",
+        "saturation": "47.00",
+        "hueMix": "100.00（保持）",
+        "lumaMix": "100.00",
+        "midtoneDetail": "-6.00"
+      },
+      "nodeAdjustments": [
+        "01 Skin Exposure：先按人物肤色与波形匹配",
+        "02 Mixed WB：主光校正后，窗光与灯具分别窗口处理",
+        "03 Lamp Protect：灯具峰值 150–350 nits",
+        "04 Orange Control：橙色 Hue vs Sat -5%，肤色限定器例外",
+        "05 Skin Texture：Midtone Detail -6，避免过度磨皮"
+      ],
+      "cautions": [
+        "全局白平衡无法同时修正多种光源；需要局部窗口或接受合理色彩差异。"
+      ]
+    },
+    {
+      "id": "documentary-skin",
+      "name": "纪实人物",
+      "scene": "采访、街头人物、纪录片观察",
+      "accent": "#B88268",
+      "intent": "把肤色、环境真实性和镜头连续性放在风格之前，适合长期纪录片素材匹配。",
+      "exposure": "肤色通常 45–65 IRE；背景窗户映射到 HDR 高光但不抢主体",
+      "whiteBalance": "按灰卡或可信中性物校正；Tint 只修整体偏色，不用于追肤色线",
+      "contrast": "Contrast 1.07、Pivot 0.44；Shadows +2、Highlights -8",
+      "saturation": "Saturation 46、Color Boost 5；肤色局部 +3%，背景重点色克制",
+      "timelineParameters": {
+        "temperature": "0",
+        "tint": "0.00",
+        "contrast": "1.070",
+        "pivot": "0.440",
+        "colorBoost": "+5.00",
+        "shadows": "+2.00",
+        "highlights": "-8.00",
+        "saturation": "46.00",
+        "hueMix": "100.00（保持）",
+        "lumaMix": "100.00",
+        "midtoneDetail": "-4.00"
+      },
+      "nodeAdjustments": [
+        "01 Shot Match：先按场景和机位分组匹配",
+        "02 Skin Exposure：按肤色深浅判断，不套单一 IRE",
+        "03 Neutral WB：灰卡优先，RGB Parade 辅助",
+        "04 Background Control：窗户和亮墙不抢人物",
+        "05 Skin Refine：限定器只做小幅 Hue/Sat 修正并检查边缘"
+      ],
+      "cautions": ["不同肤色没有统一亮度数字；不要为了肤色线扭曲现场真实光色。"]
+    },
+    {
+      "id": "drone-landscape",
+      "name": "航拍风景",
+      "scene": "山川、海岸、城市天际线、无人机",
+      "accent": "#6E9A7D",
+      "intent": "增强大景深空间层次并控制远景雾霾，不因追求冲击力造成天空色带和植被过饱和。",
+      "exposure": "地表中灰 38–45 IRE，云层 65–78 IRE；HDR 日光反射 250–500 nits",
+      "whiteBalance": "5600K / Tint +1 起步；按飞行方向变化分段匹配",
+      "contrast": "Contrast 1.10、Pivot 0.46；Shadows +1、Highlights -10",
+      "saturation": "Saturation 47、Color Boost 10；蓝 -6%、绿 -8%",
+      "timelineParameters": {
+        "temperature": "0",
+        "tint": "+1.00",
+        "contrast": "1.100",
+        "pivot": "0.460",
+        "colorBoost": "+10.00",
+        "shadows": "+1.00",
+        "highlights": "-10.00",
+        "saturation": "47.00",
+        "hueMix": "100.00（保持）",
+        "lumaMix": "95.00",
+        "midtoneDetail": "+10.00"
+      },
+      "nodeAdjustments": [
+        "01 Direction Match：按航向和太阳角度分段",
+        "02 Sky Protect：云层保持纹理，蓝色饱和降低 6%",
+        "03 Ground Density：绿色降低 8%，地表 Color Boost 10",
+        "04 Depth：只给近中景轻加 Midtone Detail",
+        "05 Banding Check：10-bit 天空回看色带和压缩块"
+      ],
+      "cautions": [
+        "8-bit 或高压缩航拍素材应降低曲线和限定器强度；锐化会放大编码边缘。"
+      ]
+    },
+    {
+      "id": "night-nature",
+      "name": "自然夜景",
+      "scene": "星空下树林、露营、暗光溪流",
+      "accent": "#596985",
+      "intent": "保留真正的暗夜、月光方向和有限色彩，不把高 ISO 噪声误当纹理或把黑夜抬成白天。",
+      "exposure": "暗部 1–8 nits、可见主体 8–25 nits、月光或灯具 80–250 nits",
+      "whiteBalance": "3800K / Tint +2 起步；月光与营地暖灯保持色温分离",
+      "contrast": "Contrast 1.12、Pivot 0.36；Shadows -6、Highlights -8",
+      "saturation": "Saturation 38、Color Boost 3；高 ISO 彩噪区域降低饱和",
+      "timelineParameters": {
+        "temperature": "-140",
+        "tint": "+2.00",
+        "contrast": "1.120",
+        "pivot": "0.360",
+        "colorBoost": "+3.00",
+        "shadows": "-6.00",
+        "highlights": "-8.00",
+        "saturation": "38.00",
+        "hueMix": "100.00（保持）",
+        "lumaMix": "100.00",
+        "midtoneDetail": "-15.00"
+      },
+      "nodeAdjustments": [
+        "01 Black Floor：暗部保持 1–8 nits，不整体抬灰",
+        "02 Light Separation：月光偏冷、营地灯偏暖",
+        "03 Chroma Noise：先处理彩噪，再判断饱和度",
+        "04 Subject Window：仅局部抬可见主体至 8–25 nits",
+        "05 Texture Safety：Midtone Detail -15，检查星点和细枝是否损失"
+      ],
+      "cautions": [
+        "重度时域降噪可能抹去星点、流水和树叶；始终逐镜检查运动伪影。"
+      ]
+    },
+    {
+      "id": "city-day-clean",
+      "name": "城市白天",
+      "scene": "现代建筑、街道、玻璃幕墙、步行",
+      "accent": "#7895A3",
+      "intent": "维持建筑中性、玻璃反射和道路层次，控制蓝天与广告色，不让城市画面显得过硬。",
+      "exposure": "道路中灰 40–45 IRE、白色建筑 70–78 IRE、玻璃反射 180–400 nits",
+      "whiteBalance": "5500K / Tint +1 起步；用混凝土和中性立面核对",
+      "contrast": "Contrast 1.09、Pivot 0.45；Shadows +2、Highlights -10",
+      "saturation": "Saturation 46、Color Boost 7；蓝 -5%、广告红 -6%",
+      "timelineParameters": {
+        "temperature": "-10",
+        "tint": "+1.00",
+        "contrast": "1.090",
+        "pivot": "0.450",
+        "colorBoost": "+7.00",
+        "shadows": "+2.00",
+        "highlights": "-10.00",
+        "saturation": "46.00",
+        "hueMix": "100.00（保持）",
+        "lumaMix": "100.00",
+        "midtoneDetail": "+7.00"
+      },
+      "nodeAdjustments": [
+        "01 Architecture Neutral：混凝土和白墙核对白平衡",
+        "02 Reflection Control：玻璃反射 180–400 nits",
+        "03 Road Detail：阴影 +2 保留道路信息",
+        "04 Signage Control：广告红 -6%、蓝 -5%",
+        "05 Vertical Match：不同街区镜头按建筑亮度匹配"
+      ],
+      "cautions": ["玻璃幕墙会反射天空颜色，不应被误判为整体白平衡错误。"]
+    }
   ],
   "beginnerTutorial": [
-    { "id": "project-setup", "title": "01 建立项目与色彩管理", "workspace": "media", "purpose": "在导入和剪辑之前锁定分辨率、帧率与 HDR 工作空间，避免后期无法无损修改。", "actions": ["打开项目设置，时间线设为 3840×2160，帧率跟随主要素材；本工作流通常为 29.97 fps。", "色彩科学选择 DaVinci YRGB Color Managed，时间线空间选择 DaVinci Wide Gamut / Intermediate。", "HDR 交付时输出选择 Rec.2100 ST2084，并确认 Rec.2020 色域；普通 SDR 项目不要照搬 HDR 输出。"], "visual": "project", "checkpoint": "导入素材前截取项目设置页，确认帧率不可逆选项、时间线空间和输出空间。" },
-    { "id": "media-import", "title": "02 导入、备份与整理素材", "workspace": "media", "purpose": "让每个镜头、录音和授权文件都可追溯，并能在磁盘迁移后重新链接。", "actions": ["建立 Video、Original Audio、Music、Graphics、Stills、Timelines、Exports 与 Licenses 素材箱。", "从存储页复制素材并保留原始文件名；至少保存两份，确认离线媒体为零。", "按拍摄日期和路线命名素材箱，同步外录音频；性能不足时生成代理媒体而不是转码覆盖原件。"], "visual": "media", "checkpoint": "媒体池结构完整、无离线素材，音乐授权与署名信息和音频放在同一项目目录。" },
-    { "id": "rough-cut", "title": "03 建立粗剪与精剪时间线", "workspace": "edit", "purpose": "先保留完整路线逻辑，再压缩重复道路、长停等低信息内容。", "actions": ["按真实路线顺序把可用片段放入 V1，原始道路声放入 A1，先完成一条 Picture Master。", "删除黑帧、严重抖动、隐私住宅起点和无意义等待；保留建立地理关系的道路段。", "每个剪辑点前后回看 3–5 秒，检查运动方向、速度、曝光、色温和声音连续性。"], "visual": "timeline", "checkpoint": "粗剪能看懂路线，精剪无闪帧、重复帧、突兀跳切或声音空洞。" },
-    { "id": "color-grade", "title": "04 节点调色与场景预设", "workspace": "color", "purpose": "先完成镜头匹配，再选择本页预设作为风格起点，以示波器而非屏幕观感控制输出。", "actions": ["建立 Input Balance、Exposure、White Balance、Highlight、Black Floor、Density、RGB Control、Look、Windows、Output Trim 节点。", "逐镜修正曝光和白平衡后，再选择日间、日落、夜晚、蓝调或电影感参数；不要直接复制固定数值。", "打开波形图、RGB Parade 和矢量示波器，回看镜头连接处是否亮度或色温跳变。"], "visual": "color", "checkpoint": "所有素材段先匹配后造型，高光不硬截、黑位不抬灰、霓虹不溢色。" },
-    { "id": "fairlight-mix", "title": "05 道路声、环境声与音乐混音", "workspace": "fairlight", "purpose": "让道路质感保持主角，同时控制刺耳峰值、隐私讲话与音乐授权风险。", "actions": ["A1 放原始道路声，A2 仅用于 Vision 授权音乐，A3 放环境声修补，A4 问题声备份并在交付前静音。", "使用 Clip Gain 先修局部峰值，再谨慎使用 EQ、动态处理和降噪；不要全程重度降噪。", "Vision 参考约 -14 至 -16 LUFS integrated、True Peak 不高于约 -1 dBTP，并用耳机、手机和电视复核。"], "visual": "audio", "checkpoint": "音乐不压道路声，无点击、突兀静音或降噪抽吸；Ambience 版本不含音乐。" },
-    { "id": "deliver-hdr", "title": "06 导出、质检与 YouTube HDR", "workspace": "deliver", "purpose": "导出可复现的 4K HDR 母版，并通过文件元数据和平台处理结果双重验证。", "actions": ["选择 H.265 Main10、3840×2160、跟随时间线帧率、约 80 Mb/s；音频 AAC 48 kHz stereo 约 320 kb/s。", "标记 BT.2020 primaries、ST2084 PQ transfer 和 BT.2020 non-constant matrix，加入渲染队列并完整回看。", "用 MediaInfo 或 ffprobe 检查分辨率、帧率、10-bit 和 HDR 元数据；先以 Unlisted 上传，等待 YouTube 显示 2160p HDR。"], "visual": "deliver", "checkpoint": "本地文件元数据正确、全片回看通过，YouTube 明确显示 2160p HDR 后再公开。" }
+    {
+      "id": "project-setup",
+      "title": "01 建立项目与色彩管理",
+      "workspace": "media",
+      "purpose": "在导入和剪辑之前锁定分辨率、帧率与 HDR 工作空间，避免后期无法无损修改。",
+      "actions": [
+        "打开项目设置，时间线设为 3840×2160，帧率跟随主要素材；本工作流通常为 29.97 fps。",
+        "色彩科学选择 DaVinci YRGB Color Managed，时间线空间选择 DaVinci Wide Gamut / Intermediate。",
+        "HDR 交付时输出选择 Rec.2100 ST2084，并确认 Rec.2020 色域；普通 SDR 项目不要照搬 HDR 输出。"
+      ],
+      "visual": "project",
+      "checkpoint": "导入素材前截取项目设置页，确认帧率不可逆选项、时间线空间和输出空间。"
+    },
+    {
+      "id": "media-import",
+      "title": "02 导入、备份与整理素材",
+      "workspace": "media",
+      "purpose": "让每个镜头、录音和授权文件都可追溯，并能在磁盘迁移后重新链接。",
+      "actions": [
+        "建立 Video、Original Audio、Music、Graphics、Stills、Timelines、Exports 与 Licenses 素材箱。",
+        "从存储页复制素材并保留原始文件名；至少保存两份，确认离线媒体为零。",
+        "按拍摄日期和路线命名素材箱，同步外录音频；性能不足时生成代理媒体而不是转码覆盖原件。"
+      ],
+      "visual": "media",
+      "checkpoint": "媒体池结构完整、无离线素材，音乐授权与署名信息和音频放在同一项目目录。"
+    },
+    {
+      "id": "rough-cut",
+      "title": "03 建立粗剪与精剪时间线",
+      "workspace": "edit",
+      "purpose": "先保留完整路线逻辑，再压缩重复道路、长停等低信息内容。",
+      "actions": [
+        "按真实路线顺序把可用片段放入 V1，原始道路声放入 A1，先完成一条 Picture Master。",
+        "删除黑帧、严重抖动、隐私住宅起点和无意义等待；保留建立地理关系的道路段。",
+        "每个剪辑点前后回看 3–5 秒，检查运动方向、速度、曝光、色温和声音连续性。"
+      ],
+      "visual": "timeline",
+      "checkpoint": "粗剪能看懂路线，精剪无闪帧、重复帧、突兀跳切或声音空洞。"
+    },
+    {
+      "id": "color-grade",
+      "title": "04 节点调色与场景预设",
+      "workspace": "color",
+      "purpose": "先完成镜头匹配，再选择本页预设作为风格起点，以示波器而非屏幕观感控制输出。",
+      "actions": [
+        "建立 Input Balance、Exposure、White Balance、Highlight、Black Floor、Density、RGB Control、Look、Windows、Output Trim 节点。",
+        "逐镜修正曝光和白平衡后，再选择日间、日落、夜晚、蓝调或电影感参数；不要直接复制固定数值。",
+        "打开波形图、RGB Parade 和矢量示波器，回看镜头连接处是否亮度或色温跳变。"
+      ],
+      "visual": "color",
+      "checkpoint": "所有素材段先匹配后造型，高光不硬截、黑位不抬灰、霓虹不溢色。"
+    },
+    {
+      "id": "fairlight-mix",
+      "title": "05 道路声、环境声与音乐混音",
+      "workspace": "fairlight",
+      "purpose": "让道路质感保持主角，同时控制刺耳峰值、隐私讲话与音乐授权风险。",
+      "actions": [
+        "A1 放原始道路声，A2 仅用于 Vision 授权音乐，A3 放环境声修补，A4 问题声备份并在交付前静音。",
+        "使用 Clip Gain 先修局部峰值，再谨慎使用 EQ、动态处理和降噪；不要全程重度降噪。",
+        "Vision 参考约 -14 至 -16 LUFS integrated、True Peak 不高于约 -1 dBTP，并用耳机、手机和电视复核。"
+      ],
+      "visual": "audio",
+      "checkpoint": "音乐不压道路声，无点击、突兀静音或降噪抽吸；Ambience 版本不含音乐。"
+    },
+    {
+      "id": "deliver-hdr",
+      "title": "06 导出、质检与 YouTube HDR",
+      "workspace": "deliver",
+      "purpose": "导出可复现的 4K HDR 母版，并通过文件元数据和平台处理结果双重验证。",
+      "actions": [
+        "选择 H.265 Main10、3840×2160、跟随时间线帧率、约 80 Mb/s；音频 AAC 48 kHz stereo 约 320 kb/s。",
+        "标记 BT.2020 primaries、ST2084 PQ transfer 和 BT.2020 non-constant matrix，加入渲染队列并完整回看。",
+        "用 MediaInfo 或 ffprobe 检查分辨率、帧率、10-bit 和 HDR 元数据；先以 Unlisted 上传，等待 YouTube 显示 2160p HDR。"
+      ],
+      "visual": "deliver",
+      "checkpoint": "本地文件元数据正确、全片回看通过，YouTube 明确显示 2160p HDR 后再公开。"
+    }
   ],
   "stages": [
-    { "id": "media", "label": "媒体", "englishLabel": "Media", "summary": "建立项目、备份并整理原始素材。", "output": "可追溯、可离线恢复的媒体池", "tasks": ["建立项目并确认帧率、分辨率与色彩管理", "按日期、地点、机位建立素材箱并完成双份备份", "校验离线媒体、同步外录音频并生成代理媒体"] },
-    { "id": "photo", "label": "照片", "englishLabel": "Photo", "summary": "处理封面、剧照和路线照片资产。", "output": "统一风格的封面与静态图片候选", "tasks": ["导入 RAW 或高分辨率照片并建立相册", "完成裁切、基础曝光和色彩统一", "标记封面候选并导出社交媒体尺寸版本"] },
-    { "id": "cut", "label": "快编", "englishLabel": "Cut", "summary": "快速浏览并形成故事骨架。", "output": "结构完整的粗剪时间线", "tasks": ["使用源磁带或素材箱快速筛选可用镜头", "按路线顺序建立日间、夜间或自然声故事段落", "删除明显失焦、抖动和重复内容并保留备用镜头"] },
-    { "id": "edit", "label": "剪辑", "englishLabel": "Edit", "summary": "精修节奏、转场、字幕与画面关系。", "output": "锁画前的精剪版本", "tasks": ["精确修剪入点出点并统一镜头节奏", "完成必要的变速、稳定、转场和标题", "检查连续性、字幕、地图信息并锁定画面结构"] },
-    { "id": "fusion", "label": "Fusion", "englishLabel": "Fusion", "summary": "制作需要节点合成的视觉效果与动态图形。", "output": "已缓存并通过检查的合成镜头", "tasks": ["仅为确有需要的镜头建立 Fusion 合成", "完成跟踪、遮罩、清理或路线动态图形", "检查边缘、运动模糊和缓存状态后返回剪辑页"] },
-    { "id": "color", "label": "调色", "englishLabel": "Color", "summary": "完成色彩管理、镜头匹配与风格塑造。", "output": "曝光与色彩一致的调色锁定版", "tasks": ["确认输入色彩空间并做基础曝光和白平衡校正", "按场景匹配镜头并保护天空、水面与灯光高光", "使用示波器检查肤色、黑位、广播安全和最终风格"] },
-    { "id": "fairlight", "label": "Fairlight", "englishLabel": "Fairlight", "summary": "整理自然声、降噪、混音并控制响度。", "output": "对白、环境声与音乐平衡的最终混音", "tasks": ["整理对白、环境声、车辆声、自然声和音乐轨道", "修复噪声与爆音，添加必要淡化、EQ 和动态处理", "检查峰值与目标响度并分别监听耳机和扬声器"] },
-    { "id": "deliver", "label": "交付", "englishLabel": "Deliver", "summary": "完成母版、平台版本、质检与归档。", "output": "通过回看且可复现的交付包", "tasks": ["选择母版与平台预设，确认文件名和输出路径", "加入渲染队列并完成全片画面、声音、字幕回看", "归档项目文件、字幕、音频、封面和最终成片"] }
+    {
+      "id": "media",
+      "label": "媒体",
+      "englishLabel": "Media",
+      "summary": "建立项目、备份并整理原始素材。",
+      "output": "可追溯、可离线恢复的媒体池",
+      "tasks": [
+        "建立项目并确认帧率、分辨率与色彩管理",
+        "按日期、地点、机位建立素材箱并完成双份备份",
+        "校验离线媒体、同步外录音频并生成代理媒体"
+      ]
+    },
+    {
+      "id": "photo",
+      "label": "照片",
+      "englishLabel": "Photo",
+      "summary": "处理封面、剧照和路线照片资产。",
+      "output": "统一风格的封面与静态图片候选",
+      "tasks": [
+        "导入 RAW 或高分辨率照片并建立相册",
+        "完成裁切、基础曝光和色彩统一",
+        "标记封面候选并导出社交媒体尺寸版本"
+      ]
+    },
+    {
+      "id": "cut",
+      "label": "快编",
+      "englishLabel": "Cut",
+      "summary": "快速浏览并形成故事骨架。",
+      "output": "结构完整的粗剪时间线",
+      "tasks": [
+        "使用源磁带或素材箱快速筛选可用镜头",
+        "按路线顺序建立日间、夜间或自然声故事段落",
+        "删除明显失焦、抖动和重复内容并保留备用镜头"
+      ]
+    },
+    {
+      "id": "edit",
+      "label": "剪辑",
+      "englishLabel": "Edit",
+      "summary": "精修节奏、转场、字幕与画面关系。",
+      "output": "锁画前的精剪版本",
+      "tasks": [
+        "精确修剪入点出点并统一镜头节奏",
+        "完成必要的变速、稳定、转场和标题",
+        "检查连续性、字幕、地图信息并锁定画面结构"
+      ]
+    },
+    {
+      "id": "fusion",
+      "label": "Fusion",
+      "englishLabel": "Fusion",
+      "summary": "制作需要节点合成的视觉效果与动态图形。",
+      "output": "已缓存并通过检查的合成镜头",
+      "tasks": [
+        "仅为确有需要的镜头建立 Fusion 合成",
+        "完成跟踪、遮罩、清理或路线动态图形",
+        "检查边缘、运动模糊和缓存状态后返回剪辑页"
+      ]
+    },
+    {
+      "id": "color",
+      "label": "调色",
+      "englishLabel": "Color",
+      "summary": "完成色彩管理、镜头匹配与风格塑造。",
+      "output": "曝光与色彩一致的调色锁定版",
+      "tasks": [
+        "确认输入色彩空间并做基础曝光和白平衡校正",
+        "按场景匹配镜头并保护天空、水面与灯光高光",
+        "使用示波器检查肤色、黑位、广播安全和最终风格"
+      ]
+    },
+    {
+      "id": "fairlight",
+      "label": "Fairlight",
+      "englishLabel": "Fairlight",
+      "summary": "整理自然声、降噪、混音并控制响度。",
+      "output": "对白、环境声与音乐平衡的最终混音",
+      "tasks": [
+        "整理对白、环境声、车辆声、自然声和音乐轨道",
+        "修复噪声与爆音，添加必要淡化、EQ 和动态处理",
+        "检查峰值与目标响度并分别监听耳机和扬声器"
+      ]
+    },
+    {
+      "id": "deliver",
+      "label": "交付",
+      "englishLabel": "Deliver",
+      "summary": "完成母版、平台版本、质检与归档。",
+      "output": "通过回看且可复现的交付包",
+      "tasks": [
+        "选择母版与平台预设，确认文件名和输出路径",
+        "加入渲染队列并完成全片画面、声音、字幕回看",
+        "归档项目文件、字幕、音频、封面和最终成片"
+      ]
+    }
   ]
 }

@@ -325,6 +325,19 @@ export interface DavinciGradePreset {
   whiteBalance: string;
   contrast: string;
   saturation: string;
+  timelineParameters: {
+    temperature: string;
+    tint: string;
+    contrast: string;
+    pivot: string;
+    colorBoost: string;
+    shadows: string;
+    highlights: string;
+    saturation: string;
+    hueMix: string;
+    lumaMix: string;
+    midtoneDetail: string;
+  };
   nodeAdjustments: string[];
   cautions: string[];
 }

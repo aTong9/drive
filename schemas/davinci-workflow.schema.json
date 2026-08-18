@@ -4,49 +4,187 @@
   "title": "RoadLens DaVinci Workflow v1",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schemaVersion", "id", "name", "product", "sourceUrl", "stages", "gradePresets", "beginnerTutorial"],
+  "required": [
+    "schemaVersion",
+    "id",
+    "name",
+    "product",
+    "sourceUrl",
+    "stages",
+    "gradePresets",
+    "beginnerTutorial"
+  ],
   "properties": {
     "schemaVersion": { "const": "1.1.0" },
     "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
     "name": { "type": "string", "minLength": 5 },
     "product": { "type": "string", "minLength": 5 },
-    "sourceUrl": { "type": "string", "pattern": "^https://www\\.blackmagicdesign\\.com/" },
+    "sourceUrl": {
+      "type": "string",
+      "pattern": "^https://www\\.blackmagicdesign\\.com/"
+    },
     "gradePresets": {
-      "type": "array", "minItems": 5, "uniqueItems": true,
-      "items": { "type": "object", "additionalProperties": false,
-        "required": ["id", "name", "scene", "accent", "intent", "exposure", "whiteBalance", "contrast", "saturation", "nodeAdjustments", "cautions"],
+      "type": "array",
+      "minItems": 5,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "scene",
+          "accent",
+          "intent",
+          "exposure",
+          "whiteBalance",
+          "contrast",
+          "saturation",
+          "timelineParameters",
+          "nodeAdjustments",
+          "cautions"
+        ],
         "properties": {
-          "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" }, "name": { "type": "string", "minLength": 2 }, "scene": { "type": "string", "minLength": 2 },
-          "accent": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" }, "intent": { "type": "string", "minLength": 8 }, "exposure": { "type": "string", "minLength": 4 },
-          "whiteBalance": { "type": "string", "minLength": 4 }, "contrast": { "type": "string", "minLength": 4 }, "saturation": { "type": "string", "minLength": 4 },
-          "nodeAdjustments": { "type": "array", "minItems": 4, "items": { "type": "string", "minLength": 6 } }, "cautions": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 6 } }
+          "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+          "name": { "type": "string", "minLength": 2 },
+          "scene": { "type": "string", "minLength": 2 },
+          "accent": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+          "intent": { "type": "string", "minLength": 8 },
+          "exposure": { "type": "string", "minLength": 4 },
+          "whiteBalance": { "type": "string", "minLength": 4 },
+          "contrast": { "type": "string", "minLength": 4 },
+          "saturation": { "type": "string", "minLength": 4 },
+          "timelineParameters": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "temperature",
+              "tint",
+              "contrast",
+              "pivot",
+              "colorBoost",
+              "shadows",
+              "highlights",
+              "saturation",
+              "hueMix",
+              "lumaMix",
+              "midtoneDetail"
+            ],
+            "properties": {
+              "temperature": { "type": "string" },
+              "tint": { "type": "string" },
+              "contrast": { "type": "string" },
+              "pivot": { "type": "string" },
+              "colorBoost": { "type": "string" },
+              "shadows": { "type": "string" },
+              "highlights": { "type": "string" },
+              "saturation": { "type": "string" },
+              "hueMix": { "type": "string" },
+              "lumaMix": { "type": "string" },
+              "midtoneDetail": { "type": "string" }
+            }
+          },
+          "nodeAdjustments": {
+            "type": "array",
+            "minItems": 4,
+            "items": { "type": "string", "minLength": 6 }
+          },
+          "cautions": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "minLength": 6 }
+          }
         }
       }
     },
     "beginnerTutorial": {
-      "type": "array", "minItems": 6,
-      "items": { "type": "object", "additionalProperties": false,
-        "required": ["id", "title", "workspace", "purpose", "actions", "visual", "checkpoint"],
+      "type": "array",
+      "minItems": 6,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title",
+          "workspace",
+          "purpose",
+          "actions",
+          "visual",
+          "checkpoint"
+        ],
         "properties": {
-          "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" }, "title": { "type": "string", "minLength": 4 },
-          "workspace": { "enum": ["media", "photo", "cut", "edit", "fusion", "color", "fairlight", "deliver"] }, "purpose": { "type": "string", "minLength": 8 },
-          "actions": { "type": "array", "minItems": 3, "items": { "type": "string", "minLength": 8 } }, "visual": { "enum": ["project", "media", "timeline", "color", "audio", "deliver"] },
+          "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+          "title": { "type": "string", "minLength": 4 },
+          "workspace": {
+            "enum": [
+              "media",
+              "photo",
+              "cut",
+              "edit",
+              "fusion",
+              "color",
+              "fairlight",
+              "deliver"
+            ]
+          },
+          "purpose": { "type": "string", "minLength": 8 },
+          "actions": {
+            "type": "array",
+            "minItems": 3,
+            "items": { "type": "string", "minLength": 8 }
+          },
+          "visual": {
+            "enum": [
+              "project",
+              "media",
+              "timeline",
+              "color",
+              "audio",
+              "deliver"
+            ]
+          },
           "checkpoint": { "type": "string", "minLength": 8 }
         }
       }
     },
     "stages": {
-      "type": "array", "minItems": 8, "maxItems": 8,
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8,
       "items": {
-        "type": "object", "additionalProperties": false,
-        "required": ["id", "label", "englishLabel", "summary", "output", "tasks"],
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "label",
+          "englishLabel",
+          "summary",
+          "output",
+          "tasks"
+        ],
         "properties": {
-          "id": { "enum": ["media", "photo", "cut", "edit", "fusion", "color", "fairlight", "deliver"] },
+          "id": {
+            "enum": [
+              "media",
+              "photo",
+              "cut",
+              "edit",
+              "fusion",
+              "color",
+              "fairlight",
+              "deliver"
+            ]
+          },
           "label": { "type": "string", "minLength": 2 },
           "englishLabel": { "type": "string", "minLength": 3 },
           "summary": { "type": "string", "minLength": 8 },
           "output": { "type": "string", "minLength": 8 },
-          "tasks": { "type": "array", "minItems": 3, "uniqueItems": true, "items": { "type": "string", "minLength": 8 } }
+          "tasks": {
+            "type": "array",
+            "minItems": 3,
+            "uniqueItems": true,
+            "items": { "type": "string", "minLength": 8 }
+          }
         }
       }
     }
