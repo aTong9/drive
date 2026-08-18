@@ -1,0 +1,56 @@
+export type MediaParameterDomain = "video" | "audio";
+
+export interface MediaParameterEntry {
+  id: string;
+  domain: MediaParameterDomain;
+  category: string;
+  term: string;
+  values: string;
+  meaning: string;
+  impact: string;
+  recommendation: string;
+  tags: string[];
+}
+
+export const mediaParameterSources = [
+  { label: "ITU-R BT.2100：PQ / HLG HDR", url: "https://www.itu.int/rec/R-REC-BT.2100/en" },
+  { label: "ITU-R BT.2020：4K / 8K UHDTV", url: "https://www.itu.int/rec/R-REC-BT.2020/en" },
+  { label: "ITU-R BS.1770：响度与真峰值", url: "https://www.itu.int/rec/R-REC-BS.1770-5-202311-I/en" },
+  { label: "EBU R 128：广播响度", url: "https://tech.ebu.ch/publications/r128" },
+  { label: "YouTube：推荐上传编码", url: "https://support.google.com/youtube/answer/1722171?hl=zh-Hans" },
+  { label: "YouTube：HDR 上传规范", url: "https://support.google.com/youtube/answer/7126552?hl=zh-Hans" },
+];
+
+export const mediaParameterEntries: MediaParameterEntry[] = [
+  { id: "resolution", domain: "video", category: "画面尺寸", term: "分辨率", values: "720p 1280×720 · 1080p 1920×1080 · 2K DCI 2048×1080 · UHD 4K 3840×2160 · DCI 4K 4096×2160 · 8K UHD 7680×4320", meaning: "每帧由多少像素组成。行业口语中的 4K 通常指电视/网络的 3840×2160；影院 DCI 4K 更宽。", impact: "越高越利于大屏、裁切和防抖重构，但存储、算力、码率和上传处理时间显著增加；高像素不能补救失焦、噪点或压缩。", recommendation: "主工作流保持 UHD 4K 3840×2160；1080p 用作代理或轻量副本。8K 只有明确需要重构、超大屏或长期母版时才值得。", tags: ["1080p", "4K", "8K", "UHD", "DCI"] },
+  { id: "aspect-scan", domain: "video", category: "画面尺寸", term: "画幅比例与扫描", values: "16:9 · 17:9 · 9:16 · 1:1 · Progressive p · Interlaced i", meaning: "比例决定画面形状；p 是逐帧完整扫描，i 是隔行场扫描。1080p 与 1080i 不是同一种运动呈现。", impact: "网络视频以逐行扫描为主。竖屏和横屏是构图选择，不应只靠导出时硬裁。", recommendation: "YouTube 长视频使用 16:9、逐行扫描；拍摄阶段预留必要的竖屏二次构图空间，但主片不改为竖屏。", tags: ["16:9", "逐行", "隔行", "p", "i"] },
+  { id: "frame-rate", domain: "video", category: "运动呈现", term: "帧率 FPS", values: "23.976/24 · 25 · 29.97/30 · 50 · 59.94/60 · 100/120", meaning: "每秒记录的画面数量。23.976、29.97、59.94 源自广播体系；24/25/30 常用于正常速度，50/60 更流畅，100/120 常用于慢动作。", impact: "帧率越高，单帧曝光时间更短、需要更多光线和码率。混用帧率可能产生重复帧、丢帧或运动节奏不一致。", recommendation: "你的长视频主线保持 29.97/30p；需要更顺滑的快速车流才考虑 59.94/60p。时间线与导出跟随主素材，不无理由转换。", tags: ["24p", "25p", "30p", "60p", "120p"] },
+  { id: "shutter", domain: "video", category: "运动呈现", term: "快门与快门角度", values: "180° 规则：24p≈1/48 · 25p=1/50 · 30p=1/60 · 60p=1/120", meaning: "控制单帧曝光时间与运动模糊。快门角度能在改变帧率时保持相似模糊比例。", impact: "快门过快会形成硬、碎的运动；过慢会拖影。灯光频闪还与当地电网和 LED 调制有关。", recommendation: "30p 默认 1/60；白天用 ND 控光。无 ND 且高光将爆时可提高快门，画面可恢复优先于死守 180°。", tags: ["快门", "180度", "运动模糊", "频闪"] },
+  { id: "dynamic-range", domain: "video", category: "HDR 与色彩", term: "SDR / HDR", values: "SDR Rec.709 · HDR Rec.2100 PQ · HDR Rec.2100 HLG", meaning: "动态范围描述从暗部到高光可表达的亮度跨度。HDR 是完整的采集、调色、元数据、编码、显示链路，不等于分辨率或简单提高饱和度。", impact: "HDR 能保留灯牌、车灯、天空与暗部层次，但错误的色彩管理会导致发灰、过暗、偏色或 SDR 映射异常。", recommendation: "你的最终成片继续使用 Rec.2100 ST2084/PQ HDR10；另行检查平台生成的 SDR 版本。", tags: ["SDR", "HDR", "动态范围", "Rec.2100"] },
+  { id: "hdr10", domain: "video", category: "HDR 与色彩", term: "HDR10 / HDR10+ / Dolby Vision", values: "HDR10：PQ + 10-bit + 静态元数据 · HDR10+：动态元数据 · Dolby Vision：动态元数据与授权生态", meaning: "三者是交付格式。HDR10 使用静态母版信息；HDR10+ 和 Dolby Vision 可按场景或帧携带动态映射信息。", impact: "动态元数据可改善不同显示器上的映射，但制作、验证和设备兼容更复杂。HDR10 是当前最通用的开放 HDR 交付基线。", recommendation: "保持 HDR10，不为了标签升级到 HDR10+ 或 Dolby Vision；只有监看、母版、元数据工具和目标平台完整支持时再升级。", tags: ["HDR10", "HDR10+", "Dolby Vision", "PQ"] },
+  { id: "hlg", domain: "video", category: "HDR 与色彩", term: "PQ / ST2084 与 HLG", values: "PQ/ST2084：绝对亮度映射 · HLG：相对亮度、广播兼容导向", meaning: "它们是 Rec.2100 定义的两种 HDR 传递函数。PQ 常用于分级母版和流媒体 HDR10；HLG 更适合直播、广播和较简单的现场链路。", impact: "PQ 依赖明确的母版亮度与元数据；HLG 对广播链路友好，但不是把 HLG 素材直接放进 PQ 时间线就自动正确。", recommendation: "离线精调的夜驾长片用 PQ/HDR10；只有明确面向 HLG 直播或广播时选择 HLG。", tags: ["HLG", "PQ", "ST2084", "传递函数"] },
+  { id: "gamut", domain: "video", category: "HDR 与色彩", term: "色域与色彩空间", values: "Rec.709 · DCI-P3 · Rec.2020 · S-Gamut3.Cine", meaning: "色域定义可表示的颜色范围；工作/拍摄色域与最终交付色域可以不同。Rec.2020 是 UHD/HDR 容器色域，不代表画面实际覆盖全部 Rec.2020。", impact: "标签与实际像素不一致会造成明显偏色。相机广色域素材必须经色彩管理转换到时间线与输出空间。", recommendation: "A7C II 拍 S-Gamut3.Cine/S-Log3，Resolve 中正确输入变换，输出 Rec.2100/Rec.2020；SDR 输出使用 Rec.709。", tags: ["Rec.709", "Rec.2020", "P3", "S-Gamut3.Cine"] },
+  { id: "log", domain: "video", category: "HDR 与色彩", term: "Log / RAW / 烘焙画面", values: "Log：对数曲线 · RAW：传感器数据/近传感器数据 · Standard/HLG：机内处理画面", meaning: "Log 用较平的曲线保存动态范围；RAW 保留更多去马赛克、白平衡等后期自由；两者都不是最终观看状态。", impact: "自由度越高，文件、曝光纪律、调色能力和处理成本越高。Log 欠曝后强拉容易产生噪点。", recommendation: "当前 S-Log3 10-bit 是画质与工作量的合理平衡。不要把 Log 素材未经转换直接交付，也不要把 Log 与 HDR 当作同义词。", tags: ["Log", "S-Log3", "RAW", "Gamma"] },
+  { id: "bit-depth", domain: "video", category: "采样与压缩", term: "位深", values: "8-bit：每通道 256 级 · 10-bit：1024 级 · 12-bit：4096 级", meaning: "每个颜色通道可记录的阶调数量。位深与 HDR 标准、编码能力相关，但“10-bit 文件”本身不自动成为 HDR10。", impact: "高位深更能承受 Log 调色、渐变和天空，减少色带；代价是更高数据量与硬件要求。", recommendation: "S-Log3 与 HDR 工作流至少 10-bit；代理可以降规格，但母版链路保持 10-bit。", tags: ["8-bit", "10-bit", "12-bit", "色带"] },
+  { id: "chroma", domain: "video", category: "采样与压缩", term: "色度采样", values: "4:4:4 · 4:2:2 · 4:2:0", meaning: "表示亮度与颜色细节的采样比例。4:4:4 保留完整色度，4:2:2 常用于专业采集，4:2:0 常用于最终分发。", impact: "更高色度采样有利于抠像、锐利彩色边缘和重度调色，但文件更大；普通自然画面最终观看差异可能较小。", recommendation: "相机采集使用 4:2:2 10-bit；YouTube 分发会重新编码，保留高质量母版而不必强求平台播放为 4:2:2。", tags: ["4:4:4", "4:2:2", "4:2:0"] },
+  { id: "codec", domain: "video", category: "采样与压缩", term: "编码器与封装", values: "采集/母版：ProRes、DNxHR、XAVC · 分发：H.264/AVC、H.265/HEVC、VP9、AV1 · 封装：MP4、MOV、MKV", meaning: "Codec 决定如何压缩画面；Container 是容纳视频、音频、字幕和元数据的文件结构。MP4 不是画质等级。", impact: "帧内编码易剪辑但体积大；长 GOP 编码体积小但剪辑解码更重。HEVC/AV1 压缩效率高，兼容与编码时间各有取舍。", recommendation: "相机 XAVC S 4K；Resolve 工作与中间件按性能选择；YouTube HDR 交付优先 HEVC Main10，归档保留高质量母版。", tags: ["H.264", "H.265", "HEVC", "AV1", "ProRes", "MP4"] },
+  { id: "bitrate", domain: "video", category: "采样与压缩", term: "码率与压缩模式", values: "Mbps · CBR · VBR · All-I · Long GOP", meaning: "码率是单位时间数据量；CBR 较固定，VBR 按复杂度分配；All-I 每帧独立，Long GOP 跨帧压缩。", impact: "同一分辨率下，低码率会出现块状、涂抹和暗部色带；但不同编码器的相同码率不能直接比较画质。", recommendation: "4K HDR 24–30p 上传参考 44–56 Mbps；你的 80 Mbps HEVC Main10 导出留有余量。树林、水面、雨雪和夜景噪点需要更高码率。", tags: ["码率", "CBR", "VBR", "All-I", "Long GOP"] },
+  { id: "proxy", domain: "video", category: "工作流程", term: "代理、优化媒体与母版", values: "Proxy：轻量替身 · Optimized Media：剪辑优化文件 · Mezzanine/Master：高质量中间或归档母版", meaning: "三者服务于不同阶段。代理只影响剪辑流畅度，不应替代原片和最终母版。", impact: "正确代理流程可让 4K/8K、HEVC 和降噪项目更流畅；错误链接可能导致低清代理被误导出。", recommendation: "重度项目生成 1080p ProRes Proxy/DNxHR LB；交付前确认使用原始媒体并保留独立 HDR 母版。", tags: ["Proxy", "代理", "优化媒体", "母版"] },
+
+  { id: "sample-rate", domain: "audio", category: "数字音频", term: "采样率", values: "44.1 kHz 音乐发行 · 48 kHz 视频/电影/广播 · 96/192 kHz 高采样制作与特殊处理", meaning: "每秒测量声音波形的次数，决定可表示的最高频率和时间分辨率；不是数字越大就必然听起来更好。", impact: "项目内混用采样率会触发重采样。96/192 kHz 增加存储和处理量，对普通视频交付收益有限。", recommendation: "拍摄、Resolve 时间线、母版和 YouTube 全链路统一 48 kHz。只有明确的声音设计或高解析归档需求才使用 96 kHz。", tags: ["44.1kHz", "48kHz", "96kHz", "采样率"] },
+  { id: "audio-depth", domain: "audio", category: "数字音频", term: "音频位深与浮点", values: "16-bit · 24-bit · 32-bit float", meaning: "决定数字录音的量化精度与可用动态余量。32-bit float 录音可在转换器多增益架构允许的范围内大幅恢复录制电平，但不能修复麦克风、前级或模拟端已削波。", impact: "24-bit 已能提供充足现场余量；16-bit 更适合最终兼容交付；32-bit float 便于不可预测现场，但文件和设备要求更高。", recommendation: "现场优先 24-bit/48 kHz；使用支持良好的 32-bit float 录音机时仍需正确摆位、防风和监听。", tags: ["16-bit", "24-bit", "32-bit float", "动态范围"] },
+  { id: "channels", domain: "audio", category: "声道与空间", term: "声道格式", values: "Mono · Stereo 2.0 · Dual Mono · 5.1 · 7.1 · 沉浸式/对象音频", meaning: "Mono 是单声道；Stereo 表达左右空间；Dual Mono 是两路独立信号而非立体声；5.1/7.1 和对象音频面向环绕与沉浸播放。", impact: "声道越多，采集、相位、监听、混音、元数据和设备兼容越复杂。错误把双单声道当立体声会造成空间与电平问题。", recommendation: "环境音频道以真实 Stereo 2.0 为主；车内两支独立麦克风先作为双单声道录制，再在后期建立可信声场。", tags: ["Mono", "Stereo", "5.1", "7.1", "沉浸式"] },
+  { id: "audio-codec", domain: "audio", category: "数字音频", term: "音频编码与封装", values: "无损/未压缩：PCM WAV、BWF、FLAC · 有损：AAC-LC、Opus、MP3", meaning: "PCM/BWF 常用于制作与交换；FLAC 无损压缩；AAC、Opus、MP3 通过感知编码减小体积。BWF 可携带广播元数据和时间信息。", impact: "有损音频反复转码会累积损伤，尤其影响雨声、水声、风声和高频环境细节。", recommendation: "录音与中间处理用 24-bit PCM WAV/BWF 48 kHz；视频交付用高质量 AAC，避免 MP3→AAC 的二次有损转码。", tags: ["PCM", "WAV", "BWF", "FLAC", "AAC", "Opus", "MP3"] },
+  { id: "audio-bitrate", domain: "audio", category: "数字音频", term: "音频码率", values: "AAC Stereo 192/256/320/384 kbps · 5.1 512 kbps（平台参考）", meaning: "有损编码每秒使用的数据量。码率越高通常压缩伪影越少，但编码器版本、内容复杂度和声道数同样重要。", impact: "细密环境声比单一语音更容易暴露低码率的水声发金属、空间塌缩和高频毛刺。", recommendation: "YouTube 交付使用 AAC-LC Stereo 48 kHz、约 320–384 kbps；平台会再次编码，所以源文件不要过早压低。", tags: ["kbps", "AAC", "码率", "有损压缩"] },
+  { id: "loudness", domain: "audio", category: "电平与响度", term: "LUFS / LKFS 响度", values: "Integrated 长期响度 · Short-term 3 秒 · Momentary 400 ms · LRA 响度范围", meaning: "LUFS 按人耳感知衡量节目响度，LKFS 在常用实践中数值等价。它与波形峰值不是同一指标。", impact: "平台会做响度标准化；盲目追求更响会压扁自然动态，放大风噪、底噪并增加限制器工作。", recommendation: "你的无旁白环境音不必追求商业音乐式响度；以清晰、自然和不突兀为主，记录 Integrated、Short-term、LRA，并用平台样片验证。", tags: ["LUFS", "LKFS", "LRA", "响度"] },
+  { id: "true-peak", domain: "audio", category: "电平与响度", term: "Sample Peak / True Peak / dBFS / dBTP", values: "dBFS 数字满刻度 · dBTP 重建后真峰值 · 广播常见上限 −1 dBTP", meaning: "Sample Peak 只看采样点；True Peak 估算数模重建和有损编码后可能出现的采样间峰值。0 dBFS 以上会数字削波。", impact: "导出前看起来未到 0 dBFS，也可能在 AAC 编码后出现失真。峰值安全不代表整体响度合适。", recommendation: "最终网络视频保守控制 True Peak；环境音建议至少留到约 −1 至 −2 dBTP，并完整试听突发喇叭、关门、雷声等峰值。", tags: ["dBFS", "dBTP", "True Peak", "削波"] },
+  { id: "dynamic-noise", domain: "audio", category: "电平与响度", term: "动态范围、信噪比与底噪", values: "Dynamic Range · SNR · EIN · Noise Floor", meaning: "动态范围是最安静到最响的可用跨度；SNR 比较信号与噪声；EIN 描述前级等效输入噪声；底噪是系统持续噪声。", impact: "提高增益不会改善已经受麦克风自噪或环境噪声限制的信噪比。过度降噪会产生水下感、抽吸和不自然的静音。", recommendation: "优先靠麦克风位置、防风、减振和合理增益改善原始信号；环境音只做克制降噪，保留地点真实声纹。", tags: ["动态范围", "SNR", "EIN", "底噪", "降噪"] },
+  { id: "levels", domain: "audio", category: "采集连接", term: "Mic / Line / Instrument 电平", values: "Mic Level 低电平 · Line Level 专业 +4 dBu / 消费 −10 dBV · Instrument Hi-Z 高阻抗", meaning: "三种接口电平和阻抗不同。把 Line 信号接入 Mic 输入可能严重过载；Mic 接 Line 输入则会很小并引入更多噪声。", impact: "接口选择错误无法靠后期正常补救。幻象电源、插件电源和不平衡连接也不能混为一谈。", recommendation: "逐设备确认输出与输入档位；外录机进相机时优先正确 Line 路径，并先做峰值测试。开启 48V 前确认麦克风和接线支持。", tags: ["Mic", "Line", "Hi-Z", "+4 dBu", "-10 dBV", "48V"] },
+  { id: "mic-pattern", domain: "audio", category: "采集连接", term: "指向性与立体声制式", values: "Omni · Cardioid · Super/Hypercardioid · Shotgun · XY · ORTF · AB · MS · Binaural", meaning: "指向性决定麦克风对不同方向声音的敏感度；XY、ORTF、AB、MS 和双耳录音用不同时间差与电平差建立空间。", impact: "更强指向不等于更少所有噪声。AB 空间宽但单声道兼容需检查；MS 可后期调宽；车内反射会改变理论声场。", recommendation: "道路环境优先选择可控、相位稳定的立体声方案；每次检查左右方向、单声道折叠、风噪和车辆振动。", tags: ["全指向", "心形", "枪式", "XY", "ORTF", "AB", "MS", "Binaural"] },
+  { id: "sync", domain: "audio", category: "工作流程", term: "时间码、采样时钟与同步", values: "Timecode LTC · Jam Sync · Word Clock · Clap/Slate · 波形同步", meaning: "时间码标识时间位置，Word Clock 同步数字采样时钟；两者作用不同。普通相机与录音机长录时可能发生时钟漂移。", impact: "开头对齐并不保证 90 分钟末尾仍同步。不同采样率解释错误还会造成速度和音高变化。", recommendation: "长时间双机录音在开头和结尾做同步标记，抽查中段漂移；统一 48 kHz，并为每台设备保留独立原始文件。", tags: ["Timecode", "LTC", "Word Clock", "同步", "漂移"] },
+];
+
+export function filterMediaParameters(domain: MediaParameterDomain, query: string) {
+  const needle = query.trim().toLowerCase();
+  return mediaParameterEntries.filter((entry) => entry.domain === domain && (!needle || `${entry.category} ${entry.term} ${entry.values} ${entry.meaning} ${entry.tags.join(" ")}`.toLowerCase().includes(needle)));
+}

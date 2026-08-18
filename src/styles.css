@@ -613,6 +613,45 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--orange); ou
 .camera-device-tabs button, .camera-scene-tabs button { flex: 0 0 auto; padding: 0 9px; border: 0; border-radius: 5px; background: transparent; color: #727a71; font-size: 7px; cursor: pointer; }
 .camera-device-tabs button.active, .camera-scene-tabs button.active { background: #2a2f29; color: #e0e4dc; }
 .camera-library-layout { display: grid; grid-template-columns: minmax(440px, .9fr) minmax(500px, 1.1fr); gap: 10px; max-width: 1240px; margin: 0 auto; align-items: start; }
+.media-glossary { max-width: 1240px; margin: 34px auto 0; }
+.media-glossary > header { display: flex; align-items: flex-end; justify-content: space-between; gap: 28px; padding-bottom: 15px; border-bottom: 1px solid var(--line); }
+.media-glossary > header h2 { margin: 3px 0 7px; color: #c4c8c0; font: 500 27px/1.2 Georgia,"Songti SC",serif; }
+.media-glossary > header p:last-child { max-width: 720px; margin: 0; color: #788077; font-size: 11px; line-height: 1.65; }
+.media-glossary > header dl { display: flex; gap: 7px; margin: 0; }
+.media-glossary > header dl div { min-width: 82px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; background: #1a1e1a; }
+.media-glossary > header dt { color: #687068; font-size: 8px; }
+.media-glossary > header dd { margin: 3px 0 0; color: #d0d4cc; font: 19px Georgia,serif; }
+.media-glossary-toolbar { display: grid; grid-template-columns: auto minmax(260px,1fr); gap: 8px; margin: 14px 0 10px; }
+.media-glossary-toolbar [role="tablist"] { display: flex; gap: 5px; padding: 4px; border: 1px solid var(--line); border-radius: 8px; background: #1a1e19; }
+.media-glossary-toolbar button { display: flex; min-height: 34px; align-items: center; gap: 6px; padding: 0 14px; border: 0; border-radius: 5px; background: transparent; color: #747c72; font-size: 10px; cursor: pointer; }
+.media-glossary-toolbar button.active { background: rgba(239,108,53,.1); color: #df815d; }
+.media-glossary-toolbar label { display: flex; align-items: center; gap: 8px; padding: 0 12px; border: 1px solid var(--line); border-radius: 8px; background: #1a1e19; color: #687168; }
+.media-glossary-toolbar input { min-width: 0; flex: 1; border: 0; outline: 0; background: transparent; color: #b9beb6; font-size: 10px; }
+.media-glossary-principle { display: grid; grid-template-columns: auto auto 1fr; align-items: center; gap: 10px; padding: 12px 14px; margin-bottom: 12px; border: 1px solid rgba(239,108,53,.17); border-radius: 8px; background: rgba(239,108,53,.045); }
+.media-glossary-principle strong { color: #d88361; font-size: 10px; }
+.media-glossary-principle span { color: #aaa097; font-size: 10px; }
+.media-glossary-principle p { margin: 0; color: #7b8279; font-size: 9px; line-height: 1.55; }
+.media-glossary-groups { display: grid; gap: 18px; }
+.media-glossary-groups > section > header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 8px; }
+.media-glossary-groups > section > header h3 { margin: 0; color: #b3b9b0; font-size: 14px; }
+.media-glossary-groups > section > header span { color: #687168; font-size: 9px; }
+.media-glossary-groups > section > div { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; }
+.media-glossary-groups article { min-width: 0; padding: 16px; border: 1px solid var(--line); border-radius: 9px; background: #191d19; }
+.media-glossary-groups article > header { padding-bottom: 11px; border-bottom: 1px solid rgba(255,255,255,.05); }
+.media-glossary-groups h4 { margin: 0 0 5px; color: #c1c6bd; font-size: 13px; }
+.media-glossary-groups article > header span { display: block; color: #d07c5c; font-size: 9px; line-height: 1.55; }
+.media-glossary-groups article dl { display: grid; gap: 9px; margin: 11px 0 0; }
+.media-glossary-groups article dl div { display: grid; grid-template-columns: 64px 1fr; gap: 9px; }
+.media-glossary-groups article dt { color: #697168; font-size: 9px; }
+.media-glossary-groups article dd { margin: 0; color: #8d958b; font-size: 10px; line-height: 1.65; }
+.media-glossary-groups article .recommended { padding: 9px; border-radius: 6px; background: rgba(88,151,127,.065); }
+.media-glossary-groups article .recommended dt { color: #73a98f; }
+.media-glossary-groups article .recommended dd { color: #9aaba0; }
+.media-glossary-empty { padding: 40px; border: 1px solid var(--line); border-radius: 9px; color: #717970; text-align: center; }
+.media-glossary > footer { padding-top: 15px; margin-top: 18px; border-top: 1px solid var(--line); }
+.media-glossary > footer > strong { color: #858d83; font-size: 9px; }
+.media-glossary > footer > div { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.media-glossary > footer a { display: inline-flex; align-items: center; gap: 4px; padding: 6px 8px; border: 1px solid var(--line); border-radius: 5px; color: #7eafa5; font-size: 9px; text-decoration: none; }
 .camera-preset-browser, .camera-playbook-detail { border: 1px solid var(--line); border-radius: 11px; background: #181c18; }
 .camera-preset-browser > header { display: flex; align-items: flex-end; justify-content: space-between; padding: 17px 18px 12px; }
 .camera-preset-browser header small, .camera-playbook-detail header small { color: #bd6f51; font-size: 6px; letter-spacing: .1em; }
@@ -1617,6 +1656,8 @@ small { font-size: 10px !important; }
   .plan-card, .region-options button, .library-switch button, .location-card,
   .capture-library-filters button, .library-route-card, .local-pagination,
   .camera-device-tabs, .camera-scene-tabs, .camera-preset-list button,
+  .media-glossary > header dl div, .media-glossary-toolbar [role="tablist"],
+  .media-glossary-toolbar label, .media-glossary-groups article,
   .post-stage-hero, .pipeline-stage, .project-hero, .project-shot-card,
   .dashboard-card, .recommend-panel, .creator-card, .music-album-card,
   .music-platform-card, .music-track-row, .socialblade-panel, .upload-controls,
@@ -1649,6 +1690,8 @@ small { font-size: 10px !important; }
   .camera-library-head dl div, .camera-library-toolbar > label,
   .camera-device-tabs, .camera-scene-tabs, .camera-preset-browser,
   .camera-playbook-detail, .camera-preset-list > button, .camera-playbook-actions,
+  .media-glossary > header dl div, .media-glossary-toolbar [role="tablist"],
+  .media-glossary-toolbar label, .media-glossary-groups article,
   .camera-playbook-actions button, .camera-core-grid > div, .exposure-grid > div,
   .camera-route, .post-mode, .post-overview-grid > section,
   .post-overview-grid > aside, .post-stage-body, .grade-presets-page > header,
@@ -1774,6 +1817,15 @@ small { font-size: 10px !important; }
   .camera-device-tabs, .camera-scene-tabs { min-height: 38px; }
   .camera-library-layout { grid-template-columns: 1fr; }
   .camera-playbook-detail { position: static; }
+  .media-glossary { margin-top: 28px; }
+  .media-glossary > header { align-items: flex-start; flex-direction: column; gap: 13px; }
+  .media-glossary > header dl { width: 100%; }
+  .media-glossary > header dl div { flex: 1; }
+  .media-glossary-toolbar { grid-template-columns: 1fr; }
+  .media-glossary-toolbar [role="tablist"] button { flex: 1; justify-content: center; }
+  .media-glossary-toolbar label { min-height: 42px; }
+  .media-glossary-principle { grid-template-columns: 1fr; }
+  .media-glossary-groups > section > div { grid-template-columns: 1fr; }
   .camera-detail-body { max-height: none; }
   .camera-core-grid { grid-template-columns: repeat(2, 1fr); }
   .camera-advanced-grid, .camera-verify-list { grid-template-columns: 1fr; }

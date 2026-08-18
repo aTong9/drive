@@ -2,6 +2,7 @@ import { Aperture, Camera, Check, ChevronRight, CircleGauge, Copy, Download, Ext
 import { useEffect, useMemo, useState } from "react";
 import type { CameraPreset, ResolvedRoute } from "../../types/domain.js";
 import { usePlannerStore } from "../../app/store.js";
+import { MediaParameterGlossary } from "./MediaParameterGlossary.js";
 
 const sceneLabels: Record<CameraPreset["scene"], string> = {
   "coast-sunset": "海岸日落",
@@ -98,5 +99,6 @@ export function CameraView({ presets, routes }: { presets: CameraPreset[]; route
         </div>
       </aside>
     </div>
+    <MediaParameterGlossary />
   </main>;
 }
