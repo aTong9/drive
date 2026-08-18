@@ -1,7 +1,11 @@
-import { ArrowLeft, ArrowRight, AudioLines, BookOpen, CalendarDays, Camera, Check, CheckCircle2, ChevronDown, Clapperboard, Compass, Images, ListChecks, MapPin, Palette, Play, Rocket, RotateCcw, Scissors, SlidersHorizontal, Sparkles, Workflow } from "lucide-react";
+import { ArrowLeft, ArrowRight, AudioLines, BookOpen, CalendarDays, Camera, Check, CheckCircle2, ChevronDown, Clapperboard, Compass, GitCompareArrows, Heart, Images, ListChecks, MapPin, Palette, Play, Rocket, RotateCcw, Scissors, SlidersHorizontal, Sparkles, Star, Workflow } from "lucide-react";
 import { useMemo, useState, type CSSProperties } from "react";
 import type { DavinciStageId, DavinciWorkflow, ResolvedRoute } from "../../types/domain.js";
 import { usePlannerStore } from "../../app/store.js";
+import { PostCompareView } from "./PostCompareView.js";
+import { PostDecisionTools } from "./PostDecisionTools.js";
+import { PostGlossary } from "./PostGlossary.js";
+import { auditGradePreset } from "../../services/postDecisionService.js";
 
 const stageIcons = { media: Images, photo: Sparkles, cut: Scissors, edit: Clapperboard, fusion: Workflow, color: Palette, fairlight: AudioLines, deliver: Rocket } as const;
 
@@ -39,7 +43,7 @@ function TutorialVisual({ kind }: { kind: DavinciWorkflow["beginnerTutorial"][nu
 }
 
 export function PostWorkflowView({ workflow, routes }: { workflow: DavinciWorkflow; routes: ResolvedRoute[] }) {
-  const [mode, setMode] = useState<"overview" | "guide" | "presets" | "pipeline" | "tutorial">("overview");
+  const [mode, setMode] = useState<"overview" | "guide" | "presets" | "compare" | "tools" | "glossary" | "favorites" | "pipeline" | "tutorial">("overview");
   const [selectedPresetId, setSelectedPresetId] = useState(workflow.gradePresets[0]?.id ?? "");
   const [openTutorialId, setOpenTutorialId] = useState(workflow.beginnerTutorial[0]?.id ?? "");
   const [selectedId, setSelectedId] = useState<DavinciStageId>(workflow.stages[0]?.id ?? "media");
@@ -50,8 +54,11 @@ export function PostWorkflowView({ workflow, routes }: { workflow: DavinciWorkfl
   const importPostWorkflow = usePlannerStore((state) => state.importPostWorkflow);
   const togglePostTask = usePlannerStore((state) => state.togglePostTask);
   const clearPostWorkflow = usePlannerStore((state) => state.clearPostWorkflow);
+  const favoritePresetIds = usePlannerStore((state) => state.favoriteDavinciPresetIds);
+  const toggleFavoritePreset = usePlannerStore((state) => state.toggleFavoriteDavinciPreset);
   const selected = workflow.stages.find((stage) => stage.id === selectedId) ?? workflow.stages[0];
   const selectedPreset = workflow.gradePresets.find((preset) => preset.id === selectedPresetId) ?? workflow.gradePresets[0];
+  const selectedPresetAudit = selectedPreset ? auditGradePreset(selectedPreset) : undefined;
   const completed = postTasks.filter((task) => task.completed).length;
   const progress = postTasks.length ? Math.round(completed / postTasks.length * 100) : 0;
   const tasksByStage = useMemo(() => new Map(workflow.stages.map((stage) => [stage.id, postTasks.filter((task) => task.stageId === stage.id)])), [postTasks, workflow.stages]);
@@ -72,10 +79,10 @@ export function PostWorkflowView({ workflow, routes }: { workflow: DavinciWorkfl
   return <main className="post-page">
     <header className="post-head">
       <div><p className="eyebrow">POST PRODUCTION</p><h1>达芬奇后期流程</h1><p>从素材接收到交付归档，把拍摄成果变成可复现的成片流程。</p></div>
-      <div className="post-head-actions"><div className="post-mode"><button className={mode === "overview" ? "active" : ""} onClick={() => setMode("overview")}><Compass size={12} /> 总览</button><button className={mode === "guide" ? "active" : ""} onClick={() => setMode("guide")}>工作区指南</button><button className={mode === "presets" ? "active" : ""} onClick={() => setMode("presets")}><SlidersHorizontal size={12} /> 调色预设</button><button className={mode === "tutorial" ? "active" : ""} onClick={() => setMode("tutorial")}><BookOpen size={12} /> 新手教程</button><button className={mode === "pipeline" ? "active" : ""} onClick={() => setMode("pipeline")}><ListChecks size={12} /> 项目执行</button></div></div>
+      <div className="post-head-actions"><div className="post-mode"><button className={mode === "overview" ? "active" : ""} onClick={() => setMode("overview")}><Compass size={12} /> 总览</button><button className={mode === "presets" ? "active" : ""} onClick={() => setMode("presets")}><SlidersHorizontal size={12} /> 调色预设</button><button className={mode === "glossary" ? "active" : ""} onClick={() => setMode("glossary")}><BookOpen size={12} /> 参数词典</button><button className={mode === "compare" ? "active" : ""} onClick={() => setMode("compare")}><GitCompareArrows size={12} /> 链路对比</button><button className={mode === "tools" ? "active" : ""} onClick={() => setMode("tools")}><SlidersHorizontal size={12} /> 决策工具</button><button className={mode === "favorites" ? "active" : ""} onClick={() => setMode("favorites")}><Heart size={12} /> 收藏 {favoritePresetIds.length}</button><button className={mode === "guide" || mode === "tutorial" ? "active" : ""} onClick={() => setMode("guide")}>流程指南</button><button className={mode === "pipeline" ? "active" : ""} onClick={() => setMode("pipeline")}><ListChecks size={12} /> 项目执行</button></div></div>
     </header>
 
-    {mode !== "overview" && mode !== "tutorial" && <nav className="resolve-stage-rail" aria-label="DaVinci Resolve 工作区">
+    {(mode === "guide" || mode === "presets" || mode === "pipeline") && <nav className="resolve-stage-rail" aria-label="DaVinci Resolve 工作区">
       {workflow.stages.map((stage) => { const Icon = stageIcons[stage.id]; const stageTasks = tasksByStage.get(stage.id) ?? []; const done = stageTasks.length > 0 && stageTasks.every((task) => task.completed); return <button key={stage.id} className={`${selected.id === stage.id ? "active" : ""} stage-${stage.id}`} onClick={() => { setSelectedId(stage.id); if (mode !== "pipeline" && stage.id === "color") setMode("presets"); else if (mode !== "pipeline") setMode("guide"); }}><Icon size={21} /><span>{stage.label}</span><small>{stage.englishLabel}</small>{done && <CheckCircle2 size={11} className="stage-done" />}</button>; })}
     </nav>}
 
@@ -89,12 +96,12 @@ export function PostWorkflowView({ workflow, routes }: { workflow: DavinciWorkfl
     </section> : mode === "presets" && selectedPreset ? <section className="grade-presets-page">
       <header><div><p className="eyebrow">COLOR STARTING POINTS</p><h2>五套场景调色预设</h2><p>参数用于建立调色起点。先匹配曝光与白平衡，再按素材、监看环境和交付色彩空间微调。</p></div><span>DWG / Intermediate → Rec.2100 PQ</span></header>
       <div className="grade-preset-tabs">{workflow.gradePresets.map((preset) => <button key={preset.id} className={preset.id === selectedPreset.id ? "active" : ""} style={{ "--preset-accent": preset.accent } as CSSProperties} onClick={() => setSelectedPresetId(preset.id)}><i /> <span>{preset.name}<small>{preset.scene}</small></span></button>)}</div>
-      <article className="grade-preset-card" style={{ "--preset-accent": selectedPreset.accent } as CSSProperties}>
+      <div className="grade-preset-actions"><button className={favoritePresetIds.includes(selectedPreset.id) ? "active" : ""} onClick={() => toggleFavoritePreset(selectedPreset.id)}><Heart size={13} fill={favoritePresetIds.includes(selectedPreset.id) ? "currentColor" : "none"} />{favoritePresetIds.includes(selectedPreset.id) ? "已收藏" : "收藏预设"}</button><span>完整性 {selectedPresetAudit?.score ?? 0}</span></div><article className="grade-preset-card" style={{ "--preset-accent": selectedPreset.accent } as CSSProperties}>
         <div className="preset-preview"><div className="preset-sky" /><div className="preset-road" /><span>{selectedPreset.name}</span><small>LOOK PREVIEW · 示意</small></div>
         <div className="preset-content"><p className="preset-intent">{selectedPreset.intent}</p><dl><div><dt>曝光目标</dt><dd>{selectedPreset.exposure}</dd></div><div><dt>白平衡</dt><dd>{selectedPreset.whiteBalance}</dd></div><div><dt>对比度</dt><dd>{selectedPreset.contrast}</dd></div><div><dt>饱和度</dt><dd>{selectedPreset.saturation}</dd></div></dl><h3>推荐节点调整</h3><ol>{selectedPreset.nodeAdjustments.map((item) => <li key={item}>{item}</li>)}</ol>{selectedPreset.cautions.map((item) => <p className="preset-caution" key={item}>{item}</p>)}</div>
       </article>
       <ResolveColorScreenshot preset={selectedPreset} />
-    </section> : mode === "tutorial" ? <section className="beginner-tutorial">
+    </section> : mode === "glossary" ? <PostGlossary /> : mode === "compare" ? <PostCompareView /> : mode === "tools" ? <PostDecisionTools /> : mode === "favorites" ? <section className="post-workspace post-favorites"><header><div><p className="eyebrow">SAVED LOOKS</p><h2>收藏的调色预设</h2><p>保留最常用的场景起点，打开后仍需逐镜完成曝光、白平衡与示波器复核。</p></div><Heart size={28} /></header><div>{workflow.gradePresets.filter((preset) => favoritePresetIds.includes(preset.id)).map((preset) => <button key={preset.id} onClick={() => { setSelectedPresetId(preset.id); setMode("presets"); }}><i style={{ background: preset.accent }} /><span><small>{preset.scene}</small><strong>{preset.name}</strong><p>{preset.intent}</p></span><Star size={15} fill="currentColor" /></button>)}</div>{!favoritePresetIds.length && <p className="post-empty">还没有收藏调色预设。</p>}</section> : mode === "tutorial" ? <section className="beginner-tutorial">
       <header><div><p className="eyebrow">BEGINNER GUIDE</p><h2>第一次完成一条 4K HDR 成片</h2><p>按顺序展开六个章节。每章包含操作位置、逐步动作、界面示意和可核验的完成标准。</p></div><a href={workflow.sourceUrl} target="_blank" rel="noreferrer">打开 Blackmagic 官方培训资料</a></header>
       <div className="tutorial-layout"><nav>{workflow.beginnerTutorial.map((tutorial, index) => <button key={tutorial.id} className={tutorial.id === openTutorialId ? "active" : ""} onClick={() => setOpenTutorialId(tutorial.id)}><span>{String(index + 1).padStart(2, "0")}</span><div><strong>{tutorial.title.replace(/^\d+\s*/, "")}</strong><small>{workflow.stages.find((stage) => stage.id === tutorial.workspace)?.label}</small></div><ChevronDown size={14} /></button>)}</nav><div className="tutorial-chapters">{workflow.beginnerTutorial.map((tutorial) => <article key={tutorial.id} className={tutorial.id === openTutorialId ? "active" : ""}><TutorialVisual kind={tutorial.visual} /><div className="tutorial-copy"><small>{workflow.stages.find((stage) => stage.id === tutorial.workspace)?.englishLabel.toUpperCase()}</small><h3>{tutorial.title}</h3><p>{tutorial.purpose}</p><ol>{tutorial.actions.map((action, index) => <li key={action}><span>{index + 1}</span><p>{action}</p></li>)}</ol><footer><CheckCircle2 size={15} /><span><small>完成检查</small>{tutorial.checkpoint}</span></footer></div></article>)}</div></div>
     </section> : <section className="post-pipeline">

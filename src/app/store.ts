@@ -45,6 +45,7 @@ interface PlannerState {
   postProject: LocalPostProject | null;
   gpxTrack: LocalGpxTrack | null;
   favoriteCameraPresetIds: string[];
+  favoriteDavinciPresetIds: string[];
   cameraMrAssignments: Partial<Record<"MR1" | "MR2" | "MR3", string>>;
   customCameraPresets: CameraPreset[];
   setView: (view: AppView) => void;
@@ -93,6 +94,7 @@ interface PlannerState {
   clearPostWorkflow: () => void;
   setGpxTrack: (track: LocalGpxTrack | null) => void;
   toggleFavoriteCameraPreset: (presetId: string) => void;
+  toggleFavoriteDavinciPreset: (presetId: string) => void;
   assignCameraMr: (slot: "MR1" | "MR2" | "MR3", presetId: string) => void;
   saveCustomCameraPreset: (preset: CameraPreset) => void;
   removeCustomCameraPreset: (presetId: string) => void;
@@ -117,6 +119,7 @@ export const usePlannerStore = create<PlannerState>()(
       postProject: null,
       gpxTrack: null,
       favoriteCameraPresetIds: [],
+      favoriteDavinciPresetIds: [],
       cameraMrAssignments: {},
       customCameraPresets: [],
       setView: (view) => set({ view }),
@@ -308,6 +311,7 @@ export const usePlannerStore = create<PlannerState>()(
       clearPostWorkflow: () => set({ postTasks: [], postProject: null }),
       setGpxTrack: (gpxTrack) => set({ gpxTrack }),
       toggleFavoriteCameraPreset: (presetId) => set((state) => ({ favoriteCameraPresetIds: state.favoriteCameraPresetIds.includes(presetId) ? state.favoriteCameraPresetIds.filter((id) => id !== presetId) : [...state.favoriteCameraPresetIds, presetId] })),
+      toggleFavoriteDavinciPreset: (presetId) => set((state) => ({ favoriteDavinciPresetIds: state.favoriteDavinciPresetIds.includes(presetId) ? state.favoriteDavinciPresetIds.filter((id) => id !== presetId) : [...state.favoriteDavinciPresetIds, presetId] })),
       assignCameraMr: (slot, presetId) => set((state) => ({ cameraMrAssignments: { ...state.cameraMrAssignments, [slot]: presetId } })),
       saveCustomCameraPreset: (preset) => set((state) => ({ customCameraPresets: [...state.customCameraPresets.filter((item) => item.id !== preset.id), preset] })),
       removeCustomCameraPreset: (presetId) => set((state) => ({ customCameraPresets: state.customCameraPresets.filter((item) => item.id !== presetId), favoriteCameraPresetIds: state.favoriteCameraPresetIds.filter((id) => id !== presetId) })),
@@ -325,6 +329,10 @@ export const usePlannerStore = create<PlannerState>()(
           postTasks: state.postTasks ?? [],
           postProject: state.postProject ?? null,
           gpxTrack: state.gpxTrack ?? null,
+          favoriteCameraPresetIds: state.favoriteCameraPresetIds ?? [],
+          favoriteDavinciPresetIds: state.favoriteDavinciPresetIds ?? [],
+          cameraMrAssignments: state.cameraMrAssignments ?? {},
+          customCameraPresets: state.customCameraPresets ?? [],
         };
       },
       partialize: (state) => ({
@@ -335,6 +343,10 @@ export const usePlannerStore = create<PlannerState>()(
         postTasks: state.postTasks,
         postProject: state.postProject,
         gpxTrack: state.gpxTrack,
+        favoriteCameraPresetIds: state.favoriteCameraPresetIds,
+        favoriteDavinciPresetIds: state.favoriteDavinciPresetIds,
+        cameraMrAssignments: state.cameraMrAssignments,
+        customCameraPresets: state.customCameraPresets,
       }),
     },
   ),
