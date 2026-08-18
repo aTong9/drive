@@ -1016,7 +1016,7 @@ export function filterMusicAlbums(input: { platformId?: string; family?: MusicFa
   });
 }
 
-export function filterMusicTracks(input: { platformId?: string; family?: MusicFamily; categoryId?: string; scene?: MusicScene; query?: string }) {
+export function filterMusicTracks(input: { platformId?: string; family?: MusicFamily; categoryId?: string; scene?: MusicScene; query?: string; minDurationSeconds?: number }) {
   const categoryIds = input.family
     ? new Set(youtubeMusicLibrary.categories.filter((category) => input.family === "lofi" ? category.family === "lofi" || category.family === "chillhop" : category.family === input.family).map((category) => category.id))
     : null;
@@ -1026,7 +1026,8 @@ export function filterMusicTracks(input: { platformId?: string; family?: MusicFa
     const familyMatch = !categoryIds || track.categoryIds.some((id) => categoryIds.has(id));
     const categoryMatch = !input.categoryId || track.categoryIds.includes(input.categoryId);
     const sceneMatch = !input.scene || track.scenes.includes(input.scene);
+    const durationMatch = input.minDurationSeconds === undefined || (track.durationSeconds !== null && track.durationSeconds >= input.minDurationSeconds);
     const searchable = [track.title, track.artist, track.description].join(" ").toLowerCase();
-    return platformMatch && familyMatch && categoryMatch && sceneMatch && (!needle || searchable.includes(needle));
+    return platformMatch && familyMatch && categoryMatch && sceneMatch && durationMatch && (!needle || searchable.includes(needle));
   });
 }

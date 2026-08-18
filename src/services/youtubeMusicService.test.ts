@@ -82,6 +82,10 @@ test("track filter combines platform, family, scene and search", () => {
   assert.ok(nightLofi.every((track) => track.platformId === "streambeats"));
   assert.deepEqual(filterMusicTracks({ query: "George Street Shuffle" }).map((track) => track.id), ["incompetech-george-street-shuffle"]);
   assert.ok(filterMusicTracks({ family: "piano", scene: "rain" }).length >= 4);
+  const longTracks = filterMusicTracks({ minDurationSeconds: 600 });
+  assert.ok(longTracks.length > 0);
+  assert.ok(longTracks.every((track) => track.durationSeconds !== null && track.durationSeconds >= 600));
+  assert.ok(filterMusicTracks({ platformId: "incompetech", minDurationSeconds: 600 }).every((track) => track.platformId === "incompetech"));
 });
 
 test("StreamBeats official catalog contributes a verified 100-track batch", () => {

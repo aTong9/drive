@@ -13189,6 +13189,41 @@ input:focus-visible {
   color: #aab0a6;
   font-size: 12px;
 }
+
+.music-filter-panel .music-duration-filter {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 12px;
+  border: 1px solid rgba(167, 139, 250, 0.22);
+  border-radius: 12px;
+  background: rgba(167, 139, 250, 0.07);
+  cursor: pointer;
+}
+
+.music-duration-filter input {
+  width: 17px;
+  height: 17px;
+  margin: 0;
+  accent-color: #a78bfa;
+}
+
+.music-duration-filter span {
+  display: grid;
+  gap: 2px;
+}
+
+.music-duration-filter strong {
+  color: var(--text-primary);
+  font-size: 13px;
+}
+
+.music-duration-filter small {
+  color: var(--text-muted);
+  font-size: 11px;
+  line-height: 1.4;
+}
 .music-search {
   display: flex !important;
   height: 40px;

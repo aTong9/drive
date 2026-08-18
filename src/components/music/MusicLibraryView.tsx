@@ -31,6 +31,7 @@ export function MusicLibraryView() {
   const [scene, setScene] = useState<MusicScene | "all">("all");
   const [risk, setRisk] = useState<MusicRisk | "all">("all");
   const [query, setQuery] = useState("");
+  const [longTracksOnly, setLongTracksOnly] = useState(false);
   const [albumPlatformId, setAlbumPlatformId] = useState("all");
   const [trackPage, setTrackPage] = useState(1);
   const categories = useMemo(() => youtubeMusicLibrary.categories.filter((category) => family === "all" || (family === "lofi" ? category.family === "lofi" || category.family === "chillhop" : category.family === family)), [family]);
@@ -45,8 +46,9 @@ export function MusicLibraryView() {
     ...(family === "all" ? {} : { family }),
     ...(categoryId === "all" ? {} : { categoryId }),
     ...(scene === "all" ? {} : { scene }),
+    ...(longTracksOnly ? { minDurationSeconds: 600 } : {}),
     query
-  }), [albumPlatformId, family, categoryId, scene, query]);
+  }), [albumPlatformId, family, categoryId, scene, longTracksOnly, query]);
   const tracks = useMemo(() => filterMusicTracks({
     ...(albumPlatformId === "all" ? {} : { platformId: albumPlatformId }),
     ...(family === "all" ? {} : { family }),
@@ -59,7 +61,7 @@ export function MusicLibraryView() {
   const visibleTracks = tracks.slice((trackPage - 1) * TRACKS_PER_PAGE, trackPage * TRACKS_PER_PAGE);
   const selectedPlatformTrackCount = albumPlatformId === "all" ? youtubeMusicLibrary.tracks.length : youtubeMusicLibrary.tracks.filter((track) => track.platformId === albumPlatformId).length;
 
-  useEffect(() => setTrackPage(1), [albumPlatformId, categoryId, family, query, scene]);
+  useEffect(() => setTrackPage(1), [albumPlatformId, categoryId, family, longTracksOnly, query, scene]);
 
   function selectFamily(next: MusicFamily | "all") {
     setFamily(next);
@@ -72,6 +74,7 @@ export function MusicLibraryView() {
     setScene("all");
     setRisk("all");
     setQuery("");
+    setLongTracksOnly(false);
     setAlbumPlatformId("dova-syndrome");
   }
 
@@ -81,6 +84,7 @@ export function MusicLibraryView() {
     setScene("all");
     setRisk("all");
     setQuery("");
+    setLongTracksOnly(false);
     setAlbumPlatformId("all");
   }
 
@@ -106,6 +110,7 @@ export function MusicLibraryView() {
         <label className="music-search"><Search size={15} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="搜索专辑、曲目或平台" /></label>
         <label><span>免费音乐平台（{freePlatforms.length}）</span><select value={albumPlatformId} onChange={(event) => setAlbumPlatformId(event.target.value)}><option value="all">全部免费平台</option>{freePlatforms.map((platform) => <option key={platform.id} value={platform.id}>{platform.name}</option>)}</select></label>
         <label><span>适用画面</span><select value={scene} onChange={(event) => setScene(event.target.value as MusicScene | "all")}>{sceneOptions.map((item) => <option key={item.id} value={item.id}>{item.label}</option>)}</select></label>
+        <label className="music-duration-filter"><input type="checkbox" checked={longTracksOnly} onChange={(event) => setLongTracksOnly(event.target.checked)} /><span><strong>单首 10 分钟以上</strong><small>仅显示已核实时长 ≥ 10:00 的曲目</small></span></label>
         <div className="music-filter-group"><span>细分方向</span><div className="music-category-strip" aria-label="细分音乐类型"><button className={categoryId === "all" ? "active" : ""} onClick={() => setCategoryId("all")}>全部</button>{categories.map((category) => <button key={category.id} className={categoryId === category.id ? "active" : ""} onClick={() => setCategoryId(category.id)}>{category.name}</button>)}</div></div>
         <div className="music-filter-tip"><ShieldCheck size={15} /><p>当前只展示有免费使用路径的平台。下载后仍需保存曲目许可与署名文本。</p></div>
       </aside>
