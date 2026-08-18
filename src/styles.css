@@ -8631,6 +8631,255 @@ input:focus-visible {
   font-size: 7px;
   line-height: 1.55;
 }
+.color-finishing-guide {
+  margin-top: 12px;
+}
+.color-finishing-guide > header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 23px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #1a1e1a;
+}
+.color-finishing-guide > header small {
+  color: #58b6a7;
+  font-size: 6px;
+  letter-spacing: 0.12em;
+}
+.color-finishing-guide > header h2 {
+  margin: 5px 0 7px;
+  color: #c6cbc3;
+  font:
+    500 20px Georgia,
+    "Songti SC",
+    serif;
+}
+.color-finishing-guide > header p {
+  max-width: 760px;
+  margin: 0;
+  color: #7b8379;
+  font-size: 8px;
+  line-height: 1.6;
+}
+.color-finishing-guide > header svg {
+  flex: 0 0 auto;
+  color: #58b6a7;
+}
+.color-finishing-summary {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 10px 14px;
+  margin: 8px 0;
+  border: 1px solid rgba(88, 182, 167, 0.16);
+  border-radius: 8px;
+  background: rgba(88, 182, 167, 0.035);
+}
+.color-finishing-summary strong {
+  color: #58b6a7;
+  font:
+    22px Georgia,
+    serif;
+}
+.color-finishing-summary span {
+  color: #98a29b;
+  font-size: 8px;
+}
+.color-finishing-summary p {
+  margin: 0 0 0 auto;
+  color: #69736c;
+  font-size: 7px;
+}
+.color-finishing-guide > ol {
+  display: grid;
+  gap: 7px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.color-finishing-guide > ol > li {
+  padding: 15px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: #191d19;
+}
+.color-finishing-guide > ol > li.active-look {
+  border-color: color-mix(in srgb, var(--preset-accent) 38%, var(--line));
+  background: color-mix(in srgb, var(--preset-accent) 5%, #191d19);
+}
+.color-finishing-guide > ol > li > header {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.color-finishing-guide > ol > li > header > span {
+  color: #4fbaaa;
+  font:
+    16px Georgia,
+    serif;
+}
+.color-finishing-guide > ol > li > header small {
+  color: #626b64;
+  font-size: 6px;
+}
+.color-finishing-guide > ol > li > header h3 {
+  margin: 4px 0;
+  color: #aeb5ad;
+  font-size: 10px;
+}
+.color-finishing-guide > ol > li > header p {
+  margin: 0;
+  color: #707970;
+  font-size: 7px;
+  line-height: 1.5;
+}
+.color-finishing-settings {
+  padding: 10px;
+  margin-top: 11px;
+  border: 1px solid rgba(88, 182, 167, 0.16);
+  border-radius: 7px;
+  background: rgba(88, 182, 167, 0.035);
+}
+.color-finishing-settings > strong {
+  color: #69bcae;
+  font-size: 7px;
+}
+.color-finishing-settings > div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 6px;
+  margin-top: 8px;
+}
+.color-finishing-settings dl {
+  min-width: 0;
+  padding: 8px;
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.045);
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.1);
+}
+.color-finishing-settings dt {
+  color: #727c74;
+  font-size: 6px;
+}
+.color-finishing-settings dd {
+  margin: 4px 0 0;
+  color: #70c7a1;
+  font:
+    8px/1.45 ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+  overflow-wrap: anywhere;
+}
+.color-finishing-settings > p {
+  margin: 8px 0 0;
+  color: #727b73;
+  font-size: 6px;
+  line-height: 1.5;
+}
+.color-finishing-columns {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 8px;
+  margin-top: 11px;
+}
+.color-finishing-columns > section {
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.045);
+  border-radius: 7px;
+  background: rgba(0, 0, 0, 0.09);
+}
+.color-finishing-columns section > strong {
+  color: #879187;
+  font-size: 7px;
+}
+.color-finishing-columns ol,
+.color-finishing-columns ul {
+  display: grid;
+  gap: 6px;
+  padding: 0;
+  margin: 8px 0 0;
+  list-style: none;
+  counter-reset: finish-action;
+}
+.color-finishing-columns ol li {
+  color: #7b847b;
+  font-size: 7px;
+  line-height: 1.5;
+  counter-increment: finish-action;
+}
+.color-finishing-columns ol li::before {
+  margin-right: 6px;
+  color: #4b8f85;
+  content: counter(finish-action) ".";
+}
+.color-finishing-columns ul li {
+  display: flex;
+  gap: 6px;
+  color: #7f8a82;
+  font-size: 7px;
+  line-height: 1.5;
+}
+.color-finishing-columns ul svg {
+  flex: 0 0 auto;
+  margin-top: 1px;
+  color: #58b6a7;
+}
+.color-finishing-columns section > p {
+  display: flex;
+  gap: 6px;
+  margin: 9px 0 0;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.045);
+  color: #967765;
+  font-size: 7px;
+  line-height: 1.5;
+}
+.color-finishing-columns section > p svg {
+  flex: 0 0 auto;
+  margin-top: 1px;
+}
+.color-finishing-guide > footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px;
+  margin-top: 8px;
+  border: 1px solid rgba(88, 182, 167, 0.18);
+  border-radius: 9px;
+  background: rgba(88, 182, 167, 0.035);
+}
+.color-finishing-guide > footer strong {
+  color: #a6b2aa;
+  font-size: 8px;
+}
+.color-finishing-guide > footer p {
+  margin: 4px 0 0;
+  color: #748078;
+  font-size: 7px;
+  line-height: 1.5;
+}
+.color-finishing-guide > footer nav {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 6px;
+}
+.color-finishing-guide > footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 8px;
+  border: 1px solid rgba(88, 182, 167, 0.18);
+  border-radius: 6px;
+  color: #58b6a7;
+  font-size: 6px;
+  text-decoration: none;
+}
 .preset-caution {
   margin: 6px 0 0;
   padding: 8px 10px;
@@ -11444,10 +11693,9 @@ input:focus-visible {
 }
 .socialblade-panel {
   display: grid;
-  grid-template-columns: minmax(280px, 1.5fr) minmax(170px, 0.8fr) minmax(
-      250px,
-      1fr
-    ) auto;
+  grid-template-columns:
+    minmax(280px, 1.5fr) minmax(170px, 0.8fr) minmax(250px, 1fr)
+    auto;
   align-items: center;
   gap: 16px;
   max-width: 1240px;
@@ -14552,6 +14800,25 @@ small {
   }
   .preset-content .timeline-parameter-sheet dl {
     grid-template-columns: 1fr 1fr;
+  }
+  .color-finishing-guide > header,
+  .color-finishing-guide > footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .color-finishing-summary {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .color-finishing-summary p {
+    width: 100%;
+    margin: 0;
+  }
+  .color-finishing-columns {
+    grid-template-columns: 1fr;
+  }
+  .color-finishing-guide > footer nav {
+    flex-wrap: wrap;
   }
   .resolve-shot-main {
     grid-template-columns: 1fr;

@@ -6,6 +6,7 @@ import {
   recommendPostPipeline,
   renderStorageGb,
 } from "./postDecisionService.js";
+import { colorFinishingWorkflow } from "../data/colorFinishingWorkflow.js";
 
 test("post pipeline keeps HLG and PQ distinct", () => {
   const pipeline = recommendPostPipeline("hlg", "hdr10");
@@ -91,4 +92,44 @@ test("every scene preset exposes screenshot-style timeline parameters", async ()
     lumaMix: "100.00",
     midtoneDetail: "0.00",
   });
+});
+
+test("color finishing workflow reaches verified delivery", () => {
+  assert.deepEqual(
+    colorFinishingWorkflow.map((stage) => stage.id),
+    [
+      "project-management",
+      "input-normalize",
+      "cleanup",
+      "primary-balance",
+      "shot-match",
+      "secondary",
+      "creative-look",
+      "texture-output",
+      "hdr-safety",
+      "timeline-qc",
+      "audio-qc",
+      "deliver-verify",
+    ],
+  );
+  assert.ok(colorFinishingWorkflow.every((stage) => stage.actions.length >= 3));
+  assert.ok(colorFinishingWorkflow.every((stage) => stage.checks.length >= 2));
+  assert.ok(
+    colorFinishingWorkflow.every((stage) => stage.settings.length >= 3),
+  );
+  assert.match(
+    colorFinishingWorkflow
+      .find((stage) => stage.id === "audio-qc")!
+      .settings.map((setting) => setting.value)
+      .join(" "),
+    /48 kHz.*320 kb\/s/,
+  );
+  assert.match(
+    colorFinishingWorkflow
+      .find((stage) => stage.id === "deliver-verify")!
+      .settings.map((setting) => setting.value)
+      .join(" "),
+    /80,000 Kb\/s/,
+  );
+  assert.match(colorFinishingWorkflow.at(-1)!.checks.join(" "), /元数据/);
 });

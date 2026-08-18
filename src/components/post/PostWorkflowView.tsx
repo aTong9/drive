@@ -37,6 +37,7 @@ import { PostDecisionTools } from "./PostDecisionTools.js";
 import { PostGlossary } from "./PostGlossary.js";
 import { auditGradePreset } from "../../services/postDecisionService.js";
 import { SonyMrWorkflowPanel } from "./SonyMrWorkflowPanel.js";
+import { ColorFinishingGuide } from "./ColorFinishingGuide.js";
 
 const stageIcons = {
   media: Images,
@@ -759,6 +760,7 @@ export function PostWorkflowView({
             </div>
           </article>
           <ResolveColorScreenshot preset={selectedPreset} />
+          <ColorFinishingGuide preset={selectedPreset} />
         </section>
       ) : mode === "glossary" ? (
         <PostGlossary />
