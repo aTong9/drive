@@ -62,6 +62,36 @@ export interface MusicPlatform {
   evidence: Array<{ title: string; url: string; supports: Array<"youtube-use" | "attribution" | "content-id" | "pricing" | "territory"> }>;
 }
 
+export function buildPlatformAttributionTemplate(platform: MusicPlatform) {
+  const editing = {
+    "basic-edits": "The music may be trimmed, faded and looped when synchronized as background music, subject to the track terms.",
+    "derivatives-allowed": "The music may be trimmed, faded, looped and adapted within the scope of the applicable license.",
+    "sync-only": "The music is synchronized to this audiovisual work without remixing, sampling or redistribution.",
+    "track-dependent": "Editing, fades and loops are used only where the individual track terms permit them."
+  }[platform.license.audioEditing];
+  const attribution = {
+    "not-generally-required": "Attribution is not generally required, but is included in appreciation of the creator.",
+    "track-dependent": "Individual track terms may require a specific credit; the exact credit from each track page is included below when required.",
+    "credit-or-safelist": "The required track credit, license code or channel-clearance information is included below."
+  }[platform.license.attribution];
+  const monetization = platform.license.monetization === "allowed"
+    ? "The applicable license permits use in monetized YouTube audiovisual works."
+    : "YouTube monetization is used only where the individual track terms and account conditions permit it.";
+
+  return [
+    "🎵 MUSIC / BGM",
+    "“[Track title]” — [Artist]",
+    "[Add one line per track]",
+    "",
+    `Music provided by ${platform.name}.`,
+    `Official website: ${platform.name} (${platform.url})`,
+    monetization,
+    editing,
+    attribution,
+    "Track-specific credit / license code: [Paste the exact text supplied with the download, if required]"
+  ].join("\n");
+}
+
 export interface YoutubeMusicLibrary {
   schemaVersion: "1.3.0";
   accessedAt: string;

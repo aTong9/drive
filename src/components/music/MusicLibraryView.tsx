@@ -1,6 +1,6 @@
-import { AlertTriangle, ArrowUpRight, CheckCircle2, ChevronLeft, ChevronRight, Disc3, Download, ExternalLink, FileCheck2, Headphones, Library, Music2, Piano, Play, Repeat2, RotateCcw, Search, ShieldCheck, SlidersHorizontal, Sparkles } from "lucide-react";
+import { AlertTriangle, ArrowUpRight, Check, CheckCircle2, ChevronLeft, ChevronRight, Copy, Disc3, Download, ExternalLink, FileCheck2, Headphones, Library, Music2, Piano, Play, Repeat2, RotateCcw, Search, ShieldCheck, SlidersHorizontal, Sparkles } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
-import { filterMusicAlbums, filterMusicPlatforms, filterMusicTracks, youtubeMusicLibrary, type MusicFamily, type MusicRisk, type MusicScene } from "../../services/youtubeMusicService.js";
+import { buildPlatformAttributionTemplate, filterMusicAlbums, filterMusicPlatforms, filterMusicTracks, youtubeMusicLibrary, type MusicFamily, type MusicRisk, type MusicScene } from "../../services/youtubeMusicService.js";
 
 const familyOptions: Array<{ id: MusicFamily | "all"; label: string; icon: typeof Music2 }> = [
   { id: "all", label: "全部音乐", icon: Music2 },
@@ -34,6 +34,7 @@ export function MusicLibraryView() {
   const [longTracksOnly, setLongTracksOnly] = useState(false);
   const [albumPlatformId, setAlbumPlatformId] = useState("all");
   const [trackPage, setTrackPage] = useState(1);
+  const [copiedPlatformId, setCopiedPlatformId] = useState<string | null>(null);
   const categories = useMemo(() => youtubeMusicLibrary.categories.filter((category) => family === "all" || (family === "lofi" ? category.family === "lofi" || category.family === "chillhop" : category.family === family)), [family]);
   const platforms = useMemo(() => filterMusicPlatforms({
     ...(categoryId === "all" ? {} : { categoryId }),
@@ -46,16 +47,16 @@ export function MusicLibraryView() {
     ...(family === "all" ? {} : { family }),
     ...(categoryId === "all" ? {} : { categoryId }),
     ...(scene === "all" ? {} : { scene }),
-    ...(longTracksOnly ? { minDurationSeconds: 600 } : {}),
     query
-  }), [albumPlatformId, family, categoryId, scene, longTracksOnly, query]);
+  }), [albumPlatformId, family, categoryId, scene, query]);
   const tracks = useMemo(() => filterMusicTracks({
     ...(albumPlatformId === "all" ? {} : { platformId: albumPlatformId }),
     ...(family === "all" ? {} : { family }),
     ...(categoryId === "all" ? {} : { categoryId }),
     ...(scene === "all" ? {} : { scene }),
+    ...(longTracksOnly ? { minDurationSeconds: 600 } : {}),
     query
-  }), [albumPlatformId, family, categoryId, scene, query]);
+  }), [albumPlatformId, family, categoryId, scene, longTracksOnly, query]);
   const freePlatforms = useMemo(() => youtubeMusicLibrary.platforms.filter((platform) => platform.license.cost === "free" || platform.license.cost === "free-or-paid"), []);
   const trackPageCount = Math.max(1, Math.ceil(tracks.length / TRACKS_PER_PAGE));
   const visibleTracks = tracks.slice((trackPage - 1) * TRACKS_PER_PAGE, trackPage * TRACKS_PER_PAGE);
@@ -86,6 +87,14 @@ export function MusicLibraryView() {
     setQuery("");
     setLongTracksOnly(false);
     setAlbumPlatformId("all");
+  }
+
+  async function copyPlatformAttribution(platformId: string) {
+    const platform = youtubeMusicLibrary.platforms.find((item) => item.id === platformId);
+    if (!platform) return;
+    await navigator.clipboard.writeText(buildPlatformAttributionTemplate(platform));
+    setCopiedPlatformId(platformId);
+    window.setTimeout(() => setCopiedPlatformId((current) => current === platformId ? null : current), 1800);
   }
 
   return <main className="music-page">
@@ -159,7 +168,7 @@ export function MusicLibraryView() {
         <p className="music-platform-fit">{platform.catalogFit}</p>
         <dl><div><dt>费用</dt><dd>{costLabels[platform.license.cost]}</dd></div><div><dt>盈利</dt><dd>{monetizationLabels[platform.license.monetization]}</dd></div><div><dt>剪辑</dt><dd>{editingLabels[platform.license.audioEditing]}</dd></div><div><dt>署名</dt><dd>{attributionLabels[platform.license.attribution]}</dd></div><div><dt>Content ID</dt><dd>{contentIdLabels[platform.license.contentId]}</dd></div></dl>
         <div className="music-platform-styles">{platform.supportedCategoryIds.slice(0, 4).map((id) => <span key={id}>{youtubeMusicLibrary.categories.find((category) => category.id === id)?.name}</span>)}</div>
-        <details><summary><FileCheck2 size={14} />查看许可重点与发布清单</summary><aside><AlertTriangle size={15} /><p>{platform.license.notes}</p></aside><section><h3>导入与发布清单</h3><ol>{platform.workflow.map((step, index) => <li key={step}><i>{index + 1}</i><span>{step}</span></li>)}</ol></section></details>
+        <details><summary><FileCheck2 size={14} />查看许可重点、署名模板与发布清单</summary><aside><AlertTriangle size={15} /><p>{platform.license.notes}</p></aside><section><h3>导入与发布清单</h3><ol>{platform.workflow.map((step, index) => <li key={step}><i>{index + 1}</i><span>{step}</span></li>)}</ol></section><section className="music-attribution-template"><header><div><h3>YouTube 简介署名模板</h3><small>发布前替换方括号内容，并保留逐曲专属 Credit</small></div><button type="button" onClick={() => void copyPlatformAttribution(platform.id)}>{copiedPlatformId === platform.id ? <Check size={13} /> : <Copy size={13} />}{copiedPlatformId === platform.id ? "已复制" : "复制模板"}</button></header><pre>{buildPlatformAttributionTemplate(platform)}</pre></section></details>
         <footer><a href={platform.url} target="_blank" rel="noreferrer">打开曲库 <ArrowUpRight size={13} /></a><div>{platform.evidence.map((source) => <a key={source.url} href={source.url} target="_blank" rel="noreferrer">授权依据 <ExternalLink size={11} /></a>)}</div></footer>
       </article>)}
     </section>

@@ -13617,6 +13617,53 @@ input:focus-visible {
 .music-platform-card details section {
   padding-bottom: 10px;
 }
+
+.music-attribution-template {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 14px;
+}
+
+.music-attribution-template > header {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.music-attribution-template header small {
+  color: var(--muted);
+  display: block;
+  margin-top: 3px;
+}
+
+.music-attribution-template button {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  color: var(--text);
+  cursor: pointer;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 6px;
+  padding: 7px 10px;
+}
+
+.music-attribution-template pre {
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 1.65;
+  margin: 0;
+  max-height: 280px;
+  overflow: auto;
+  padding: 12px;
+  white-space: pre-wrap;
+}
 .music-platform-card > footer a,
 .music-platform-card > footer div a {
   font-size: 10px;

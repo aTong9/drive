@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { filterMusicAlbums, filterMusicPlatforms, filterMusicTracks, youtubeMusicLibrary } from "./youtubeMusicService.js";
+import { buildPlatformAttributionTemplate, filterMusicAlbums, filterMusicPlatforms, filterMusicTracks, youtubeMusicLibrary } from "./youtubeMusicService.js";
 
 test("music library references valid category ids", () => {
   const ids = new Set(youtubeMusicLibrary.categories.map((category) => category.id));
@@ -43,6 +43,18 @@ test("library excludes paid-only subscription and per-track platforms", () => {
 test("every platform is available through a free usage path", () => {
   assert.ok(youtubeMusicLibrary.platforms.length > 0);
   assert.ok(youtubeMusicLibrary.platforms.every((platform) => platform.license.cost === "free" || platform.license.cost === "free-or-paid"));
+});
+
+test("every free platform exposes a copy-ready attribution and license template", () => {
+  for (const platform of youtubeMusicLibrary.platforms) {
+    const template = buildPlatformAttributionTemplate(platform);
+    assert.match(template, /🎵 MUSIC \/ BGM/);
+    assert.ok(template.includes(platform.name));
+    assert.ok(template.includes(platform.url));
+    assert.match(template, /\[Track title\].*\[Artist\]/);
+    assert.match(template, /trimmed|Editing|synchronized/);
+    assert.match(template, /Attribution|credit/);
+  }
 });
 
 test("albums reference known platforms and categories", () => {
