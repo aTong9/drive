@@ -13,6 +13,8 @@
     "audit:shenzhen-drive-20": "node scripts/audit-shenzhen-drive-routes-20.mjs",
     "audit:greater-bay-drive-50": "node scripts/audit-greater-bay-drive-routes-50.mjs",
     "audit:guangdong-road-network": "node scripts/audit-guangdong-road-network-routes.mjs",
+    "audit:national-scenic-roads": "node scripts/audit-national-scenic-road-routes.mjs",
+    "audit:tier-city-scenic-roads": "node scripts/audit-tier-city-scenic-road-routes.mjs",
     "import:geonames-expansion": "node scripts/import-geonames-expansion.mjs",
     "demo:plan": "tsx src/cli/plan.ts",
     "dev": "vite",

@@ -41,6 +41,30 @@ test("drive-only library exposes the newly added Guangdong routes", () => {
   assert.equal(visibleDriveRoutes.filter((route) => route.province === "广东" && route.cities.includes("深圳")).length, 101);
 });
 
+test("every administrative division has one national scenic-driving corridor", () => {
+  const routes = catalog.routes.filter((route) => route.id.startsWith("cn-scenic-road-2026-"));
+  const expected = administrativeProvinces.flatMap((province) =>
+    province.divisions.map((division) => `${province.name}/${division.name}`),
+  );
+  const actual = routes.map((route) => `${route.province}/${route.cities[0]}`);
+  assert.equal(routes.length, administrativeDivisionCount);
+  assert.deepEqual(actual.sort(), expected.sort());
+  assert.ok(routes.every((route) => route.captureStyle === "scenic-drive" && route.verification.status === "draft"));
+});
+
+test("first-, new-first-, and second-tier cities receive four additional scenic routes", () => {
+  const routes = catalog.routes.filter((route) => route.id.startsWith("cn-tier-city-scenic-2026-"));
+  const counts = new Map<string, number>();
+  for (const route of routes) {
+    const key = `${route.province}/${route.cities[0]}`;
+    counts.set(key, (counts.get(key) ?? 0) + 1);
+  }
+  assert.equal(routes.length, 196);
+  assert.equal(counts.size, 49);
+  assert.ok([...counts.values()].every((count) => count === 4));
+  assert.equal(new Set(routes.map((route) => route.name)).size, routes.length);
+});
+
 test("geographic groups partition the national directory", () => {
   const grouped = administrativeGroups.flatMap((group) => [...group.provinces]);
   assert.equal(grouped.length, 34);
