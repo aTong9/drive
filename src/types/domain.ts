@@ -10,12 +10,22 @@ export type SoundCharacter =
   "waves" | "water" | "birds" | "urban" | "traffic" | "mixed";
 
 export interface Source {
+  platform?: "xiaohongshu" | "official" | "other";
   title: string;
   url: string;
   accessedAt: string;
   supports: Array<
     "existence" | "address" | "coordinate" | "access" | "shooting-value"
   >;
+}
+
+export interface RouteResearchSource {
+  platform: "xiaohongshu" | "official" | "other";
+  title: string;
+  url: string;
+  accessedAt: string;
+  author?: string;
+  evidence: string[];
 }
 
 export interface Location {
@@ -128,7 +138,7 @@ export interface Route {
     youtubePotential: number;
   };
   status: WorkflowStatus;
-  verification: { status: VerificationStatus; note: string };
+  verification: { status: VerificationStatus; note: string; sources?: RouteResearchSource[] };
 }
 
 export interface ShootPlan {

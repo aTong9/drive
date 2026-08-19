@@ -1,0 +1,5126 @@
+{
+  "schemaVersion": "1.0.0",
+  "platform": "xiaohongshu",
+  "updatedAt": "2026-08-20",
+  "entries": [
+    {
+      "province": "北京",
+      "city": "北京",
+      "queries": [
+        "北京 风景公路 自驾路线",
+        "北京 最美公路 跑山",
+        "北京 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "北京周边8条封神山路｜自驾跑山党必冲",
+          "author": "细鱼尾纹",
+          "url": "https://www.xiaohongshu.com/explore/69edf091000000002003b1ed",
+          "accessedAt": "2026-08-20",
+          "decision": "needs-segment-and-safety-verification",
+          "evidence": [
+            "新手组：范崎路、百里山水画廊环线、G109京西段",
+            "进阶组：红井路、玻璃台九曲十八弯、昌赤路、六石路、古龙路",
+            "帖子提示坡陡路窄、连续急弯、悬崖和拥堵差异",
+            "建议早出发且不占道超车"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "天津",
+      "city": "天津",
+      "queries": [
+        "天津 风景公路 自驾路线",
+        "天津 最美公路 跑山",
+        "天津 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "河北",
+      "city": "石家庄",
+      "queries": [
+        "石家庄 风景公路 自驾路线",
+        "石家庄 最美公路 跑山",
+        "石家庄 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "河北",
+      "city": "唐山",
+      "queries": [
+        "唐山 风景公路 自驾路线",
+        "唐山 最美公路 跑山",
+        "唐山 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "河北",
+      "city": "秦皇岛",
+      "queries": [
+        "秦皇岛 风景公路 自驾路线",
+        "秦皇岛 最美公路 跑山",
+        "秦皇岛 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "北戴河｜最美环海公路",
+          "author": "Amy视觉",
+          "url": "https://www.xiaohongshu.com/explore/6a64c7e5000000001303cd3b",
+          "accessedAt": "2026-08-20",
+          "decision": "needs-motor-vehicle-access-and-route-boundary-verification",
+          "evidence": [
+            "正文导航点为老虎石海上公园中海滩，并描述从老虎石公园出口右转约200米后沿海岸线前行",
+            "帖子语境主要是步行、骑行和拍照，不能据此直接生成纯驾车路线",
+            "评论集中询问骑行导航和电动车租赁，作者确认自己租用电动车",
+            "评论对暑期车辆数量和通行情况提出疑问，作者仅表示预计人多，未给出可靠机动车通行结论",
+            "必须另行核验机动车允许路段、单行方向、停车区和旺季临时管制后才能关联正式路线"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "河北",
+      "city": "邯郸",
+      "queries": [
+        "邯郸 风景公路 自驾路线",
+        "邯郸 最美公路 跑山",
+        "邯郸 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "河北",
+      "city": "邢台",
+      "queries": [
+        "邢台 风景公路 自驾路线",
+        "邢台 最美公路 跑山",
+        "邢台 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "河北",
+      "city": "保定",
+      "queries": [
+        "保定 风景公路 自驾路线",
+        "保定 最美公路 跑山",
+        "保定 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "河北",
+      "city": "张家口",
+      "queries": [
+        "张家口 风景公路 自驾路线",
+        "张家口 最美公路 跑山",
+        "张家口 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "河北",
+      "city": "承德",
+      "queries": [
+        "承德 风景公路 自驾路线",
+        "承德 最美公路 跑山",
+        "承德 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "河北",
+      "city": "沧州",
+      "queries": [
+        "沧州 风景公路 自驾路线",
+        "沧州 最美公路 跑山",
+        "沧州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "河北",
+      "city": "廊坊",
+      "queries": [
+        "廊坊 风景公路 自驾路线",
+        "廊坊 最美公路 跑山",
+        "廊坊 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "河北",
+      "city": "衡水",
+      "queries": [
+        "衡水 风景公路 自驾路线",
+        "衡水 最美公路 跑山",
+        "衡水 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "山西",
+      "city": "太原",
+      "queries": [
+        "太原 风景公路 自驾路线",
+        "太原 最美公路 跑山",
+        "太原 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "山西",
+      "city": "大同",
+      "queries": [
+        "大同 风景公路 自驾路线",
+        "大同 最美公路 跑山",
+        "大同 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "山西",
+      "city": "阳泉",
+      "queries": [
+        "阳泉 风景公路 自驾路线",
+        "阳泉 最美公路 跑山",
+        "阳泉 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "山西",
+      "city": "长治",
+      "queries": [
+        "长治 风景公路 自驾路线",
+        "长治 最美公路 跑山",
+        "长治 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "山西",
+      "city": "晋城",
+      "queries": [
+        "晋城 风景公路 自驾路线",
+        "晋城 最美公路 跑山",
+        "晋城 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "山西",
+      "city": "朔州",
+      "queries": [
+        "朔州 风景公路 自驾路线",
+        "朔州 最美公路 跑山",
+        "朔州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "山西",
+      "city": "晋中",
+      "queries": [
+        "晋中 风景公路 自驾路线",
+        "晋中 最美公路 跑山",
+        "晋中 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "山西",
+      "city": "运城",
+      "queries": [
+        "运城 风景公路 自驾路线",
+        "运城 最美公路 跑山",
+        "运城 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "山西",
+      "city": "忻州",
+      "queries": [
+        "忻州 风景公路 自驾路线",
+        "忻州 最美公路 跑山",
+        "忻州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "山西",
+      "city": "临汾",
+      "queries": [
+        "临汾 风景公路 自驾路线",
+        "临汾 最美公路 跑山",
+        "临汾 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "山西",
+      "city": "吕梁",
+      "queries": [
+        "吕梁 风景公路 自驾路线",
+        "吕梁 最美公路 跑山",
+        "吕梁 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "内蒙古",
+      "city": "呼和浩特",
+      "queries": [
+        "呼和浩特 风景公路 自驾路线",
+        "呼和浩特 最美公路 跑山",
+        "呼和浩特 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "内蒙古",
+      "city": "包头",
+      "queries": [
+        "包头 风景公路 自驾路线",
+        "包头 最美公路 跑山",
+        "包头 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "内蒙古",
+      "city": "乌海",
+      "queries": [
+        "乌海 风景公路 自驾路线",
+        "乌海 最美公路 跑山",
+        "乌海 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "内蒙古",
+      "city": "赤峰",
+      "queries": [
+        "赤峰 风景公路 自驾路线",
+        "赤峰 最美公路 跑山",
+        "赤峰 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "沈阳打工人｜周末电车勇闯热阿线达达线✨",
+          "author": "荔枝甜甜饼",
+          "url": "https://www.xiaohongshu.com/explore/6a734b410000000022015cdc",
+          "accessedAt": "2026-08-20",
+          "decision": "needs-seasonal-access-and-parking-verification",
+          "evidence": [
+            "赤峰—热水塘镇—很黑村—黄岗梁观景台—阿斯哈图石林西门",
+            "由热阿线接音乐公路和达达线后前往克什克腾旗",
+            "帖子记录热水塘、阿斯哈图西门和克什克腾旗的电车补能线索",
+            "草原部分区域信号弱，作者建议下载离线地图并准备现金",
+            "路况良好、免费驻车、充电价格和路边停车均属个人当次体验，须当天核验"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "内蒙古",
+      "city": "通辽",
+      "queries": [
+        "通辽 风景公路 自驾路线",
+        "通辽 最美公路 跑山",
+        "通辽 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "内蒙古",
+      "city": "鄂尔多斯",
+      "queries": [
+        "鄂尔多斯 风景公路 自驾路线",
+        "鄂尔多斯 最美公路 跑山",
+        "鄂尔多斯 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "内蒙古",
+      "city": "呼伦贝尔",
+      "queries": [
+        "呼伦贝尔 风景公路 自驾路线",
+        "呼伦贝尔 最美公路 跑山",
+        "呼伦贝尔 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "内蒙古",
+      "city": "巴彦淖尔",
+      "queries": [
+        "巴彦淖尔 风景公路 自驾路线",
+        "巴彦淖尔 最美公路 跑山",
+        "巴彦淖尔 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "内蒙古",
+      "city": "乌兰察布",
+      "queries": [
+        "乌兰察布 风景公路 自驾路线",
+        "乌兰察布 最美公路 跑山",
+        "乌兰察布 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "内蒙古",
+      "city": "兴安",
+      "queries": [
+        "兴安 风景公路 自驾路线",
+        "兴安 最美公路 跑山",
+        "兴安 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "内蒙古",
+      "city": "锡林郭勒",
+      "queries": [
+        "锡林郭勒 风景公路 自驾路线",
+        "锡林郭勒 最美公路 跑山",
+        "锡林郭勒 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "内蒙古",
+      "city": "阿拉善",
+      "queries": [
+        "阿拉善 风景公路 自驾路线",
+        "阿拉善 最美公路 跑山",
+        "阿拉善 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "辽宁",
+      "city": "沈阳",
+      "queries": [
+        "沈阳 风景公路 自驾路线",
+        "沈阳 最美公路 跑山",
+        "沈阳 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "辽宁",
+      "city": "大连",
+      "queries": [
+        "大连 风景公路 自驾路线",
+        "大连 最美公路 跑山",
+        "大连 环线 沿途风景"
+      ],
+      "status": "published",
+      "candidates": [
+        {
+          "title": "大连沿海公路自驾游",
+          "author": "歡囍.",
+          "url": "https://www.xiaohongshu.com/explore/6a0191ae00000000080312fd",
+          "accessedAt": "2026-08-20",
+          "decision": "published-to-ln-dl-xinghai-bangchuidao-coast",
+          "evidence": [
+            "棒棰岛—滨海东路—老虎滩—燕窝岭—北大桥",
+            "滨海西路—银沙滩—傅家庄—星海广场",
+            "建议13时左右出发并在星海广场看日落",
+            "滨海路弯多且帖子提示限速约40至60公里",
+            "北大桥、燕窝岭和银沙滩临时车位须当日核验"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "辽宁",
+      "city": "鞍山",
+      "queries": [
+        "鞍山 风景公路 自驾路线",
+        "鞍山 最美公路 跑山",
+        "鞍山 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "辽宁",
+      "city": "抚顺",
+      "queries": [
+        "抚顺 风景公路 自驾路线",
+        "抚顺 最美公路 跑山",
+        "抚顺 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "辽宁",
+      "city": "本溪",
+      "queries": [
+        "本溪 风景公路 自驾路线",
+        "本溪 最美公路 跑山",
+        "本溪 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "辽宁",
+      "city": "丹东",
+      "queries": [
+        "丹东 风景公路 自驾路线",
+        "丹东 最美公路 跑山",
+        "丹东 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "G331丹东→集安自驾｜醉美山河，景色如画",
+          "author": "甜蜜糖",
+          "url": "https://www.xiaohongshu.com/explore/6a3e2ea4000000001102db32",
+          "accessedAt": "2026-08-20",
+          "decision": "needs-cross-province-segment-and-current-road-verification",
+          "evidence": [
+            "作者给出鸭绿江断桥—虎山长城—音乐公路—上河口国门—绿江村小天池—浑江口观景台—浑江大转弯—集安的连续顺序",
+            "丹东至集安方向大部分靠鸭绿江，反向车道更多贴山；反向观景应停靠正规观景台",
+            "前往绿江村和浑江口需走泡浑线X615，九曲盘山且弯多，新手应改走较平稳的省道线或放弃支线",
+            "作者带老人儿童边走边玩用时近10小时，不能把导航纯驾驶时长当作完整游览时长",
+            "浑江大转弯至高速入口一段作者认为路况较差且景观有限；帖子未证明当前施工、边检和季节性通行状态"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "辽宁",
+      "city": "锦州",
+      "queries": [
+        "锦州 风景公路 自驾路线",
+        "锦州 最美公路 跑山",
+        "锦州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "辽宁",
+      "city": "营口",
+      "queries": [
+        "营口 风景公路 自驾路线",
+        "营口 最美公路 跑山",
+        "营口 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "辽宁",
+      "city": "阜新",
+      "queries": [
+        "阜新 风景公路 自驾路线",
+        "阜新 最美公路 跑山",
+        "阜新 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "辽宁",
+      "city": "辽阳",
+      "queries": [
+        "辽阳 风景公路 自驾路线",
+        "辽阳 最美公路 跑山",
+        "辽阳 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "辽宁",
+      "city": "盘锦",
+      "queries": [
+        "盘锦 风景公路 自驾路线",
+        "盘锦 最美公路 跑山",
+        "盘锦 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "辽宁",
+      "city": "铁岭",
+      "queries": [
+        "铁岭 风景公路 自驾路线",
+        "铁岭 最美公路 跑山",
+        "铁岭 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "辽宁",
+      "city": "朝阳",
+      "queries": [
+        "朝阳 风景公路 自驾路线",
+        "朝阳 最美公路 跑山",
+        "朝阳 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "辽宁",
+      "city": "葫芦岛",
+      "queries": [
+        "葫芦岛 风景公路 自驾路线",
+        "葫芦岛 最美公路 跑山",
+        "葫芦岛 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "吉林",
+      "city": "长春",
+      "queries": [
+        "长春 风景公路 自驾路线",
+        "长春 最美公路 跑山",
+        "长春 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "吉林",
+      "city": "吉林",
+      "queries": [
+        "吉林 风景公路 自驾路线",
+        "吉林 最美公路 跑山",
+        "吉林 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "吉林",
+      "city": "四平",
+      "queries": [
+        "四平 风景公路 自驾路线",
+        "四平 最美公路 跑山",
+        "四平 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "吉林",
+      "city": "辽源",
+      "queries": [
+        "辽源 风景公路 自驾路线",
+        "辽源 最美公路 跑山",
+        "辽源 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "吉林",
+      "city": "通化",
+      "queries": [
+        "通化 风景公路 自驾路线",
+        "通化 最美公路 跑山",
+        "通化 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "吉林",
+      "city": "白山",
+      "queries": [
+        "白山 风景公路 自驾路线",
+        "白山 最美公路 跑山",
+        "白山 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "吉林",
+      "city": "松原",
+      "queries": [
+        "松原 风景公路 自驾路线",
+        "松原 最美公路 跑山",
+        "松原 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "吉林",
+      "city": "白城",
+      "queries": [
+        "白城 风景公路 自驾路线",
+        "白城 最美公路 跑山",
+        "白城 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "吉林",
+      "city": "延边",
+      "queries": [
+        "延边 风景公路 自驾路线",
+        "延边 最美公路 跑山",
+        "延边 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "第二篇｜吉线G331自驾🚗难忘的旅程",
+          "author": "herr s",
+          "url": "https://www.xiaohongshu.com/explore/6a4da3fe000000002003b267",
+          "accessedAt": "2026-08-20",
+          "decision": "needs-mainline-and-mountain-spur-split",
+          "evidence": [
+            "延吉—图们—三合镇—望江阁—南坪镇—崇善军舰山—二道白河顺序",
+            "正文记录约420公里、9至10小时的当次实走体验",
+            "图们江沿线与长白山林区形成连续G331风景段",
+            "评论确认可反向执行并有沿线服务区，但山区信号可能中断",
+            "军舰山支线路陡，驾驶经验不足者可跳过；沿线有野生动物横穿风险"
+          ]
+        },
+        {
+          "title": "长白山+吉林331自驾路线看这一篇就够了",
+          "author": "新新拾光记",
+          "url": "https://www.xiaohongshu.com/explore/68d9224a000000000e024540",
+          "accessedAt": "2026-08-20",
+          "decision": "supporting-season-and-night-driving-comments-only",
+          "evidence": [
+            "视频正文未显示完整连续途经点，不单独用于生成正式路线",
+            "作者在评论中建议G331尽量避免夜间驾驶",
+            "评论确认东光村至三合镇并非全程属于G331，应避免错误道路归属",
+            "秋色时段和人流描述均为个人当次体验"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "黑龙江",
+      "city": "哈尔滨",
+      "queries": [
+        "哈尔滨 风景公路 自驾路线",
+        "哈尔滨 最美公路 跑山",
+        "哈尔滨 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "黑龙江",
+      "city": "齐齐哈尔",
+      "queries": [
+        "齐齐哈尔 风景公路 自驾路线",
+        "齐齐哈尔 最美公路 跑山",
+        "齐齐哈尔 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "黑龙江",
+      "city": "鸡西",
+      "queries": [
+        "鸡西 风景公路 自驾路线",
+        "鸡西 最美公路 跑山",
+        "鸡西 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "黑龙江",
+      "city": "鹤岗",
+      "queries": [
+        "鹤岗 风景公路 自驾路线",
+        "鹤岗 最美公路 跑山",
+        "鹤岗 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "黑龙江",
+      "city": "双鸭山",
+      "queries": [
+        "双鸭山 风景公路 自驾路线",
+        "双鸭山 最美公路 跑山",
+        "双鸭山 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "黑龙江",
+      "city": "大庆",
+      "queries": [
+        "大庆 风景公路 自驾路线",
+        "大庆 最美公路 跑山",
+        "大庆 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "哈尔滨到大庆S214环湖环草原路线",
+          "author": "李嘿嘿",
+          "url": "https://www.xiaohongshu.com/explore/6a48efab0000000007013308",
+          "accessedAt": "2026-08-20",
+          "decision": "needs-waypoint-mapping-and-current-road-check",
+          "evidence": [
+            "哈尔滨经国道约4小时到连环湖的个人体验",
+            "连环湖—固山贝子草原约16分钟的个人体验",
+            "导航胡吉后沿S214至胡吉吐莫镇",
+            "沿线测速限速及胡吉吐莫镇充电站线索",
+            "车程、充电速度与开放状态须当日复核"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "黑龙江",
+      "city": "伊春",
+      "queries": [
+        "伊春 风景公路 自驾路线",
+        "伊春 最美公路 跑山",
+        "伊春 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "夏季小兴安岭7天自驾全攻略｜解答出行误区",
+          "author": "向阳的小竹",
+          "url": "https://www.xiaohongshu.com/explore/6a5cd012000000001d00cd7e",
+          "accessedAt": "2026-08-20",
+          "decision": "needs-paved-mainline-and-dirt-section-split",
+          "evidence": [
+            "哈尔滨—伊春—汤旺河—嘉荫—茅兰沟—伊春—鹤岗—佳木斯顺序",
+            "汤旺河—嘉荫串联松江源湿地、223界碑与黑龙江江岸",
+            "嘉荫—茅兰沟以G331沿江景观和原始森林为核心风景段",
+            "评论确认嘉荫至茅兰沟存在颠簸、扬尘且影响视线的纯土路段",
+            "哈尔滨至伊春作者实际选择鹤哈高速，乌带公路或桃南公路不能由该帖直接证明"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "黑龙江",
+      "city": "佳木斯",
+      "queries": [
+        "佳木斯 风景公路 自驾路线",
+        "佳木斯 最美公路 跑山",
+        "佳木斯 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "黑龙江",
+      "city": "七台河",
+      "queries": [
+        "七台河 风景公路 自驾路线",
+        "七台河 最美公路 跑山",
+        "七台河 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "黑龙江",
+      "city": "牡丹江",
+      "queries": [
+        "牡丹江 风景公路 自驾路线",
+        "牡丹江 最美公路 跑山",
+        "牡丹江 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "黑龙江",
+      "city": "黑河",
+      "queries": [
+        "黑河 风景公路 自驾路线",
+        "黑河 最美公路 跑山",
+        "黑河 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "黑龙江",
+      "city": "绥化",
+      "queries": [
+        "绥化 风景公路 自驾路线",
+        "绥化 最美公路 跑山",
+        "绥化 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "黑龙江",
+      "city": "大兴安岭",
+      "queries": [
+        "大兴安岭 风景公路 自驾路线",
+        "大兴安岭 最美公路 跑山",
+        "大兴安岭 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "上海",
+      "city": "上海",
+      "queries": [
+        "上海 风景公路 自驾路线",
+        "上海 最美公路 跑山",
+        "上海 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "江苏",
+      "city": "南京",
+      "queries": [
+        "南京 风景公路 自驾路线",
+        "南京 最美公路 跑山",
+        "南京 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "江苏",
+      "city": "无锡",
+      "queries": [
+        "无锡 风景公路 自驾路线",
+        "无锡 最美公路 跑山",
+        "无锡 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "江苏",
+      "city": "徐州",
+      "queries": [
+        "徐州 风景公路 自驾路线",
+        "徐州 最美公路 跑山",
+        "徐州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "江苏",
+      "city": "常州",
+      "queries": [
+        "常州 风景公路 自驾路线",
+        "常州 最美公路 跑山",
+        "常州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "江苏",
+      "city": "苏州",
+      "queries": [
+        "苏州 风景公路 自驾路线",
+        "苏州 最美公路 跑山",
+        "苏州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "江苏",
+      "city": "南通",
+      "queries": [
+        "南通 风景公路 自驾路线",
+        "南通 最美公路 跑山",
+        "南通 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "江苏",
+      "city": "连云港",
+      "queries": [
+        "连云港 风景公路 自驾路线",
+        "连云港 最美公路 跑山",
+        "连云港 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "连云港🌊最难戒断的连岛自驾2小时",
+          "author": "团子",
+          "url": "https://www.xiaohongshu.com/explore/69fbbcc40000000035021149",
+          "accessedAt": "2026-08-20",
+          "decision": "needs-current-one-way-control-and-legal-parking-verification",
+          "evidence": [
+            "帖子明确为西连岛纯驾车路线，并按庙后湾路1号—连岛来信或听风海集—老障头—堤头灯塔给出顺序",
+            "节假日西连岛可能实行逆时针单向交通组织，发布前必须核验当天管制方向",
+            "老障头和堤头灯塔有停车场；作者所称路边随停不能作为平台停车指引",
+            "评论确认道路本身较窄，节假日车辆路边停放会造成拥堵，应优先使用明确停车区",
+            "东连岛收费景区与西连岛免费自驾段必须分开，黑狗洞等礁石点还受潮汐和防滑安全限制"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "江苏",
+      "city": "淮安",
+      "queries": [
+        "淮安 风景公路 自驾路线",
+        "淮安 最美公路 跑山",
+        "淮安 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "江苏",
+      "city": "盐城",
+      "queries": [
+        "盐城 风景公路 自驾路线",
+        "盐城 最美公路 跑山",
+        "盐城 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "三天两晚～盐城黄海一号公路自驾超全攻略",
+          "author": "水韵江苏",
+          "url": "https://www.xiaohongshu.com/explore/68eddbdb000000000300e06e",
+          "accessedAt": "2026-08-20",
+          "decision": "needs-road-map-and-protected-area-access-verification",
+          "evidence": [
+            "帖子以黄海1号公路为主线，给出泊心黄沙港—丹顶鹤湿地生态旅游区的第一日分段",
+            "第二日串联日出海湾—中华麋鹿园—野鹿荡，第三日串联黄海森林公园—条子泥—巴斗渔乡",
+            "湿地、水杉和滩涂颜色具有明确季节窗口，宣传图片不能作为全年实景承诺",
+            "评论多次询问具体道路和自驾地图，正文没有足够道路编号与转向点，不能据此直接发布连续导航线",
+            "丹顶鹤、麋鹿及条子泥属于生态敏感区域，需核验预约、开放时间、车辆边界和临时保护管制"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "江苏",
+      "city": "扬州",
+      "queries": [
+        "扬州 风景公路 自驾路线",
+        "扬州 最美公路 跑山",
+        "扬州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "江苏",
+      "city": "镇江",
+      "queries": [
+        "镇江 风景公路 自驾路线",
+        "镇江 最美公路 跑山",
+        "镇江 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "江苏",
+      "city": "泰州",
+      "queries": [
+        "泰州 风景公路 自驾路线",
+        "泰州 最美公路 跑山",
+        "泰州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "江苏",
+      "city": "宿迁",
+      "queries": [
+        "宿迁 风景公路 自驾路线",
+        "宿迁 最美公路 跑山",
+        "宿迁 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "浙江",
+      "city": "杭州",
+      "queries": [
+        "杭州 风景公路 自驾路线",
+        "杭州 最美公路 跑山",
+        "杭州 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "杭州不止有西湖，10条zui美自驾游路线",
+          "author": "金弹子游记",
+          "url": "https://www.xiaohongshu.com/explore/68de53ec0000000004010331",
+          "accessedAt": "2026-08-20",
+          "decision": "needs-waypoint-mapping",
+          "evidence": [
+            "千岛湖淳杨线与淳开线",
+            "S219分水江环线",
+            "浙西天路与皖浙天路可组合二日游",
+            "S218苕溪避暑线",
+            "西湖环湖道路顺序"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "浙江",
+      "city": "宁波",
+      "queries": [
+        "宁波 风景公路 自驾路线",
+        "宁波 最美公路 跑山",
+        "宁波 环线 沿途风景"
+      ],
+      "status": "published",
+      "candidates": [
+        {
+          "title": "宁波象山3天2晚沿海自驾，人少海蓝",
+          "author": "出逃计划手册",
+          "url": "https://www.xiaohongshu.com/explore/69d8543600000000220256cc",
+          "accessedAt": "2026-08-20",
+          "decision": "published-to-zj-nb-songlan-shipu-coast",
+          "evidence": [
+            "石浦渔港古城与半边山日落",
+            "松兰山滨海度假区与沿海公路",
+            "全程沿海环线、轿车友好且山路少",
+            "沿海公路禁止为拍照路边停车",
+            "台风、潮汐、轮渡和景区车行边界须当日核验"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "浙江",
+      "city": "温州",
+      "queries": [
+        "温州 风景公路 自驾路线",
+        "温州 最美公路 跑山",
+        "温州 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "温州苍南168自驾路线攻略",
+          "author": "我见青山",
+          "url": "https://www.xiaohongshu.com/explore/6a633920000000001c0127d2",
+          "accessedAt": "2026-08-20",
+          "decision": "needs-visible-map-waypoints-and-current-closure-verification",
+          "evidence": [
+            "评论将月亮湾沙滩或霞关至168环海驿站识别为主要海岸精华段",
+            "评论补充罗家山村可作为无尽蓝附近的候选途经点，但正文可访问文本未显示完整路线图节点",
+            "正反方向均有人实走，反向时副驾一侧更接近海岸，但不能仅凭评论确定默认方向",
+            "近期评论报告两处道路被临时封堵并需要折返绕行，发布前必须检查当天通行状态",
+            "百余公里和充电桩信息均缺乏可核验的精确位置，不应写成保证性里程或补能承诺"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "浙江",
+      "city": "嘉兴",
+      "queries": [
+        "嘉兴 风景公路 自驾路线",
+        "嘉兴 最美公路 跑山",
+        "嘉兴 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "浙江",
+      "city": "湖州",
+      "queries": [
+        "湖州 风景公路 自驾路线",
+        "湖州 最美公路 跑山",
+        "湖州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "浙江",
+      "city": "绍兴",
+      "queries": [
+        "绍兴 风景公路 自驾路线",
+        "绍兴 最美公路 跑山",
+        "绍兴 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "浙江",
+      "city": "金华",
+      "queries": [
+        "金华 风景公路 自驾路线",
+        "金华 最美公路 跑山",
+        "金华 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "浙江",
+      "city": "衢州",
+      "queries": [
+        "衢州 风景公路 自驾路线",
+        "衢州 最美公路 跑山",
+        "衢州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "浙江",
+      "city": "舟山",
+      "queries": [
+        "舟山 风景公路 自驾路线",
+        "舟山 最美公路 跑山",
+        "舟山 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "浙江",
+      "city": "台州",
+      "queries": [
+        "台州 风景公路 自驾路线",
+        "台州 最美公路 跑山",
+        "台州 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "台州一号公路玉环段最详攻略",
+          "author": "D a",
+          "url": "https://www.xiaohongshu.com/explore/6a5b30a7000000000903590f",
+          "accessedAt": "2026-08-20",
+          "decision": "needs-current-one-way-and-parking-verification",
+          "evidence": [
+            "正文给出环海村—柒墨咖啡馆—龙湾灯塔（大岩头）—鲜迭沙滩—鲜岭村—牛头颈的连续顺序",
+            "龙脊线精华段为鲜岭村至牛头颈单行线，不能反向规划",
+            "评论确认抵达牛头颈后继续向前即可沿环线返回，不需要逆行折返",
+            "作者当次实走称环海村至牛头颈纯驾驶约30分钟，但游览、徒步和停车时间应另计",
+            "龙湾村党群服务中心停车场等停车信息需核验当前开放规则，周末不拥堵的个人体验不能推广到所有暑期日期"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "浙江",
+      "city": "丽水",
+      "queries": [
+        "丽水 风景公路 自驾路线",
+        "丽水 最美公路 跑山",
+        "丽水 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "安徽",
+      "city": "合肥",
+      "queries": [
+        "合肥 风景公路 自驾路线",
+        "合肥 最美公路 跑山",
+        "合肥 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "安徽",
+      "city": "芜湖",
+      "queries": [
+        "芜湖 风景公路 自驾路线",
+        "芜湖 最美公路 跑山",
+        "芜湖 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "安徽",
+      "city": "蚌埠",
+      "queries": [
+        "蚌埠 风景公路 自驾路线",
+        "蚌埠 最美公路 跑山",
+        "蚌埠 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "安徽",
+      "city": "淮南",
+      "queries": [
+        "淮南 风景公路 自驾路线",
+        "淮南 最美公路 跑山",
+        "淮南 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "安徽",
+      "city": "马鞍山",
+      "queries": [
+        "马鞍山 风景公路 自驾路线",
+        "马鞍山 最美公路 跑山",
+        "马鞍山 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "安徽",
+      "city": "淮北",
+      "queries": [
+        "淮北 风景公路 自驾路线",
+        "淮北 最美公路 跑山",
+        "淮北 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "安徽",
+      "city": "铜陵",
+      "queries": [
+        "铜陵 风景公路 自驾路线",
+        "铜陵 最美公路 跑山",
+        "铜陵 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "安徽",
+      "city": "安庆",
+      "queries": [
+        "安庆 风景公路 自驾路线",
+        "安庆 最美公路 跑山",
+        "安庆 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "安徽",
+      "city": "黄山",
+      "queries": [
+        "黄山 风景公路 自驾路线",
+        "黄山 最美公路 跑山",
+        "黄山 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "安徽",
+      "city": "滁州",
+      "queries": [
+        "滁州 风景公路 自驾路线",
+        "滁州 最美公路 跑山",
+        "滁州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "安徽",
+      "city": "阜阳",
+      "queries": [
+        "阜阳 风景公路 自驾路线",
+        "阜阳 最美公路 跑山",
+        "阜阳 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "安徽",
+      "city": "宿州",
+      "queries": [
+        "宿州 风景公路 自驾路线",
+        "宿州 最美公路 跑山",
+        "宿州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "安徽",
+      "city": "六安",
+      "queries": [
+        "六安 风景公路 自驾路线",
+        "六安 最美公路 跑山",
+        "六安 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "安徽",
+      "city": "亳州",
+      "queries": [
+        "亳州 风景公路 自驾路线",
+        "亳州 最美公路 跑山",
+        "亳州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "安徽",
+      "city": "池州",
+      "queries": [
+        "池州 风景公路 自驾路线",
+        "池州 最美公路 跑山",
+        "池州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "安徽",
+      "city": "宣城",
+      "queries": [
+        "宣城 风景公路 自驾路线",
+        "宣城 最美公路 跑山",
+        "宣城 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "皖南川藏线直观攻略，去皖南看这一篇就够了",
+          "author": "一颗菜菜籽",
+          "url": "https://www.xiaohongshu.com/explore/6a7043910000000025007ab8",
+          "accessedAt": "2026-08-20",
+          "decision": "needs-image-waypoints-and-narrow-road-verification",
+          "evidence": [
+            "作者实走两天一晚东进西出并在板桥村住宿",
+            "建议逐个景点分段导航，避免连续导航错过入口",
+            "正文串联红杉林、板桥村、六道湾与月亮湾等核心节点",
+            "评论确认六道湾道路较窄、会车困难，假期停车和拥堵问题明显",
+            "评论质疑月亮湾经宋村至水墨汀溪的窄路，不应在未核验前作为默认连接"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "福建",
+      "city": "福州",
+      "queries": [
+        "福州 风景公路 自驾路线",
+        "福州 最美公路 跑山",
+        "福州 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "亲测自驾平潭岛，保姆级攻略来啦",
+          "author": "做自己的太阳",
+          "url": "https://www.xiaohongshu.com/explore/6a4b83970000000022014f1a",
+          "accessedAt": "2026-08-20",
+          "decision": "needs-current-closure-direction-and-legal-parking-verification",
+          "evidence": [
+            "北线不应直接导航F2观景台，作者称上山入口已封，改以北部湾生态廊道F1停车场为入口",
+            "北线继续串联长江澳风车田沙滩停车场和镜沙，南线串联红岩海滨山庄—68海里机位—70海里火车海岸公园—犯船礁",
+            "评论称暑期车辆极多，并有北部生态廊道误入狭窄上山路、会车困难的反馈",
+            "停车收费、免费停车及过夜驻车均为作者当次体验，不能作为当前官方许可或价格保证",
+            "作者明确提醒单独女性不宜车内过夜；平台不得把两岸法治文化园写成安全露营地"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "福建",
+      "city": "厦门",
+      "queries": [
+        "厦门 风景公路 自驾路线",
+        "厦门 最美公路 跑山",
+        "厦门 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "厦门环岛自驾游路线",
+          "author": "Remix",
+          "url": "https://www.xiaohongshu.com/explore/696b5f41000000000903afa8",
+          "accessedAt": "2026-08-20",
+          "decision": "needs-waypoint-and-driving-boundary-mapping",
+          "evidence": [
+            "厦门大桥—海堤公园—健康步道—海湾公园—海滨公园",
+            "演武大桥—白城沙滩—白石炮台—黄厝沙滩—会展中心",
+            "五缘大桥—集美大桥闭合环线",
+            "评论仅支持黄厝辅路当次停车体验，不能作为长期停车保证"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "福建",
+      "city": "莆田",
+      "queries": [
+        "莆田 风景公路 自驾路线",
+        "莆田 最美公路 跑山",
+        "莆田 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "福建",
+      "city": "三明",
+      "queries": [
+        "三明 风景公路 自驾路线",
+        "三明 最美公路 跑山",
+        "三明 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "自驾三明市泰宁县注意事项",
+          "author": "油条的旅行计划",
+          "url": "https://www.xiaohongshu.com/explore/68b89b3a000000001d039c9f",
+          "accessedAt": "2026-08-20",
+          "decision": "conflicting-road-and-parking-claims-require-independent-verification",
+          "evidence": [
+            "正文提供泰宁古城至大金湖、寨下大峡谷的候选自驾方向，并提醒山区信号弱、雨天谨慎驾驶",
+            "正文称前往大金湖与寨下大峡谷部分路段弯急，但当地评论明确反驳大金湖段为平坦宽路且没有急弯，不能合并成统一路况结论",
+            "正文与评论对大金湖停车日费分别给出15元和10元，价格冲突且会变化，平台不得发布保证性收费信息",
+            "建议停周边小巷不等于合法停车指引，正式路线只能推荐明确停车场或允许停车的位置",
+            "大金湖游船、峡谷徒步与漂流属于景区体验，不是纯驾车路线；帖子也未提供道路编号和连续公路节点"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "福建",
+      "city": "泉州",
+      "queries": [
+        "泉州 风景公路 自驾路线",
+        "泉州 最美公路 跑山",
+        "泉州 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "🚗泉州自驾｜祥芝湾×小威海，一天玩转“双海景",
+          "author": "闽南自驾小明",
+          "url": "https://www.xiaohongshu.com/explore/69d79111000000002301d071",
+          "accessedAt": "2026-08-20",
+          "decision": "needs-legal-parking-and-waypoint-road-verification",
+          "evidence": [
+            "路线为泉州市区—沿海大通道—小威海（东大垵）—G228北行—祥芝湾—海边灯塔—返程",
+            "正文补充祥芝渔港、小威海斜坡、东大垵海岸线等观景节点，两个主要区域均在祥芝镇",
+            "作者称路况适合新手属于主观体验，需核对当前道路等级、限速和施工",
+            "作者所称路边免费停车、看到风景随时靠边停不能作为合法停车指引，应只推荐明确停车区",
+            "帖子评论区缺少有效路况或停车复核，不能据此直接发布正式路线"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "福建",
+      "city": "漳州",
+      "queries": [
+        "漳州 风景公路 自驾路线",
+        "漳州 最美公路 跑山",
+        "漳州 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "东山岛很美，坑很大",
+          "author": "潮汕叮咚鸡",
+          "url": "https://www.xiaohongshu.com/explore/6a4e1130000000001c025a2b",
+          "accessedAt": "2026-08-20",
+          "decision": "needs-current-one-way-signage-and-navigation-verification",
+          "evidence": [
+            "作者从南门湾景区停车场驶出后在路口左转，进入已由双向改为单向的道路并被记录",
+            "多名评论者报告在同一路段误入单行道，其中有人称即使跟随导航仍被处罚",
+            "评论补充该路段改为单行已久，平台不得沿用旧的双向通行经验",
+            "夜间禁行标志可见性及摊位灯光遮挡属于用户现场描述，仍需以当前标志、标线和交管公告为准",
+            "南门湾评论同时反映车多人多；发布东山岛驾车线前须明确停车场出口后的合法行驶方向，不能只给景点顺序"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "福建",
+      "city": "南平",
+      "queries": [
+        "南平 风景公路 自驾路线",
+        "南平 最美公路 跑山",
+        "南平 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "福建",
+      "city": "龙岩",
+      "queries": [
+        "龙岩 风景公路 自驾路线",
+        "龙岩 最美公路 跑山",
+        "龙岩 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "纯个人向福建土楼自驾攻略",
+          "author": "蓝色的小红",
+          "url": "https://www.xiaohongshu.com/explore/6a53c58a000000001101ed33",
+          "accessedAt": "2026-08-20",
+          "decision": "needs-map-waypoints-jurisdiction-and-legal-parking-verification",
+          "evidence": [
+            "作者按图示顺序从云水谣附近出发，经梅林古镇、顺裕楼、土楼王景区、衍香楼至田螺坑，形成跨南靖与永定片区的候选串联线",
+            "正文提及顺裕楼至河坑土楼的延伸以及土楼王至衍香楼沿途多个土楼，但可访问文本没有道路编号和图中坐标",
+            "作者评价山路稍绕但景区附近道路整修过、个人体验为较好驾驶；这不能替代当前施工、限行和车型条件核验",
+            "评论明确称多个村庄没有停车场且不太好停车，正式路线不得默认车辆可驶入村内或沿路停放",
+            "门票、开放区域和免费观景点属于当次体验且可能变化；驾车线需将龙岩与漳州管辖段分别校验后再发布"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "福建",
+      "city": "宁德",
+      "queries": [
+        "宁德 风景公路 自驾路线",
+        "宁德 最美公路 跑山",
+        "宁德 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "霞浦必自驾｜东海1号最美沿海公路✨",
+          "author": "猫猫杂货铺~L",
+          "url": "https://www.xiaohongshu.com/explore/6a704f3f0000000028007d35",
+          "accessedAt": "2026-08-20",
+          "decision": "needs-catalog-endpoints-and-tide-safety-mapping",
+          "evidence": [
+            "海尾角—丹湾观景台—大京沙滩—下尾岛—闾峡灯塔连续点位",
+            "正文明确以东海1号滨海观光道为驾车主线",
+            "海湾、悬崖、沙滩、海蚀地貌和灯塔日落构成沿路景观",
+            "下尾岛海蚀洞仅退潮可进入，不能作为车辆通行点",
+            "台风、潮汐、停车、临崖路段和景点开放须当天核验"
+          ]
+        },
+        {
+          "title": "霞浦东海一号公路自驾七站深度攻略全指南版",
+          "author": "羊空间民宿（霞浦三沙东壁小皓沙滩）",
+          "url": "https://www.xiaohongshu.com/explore/69319c1b000000000d03e834",
+          "accessedAt": "2026-08-20",
+          "decision": "needs-return-direction-tide-parking-and-vehicle-class-verification",
+          "evidence": [
+            "正文给出霞浦县城—高罗沙滩—积石沙滩—海尾角—大京沙滩—丹湾观景台—下尾岛—闾峡灯塔的连续七站顺序",
+            "作者在评论中建议抵达闾峡灯塔后原路返回，因此正文所谓环海公路不能直接理解为已验证的闭合环线",
+            "下尾岛海蚀洞仅退潮时可进入，属于下车步行且有潮汐风险的内容，不计入纯驾车路段",
+            "评论中的大几十公里、一天或三天两晚等表述不一致，不能作为精确里程和用时数据",
+            "作者声称重卡房车可通行及沿线有房车基地，但未给出限高、限宽或基地位置，须独立核验；停车点也未明确"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "江西",
+      "city": "南昌",
+      "queries": [
+        "南昌 风景公路 自驾路线",
+        "南昌 最美公路 跑山",
+        "南昌 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "江西",
+      "city": "景德镇",
+      "queries": [
+        "景德镇 风景公路 自驾路线",
+        "景德镇 最美公路 跑山",
+        "景德镇 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "江西",
+      "city": "萍乡",
+      "queries": [
+        "萍乡 风景公路 自驾路线",
+        "萍乡 最美公路 跑山",
+        "萍乡 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "江西",
+      "city": "九江",
+      "queries": [
+        "九江 风景公路 自驾路线",
+        "九江 最美公路 跑山",
+        "九江 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "这是鄱阳湖永吴水上公路每日实时贴",
+          "author": "juices",
+          "url": "https://www.xiaohongshu.com/explore/6a47daef000000000f0166b3",
+          "accessedAt": "2026-08-20",
+          "decision": "safety-source-do-not-recommend-flooded-driving",
+          "evidence": [
+            "帖子持续记录永吴公路水位变化，证明景观高度依赖汛期和实时水位",
+            "作者明确提醒水漫路面属于洪水场景而非稳定的娱乐驾驶条件",
+            "车辆可能进水抛锚，急流还会带来蛇虫、垃圾及血吸虫暴露风险",
+            "评论显示水位可在数日内由未漫路变化至与路面齐平，历史实况不能代替当天管制",
+            "平台只能推荐未封闭、未积水且官方允许通行的正常路面；不得引导压水或涉水驾驶"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "江西",
+      "city": "新余",
+      "queries": [
+        "新余 风景公路 自驾路线",
+        "新余 最美公路 跑山",
+        "新余 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "江西",
+      "city": "鹰潭",
+      "queries": [
+        "鹰潭 风景公路 自驾路线",
+        "鹰潭 最美公路 跑山",
+        "鹰潭 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "江西",
+      "city": "赣州",
+      "queries": [
+        "赣州 风景公路 自驾路线",
+        "赣州 最美公路 跑山",
+        "赣州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "江西",
+      "city": "吉安",
+      "queries": [
+        "吉安 风景公路 自驾路线",
+        "吉安 最美公路 跑山",
+        "吉安 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "江西",
+      "city": "宜春",
+      "queries": [
+        "宜春 风景公路 自驾路线",
+        "宜春 最美公路 跑山",
+        "宜春 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "江西",
+      "city": "抚州",
+      "queries": [
+        "抚州 风景公路 自驾路线",
+        "抚州 最美公路 跑山",
+        "抚州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "江西",
+      "city": "上饶",
+      "queries": [
+        "上饶 风景公路 自驾路线",
+        "上饶 最美公路 跑山",
+        "上饶 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "山东",
+      "city": "济南",
+      "queries": [
+        "济南 风景公路 自驾路线",
+        "济南 最美公路 跑山",
+        "济南 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "山东",
+      "city": "青岛",
+      "queries": [
+        "青岛 风景公路 自驾路线",
+        "青岛 最美公路 跑山",
+        "青岛 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "崂山环海路四种进入方式保姆级攻略",
+          "author": "刘小羊的小生活",
+          "url": "https://www.xiaohongshu.com/explore/6a450e6a000000001700bea0",
+          "accessedAt": "2026-08-20",
+          "decision": "needs-access-verification",
+          "evidence": [
+            "崂山环海路进入方式",
+            "评论集中询问预约报备",
+            "仰口方向进入与垭口折返问题待官方核验"
+          ]
+        },
+        {
+          "title": "青岛崂山环海自驾｜不走回头路路线",
+          "author": "小红书作者（页面未显示）",
+          "url": "https://www.xiaohongshu.com/explore/69ad4243000000000e00f963",
+          "accessedAt": "2026-08-20",
+          "decision": "hold-until-official-access-verification",
+          "evidence": [
+            "仰口检查站—泉心河沙滩—青山渔村—垭口—流清河—沙子口",
+            "全程约30公里、社区建议慢游2至3小时",
+            "垭口至流清河段明确禁停",
+            "帖子关于7时前免报备和商家代报备的说法必须由官方渠道核实",
+            "评论出现路边停车建议，不纳入平台安全路线"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "山东",
+      "city": "淄博",
+      "queries": [
+        "淄博 风景公路 自驾路线",
+        "淄博 最美公路 跑山",
+        "淄博 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "山东",
+      "city": "枣庄",
+      "queries": [
+        "枣庄 风景公路 自驾路线",
+        "枣庄 最美公路 跑山",
+        "枣庄 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "山东",
+      "city": "东营",
+      "queries": [
+        "东营 风景公路 自驾路线",
+        "东营 最美公路 跑山",
+        "东营 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "你有坝上草原，我有坝上公路！",
+          "author": "东营文旅",
+          "url": "https://www.xiaohongshu.com/explore/6a7d7406000000002402d9a1",
+          "accessedAt": "2026-08-20",
+          "decision": "needs-exact-road-numbers-and-legal-stopping-points",
+          "evidence": [
+            "东营文旅明确推荐从龙居自驾，经黄河口镇前往黄河入海口",
+            "沿线主要景观为黄河河风、湿地和坝上公路，属于以道路景观为核心的驾驶候选",
+            "评论有近期实走反馈，确认道路景观良好但不能随意停车",
+            "正文没有道路编号、关键转向点和合法停车观景点，不能仅凭起终点发布正式路线",
+            "进入黄河口生态区域前仍需核验预约、景区车辆通行和季节性保护管制"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "山东",
+      "city": "烟台",
+      "queries": [
+        "烟台 风景公路 自驾路线",
+        "烟台 最美公路 跑山",
+        "烟台 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "烟台滨海路真的，开车是享受",
+          "author": "葡萄老爹",
+          "url": "https://www.xiaohongshu.com/explore/6a473569000000000702e6f3",
+          "accessedAt": "2026-08-20",
+          "decision": "needs-east-west-segment-waypoint-mapping",
+          "evidence": [
+            "作者明确为自驾实走，并将烟台滨海路拆分为东段和西段",
+            "东段紧贴核心城区和海岸，正文提及渔人码头、烟台山及多个海水浴场",
+            "西段以约十公里沙滩和开阔海景为主要景观，视频为作者驾车拍摄",
+            "两段合计约40公里是作者估算，不能作为平台精确里程",
+            "帖子没有给出东西段衔接点和完整连续导航顺序，需补充道路节点后才能关联现有蓬莱—养马岛长途路线"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "山东",
+      "city": "潍坊",
+      "queries": [
+        "潍坊 风景公路 自驾路线",
+        "潍坊 最美公路 跑山",
+        "潍坊 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "山东",
+      "city": "济宁",
+      "queries": [
+        "济宁 风景公路 自驾路线",
+        "济宁 最美公路 跑山",
+        "济宁 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "山东",
+      "city": "泰安",
+      "queries": [
+        "泰安 风景公路 自驾路线",
+        "泰安 最美公路 跑山",
+        "泰安 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "山东",
+      "city": "威海",
+      "queries": [
+        "威海 风景公路 自驾路线",
+        "威海 最美公路 跑山",
+        "威海 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "威海自驾｜山海自驾公路干货",
+          "author": "瓜子不甜",
+          "url": "https://www.xiaohongshu.com/explore/6a6cdecc0000000025005ac4",
+          "accessedAt": "2026-08-20",
+          "decision": "needs-road-boundary-and-parking-verification",
+          "evidence": [
+            "作者给出北向南的环海顺序：半月湾—环海路—猫头山第三观景台—恐龙湾—那香海，并建议折返小石岛看日落",
+            "正文称当次体验为全程柏油路，猫头山一带存在临海窄路和连续弯道",
+            "部分观景点停车位有限，只能使用专用停车区，禁止在弯道或窄路随意停车拍照",
+            "进入环海段前应补充燃油和物资；沿途商业设施较少",
+            "约60公里及手机信号稳定均为作者个人当次体验，需用当前道路和导航数据复核"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "山东",
+      "city": "日照",
+      "queries": [
+        "日照 风景公路 自驾路线",
+        "日照 最美公路 跑山",
+        "日照 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "答应我！来日照一定要走这条海边公路 yyds",
+          "author": "四季旅行",
+          "url": "https://www.xiaohongshu.com/explore/69bf9019000000001a022794",
+          "accessedAt": "2026-08-20",
+          "decision": "parking-anchored-mixed-mode-needs-driving-segment-mapping",
+          "evidence": [
+            "正文给出阳光海岸6号停车场和大泉沟渔港停车场两个驾车锚点，并指向碧海路沿海公路",
+            "作者在评论中建议住森林公园附近时由北向南沿海行驶，但未给出可复现的完整机动车途经点",
+            "万平口1号门至森林公园约20公里的描述针对骑行，不能作为纯驾车路线里程",
+            "阳光海岸6号停车场容量较小，停满后应改用北侧大泉沟渔港停车场，不得沿路违停",
+            "日出时间和天气为动态条件，平台只能保留观景建议，不能承诺一定看到日出"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "山东",
+      "city": "临沂",
+      "queries": [
+        "临沂 风景公路 自驾路线",
+        "临沂 最美公路 跑山",
+        "临沂 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "山东",
+      "city": "德州",
+      "queries": [
+        "德州 风景公路 自驾路线",
+        "德州 最美公路 跑山",
+        "德州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "山东",
+      "city": "聊城",
+      "queries": [
+        "聊城 风景公路 自驾路线",
+        "聊城 最美公路 跑山",
+        "聊城 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "山东",
+      "city": "滨州",
+      "queries": [
+        "滨州 风景公路 自驾路线",
+        "滨州 最美公路 跑山",
+        "滨州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "山东",
+      "city": "菏泽",
+      "queries": [
+        "菏泽 风景公路 自驾路线",
+        "菏泽 最美公路 跑山",
+        "菏泽 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "河南",
+      "city": "郑州",
+      "queries": [
+        "郑州 风景公路 自驾路线",
+        "郑州 最美公路 跑山",
+        "郑州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "河南",
+      "city": "开封",
+      "queries": [
+        "开封 风景公路 自驾路线",
+        "开封 最美公路 跑山",
+        "开封 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "河南",
+      "city": "洛阳",
+      "queries": [
+        "洛阳 风景公路 自驾路线",
+        "洛阳 最美公路 跑山",
+        "洛阳 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "河南",
+      "city": "平顶山",
+      "queries": [
+        "平顶山 风景公路 自驾路线",
+        "平顶山 最美公路 跑山",
+        "平顶山 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "河南",
+      "city": "安阳",
+      "queries": [
+        "安阳 风景公路 自驾路线",
+        "安阳 最美公路 跑山",
+        "安阳 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "河南",
+      "city": "鹤壁",
+      "queries": [
+        "鹤壁 风景公路 自驾路线",
+        "鹤壁 最美公路 跑山",
+        "鹤壁 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "河南",
+      "city": "新乡",
+      "queries": [
+        "新乡 风景公路 自驾路线",
+        "新乡 最美公路 跑山",
+        "新乡 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "河南",
+      "city": "焦作",
+      "queries": [
+        "焦作 风景公路 自驾路线",
+        "焦作 最美公路 跑山",
+        "焦作 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "河南",
+      "city": "濮阳",
+      "queries": [
+        "濮阳 风景公路 自驾路线",
+        "濮阳 最美公路 跑山",
+        "濮阳 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "河南",
+      "city": "许昌",
+      "queries": [
+        "许昌 风景公路 自驾路线",
+        "许昌 最美公路 跑山",
+        "许昌 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "河南",
+      "city": "漯河",
+      "queries": [
+        "漯河 风景公路 自驾路线",
+        "漯河 最美公路 跑山",
+        "漯河 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "河南",
+      "city": "三门峡",
+      "queries": [
+        "三门峡 风景公路 自驾路线",
+        "三门峡 最美公路 跑山",
+        "三门峡 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "河南",
+      "city": "南阳",
+      "queries": [
+        "南阳 风景公路 自驾路线",
+        "南阳 最美公路 跑山",
+        "南阳 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "河南",
+      "city": "商丘",
+      "queries": [
+        "商丘 风景公路 自驾路线",
+        "商丘 最美公路 跑山",
+        "商丘 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "河南",
+      "city": "信阳",
+      "queries": [
+        "信阳 风景公路 自驾路线",
+        "信阳 最美公路 跑山",
+        "信阳 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "河南",
+      "city": "周口",
+      "queries": [
+        "周口 风景公路 自驾路线",
+        "周口 最美公路 跑山",
+        "周口 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "河南",
+      "city": "驻马店",
+      "queries": [
+        "驻马店 风景公路 自驾路线",
+        "驻马店 最美公路 跑山",
+        "驻马店 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "河南",
+      "city": "济源",
+      "queries": [
+        "济源 风景公路 自驾路线",
+        "济源 最美公路 跑山",
+        "济源 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "湖北",
+      "city": "武汉",
+      "queries": [
+        "武汉 风景公路 自驾路线",
+        "武汉 最美公路 跑山",
+        "武汉 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "湖北",
+      "city": "黄石",
+      "queries": [
+        "黄石 风景公路 自驾路线",
+        "黄石 最美公路 跑山",
+        "黄石 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "湖北",
+      "city": "十堰",
+      "queries": [
+        "十堰 风景公路 自驾路线",
+        "十堰 最美公路 跑山",
+        "十堰 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "湖北",
+      "city": "宜昌",
+      "queries": [
+        "宜昌 风景公路 自驾路线",
+        "宜昌 最美公路 跑山",
+        "宜昌 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "三峡G348自驾一定要按这个路线",
+          "author": "azjlcx",
+          "url": "https://www.xiaohongshu.com/explore/68b42f25000000001d020408",
+          "accessedAt": "2026-08-20",
+          "decision": "needs-official-access-and-waypoint-mapping",
+          "evidence": [
+            "宜昌市区先到最远鹰嘴岩再沿G348返回市区以错峰",
+            "鹰嘴岩—牛肝马肺峡谷与小狗山—三峡移民博物馆—莲沱畔江湾服务区",
+            "西陵峡地质公园—干沟子大桥—明月台—听风谷观景台",
+            "过西陵长江大桥可能需携身份证和行驶证办理通行",
+            "评论警示不要误入三峡专用公路，鹰嘴岩村路陡且弯急"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "湖北",
+      "city": "襄阳",
+      "queries": [
+        "襄阳 风景公路 自驾路线",
+        "襄阳 最美公路 跑山",
+        "襄阳 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "湖北",
+      "city": "鄂州",
+      "queries": [
+        "鄂州 风景公路 自驾路线",
+        "鄂州 最美公路 跑山",
+        "鄂州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "湖北",
+      "city": "荆门",
+      "queries": [
+        "荆门 风景公路 自驾路线",
+        "荆门 最美公路 跑山",
+        "荆门 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "湖北",
+      "city": "孝感",
+      "queries": [
+        "孝感 风景公路 自驾路线",
+        "孝感 最美公路 跑山",
+        "孝感 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "湖北",
+      "city": "荆州",
+      "queries": [
+        "荆州 风景公路 自驾路线",
+        "荆州 最美公路 跑山",
+        "荆州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "湖北",
+      "city": "黄冈",
+      "queries": [
+        "黄冈 风景公路 自驾路线",
+        "黄冈 最美公路 跑山",
+        "黄冈 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "湖北",
+      "city": "咸宁",
+      "queries": [
+        "咸宁 风景公路 自驾路线",
+        "咸宁 最美公路 跑山",
+        "咸宁 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "湖北",
+      "city": "随州",
+      "queries": [
+        "随州 风景公路 自驾路线",
+        "随州 最美公路 跑山",
+        "随州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "湖北",
+      "city": "恩施",
+      "queries": [
+        "恩施 风景公路 自驾路线",
+        "恩施 最美公路 跑山",
+        "恩施 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "湖北",
+      "city": "仙桃",
+      "queries": [
+        "仙桃 风景公路 自驾路线",
+        "仙桃 最美公路 跑山",
+        "仙桃 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "湖北",
+      "city": "潜江",
+      "queries": [
+        "潜江 风景公路 自驾路线",
+        "潜江 最美公路 跑山",
+        "潜江 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "湖北",
+      "city": "天门",
+      "queries": [
+        "天门 风景公路 自驾路线",
+        "天门 最美公路 跑山",
+        "天门 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "湖北",
+      "city": "神农架",
+      "queries": [
+        "神农架 风景公路 自驾路线",
+        "神农架 最美公路 跑山",
+        "神农架 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "湖南",
+      "city": "长沙",
+      "queries": [
+        "长沙 风景公路 自驾路线",
+        "长沙 最美公路 跑山",
+        "长沙 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "湖南",
+      "city": "株洲",
+      "queries": [
+        "株洲 风景公路 自驾路线",
+        "株洲 最美公路 跑山",
+        "株洲 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "湖南",
+      "city": "湘潭",
+      "queries": [
+        "湘潭 风景公路 自驾路线",
+        "湘潭 最美公路 跑山",
+        "湘潭 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "湖南",
+      "city": "衡阳",
+      "queries": [
+        "衡阳 风景公路 自驾路线",
+        "衡阳 最美公路 跑山",
+        "衡阳 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "湖南",
+      "city": "邵阳",
+      "queries": [
+        "邵阳 风景公路 自驾路线",
+        "邵阳 最美公路 跑山",
+        "邵阳 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "湖南",
+      "city": "岳阳",
+      "queries": [
+        "岳阳 风景公路 自驾路线",
+        "岳阳 最美公路 跑山",
+        "岳阳 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "湖南",
+      "city": "常德",
+      "queries": [
+        "常德 风景公路 自驾路线",
+        "常德 最美公路 跑山",
+        "常德 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "湖南",
+      "city": "张家界",
+      "queries": [
+        "张家界 风景公路 自驾路线",
+        "张家界 最美公路 跑山",
+        "张家界 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "张家界市区到武陵源，这条公路美到窒息",
+          "author": "小皇子在张家界",
+          "url": "https://www.xiaohongshu.com/explore/69f22b1a000000002301dee4",
+          "accessedAt": "2026-08-20",
+          "decision": "needs-city-endpoint-and-road-access-verification",
+          "evidence": [
+            "帖子指向张家界市区至武陵源的百丈峡公路",
+            "描述奇峰峡谷和云雾景观",
+            "可见正文未提供完整途经点、道路编号和停车边界",
+            "不得把景区内部道路或天门山盘山路混入公共自驾路线"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "湖南",
+      "city": "益阳",
+      "queries": [
+        "益阳 风景公路 自驾路线",
+        "益阳 最美公路 跑山",
+        "益阳 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "湖南",
+      "city": "郴州",
+      "queries": [
+        "郴州 风景公路 自驾路线",
+        "郴州 最美公路 跑山",
+        "郴州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "湖南",
+      "city": "永州",
+      "queries": [
+        "永州 风景公路 自驾路线",
+        "永州 最美公路 跑山",
+        "永州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "湖南",
+      "city": "怀化",
+      "queries": [
+        "怀化 风景公路 自驾路线",
+        "怀化 最美公路 跑山",
+        "怀化 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "湖南",
+      "city": "娄底",
+      "queries": [
+        "娄底 风景公路 自驾路线",
+        "娄底 最美公路 跑山",
+        "娄底 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "湖南",
+      "city": "湘西",
+      "queries": [
+        "湘西 风景公路 自驾路线",
+        "湘西 最美公路 跑山",
+        "湘西 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "广东",
+      "city": "广州",
+      "queries": [
+        "广州 风景公路 自驾路线",
+        "广州 最美公路 跑山",
+        "广州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "广东",
+      "city": "韶关",
+      "queries": [
+        "韶关 风景公路 自驾路线",
+        "韶关 最美公路 跑山",
+        "韶关 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "广东",
+      "city": "深圳",
+      "queries": [
+        "深圳 风景公路 自驾路线",
+        "深圳 最美公路 跑山",
+        "深圳 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "广东",
+      "city": "珠海",
+      "queries": [
+        "珠海 风景公路 自驾路线",
+        "珠海 最美公路 跑山",
+        "珠海 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "珠海自驾一日游，免停车费的路线被我挖到啦",
+          "author": "Hmily",
+          "url": "https://www.xiaohongshu.com/explore/69966653000000000b010c6b",
+          "accessedAt": "2026-08-20",
+          "decision": "parking-then-cycling-not-drive-route",
+          "evidence": [
+            "玖洲道停车后步行至圆明新园",
+            "交通银行附近停车后改用共享单车进入情侣路",
+            "评论显示免费停车状态可能变化，必须当日核验",
+            "该帖不能用于证明情侣路全程纯驾车"
+          ]
+        },
+        {
+          "title": "来珠海的话，你有必要开车跑一次情侣路全程",
+          "author": "小红书作者（页面未显示）",
+          "url": "https://www.xiaohongshu.com/explore/69b02d930000000016009b81",
+          "accessedAt": "2026-08-20",
+          "decision": "insufficient-visible-waypoints",
+          "evidence": [
+            "正文确认情侣路全程驾车主题",
+            "可见内容未提供连续途经点，暂不升级正式路线"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "广东",
+      "city": "汕头",
+      "queries": [
+        "汕头 风景公路 自驾路线",
+        "汕头 最美公路 跑山",
+        "汕头 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "广东",
+      "city": "佛山",
+      "queries": [
+        "佛山 风景公路 自驾路线",
+        "佛山 最美公路 跑山",
+        "佛山 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "广东",
+      "city": "江门",
+      "queries": [
+        "江门 风景公路 自驾路线",
+        "江门 最美公路 跑山",
+        "江门 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "广东",
+      "city": "湛江",
+      "queries": [
+        "湛江 风景公路 自驾路线",
+        "湛江 最美公路 跑山",
+        "湛江 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "广东",
+      "city": "茂名",
+      "queries": [
+        "茂名 风景公路 自驾路线",
+        "茂名 最美公路 跑山",
+        "茂名 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "广东全境自驾行程（粤西海岸风光线）",
+          "author": "洒脱的小乔爱旅行",
+          "url": "https://www.xiaohongshu.com/explore/69968189000000000e00d675",
+          "accessedAt": "2026-08-20",
+          "decision": "rejected-distance-and-duration-conflict",
+          "evidence": [
+            "帖子提出江门—阳江—茂名—湛江约1100公里长线",
+            "正文包含浪漫海岸但未形成第一滩—浪漫海岸连续顺序",
+            "评论明确指出茂名到南极村车程和距离错误",
+            "不得将帖内16小时总耗时写入正式路线"
+          ]
+        },
+        {
+          "title": "茂名看海就导航到这几个地方，别问我为什么",
+          "author": "冰美式请无限续杯",
+          "url": "https://www.xiaohongshu.com/explore/699a59b6000000002801e806",
+          "accessedAt": "2026-08-20",
+          "decision": "wild-beach-access-needs-verification",
+          "evidence": [
+            "评论列出巴布几内湾、北山海、下村海、前岚海和山兜海",
+            "评论称撩扶海可能封闭",
+            "野海滩、村道和可停车说法不能直接转换为平台驾车路线"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "广东",
+      "city": "肇庆",
+      "queries": [
+        "肇庆 风景公路 自驾路线",
+        "肇庆 最美公路 跑山",
+        "肇庆 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "广东",
+      "city": "惠州",
+      "queries": [
+        "惠州 风景公路 自驾路线",
+        "惠州 最美公路 跑山",
+        "惠州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "广东",
+      "city": "梅州",
+      "queries": [
+        "梅州 风景公路 自驾路线",
+        "梅州 最美公路 跑山",
+        "梅州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "广东",
+      "city": "汕尾",
+      "queries": [
+        "汕尾 风景公路 自驾路线",
+        "汕尾 最美公路 跑山",
+        "汕尾 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "广东",
+      "city": "河源",
+      "queries": [
+        "河源 风景公路 自驾路线",
+        "河源 最美公路 跑山",
+        "河源 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "广东",
+      "city": "阳江",
+      "queries": [
+        "阳江 风景公路 自驾路线",
+        "阳江 最美公路 跑山",
+        "阳江 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "广东",
+      "city": "清远",
+      "queries": [
+        "清远 风景公路 自驾路线",
+        "清远 最美公路 跑山",
+        "清远 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "广东",
+      "city": "东莞",
+      "queries": [
+        "东莞 风景公路 自驾路线",
+        "东莞 最美公路 跑山",
+        "东莞 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "广东",
+      "city": "中山",
+      "queries": [
+        "中山 风景公路 自驾路线",
+        "中山 最美公路 跑山",
+        "中山 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "广东",
+      "city": "潮州",
+      "queries": [
+        "潮州 风景公路 自驾路线",
+        "潮州 最美公路 跑山",
+        "潮州 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "跟着GPT玩潮州：闯入凤凰镇云端茶山🍵",
+          "author": "西提Xiti",
+          "url": "https://www.xiaohongshu.com/explore/6a83e1c000000000330358fa",
+          "accessedAt": "2026-08-20",
+          "decision": "insufficient-independent-route-and-road-condition-evidence",
+          "evidence": [
+            "正文给出潮州市区至凤凰镇、乌岽村茶山的候选方向，并称包车约1.5小时抵达，但没有连续导航点或道路编号",
+            "作者未前往山顶天池，平台不能据此把凤凰天池并入同一条已实走驾车路线",
+            "正文提醒山路弯道多、大雾天气慎上山，且建议由有山路经验的驾驶者驾驶",
+            "茶园木栈道、古茶树和观景台属于下车步行内容，不应计入纯驾车路段",
+            "帖子路线源于作者向GPT提问后的包车体验，评论区没有有效路况复核，必须通过独立来源核对道路、停车和通行规则后才能发布"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "广东",
+      "city": "揭阳",
+      "queries": [
+        "揭阳 风景公路 自驾路线",
+        "揭阳 最美公路 跑山",
+        "揭阳 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "广东野沙滩最多的海岸线（完整攻略）",
+          "author": "周华旅行",
+          "url": "https://www.xiaohongshu.com/explore/6a3931e20000000022015521",
+          "accessedAt": "2026-08-20",
+          "decision": "needs-exact-waypoints-road-surface-and-legal-use-verification",
+          "evidence": [
+            "正文实际定位为揭阳惠来白点埔，而非搜索语境中的潮州饶平，应按真实行政区归入揭阳",
+            "候选道路为贴近海岸和风电设施的硬化路，作者称普通轿车可达，但同时提示部分临崖路段狭窄、雨天湿滑",
+            "正文只给出白点埔单点导航，缺少连续道路名称和出入口；评论已有找不到路、质疑是否水泥路及轮胎风险的反馈",
+            "作者所称随时靠边停车不能作为合法停车指引，正式路线只能使用明确停车区或允许停车的位置",
+            "野滩无人管理不等于获准露营、烧烤或过夜，且现场无安保、水电和卫生间，平台不得把这些活动写成许可承诺"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "广东",
+      "city": "云浮",
+      "queries": [
+        "云浮 风景公路 自驾路线",
+        "云浮 最美公路 跑山",
+        "云浮 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "广西",
+      "city": "南宁",
+      "queries": [
+        "南宁 风景公路 自驾路线",
+        "南宁 最美公路 跑山",
+        "南宁 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "广西",
+      "city": "柳州",
+      "queries": [
+        "柳州 风景公路 自驾路线",
+        "柳州 最美公路 跑山",
+        "柳州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "广西",
+      "city": "桂林",
+      "queries": [
+        "桂林 风景公路 自驾路线",
+        "桂林 最美公路 跑山",
+        "桂林 环线 沿途风景"
+      ],
+      "status": "published",
+      "candidates": [
+        {
+          "title": "桂林阳朔自驾游，三天随心游",
+          "author": "那角落。",
+          "url": "https://www.xiaohongshu.com/explore/6a2101b300000000350324f2",
+          "accessedAt": "2026-08-20",
+          "decision": "published-to-gx-gl-elephant-yulong",
+          "evidence": [
+            "阳朔遇龙河—月亮山—十里画廊",
+            "兴坪后转场桂林市区",
+            "第三日前往象鼻山",
+            "遇龙河和十里画廊内部改用竹筏、电动车或步行",
+            "景区内部不得作为公共驾车道路"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "广西",
+      "city": "梧州",
+      "queries": [
+        "梧州 风景公路 自驾路线",
+        "梧州 最美公路 跑山",
+        "梧州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "广西",
+      "city": "北海",
+      "queries": [
+        "北海 风景公路 自驾路线",
+        "北海 最美公路 跑山",
+        "北海 环线 沿途风景"
+      ],
+      "status": "published",
+      "candidates": [
+        {
+          "title": "被自己做的北海环岛自驾攻略满意哭了",
+          "author": "坨子不咸",
+          "url": "https://www.xiaohongshu.com/explore/6762402a000000000b014a9c",
+          "accessedAt": "2026-08-20",
+          "decision": "published-to-gx-bh-silver-guantouling-coast",
+          "evidence": [
+            "流下村—冠头岭—紫霞湾",
+            "金海湾红树林—银滩—侨港海滩",
+            "冠头岭、紫霞湾和银滩日落线索",
+            "涠洲岛必须乘船，不能混入市内驾车路线",
+            "两端实际连接与停车仍须当天导航核验"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "广西",
+      "city": "防城港",
+      "queries": [
+        "防城港 风景公路 自驾路线",
+        "防城港 最美公路 跑山",
+        "防城港 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "广西",
+      "city": "钦州",
+      "queries": [
+        "钦州 风景公路 自驾路线",
+        "钦州 最美公路 跑山",
+        "钦州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "广西",
+      "city": "贵港",
+      "queries": [
+        "贵港 风景公路 自驾路线",
+        "贵港 最美公路 跑山",
+        "贵港 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "广西",
+      "city": "玉林",
+      "queries": [
+        "玉林 风景公路 自驾路线",
+        "玉林 最美公路 跑山",
+        "玉林 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "广西",
+      "city": "百色",
+      "queries": [
+        "百色 风景公路 自驾路线",
+        "百色 最美公路 跑山",
+        "百色 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "广西",
+      "city": "贺州",
+      "queries": [
+        "贺州 风景公路 自驾路线",
+        "贺州 最美公路 跑山",
+        "贺州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "广西",
+      "city": "河池",
+      "queries": [
+        "河池 风景公路 自驾路线",
+        "河池 最美公路 跑山",
+        "河池 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "广西",
+      "city": "来宾",
+      "queries": [
+        "来宾 风景公路 自驾路线",
+        "来宾 最美公路 跑山",
+        "来宾 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "广西",
+      "city": "崇左",
+      "queries": [
+        "崇左 风景公路 自驾路线",
+        "崇左 最美公路 跑山",
+        "崇左 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "海南",
+      "city": "海口",
+      "queries": [
+        "海口 风景公路 自驾路线",
+        "海口 最美公路 跑山",
+        "海口 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "海南全岛自驾行程（东线）",
+          "author": "洒脱的小乔爱旅行",
+          "url": "https://www.xiaohongshu.com/explore/6991bdb1000000001a032bf3",
+          "accessedAt": "2026-08-20",
+          "decision": "overview-only-needs-road-segment-mapping",
+          "evidence": [
+            "东线按文昌—琼海博鳌—万宁日月湾—陵水分界洲岛—三亚组织",
+            "建议七天六晚分段执行",
+            "搜索结果未提供足够的具体道路编号与逐段导航锚点"
+          ]
+        },
+        {
+          "title": "高德地图一次性导航海南环岛旅游公路全",
+          "author": "美天瞰",
+          "url": "https://www.xiaohongshu.com/explore/67ef3050000000001c01c959",
+          "accessedAt": "2026-08-20",
+          "decision": "insufficient-visible-route-detail",
+          "evidence": [
+            "帖子主题确认环岛旅游公路可作为连续导航目标",
+            "可见正文与评论没有足够途经点，暂不写入正式路线"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "海南",
+      "city": "三亚",
+      "queries": [
+        "三亚 风景公路 自驾路线",
+        "三亚 最美公路 跑山",
+        "三亚 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "海南",
+      "city": "三沙",
+      "queries": [
+        "三沙 风景公路 自驾路线",
+        "三沙 最美公路 跑山",
+        "三沙 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "海南",
+      "city": "儋州",
+      "queries": [
+        "儋州 风景公路 自驾路线",
+        "儋州 最美公路 跑山",
+        "儋州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "海南",
+      "city": "五指山",
+      "queries": [
+        "五指山 风景公路 自驾路线",
+        "五指山 最美公路 跑山",
+        "五指山 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "海南",
+      "city": "琼海",
+      "queries": [
+        "琼海 风景公路 自驾路线",
+        "琼海 最美公路 跑山",
+        "琼海 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "海南",
+      "city": "文昌",
+      "queries": [
+        "文昌 风景公路 自驾路线",
+        "文昌 最美公路 跑山",
+        "文昌 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "海南",
+      "city": "万宁",
+      "queries": [
+        "万宁 风景公路 自驾路线",
+        "万宁 最美公路 跑山",
+        "万宁 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "海南",
+      "city": "东方",
+      "queries": [
+        "东方 风景公路 自驾路线",
+        "东方 最美公路 跑山",
+        "东方 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "海南",
+      "city": "定安",
+      "queries": [
+        "定安 风景公路 自驾路线",
+        "定安 最美公路 跑山",
+        "定安 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "海南",
+      "city": "屯昌",
+      "queries": [
+        "屯昌 风景公路 自驾路线",
+        "屯昌 最美公路 跑山",
+        "屯昌 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "海南",
+      "city": "澄迈",
+      "queries": [
+        "澄迈 风景公路 自驾路线",
+        "澄迈 最美公路 跑山",
+        "澄迈 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "海南",
+      "city": "临高",
+      "queries": [
+        "临高 风景公路 自驾路线",
+        "临高 最美公路 跑山",
+        "临高 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "海南",
+      "city": "白沙",
+      "queries": [
+        "白沙 风景公路 自驾路线",
+        "白沙 最美公路 跑山",
+        "白沙 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "海南",
+      "city": "昌江",
+      "queries": [
+        "昌江 风景公路 自驾路线",
+        "昌江 最美公路 跑山",
+        "昌江 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "海南",
+      "city": "乐东",
+      "queries": [
+        "乐东 风景公路 自驾路线",
+        "乐东 最美公路 跑山",
+        "乐东 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "海南",
+      "city": "陵水",
+      "queries": [
+        "陵水 风景公路 自驾路线",
+        "陵水 最美公路 跑山",
+        "陵水 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "海南",
+      "city": "保亭",
+      "queries": [
+        "保亭 风景公路 自驾路线",
+        "保亭 最美公路 跑山",
+        "保亭 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "海南",
+      "city": "琼中",
+      "queries": [
+        "琼中 风景公路 自驾路线",
+        "琼中 最美公路 跑山",
+        "琼中 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "重庆",
+      "city": "重庆",
+      "queries": [
+        "重庆 风景公路 自驾路线",
+        "重庆 最美公路 跑山",
+        "重庆 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "四川",
+      "city": "成都",
+      "queries": [
+        "成都 风景公路 自驾路线",
+        "成都 最美公路 跑山",
+        "成都 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "四川",
+      "city": "自贡",
+      "queries": [
+        "自贡 风景公路 自驾路线",
+        "自贡 最美公路 跑山",
+        "自贡 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "四川",
+      "city": "攀枝花",
+      "queries": [
+        "攀枝花 风景公路 自驾路线",
+        "攀枝花 最美公路 跑山",
+        "攀枝花 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "四川",
+      "city": "泸州",
+      "queries": [
+        "泸州 风景公路 自驾路线",
+        "泸州 最美公路 跑山",
+        "泸州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "四川",
+      "city": "德阳",
+      "queries": [
+        "德阳 风景公路 自驾路线",
+        "德阳 最美公路 跑山",
+        "德阳 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "四川",
+      "city": "绵阳",
+      "queries": [
+        "绵阳 风景公路 自驾路线",
+        "绵阳 最美公路 跑山",
+        "绵阳 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "四川",
+      "city": "广元",
+      "queries": [
+        "广元 风景公路 自驾路线",
+        "广元 最美公路 跑山",
+        "广元 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "四川",
+      "city": "遂宁",
+      "queries": [
+        "遂宁 风景公路 自驾路线",
+        "遂宁 最美公路 跑山",
+        "遂宁 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "四川",
+      "city": "内江",
+      "queries": [
+        "内江 风景公路 自驾路线",
+        "内江 最美公路 跑山",
+        "内江 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "四川",
+      "city": "乐山",
+      "queries": [
+        "乐山 风景公路 自驾路线",
+        "乐山 最美公路 跑山",
+        "乐山 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "四川",
+      "city": "南充",
+      "queries": [
+        "南充 风景公路 自驾路线",
+        "南充 最美公路 跑山",
+        "南充 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "四川",
+      "city": "眉山",
+      "queries": [
+        "眉山 风景公路 自驾路线",
+        "眉山 最美公路 跑山",
+        "眉山 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "四川",
+      "city": "宜宾",
+      "queries": [
+        "宜宾 风景公路 自驾路线",
+        "宜宾 最美公路 跑山",
+        "宜宾 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "四川",
+      "city": "广安",
+      "queries": [
+        "广安 风景公路 自驾路线",
+        "广安 最美公路 跑山",
+        "广安 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "四川",
+      "city": "达州",
+      "queries": [
+        "达州 风景公路 自驾路线",
+        "达州 最美公路 跑山",
+        "达州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "四川",
+      "city": "雅安",
+      "queries": [
+        "雅安 风景公路 自驾路线",
+        "雅安 最美公路 跑山",
+        "雅安 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "四川",
+      "city": "巴中",
+      "queries": [
+        "巴中 风景公路 自驾路线",
+        "巴中 最美公路 跑山",
+        "巴中 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "四川",
+      "city": "资阳",
+      "queries": [
+        "资阳 风景公路 自驾路线",
+        "资阳 最美公路 跑山",
+        "资阳 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "四川",
+      "city": "阿坝",
+      "queries": [
+        "阿坝 风景公路 自驾路线",
+        "阿坝 最美公路 跑山",
+        "阿坝 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "四川",
+      "city": "甘孜",
+      "queries": [
+        "甘孜 风景公路 自驾路线",
+        "甘孜 最美公路 跑山",
+        "甘孜 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "去康定，一定要自驾S434，人间值得的绝美路线",
+          "author": "爱吃麻爱加辣",
+          "url": "https://www.xiaohongshu.com/explore/68f4c76b0000000003018eb9",
+          "accessedAt": "2026-08-20",
+          "decision": "needs-official-road-and-altitude-verification",
+          "evidence": [
+            "成都经高速到康定后转S434",
+            "康定机场—折多山观景台—塔公镇顺序",
+            "作者按两日拆分并回康定住宿",
+            "评论补充成都至康定约3.5小时、康定至塔公约2小时",
+            "最高海拔约3800米及同行人员高反经历"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "四川",
+      "city": "凉山",
+      "queries": [
+        "凉山 风景公路 自驾路线",
+        "凉山 最美公路 跑山",
+        "凉山 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "贵州",
+      "city": "贵阳",
+      "queries": [
+        "贵阳 风景公路 自驾路线",
+        "贵阳 最美公路 跑山",
+        "贵阳 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "贵州8条最美绝美公路",
+          "author": "洒脱的小乔爱旅行",
+          "url": "https://www.xiaohongshu.com/explore/6a20be45000000002103c57a",
+          "accessedAt": "2026-08-20",
+          "decision": "province-road-list-needs-segment-mapping",
+          "evidence": [
+            "晴隆二十四道拐与麻江三十六道拐",
+            "贵黔高速、沪昆高速贵阳至安顺段和镇胜高速",
+            "汕昆高速马岭河大桥",
+            "赤水河谷旅游公路与桐梓七十二道拐",
+            "帖子为省级道路清单，尚不能证明单条连续路线"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "贵州",
+      "city": "六盘水",
+      "queries": [
+        "六盘水 风景公路 自驾路线",
+        "六盘水 最美公路 跑山",
+        "六盘水 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "贵州",
+      "city": "遵义",
+      "queries": [
+        "遵义 风景公路 自驾路线",
+        "遵义 最美公路 跑山",
+        "遵义 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "贵州",
+      "city": "安顺",
+      "queries": [
+        "安顺 风景公路 自驾路线",
+        "安顺 最美公路 跑山",
+        "安顺 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "贵州",
+      "city": "毕节",
+      "queries": [
+        "毕节 风景公路 自驾路线",
+        "毕节 最美公路 跑山",
+        "毕节 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "贵州",
+      "city": "铜仁",
+      "queries": [
+        "铜仁 风景公路 自驾路线",
+        "铜仁 最美公路 跑山",
+        "铜仁 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "贵州",
+      "city": "黔西南",
+      "queries": [
+        "黔西南 风景公路 自驾路线",
+        "黔西南 最美公路 跑山",
+        "黔西南 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "贵州",
+      "city": "黔东南",
+      "queries": [
+        "黔东南 风景公路 自驾路线",
+        "黔东南 最美公路 跑山",
+        "黔东南 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "贵州",
+      "city": "黔南",
+      "queries": [
+        "黔南 风景公路 自驾路线",
+        "黔南 最美公路 跑山",
+        "黔南 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "云南",
+      "city": "昆明",
+      "queries": [
+        "昆明 风景公路 自驾路线",
+        "昆明 最美公路 跑山",
+        "昆明 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "周末自驾环滇池一圈路线",
+          "author": "啊迪",
+          "url": "https://www.xiaohongshu.com/explore/690f65e10000000007017a66",
+          "accessedAt": "2026-08-20",
+          "decision": "needs-ring-route-waypoint-mapping",
+          "evidence": [
+            "西二环出发并返回、全程将近140公里",
+            "走走停停约5小时，海口特大桥为重点风景段",
+            "海洪、捞鱼河、海晏村、南滇池湿地公园、海口川字闸和观音山线索",
+            "湿地公园需停车后步行到湖边，不得把园内空间标成驾车道路",
+            "评论明确提示不要路边停车，停车费和时长均为个人当次体验"
+          ]
+        },
+        {
+          "title": "一条自驾玩西山不多花一分钱的不回头路线",
+          "author": "捱夏",
+          "url": "https://www.xiaohongshu.com/explore/6997da700000000016008db4",
+          "accessedAt": "2026-08-20",
+          "decision": "mixed-mode-not-pure-drive-route",
+          "evidence": [
+            "停车后以滇池索道进入西山景区",
+            "下山后改乘景区大巴、公交接驳并骑共享单车返回停车场",
+            "帖子不能证明海埂至西山为连续纯驾车路线"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "云南",
+      "city": "曲靖",
+      "queries": [
+        "曲靖 风景公路 自驾路线",
+        "曲靖 最美公路 跑山",
+        "曲靖 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "云南",
+      "city": "玉溪",
+      "queries": [
+        "玉溪 风景公路 自驾路线",
+        "玉溪 最美公路 跑山",
+        "玉溪 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "云南",
+      "city": "保山",
+      "queries": [
+        "保山 风景公路 自驾路线",
+        "保山 最美公路 跑山",
+        "保山 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "云南",
+      "city": "昭通",
+      "queries": [
+        "昭通 风景公路 自驾路线",
+        "昭通 最美公路 跑山",
+        "昭通 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "云南",
+      "city": "丽江",
+      "queries": [
+        "丽江 风景公路 自驾路线",
+        "丽江 最美公路 跑山",
+        "丽江 环线 沿途风景"
+      ],
+      "status": "published",
+      "candidates": [
+        {
+          "title": "Day2 丽江：玉龙雪山一日自驾攻略🚐",
+          "author": "Ethenmaster.",
+          "url": "https://www.xiaohongshu.com/explore/6978ed36000000000e03e0e4",
+          "accessedAt": "2026-08-20",
+          "decision": "published-to-yn-lj-old-town-yulong-altitude",
+          "evidence": [
+            "6时30分由丽江古城驾车至玉龙雪山南门检票口",
+            "自驾车辆只能停游客中心，内部景点统一换乘景区大巴",
+            "返程由雪川游客港转场束河古镇，作者称道路开阔且风景佳",
+            "3号停车场较近、4号停车场有充电桩，但早到和车位说法须当日核验",
+            "评论称景区入口道路为铺装路，积雪、天气和管制仍须官方核验"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "云南",
+      "city": "普洱",
+      "queries": [
+        "普洱 风景公路 自驾路线",
+        "普洱 最美公路 跑山",
+        "普洱 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "云南",
+      "city": "临沧",
+      "queries": [
+        "临沧 风景公路 自驾路线",
+        "临沧 最美公路 跑山",
+        "临沧 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "云南",
+      "city": "楚雄",
+      "queries": [
+        "楚雄 风景公路 自驾路线",
+        "楚雄 最美公路 跑山",
+        "楚雄 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "云南",
+      "city": "红河",
+      "queries": [
+        "红河 风景公路 自驾路线",
+        "红河 最美公路 跑山",
+        "红河 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "云南",
+      "city": "文山",
+      "queries": [
+        "文山 风景公路 自驾路线",
+        "文山 最美公路 跑山",
+        "文山 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "云南",
+      "city": "西双版纳",
+      "queries": [
+        "西双版纳 风景公路 自驾路线",
+        "西双版纳 最美公路 跑山",
+        "西双版纳 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "云南",
+      "city": "大理",
+      "queries": [
+        "大理 风景公路 自驾路线",
+        "大理 最美公路 跑山",
+        "大理 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "大理开车环洱海tips",
+          "author": "春花在大理",
+          "url": "https://www.xiaohongshu.com/explore/6a4630be0000000011015392",
+          "accessedAt": "2026-08-20",
+          "decision": "needs-driving-walking-split",
+          "evidence": [
+            "海西生态廊道约40公里禁止汽车进入",
+            "海西驾车应停富美邑、S湾或廊桥对应村庄后步行进入",
+            "海东可经喜洲—双廊—文笔村形成驾车段",
+            "评论提示村内停车可能收费且旺季拥堵",
+            "建议将海西步行骑行与海东驾车拆成两日"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "云南",
+      "city": "德宏",
+      "queries": [
+        "德宏 风景公路 自驾路线",
+        "德宏 最美公路 跑山",
+        "德宏 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "云南",
+      "city": "怒江",
+      "queries": [
+        "怒江 风景公路 自驾路线",
+        "怒江 最美公路 跑山",
+        "怒江 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "云南",
+      "city": "迪庆",
+      "queries": [
+        "迪庆 风景公路 自驾路线",
+        "迪庆 最美公路 跑山",
+        "迪庆 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "西藏",
+      "city": "拉萨",
+      "queries": [
+        "拉萨 风景公路 自驾路线",
+        "拉萨 最美公路 跑山",
+        "拉萨 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "西藏",
+      "city": "日喀则",
+      "queries": [
+        "日喀则 风景公路 自驾路线",
+        "日喀则 最美公路 跑山",
+        "日喀则 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "西藏",
+      "city": "昌都",
+      "queries": [
+        "昌都 风景公路 自驾路线",
+        "昌都 最美公路 跑山",
+        "昌都 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "西藏",
+      "city": "林芝",
+      "queries": [
+        "林芝 风景公路 自驾路线",
+        "林芝 最美公路 跑山",
+        "林芝 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "318精华段｜林芝→波密自驾攻略✨",
+          "author": "城市水色1111",
+          "url": "https://www.xiaohongshu.com/explore/6a71e2f6000000002701f0c4",
+          "accessedAt": "2026-08-20",
+          "decision": "needs-bomi-endpoint-and-current-road-verification",
+          "evidence": [
+            "林芝—色季拉山口—鲁朗小镇—鲁朗林海—通麦—帕隆藏布江—波密顺序",
+            "正文称全程200多公里并以G318为连续驾车主线",
+            "雪山、林海、峡谷和沿江景观构成道路本身的拍摄价值",
+            "轿车通行和新手友好属于作者当次体验，不作为当前路况保证",
+            "高海拔、落石、雨雪、施工、交通管制和安全停车点须逐日核验"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "西藏",
+      "city": "山南",
+      "queries": [
+        "山南 风景公路 自驾路线",
+        "山南 最美公路 跑山",
+        "山南 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "西藏",
+      "city": "那曲",
+      "queries": [
+        "那曲 风景公路 自驾路线",
+        "那曲 最美公路 跑山",
+        "那曲 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "西藏",
+      "city": "阿里",
+      "queries": [
+        "阿里 风景公路 自驾路线",
+        "阿里 最美公路 跑山",
+        "阿里 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "陕西",
+      "city": "西安",
+      "queries": [
+        "西安 风景公路 自驾路线",
+        "西安 最美公路 跑山",
+        "西安 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "秦岭自驾天花板！西安出发1h直达的秘境环线",
+          "author": "江江的旅行日记",
+          "url": "https://www.xiaohongshu.com/explore/69db07d00000000023016103",
+          "accessedAt": "2026-08-20",
+          "decision": "hold-current-landslide-and-roadworks-risk",
+          "evidence": [
+            "西安—大敷峪—金堆镇—任家滩村—张坪水库—灞源镇—蓝田九间房—西安",
+            "正文称全程约160公里且不走回头路",
+            "作者实走从11时出发至20时返回且未走高速",
+            "评论报告村路仅容单车、沿线塌方和施工绕行",
+            "弯道、大货车、弱信号与落石风险突出"
+          ]
+        },
+        {
+          "title": "秦岭自驾封神线！太洋公路完整环线攻略",
+          "author": "中国自驾游",
+          "url": "https://www.xiaohongshu.com/explore/6a5e44040000000010025d11",
+          "accessedAt": "2026-08-20",
+          "decision": "video-detail-insufficient",
+          "evidence": [
+            "评论称主要道路为标准铺装公路",
+            "可见正文未给出足够逐段锚点，不能直接生成正式路线"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "陕西",
+      "city": "铜川",
+      "queries": [
+        "铜川 风景公路 自驾路线",
+        "铜川 最美公路 跑山",
+        "铜川 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "陕西",
+      "city": "宝鸡",
+      "queries": [
+        "宝鸡 风景公路 自驾路线",
+        "宝鸡 最美公路 跑山",
+        "宝鸡 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "陕西",
+      "city": "咸阳",
+      "queries": [
+        "咸阳 风景公路 自驾路线",
+        "咸阳 最美公路 跑山",
+        "咸阳 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "陕西",
+      "city": "渭南",
+      "queries": [
+        "渭南 风景公路 自驾路线",
+        "渭南 最美公路 跑山",
+        "渭南 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "陕西",
+      "city": "延安",
+      "queries": [
+        "延安 风景公路 自驾路线",
+        "延安 最美公路 跑山",
+        "延安 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "陕西",
+      "city": "汉中",
+      "queries": [
+        "汉中 风景公路 自驾路线",
+        "汉中 最美公路 跑山",
+        "汉中 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "陕西",
+      "city": "榆林",
+      "queries": [
+        "榆林 风景公路 自驾路线",
+        "榆林 最美公路 跑山",
+        "榆林 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "陕西",
+      "city": "安康",
+      "queries": [
+        "安康 风景公路 自驾路线",
+        "安康 最美公路 跑山",
+        "安康 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "陕西",
+      "city": "商洛",
+      "queries": [
+        "商洛 风景公路 自驾路线",
+        "商洛 最美公路 跑山",
+        "商洛 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "甘肃",
+      "city": "兰州",
+      "queries": [
+        "兰州 风景公路 自驾路线",
+        "兰州 最美公路 跑山",
+        "兰州 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "甘肃",
+      "city": "嘉峪关",
+      "queries": [
+        "嘉峪关 风景公路 自驾路线",
+        "嘉峪关 最美公路 跑山",
+        "嘉峪关 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "甘肃",
+      "city": "金昌",
+      "queries": [
+        "金昌 风景公路 自驾路线",
+        "金昌 最美公路 跑山",
+        "金昌 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "甘肃",
+      "city": "白银",
+      "queries": [
+        "白银 风景公路 自驾路线",
+        "白银 最美公路 跑山",
+        "白银 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "甘肃",
+      "city": "天水",
+      "queries": [
+        "天水 风景公路 自驾路线",
+        "天水 最美公路 跑山",
+        "天水 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "甘肃",
+      "city": "武威",
+      "queries": [
+        "武威 风景公路 自驾路线",
+        "武威 最美公路 跑山",
+        "武威 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "甘肃",
+      "city": "张掖",
+      "queries": [
+        "张掖 风景公路 自驾路线",
+        "张掖 最美公路 跑山",
+        "张掖 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "甘肃",
+      "city": "平凉",
+      "queries": [
+        "平凉 风景公路 自驾路线",
+        "平凉 最美公路 跑山",
+        "平凉 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "甘肃",
+      "city": "酒泉",
+      "queries": [
+        "酒泉 风景公路 自驾路线",
+        "酒泉 最美公路 跑山",
+        "酒泉 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "相比于嘉峪关，还是s215上的风景更吸引我",
+          "author": "Hunk",
+          "url": "https://www.xiaohongshu.com/explore/6a295517000000001603f9d4",
+          "accessedAt": "2026-08-20",
+          "decision": "partial-out-and-back-needs-road-surface-verification",
+          "evidence": [
+            "玉门东镇进入S215后沿祁连山方向行驶",
+            "作者实走约一小时至吊达坂沟后原路折返",
+            "沿线自然保护区、雪山与荒野景观线索",
+            "评论明确该路不能作为张掖至瓜州的顺路通道",
+            "评论出现非铺装小路与相对好走的大路分歧，必须锁定正确道路并核验路面"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "甘肃",
+      "city": "庆阳",
+      "queries": [
+        "庆阳 风景公路 自驾路线",
+        "庆阳 最美公路 跑山",
+        "庆阳 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "甘肃",
+      "city": "定西",
+      "queries": [
+        "定西 风景公路 自驾路线",
+        "定西 最美公路 跑山",
+        "定西 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "甘肃",
+      "city": "陇南",
+      "queries": [
+        "陇南 风景公路 自驾路线",
+        "陇南 最美公路 跑山",
+        "陇南 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "甘肃",
+      "city": "临夏",
+      "queries": [
+        "临夏 风景公路 自驾路线",
+        "临夏 最美公路 跑山",
+        "临夏 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "甘肃",
+      "city": "甘南",
+      "queries": [
+        "甘南 风景公路 自驾路线",
+        "甘南 最美公路 跑山",
+        "甘南 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "青海",
+      "city": "西宁",
+      "queries": [
+        "西宁 风景公路 自驾路线",
+        "西宁 最美公路 跑山",
+        "西宁 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "青海",
+      "city": "海东",
+      "queries": [
+        "海东 风景公路 自驾路线",
+        "海东 最美公路 跑山",
+        "海东 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "青海",
+      "city": "海北",
+      "queries": [
+        "海北 风景公路 自驾路线",
+        "海北 最美公路 跑山",
+        "海北 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "青海",
+      "city": "黄南",
+      "queries": [
+        "黄南 风景公路 自驾路线",
+        "黄南 最美公路 跑山",
+        "黄南 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "青海",
+      "city": "海南州",
+      "queries": [
+        "海南州 风景公路 自驾路线",
+        "海南州 最美公路 跑山",
+        "海南州 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "反向旅游，3天过4季🌊青海新环线保姆级攻略",
+          "author": "柳和风",
+          "url": "https://www.xiaohongshu.com/explore/6a6f761e000000002800a56f",
+          "accessedAt": "2026-08-20",
+          "decision": "needs-multi-division-segment-and-road-mapping",
+          "evidence": [
+            "西宁—青海湖断崖—东格尔观景台—黑马河—茶卡盐湖连续顺序",
+            "茶卡—橡皮山—恰江公路—龙羊峡—千姿湖—贵德丹霞—坎布拉—西宁闭合环线",
+            "作者按三日执行并称每日驾车约2至3小时，该时长仅作个人体验线索",
+            "路线跨海南州、海西、黄南和西宁，正式发布前必须拆段映射道路与行政区"
+          ]
+        },
+        {
+          "title": "青海湖环湖问题大赏",
+          "author": "毛三教掌教大人",
+          "url": "https://www.xiaohongshu.com/explore/6a782a03000000000502b99e",
+          "accessedAt": "2026-08-20",
+          "decision": "supporting-parking-safety-comments-only",
+          "evidence": [
+            "评论推荐同宝山、黑马河、青海湖断崖和东格尔观景台等观景线索",
+            "评论提醒南岸二郎剑至黑马河部分路段不可随意停车",
+            "应只使用港湾式停车带或现场允许的合法停车区，不采纳随便停车建议",
+            "该帖正文为求助而非实走路书，只能作为停车与风险补充证据"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "青海",
+      "city": "果洛",
+      "queries": [
+        "果洛 风景公路 自驾路线",
+        "果洛 最美公路 跑山",
+        "果洛 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "青海",
+      "city": "玉树",
+      "queries": [
+        "玉树 风景公路 自驾路线",
+        "玉树 最美公路 跑山",
+        "玉树 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "青海",
+      "city": "海西",
+      "queries": [
+        "海西 风景公路 自驾路线",
+        "海西 最美公路 跑山",
+        "海西 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "宁夏",
+      "city": "银川",
+      "queries": [
+        "银川 风景公路 自驾路线",
+        "银川 最美公路 跑山",
+        "银川 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "宁夏",
+      "city": "石嘴山",
+      "queries": [
+        "石嘴山 风景公路 自驾路线",
+        "石嘴山 最美公路 跑山",
+        "石嘴山 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "宁夏",
+      "city": "吴忠",
+      "queries": [
+        "吴忠 风景公路 自驾路线",
+        "吴忠 最美公路 跑山",
+        "吴忠 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "宁夏",
+      "city": "固原",
+      "queries": [
+        "固原 风景公路 自驾路线",
+        "固原 最美公路 跑山",
+        "固原 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "宁夏",
+      "city": "中卫",
+      "queries": [
+        "中卫 风景公路 自驾路线",
+        "中卫 最美公路 跑山",
+        "中卫 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "新疆",
+      "city": "乌鲁木齐",
+      "queries": [
+        "乌鲁木齐 风景公路 自驾路线",
+        "乌鲁木齐 最美公路 跑山",
+        "乌鲁木齐 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "新疆",
+      "city": "克拉玛依",
+      "queries": [
+        "克拉玛依 风景公路 自驾路线",
+        "克拉玛依 最美公路 跑山",
+        "克拉玛依 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "新疆",
+      "city": "吐鲁番",
+      "queries": [
+        "吐鲁番 风景公路 自驾路线",
+        "吐鲁番 最美公路 跑山",
+        "吐鲁番 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "新疆",
+      "city": "哈密",
+      "queries": [
+        "哈密 风景公路 自驾路线",
+        "哈密 最美公路 跑山",
+        "哈密 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "新疆",
+      "city": "昌吉",
+      "queries": [
+        "昌吉 风景公路 自驾路线",
+        "昌吉 最美公路 跑山",
+        "昌吉 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "新疆",
+      "city": "博尔塔拉",
+      "queries": [
+        "博尔塔拉 风景公路 自驾路线",
+        "博尔塔拉 最美公路 跑山",
+        "博尔塔拉 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "新疆",
+      "city": "巴音郭楞",
+      "queries": [
+        "巴音郭楞 风景公路 自驾路线",
+        "巴音郭楞 最美公路 跑山",
+        "巴音郭楞 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "新疆",
+      "city": "阿克苏",
+      "queries": [
+        "阿克苏 风景公路 自驾路线",
+        "阿克苏 最美公路 跑山",
+        "阿克苏 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "新疆",
+      "city": "克孜勒苏",
+      "queries": [
+        "克孜勒苏 风景公路 自驾路线",
+        "克孜勒苏 最美公路 跑山",
+        "克孜勒苏 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "新疆",
+      "city": "喀什",
+      "queries": [
+        "喀什 风景公路 自驾路线",
+        "喀什 最美公路 跑山",
+        "喀什 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "新疆",
+      "city": "和田",
+      "queries": [
+        "和田 风景公路 自驾路线",
+        "和田 最美公路 跑山",
+        "和田 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "新疆",
+      "city": "伊犁",
+      "queries": [
+        "伊犁 风景公路 自驾路线",
+        "伊犁 最美公路 跑山",
+        "伊犁 环线 沿途风景"
+      ],
+      "status": "reviewed",
+      "candidates": [
+        {
+          "title": "亲测分享！伊犁逆时针环线7天自驾全记录",
+          "author": "闪闪的兔兔",
+          "url": "https://www.xiaohongshu.com/explore/6a739c06000000000f039c00",
+          "accessedAt": "2026-08-20",
+          "decision": "needs-seasonal-closure-verification",
+          "evidence": [
+            "乌鲁木齐—S101—奎屯",
+            "独库公路北段—乔尔玛—唐布拉百里画廊",
+            "喀拉峻—昭苏—夏塔—伊昭公路—伊宁",
+            "赛里木湖东门—果子沟大桥—伊宁",
+            "帖子明确提示下载离线地图并在出发前和当天查询封路"
+          ]
+        },
+        {
+          "title": "顺时针自驾伊犁小环线已实践",
+          "author": "许多钱",
+          "url": "https://www.xiaohongshu.com/explore/6a4e7365000000002101584f",
+          "accessedAt": "2026-08-20",
+          "decision": "supporting-comments-only",
+          "evidence": [
+            "评论建议精简为赛里木湖、唐布拉、独库北段、那拉提、夏塔和伊昭公路",
+            "作者提示独库与伊昭均为盘山路，新手不建议单独执行",
+            "路线依赖季节开放与驾驶员轮换"
+          ]
+        }
+      ]
+    },
+    {
+      "province": "新疆",
+      "city": "塔城",
+      "queries": [
+        "塔城 风景公路 自驾路线",
+        "塔城 最美公路 跑山",
+        "塔城 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "新疆",
+      "city": "阿勒泰",
+      "queries": [
+        "阿勒泰 风景公路 自驾路线",
+        "阿勒泰 最美公路 跑山",
+        "阿勒泰 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "新疆",
+      "city": "石河子",
+      "queries": [
+        "石河子 风景公路 自驾路线",
+        "石河子 最美公路 跑山",
+        "石河子 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "新疆",
+      "city": "阿拉尔",
+      "queries": [
+        "阿拉尔 风景公路 自驾路线",
+        "阿拉尔 最美公路 跑山",
+        "阿拉尔 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "新疆",
+      "city": "图木舒克",
+      "queries": [
+        "图木舒克 风景公路 自驾路线",
+        "图木舒克 最美公路 跑山",
+        "图木舒克 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "新疆",
+      "city": "五家渠",
+      "queries": [
+        "五家渠 风景公路 自驾路线",
+        "五家渠 最美公路 跑山",
+        "五家渠 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "新疆",
+      "city": "北屯",
+      "queries": [
+        "北屯 风景公路 自驾路线",
+        "北屯 最美公路 跑山",
+        "北屯 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "新疆",
+      "city": "铁门关",
+      "queries": [
+        "铁门关 风景公路 自驾路线",
+        "铁门关 最美公路 跑山",
+        "铁门关 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "新疆",
+      "city": "双河",
+      "queries": [
+        "双河 风景公路 自驾路线",
+        "双河 最美公路 跑山",
+        "双河 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "新疆",
+      "city": "可克达拉",
+      "queries": [
+        "可克达拉 风景公路 自驾路线",
+        "可克达拉 最美公路 跑山",
+        "可克达拉 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "新疆",
+      "city": "昆玉",
+      "queries": [
+        "昆玉 风景公路 自驾路线",
+        "昆玉 最美公路 跑山",
+        "昆玉 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "新疆",
+      "city": "胡杨河",
+      "queries": [
+        "胡杨河 风景公路 自驾路线",
+        "胡杨河 最美公路 跑山",
+        "胡杨河 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "新疆",
+      "city": "新星",
+      "queries": [
+        "新星 风景公路 自驾路线",
+        "新星 最美公路 跑山",
+        "新星 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "新疆",
+      "city": "白杨",
+      "queries": [
+        "白杨 风景公路 自驾路线",
+        "白杨 最美公路 跑山",
+        "白杨 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "台湾",
+      "city": "台北",
+      "queries": [
+        "台北 风景公路 自驾路线",
+        "台北 最美公路 跑山",
+        "台北 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "台湾",
+      "city": "新北",
+      "queries": [
+        "新北 风景公路 自驾路线",
+        "新北 最美公路 跑山",
+        "新北 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "台湾",
+      "city": "桃园",
+      "queries": [
+        "桃园 风景公路 自驾路线",
+        "桃园 最美公路 跑山",
+        "桃园 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "台湾",
+      "city": "台中",
+      "queries": [
+        "台中 风景公路 自驾路线",
+        "台中 最美公路 跑山",
+        "台中 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "台湾",
+      "city": "台南",
+      "queries": [
+        "台南 风景公路 自驾路线",
+        "台南 最美公路 跑山",
+        "台南 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "台湾",
+      "city": "高雄",
+      "queries": [
+        "高雄 风景公路 自驾路线",
+        "高雄 最美公路 跑山",
+        "高雄 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "台湾",
+      "city": "基隆",
+      "queries": [
+        "基隆 风景公路 自驾路线",
+        "基隆 最美公路 跑山",
+        "基隆 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "台湾",
+      "city": "新竹",
+      "queries": [
+        "新竹 风景公路 自驾路线",
+        "新竹 最美公路 跑山",
+        "新竹 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "台湾",
+      "city": "嘉义",
+      "queries": [
+        "嘉义 风景公路 自驾路线",
+        "嘉义 最美公路 跑山",
+        "嘉义 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "台湾",
+      "city": "苗栗",
+      "queries": [
+        "苗栗 风景公路 自驾路线",
+        "苗栗 最美公路 跑山",
+        "苗栗 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "台湾",
+      "city": "彰化",
+      "queries": [
+        "彰化 风景公路 自驾路线",
+        "彰化 最美公路 跑山",
+        "彰化 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "台湾",
+      "city": "南投",
+      "queries": [
+        "南投 风景公路 自驾路线",
+        "南投 最美公路 跑山",
+        "南投 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "台湾",
+      "city": "云林",
+      "queries": [
+        "云林 风景公路 自驾路线",
+        "云林 最美公路 跑山",
+        "云林 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "台湾",
+      "city": "屏东",
+      "queries": [
+        "屏东 风景公路 自驾路线",
+        "屏东 最美公路 跑山",
+        "屏东 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "台湾",
+      "city": "宜兰",
+      "queries": [
+        "宜兰 风景公路 自驾路线",
+        "宜兰 最美公路 跑山",
+        "宜兰 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "台湾",
+      "city": "花莲",
+      "queries": [
+        "花莲 风景公路 自驾路线",
+        "花莲 最美公路 跑山",
+        "花莲 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "台湾",
+      "city": "台东",
+      "queries": [
+        "台东 风景公路 自驾路线",
+        "台东 最美公路 跑山",
+        "台东 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "台湾",
+      "city": "澎湖",
+      "queries": [
+        "澎湖 风景公路 自驾路线",
+        "澎湖 最美公路 跑山",
+        "澎湖 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "台湾",
+      "city": "金门",
+      "queries": [
+        "金门 风景公路 自驾路线",
+        "金门 最美公路 跑山",
+        "金门 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "台湾",
+      "city": "连江",
+      "queries": [
+        "连江 风景公路 自驾路线",
+        "连江 最美公路 跑山",
+        "连江 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "香港",
+      "city": "香港",
+      "queries": [
+        "香港 风景公路 自驾路线",
+        "香港 最美公路 跑山",
+        "香港 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    },
+    {
+      "province": "澳门",
+      "city": "澳门",
+      "queries": [
+        "澳门 风景公路 自驾路线",
+        "澳门 最美公路 跑山",
+        "澳门 环线 沿途风景"
+      ],
+      "status": "queued",
+      "candidates": []
+    }
+  ]
+}

@@ -4,11 +4,20 @@
   "title": "RoadLens Catalog v2",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schemaVersion", "locations", "cameraPresets", "routes", "shootPlans"],
+  "required": [
+    "schemaVersion",
+    "locations",
+    "cameraPresets",
+    "routes",
+    "shootPlans"
+  ],
   "properties": {
     "schemaVersion": { "const": "2.0.0" },
     "locations": { "type": "array", "items": { "$ref": "#/$defs/location" } },
-    "cameraPresets": { "type": "array", "items": { "$ref": "#/$defs/cameraPreset" } },
+    "cameraPresets": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/cameraPreset" }
+    },
     "routes": { "type": "array", "items": { "$ref": "#/$defs/route" } },
     "shootPlans": { "type": "array", "items": { "$ref": "#/$defs/shootPlan" } }
   },
@@ -19,6 +28,7 @@
       "additionalProperties": false,
       "required": ["title", "url", "accessedAt", "supports"],
       "properties": {
+        "platform": { "enum": ["xiaohongshu", "official", "other"] },
         "title": { "type": "string", "minLength": 2 },
         "url": { "type": "string", "pattern": "^https://" },
         "accessedAt": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
@@ -26,7 +36,33 @@
           "type": "array",
           "minItems": 1,
           "uniqueItems": true,
-          "items": { "enum": ["existence", "address", "coordinate", "access", "shooting-value"] }
+          "items": {
+            "enum": [
+              "existence",
+              "address",
+              "coordinate",
+              "access",
+              "shooting-value"
+            ]
+          }
+        }
+      }
+    },
+    "routeResearchSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["platform", "title", "url", "accessedAt", "evidence"],
+      "properties": {
+        "platform": { "enum": ["xiaohongshu", "official", "other"] },
+        "title": { "type": "string", "minLength": 2 },
+        "url": { "type": "string", "pattern": "^https://" },
+        "accessedAt": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "author": { "type": "string", "minLength": 1 },
+        "evidence": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 2 }
         }
       }
     },
@@ -43,13 +79,36 @@
     "location": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "name", "province", "city", "type", "coordinate", "access", "shooting", "soundEnvironment", "verification"],
+      "required": [
+        "id",
+        "name",
+        "province",
+        "city",
+        "type",
+        "coordinate",
+        "access",
+        "shooting",
+        "soundEnvironment",
+        "verification"
+      ],
       "properties": {
         "id": { "$ref": "#/$defs/id" },
         "name": { "type": "string", "minLength": 2 },
         "province": { "type": "string", "minLength": 2 },
         "city": { "type": "string", "minLength": 2 },
-        "type": { "enum": ["coast", "city-night", "waterfall", "stream", "forest", "mountain", "river", "lake", "landmark"] },
+        "type": {
+          "enum": [
+            "coast",
+            "city-night",
+            "waterfall",
+            "stream",
+            "forest",
+            "mountain",
+            "river",
+            "lake",
+            "landmark"
+          ]
+        },
         "coordinate": { "$ref": "#/$defs/coordinate" },
         "access": {
           "type": "object",
@@ -65,17 +124,65 @@
           "additionalProperties": false,
           "required": ["bestTimes", "bestWeather", "modes", "advice"],
           "properties": {
-            "bestTimes": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "enum": ["sunrise", "morning", "golden-hour", "sunset", "blue-hour", "night"] } },
-            "bestWeather": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "enum": ["sunny", "cloudy", "after-rain", "fog", "rain"] } },
-            "modes": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "enum": ["photo", "driving-video", "tripod-video", "timelapse", "asmr"] } },
+            "bestTimes": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "sunrise",
+                  "morning",
+                  "golden-hour",
+                  "sunset",
+                  "blue-hour",
+                  "night"
+                ]
+              }
+            },
+            "bestWeather": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "enum": ["sunny", "cloudy", "after-rain", "fog", "rain"]
+              }
+            },
+            "modes": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "photo",
+                  "driving-video",
+                  "tripod-video",
+                  "timelapse",
+                  "asmr"
+                ]
+              }
+            },
             "advice": { "type": "string", "minLength": 10 }
           }
         },
         "soundEnvironment": {
-          "type": "object", "additionalProperties": false,
-          "required": ["character", "noiseRisk", "crowdRisk", "weatherSensitivity", "recordingAdvice"],
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "character",
+            "noiseRisk",
+            "crowdRisk",
+            "weatherSensitivity",
+            "recordingAdvice"
+          ],
           "properties": {
-            "character": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "enum": ["waves", "water", "birds", "urban", "traffic", "mixed"] } },
+            "character": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "enum": ["waves", "water", "birds", "urban", "traffic", "mixed"]
+              }
+            },
             "noiseRisk": { "enum": ["low", "medium", "high"] },
             "crowdRisk": { "enum": ["low", "medium", "high"] },
             "weatherSensitivity": { "type": "string", "minLength": 5 },
@@ -88,7 +195,11 @@
           "required": ["status", "sources"],
           "properties": {
             "status": { "enum": ["draft", "source-checked", "field-checked"] },
-            "sources": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/source" } }
+            "sources": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "#/$defs/source" }
+            }
           }
         }
       }
@@ -100,11 +211,28 @@
       "properties": {
         "id": { "$ref": "#/$defs/id" },
         "camera": { "type": "string", "minLength": 2 },
-        "scene": { "enum": ["coast-sunset", "city-night-driving", "city-night-tripod", "forest-stream-static", "daylight-general", "daylight-walk", "rain-walk", "blue-hour-walk"] },
+        "scene": {
+          "enum": [
+            "coast-sunset",
+            "city-night-driving",
+            "city-night-tripod",
+            "forest-stream-static",
+            "daylight-general",
+            "daylight-walk",
+            "rain-walk",
+            "blue-hour-walk"
+          ]
+        },
         "settings": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["resolution", "fps", "shutter", "iso", "whiteBalanceKelvin"],
+          "required": [
+            "resolution",
+            "fps",
+            "shutter",
+            "iso",
+            "whiteBalanceKelvin"
+          ],
           "properties": {
             "resolution": { "type": "string", "minLength": 2 },
             "fps": { "type": "integer", "minimum": 1, "maximum": 240 },
@@ -113,9 +241,16 @@
               "type": "object",
               "additionalProperties": false,
               "required": ["min", "max"],
-              "properties": { "min": { "type": "integer", "minimum": 50 }, "max": { "type": "integer", "minimum": 50 } }
+              "properties": {
+                "min": { "type": "integer", "minimum": 50 },
+                "max": { "type": "integer", "minimum": 50 }
+              }
             },
-            "whiteBalanceKelvin": { "type": "integer", "minimum": 2000, "maximum": 12000 },
+            "whiteBalanceKelvin": {
+              "type": "integer",
+              "minimum": 2000,
+              "maximum": 12000
+            },
             "aperture": { "type": "string", "pattern": "^F\\d+(?:\\.\\d+)?$" },
             "profile": { "type": "string", "minLength": 2 },
             "codec": { "type": "string", "minLength": 2 },
@@ -130,54 +265,150 @@
             "proxy": { "type": "string", "minLength": 1 },
             "logMonitoring": { "type": "string", "minLength": 2 },
             "sharpness": { "type": "integer", "minimum": -2, "maximum": 2 },
-            "noiseReduction": { "type": "integer", "minimum": -2, "maximum": 2 },
+            "noiseReduction": {
+              "type": "integer",
+              "minimum": -2,
+              "maximum": 2
+            },
             "audio": { "type": "string", "minLength": 2 },
             "filter": { "type": "string", "minLength": 2 }
           }
         },
         "notes": { "type": "string", "minLength": 10 },
-        "setup": { "type": "array", "minItems": 3, "items": { "type": "string", "minLength": 4 } },
-        "fieldChecks": { "type": "array", "minItems": 3, "items": { "type": "string", "minLength": 4 } },
+        "setup": {
+          "type": "array",
+          "minItems": 3,
+          "items": { "type": "string", "minLength": 4 }
+        },
+        "fieldChecks": {
+          "type": "array",
+          "minItems": 3,
+          "items": { "type": "string", "minLength": 4 }
+        },
         "sourceUrl": { "type": "string", "pattern": "^https://[^\\s]+$" }
       }
     },
     "route": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "name", "province", "cities", "type", "captureStyle", "modes", "estimatedDurationMinutes", "waypointLocationIds", "best", "cameraPresetIds", "shootAdvice", "scores", "status", "verification"],
+      "required": [
+        "id",
+        "name",
+        "province",
+        "cities",
+        "type",
+        "captureStyle",
+        "modes",
+        "estimatedDurationMinutes",
+        "waypointLocationIds",
+        "best",
+        "cameraPresetIds",
+        "shootAdvice",
+        "scores",
+        "status",
+        "verification"
+      ],
       "properties": {
         "id": { "$ref": "#/$defs/id" },
         "name": { "type": "string", "minLength": 2 },
         "province": { "type": "string", "minLength": 2 },
-        "cities": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 2 } },
-        "type": { "enum": ["coast", "city-night", "mountain", "forest", "waterfall", "river", "lake"] },
-        "captureStyle": { "enum": ["scenic-drive", "rain-walk", "stationary-nature"] },
+        "cities": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 2 }
+        },
+        "type": {
+          "enum": [
+            "coast",
+            "city-night",
+            "mountain",
+            "forest",
+            "waterfall",
+            "river",
+            "lake"
+          ]
+        },
+        "captureStyle": {
+          "enum": ["scenic-drive", "rain-walk", "stationary-nature"]
+        },
         "executionMode": { "enum": ["drive-only"] },
-        "modes": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "enum": ["day", "night", "sunrise", "sunset", "asmr"] } },
+        "modes": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "enum": ["day", "night", "sunrise", "sunset", "asmr"] }
+        },
         "estimatedDurationMinutes": { "type": "integer", "minimum": 15 },
-        "waypointLocationIds": { "type": "array", "minItems": 2, "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+        "waypointLocationIds": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/id" }
+        },
         "best": {
           "type": "object",
           "additionalProperties": false,
           "required": ["seasons", "times", "weather"],
           "properties": {
-            "seasons": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "enum": ["spring", "summer", "autumn", "winter"] } },
-            "times": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "enum": ["sunrise", "morning", "golden-hour", "sunset", "blue-hour", "night"] } },
-            "weather": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "enum": ["sunny", "cloudy", "after-rain", "fog", "rain"] } }
+            "seasons": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": { "enum": ["spring", "summer", "autumn", "winter"] }
+            },
+            "times": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "sunrise",
+                  "morning",
+                  "golden-hour",
+                  "sunset",
+                  "blue-hour",
+                  "night"
+                ]
+              }
+            },
+            "weather": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "enum": ["sunny", "cloudy", "after-rain", "fog", "rain"]
+              }
+            }
           }
         },
-        "cameraPresetIds": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+        "cameraPresetIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/id" }
+        },
         "shootAdvice": { "type": "string", "minLength": 10 },
         "scores": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["visual", "road", "parking", "safety", "youtubePotential"],
+          "required": [
+            "visual",
+            "road",
+            "parking",
+            "safety",
+            "youtubePotential"
+          ],
           "properties": {
             "visual": { "type": "integer", "minimum": 1, "maximum": 5 },
             "road": { "type": "integer", "minimum": 1, "maximum": 5 },
             "parking": { "type": "integer", "minimum": 1, "maximum": 5 },
             "safety": { "type": "integer", "minimum": 1, "maximum": 5 },
-            "youtubePotential": { "type": "integer", "minimum": 1, "maximum": 5 }
+            "youtubePotential": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 5
+            }
           }
         },
         "status": { "enum": ["idea", "planned", "captured", "published"] },
@@ -187,7 +418,12 @@
           "required": ["status", "note"],
           "properties": {
             "status": { "enum": ["draft", "source-checked", "field-checked"] },
-            "note": { "type": "string", "minLength": 10 }
+            "note": { "type": "string", "minLength": 10 },
+            "sources": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "#/$defs/routeResearchSource" }
+            }
           }
         }
       }
@@ -195,13 +431,28 @@
     "shootPlan": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "routeId", "scheduledDate", "status", "equipmentPresetIds", "objective"],
+      "required": [
+        "id",
+        "routeId",
+        "scheduledDate",
+        "status",
+        "equipmentPresetIds",
+        "objective"
+      ],
       "properties": {
         "id": { "$ref": "#/$defs/id" },
         "routeId": { "$ref": "#/$defs/id" },
-        "scheduledDate": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "scheduledDate": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
         "status": { "enum": ["idea", "planned", "captured", "published"] },
-        "equipmentPresetIds": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+        "equipmentPresetIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/id" }
+        },
         "objective": { "type": "string", "minLength": 5 }
       }
     }

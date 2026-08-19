@@ -15,6 +15,8 @@
     "audit:guangdong-road-network": "node scripts/audit-guangdong-road-network-routes.mjs",
     "audit:national-scenic-roads": "node scripts/audit-national-scenic-road-routes.mjs",
     "audit:tier-city-scenic-roads": "node scripts/audit-tier-city-scenic-road-routes.mjs",
+    "audit:xiaohongshu-research": "node scripts/audit-xiaohongshu-research-queue.mjs",
+    "audit:xiaohongshu-sources": "node scripts/audit-xiaohongshu-route-sources.mjs",
     "import:geonames-expansion": "node scripts/import-geonames-expansion.mjs",
     "demo:plan": "tsx src/cli/plan.ts",
     "dev": "vite",
@@ -53,14 +55,22 @@
     "artifactName": "RoadLens-Planner-${version}-${os}-${arch}.${ext}",
     "mac": {
       "category": "public.app-category.photography",
-      "target": ["dmg", "zip"]
+      "target": [
+        "dmg",
+        "zip"
+      ]
     },
     "win": {
-      "target": ["nsis"]
+      "target": [
+        "nsis"
+      ]
     },
     "linux": {
       "category": "Graphics",
-      "target": ["AppImage", "deb"]
+      "target": [
+        "AppImage",
+        "deb"
+      ]
     }
   },
   "devDependencies": {
