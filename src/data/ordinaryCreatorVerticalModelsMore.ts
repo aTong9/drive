@@ -1,0 +1,238 @@
+import type { OrdinaryCreatorModel } from "./ordinaryCreatorModels.js";
+
+const yt = (handle: string) => `https://www.youtube.com/@${handle}`;
+const refs = (items: Array<[string, string]>) =>
+  items.map(([name, handle]) => ({ name, url: yt(handle) }));
+
+export const ordinaryCreatorVerticalModelsMore: OrdinaryCreatorModel[] = [
+  {
+    id: "astrophotography-timelapse",
+    title: "星空摄影、银河与延时",
+    mode: "hybrid",
+    category: "夜景影像",
+    promise:
+      "把选址、月相、天气、曝光、堆栈和延时后期串成可复现的夜间拍摄流程。",
+    beginnerFit:
+      "可以先从固定机位星轨和城市近郊月亮开始，失败素材也适合做现场复盘。",
+    minimumKit: ["相机", "稳固三脚架", "天气与星图应用", "头灯"],
+    repeatableFormat: [
+      "天象与地点",
+      "安全和天气",
+      "现场参数",
+      "后期流程",
+      "成片与复盘",
+    ],
+    firstTopics: [
+      "城市近郊第一次银河",
+      "月相如何影响选址",
+      "星轨间隔拍摄",
+      "星空延时去闪烁",
+    ],
+    incomePaths: ["广告", "器材联盟", "摄影课程", "图库授权"],
+    caution:
+      "夜间选址必须先确认开放时间、地形和返程安全；不要为画面擅闯封闭区域。",
+    references: refs([
+      ["AstroBackyard", "AstroBackyard"],
+      ["Nebula Photos", "NebulaPhotos"],
+      ["Alyn Wallace", "AlynWallace"],
+      ["Peter Zelinka", "PeterZelinka"],
+      ["AstroBiscuit", "AstroBiscuit"],
+      ["Galactic Hunter", "GalacticHunter"],
+      ["Cuiv, The Lazy Geek", "CuivTheLazyGeek"],
+      ["Dylan O'Donnell", "DylanODonnell"],
+      ["Late Night Astronomy", "LateNightAstronomy"],
+      ["VisibleDark", "VisibleDarkAstro"],
+    ]),
+  },
+  {
+    id: "analog-film-photography",
+    title: "胶片摄影、冲扫与暗房记录",
+    mode: "hybrid",
+    category: "摄影细分",
+    promise: "从一卷胶片的选择、测光和拍摄，到冲扫、样片比较与长期归档。",
+    beginnerFit:
+      "一台旧相机和一卷常见胶片就能开始，过程与结果都具有持续搜索价值。",
+    minimumKit: ["胶片相机", "手机测光", "扫描或冲扫渠道", "拍摄记录表"],
+    repeatableFormat: [
+      "胶片与器材",
+      "拍摄条件",
+      "现场过程",
+      "冲扫结果",
+      "样片与成本复盘",
+    ],
+    firstTopics: [
+      "第一卷彩色负片",
+      "阴天测光测试",
+      "同卷不同扫描",
+      "旅行胶片携带",
+    ],
+    incomePaths: ["广告", "器材联盟", "胶片品牌合作", "照片印刷"],
+    caution:
+      "样片颜色受冲洗、扫描和显示器影响；购买老相机时不能隐瞒故障与维修成本。",
+    references: refs([
+      ["grainydays", "grainydaysss"],
+      ["Willem Verbeeck", "WillemVerbeeck"],
+      ["Matt Day", "mattdayphoto"],
+      ["Shoot Film Like a Boss", "ShootFilmLikeABoss"],
+      ["The Naked Photographer", "TheNakedPhotographer"],
+      ["Kyle McDougall", "KyleMcDougall"],
+      ["Negative Feedback", "NegativeFeedback"],
+      ["Nico's Photography Show", "NicosPhotographyShow"],
+      ["Lina Bessonova", "LinaBessonova"],
+      ["Analog Insights", "AnalogInsights"],
+    ]),
+  },
+  {
+    id: "hiking-route-films",
+    title: "徒步路线、背包与山野纪实",
+    mode: "hybrid",
+    category: "户外路线",
+    promise:
+      "用完整路线、天气、补给、装备和身体状态，呈现一次可参考而不夸大的徒步过程。",
+    beginnerFit:
+      "可从城市绿道和成熟步道开始，不需要直接挑战高风险或长距离线路。",
+    minimumKit: ["手机或相机", "离线地图", "基础户外装备", "应急电源"],
+    repeatableFormat: [
+      "路线与难度",
+      "天气和补给",
+      "途中章节",
+      "风险与体感",
+      "轨迹和总结",
+    ],
+    firstTopics: [
+      "两小时城市山径",
+      "雨后步道机位",
+      "第一次轻量背包",
+      "夏季补水复盘",
+    ],
+    incomePaths: ["广告", "户外装备联盟", "路线合作", "轨迹与清单"],
+    caution:
+      "路线条件会变化；必须说明拍摄日期、退出点和个人能力差异，不能鼓励无准备模仿。",
+    references: refs([
+      ["Homemade Wanderlust", "HomemadeWanderlust"],
+      ["Darwin onthetrail", "DarwinOnthetrail"],
+      ["Kraig Adams", "KraigAdams"],
+      ["Adventure Archives", "AdventureArchives"],
+      ["Eric Hanson", "EricHanson"],
+      ["Miranda Goes Outside", "MirandaGoesOutside"],
+      ["Chase Mountains", "ChaseMountains"],
+      ["Justin Outdoors", "JustinOutdoors"],
+      ["HikingGuy", "HikingGuy"],
+      ["Sintax77", "Sintax77"],
+    ]),
+  },
+  {
+    id: "car-camping-overland",
+    title: "车宿露营与自驾装备实测",
+    mode: "hybrid",
+    category: "自驾细分",
+    promise:
+      "围绕真实车辆建立停车、睡眠、供电、收纳、做饭与撤离的一整套低风险车宿流程。",
+    beginnerFit: "从一次近郊单晚和现有车辆开始即可，不必先购买昂贵改装。",
+    minimumKit: ["现有车辆", "基础睡眠系统", "照明", "安全与撤离清单"],
+    repeatableFormat: [
+      "场地与规则",
+      "车辆布置",
+      "夜间体验",
+      "能耗和问题",
+      "清晨撤收复盘",
+    ],
+    firstTopics: [
+      "普通轿车第一次车宿",
+      "雨夜防结露",
+      "无外接电源一晚",
+      "拍摄装备如何收纳",
+    ],
+    incomePaths: ["广告", "露营装备联盟", "汽车品牌合作", "布置清单"],
+    caution:
+      "核对停车、明火和过夜规定；密闭车内严禁使用燃烧设备，并保留随时撤离能力。",
+    references: refs([
+      ["Camping with Steve", "campingwithsteve"],
+      ["Mav", "mav"],
+      ["The Outdoor Gear Review", "TheOutdoorGearReview"],
+      ["Outdoor Boys", "OutdoorBoys"],
+      ["Revere Overland", "RevereOverland"],
+      ["Primal Outdoors", "PrimalOutdoors"],
+      ["Softroading the West", "softroadingthewest"],
+      ["SUV RVing", "SUVRVing"],
+      ["Overland Bound", "OverlandBound"],
+      ["All Things Overlanding", "AllThingsOverlanding"],
+    ]),
+  },
+  {
+    id: "bikepacking-cycling-travel",
+    title: "骑行旅行与 Bikepacking",
+    mode: "hybrid",
+    category: "骑行路线",
+    promise:
+      "记录路线、爬升、负重、补给、修车和沿途环境，让骑行旅程兼具故事与实用信息。",
+    beginnerFit: "可以从半日城市骑行开始，用固定章节逐步发展为多日旅行。",
+    minimumKit: ["可靠自行车", "头盔", "导航设备", "基础维修包"],
+    repeatableFormat: [
+      "路线和负重",
+      "出发检查",
+      "沿途章节",
+      "故障与补给",
+      "数据和恢复",
+    ],
+    firstTopics: [
+      "第一次 50 公里骑行",
+      "相机骑行携带",
+      "沿海逆风路线",
+      "爆胎现场处理",
+    ],
+    incomePaths: ["广告", "骑行装备联盟", "旅游合作", "路线文件"],
+    caution: "拍摄不能妨碍控车；公开路线前要核对道路骑行权限、天气和补给条件。",
+    references: refs([
+      ["Ryan Van Duzer", "RyanVanDuzer"],
+      ["CyclingAbout", "CyclingAbout"],
+      ["BIKEPACKING.com", "bikepackingcom"],
+      ["Path Less Pedaled", "PathLessPedaledTV"],
+      ["Juliet Elliott", "JulietElliottsChannel"],
+      ["Francis Cade", "FrancisCade"],
+      ["Fernwee", "Fernwee"],
+      ["Dustin Klein", "DustinKlein"],
+      ["Katie Kookaburra", "KatieKookaburra"],
+      ["Ed Pratt", "EdPratt"],
+    ]),
+  },
+  {
+    id: "field-recording-soundscape",
+    title: "环境录音、声景与自然声音采集",
+    mode: "faceless",
+    category: "声音制作",
+    promise:
+      "用地点、天气、麦克风布局和后期处理，建立可复用的真实环境声资料库。",
+    beginnerFit:
+      "可从手机或便携录音机开始，声音本身就是主体，不依赖露脸和复杂布景。",
+    minimumKit: ["录音设备", "防风罩", "耳机", "录音日志"],
+    repeatableFormat: [
+      "地点与声源",
+      "设备和增益",
+      "现场监听",
+      "清理与响度",
+      "原声对比和归档",
+    ],
+    firstTopics: [
+      "溪流远近机位",
+      "城市清晨声景",
+      "雨声防风实测",
+      "车内道路噪声分层",
+    ],
+    incomePaths: ["广告", "录音设备联盟", "音效库授权", "影视声音服务"],
+    caution:
+      "录制人声要注意隐私；降噪不能破坏真实质感，商业授权必须保存原始文件与地点记录。",
+    references: refs([
+      ["Free To Use Sounds", "FreeToUseSounds"],
+      ["George Vlad", "GeorgeVlad"],
+      ["Thomas Rex Beverly", "ThomasRexBeverly"],
+      ["Mindful Audio", "MindfulAudio"],
+      ["Marcel Gnauk", "MarcelGnauk"],
+      ["Curtis Judd", "curtisjudd"],
+      ["Sound Speeds", "SoundSpeeds"],
+      ["Booth Junkie", "BoothJunkie"],
+      ["The Sound Test Room", "TheSoundTestRoom"],
+      ["Sound on Sound magazine", "soundonsoundvideo"],
+    ]),
+  },
+];

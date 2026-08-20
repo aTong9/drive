@@ -1,6 +1,21 @@
 import data from "../../data/youtube-creators.json" with { type: "json" };
+export {
+  appearanceModeLabels,
+  ordinaryCreatorModels,
+  type AppearanceMode,
+  type OrdinaryCreatorModel,
+} from "../data/ordinaryCreatorModels.js";
 
-export type CreatorCategory = "scenic-drive" | "rain-walk" | "stationary-nature" | "urban-walk" | "guided-walk" | "cinematic-landscape" | "nature-ambience" | "ambient-cinema" | "asmr-nature";
+export type CreatorCategory =
+  | "scenic-drive"
+  | "rain-walk"
+  | "stationary-nature"
+  | "urban-walk"
+  | "guided-walk"
+  | "cinematic-landscape"
+  | "nature-ambience"
+  | "ambient-cinema"
+  | "asmr-nature";
 
 export interface YoutubeCreator {
   id: string;
@@ -16,11 +31,18 @@ export interface YoutubeCreator {
   evidence: Array<{ title: string; url: string }>;
 }
 
-export const youtubeCreatorResearch = data as { schemaVersion: "1.1.0"; methodology: string; accessedAt: string; creators: YoutubeCreator[] };
+export const youtubeCreatorResearch = data as {
+  schemaVersion: "1.1.0";
+  methodology: string;
+  accessedAt: string;
+  creators: YoutubeCreator[];
+};
 
 export function socialBladeUrl(channelUrl: string) {
   const handle = youtubeHandle(channelUrl);
-  return handle ? `https://socialblade.com/youtube/handle/${handle.toLowerCase()}` : "https://socialblade.com/youtube/";
+  return handle
+    ? `https://socialblade.com/youtube/handle/${handle.toLowerCase()}`
+    : "https://socialblade.com/youtube/";
 }
 
 export function youtubeHandle(channelUrl: string) {
@@ -29,7 +51,9 @@ export function youtubeHandle(channelUrl: string) {
 
 export function viewStatsUrl(channelUrl: string) {
   const handle = youtubeHandle(channelUrl);
-  return handle ? `https://www.viewstats.com/@${handle.toLowerCase()}/channelytics` : "https://www.viewstats.com/";
+  return handle
+    ? `https://www.viewstats.com/@${handle.toLowerCase()}/channelytics`
+    : "https://www.viewstats.com/";
 }
 
 export const creatorAnalyticsTools = {
@@ -40,9 +64,9 @@ export const creatorAnalyticsTools = {
 export function estimateSocialBladeEarnings(monthlyViews: number) {
   const views = Number.isFinite(monthlyViews) ? Math.max(0, monthlyViews) : 0;
   return {
-    monthlyLow: views / 1000 * 0.25,
-    monthlyHigh: views / 1000 * 4,
-    yearlyLow: views / 1000 * 0.25 * 12,
-    yearlyHigh: views / 1000 * 4 * 12,
+    monthlyLow: (views / 1000) * 0.25,
+    monthlyHigh: (views / 1000) * 4,
+    yearlyLow: (views / 1000) * 0.25 * 12,
+    yearlyHigh: (views / 1000) * 4 * 12,
   };
 }

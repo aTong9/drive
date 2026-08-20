@@ -1,0 +1,238 @@
+import type { OrdinaryCreatorModel } from "./ordinaryCreatorModels.js";
+
+const yt = (handle: string) => `https://www.youtube.com/@${handle}`;
+const refs = (items: Array<[string, string]>) =>
+  items.map(([name, handle]) => ({ name, url: yt(handle) }));
+
+export const ordinaryCreatorVerticalModelsMore4: OrdinaryCreatorModel[] = [
+  {
+    id: "tea-brewing-tasting",
+    title: "茶叶冲泡、品鉴与产区记录",
+    mode: "hybrid",
+    category: "茶饮细分",
+    promise:
+      "固定投茶量、水温和时间，对比茶叶、器具与冲泡变量，并记录真实风味变化。",
+    beginnerFit:
+      "一只盖碗、电子秤和日常茶叶即可开始，变量对比很容易形成长期系列。",
+    minimumKit: ["基础茶具", "电子秤", "温度计", "品鉴记录表"],
+    repeatableFormat: [
+      "茶样与来源",
+      "固定冲泡参数",
+      "逐泡记录",
+      "变量对比",
+      "结论与适合人群",
+    ],
+    firstTopics: [
+      "同茶不同水温",
+      "盖碗与马克杯对比",
+      "广东单丛入门",
+      "冷泡时间实验",
+    ],
+    incomePaths: ["广告", "茶具联盟", "茶商合作", "品鉴课程"],
+    caution:
+      "赞助茶样必须披露；产区、年份和健康功效需要证据，主观风味不能包装成统一结论。",
+    references: refs([
+      ["Mei Leaf", "MeiLeaf"],
+      ["Tea House Ghost", "TeaHouseGhost"],
+      ["TeaDB", "TeaDB"],
+      ["Nannuoshan", "Nannuoshan"],
+      ["Wu Mountain Tea", "WuMountainTea"],
+      ["Farmer Leaf", "Farmerleaf"],
+      ["Floating Leaves Tea", "FloatingLeavesTea"],
+      ["Path of Cha", "PathofCha"],
+      ["Jesse's Teahouse", "JessesTeahouse"],
+      ["Global Tea Hut", "GlobalTeaHut"],
+    ]),
+  },
+  {
+    id: "calligraphy-lettering-practice",
+    title: "书法、英文花体与每日练习",
+    mode: "faceless",
+    category: "书写艺术",
+    promise:
+      "通过笔画拆解、工具对比和周期练习，完整展示从生疏到稳定的书写进步。",
+    beginnerFit: "桌面俯拍、一支笔和练习纸即可开始，不露脸也能清晰表达。",
+    minimumKit: ["书写工具", "练习纸", "俯拍支架", "统一练习模板"],
+    repeatableFormat: [
+      "目标字形",
+      "工具和握笔",
+      "基础笔画",
+      "组合练习",
+      "前后对比与作业",
+    ],
+    firstTopics: [
+      "七天基础笔画",
+      "三种纸张洇墨",
+      "名字花体设计",
+      "慢动作运笔观察",
+    ],
+    incomePaths: ["广告", "文具联盟", "字帖销售", "课程与定制"],
+    caution:
+      "临摹要注明原作者与字体来源；商业字体、作品和模板不能未经许可重新销售。",
+    references: refs([
+      ["The Postman's Knock", "ThePostmansKnock"],
+      ["PAScribe", "PAScribe"],
+      ["OpenInkStand Art & Calligraphy", "OpenInkStand"],
+      ["Logos Calligraphy", "LogosCalligraphy"],
+      ["Crooked Calligraphy", "CrookedCalligraphy"],
+      ["The Happy Ever Crafter", "TheHappyEverCrafter"],
+      ["Pieces Calligraphy", "PiecesCalligraphy"],
+      ["Loveleigh Loops", "LoveleighLoops"],
+      ["Calligraphy Masters", "CalligraphyMasters"],
+      ["Shinah Chang", "ShinahChang"],
+    ]),
+  },
+  {
+    id: "model-railway-scenery",
+    title: "模型铁路、微缩场景与运行记录",
+    mode: "faceless",
+    category: "模型制作",
+    promise:
+      "从轨道规划、地形、建筑、电气到列车运行，逐步建立一个持续生长的微缩世界。",
+    beginnerFit: "可从一块小场景或单线展示板开始，不必一次建完整房间级布局。",
+    minimumKit: ["基础模型与轨道", "手工工具", "电气测试工具", "俯拍设备"],
+    repeatableFormat: [
+      "场景目标",
+      "结构和轨道",
+      "地形细节",
+      "电气与故障",
+      "运行展示和下期计划",
+    ],
+    firstTopics: [
+      "第一块小型场景板",
+      "真实岩壁制作",
+      "轨道脏污故障",
+      "车站夜景灯光",
+    ],
+    incomePaths: ["广告", "模型器材联盟", "品牌合作", "图纸与场景定制"],
+    caution:
+      "焊接、刀具和细小零件需防护；涉及真实铁路标识、涂装和商业模型素材时注意授权。",
+    references: refs([
+      ["Luke Towan", "LukeTowan"],
+      ["Chandwell", "Chandwell"],
+      ["Everard Junction", "EverardJunction"],
+      ["Sam'sTrains", "SamsTrains"],
+      ["Boulder Creek Railroad", "BoulderCreekRailroad"],
+      ["Model Railroad Hobbyist", "ModelRailroadHobbyist"],
+      ["DIY and Digital Railroad", "DIYandDigitalRailroad"],
+      ["Pilentum Television", "PilentumTelevision"],
+      ["InterCity82", "InterCity82"],
+      ["SMT Mainline", "SMTMainline"],
+    ]),
+  },
+  {
+    id: "rockhounding-field-geology",
+    title: "地质观察、矿物采集与岩石鉴定",
+    mode: "hybrid",
+    category: "地球科学",
+    promise:
+      "结合地貌、地层、合法采集和实验室观察，解释一块岩石从哪里来、如何形成。",
+    beginnerFit:
+      "可从城市建筑石材、河滩常见岩石和地质公园观察开始，不必先远征采矿。",
+    minimumKit: ["护目装备", "地质锤或观察工具", "定位与地图", "样本标签"],
+    repeatableFormat: [
+      "地点与地质背景",
+      "采集规则",
+      "现场观察",
+      "清理鉴定",
+      "证据与不确定性",
+    ],
+    firstTopics: [
+      "城市石材地质课",
+      "河滩岩石分类",
+      "第一次玛瑙观察",
+      "矿物硬度测试",
+    ],
+    incomePaths: ["广告", "户外工具联盟", "科普合作", "课程与标本摄影"],
+    caution:
+      "必须确认土地、保护区和采集法规；禁止进入矿洞、悬崖或私有地冒险取样。",
+    references: refs([
+      ["Currently Rockhounding", "CurrentlyRockhounding"],
+      ["Dan Hurd Prospecting", "DanHurd"],
+      ["Rookie Rockhounding", "RookieRockhounding"],
+      ["Michigan Rocks", "MichiganRocks"],
+      ["Agate Dad", "AgateDad"],
+      ["Rockhounding Life", "RockhoundingLife"],
+      ["Geo Girl", "GeoGirl"],
+      ["Shawn Willsey", "ShawnWillsey"],
+      ["Myron Cook", "MyronCook"],
+      ["Nick Zentner", "GeologyNick"],
+    ]),
+  },
+  {
+    id: "weather-observation-storm-science",
+    title: "天气观察、云图与风暴科学",
+    mode: "hybrid",
+    category: "天气科学",
+    promise:
+      "把雷达、卫星、云型、地面观测和现场影像结合起来，解释天气实际如何演变。",
+    beginnerFit: "可以从阳台气象记录和公开数据解读开始，不需要追逐危险天气。",
+    minimumKit: ["天气数据来源", "温湿度或气压记录", "相机", "安全预案"],
+    repeatableFormat: [
+      "预报背景",
+      "观测数据",
+      "云和雷达变化",
+      "现场结果",
+      "预报偏差复盘",
+    ],
+    firstTopics: [
+      "一周云型记录",
+      "台风外围云系",
+      "城市热岛温差",
+      "延时拍摄积雨云",
+    ],
+    incomePaths: ["广告", "气象设备联盟", "科普合作", "影像授权"],
+    caution:
+      "不自行发布灾害预警替代官方信息；雷暴、洪水和台风期间拍摄必须服从安全指引。",
+    references: refs([
+      ["Pecos Hank", "PecosHank"],
+      ["Ryan Hall, Y'all", "RyanHallYall"],
+      ["Convective Chronicles", "ConvectiveChronicles"],
+      ["Weather West", "WeatherWest"],
+      ["Met Office", "MetOffice"],
+      ["National Weather Service", "NationalWeatherService"],
+      ["Max Velocity", "MaxVelocityWX"],
+      ["Skip Talbot's Storm Chasing", "SkipTalbot"],
+      ["Reed Timmer", "ReedTimmerWx"],
+      ["Weatherbox", "Weatherbox"],
+    ]),
+  },
+  {
+    id: "vintage-tool-restoration",
+    title: "旧工具、机械与物件修复",
+    mode: "faceless",
+    category: "修复细分",
+    promise:
+      "从状态评估、拆解、除锈、零件修复到重新组装，保留物件历史同时恢复功能。",
+    beginnerFit: "可从低价值手工具和清洁保养开始，用固定俯拍完整记录过程。",
+    minimumKit: ["基础拆装工具", "护目与呼吸防护", "清洁除锈用品", "零件收纳"],
+    repeatableFormat: [
+      "原始状态",
+      "拆解和编号",
+      "清洁与修复",
+      "重组调校",
+      "功能测试和保存建议",
+    ],
+    firstTopics: [
+      "旧手钳除锈",
+      "木柄重新制作",
+      "生锈台钳保养",
+      "修复前后功能测试",
+    ],
+    incomePaths: ["广告", "工具联盟", "修复委托", "成品销售"],
+    caution:
+      "未知涂层、铅漆、石棉和化学品可能有害；古董价值较高时应停止自行修复并咨询专业人士。",
+    references: refs([
+      ["my mechanics", "mymechanics"],
+      ["Hand Tool Rescue", "HandToolRescue"],
+      ["TysyTube Restoration", "TysyTube"],
+      ["Restore It", "RestoreIt"],
+      ["Odd Tinkering", "OddTinkering"],
+      ["Rescue & Restore", "RescueRestore"],
+      ["Cool Again Restoration", "CoolAgainRestoration"],
+      ["Awesome Restorations", "AwesomeRestorations"],
+      ["Old Things Never Die", "OldThingsNeverDie"],
+      ["AT Restoration", "ATRestoration"],
+    ]),
+  },
+];
