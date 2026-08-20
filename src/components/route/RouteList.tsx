@@ -86,6 +86,7 @@ export function RouteList({
     "recommended",
   );
   const [page, setPage] = useState(1);
+  const [filtersOpen, setFiltersOpen] = useState(() => window.innerWidth > 760);
   const listTopRef = useRef<HTMLDivElement>(null);
   const displayRoutes = useMemo(
     () =>
@@ -156,8 +157,18 @@ export function RouteList({
             <em>光影旅程</em>
           </h1>
         </div>
-        <button className="icon-button mobile-filter" aria-label="打开筛选">
+        <button
+          className={`icon-button mobile-filter ${filtersOpen ? "active" : ""}`}
+          aria-label={filtersOpen ? "收起筛选" : "打开筛选"}
+          aria-expanded={filtersOpen}
+          aria-controls="route-filter-panel"
+          onClick={() => setFiltersOpen((value) => !value)}
+        >
           <SlidersHorizontal size={18} />
+          {(state.captureStyle !== "all" ||
+            state.driveOnly ||
+            state.mode !== "all" ||
+            state.maxDurationMinutes !== 960) && <i />}
         </button>
       </div>
 
@@ -233,86 +244,103 @@ export function RouteList({
         </div>
       )}
 
-      <div className="capture-heading">
-        <span>选择拍摄方式</span>
-        {state.captureStyle !== "all" && (
-          <button onClick={() => state.setCaptureStyle("all")}>清除</button>
-        )}
-      </div>
-      <div className="capture-modes" aria-label="拍摄方式">
-        {captureStyles.map((style) => {
-          const Icon = style.icon;
-          const active = state.captureStyle === style.value;
-          return (
-            <button
-              key={style.value}
-              className={`capture-${style.value} ${active ? "active" : ""}`}
-              aria-pressed={active}
-              onClick={() =>
-                state.setCaptureStyle(active ? "all" : style.value)
-              }
-            >
-              <Icon size={18} />
-              <strong>{style.label}</strong>
-              <small>{style.short}</small>
-            </button>
-          );
-        })}
-      </div>
-
-      <button
-        className={`drive-only-filter ${state.driveOnly ? "active" : ""}`}
-        aria-pressed={state.driveOnly}
-        onClick={() => state.setDriveOnly(!state.driveOnly)}
+      <section
+        id="route-filter-panel"
+        className={`route-filter-panel ${filtersOpen ? "is-open" : "is-collapsed"}`}
+        aria-label="路线筛选"
       >
-        <CarFront size={16} />
-        <span>
-          <strong>只看纯驾车</strong>
-          <small>全程不停车 · 无需下车</small>
-        </span>
-        <i>{state.driveOnly ? "已开启" : "开启"}</i>
-      </button>
+        <div className="capture-heading">
+          <span>选择拍摄方式</span>
+          {state.captureStyle !== "all" && (
+            <button onClick={() => state.setCaptureStyle("all")}>清除</button>
+          )}
+        </div>
+        <div className="capture-modes" aria-label="拍摄方式">
+          {captureStyles.map((style) => {
+            const Icon = style.icon;
+            const active = state.captureStyle === style.value;
+            return (
+              <button
+                key={style.value}
+                className={`capture-${style.value} ${active ? "active" : ""}`}
+                aria-pressed={active}
+                onClick={() =>
+                  state.setCaptureStyle(active ? "all" : style.value)
+                }
+              >
+                <Icon size={18} />
+                <strong>{style.label}</strong>
+                <small>{style.short}</small>
+              </button>
+            );
+          })}
+        </div>
 
-      <div className="light-heading">光线与氛围</div>
-      <div className="mode-tabs" role="tablist" aria-label="光线与氛围">
-        {modes.map((mode) => (
-          <button
-            key={mode.value}
-            role="tab"
-            aria-selected={state.mode === mode.value}
-            onClick={() => state.setMode(mode.value)}
-          >
-            {mode.label}
-          </button>
-        ))}
-      </div>
-
-      <label className="duration-filter">
-        <span>最长行程</span>
-        <select
-          value={state.maxDurationMinutes}
-          onChange={(event) =>
-            state.setMaxDurationMinutes(Number(event.target.value))
-          }
+        <button
+          className={`drive-only-filter ${state.driveOnly ? "active" : ""}`}
+          aria-pressed={state.driveOnly}
+          onClick={() => state.setDriveOnly(!state.driveOnly)}
         >
-          <option value={120}>2 小时</option>
-          <option value={180}>3 小时</option>
-          <option value={240}>4 小时</option>
-          <option value={360}>6 小时</option>
-          <option value={480}>8 小时</option>
-          <option value={600}>10 小时</option>
-          <option value={720}>2—3 日</option>
-          <option value={960}>多日路线</option>
-        </select>
-      </label>
+          <CarFront size={16} />
+          <span>
+            <strong>只看纯驾车</strong>
+            <small>全程不停车 · 无需下车</small>
+          </span>
+          <i>{state.driveOnly ? "已开启" : "开启"}</i>
+        </button>
+
+        <div className="light-heading">光线与氛围</div>
+        <div className="mode-tabs" role="tablist" aria-label="光线与氛围">
+          {modes.map((mode) => (
+            <button
+              key={mode.value}
+              role="tab"
+              aria-selected={state.mode === mode.value}
+              onClick={() => state.setMode(mode.value)}
+            >
+              {mode.label}
+            </button>
+          ))}
+        </div>
+
+        <label className="duration-filter">
+          <span>最长行程</span>
+          <select
+            value={state.maxDurationMinutes}
+            onChange={(event) =>
+              state.setMaxDurationMinutes(Number(event.target.value))
+            }
+          >
+            <option value={120}>2 小时</option>
+            <option value={180}>3 小时</option>
+            <option value={240}>4 小时</option>
+            <option value={360}>6 小时</option>
+            <option value={480}>8 小时</option>
+            <option value={600}>10 小时</option>
+            <option value={720}>2—3 日</option>
+            <option value={960}>多日路线</option>
+          </select>
+        </label>
+      </section>
 
       <div ref={listTopRef} className="list-heading">
         <span>
           <strong>{routes.length}</strong> 条匹配路线
         </span>
-        <button onClick={cycleSort} aria-label="切换路线排序">
-          {sortLabels[sort]} <span>⌄</span>
-        </button>
+        <div>
+          {!filtersOpen && (
+            <button
+              className="filter-summary-trigger"
+              onClick={() => setFiltersOpen(true)}
+            >
+              <SlidersHorizontal size={13} />
+              筛选
+            </button>
+          )}
+          <button onClick={cycleSort} aria-label="切换路线排序">
+            {sortLabels[sort]} <span>⌄</span>
+          </button>
+        </div>
       </div>
 
       <div className="route-card-list">

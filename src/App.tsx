@@ -127,6 +127,9 @@ export function App() {
     document.documentElement.dataset.theme = theme;
     localStorage.setItem("roadlens-theme", theme);
   }, [theme]);
+  useEffect(() => {
+    if (window.innerWidth <= 760) usePlannerStore.getState().closeDetail();
+  }, []);
   const locateCurrentCity = useCallback(async () => {
     setLocationStatus("locating");
     setLocationMessage("");
@@ -299,7 +302,10 @@ export function App() {
           </button>
           <button
             className={state.view === "explore" ? "active" : ""}
-            onClick={() => state.setView("explore")}
+            onClick={() => {
+              state.closeDetail();
+              state.setView("explore");
+            }}
           >
             <Compass size={17} /> 探索路线
           </button>
@@ -558,7 +564,10 @@ export function App() {
         </button>
         <button
           className={state.view === "explore" ? "active" : ""}
-          onClick={() => state.setView("explore")}
+          onClick={() => {
+            state.closeDetail();
+            state.setView("explore");
+          }}
         >
           <Compass size={19} />
           <span>探索</span>

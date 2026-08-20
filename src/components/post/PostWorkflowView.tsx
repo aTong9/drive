@@ -314,6 +314,10 @@ export function PostWorkflowView({
   const selectedStageCompleted = selectedStageTasks.filter(
     (task) => task.completed,
   ).length;
+  const nextPendingTask = postTasks.find((task) => !task.completed);
+  const nextPendingStage = nextPendingTask
+    ? workflow.stages.find((stage) => stage.id === nextPendingTask.stageId)
+    : workflow.stages[0];
   const stageIsDone = (stageId: DavinciStageId) => {
     const tasks = tasksByStage.get(stageId) ?? [];
     return tasks.length > 0 && tasks.every((task) => task.completed);
@@ -333,6 +337,18 @@ export function PostWorkflowView({
     });
     setMode("pipeline");
   };
+  const openExecutionStart = () => {
+    if (postTasks.length) {
+      setMode("pipeline");
+      return;
+    }
+    setMode("overview");
+    window.requestAnimationFrame(() =>
+      document
+        .getElementById("post-project-start")
+        ?.scrollIntoView({ behavior: "smooth", block: "center" }),
+    );
+  };
   if (!selected) return null;
 
   return (
@@ -345,56 +361,66 @@ export function PostWorkflowView({
         </div>
         <div className="post-head-actions">
           <div className="post-mode">
-            <button
-              className={mode === "overview" ? "active" : ""}
-              onClick={() => setMode("overview")}
-            >
-              <Compass size={12} /> 总览
-            </button>
-            <button
-              className={mode === "presets" ? "active" : ""}
-              onClick={() => setMode("presets")}
-            >
-              <SlidersHorizontal size={12} /> 调色预设
-            </button>
-            <button
-              className={mode === "glossary" ? "active" : ""}
-              onClick={() => setMode("glossary")}
-            >
-              <BookOpen size={12} /> 参数词典
-            </button>
-            <button
-              className={mode === "compare" ? "active" : ""}
-              onClick={() => setMode("compare")}
-            >
-              <GitCompareArrows size={12} /> 链路对比
-            </button>
-            <button
-              className={mode === "tools" ? "active" : ""}
-              onClick={() => setMode("tools")}
-            >
-              <SlidersHorizontal size={12} /> 决策工具
-            </button>
-            <button
-              className={mode === "favorites" ? "active" : ""}
-              onClick={() => setMode("favorites")}
-            >
-              <Heart size={12} /> 收藏 {favoritePresetIds.length}
-            </button>
-            <button
-              className={
-                mode === "guide" || mode === "tutorial" ? "active" : ""
-              }
-              onClick={() => setMode("guide")}
-            >
-              流程指南
-            </button>
-            <button
-              className={mode === "pipeline" ? "active" : ""}
-              onClick={() => setMode("pipeline")}
-            >
-              <ListChecks size={12} /> 项目执行
-            </button>
+            <div className="post-mode-group">
+              <small>执行流程</small>
+              <nav>
+                <button
+                  className={mode === "overview" ? "active" : ""}
+                  onClick={() => setMode("overview")}
+                >
+                  <Compass size={12} /> 总览
+                </button>
+                <button
+                  className={mode === "pipeline" ? "active" : ""}
+                  onClick={() => setMode("pipeline")}
+                >
+                  <ListChecks size={12} /> 项目执行
+                </button>
+                <button
+                  className={
+                    mode === "guide" || mode === "tutorial" ? "active" : ""
+                  }
+                  onClick={() => setMode("guide")}
+                >
+                  <Workflow size={12} /> 流程指南
+                </button>
+                <button
+                  className={mode === "presets" ? "active" : ""}
+                  onClick={() => setMode("presets")}
+                >
+                  <Palette size={12} /> 调色预设
+                </button>
+              </nav>
+            </div>
+            <div className="post-mode-group">
+              <small>参考与诊断</small>
+              <nav>
+                <button
+                  className={mode === "tools" ? "active" : ""}
+                  onClick={() => setMode("tools")}
+                >
+                  <SlidersHorizontal size={12} /> 问题诊断
+                </button>
+                <button
+                  className={mode === "glossary" ? "active" : ""}
+                  onClick={() => setMode("glossary")}
+                >
+                  <BookOpen size={12} /> 参数词典
+                </button>
+                <button
+                  className={mode === "compare" ? "active" : ""}
+                  onClick={() => setMode("compare")}
+                >
+                  <GitCompareArrows size={12} /> 链路对比
+                </button>
+                <button
+                  className={mode === "favorites" ? "active" : ""}
+                  onClick={() => setMode("favorites")}
+                >
+                  <Heart size={12} /> 收藏 {favoritePresetIds.length}
+                </button>
+              </nav>
+            </div>
           </div>
         </div>
       </header>
@@ -463,8 +489,75 @@ export function PostWorkflowView({
               </div>
             </dl>
           </div>
+          <section className="post-action-hub">
+            <header>
+              <div>
+                <p className="eyebrow">WHAT TO DO NEXT</p>
+                <h2>从当前问题直接开始</h2>
+              </div>
+              <span>
+                {postTasks.length
+                  ? `${completed} / ${postTasks.length} 项完成`
+                  : "尚未建立执行项目"}
+              </span>
+            </header>
+            <div>
+              <button
+                className="primary"
+                onClick={openExecutionStart}
+              >
+                <ListChecks size={18} />
+                <span>
+                  <small>
+                    {postTasks.length ? "下一项任务" : "建立执行清单"}
+                  </small>
+                  <strong>
+                    {nextPendingTask?.title ?? "关联拍摄计划并导入完整流程"}
+                  </strong>
+                  <em>
+                    {nextPendingStage
+                      ? `${nextPendingStage.label} · ${nextPendingStage.englishLabel}`
+                      : "Media → Deliver"}
+                  </em>
+                </span>
+                <ArrowRight size={15} />
+              </button>
+              <button
+                onClick={() => {
+                  setSelectedId("color");
+                  setMode("presets");
+                }}
+              >
+                <Palette size={18} />
+                <span>
+                  <small>我准备调色</small>
+                  <strong>选择场景预设与节点数值</strong>
+                  <em>先匹配镜头，再建立 Look</em>
+                </span>
+                <ArrowRight size={15} />
+              </button>
+              <button onClick={() => setMode("tools")}>
+                <SlidersHorizontal size={18} />
+                <span>
+                  <small>画面或声音有问题</small>
+                  <strong>按症状诊断处理方向</strong>
+                  <em>曝光、色偏、噪声、响度与交付</em>
+                </span>
+                <ArrowRight size={15} />
+              </button>
+              <button onClick={() => setMode("glossary")}>
+                <BookOpen size={18} />
+                <span>
+                  <small>不知道参数含义</small>
+                  <strong>查询数值、方向与使用边界</strong>
+                  <em>包含调整原因和实际示例</em>
+                </span>
+                <ArrowRight size={15} />
+              </button>
+            </div>
+          </section>
           <SonyMrWorkflowPanel />
-          <div className="post-overview-grid">
+          <div className="post-overview-grid" id="post-project-start">
             <section>
               <header>
                 <small>RECOMMENDED PATH</small>

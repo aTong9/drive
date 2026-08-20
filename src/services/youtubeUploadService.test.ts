@@ -7,7 +7,10 @@ test("provides conservative upload defaults without a connected YouTube API", ()
   const guide = buildYoutubeUploadGuide(undefined, undefined, "ambience");
   assert.equal(guide.visibility, "Private");
   assert.match(guide.title, /Real Road Sounds 4K HDR — No Music, No Talking/);
-  assert.match(guide.description, /No music, no talking, no artificial sound loops/);
+  assert.match(
+    guide.description,
+    /No music, no talking, no artificial sound loops/,
+  );
   assert.ok(guide.checks.some((item) => item.includes("2160p HDR")));
 });
 
@@ -31,10 +34,37 @@ test("matches Social Blade's public default CPM estimate range", () => {
 });
 
 test("provides distinct search, immersive and archive upload templates", () => {
-  const search = buildYoutubeUploadGuide(undefined, undefined, "vision", "search");
-  const immersive = buildYoutubeUploadGuide(undefined, undefined, "vision", "immersive");
-  const archive = buildYoutubeUploadGuide(undefined, undefined, "vision", "archive");
+  const search = buildYoutubeUploadGuide(
+    undefined,
+    undefined,
+    "vision",
+    "search",
+  );
+  const immersive = buildYoutubeUploadGuide(
+    undefined,
+    undefined,
+    "vision",
+    "immersive",
+  );
+  const archive = buildYoutubeUploadGuide(
+    undefined,
+    undefined,
+    "vision",
+    "archive",
+  );
   assert.equal(new Set([search.title, immersive.title, archive.title]).size, 3);
   assert.match(immersive.description, /cinematic night journey/i);
   assert.match(archive.title, /Night Drive Film/);
+});
+
+test("provides separate English originals and Chinese localized metadata", () => {
+  const guide = buildYoutubeUploadGuide(undefined, undefined, "ambience");
+  assert.match(guide.title, /Real Road Sounds/);
+  assert.match(guide.titleZh, /真实道路环境声/);
+  assert.match(guide.descriptionEn, /CHAPTERS/);
+  assert.doesNotMatch(guide.descriptionEn, /中文/);
+  assert.match(guide.descriptionZh, /章节/);
+  assert.ok(guide.tagsZh.includes("夜间驾驶"));
+  assert.equal(guide.checks.length, guide.checksEn.length);
+  assert.match(guide.thumbnailEn, /4K HDR/);
 });

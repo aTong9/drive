@@ -15,6 +15,7 @@ import {
   Navigation,
   Search,
   ShieldCheck,
+  SlidersHorizontal,
   Trees,
   Trash2,
   X,
@@ -26,7 +27,6 @@ import {
   useState,
   type ChangeEvent,
   type FormEvent,
-  type WheelEvent,
 } from "react";
 import type {
   FieldCheck,
@@ -48,7 +48,6 @@ import {
   type AdministrativeGroupId,
 } from "../../services/regionService.js";
 import { paginateItems } from "../../services/localPagination.js";
-import { horizontalScrollDelta } from "../../services/horizontalScroll.js";
 import { GeoPhotoThumbnail } from "../common/GeoPhotoThumbnail.js";
 import { CityWeather } from "../common/CityWeather.js";
 import { LocalPaginationControls } from "../common/LocalPaginationControls.js";
@@ -158,7 +157,9 @@ export function LocationView({
   const [locationPage, setLocationPage] = useState(1);
   const [routePage, setRoutePage] = useState(1);
   const [selectedId, setSelectedId] = useState(locations[0]?.id ?? "");
-  const [detailVisible, setDetailVisible] = useState(true);
+  const [detailVisible, setDetailVisible] = useState(
+    () => window.innerWidth > 760,
+  );
   const [editing, setEditing] = useState(false);
   const [importMessage, setImportMessage] = useState("");
   const importInputRef = useRef<HTMLInputElement>(null);
@@ -293,15 +294,6 @@ export function LocationView({
       block: "start",
     });
   };
-  const scrollRegionOptions = (event: WheelEvent<HTMLDivElement>) => {
-    const rail = event.currentTarget;
-    if (rail.scrollWidth <= rail.clientWidth) return;
-    const delta = horizontalScrollDelta(event.deltaX, event.deltaY);
-    if (!delta) return;
-    event.preventDefault();
-    rail.scrollLeft += delta;
-  };
-
   return (
     <main className={`location-page mode-${browseMode}`}>
       <section className="location-browser">
@@ -360,7 +352,10 @@ export function LocationView({
             </button>
           </div>
         </header>
-        <section className="region-browser" aria-label="地点行政区划">
+        <section
+          className="region-browser region-browser-compact"
+          aria-label="地点行政区划"
+        >
           <div className="region-path">
             <Globe2 size={14} />
             <button
@@ -388,104 +383,81 @@ export function LocationView({
               </>
             )}
           </div>
-          {!region.province && (
-            <div
-              className="region-groups"
-              aria-label="按地理分区筛选省级行政区"
-            >
-              <button
-                className={regionGroup === "all" ? "active" : ""}
-                onClick={() => setRegionGroup("all")}
-              >
-                全部 34
-              </button>
-              {administrativeGroups.map((group) => (
-                <button
-                  key={group.id}
-                  className={regionGroup === group.id ? "active" : ""}
-                  onClick={() => setRegionGroup(group.id)}
-                >
-                  {group.label} {group.provinces.length}
-                </button>
-              ))}
-            </div>
-          )}
-          <div
-            className={`region-options ${!region.province ? "province-options" : ""}`}
-            onWheel={region.province ? scrollRegionOptions : undefined}
-          >
-            {!region.province ? (
-              provinces.map((province) => {
-                const locationCount = locations.filter(
-                  (location) => location.province === province.name,
-                ).length;
-                const routeCount = routes.filter(
-                  (route) => route.route.province === province.name,
-                ).length;
-                return (
-                  <button
-                    key={province.name}
-                    className={locationCount ? "has-content" : "directory-only"}
-                    onClick={() => setRegion({ province: province.name })}
-                  >
-                    <span>{province.label}</span>
-                    <small>
-                      {locationCount || routeCount
-                        ? `${locationCount} 地点 · ${routeCount} 路线`
-                        : "行政目录 · 待核验"}
-                    </small>
-                    <ChevronRight size={14} />
-                  </button>
-                );
-              })
-            ) : (
-              <>
-                <button
-                  className={!region.city ? "active" : ""}
-                  onClick={() => setRegion({ province: region.province! })}
-                >
-                  <span>全部区域</span>
-                  <small>
-                    {
-                      locations.filter(
-                        (location) => location.province === region.province,
-                      ).length
-                    }{" "}
-                    地点
-                  </small>
-                </button>
-                {cities.map((city) => {
-                  const locationCount = locations.filter(
-                    (location) =>
-                      location.province === region.province &&
-                      location.city === city.name,
-                  ).length;
-                  const routeCount = routes.filter(
-                    (route) =>
-                      route.route.province === region.province &&
-                      route.route.cities.includes(city.name),
-                  ).length;
-                  return (
-                    <button
-                      key={city.name}
-                      className={`${region.city === city.name ? "active " : ""}${locationCount || routeCount ? "has-content" : "directory-only"}`}
-                      onClick={() =>
-                        setRegion({
-                          province: region.province!,
-                          city: city.name,
-                        })
-                      }
-                    >
-                      <span>{city.label}</span>
-                      <small>
-                        {locationCount || routeCount
-                          ? `${locationCount} 地点 · ${routeCount} 路线`
-                          : "行政目录 · 待核验"}
-                      </small>
-                    </button>
+          <div className="region-control-grid">
+            <span className="region-control-label">
+              <SlidersHorizontal size={15} /> 按区域筛选
+            </span>
+            <label>
+              <small>地理分区</small>
+              <select
+                value={regionGroup}
+                onChange={(event) => {
+                  setRegionGroup(
+                    event.target.value as AdministrativeGroupId | "all",
                   );
-                })}
-              </>
+                  setRegion({});
+                }}
+              >
+                <option value="all">全国 · 34 个省级区域</option>
+                {administrativeGroups.map((group) => (
+                  <option key={group.id} value={group.id}>
+                    {group.label} · {group.provinces.length} 个省级区域
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label>
+              <small>省 / 自治区</small>
+              <select
+                value={region.province ?? ""}
+                onChange={(event) =>
+                  setRegion(
+                    event.target.value ? { province: event.target.value } : {},
+                  )
+                }
+              >
+                <option value="">全部省级区域</option>
+                {provinces.map((province) => (
+                  <option key={province.name} value={province.name}>
+                    {province.label}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label>
+              <small>城市 / 区域</small>
+              <select
+                value={region.city ?? ""}
+                disabled={!region.province}
+                onChange={(event) => {
+                  if (!region.province) return;
+                  setRegion(
+                    event.target.value
+                      ? { province: region.province, city: event.target.value }
+                      : { province: region.province },
+                  );
+                }}
+              >
+                <option value="">
+                  {region.province ? "全部城市与区域" : "请先选择省级区域"}
+                </option>
+                {cities.map((city) => (
+                  <option key={city.name} value={city.name}>
+                    {city.label}
+                  </option>
+                ))}
+              </select>
+            </label>
+            {(region.province || region.city || regionGroup !== "all") && (
+              <button
+                className="region-clear"
+                onClick={() => {
+                  setRegion({});
+                  setRegionGroup("all");
+                }}
+              >
+                <X size={14} /> 清除区域
+              </button>
             )}
           </div>
           {region.city && <CityWeather cities={[region.city]} />}
@@ -523,6 +495,39 @@ export function LocationView({
             }
           />
         </label>
+        <div className="library-results-summary" aria-live="polite">
+          <span>
+            <strong>
+              {browseMode === "locations"
+                ? filtered.length
+                : filteredRoutes.length}
+            </strong>{" "}
+            {browseMode === "locations" ? "个地点" : "条路线"}
+            {region.city
+              ? ` · ${divisionLabel(region.province, region.city)}`
+              : region.province
+                ? ` · ${provinceLabel(region.province)}`
+                : " · 全国"}
+          </span>
+          {(query ||
+            region.province ||
+            type !== "all" ||
+            captureStyle !== "all" ||
+            driveOnly) && (
+            <button
+              onClick={() => {
+                setQuery("");
+                setRegion({});
+                setRegionGroup("all");
+                setType("all");
+                setCaptureStyle("all");
+                setDriveOnly(false);
+              }}
+            >
+              <X size={13} /> 重置当前筛选
+            </button>
+          )}
+        </div>
         {browseMode === "locations" ? (
           <>
             <div className="location-filters">
