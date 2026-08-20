@@ -1,4 +1,8 @@
 import {
+  estimateCreatorRevenuePotential,
+  sortCreatorModelsByRevenuePotential,
+} from "../../services/creatorRevenuePotentialService.js";
+import {
   ArrowUpRight,
   Calculator,
   CameraOff,
@@ -65,6 +69,16 @@ export function CreatorView() {
   const [query, setQuery] = useState("");
   const [modelQuery, setModelQuery] = useState("");
   const [modelPage, setModelPage] = useState(1);
+  const [revenueSort, setRevenueSort] = useState<
+    "annual-desc" | "annual-asc" | "library"
+  >("annual-desc");
+  const [revenueTierFilter, setRevenueTierFilter] = useState<
+    "all" | "top" | "mid" | "starter"
+  >("all");
+  const [costFilter, setCostFilter] = useState<"all" | "low" | "high">("all");
+  const [cardDensity, setCardDensity] = useState<"compact" | "detailed">(
+    "compact",
+  );
   const [monthlyViews, setMonthlyViews] = useState(1000000);
   const earnings = estimateSocialBladeEarnings(monthlyViews);
   const money = (value: number) =>
@@ -87,10 +101,22 @@ export function CreatorView() {
       }),
     [category, query],
   );
-  const filteredChannelModels = ordinaryCreatorModels.filter((model) => {
+  const matchingChannelModels = ordinaryCreatorModels.filter((model) => {
     const needle = modelQuery.trim().toLowerCase();
+    const revenue = estimateCreatorRevenuePotential(model);
+    const tierMatches =
+      revenueTierFilter === "all" ||
+      (revenueTierFilter === "top" && ["S", "A"].includes(revenue.tier)) ||
+      (revenueTierFilter === "mid" && ["B", "C"].includes(revenue.tier)) ||
+      (revenueTierFilter === "starter" && ["D", "E"].includes(revenue.tier));
+    const costMatches =
+      costFilter === "all" ||
+      (costFilter === "low" && revenue.costPenalty < 1) ||
+      (costFilter === "high" && revenue.costPenalty >= 1);
     return (
       (appearanceMode === "all" || model.mode === appearanceMode) &&
+      tierMatches &&
+      costMatches &&
       (!needle ||
         model.title.toLowerCase().includes(needle) ||
         model.category.toLowerCase().includes(needle) ||
@@ -100,6 +126,13 @@ export function CreatorView() {
         ))
     );
   });
+  const filteredChannelModels =
+    revenueSort === "library"
+      ? matchingChannelModels
+      : sortCreatorModelsByRevenuePotential(
+          matchingChannelModels,
+          revenueSort === "annual-desc" ? "desc" : "asc",
+        );
   const modelPageSize = 8;
   const modelPageCount = Math.max(
     1,
@@ -110,6 +143,15 @@ export function CreatorView() {
     (currentModelPage - 1) * modelPageSize,
     currentModelPage * modelPageSize,
   );
+  const topPotentialCount = filteredChannelModels.filter((model) =>
+    ["S", "A"].includes(estimateCreatorRevenuePotential(model).tier),
+  ).length;
+  const lowCostCount = filteredChannelModels.filter(
+    (model) => estimateCreatorRevenuePotential(model).costPenalty < 1,
+  ).length;
+  const facelessCount = filteredChannelModels.filter(
+    (model) => model.mode === "faceless",
+  ).length;
 
   return (
     <main className="creator-page">
@@ -233,82 +275,195 @@ export function CreatorView() {
                 placeholder="搜索方向或参考博主"
               />
             </label>
+            <label className="ordinary-revenue-sort">
+              <Calculator size={14} />
+              <select
+                aria-label="频道方向收益排序"
+                value={revenueSort}
+                onChange={(event) => {
+                  setRevenueSort(
+                    event.target.value as
+                      "annual-desc" | "annual-asc" | "library",
+                  );
+                  setModelPage(1);
+                }}
+              >
+                <option value="annual-desc">年收益潜力：高到低</option>
+                <option value="annual-asc">年收益潜力：低到高</option>
+                <option value="library">资料库原顺序</option>
+              </select>
+            </label>
+            <label className="ordinary-revenue-filter">
+              <select
+                aria-label="收益潜力等级筛选"
+                value={revenueTierFilter}
+                onChange={(event) => {
+                  setRevenueTierFilter(
+                    event.target.value as "all" | "top" | "mid" | "starter",
+                  );
+                  setModelPage(1);
+                }}
+              >
+                <option value="all">全部收益等级</option>
+                <option value="top">S–A 高潜力</option>
+                <option value="mid">B–C 中等潜力</option>
+                <option value="starter">D–E 起步型</option>
+              </select>
+            </label>
+            <label className="ordinary-revenue-filter">
+              <select
+                aria-label="启动成本筛选"
+                value={costFilter}
+                onChange={(event) => {
+                  setCostFilter(event.target.value as "all" | "low" | "high");
+                  setModelPage(1);
+                }}
+              >
+                <option value="all">全部启动成本</option>
+                <option value="low">低成本优先</option>
+                <option value="high">设备／运营成本较高</option>
+              </select>
+            </label>
+          </div>
+          <aside className="ordinary-revenue-method">
+            <Calculator size={17} />
+            <div>
+              <strong>成熟期年收益潜力模型</strong>
+              <p>
+                默认按广告价值、购买意图、常青搜索、变现宽度和生产效率综合排序，并扣除高设备与运营成本。区间假设频道已稳定运营，不代表参考博主真实收入，也不保证你能达到。
+              </p>
+            </div>
+          </aside>
+          <div className="ordinary-decision-summary">
+            <span>
+              <strong>{filteredChannelModels.length}</strong>
+              当前匹配
+            </span>
+            <span>
+              <strong>{topPotentialCount}</strong>
+              S–A 高潜力
+            </span>
+            <span>
+              <strong>{lowCostCount}</strong>
+              低成本方向
+            </span>
+            <span>
+              <strong>{facelessCount}</strong>
+              完全不露脸
+            </span>
+            <div>
+              <button
+                className={cardDensity === "compact" ? "active" : ""}
+                onClick={() => setCardDensity("compact")}
+              >
+                快速浏览
+              </button>
+              <button
+                className={cardDensity === "detailed" ? "active" : ""}
+                onClick={() => setCardDensity("detailed")}
+              >
+                展开详情
+              </button>
+            </div>
           </div>
           <div className="ordinary-channel-grid">
-            {channelModels.map((model) => (
-              <article
-                key={model.id}
-                className={`ordinary-channel-card mode-${model.mode}`}
-              >
-                <header>
-                  <span>{appearanceModeLabels[model.mode]}</span>
-                  <small>{model.category}</small>
-                  <h3>{model.title}</h3>
-                  <p>{model.promise}</p>
-                </header>
-                <aside>
-                  <strong>为什么普通人可做</strong>
-                  <p>{model.beginnerFit}</p>
-                </aside>
-                <section>
-                  <h4>最低装备</h4>
-                  <div className="ordinary-kit">
-                    {model.minimumKit.map((item) => (
-                      <span key={item}>
-                        <Check size={10} />
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </section>
-                <section>
-                  <h4>每期固定结构</h4>
-                  <ol>
-                    {model.repeatableFormat.map((step, index) => (
-                      <li key={step}>
-                        <i>{index + 1}</i>
-                        {step}
-                      </li>
-                    ))}
-                  </ol>
-                </section>
-                <section>
-                  <h4>第一批可拍选题</h4>
-                  <div className="ordinary-topics">
-                    {model.firstTopics.map((topic) => (
-                      <span key={topic}>{topic}</span>
-                    ))}
-                  </div>
-                </section>
-                <section>
-                  <h4>同类型参考博主</h4>
-                  <div className="ordinary-references">
-                    {model.references.map((reference, index) => (
-                      <a
-                        key={reference.url}
-                        href={reference.url}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        <i>{String(index + 1).padStart(2, "0")}</i>
-                        <span>{reference.name}</span>
-                        <ExternalLink size={11} />
-                      </a>
-                    ))}
-                  </div>
-                </section>
-                <section>
-                  <h4>可能收入路径</h4>
-                  <p className="ordinary-income">
-                    {model.incomePaths.join(" · ")}
-                  </p>
-                </section>
-                <footer>
-                  <strong>边界</strong>
-                  <p>{model.caution}</p>
-                </footer>
-              </article>
-            ))}
+            {channelModels.map((model) => {
+              const revenue = estimateCreatorRevenuePotential(model);
+              return (
+                <article
+                  key={model.id}
+                  className={`ordinary-channel-card mode-${model.mode}`}
+                >
+                  <header>
+                    <span>{appearanceModeLabels[model.mode]}</span>
+                    <small>{model.category}</small>
+                    <h3>{model.title}</h3>
+                    <p>{model.promise}</p>
+                  </header>
+                  <aside>
+                    <strong>为什么普通人可做</strong>
+                    <p>{model.beginnerFit}</p>
+                  </aside>
+                  <section className="ordinary-revenue-estimate">
+                    <div>
+                      <span>收益潜力 {revenue.tier}</span>
+                      <strong>
+                        ¥{Math.round(revenue.annualMinCny / 10000)}万–¥
+                        {Math.round(revenue.annualMaxCny / 10000)}万／年
+                      </strong>
+                      <small>成熟期宽区间 · 综合得分 {revenue.score}/100</small>
+                    </div>
+                    <p>{revenue.rationale.join(" · ")}</p>
+                  </section>
+                  <details
+                    className="ordinary-card-details"
+                    open={cardDensity === "detailed" ? true : undefined}
+                  >
+                    <summary>
+                      <span>查看装备、固定流程、选题与参考博主</span>
+                      <em>{model.references.length} 位参考</em>
+                    </summary>
+                    <section>
+                      <h4>最低装备</h4>
+                      <div className="ordinary-kit">
+                        {model.minimumKit.map((item) => (
+                          <span key={item}>
+                            <Check size={10} />
+                            {item}
+                          </span>
+                        ))}
+                      </div>
+                    </section>
+                    <section>
+                      <h4>每期固定结构</h4>
+                      <ol>
+                        {model.repeatableFormat.map((step, index) => (
+                          <li key={step}>
+                            <i>{index + 1}</i>
+                            {step}
+                          </li>
+                        ))}
+                      </ol>
+                    </section>
+                    <section>
+                      <h4>第一批可拍选题</h4>
+                      <div className="ordinary-topics">
+                        {model.firstTopics.map((topic) => (
+                          <span key={topic}>{topic}</span>
+                        ))}
+                      </div>
+                    </section>
+                    <section>
+                      <h4>同类型参考博主</h4>
+                      <div className="ordinary-references">
+                        {model.references.map((reference, index) => (
+                          <a
+                            key={reference.url}
+                            href={reference.url}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            <i>{String(index + 1).padStart(2, "0")}</i>
+                            <span>{reference.name}</span>
+                            <ExternalLink size={11} />
+                          </a>
+                        ))}
+                      </div>
+                    </section>
+                    <section>
+                      <h4>可能收入路径</h4>
+                      <p className="ordinary-income">
+                        {model.incomePaths.join(" · ")}
+                      </p>
+                    </section>
+                    <footer>
+                      <strong>边界</strong>
+                      <p>{model.caution}</p>
+                    </footer>
+                  </details>
+                </article>
+              );
+            })}
           </div>
           <nav
             className="ordinary-channel-pagination"

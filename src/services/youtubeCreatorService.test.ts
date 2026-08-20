@@ -2,6 +2,8 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { ordinaryCreatorVerticalModelsBatch30 } from "../data/ordinaryCreatorVerticalModelsBatch30.js";
 import { ordinaryCreatorVerticalModelsBatch50 } from "../data/ordinaryCreatorVerticalModelsBatch50.js";
+import { ordinaryCreatorVerticalModelsBatch50B } from "../data/ordinaryCreatorVerticalModelsBatch50B.js";
+import { ordinaryCreatorVerticalModelsBatch90 } from "../data/ordinaryCreatorVerticalModelsBatch90.js";
 import {
   ordinaryCreatorModels,
   socialBladeUrl,
@@ -26,8 +28,16 @@ test("the newest creator expansion adds exactly fifty directions", () => {
   assert.equal(ordinaryCreatorVerticalModelsBatch50.length, 50);
 });
 
+test("the second fifty-direction expansion is complete", () => {
+  assert.equal(ordinaryCreatorVerticalModelsBatch50B.length, 50);
+});
+
+test("the ninety-direction expansion is complete", () => {
+  assert.equal(ordinaryCreatorVerticalModelsBatch90.length, 90);
+});
+
 test("every ordinary-person channel model is actionable", () => {
-  assert.ok(ordinaryCreatorModels.length >= 160);
+  assert.ok(ordinaryCreatorModels.length >= 300);
   for (const model of ordinaryCreatorModels) {
     assert.ok(model.minimumKit.length >= 4, `${model.id} needs a minimum kit`);
     assert.ok(

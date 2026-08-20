@@ -11519,6 +11519,7 @@ input:focus-visible {
 }
 .ordinary-channel-controls {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
@@ -11578,6 +11579,90 @@ input:focus-visible {
   color: #acb1a8;
   background: transparent;
   font-size: 8px;
+}
+.ordinary-channel-controls > label.ordinary-revenue-sort {
+  flex-basis: 220px;
+}
+.ordinary-channel-controls > label.ordinary-revenue-filter {
+  flex-basis: 155px;
+}
+.ordinary-revenue-sort select,
+.ordinary-revenue-filter select {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  appearance: none;
+  color: #acb1a8;
+  background: transparent;
+  font-size: 8px;
+  cursor: pointer;
+}
+.ordinary-revenue-method {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 10px 12px;
+  margin: 0 0 12px;
+  border: 1px solid color-mix(in srgb, #d7ad63 25%, var(--line));
+  border-radius: 8px;
+  background: color-mix(in srgb, #d7ad63 5%, transparent);
+  color: #d7ad63;
+}
+.ordinary-revenue-method strong {
+  display: block;
+  color: color-mix(in srgb, #d7ad63 80%, white);
+  font-size: 9px;
+  font-weight: 600;
+}
+.ordinary-revenue-method p {
+  margin: 3px 0 0;
+  color: #858d83;
+  font-size: 8px;
+  line-height: 1.55;
+}
+.ordinary-decision-summary {
+  display: flex;
+  align-items: stretch;
+  gap: 6px;
+  margin: 0 0 12px;
+}
+.ordinary-decision-summary > span {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  color: #7f877e;
+  background: #191d19;
+  font-size: 7px;
+  white-space: nowrap;
+}
+.ordinary-decision-summary > span strong {
+  color: #b7beb3;
+  font:
+    13px Georgia,
+    serif;
+  font-weight: 500;
+}
+.ordinary-decision-summary > div {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+}
+.ordinary-decision-summary button {
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  color: #7f877e;
+  background: #191d19;
+  font-size: 7px;
+  cursor: pointer;
+}
+.ordinary-decision-summary button.active {
+  border-color: rgba(106, 169, 182, 0.5);
+  color: #8bc3cc;
+  background: rgba(106, 169, 182, 0.1);
 }
 .ordinary-channel-grid {
   display: grid;
@@ -11650,6 +11735,90 @@ input:focus-visible {
 }
 .ordinary-channel-card > aside p {
   margin-top: 4px;
+}
+.ordinary-revenue-estimate {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid color-mix(in srgb, #d7ad63 22%, var(--line));
+  border-radius: 7px;
+  background: color-mix(in srgb, #d7ad63 5%, transparent);
+}
+.ordinary-revenue-estimate > div {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 2px;
+}
+.ordinary-revenue-estimate span {
+  color: #d7ad63;
+  font-size: 7px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.ordinary-revenue-estimate strong {
+  color: color-mix(in srgb, #d7ad63 78%, white);
+  font:
+    15px Georgia,
+    serif;
+  font-weight: 500;
+}
+.ordinary-revenue-estimate small {
+  color: #777f76;
+  font-size: 7px;
+}
+.ordinary-revenue-estimate p {
+  line-height: 1.55 !important;
+}
+.ordinary-card-details {
+  margin-top: 11px;
+  border-top: 1px solid
+    color-mix(in srgb, var(--ordinary-accent) 16%, var(--line));
+}
+.ordinary-card-details > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 0 0;
+  color: var(--ordinary-accent);
+  font-size: 8px;
+  list-style: none;
+  cursor: pointer;
+}
+.ordinary-card-details > summary::-webkit-details-marker {
+  display: none;
+}
+.ordinary-card-details > summary::before {
+  content: "+";
+  display: grid;
+  place-items: center;
+  width: 17px;
+  height: 17px;
+  flex: 0 0 17px;
+  border: 1px solid color-mix(in srgb, var(--ordinary-accent) 32%, var(--line));
+  border-radius: 50%;
+}
+.ordinary-card-details[open] > summary::before {
+  content: "−";
+}
+.ordinary-card-details > summary span {
+  flex: 1;
+}
+.ordinary-card-details > summary em {
+  color: #777f76;
+  font-size: 7px;
+  font-style: normal;
+}
+.ordinary-card-details > section {
+  margin-top: 11px;
+}
+.ordinary-card-details > footer {
+  padding-top: 10px;
+  margin-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 .ordinary-channel-card > section {
   margin-top: 11px;
@@ -14502,7 +14671,9 @@ small {
 :root[data-theme="light"] .ordinary-channel-controls > label,
 :root[data-theme="light"] .creator-research-tabs > button,
 :root[data-theme="light"] .ordinary-channel-pagination,
-:root[data-theme="light"] .ordinary-channel-pagination button {
+:root[data-theme="light"] .ordinary-channel-pagination button,
+:root[data-theme="light"] .ordinary-decision-summary > span,
+:root[data-theme="light"] .ordinary-decision-summary button {
   background: #fff;
 }
 :root[data-theme="light"] .ordinary-channel-card ol li {
@@ -15515,8 +15686,28 @@ small {
     align-items: stretch;
     flex-direction: column;
   }
-  .ordinary-channel-controls > label {
+  .ordinary-channel-controls > label,
+  .ordinary-channel-controls > label.ordinary-revenue-sort,
+  .ordinary-channel-controls > label.ordinary-revenue-filter {
     flex-basis: auto;
+  }
+  .ordinary-decision-summary {
+    flex-wrap: wrap;
+  }
+  .ordinary-decision-summary > span {
+    flex: 1 1 calc(50% - 4px);
+  }
+  .ordinary-decision-summary > div {
+    display: flex;
+    margin-left: 0;
+    width: 100%;
+  }
+  .ordinary-decision-summary button {
+    flex: 1;
+    min-height: 36px;
+  }
+  .ordinary-revenue-estimate {
+    grid-template-columns: 1fr;
   }
   .ordinary-channel-card ol {
     grid-template-columns: repeat(2, minmax(0, 1fr));

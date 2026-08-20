@@ -8,6 +8,8 @@ import { ordinaryCreatorVerticalModelsMore4 } from "./ordinaryCreatorVerticalMod
 import { ordinaryCreatorVerticalModelsMore5 } from "./ordinaryCreatorVerticalModelsMore5.js";
 import { ordinaryCreatorVerticalModelsBatch30 } from "./ordinaryCreatorVerticalModelsBatch30.js";
 import { ordinaryCreatorVerticalModelsBatch50 } from "./ordinaryCreatorVerticalModelsBatch50.js";
+import { ordinaryCreatorVerticalModelsBatch50B } from "./ordinaryCreatorVerticalModelsBatch50B.js";
+import { ordinaryCreatorVerticalModelsBatch90 } from "./ordinaryCreatorVerticalModelsBatch90.js";
 
 export type AppearanceMode = "on-camera" | "faceless" | "hybrid";
 
@@ -557,6 +559,8 @@ const ordinaryCreatorModelBase: OrdinaryCreatorModel[] = [
   ...ordinaryCreatorVerticalModelsMore5,
   ...ordinaryCreatorVerticalModelsBatch30,
   ...ordinaryCreatorVerticalModelsBatch50,
+  ...ordinaryCreatorVerticalModelsBatch50B,
+  ...ordinaryCreatorVerticalModelsBatch90,
 ];
 
 export const ordinaryCreatorModels: OrdinaryCreatorModel[] =
