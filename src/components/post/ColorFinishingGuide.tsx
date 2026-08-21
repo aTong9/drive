@@ -3,6 +3,7 @@ import type { DavinciGradePreset } from "../../types/domain.js";
 import {
   colorFinishingSources,
   colorFinishingWorkflow,
+  resolvePracticalTutorials,
 } from "../../data/colorFinishingWorkflow.js";
 
 const parameterLabels: Record<
@@ -47,6 +48,69 @@ export function ColorFinishingGuide({
           输入解释 → 技术修复 → 镜头匹配 → 场景 Look → HDR安全 → 声音 → 导出验证
         </p>
       </div>
+      <section className="resolve-practical-tutorials">
+        <header>
+          <div>
+            <small>EDIT PAGE · FOLLOW-ALONG TUTORIALS</small>
+            <h3>标记 → 剪辑点 → 转场：Resolve 实操教程</h3>
+            <p>
+              先用标记记录判断，再完成真实剪辑操作。首个教程解决交叉叠化，后续教程沿用同一套“场景、数值、步骤、验收、避坑”结构。
+            </p>
+          </div>
+          <strong>{resolvePracticalTutorials.length} 个教程</strong>
+        </header>
+        <div className="resolve-tutorial-list">
+          {resolvePracticalTutorials.map((tutorial, index) => (
+            <details key={tutorial.id} open={index === 0}>
+              <summary>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <div>
+                  <small>{tutorial.category}</small>
+                  <h4>{tutorial.title}</h4>
+                  <p>{tutorial.goal}</p>
+                </div>
+              </summary>
+              <div className="resolve-tutorial-body">
+                <p className="resolve-tutorial-scenario">
+                  <strong>适用场景</strong>
+                  {tutorial.scenario}
+                </p>
+                <div className="resolve-tutorial-settings">
+                  {tutorial.settings.map((setting) => (
+                    <span key={setting}>{setting}</span>
+                  ))}
+                </div>
+                <section>
+                  <strong>跟着做</strong>
+                  <ol>
+                    {tutorial.steps.map((step) => (
+                      <li key={step}>{step}</li>
+                    ))}
+                  </ol>
+                </section>
+                <section>
+                  <strong>通过标准</strong>
+                  <ul>
+                    {tutorial.checks.map((check) => (
+                      <li key={check}>
+                        <CheckCircle2 size={12} />
+                        {check}
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+                <p className="resolve-tutorial-pitfall">
+                  <AlertTriangle size={12} />
+                  <span>
+                    <strong>常见失败：</strong>
+                    {tutorial.pitfall}
+                  </span>
+                </p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </section>
       <ol>
         {colorFinishingWorkflow.map((stage) => (
           <li

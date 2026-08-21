@@ -6,7 +6,10 @@ import {
   recommendPostPipeline,
   renderStorageGb,
 } from "./postDecisionService.js";
-import { colorFinishingWorkflow } from "../data/colorFinishingWorkflow.js";
+import {
+  colorFinishingWorkflow,
+  resolvePracticalTutorials,
+} from "../data/colorFinishingWorkflow.js";
 
 test("post pipeline keeps HLG and PQ distinct", () => {
   const pipeline = recommendPostPipeline("hlg", "hdr10");
@@ -132,4 +135,20 @@ test("color finishing workflow reaches verified delivery", () => {
     /80,000 Kb\/s/,
   );
   assert.match(colorFinishingWorkflow.at(-1)!.checks.join(" "), /元数据/);
+});
+
+test("Resolve practical tutorials turn markers into verified edits", () => {
+  assert.ok(resolvePracticalTutorials.length >= 6);
+  assert.equal(resolvePracticalTutorials[0].id, "marker-cross-dissolve");
+  assert.match(
+    resolvePracticalTutorials[0].steps.join(" "),
+    /标记本身不是剪辑点/,
+  );
+  assert.match(resolvePracticalTutorials[0].steps.join(" "), /Cross Dissolve/);
+  assert.ok(
+    resolvePracticalTutorials.every((tutorial) => tutorial.steps.length >= 4),
+  );
+  assert.ok(
+    resolvePracticalTutorials.every((tutorial) => tutorial.checks.length >= 3),
+  );
 });
