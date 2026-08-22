@@ -33,6 +33,17 @@ test("each camera memory has a distinct Resolve and delivery route", () => {
     ["MR1", "MR2", "MR3"],
   );
   assert.match(sonyMrWorkflows[0]!.output, /ST2084/);
+  assert.ok(
+    sonyMrWorkflows.every((workflow) => workflow.importChecks.length === 3),
+  );
+  assert.ok(
+    sonyMrWorkflows.every((workflow) => workflow.projectSettings.length === 6),
+  );
+  assert.ok(
+    sonyMrWorkflows.every((workflow) =>
+      workflow.timeline.includes("DaVinci Wide Gamut / Intermediate"),
+    ),
+  );
   assert.equal(
     sonyMrWorkflows[0]!.exportPresetId,
     sonyMrWorkflows[1]!.exportPresetId,
@@ -42,6 +53,24 @@ test("each camera memory has a distinct Resolve and delivery route", () => {
     sonyMrWorkflows[2]!.exportPresetId,
   );
   assert.match(sonyMrWorkflows[2]!.input, /HLG/);
+  const mr3 = sonyMrWorkflows[2]!;
+  assert.match(mr3.input, /Rec\.2100 HLG \(Scene\)/);
+  assert.match(mr3.timeline, /DaVinci Wide Gamut \/ Intermediate/);
+  assert.equal(mr3.importChecks.length, 3);
+  assert.equal(mr3.projectSettings.length, 6);
+  assert.match(mr3.importChecks.join(" "), /59\.94 fps/);
+  assert.match(mr3.projectSettings.join(" "), /Linear Mapped/);
+  assert.match(mr3.warning, /不要再添加.*CST/);
+  for (const slogWorkflow of sonyMrWorkflows.slice(0, 2)) {
+    assert.match(
+      slogWorkflow.importChecks.join(" "),
+      /S-Gamut3\.Cine \/ S-Log3/,
+    );
+    assert.match(slogWorkflow.importChecks.join(" "), /29\.97 fps/);
+    assert.match(slogWorkflow.projectSettings.join(" "), /Rec\.2100 ST2084/);
+    assert.match(slogWorkflow.projectSettings.join(" "), /Linear Mapped/);
+    assert.match(slogWorkflow.warning, /不要再添加重复.*CST/);
+  }
   assert.match(sonyMrAudio.output, /48 kHz/);
 });
 test("three camera memories reduce to two exact Resolve export presets", () => {
@@ -55,4 +84,6 @@ test("three camera memories reduce to two exact Resolve export presets", () => {
   );
   assert.equal(sonyMrExportPresets[0]!.gammaTag, "ST2084 / PQ");
   assert.equal(sonyMrExportPresets[1]!.gammaTag, "HLG");
+  assert.equal(sonyMrExportPresets[1]!.input, "Rec.2100 HLG (Scene)");
+  assert.match(sonyMrExportPresets[1]!.timeline, /Wide Gamut/);
 });

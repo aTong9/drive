@@ -18384,6 +18384,28 @@ small {
   flex: 0 0 auto;
   color: #4db9a8;
 }
+.sony-mr-import-settings {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 7px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+.sony-mr-import-settings > div {
+  padding: 11px;
+  border: 1px solid rgba(77, 185, 168, 0.15);
+  border-radius: 7px;
+  background: rgba(77, 185, 168, 0.025);
+}
+.sony-mr-import-settings small {
+  color: #4d8f84;
+  font-size: 6px;
+  letter-spacing: 0.08em;
+}
+.sony-mr-import-settings ol {
+  margin-bottom: 0;
+}
 .sony-mr-post > aside {
   display: flex;
   gap: 9px;
@@ -18421,6 +18443,9 @@ small {
     flex-direction: column;
   }
   .sony-mr-post > article dl {
+    grid-template-columns: 1fr;
+  }
+  .sony-mr-import-settings {
     grid-template-columns: 1fr;
   }
 }

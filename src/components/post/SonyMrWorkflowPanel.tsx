@@ -82,6 +82,34 @@ export function SonyMrWorkflowPanel() {
             </li>
           ))}
         </ol>
+        {"importChecks" in item && (
+          <section className="sony-mr-import-settings">
+            <div>
+              <small>MEDIA POOL · IMPORT</small>
+              <h3>素材导入检查</h3>
+              <ol>
+                {item.importChecks.map((check) => (
+                  <li key={check}>
+                    <Check size={12} />
+                    {check}
+                  </li>
+                ))}
+              </ol>
+            </div>
+            <div>
+              <small>PROJECT SETTINGS · RCM</small>
+              <h3>项目色彩管理</h3>
+              <ol>
+                {item.projectSettings.map((setting) => (
+                  <li key={setting}>
+                    <Check size={12} />
+                    {setting}
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </section>
+        )}
       </article>
       <section className="sony-mr-export">
         <header>

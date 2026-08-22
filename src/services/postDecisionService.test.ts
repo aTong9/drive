@@ -17,10 +17,11 @@ test("post pipeline keeps HLG and PQ distinct", () => {
   assert.match(pipeline.output, /ST2084/);
 });
 
-test("MR3 can stay HLG from input through delivery", () => {
+test("MR3 stays HLG at input and delivery while grading in DWG", () => {
   const pipeline = recommendPostPipeline("hlg", "hlg");
   assert.equal(pipeline.id, "hlg-hlg");
-  assert.match(pipeline.timeline, /HLG/);
+  assert.match(pipeline.input, /HLG \(Scene\)/);
+  assert.match(pipeline.timeline, /DaVinci Wide Gamut/);
   assert.match(pipeline.output, /HLG/);
 });
 
