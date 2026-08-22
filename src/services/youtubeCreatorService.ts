@@ -1,10 +1,4 @@
 import data from "../../data/youtube-creators.json" with { type: "json" };
-export {
-  appearanceModeLabels,
-  ordinaryCreatorModels,
-  type AppearanceMode,
-  type OrdinaryCreatorModel,
-} from "../data/ordinaryCreatorModels.js";
 
 export type CreatorCategory =
   | "scenic-drive"

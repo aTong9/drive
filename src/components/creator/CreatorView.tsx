@@ -22,12 +22,20 @@ import {
   Volume2,
   Waves,
 } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import type {
+  AppearanceMode,
+  OrdinaryCreatorModel,
+} from "../../data/ordinaryCreatorModels.js";
 import {
   appearanceModeLabels,
-  ordinaryCreatorModels,
-  type AppearanceMode,
-} from "../../data/ordinaryCreatorModels.js";
+  ordinaryCreatorCatalogMeta,
+} from "../../data/ordinaryCreatorCatalogMeta.js";
+import {
+  ordinaryCreatorCollections,
+  ordinaryCreatorDiscoveryDate,
+  recentOrdinaryCreatorDiscoveryIds,
+} from "../../data/ordinaryCreatorCollections.js";
 import {
   creatorAnalyticsTools,
   estimateSocialBladeEarnings,
@@ -36,6 +44,8 @@ import {
   youtubeCreatorResearch,
   type CreatorCategory,
 } from "../../services/youtubeCreatorService.js";
+import { paginateItems } from "../../services/localPagination.js";
+import { LocalPaginationControls } from "../common/LocalPaginationControls.js";
 
 const categories: Array<{
   value: CreatorCategory | "all";
@@ -68,7 +78,12 @@ export function CreatorView() {
   );
   const [query, setQuery] = useState("");
   const [modelQuery, setModelQuery] = useState("");
+  const [ordinaryCreatorModels, setOrdinaryCreatorModels] = useState<
+    OrdinaryCreatorModel[] | null
+  >(null);
+  const [modelLoadError, setModelLoadError] = useState("");
   const [modelPage, setModelPage] = useState(1);
+  const [modelCollection, setModelCollection] = useState("all");
   const [revenueSort, setRevenueSort] = useState<
     "annual-desc" | "annual-asc" | "library"
   >("annual-desc");
@@ -80,6 +95,26 @@ export function CreatorView() {
     "compact",
   );
   const [monthlyViews, setMonthlyViews] = useState(1000000);
+  const [benchmarkPage, setBenchmarkPage] = useState(1);
+  const [benchmarkDensity, setBenchmarkDensity] = useState<
+    "compact" | "detailed"
+  >("compact");
+  const recentModelIds = useMemo(
+    () => new Set<string>(recentOrdinaryCreatorDiscoveryIds),
+    [],
+  );
+  useEffect(() => {
+    if (researchMode !== "models" || ordinaryCreatorModels) return;
+    import("../../data/loadOrdinaryCreatorModels.js")
+      .then((module) => module.loadOrdinaryCreatorModels())
+      .then((models) => {
+        setOrdinaryCreatorModels(models);
+        setModelLoadError("");
+      })
+      .catch(() => {
+        setModelLoadError("普通人频道资料暂时无法载入，请刷新后重试。");
+      });
+  }, [ordinaryCreatorModels, researchMode]);
   const earnings = estimateSocialBladeEarnings(monthlyViews);
   const money = (value: number) =>
     new Intl.NumberFormat("en-US", {
@@ -101,31 +136,42 @@ export function CreatorView() {
       }),
     [category, query],
   );
-  const matchingChannelModels = ordinaryCreatorModels.filter((model) => {
-    const needle = modelQuery.trim().toLowerCase();
-    const revenue = estimateCreatorRevenuePotential(model);
-    const tierMatches =
-      revenueTierFilter === "all" ||
-      (revenueTierFilter === "top" && ["S", "A"].includes(revenue.tier)) ||
-      (revenueTierFilter === "mid" && ["B", "C"].includes(revenue.tier)) ||
-      (revenueTierFilter === "starter" && ["D", "E"].includes(revenue.tier));
-    const costMatches =
-      costFilter === "all" ||
-      (costFilter === "low" && revenue.costPenalty < 1) ||
-      (costFilter === "high" && revenue.costPenalty >= 1);
-    return (
-      (appearanceMode === "all" || model.mode === appearanceMode) &&
-      tierMatches &&
-      costMatches &&
-      (!needle ||
-        model.title.toLowerCase().includes(needle) ||
-        model.category.toLowerCase().includes(needle) ||
-        model.promise.toLowerCase().includes(needle) ||
-        model.references.some((reference) =>
-          reference.name.toLowerCase().includes(needle),
-        ))
-    );
-  });
+  const pagedCreators = useMemo(
+    () => paginateItems(creators, benchmarkPage, 12),
+    [benchmarkPage, creators],
+  );
+  useEffect(() => setBenchmarkPage(1), [category, query]);
+  const matchingChannelModels = (ordinaryCreatorModels ?? []).filter(
+    (model) => {
+      const needle = modelQuery.trim().toLowerCase();
+      const revenue = estimateCreatorRevenuePotential(model);
+      const tierMatches =
+        revenueTierFilter === "all" ||
+        (revenueTierFilter === "top" && ["S", "A"].includes(revenue.tier)) ||
+        (revenueTierFilter === "mid" && ["B", "C"].includes(revenue.tier)) ||
+        (revenueTierFilter === "starter" && ["D", "E"].includes(revenue.tier));
+      const costMatches =
+        costFilter === "all" ||
+        (costFilter === "low" && revenue.costPenalty < 1) ||
+        (costFilter === "high" && revenue.costPenalty >= 1);
+      const activeCollection = ordinaryCreatorCollections.find(
+        (collection) => collection.id === modelCollection,
+      );
+      return (
+        (!activeCollection || activeCollection.modelIds.includes(model.id)) &&
+        (appearanceMode === "all" || model.mode === appearanceMode) &&
+        tierMatches &&
+        costMatches &&
+        (!needle ||
+          model.title.toLowerCase().includes(needle) ||
+          model.category.toLowerCase().includes(needle) ||
+          model.promise.toLowerCase().includes(needle) ||
+          model.references.some((reference) =>
+            reference.name.toLowerCase().includes(needle),
+          ))
+      );
+    },
+  );
   const filteredChannelModels =
     revenueSort === "library"
       ? matchingChannelModels
@@ -152,6 +198,10 @@ export function CreatorView() {
   const facelessCount = filteredChannelModels.filter(
     (model) => model.mode === "faceless",
   ).length;
+  const selectedCollection = ordinaryCreatorCollections.find(
+    (collection) => collection.id === modelCollection,
+  );
+  const quickCollections = ordinaryCreatorCollections.slice(0, 8);
 
   return (
     <main className="creator-page">
@@ -215,11 +265,27 @@ export function CreatorView() {
             <strong>普通人频道方向</strong>
             <small>露脸与不露脸 · 每类含多个案例</small>
           </span>
-          <em>{ordinaryCreatorModels.length}</em>
+          <em>{ordinaryCreatorCatalogMeta.modelCount}</em>
         </button>
       </nav>
 
-      {researchMode === "models" && (
+      {researchMode === "models" && !ordinaryCreatorModels && (
+        <section className="ordinary-channel-lab ordinary-channel-loading">
+          <Layers3 size={24} />
+          <div>
+            <small>LOADING CHANNEL MODELS</small>
+            <strong>
+              {modelLoadError ||
+                `正在载入 ${ordinaryCreatorCatalogMeta.modelCount} 种普通人频道方向`}
+            </strong>
+            <p>
+              全球标杆资料与普通人方向已分开加载，避免首次打开页面时下载全部模型。
+            </p>
+          </div>
+        </section>
+      )}
+
+      {researchMode === "models" && ordinaryCreatorModels && (
         <section className="ordinary-channel-lab">
           <header>
             <div>
@@ -230,7 +296,7 @@ export function CreatorView() {
               </p>
             </div>
             <span>
-              <strong>{ordinaryCreatorModels.length}</strong>
+              <strong>{ordinaryCreatorCatalogMeta.modelCount}</strong>
               <small>种可执行方向</small>
             </span>
           </header>
@@ -325,6 +391,74 @@ export function CreatorView() {
               </select>
             </label>
           </div>
+          <section className="ordinary-channel-collections">
+            <header>
+              <div>
+                <small>TOPIC NAVIGATOR</small>
+                <strong>专题导航器</strong>
+              </div>
+              <span>{ordinaryCreatorCollections.length} 个策划专题</span>
+            </header>
+            <div className="ordinary-collection-picker">
+              <label>
+                <Layers3 size={15} />
+                <span>
+                  <small>全部专题</small>
+                  <select
+                    aria-label="选择创作者专题"
+                    value={modelCollection}
+                    onChange={(event) => {
+                      setModelCollection(event.target.value);
+                      setModelPage(1);
+                    }}
+                  >
+                    <option value="all">全部频道方向</option>
+                    {ordinaryCreatorCollections.map((collection) => (
+                      <option key={collection.id} value={collection.id}>
+                        {collection.shortLabel} · {collection.modelIds.length}{" "}
+                        个方向
+                      </option>
+                    ))}
+                  </select>
+                </span>
+              </label>
+              <nav aria-label="推荐创作者专题">
+                {quickCollections.map((collection) => (
+                  <button
+                    key={collection.id}
+                    className={
+                      modelCollection === collection.id ? "active" : ""
+                    }
+                    onClick={() => {
+                      setModelCollection(collection.id);
+                      setModelPage(1);
+                    }}
+                  >
+                    {collection.shortLabel}
+                    <em>{collection.modelIds.length}</em>
+                  </button>
+                ))}
+              </nav>
+            </div>
+            {selectedCollection && (
+              <aside className="ordinary-selected-collection">
+                <div>
+                  <small>当前专题</small>
+                  <strong>{selectedCollection.shortLabel}</strong>
+                  <p>{selectedCollection.description}</p>
+                </div>
+                <span>{selectedCollection.modelIds.length} 个方向</span>
+                <button
+                  onClick={() => {
+                    setModelCollection("all");
+                    setModelPage(1);
+                  }}
+                >
+                  查看全部方向
+                </button>
+              </aside>
+            )}
+          </section>
           <aside className="ordinary-revenue-method">
             <Calculator size={17} />
             <div>
@@ -377,6 +511,11 @@ export function CreatorView() {
                   <header>
                     <span>{appearanceModeLabels[model.mode]}</span>
                     <small>{model.category}</small>
+                    {recentModelIds.has(model.id) && (
+                      <mark className="ordinary-new-model">
+                        新发现 · {ordinaryCreatorDiscoveryDate.slice(5)}
+                      </mark>
+                    )}
                     <h3>{model.title}</h3>
                     <p>{model.promise}</p>
                   </header>
@@ -577,15 +716,51 @@ export function CreatorView() {
             </label>
           </section>
 
+          <section className="creator-results-bar" aria-live="polite">
+            <span>
+              <strong>{creators.length}</strong> 位匹配创作者
+              {category !== "all" && ` · ${categoryLabels[category]}`}
+            </span>
+            <div>
+              {(category !== "all" || query) && (
+                <button
+                  className="creator-reset-filter"
+                  onClick={() => {
+                    setCategory("all");
+                    setQuery("");
+                  }}
+                >
+                  清除筛选
+                </button>
+              )}
+              <button
+                className={benchmarkDensity === "compact" ? "active" : ""}
+                onClick={() => setBenchmarkDensity("compact")}
+              >
+                快速浏览
+              </button>
+              <button
+                className={benchmarkDensity === "detailed" ? "active" : ""}
+                onClick={() => setBenchmarkDensity("detailed")}
+              >
+                展开研究
+              </button>
+            </div>
+          </section>
+
           <section className="creator-grid">
-            {creators.map((creator, index) => (
+            {pagedCreators.items.map((creator, index) => (
               <article
                 className={`creator-card category-${creator.category}`}
                 key={creator.id}
               >
                 <header>
                   <span className="creator-index">
-                    {String(index + 1).padStart(2, "0")}
+                    {String(
+                      (pagedCreators.page - 1) * pagedCreators.pageSize +
+                        index +
+                        1,
+                    ).padStart(2, "0")}
                   </span>
                   <div>
                     <small>
@@ -617,93 +792,110 @@ export function CreatorView() {
                   </span>
                   <ArrowUpRight size={14} />
                 </a>
-                <section>
-                  <h3>为什么获得播放</h3>
-                  <ol>
-                    {creator.whyItWorks.map((reason, reasonIndex) => (
-                      <li key={reason}>
-                        <i>{reasonIndex + 1}</i>
-                        <span>{reason}</span>
-                      </li>
-                    ))}
-                  </ol>
-                </section>
-                <section>
-                  <h3>可转成你的工作流</h3>
-                  <div className="creator-patterns">
-                    {creator.patterns.map((pattern) => (
-                      <span key={pattern}>{pattern}</span>
-                    ))}
-                  </div>
-                </section>
-                <footer>
-                  <strong>边界</strong>
-                  <p>{creator.caution}</p>
-                </footer>
-                <nav
-                  className="creator-analytics"
-                  aria-label={`${creator.name} 频道分析工具`}
+                <details
+                  className="creator-card-details"
+                  open={benchmarkDensity === "detailed" ? true : undefined}
                 >
-                  <a href={creator.channelUrl} target="_blank" rel="noreferrer">
-                    <span>
-                      YouTube<small>免费 · 频道</small>
-                    </span>
-                    <ExternalLink size={12} />
-                  </a>
-                  <a
-                    href={viewStatsUrl(creator.channelUrl)}
-                    target="_blank"
-                    rel="noreferrer"
+                  <summary>
+                    <span>查看播放逻辑、工作流与分析工具</span>
+                    <em>6 个研究入口</em>
+                  </summary>
+                  <section>
+                    <h3>为什么获得播放</h3>
+                    <ol>
+                      {creator.whyItWorks.map((reason, reasonIndex) => (
+                        <li key={reason}>
+                          <i>{reasonIndex + 1}</i>
+                          <span>{reason}</span>
+                        </li>
+                      ))}
+                    </ol>
+                  </section>
+                  <section>
+                    <h3>可转成你的工作流</h3>
+                    <div className="creator-patterns">
+                      {creator.patterns.map((pattern) => (
+                        <span key={pattern}>{pattern}</span>
+                      ))}
+                    </div>
+                  </section>
+                  <footer>
+                    <strong>边界</strong>
+                    <p>{creator.caution}</p>
+                  </footer>
+                  <nav
+                    className="creator-analytics"
+                    aria-label={`${creator.name} 频道分析工具`}
                   >
-                    <span>
-                      ViewStats<small>部分免费 · 收益</small>
-                    </span>
-                    <ExternalLink size={12} />
-                  </a>
-                  <a
-                    href={socialBladeUrl(creator.channelUrl)}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <span>
-                      Social Blade<small>部分免费 · 趋势</small>
-                    </span>
-                    <ExternalLink size={12} />
-                  </a>
-                  <a
-                    href={creatorAnalyticsTools.hypeAuditor}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <span>
-                      HypeAuditor<small>免费试算 · 商单</small>
-                    </span>
-                    <ExternalLink size={12} />
-                  </a>
-                  <a
-                    href={creatorAnalyticsTools.noxInfluencer}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <span>
-                      NoxInfluencer<small>免费试算 · 交叉验证</small>
-                    </span>
-                    <ExternalLink size={12} />
-                  </a>
-                  <a
-                    href={creator.evidence[0]?.url ?? creator.channelUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <span>
-                      研究证据<small>公开来源</small>
-                    </span>
-                    <ExternalLink size={12} />
-                  </a>
-                </nav>
+                    <a
+                      href={creator.channelUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <span>
+                        YouTube<small>免费 · 频道</small>
+                      </span>
+                      <ExternalLink size={12} />
+                    </a>
+                    <a
+                      href={viewStatsUrl(creator.channelUrl)}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <span>
+                        ViewStats<small>部分免费 · 收益</small>
+                      </span>
+                      <ExternalLink size={12} />
+                    </a>
+                    <a
+                      href={socialBladeUrl(creator.channelUrl)}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <span>
+                        Social Blade<small>部分免费 · 趋势</small>
+                      </span>
+                      <ExternalLink size={12} />
+                    </a>
+                    <a
+                      href={creatorAnalyticsTools.hypeAuditor}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <span>
+                        HypeAuditor<small>免费试算 · 商单</small>
+                      </span>
+                      <ExternalLink size={12} />
+                    </a>
+                    <a
+                      href={creatorAnalyticsTools.noxInfluencer}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <span>
+                        NoxInfluencer<small>免费试算 · 交叉验证</small>
+                      </span>
+                      <ExternalLink size={12} />
+                    </a>
+                    <a
+                      href={creator.evidence[0]?.url ?? creator.channelUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <span>
+                        研究证据<small>公开来源</small>
+                      </span>
+                      <ExternalLink size={12} />
+                    </a>
+                  </nav>
+                </details>
               </article>
             ))}
           </section>
+          <LocalPaginationControls
+            {...pagedCreators}
+            onPageChange={setBenchmarkPage}
+          />
           {!creators.length && (
             <div className="creator-empty">
               <Search size={22} />

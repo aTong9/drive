@@ -61,7 +61,7 @@ test("grade audit rewards reproducible preset metadata", () => {
 
 test("every scene preset exposes screenshot-style timeline parameters", async () => {
   const { davinciWorkflow } = await import("./workflowService.js");
-  assert.equal(davinciWorkflow.gradePresets.length, 16);
+  assert.equal(davinciWorkflow.gradePresets.length, 17);
   for (const preset of davinciWorkflow.gradePresets) {
     assert.deepEqual(Object.keys(preset.timelineParameters), [
       "temperature",
@@ -94,6 +94,25 @@ test("every scene preset exposes screenshot-style timeline parameters", async ()
     hueMix: "100.00（保持）",
     lumaMix: "100.00",
     midtoneDetail: "0.00",
+  });
+  const warmAnimation = davinciWorkflow.gradePresets.find(
+    (preset) => preset.id === "miyazaki-warm-animation",
+  )!;
+  assert.equal(warmAnimation.name, "宫崎骏感·温暖手绘动画色");
+  assert.match(warmAnimation.intent, /原创调色起点/);
+  assert.match(warmAnimation.cautions.join(" "), /并非.*官方 LUT/);
+  assert.deepEqual(warmAnimation.timelineParameters, {
+    temperature: "+180",
+    tint: "-1.00",
+    contrast: "0.950",
+    pivot: "0.440",
+    colorBoost: "+14.00",
+    shadows: "+4.00",
+    highlights: "-14.00",
+    saturation: "53.00",
+    hueMix: "100.00（保持）",
+    lumaMix: "100.00",
+    midtoneDetail: "-8.00",
   });
 });
 

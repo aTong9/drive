@@ -74,6 +74,44 @@
       ]
     },
     {
+      "id": "miyazaki-warm-animation",
+      "name": "宫崎骏感·温暖手绘动画色",
+      "scene": "晴天乡野、绿植、云层、海岸与慢行公路",
+      "accent": "#78A968",
+      "intent": "以经典手绘动画常见的温暖日光、青蓝天空、黄绿色植被和柔和高光为灵感，建立清澈、明快而不过度数字锐利的原创调色起点；不是官方 LUT，也不复刻任何具体作品或镜头。",
+      "exposure": "先完成逐镜技术匹配；18% 灰 42–45 IRE、植被中间调 35–55 IRE、漫反射白 72–78 IRE；HDR 云层与日光反射建议 220–450 nits",
+      "whiteBalance": "中性物校正后，在时间线 Look 使用 Temperature +180、Tint -1.00；暖日光保留奶油黄方向，阴影只轻微偏青，不把整幅画面统一染黄",
+      "contrast": "Contrast 0.950、Pivot 0.440；Shadows +4、Highlights -14；用 Soft Clip High 0.030–0.050 做柔和高光过渡",
+      "saturation": "Saturation 53、Color Boost 14；Hue vs Hue 将偏荧光的黄绿轻推向自然草绿，Hue vs Sat 将深绿 -8%、天空蓝 -5%",
+      "timelineParameters": {
+        "temperature": "+180",
+        "tint": "-1.00",
+        "contrast": "0.950",
+        "pivot": "0.440",
+        "colorBoost": "+14.00",
+        "shadows": "+4.00",
+        "highlights": "-14.00",
+        "saturation": "53.00",
+        "hueMix": "100.00（保持）",
+        "lumaMix": "100.00",
+        "midtoneDetail": "-8.00"
+      },
+      "nodeAdjustments": [
+        "01 Technical Balance：先逐镜校正曝光与白平衡；18% 灰 42–45 IRE，禁止用风格节点修复曝光错误",
+        "02 Warm Daylight：时间线 Temperature +180、Tint -1.00；中性白仍应接近中性",
+        "03 Soft Tonality：Contrast 0.950、Pivot 0.440、Highlights -14、Shadows +4，云层保留纹理",
+        "04 Palette Shape：Saturation 53、Color Boost 14；黄绿轻推草绿，深绿饱和 -8%、天空蓝 -5%",
+        "05 Gentle Texture：Midtone Detail -8；只柔化数字锐利感，不用模糊掩盖失焦或压缩伪影",
+        "06 Highlight Roll-off：Soft Clip High 0.030–0.050，HDR 云层与反光控制在 220–450 nits",
+        "07 Shot Match：树林、天空和人物分别回看运动段，检查限定器边缘、色相跳变与肤色偏黄"
+      ],
+      "cautions": [
+        "这是基于温暖手绘动画氛围设计的原创起始方案，并非宫崎骏、吉卜力或任何作品的官方 LUT，也不用于逐帧复刻具体镜头。",
+        "先完成色彩管理、曝光和白平衡匹配再启用 Look；阴天、混合光、人物肤色和不同相机素材必须逐镜减弱或重调。",
+        "绿色与天空曲线要保持宽而平滑；若叶片闪色、天空色带、肤色发黄或白云失去中性，立即降低节点 Key Output。"
+      ]
+    },
+    {
       "id": "night-hdr-base",
       "name": "夜晚 HDR",
       "scene": "城市夜景、夜间驾驶",
