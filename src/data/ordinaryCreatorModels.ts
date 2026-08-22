@@ -10,6 +10,7 @@ import { ordinaryCreatorVerticalModelsBatch30 } from "./ordinaryCreatorVerticalM
 import { ordinaryCreatorVerticalModelsBatch50 } from "./ordinaryCreatorVerticalModelsBatch50.js";
 import { ordinaryCreatorVerticalModelsBatch50B } from "./ordinaryCreatorVerticalModelsBatch50B.js";
 import { ordinaryCreatorVerticalModelsBatch90 } from "./ordinaryCreatorVerticalModelsBatch90.js";
+import { ordinaryCreatorLifestyleModels } from "./ordinaryCreatorLifestyleModels.js";
 
 export type AppearanceMode = "on-camera" | "faceless" | "hybrid";
 
@@ -561,6 +562,7 @@ const ordinaryCreatorModelBase: OrdinaryCreatorModel[] = [
   ...ordinaryCreatorVerticalModelsBatch50,
   ...ordinaryCreatorVerticalModelsBatch50B,
   ...ordinaryCreatorVerticalModelsBatch90,
+  ...ordinaryCreatorLifestyleModels,
 ];
 
 export const ordinaryCreatorModels: OrdinaryCreatorModel[] =

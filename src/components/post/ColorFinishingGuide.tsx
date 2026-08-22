@@ -1,4 +1,12 @@
-import { AlertTriangle, CheckCircle2, ExternalLink, Film } from "lucide-react";
+import { useState } from "react";
+import {
+  AlertTriangle,
+  CheckCircle2,
+  ExternalLink,
+  Film,
+  Search,
+  X,
+} from "lucide-react";
 import type { DavinciGradePreset } from "../../types/domain.js";
 import {
   colorFinishingSources,
@@ -23,11 +31,85 @@ const parameterLabels: Record<
   midtoneDetail: "中间调细节",
 };
 
+const tutorialTopics = [
+  "全部",
+  "剪辑",
+  "声音",
+  "节奏",
+  "转场",
+  "变速",
+  "质检",
+] as const;
+type TutorialTopic = (typeof tutorialTopics)[number];
+
+const tutorialEntries = resolvePracticalTutorials.map((tutorial, index) => ({
+  tutorial,
+  number: index + 1,
+  topic: tutorial.category.split(" · ")[0] as Exclude<TutorialTopic, "全部">,
+  searchText: [
+    tutorial.category,
+    tutorial.level,
+    `${tutorial.estimatedMinutes} 分钟`,
+    tutorial.prerequisite,
+    tutorial.title,
+    tutorial.goal,
+    tutorial.scenario,
+    ...tutorial.settings,
+    ...tutorial.steps,
+    ...tutorial.checks,
+    tutorial.pitfall,
+  ]
+    .join(" ")
+    .toLocaleLowerCase("zh-CN"),
+}));
+
 export function ColorFinishingGuide({
   preset,
 }: {
   preset: DavinciGradePreset;
 }) {
+  const [tutorialTopic, setTutorialTopic] = useState<TutorialTopic>("全部");
+  const [tutorialQuery, setTutorialQuery] = useState("");
+  const [openTutorialId, setOpenTutorialId] = useState<string>(
+    resolvePracticalTutorials[0].id,
+  );
+  const normalizedTutorialQuery = tutorialQuery
+    .trim()
+    .toLocaleLowerCase("zh-CN");
+  const visibleTutorials = tutorialEntries.filter(
+    (entry) =>
+      (tutorialTopic === "全部" || entry.topic === tutorialTopic) &&
+      (!normalizedTutorialQuery ||
+        entry.searchText.includes(normalizedTutorialQuery)),
+  );
+
+  const findFirstTutorial = (topic: TutorialTopic, query: string) => {
+    const normalizedQuery = query.trim().toLocaleLowerCase("zh-CN");
+    return tutorialEntries.find(
+      (entry) =>
+        (topic === "全部" || entry.topic === topic) &&
+        (!normalizedQuery || entry.searchText.includes(normalizedQuery)),
+    );
+  };
+
+  const selectTutorialTopic = (topic: TutorialTopic) => {
+    setTutorialTopic(topic);
+    const firstMatch = findFirstTutorial(topic, tutorialQuery);
+    setOpenTutorialId(firstMatch?.tutorial.id ?? "");
+  };
+
+  const searchTutorials = (query: string) => {
+    setTutorialQuery(query);
+    const firstMatch = findFirstTutorial(tutorialTopic, query);
+    setOpenTutorialId(firstMatch?.tutorial.id ?? "");
+  };
+
+  const resetTutorialFilters = () => {
+    setTutorialTopic("全部");
+    setTutorialQuery("");
+    setOpenTutorialId(resolvePracticalTutorials[0].id);
+  };
+
   return (
     <section className="color-finishing-guide">
       <header>
@@ -59,57 +141,126 @@ export function ColorFinishingGuide({
           </div>
           <strong>{resolvePracticalTutorials.length} 个教程</strong>
         </header>
-        <div className="resolve-tutorial-list">
-          {resolvePracticalTutorials.map((tutorial, index) => (
-            <details key={tutorial.id} open={index === 0}>
-              <summary>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <div>
-                  <small>{tutorial.category}</small>
-                  <h4>{tutorial.title}</h4>
-                  <p>{tutorial.goal}</p>
-                </div>
-              </summary>
-              <div className="resolve-tutorial-body">
-                <p className="resolve-tutorial-scenario">
-                  <strong>适用场景</strong>
-                  {tutorial.scenario}
-                </p>
-                <div className="resolve-tutorial-settings">
-                  {tutorial.settings.map((setting) => (
-                    <span key={setting}>{setting}</span>
-                  ))}
-                </div>
-                <section>
-                  <strong>跟着做</strong>
-                  <ol>
-                    {tutorial.steps.map((step) => (
-                      <li key={step}>{step}</li>
+        <label className="resolve-tutorial-search">
+          <Search size={13} />
+          <input
+            type="search"
+            value={tutorialQuery}
+            onChange={(event) => searchTutorials(event.target.value)}
+            placeholder="搜索交叉叠化、声音桥、Optical Flow…"
+            aria-label="搜索 Resolve 实操教程"
+          />
+          {tutorialQuery && (
+            <button
+              type="button"
+              onClick={() => searchTutorials("")}
+              aria-label="清除教程搜索"
+            >
+              <X size={12} />
+            </button>
+          )}
+        </label>
+        <nav className="resolve-tutorial-filters" aria-label="Resolve 教程分类">
+          {tutorialTopics.map((topic) => {
+            const count =
+              topic === "全部"
+                ? tutorialEntries.length
+                : tutorialEntries.filter((entry) => entry.topic === topic)
+                    .length;
+            return (
+              <button
+                key={topic}
+                type="button"
+                aria-pressed={tutorialTopic === topic}
+                onClick={() => selectTutorialTopic(topic)}
+              >
+                {topic}
+                <span>{count}</span>
+              </button>
+            );
+          })}
+        </nav>
+        <p className="resolve-tutorial-result" aria-live="polite">
+          当前显示 {visibleTutorials.length} 个教程
+          {tutorialTopic === "全部" ? "" : ` · ${tutorialTopic}`}
+          {normalizedTutorialQuery ? ` · “${tutorialQuery.trim()}”` : ""}
+        </p>
+        {visibleTutorials.length ? (
+          <div className="resolve-tutorial-list">
+            {visibleTutorials.map(({ tutorial, number }) => (
+              <details key={tutorial.id} open={openTutorialId === tutorial.id}>
+                <summary
+                  onClick={(event) => {
+                    event.preventDefault();
+                    setOpenTutorialId((current) =>
+                      current === tutorial.id ? "" : tutorial.id,
+                    );
+                  }}
+                >
+                  <span>{String(number).padStart(2, "0")}</span>
+                  <div>
+                    <small>{tutorial.category}</small>
+                    <h4>{tutorial.title}</h4>
+                    <p>{tutorial.goal}</p>
+                    <div className="resolve-tutorial-meta">
+                      <span>{tutorial.level}</span>
+                      <span>练习约 {tutorial.estimatedMinutes} 分钟</span>
+                    </div>
+                  </div>
+                </summary>
+                <div className="resolve-tutorial-body">
+                  <p className="resolve-tutorial-scenario">
+                    <strong>适用场景</strong>
+                    {tutorial.scenario}
+                  </p>
+                  <p className="resolve-tutorial-prerequisite">
+                    <strong>开始前</strong>
+                    {tutorial.prerequisite}
+                  </p>
+                  <div className="resolve-tutorial-settings">
+                    {tutorial.settings.map((setting) => (
+                      <span key={setting}>{setting}</span>
                     ))}
-                  </ol>
-                </section>
-                <section>
-                  <strong>通过标准</strong>
-                  <ul>
-                    {tutorial.checks.map((check) => (
-                      <li key={check}>
-                        <CheckCircle2 size={12} />
-                        {check}
-                      </li>
-                    ))}
-                  </ul>
-                </section>
-                <p className="resolve-tutorial-pitfall">
-                  <AlertTriangle size={12} />
-                  <span>
-                    <strong>常见失败：</strong>
-                    {tutorial.pitfall}
-                  </span>
-                </p>
-              </div>
-            </details>
-          ))}
-        </div>
+                  </div>
+                  <section>
+                    <strong>跟着做</strong>
+                    <ol>
+                      {tutorial.steps.map((step) => (
+                        <li key={step}>{step}</li>
+                      ))}
+                    </ol>
+                  </section>
+                  <section>
+                    <strong>通过标准</strong>
+                    <ul>
+                      {tutorial.checks.map((check) => (
+                        <li key={check}>
+                          <CheckCircle2 size={12} />
+                          {check}
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
+                  <p className="resolve-tutorial-pitfall">
+                    <AlertTriangle size={12} />
+                    <span>
+                      <strong>常见失败：</strong>
+                      {tutorial.pitfall}
+                    </span>
+                  </p>
+                </div>
+              </details>
+            ))}
+          </div>
+        ) : (
+          <div className="resolve-tutorial-empty">
+            <strong>没有匹配的教程</strong>
+            <p>尝试更短的关键词，或恢复全部分类。</p>
+            <button type="button" onClick={resetTutorialFilters}>
+              清除筛选
+            </button>
+          </div>
+        )}
       </section>
       <ol>
         {colorFinishingWorkflow.map((stage) => (

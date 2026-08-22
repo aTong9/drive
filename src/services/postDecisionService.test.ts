@@ -138,8 +138,23 @@ test("color finishing workflow reaches verified delivery", () => {
 });
 
 test("Resolve practical tutorials turn markers into verified edits", () => {
-  assert.ok(resolvePracticalTutorials.length >= 6);
-  assert.equal(resolvePracticalTutorials[0].id, "marker-cross-dissolve");
+  assert.deepEqual(
+    resolvePracticalTutorials.map((tutorial) => tutorial.id),
+    [
+      "marker-cross-dissolve",
+      "marker-match-cut",
+      "j-l-cut",
+      "broll-cover",
+      "audio-crossfade",
+      "beat-marker-edit",
+      "foreground-occlusion-cut",
+      "whip-pan-match",
+      "dip-to-color",
+      "smooth-cut-repair",
+      "speed-ramp-transition",
+      "transition-qc",
+    ],
+  );
   assert.match(
     resolvePracticalTutorials[0].steps.join(" "),
     /标记本身不是剪辑点/,
@@ -150,5 +165,47 @@ test("Resolve practical tutorials turn markers into verified edits", () => {
   );
   assert.ok(
     resolvePracticalTutorials.every((tutorial) => tutorial.checks.length >= 3),
+  );
+  assert.ok(
+    resolvePracticalTutorials.every(
+      (tutorial) =>
+        tutorial.estimatedMinutes >= 5 && tutorial.estimatedMinutes <= 20,
+    ),
+  );
+  assert.ok(
+    resolvePracticalTutorials.every(
+      (tutorial) => tutorial.prerequisite.trim().length >= 18,
+    ),
+  );
+  assert.deepEqual(
+    [...new Set(resolvePracticalTutorials.map((tutorial) => tutorial.level))],
+    ["入门", "进阶", "谨慎使用", "质检"],
+  );
+  assert.ok(
+    resolvePracticalTutorials.every((tutorial) =>
+      tutorial.steps.some((step) => /标记/.test(step)),
+    ),
+  );
+  assert.match(
+    resolvePracticalTutorials.find(
+      (tutorial) => tutorial.id === "smooth-cut-repair",
+    )!.pitfall,
+    /不是通用转场/,
+  );
+  assert.match(
+    resolvePracticalTutorials.find(
+      (tutorial) => tutorial.id === "speed-ramp-transition",
+    )!.pitfall,
+    /Optical Flow/,
+  );
+  assert.deepEqual(
+    [
+      ...new Set(
+        resolvePracticalTutorials.map(
+          (tutorial) => tutorial.category.split(" · ")[0],
+        ),
+      ),
+    ].sort(),
+    ["剪辑", "声音", "质检", "节奏", "转场", "变速"].sort(),
   );
 });

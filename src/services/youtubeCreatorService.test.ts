@@ -36,6 +36,22 @@ test("the ninety-direction expansion is complete", () => {
   assert.equal(ordinaryCreatorVerticalModelsBatch90.length, 90);
 });
 
+test("includes Nami's quiet ordinary-life creator model", () => {
+  const model = ordinaryCreatorModels.find(
+    (candidate) => candidate.id === "quiet-ordinary-life-vlog",
+  );
+  assert.ok(model);
+  assert.equal(model.mode, "faceless");
+  assert.ok(model.references.length >= 10);
+  assert.ok(
+    model.references.some(
+      (reference) =>
+        reference.name.includes("Nami") &&
+        reference.url === "https://www.youtube.com/@naminokurashi",
+    ),
+  );
+});
+
 test("every ordinary-person channel model is actionable", () => {
   assert.ok(ordinaryCreatorModels.length >= 300);
   for (const model of ordinaryCreatorModels) {
