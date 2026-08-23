@@ -49,6 +49,8 @@ interface PlannerState {
   favoriteDavinciPresetIds: string[];
   cameraMrAssignments: Partial<Record<"MR1" | "MR2" | "MR3", string>>;
   customCameraPresets: CameraPreset[];
+  researchRouteIds: string[];
+  researchStartDate: string;
   setView: (view: AppView) => void;
   setMode: (mode: RouteMode | "all") => void;
   setCaptureStyle: (captureStyle: CaptureStyle | "all") => void;
@@ -99,6 +101,10 @@ interface PlannerState {
   assignCameraMr: (slot: "MR1" | "MR2" | "MR3", presetId: string) => void;
   saveCustomCameraPreset: (preset: CameraPreset) => void;
   removeCustomCameraPreset: (presetId: string) => void;
+  toggleResearchRoute: (routeId: string) => void;
+  moveResearchRoute: (routeId: string, direction: "up" | "down") => void;
+  setResearchStartDate: (date: string) => void;
+  clearResearchRoutes: () => void;
 }
 
 export const usePlannerStore = create<PlannerState>()(
@@ -123,6 +129,8 @@ export const usePlannerStore = create<PlannerState>()(
       favoriteDavinciPresetIds: [],
       cameraMrAssignments: { MR1: "a7c2-mr1-night-slog3", MR2: "a7c2-mr2-daylight-general", MR3: "a7c2-mr3-day-hlg" },
       customCameraPresets: [],
+      researchRouteIds: [],
+      researchStartDate: new Date(Date.now() + 86400000).toISOString().slice(0, 10),
       setView: (view) => set({ view }),
       setMode: (mode) => set({ mode }),
       setCaptureStyle: (captureStyle) => set({ captureStyle }),
@@ -316,10 +324,31 @@ export const usePlannerStore = create<PlannerState>()(
       assignCameraMr: (slot, presetId) => set((state) => ({ cameraMrAssignments: { ...state.cameraMrAssignments, [slot]: presetId } })),
       saveCustomCameraPreset: (preset) => set((state) => ({ customCameraPresets: [...state.customCameraPresets.filter((item) => item.id !== preset.id), preset] })),
       removeCustomCameraPreset: (presetId) => set((state) => ({ customCameraPresets: state.customCameraPresets.filter((item) => item.id !== presetId), favoriteCameraPresetIds: state.favoriteCameraPresetIds.filter((id) => id !== presetId) })),
+      toggleResearchRoute: (routeId) =>
+        set((state) => ({
+          researchRouteIds: state.researchRouteIds.includes(routeId)
+            ? state.researchRouteIds.filter((id) => id !== routeId)
+            : [...state.researchRouteIds, routeId],
+        })),
+      moveResearchRoute: (routeId, direction) =>
+        set((state) => {
+          const index = state.researchRouteIds.indexOf(routeId);
+          const target = direction === "up" ? index - 1 : index + 1;
+          if (index < 0 || target < 0 || target >= state.researchRouteIds.length)
+            return state;
+          const researchRouteIds = [...state.researchRouteIds];
+          [researchRouteIds[index], researchRouteIds[target]] = [
+            researchRouteIds[target]!,
+            researchRouteIds[index]!,
+          ];
+          return { researchRouteIds };
+        }),
+      setResearchStartDate: (researchStartDate) => set({ researchStartDate }),
+      clearResearchRoutes: () => set({ researchRouteIds: [] }),
     }),
     {
       name: "roadlens-planner-device-state",
-      version: 5,
+      version: 7,
       migrate: (persisted) => {
         const state = persisted as Partial<PlannerState>;
         return {
@@ -334,6 +363,10 @@ export const usePlannerStore = create<PlannerState>()(
           favoriteDavinciPresetIds: state.favoriteDavinciPresetIds ?? [],
           cameraMrAssignments: { MR1: "a7c2-mr1-night-slog3", MR2: "a7c2-mr2-daylight-general", MR3: "a7c2-mr3-day-hlg", ...(state.cameraMrAssignments ?? {}) },
           customCameraPresets: state.customCameraPresets ?? [],
+          researchRouteIds: state.researchRouteIds ?? [],
+          researchStartDate:
+            state.researchStartDate ??
+            new Date(Date.now() + 86400000).toISOString().slice(0, 10),
         };
       },
       partialize: (state) => ({
@@ -348,6 +381,8 @@ export const usePlannerStore = create<PlannerState>()(
         favoriteDavinciPresetIds: state.favoriteDavinciPresetIds,
         cameraMrAssignments: state.cameraMrAssignments,
         customCameraPresets: state.customCameraPresets,
+        researchRouteIds: state.researchRouteIds,
+        researchStartDate: state.researchStartDate,
       }),
     },
   ),

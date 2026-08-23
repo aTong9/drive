@@ -40,6 +40,10 @@ import {
 } from "./services/currentCityService.js";
 import { parseSharedRouteId } from "./services/routeShareService.js";
 import { routeMatchesQuery } from "./services/catalogSearchService.js";
+import {
+  administrativeGroups,
+  type AdministrativeGroupId,
+} from "./services/regionService.js";
 
 const DashboardView = lazy(() =>
   import("./components/dashboard/DashboardView.js").then((module) => ({
@@ -119,6 +123,11 @@ export function App() {
   const [sharedRouteUnavailable, setSharedRouteUnavailable] = useState(false);
   const [commandOpen, setCommandOpen] = useState(false);
   const [commandQuery, setCommandQuery] = useState("");
+  const [destination, setDestination] = useState<{
+    groupId: AdministrativeGroupId | "all";
+    province: string;
+    city: string;
+  }>({ groupId: "all", province: "", city: "" });
   const handleDrivingSummary = useCallback(
     (summary: DrivingSummary) => setDrivingSummary(summary),
     [],
@@ -222,13 +231,26 @@ export function App() {
         const matchesQuery = routeMatchesQuery(item, query);
         const matchesCurrentCity =
           !currentRegion || item.route.cities.includes(currentRegion.city);
+        const matchesDestinationProvince =
+          !destination.province || item.route.province === destination.province;
+        const matchesDestinationCity =
+          !destination.city || item.route.cities.includes(destination.city);
+        const destinationGroup = administrativeGroups.find(
+          (group) => group.id === destination.groupId,
+        );
+        const matchesDestinationGroup =
+          destination.groupId === "all" ||
+          destinationGroup?.provinces.includes(item.route.province as never);
         return (
           matchesMode &&
           matchesCaptureStyle &&
           matchesExecutionMode &&
           matchesDuration &&
           matchesQuery &&
-          matchesCurrentCity
+          matchesCurrentCity &&
+          matchesDestinationGroup &&
+          matchesDestinationProvince &&
+          matchesDestinationCity
         );
       }),
     [
@@ -238,6 +260,7 @@ export function App() {
       state.maxDurationMinutes,
       state.query,
       currentRegion,
+      destination,
     ],
   );
 
@@ -281,6 +304,24 @@ export function App() {
     setCommandOpen(false);
     setCommandQuery("");
   };
+  const openRouteFromAnywhere = useCallback((routeId: string) => {
+    const target = resolvedRoutes.find((item) => item.route.id === routeId);
+    if (!target) return;
+    const store = usePlannerStore.getState();
+    store.setMode("all");
+    store.setCaptureStyle("all");
+    store.setDriveOnly(false);
+    store.setMaxDurationMinutes(
+      Math.max(store.maxDurationMinutes, target.route.estimatedDurationMinutes),
+    );
+    store.setQuery("");
+    setDestination({ groupId: "all", province: "", city: "" });
+    setCurrentRegion(null);
+    setLocationStatus("idle");
+    store.selectRoute(routeId);
+    setCommandOpen(false);
+    setCommandQuery("");
+  }, []);
 
   return (
     <div className="app-shell">
@@ -291,7 +332,7 @@ export function App() {
             className={state.view === "dashboard" ? "active" : ""}
             onClick={() => state.setView("dashboard")}
           >
-            <BarChart3 size={17} /> 资产
+            <BarChart3 size={17} /> 工作台
           </button>
           <button
             className={state.view === "projects" ? "active" : ""}
@@ -384,6 +425,8 @@ export function App() {
             checks={state.fieldChecks}
             postTasks={state.postTasks}
             postProject={state.postProject}
+            onOpenRoute={openRouteFromAnywhere}
+            workflow={davinciWorkflow}
           />
         ) : state.view === "projects" ? (
           <ProjectWorkspaceView routes={resolvedRoutes} />
@@ -393,6 +436,7 @@ export function App() {
           >
             <RouteList
               routes={routes}
+              allRoutes={resolvedRoutes}
               nearbyLocations={nearbyLocations}
               currentRegion={currentRegion}
               locationStatus={locationStatus}
@@ -401,6 +445,14 @@ export function App() {
               onClearLocation={() => {
                 setCurrentRegion(null);
                 setLocationStatus("idle");
+              }}
+              destination={destination}
+              onDestinationChange={(nextDestination) => {
+                setDestination(nextDestination);
+                if (nextDestination.province) {
+                  setCurrentRegion(null);
+                  setLocationStatus("idle");
+                }
               }}
             />
             <MapCanvas
@@ -514,9 +566,7 @@ export function App() {
                 <button
                   key={item.route.id}
                   onClick={() => {
-                    state.selectRoute(item.route.id);
-                    setCommandOpen(false);
-                    setCommandQuery("");
+                    openRouteFromAnywhere(item.route.id);
                   }}
                 >
                   <span>
@@ -553,7 +603,7 @@ export function App() {
           onClick={() => state.setView("dashboard")}
         >
           <BarChart3 size={19} />
-          <span>资产</span>
+          <span>工作台</span>
         </button>
         <button
           className={state.view === "projects" ? "active" : ""}

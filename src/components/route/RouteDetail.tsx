@@ -1,4 +1,5 @@
 import {
+  BookmarkPlus,
   CalendarPlus,
   Camera,
   CarFront,
@@ -69,6 +70,10 @@ export function RouteDetail({
   const planned = usePlannerStore((state) =>
     state.plans.some((plan) => plan.routeId === selected.route.id),
   );
+  const researchRouteIds = usePlannerStore((state) => state.researchRouteIds);
+  const toggleResearchRoute = usePlannerStore(
+    (state) => state.toggleResearchRoute,
+  );
   const [dialogOpen, setDialogOpen] = useState(false);
   const [shareStatus, setShareStatus] = useState<
     "idle" | "shared" | "copied" | "error"
@@ -80,6 +85,7 @@ export function RouteDetail({
   );
   const { route, waypoints, cameraPresets } = selected;
   const driveOnly = route.executionMode === "drive-only";
+  const inResearchBasket = researchRouteIds.includes(route.id);
   const opensAsDrivingRoute = route.captureStyle === "scenic-drive";
   const usesWgs84 = waypoints.some(
     (waypoint) => waypoint.coordinate.crs === "WGS84",
@@ -353,6 +359,13 @@ export function RouteDetail({
           >
             {planned ? <Check size={18} /> : <CalendarPlus size={18} />}
             {planned ? "查看拍摄计划" : "加入拍摄计划"}
+          </button>
+          <button
+            className={`detail-research-button ${inResearchBasket ? "is-added" : ""}`}
+            onClick={() => toggleResearchRoute(route.id)}
+          >
+            {inResearchBasket ? <Check size={18} /> : <BookmarkPlus size={18} />}
+            {inResearchBasket ? "已加入拍摄篮" : "加入拍摄篮"}
           </button>
           <button
             className="detail-share-button"
