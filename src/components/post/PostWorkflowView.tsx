@@ -38,6 +38,7 @@ import { PostGlossary } from "./PostGlossary.js";
 import { auditGradePreset } from "../../services/postDecisionService.js";
 import { SonyMrWorkflowPanel } from "./SonyMrWorkflowPanel.js";
 import { ColorFinishingGuide } from "./ColorFinishingGuide.js";
+import { CapCutProGuide } from "./CapCutProGuide.js";
 
 const stageIcons = {
   media: Images,
@@ -255,6 +256,7 @@ export function PostWorkflowView({
     | "favorites"
     | "pipeline"
     | "tutorial"
+    | "capcut"
   >("overview");
   const [selectedPresetId, setSelectedPresetId] = useState(
     workflow.gradePresets[0]?.id ?? "",
@@ -390,6 +392,12 @@ export function PostWorkflowView({
                 >
                   <Palette size={12} /> 调色预设
                 </button>
+                <button
+                  className={mode === "capcut" ? "active" : ""}
+                  onClick={() => setMode("capcut")}
+                >
+                  <Scissors size={12} /> 剪映教程
+                </button>
               </nav>
             </div>
             <div className="post-mode-group">
@@ -502,10 +510,7 @@ export function PostWorkflowView({
               </span>
             </header>
             <div>
-              <button
-                className="primary"
-                onClick={openExecutionStart}
-              >
+              <button className="primary" onClick={openExecutionStart}>
                 <ListChecks size={18} />
                 <span>
                   <small>
@@ -855,6 +860,8 @@ export function PostWorkflowView({
           <ResolveColorScreenshot preset={selectedPreset} />
           <ColorFinishingGuide preset={selectedPreset} />
         </section>
+      ) : mode === "capcut" ? (
+        <CapCutProGuide />
       ) : mode === "glossary" ? (
         <PostGlossary />
       ) : mode === "compare" ? (

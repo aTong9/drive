@@ -10225,6 +10225,207 @@ input:focus-visible {
 .color-finishing-guide {
   margin-top: 12px;
 }
+
+.capcut-pro-guide {
+  display: grid;
+  gap: 12px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+.capcut-pro-guide > header,
+.capcut-pro-guide > footer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 16px;
+  border: 1px solid rgba(74, 213, 188, 0.18);
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(74, 213, 188, 0.055), var(--panel));
+}
+.capcut-pro-guide > header small,
+.capcut-pro-guide > footer strong {
+  color: #62bbaa;
+  font-size: 7px;
+  letter-spacing: 0.09em;
+}
+.capcut-pro-guide > header h2 {
+  margin: 5px 0 6px;
+  color: var(--ink);
+  font:
+    500 20px Georgia,
+    "Songti SC",
+    serif;
+}
+.capcut-pro-guide > header p,
+.capcut-pro-guide > footer p {
+  max-width: 760px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 8px;
+  line-height: 1.65;
+}
+.capcut-pro-guide > header svg {
+  color: #62bbaa;
+}
+.capcut-guide-summary {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: baseline;
+  gap: 8px;
+  padding: 11px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+}
+.capcut-guide-summary strong {
+  color: #62bbaa;
+  font:
+    22px Georgia,
+    serif;
+}
+.capcut-guide-summary span {
+  color: var(--ink);
+  font-size: 8px;
+}
+.capcut-guide-summary p {
+  margin: 0 0 0 auto;
+  color: var(--muted);
+  font-size: 7px;
+}
+.capcut-stage-list {
+  display: grid;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.capcut-stage-list > li {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--panel);
+}
+.capcut-stage-list > li > header {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: 32px 1fr;
+  gap: 10px;
+}
+.capcut-stage-list > li > header > span {
+  color: #62bbaa;
+  font:
+    18px Georgia,
+    serif;
+}
+.capcut-stage-list header small {
+  color: #5e756f;
+  font-size: 6px;
+  letter-spacing: 0.06em;
+}
+.capcut-stage-list header h3 {
+  margin: 3px 0;
+  color: var(--ink);
+  font-size: 10px;
+}
+.capcut-stage-list header p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 8px;
+}
+.capcut-stage-settings {
+  display: flex;
+  grid-column: 1 / -1;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.capcut-stage-settings span {
+  padding: 5px 7px;
+  border: 1px solid rgba(74, 213, 188, 0.13);
+  border-radius: 5px;
+  color: #79a69d;
+  background: rgba(74, 213, 188, 0.025);
+  font-size: 7px;
+}
+.capcut-stage-list section > strong {
+  color: #8f9890;
+  font-size: 7px;
+}
+.capcut-stage-list section ol,
+.capcut-stage-list section ul {
+  display: grid;
+  gap: 6px;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: 8px;
+  line-height: 1.55;
+}
+.capcut-stage-list section ul {
+  padding: 0;
+  list-style: none;
+}
+.capcut-stage-list section ul li {
+  display: flex;
+  gap: 6px;
+}
+.capcut-stage-list section svg {
+  flex: 0 0 auto;
+  color: #62bbaa;
+}
+.capcut-caution {
+  display: flex;
+  grid-column: 1 / -1;
+  gap: 7px;
+  margin: 0;
+  padding: 9px;
+  border-radius: 6px;
+  color: #9b7c6e;
+  background: rgba(183, 112, 79, 0.05);
+  font-size: 7px;
+  line-height: 1.55;
+}
+.capcut-caution svg {
+  flex: 0 0 auto;
+}
+.capcut-pro-guide > footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px;
+}
+.capcut-pro-guide > footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 8px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  color: #79a69d;
+  font-size: 7px;
+  text-decoration: none;
+}
+@media (max-width: 760px) {
+  .capcut-pro-guide > header,
+  .capcut-pro-guide > footer {
+    flex-direction: column;
+  }
+  .capcut-guide-summary {
+    grid-template-columns: auto 1fr;
+  }
+  .capcut-guide-summary p {
+    grid-column: 1 / -1;
+    margin: 0;
+  }
+  .capcut-stage-list > li {
+    grid-template-columns: 1fr;
+  }
+  .capcut-pro-guide > footer nav {
+    justify-content: flex-start;
+  }
+}
 .color-finishing-guide > header {
   display: flex;
   align-items: flex-end;
