@@ -329,17 +329,10 @@ export function App() {
         <Brand />
         <nav aria-label="主导航">
           <button
-            className={state.view === "dashboard" ? "active" : ""}
-            onClick={() => state.setView("dashboard")}
+            className={state.view === "locations" ? "active" : ""}
+            onClick={() => state.setView("locations")}
           >
-            <BarChart3 size={17} /> 工作台
-          </button>
-          <button
-            className={state.view === "projects" ? "active" : ""}
-            onClick={() => state.setView("projects")}
-          >
-            <FolderKanban size={17} /> 视频项目{" "}
-            <span className="nav-count">{state.videoProjects.length}</span>
+            <MapIcon size={17} /> 地点库
           </button>
           <button
             className={state.view === "explore" ? "active" : ""}
@@ -358,12 +351,6 @@ export function App() {
             <span className="nav-count">{state.plans.length}</span>
           </button>
           <button
-            className={state.view === "locations" ? "active" : ""}
-            onClick={() => state.setView("locations")}
-          >
-            <MapIcon size={17} /> 地点库
-          </button>
-          <button
             className={state.view === "post" ? "active" : ""}
             onClick={() => state.setView("post")}
           >
@@ -377,7 +364,14 @@ export function App() {
           </button>
           <button
             className={
-              ["cameras", "longform", "creators", "music"].includes(state.view)
+              [
+                "dashboard",
+                "projects",
+                "cameras",
+                "longform",
+                "creators",
+                "music",
+              ].includes(state.view)
                 ? "active"
                 : ""
             }
@@ -528,8 +522,16 @@ export function App() {
               </button>
             </header>
             <div className="command-section">
-              <small>工作台</small>
+              <small>更多工作台</small>
               <div className="command-view-grid">
+                <button onClick={() => openView("dashboard")}>
+                  <BarChart3 size={16} />
+                  <span>创作工作台</span>
+                </button>
+                <button onClick={() => openView("projects")}>
+                  <FolderKanban size={16} />
+                  <span>视频项目</span>
+                </button>
                 <button onClick={() => openView("cameras")}>
                   <Camera size={16} />
                   <span>相机参数库</span>
@@ -537,10 +539,6 @@ export function App() {
                 <button onClick={() => openView("longform")}>
                   <Film size={16} />
                   <span>长片制作指南</span>
-                </button>
-                <button onClick={() => openView("projects")}>
-                  <FolderKanban size={16} />
-                  <span>视频项目工作台</span>
                 </button>
                 <button onClick={() => openView("creators")}>
                   <Videotape size={16} />
@@ -599,18 +597,11 @@ export function App() {
 
       <nav className="mobile-nav" aria-label="移动端导航">
         <button
-          className={state.view === "dashboard" ? "active" : ""}
-          onClick={() => state.setView("dashboard")}
+          className={state.view === "locations" ? "active" : ""}
+          onClick={() => state.setView("locations")}
         >
-          <BarChart3 size={19} />
-          <span>工作台</span>
-        </button>
-        <button
-          className={state.view === "projects" ? "active" : ""}
-          onClick={() => state.setView("projects")}
-        >
-          <FolderKanban size={19} />
-          <span>项目</span>
+          <MapIcon size={19} />
+          <span>地点</span>
         </button>
         <button
           className={state.view === "explore" ? "active" : ""}
@@ -630,15 +621,10 @@ export function App() {
           <span>计划</span>
         </button>
         <button
-          className={state.view === "locations" ? "active" : ""}
-          onClick={() => state.setView("locations")}
-        >
-          <MapIcon size={19} />
-          <span>地点</span>
-        </button>
-        <button
           className={
             [
+              "dashboard",
+              "projects",
               "cameras",
               "post",
               "longform",

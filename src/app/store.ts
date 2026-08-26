@@ -110,7 +110,7 @@ interface PlannerState {
 export const usePlannerStore = create<PlannerState>()(
   persist(
     (set) => ({
-      view: "explore",
+      view: "locations",
       mode: "all",
       captureStyle: "all",
       driveOnly: false,

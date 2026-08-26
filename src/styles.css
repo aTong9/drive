@@ -18097,10 +18097,6 @@ small {
 }
 
 @media (max-width: 1500px) and (min-width: 761px) {
-  .topbar > nav > button:nth-child(5),
-  .topbar > nav > button:nth-child(7) {
-    display: none;
-  }
   .topbar nav button {
     padding-right: 11px;
     padding-left: 11px;
@@ -18251,7 +18247,7 @@ small {
     position: relative;
     z-index: 90;
     display: grid;
-    grid-template-columns: repeat(6, minmax(50px, 1fr));
+    grid-template-columns: repeat(4, minmax(50px, 1fr));
     border-top: 1px solid var(--line);
     background: #151814;
   }
