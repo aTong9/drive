@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { buildPlatformAttributionTemplate, filterMusicAlbums, filterMusicPlatforms, filterMusicTracks, youtubeMusicLibrary } from "./youtubeMusicService.js";
+import { buildPlatformAttributionTemplate, filterMusicAlbums, filterMusicPlatforms, filterMusicTracks, isAiGeneratedTrack, youtubeMusicLibrary, type MusicTrack } from "./youtubeMusicService.js";
 
 test("music library references valid category ids", () => {
   const ids = new Set(youtubeMusicLibrary.categories.map((category) => category.id));
@@ -98,6 +98,19 @@ test("track filter combines platform, family, scene and search", () => {
   assert.ok(longTracks.length > 0);
   assert.ok(longTracks.every((track) => track.durationSeconds !== null && track.durationSeconds >= 600));
   assert.ok(filterMusicTracks({ platformId: "incompetech", minDurationSeconds: 600 }).every((track) => track.platformId === "incompetech"));
+});
+
+test("AI-generated filter excludes explicitly disclosed AI music without guessing from names", () => {
+  const base: MusicTrack = {
+    id: "origin-check", title: "Calm Morning", artist: "Human Artist", platformId: "dova-syndrome",
+    categoryIds: ["healing-piano"], scenes: ["sunrise"], durationSeconds: 180,
+    description: "Gentle piano", listenUrl: "https://example.com/listen", downloadUrl: "https://example.com/download",
+    downloadLabel: "Download", credit: "Music by Human Artist", licenseNote: "YouTube use allowed"
+  };
+  assert.equal(isAiGeneratedTrack(base), false);
+  assert.equal(isAiGeneratedTrack({ ...base, creationOrigin: "ai-generated" }), true);
+  assert.equal(isAiGeneratedTrack({ ...base, description: "AI-generated with Udio" }), true);
+  assert.ok(filterMusicTracks({ excludeAiGenerated: true }).every((track) => !isAiGeneratedTrack(track)));
 });
 
 test("StreamBeats official catalog contributes a verified 100-track batch", () => {

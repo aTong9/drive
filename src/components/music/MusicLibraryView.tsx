@@ -141,6 +141,7 @@ export function MusicLibraryView() {
   const [risk, setRisk] = useState<MusicRisk | "all">("all");
   const [query, setQuery] = useState("");
   const [longTracksOnly, setLongTracksOnly] = useState(false);
+  const [excludeAiGenerated, setExcludeAiGenerated] = useState(false);
   const [albumPlatformId, setAlbumPlatformId] = useState("all");
   const [activeMusicTask, setActiveMusicTask] = useState<string | null>(null);
   const [albumPage, setAlbumPage] = useState(1);
@@ -186,9 +187,10 @@ export function MusicLibraryView() {
         ...(categoryId === "all" ? {} : { categoryId }),
         ...(scene === "all" ? {} : { scene }),
         ...(longTracksOnly ? { minDurationSeconds: 600 } : {}),
+        ...(excludeAiGenerated ? { excludeAiGenerated: true } : {}),
         query,
       }),
-    [albumPlatformId, family, categoryId, scene, longTracksOnly, query],
+    [albumPlatformId, excludeAiGenerated, family, categoryId, scene, longTracksOnly, query],
   );
   const freePlatforms = useMemo(
     () =>
@@ -237,7 +239,7 @@ export function MusicLibraryView() {
 
   useEffect(
     () => setTrackPage(1),
-    [albumPlatformId, categoryId, family, longTracksOnly, query, scene],
+    [albumPlatformId, categoryId, excludeAiGenerated, family, longTracksOnly, query, scene],
   );
   useEffect(
     () => setAlbumPage(1),
@@ -258,6 +260,7 @@ export function MusicLibraryView() {
     setRisk("low");
     setQuery("");
     setLongTracksOnly(task.longOnly);
+    setExcludeAiGenerated(false);
     setAlbumPlatformId("all");
   }
 
@@ -268,6 +271,7 @@ export function MusicLibraryView() {
     setRisk("all");
     setQuery("");
     setLongTracksOnly(false);
+    setExcludeAiGenerated(false);
     setAlbumPlatformId("dova-syndrome");
     setActiveMusicTask(null);
   }
@@ -279,6 +283,7 @@ export function MusicLibraryView() {
     setRisk("all");
     setQuery("");
     setLongTracksOnly(false);
+    setExcludeAiGenerated(false);
     setAlbumPlatformId("all");
     setActiveMusicTask(null);
   }
@@ -571,6 +576,17 @@ export function MusicLibraryView() {
             <span>
               <strong>单首 10 分钟以上</strong>
               <small>仅显示已核实时长 ≥ 10:00 的曲目</small>
+            </span>
+          </label>
+          <label className="music-duration-filter">
+            <input
+              type="checkbox"
+              checked={excludeAiGenerated}
+              onChange={(event) => setExcludeAiGenerated(event.target.checked)}
+            />
+            <span>
+              <strong>去掉 AI 生成音乐</strong>
+              <small>排除明确披露为 AI 生成的曲目；未披露来源仍需复核</small>
             </span>
           </label>
           <div className="music-filter-group">

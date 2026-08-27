@@ -116,6 +116,13 @@ export interface MusicTrack {
   downloadLabel: string;
   credit: string;
   licenseNote: string;
+  creationOrigin?: "human" | "ai-generated" | "unverified";
+}
+
+export function isAiGeneratedTrack(track: MusicTrack) {
+  if (track.creationOrigin) return track.creationOrigin === "ai-generated";
+  const disclosure = [track.description, track.credit, track.licenseNote].join(" ");
+  return /\bAI[- ]generated\b|\bgenerated (?:by|with) AI\b|\bSuno(?: AI)?\b|\bUdio(?: AI)?\b|AI生成|人工智能生成/i.test(disclosure);
 }
 
 export interface MusicAlbum {
@@ -1046,7 +1053,7 @@ export function filterMusicAlbums(input: { platformId?: string; family?: MusicFa
   });
 }
 
-export function filterMusicTracks(input: { platformId?: string; family?: MusicFamily; categoryId?: string; scene?: MusicScene; query?: string; minDurationSeconds?: number }) {
+export function filterMusicTracks(input: { platformId?: string; family?: MusicFamily; categoryId?: string; scene?: MusicScene; query?: string; minDurationSeconds?: number; excludeAiGenerated?: boolean }) {
   const categoryIds = input.family
     ? new Set(youtubeMusicLibrary.categories.filter((category) => input.family === "lofi" ? category.family === "lofi" || category.family === "chillhop" : category.family === input.family).map((category) => category.id))
     : null;
@@ -1057,7 +1064,8 @@ export function filterMusicTracks(input: { platformId?: string; family?: MusicFa
     const categoryMatch = !input.categoryId || track.categoryIds.includes(input.categoryId);
     const sceneMatch = !input.scene || track.scenes.includes(input.scene);
     const durationMatch = input.minDurationSeconds === undefined || (track.durationSeconds !== null && track.durationSeconds >= input.minDurationSeconds);
+    const creationMatch = !input.excludeAiGenerated || !isAiGeneratedTrack(track);
     const searchable = [track.title, track.artist, track.description].join(" ").toLowerCase();
-    return platformMatch && familyMatch && categoryMatch && sceneMatch && durationMatch && (!needle || searchable.includes(needle));
+    return platformMatch && familyMatch && categoryMatch && sceneMatch && durationMatch && creationMatch && (!needle || searchable.includes(needle));
   });
 }
