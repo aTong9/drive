@@ -8,23 +8,25 @@ import {
   X,
 } from "lucide-react";
 import {
-  capcutPracticalTutorials,
-  capcutProSources,
-  capcutProWorkflow,
-} from "../../data/capcutProWorkflow.js";
+  finalCutPracticalTutorials,
+  finalCutProSources,
+  finalCutProWorkflow,
+} from "../../data/finalCutProWorkflow.js";
 import { matchesTutorialSearch } from "../../services/tutorialSearchService.js";
 
 const topics = [
   "全部",
-  ...new Set(capcutPracticalTutorials.map((item) => item.category)),
+  ...new Set(finalCutPracticalTutorials.map((item) => item.category)),
 ];
 
-export function CapCutProGuide() {
+export function FinalCutProGuide() {
   const [topic, setTopic] = useState("全部");
   const [query, setQuery] = useState("");
-  const [openId, setOpenId] = useState<string>(capcutPracticalTutorials[0].id);
+  const [openId, setOpenId] = useState<string>(
+    finalCutPracticalTutorials[0].id,
+  );
   const filterTutorials = (selectedTopic: string, searchQuery: string) =>
-    capcutPracticalTutorials.filter(
+    finalCutPracticalTutorials.filter(
       (item) =>
         (selectedTopic === "全部" || item.category === selectedTopic) &&
         matchesTutorialSearch(item, searchQuery),
@@ -40,24 +42,30 @@ export function CapCutProGuide() {
   };
 
   return (
-    <section className="capcut-pro-guide">
+    <section className="capcut-pro-guide final-cut-pro-guide">
       <header>
+        <Sparkles size={18} />
         <div>
-          <small>Jianying Pro · DESKTOP WORKFLOW</small>
-          <h2>剪映专业版完整后期教程</h2>
+          <small>FINAL CUT PRO · MAC WORKFLOW</small>
+          <h2>Final Cut Pro 完整后期教程</h2>
           <p>
-            从项目规格、素材整理和粗剪开始，到字幕、关键帧、调色、声音、多平台重构与导出复核。界面名称会随版本变化，操作前请在当前客户端核对。
+            从资源库和代理媒体开始，掌握磁性时间线、角色、字幕、色彩管理、共享与可恢复归档。
           </p>
         </div>
-        <Sparkles size={28} />
       </header>
       <div className="capcut-guide-summary">
-        <strong>{capcutProWorkflow.length}</strong>
-        <span>个完成阶段</span>
-        <p>项目 → 素材 → 粗剪 → 字幕 → 动画 → 变速 → 调色 → 声音 → 交付</p>
+        <span>
+          <strong>{finalCutProWorkflow.length}</strong> 个阶段
+        </span>
+        <span>
+          <strong>{finalCutPracticalTutorials.length}</strong> 个实操
+        </span>
+        <span>
+          <strong>Mac</strong> 桌面流程
+        </span>
       </div>
       <ol className="capcut-stage-list">
-        {capcutProWorkflow.map((stage) => (
+        {finalCutProWorkflow.map((stage) => (
           <li key={stage.id}>
             <header>
               <span>{stage.phase}</span>
@@ -73,7 +81,7 @@ export function CapCutProGuide() {
               ))}
             </div>
             <section>
-              <strong>跟着做</strong>
+              <strong>操作步骤</strong>
               <ol>
                 {stage.actions.map((item) => (
                   <li key={item}>{item}</li>
@@ -81,7 +89,7 @@ export function CapCutProGuide() {
               </ol>
             </section>
             <section>
-              <strong>通过标准</strong>
+              <strong>完成标准</strong>
               <ul>
                 {stage.checks.map((item) => (
                   <li key={item}>
@@ -99,81 +107,67 @@ export function CapCutProGuide() {
         ))}
       </ol>
       <section
-        className="resolve-practical-tutorials capcut-practical-tutorials"
-        id="capcut-tutorial-center"
+        className="resolve-practical-tutorials"
+        id="finalcut-tutorial-center"
       >
         <header>
           <div>
-            <small>FOLLOW-ALONG · PRACTICAL LESSONS</small>
-            <h3>剪映专业版实操教程</h3>
-            <p>每个练习都包含适用场景、参数、步骤、通过标准和常见失败。</p>
+            <small>FOLLOW-ALONG LESSONS</small>
+            <h3>Final Cut Pro 实操教程</h3>
+            <p>每个教程都有场景、快捷键、步骤、通过标准与失败处理。</p>
           </div>
-          <strong>{capcutPracticalTutorials.length} 个教程</strong>
+          <span>
+            {tutorials.length} / {finalCutPracticalTutorials.length}
+          </span>
         </header>
-        <label className="resolve-tutorial-search">
-          <Search size={13} />
-          <input
-            type="search"
-            value={query}
-            onChange={(event) => updateQuery(event.target.value)}
-            placeholder="搜索字幕、关键帧、变速、调色…"
-            aria-label="搜索剪映专业版教程"
-          />
-          {query && (
-            <button
-              type="button"
-              onClick={() => updateQuery("")}
-              aria-label="清除剪映教程搜索"
-            >
-              <X size={12} />
-            </button>
-          )}
-        </label>
-        <nav
-          className="resolve-tutorial-filters"
-          aria-label="剪映专业版教程分类"
-        >
-          {topics.map((item) => (
-            <button
-              key={item}
-              type="button"
-              aria-pressed={topic === item}
-              onClick={() => {
-                setTopic(item);
-                setOpenId(filterTutorials(item, query)[0]?.id ?? "");
-              }}
-            >
-              {item}
-              <span>
-                {item === "全部"
-                  ? capcutPracticalTutorials.length
-                  : capcutPracticalTutorials.filter(
-                      (tutorial) => tutorial.category === item,
-                    ).length}
-              </span>
-            </button>
-          ))}
-        </nav>
-        <p className="resolve-tutorial-result" aria-live="polite">
-          当前显示 {tutorials.length} 个教程
-          {topic === "全部" ? "" : ` · ${topic}`}
-        </p>
+        <div className="resolve-tutorial-toolbar">
+          <label className="resolve-tutorial-search">
+            <Search size={14} />
+            <input
+              value={query}
+              onChange={(event) => updateQuery(event.target.value)}
+              placeholder="搜索标记、磁性时间线、Roles、代理、调色…"
+            />
+            {query && (
+              <button onClick={() => updateQuery("")} aria-label="清空搜索">
+                <X size={12} />
+              </button>
+            )}
+          </label>
+          <nav
+            className="resolve-tutorial-filters"
+            aria-label="Final Cut Pro 教程分类"
+          >
+            {topics.map((item) => (
+              <button
+                key={item}
+                className={topic === item ? "active" : ""}
+                onClick={() => {
+                  setTopic(item);
+                  setOpenId(filterTutorials(item, query)[0]?.id ?? "");
+                }}
+              >
+                {item}
+              </button>
+            ))}
+          </nav>
+        </div>
         <div className="resolve-tutorial-list">
           {tutorials.length === 0 && (
             <p className="resolve-tutorial-empty">
-              没有匹配教程，试试“代理”“字幕”“人声分离”或“竖屏”。
+              没有匹配教程，试试“标记”“代理”或“调色”。
             </p>
           )}
           {tutorials.map((tutorial, index) => (
-            <details key={tutorial.id} open={openId === tutorial.id}>
-              <summary
-                onClick={(event) => {
-                  event.preventDefault();
-                  setOpenId((current) =>
-                    current === tutorial.id ? "" : tutorial.id,
-                  );
-                }}
-              >
+            <details
+              key={tutorial.id}
+              open={openId === tutorial.id}
+              onToggle={(event) => {
+                if (event.currentTarget.open) setOpenId(tutorial.id);
+                else if (openId === tutorial.id) setOpenId("");
+              }}
+            >
+              <summary>
                 <span>{String(index + 1).padStart(2, "0")}</span>
                 <div>
                   <small>{tutorial.category}</small>
@@ -230,13 +224,13 @@ export function CapCutProGuide() {
         <div>
           <strong>版本边界</strong>
           <p>
-            剪映专业版与 CapCut Desktop
-            的功能名称、会员权限、快捷键和导出选项可能因地区、系统和版本不同；教程把具体数值作为起点，不把
-            AI 结果当作免检成片。
+            教程面向 Final Cut Pro for Mac。AI 搜索、自动字幕、Magnetic
+            Mask、部分编码和字幕能力会因 Final Cut
+            Pro、macOS、语言与芯片版本不同；所有自动结果都要人工复核。
           </p>
         </div>
         <nav>
-          {capcutProSources.map((source) => (
+          {finalCutProSources.map((source) => (
             <a
               key={source.url}
               href={source.url}

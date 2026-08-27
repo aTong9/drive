@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { buildPlatformAttributionTemplate, filterMusicAlbums, filterMusicPlatforms, filterMusicTracks, isAiGeneratedTrack, youtubeMusicLibrary, type MusicTrack } from "./youtubeMusicService.js";
+import { buildPlatformAttributionTemplate, filterMusicAlbums, filterMusicPlatforms, filterMusicTracks, isAiGeneratedTrack, youtubeMusicLibrary, youtubePianoCreators, type MusicTrack } from "./youtubeMusicService.js";
 
 test("music library references valid category ids", () => {
   const ids = new Set(youtubeMusicLibrary.categories.map((category) => category.id));
@@ -113,13 +113,35 @@ test("AI-generated filter excludes explicitly disclosed AI music without guessin
   assert.ok(filterMusicTracks({ excludeAiGenerated: true }).every((track) => !isAiGeneratedTrack(track)));
 });
 
-test("StreamBeats official catalog contributes a verified 100-track batch", () => {
+test("independent YouTube pianist batch contributes 100 human-origin CC BY tracks", () => {
+  const platformIds = new Set(["savfk-youtube", "alexander-nakarada-youtube"]);
+  const tracks = youtubeMusicLibrary.tracks.filter((track) => platformIds.has(track.platformId));
+  assert.equal(tracks.length, 100);
+  assert.equal(new Set(tracks.map((track) => track.listenUrl)).size, 100);
+  assert.equal(tracks.filter((track) => (track.durationSeconds ?? 0) >= 600).length, 2);
+  assert.ok(tracks.every((track) => track.creationOrigin === "human" && !isAiGeneratedTrack(track)));
+  assert.ok(tracks.every((track) => /CC BY 4\.0/.test(track.credit) && /盈利/.test(track.licenseNote)));
+  assert.ok(tracks.every((track) => track.categoryIds.some((id) => ["healing-piano", "calm-piano", "gentle-piano", "ambient-healing"].includes(id))));
+});
+
+test("piano creator directory counts creators rather than tracks", () => {
+  assert.equal(youtubePianoCreators.length, 50);
+  assert.equal(new Set(youtubePianoCreators.map((creator) => creator.id)).size, 50);
+  assert.equal(new Set(youtubePianoCreators.map((creator) => creator.youtubeUrl)).size, 50);
+  assert.ok(youtubePianoCreators.every((creator) => creator.creationOrigin === "human"));
+  assert.ok(youtubePianoCreators.every((creator) => creator.youtubeUrl.startsWith("https://www.youtube.com/")));
+  assert.ok(youtubePianoCreators.some((creator) => creator.channelType === "personal-channel"));
+  assert.ok(youtubePianoCreators.some((creator) => creator.channelType === "dova-playlist"));
+});
+
+test("StreamBeats official catalog contributes a verified 144-track batch", () => {
   const streambeatsTracks = youtubeMusicLibrary.tracks.filter((track) => track.platformId === "streambeats");
-  const importedTracks = streambeatsTracks.filter((track) => /^streambeats-(prime|quest|neon|secluded)-/.test(track.id));
-  assert.equal(importedTracks.length, 100);
-  assert.equal(new Set(importedTracks.map((track) => track.id)).size, 100);
+  const importedTracks = streambeatsTracks.filter((track) => /^streambeats-(prime|quest|neon|secluded|rain|reflection)-/.test(track.id));
+  assert.equal(importedTracks.length, 144);
+  assert.equal(new Set(importedTracks.map((track) => track.id)).size, 144);
   assert.ok(importedTracks.every((track) => track.categoryIds.includes("soft-lofi")));
   assert.ok(importedTracks.every((track) => track.downloadUrl.startsWith("https://streambeats.bandcamp.com/album/")));
+  assert.ok(importedTracks.every((track) => !isAiGeneratedTrack(track)));
 });
 
 test("Scott Buckley official catalog contributes 100 typed track pages", () => {

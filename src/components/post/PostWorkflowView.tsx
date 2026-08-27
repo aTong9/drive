@@ -25,7 +25,7 @@ import {
   Star,
   Workflow,
 } from "lucide-react";
-import { useMemo, useState, type CSSProperties } from "react";
+import { lazy, Suspense, useMemo, useState, type CSSProperties } from "react";
 import type {
   DavinciStageId,
   DavinciWorkflow,
@@ -38,7 +38,21 @@ import { PostGlossary } from "./PostGlossary.js";
 import { auditGradePreset } from "../../services/postDecisionService.js";
 import { SonyMrWorkflowPanel } from "./SonyMrWorkflowPanel.js";
 import { ColorFinishingGuide } from "./ColorFinishingGuide.js";
-import { CapCutProGuide } from "./CapCutProGuide.js";
+import {
+  tutorialCatalogMeta,
+  tutorialCatalogTotal,
+} from "../../data/tutorialCatalogMeta.js";
+
+const CapCutProGuide = lazy(() =>
+  import("./CapCutProGuide.js").then((module) => ({
+    default: module.CapCutProGuide,
+  })),
+);
+const FinalCutProGuide = lazy(() =>
+  import("./FinalCutProGuide.js").then((module) => ({
+    default: module.FinalCutProGuide,
+  })),
+);
 
 const stageIcons = {
   media: Images,
@@ -257,6 +271,7 @@ export function PostWorkflowView({
     | "pipeline"
     | "tutorial"
     | "capcut"
+    | "finalcut"
   >("overview");
   const [selectedPresetId, setSelectedPresetId] = useState(
     workflow.gradePresets[0]?.id ?? "",
@@ -351,6 +366,31 @@ export function PostWorkflowView({
         ?.scrollIntoView({ behavior: "smooth", block: "center" }),
     );
   };
+  const openSoftwareTutorials = (
+    nextMode: "presets" | "capcut" | "finalcut",
+    targetId: string,
+  ) => {
+    if (nextMode === "presets") setSelectedId("color");
+    setMode(nextMode);
+    const scrollWhenReady = (attempt = 0) => {
+      const target = document.getElementById(targetId);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        window.setTimeout(
+          () =>
+            document
+              .getElementById(targetId)
+              ?.scrollIntoView({ behavior: "auto", block: "start" }),
+          400,
+        );
+        return;
+      }
+      if (attempt < 12) {
+        window.setTimeout(() => scrollWhenReady(attempt + 1), 100);
+      }
+    };
+    window.requestAnimationFrame(() => scrollWhenReady());
+  };
   if (!selected) return null;
 
   return (
@@ -397,6 +437,12 @@ export function PostWorkflowView({
                   onClick={() => setMode("capcut")}
                 >
                   <Scissors size={12} /> 剪映教程
+                </button>
+                <button
+                  className={mode === "finalcut" ? "active" : ""}
+                  onClick={() => setMode("finalcut")}
+                >
+                  <Clapperboard size={12} /> Final Cut Pro
                 </button>
               </nav>
             </div>
@@ -558,6 +604,71 @@ export function PostWorkflowView({
                   <em>包含调整原因和实际示例</em>
                 </span>
                 <ArrowRight size={15} />
+              </button>
+            </div>
+          </section>
+          <section
+            className="post-software-hub"
+            aria-labelledby="software-hub-title"
+          >
+            <header>
+              <div>
+                <p className="eyebrow">CHOOSE YOUR EDITOR</p>
+                <h2 id="software-hub-title">按当前剪辑软件直接开始</h2>
+                <p>
+                  先选择工具，再按问题搜索教程；不需要从完整流程第一页重新阅读。
+                </p>
+              </div>
+              <strong>{tutorialCatalogTotal} 篇实操</strong>
+            </header>
+            <div>
+              <button
+                onClick={() =>
+                  openSoftwareTutorials("presets", "resolve-tutorial-center")
+                }
+              >
+                <Palette size={20} />
+                <span>
+                  <small>DAVINCI RESOLVE</small>
+                  <strong>专业调色与声音修复</strong>
+                  <em>
+                    HDR · 节点 · Fairlight · {tutorialCatalogMeta.resolve.count}{" "}
+                    篇
+                  </em>
+                </span>
+                <ArrowRight size={16} />
+              </button>
+              <button
+                onClick={() =>
+                  openSoftwareTutorials("capcut", "capcut-tutorial-center")
+                }
+              >
+                <Scissors size={20} />
+                <span>
+                  <small>剪映专业版</small>
+                  <strong>快速剪辑与多平台发布</strong>
+                  <em>
+                    字幕 · AI 工具 · 竖屏 · {tutorialCatalogMeta.capcut.count}{" "}
+                    篇
+                  </em>
+                </span>
+                <ArrowRight size={16} />
+              </button>
+              <button
+                onClick={() =>
+                  openSoftwareTutorials("finalcut", "finalcut-tutorial-center")
+                }
+              >
+                <Clapperboard size={20} />
+                <span>
+                  <small>FINAL CUT PRO</small>
+                  <strong>Mac 磁性时间线工作流</strong>
+                  <em>
+                    Roles · 代理 · 色彩管理 ·{" "}
+                    {tutorialCatalogMeta.finalcut.count} 篇
+                  </em>
+                </span>
+                <ArrowRight size={16} />
               </button>
             </div>
           </section>
@@ -861,7 +972,23 @@ export function PostWorkflowView({
           <ColorFinishingGuide preset={selectedPreset} />
         </section>
       ) : mode === "capcut" ? (
-        <CapCutProGuide />
+        <Suspense
+          fallback={
+            <section className="post-workspace">正在加载剪映教程…</section>
+          }
+        >
+          <CapCutProGuide />
+        </Suspense>
+      ) : mode === "finalcut" ? (
+        <Suspense
+          fallback={
+            <section className="post-workspace">
+              正在加载 Final Cut Pro 教程…
+            </section>
+          }
+        >
+          <FinalCutProGuide />
+        </Suspense>
       ) : mode === "glossary" ? (
         <PostGlossary />
       ) : mode === "compare" ? (

@@ -16,6 +16,8 @@ const streambeatsLofiCatalog = JSON.parse(await readFile(new URL("../data/music-
 const scottBuckleyCatalog = JSON.parse(await readFile(new URL("../data/music-catalogs/scott-buckley-100.json", import.meta.url), "utf8"));
 const incompetechCatalog = JSON.parse(await readFile(new URL("../data/music-catalogs/incompetech-calm-100.json", import.meta.url), "utf8"));
 const dovaLoopableCatalog = JSON.parse(await readFile(new URL("../data/music-catalogs/dova-loopable-warm-100.json", import.meta.url), "utf8"));
+const youtubeHumanPianoCreatorsCatalog = JSON.parse(await readFile(new URL("../data/music-catalogs/youtube-human-piano-creators-100.json", import.meta.url), "utf8"));
+const youtubePianoCreatorDirectory = JSON.parse(await readFile(new URL("../data/music-catalogs/youtube-human-piano-creators-50.json", import.meta.url), "utf8"));
 const amachaGentleCatalog = JSON.parse(await readFile(new URL("../data/music-catalogs/amacha-gentle-100.json", import.meta.url), "utf8"));
 const bgmerCalmCatalog = JSON.parse(await readFile(new URL("../data/music-catalogs/bgmer-calm-100.json", import.meta.url), "utf8"));
 const purrpleCatCalmCatalog = JSON.parse(await readFile(new URL("../data/music-catalogs/purrple-cat-calm-100.json", import.meta.url), "utf8"));
@@ -91,13 +93,30 @@ for (const track of youtubeMusic.tracks) {
 }
 const compactCatalogTracks = streambeatsLofiCatalog.albums.flatMap((album) => album.tracks.map(([title, duration]) => ({ albumId: album.id, title, duration })));
 if (streambeatsLofiCatalog.platformId !== "streambeats") errors.push("streambeatsCatalog: unexpected platform id");
-if (compactCatalogTracks.length !== 100) errors.push(`streambeatsCatalog: expected 100 tracks, found ${compactCatalogTracks.length}`);
+if (compactCatalogTracks.length !== 144) errors.push(`streambeatsCatalog: expected 144 tracks, found ${compactCatalogTracks.length}`);
 if (new Set(compactCatalogTracks.map((track) => `${track.albumId}:${track.title}`)).size !== compactCatalogTracks.length) errors.push("streambeatsCatalog: duplicate album track");
 for (const track of compactCatalogTracks) {
   if (typeof track.title !== "string" || track.title.length < 2) errors.push(`streambeatsCatalog: invalid title in ${track.albumId}`);
   if (!Number.isInteger(track.duration) || track.duration <= 0) errors.push(`streambeatsCatalog: invalid duration for ${track.title}`);
 }
 for (const id of streambeatsLofiCatalog.categoryIds) if (!musicCategoryIds.has(id)) errors.push(`streambeatsCatalog: unknown category ${id}`);
+if (youtubeHumanPianoCreatorsCatalog.items.length !== 100) errors.push(`youtubeHumanPianoCreatorsCatalog: expected 100 tracks, found ${youtubeHumanPianoCreatorsCatalog.items.length}`);
+if (new Set(youtubeHumanPianoCreatorsCatalog.items.map((item) => item[3])).size !== 100) errors.push("youtubeHumanPianoCreatorsCatalog: duplicate YouTube video id");
+for (const [platformId, artist, title, videoId, duration, kind, tier] of youtubeHumanPianoCreatorsCatalog.items) {
+  if (!musicPlatformIds.has(platformId)) errors.push(`youtubeHumanPianoCreatorsCatalog: unknown platform ${platformId}`);
+  if (!artist || !title || !/^[A-Za-z0-9_-]{11}$/.test(videoId)) errors.push(`youtubeHumanPianoCreatorsCatalog: invalid metadata for ${title}`);
+  if (!Number.isInteger(duration) || duration <= 0) errors.push(`youtubeHumanPianoCreatorsCatalog: invalid duration for ${title}`);
+  if (!["piano", "ambient", "orchestral"].includes(kind) || !["core", "adjacent"].includes(tier)) errors.push(`youtubeHumanPianoCreatorsCatalog: invalid classification for ${title}`);
+}
+if (youtubePianoCreatorDirectory.items.length !== 50) errors.push(`youtubePianoCreatorDirectory: expected 50 creators, found ${youtubePianoCreatorDirectory.items.length}`);
+if (new Set(youtubePianoCreatorDirectory.items.map((item) => item[0])).size !== 50) errors.push("youtubePianoCreatorDirectory: duplicate creator id");
+if (new Set(youtubePianoCreatorDirectory.items.map((item) => item[2])).size !== 50) errors.push("youtubePianoCreatorDirectory: duplicate YouTube destination");
+for (const [id, name, youtubeUrl, evidenceUrl, channelType, focus, licenseBasis] of youtubePianoCreatorDirectory.items) {
+  if (!id || !name || !focus || !licenseBasis) errors.push(`youtubePianoCreatorDirectory: incomplete creator ${id}`);
+  if (!youtubeUrl.startsWith("https://www.youtube.com/")) errors.push(`youtubePianoCreatorDirectory: invalid YouTube URL for ${id}`);
+  if (!evidenceUrl.startsWith("https://")) errors.push(`youtubePianoCreatorDirectory: invalid evidence URL for ${id}`);
+  if (!["personal-channel", "dova-playlist"].includes(channelType)) errors.push(`youtubePianoCreatorDirectory: invalid channel type for ${id}`);
+}
 if (scottBuckleyCatalog.platformId !== "scott-buckley") errors.push("scottBuckleyCatalog: unexpected platform id");
 if (scottBuckleyCatalog.items.length !== 100) errors.push(`scottBuckleyCatalog: expected 100 tracks, found ${scottBuckleyCatalog.items.length}`);
 if (new Set(scottBuckleyCatalog.items.map(([title]) => title)).size !== scottBuckleyCatalog.items.length) errors.push("scottBuckleyCatalog: duplicate track title");

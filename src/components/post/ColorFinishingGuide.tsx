@@ -13,6 +13,7 @@ import {
   colorFinishingWorkflow,
   resolvePracticalTutorials,
 } from "../../data/colorFinishingWorkflow.js";
+import { matchesTutorialSearch } from "../../services/tutorialSearchService.js";
 
 const parameterLabels: Record<
   keyof DavinciGradePreset["timelineParameters"],
@@ -33,19 +34,18 @@ const parameterLabels: Record<
 
 const tutorialTopics = [
   "全部",
-  "剪辑",
-  "声音",
-  "节奏",
-  "转场",
-  "变速",
-  "质检",
-] as const;
+  ...new Set(
+    resolvePracticalTutorials.map(
+      (tutorial) => tutorial.category.split(" · ")[0],
+    ),
+  ),
+];
 type TutorialTopic = (typeof tutorialTopics)[number];
 
 const tutorialEntries = resolvePracticalTutorials.map((tutorial, index) => ({
   tutorial,
   number: index + 1,
-  topic: tutorial.category.split(" · ")[0] as Exclude<TutorialTopic, "全部">,
+  topic: tutorial.category.split(" · ")[0],
   searchText: [
     tutorial.category,
     tutorial.level,
@@ -73,22 +73,18 @@ export function ColorFinishingGuide({
   const [openTutorialId, setOpenTutorialId] = useState<string>(
     resolvePracticalTutorials[0].id,
   );
-  const normalizedTutorialQuery = tutorialQuery
-    .trim()
-    .toLocaleLowerCase("zh-CN");
+  const normalizedTutorialQuery = tutorialQuery.trim();
   const visibleTutorials = tutorialEntries.filter(
     (entry) =>
       (tutorialTopic === "全部" || entry.topic === tutorialTopic) &&
-      (!normalizedTutorialQuery ||
-        entry.searchText.includes(normalizedTutorialQuery)),
+      matchesTutorialSearch(entry.searchText, normalizedTutorialQuery),
   );
 
   const findFirstTutorial = (topic: TutorialTopic, query: string) => {
-    const normalizedQuery = query.trim().toLocaleLowerCase("zh-CN");
     return tutorialEntries.find(
       (entry) =>
         (topic === "全部" || entry.topic === topic) &&
-        (!normalizedQuery || entry.searchText.includes(normalizedQuery)),
+        matchesTutorialSearch(entry.searchText, query),
     );
   };
 
@@ -130,7 +126,10 @@ export function ColorFinishingGuide({
           输入解释 → 技术修复 → 镜头匹配 → 场景 Look → HDR安全 → 声音 → 导出验证
         </p>
       </div>
-      <section className="resolve-practical-tutorials">
+      <section
+        className="resolve-practical-tutorials"
+        id="resolve-tutorial-center"
+      >
         <header>
           <div>
             <small>EDIT PAGE · FOLLOW-ALONG TUTORIALS</small>

@@ -25,10 +25,41 @@ import bensoundFreeCalmCatalog from "../../data/music-catalogs/bensound-free-cal
 import youtubeAudioLibraryCalmAmbientCatalog from "../../data/music-catalogs/youtube-audio-library-calm-ambient-100.json" with { type: "json" };
 import uppbeatFreeCalmCatalog from "../../data/music-catalogs/uppbeat-free-calm-100.json" with { type: "json" };
 import teknoaxeCalmCatalog from "../../data/music-catalogs/teknoaxe-calm-100.json" with { type: "json" };
+import youtubeHumanPianoCreatorsCatalog from "../../data/music-catalogs/youtube-human-piano-creators-100.json" with { type: "json" };
+import youtubePianoCreatorDirectory from "../../data/music-catalogs/youtube-human-piano-creators-50.json" with { type: "json" };
 
 export type MusicFamily = "piano" | "lofi" | "chillhop" | "jazz";
 export type MusicScene = "countryside" | "rain" | "sunrise" | "city-night" | "road-driving" | "blue-hour" | "urban";
 export type MusicRisk = "low" | "medium" | "high";
+
+export interface PianoCreatorProfile {
+  id: string;
+  name: string;
+  youtubeUrl: string;
+  evidenceUrl: string;
+  channelType: "personal-channel" | "dova-playlist";
+  focus: string;
+  licenseBasis: string;
+  creationOrigin: "human";
+}
+
+type CompactPianoCreatorDirectory = {
+  items: Array<[string, string, string, string, PianoCreatorProfile["channelType"], string, string]>;
+};
+
+export const youtubePianoCreators: PianoCreatorProfile[] =
+  (youtubePianoCreatorDirectory as unknown as CompactPianoCreatorDirectory).items.map(
+    ([id, name, youtubeUrl, evidenceUrl, channelType, focus, licenseBasis]) => ({
+      id,
+      name,
+      youtubeUrl,
+      evidenceUrl,
+      channelType,
+      focus,
+      licenseBasis,
+      creationOrigin: "human",
+    }),
+  );
 
 export interface MusicCategory {
   id: string;
@@ -416,6 +447,36 @@ interface CompactTeknoaxeCatalog {
     kind: "piano" | "soft";
     tier: "core" | "adjacent";
   }>;
+}
+
+interface CompactYoutubeHumanPianoCatalog {
+  description: string;
+  downloadLabel: string;
+  licenseNote: string;
+  items: Array<[string, string, string, string, number, "piano" | "ambient" | "orchestral", "core" | "adjacent"]>;
+}
+
+function expandYoutubeHumanPianoCatalog(catalog: CompactYoutubeHumanPianoCatalog): MusicTrack[] {
+  return catalog.items.map(([platformId, artist, title, videoId, durationSeconds, kind, tier]) => ({
+    id: `${platformId}-${videoId}`,
+    title,
+    artist,
+    platformId,
+    categoryIds: kind === "piano"
+      ? ["healing-piano", "calm-piano", "gentle-piano"]
+      : ["ambient-healing", ...(kind === "orchestral" ? ["gentle-piano"] : [])],
+    scenes: kind === "ambient"
+      ? ["countryside", "rain", "sunrise", "city-night", "road-driving", "blue-hour"]
+      : ["countryside", "rain", "sunrise", "blue-hour"],
+    durationSeconds,
+    description: `${catalog.description}｜匹配层级：${tier === "core" ? "核心" : "相邻可用"}｜创作来源：已核验真人作曲者；未发现 AI 生成披露。`,
+    listenUrl: `https://www.youtube.com/watch?v=${videoId}`,
+    downloadUrl: `https://www.youtube.com/watch?v=${videoId}`,
+    downloadLabel: catalog.downloadLabel,
+    credit: `Music: ${title} — ${artist}｜Source: https://www.youtube.com/watch?v=${videoId}｜License: CC BY 4.0 https://creativecommons.org/licenses/by/4.0/｜Edited for length / fades / loops.`,
+    licenseNote: catalog.licenseNote,
+    creationOrigin: "human"
+  }));
 }
 
 function catalogTrackId(platformId: string, albumId: string, title: string) {
@@ -1020,7 +1081,8 @@ export const youtubeMusicLibrary: YoutubeMusicLibrary = {
     ...expandBensoundCatalog(bensoundFreeCalmCatalog as CompactBensoundCatalog),
     ...expandYoutubeAudioLibraryCatalog(youtubeAudioLibraryCalmAmbientCatalog as YoutubeAudioLibraryRow[]),
     ...expandUppbeatFreeCalmCatalog(uppbeatFreeCalmCatalog as UppbeatFreeCalmRow[]),
-    ...expandTeknoaxeCatalog(teknoaxeCalmCatalog as CompactTeknoaxeCatalog)
+    ...expandTeknoaxeCatalog(teknoaxeCalmCatalog as CompactTeknoaxeCatalog),
+    ...expandYoutubeHumanPianoCatalog(youtubeHumanPianoCreatorsCatalog as CompactYoutubeHumanPianoCatalog)
   ]
 };
 

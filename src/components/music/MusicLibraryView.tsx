@@ -28,6 +28,7 @@ import {
   filterMusicAlbums,
   filterMusicPlatforms,
   filterMusicTracks,
+  youtubePianoCreators,
   youtubeMusicLibrary,
   type MusicFamily,
   type MusicRisk,
@@ -147,6 +148,7 @@ export function MusicLibraryView() {
   const [albumPage, setAlbumPage] = useState(1);
   const [trackPage, setTrackPage] = useState(1);
   const [copiedPlatformId, setCopiedPlatformId] = useState<string | null>(null);
+  const [creatorType, setCreatorType] = useState<"all" | "personal-channel" | "dova-playlist">("all");
   const categories = useMemo(
     () =>
       youtubeMusicLibrary.categories.filter(
@@ -201,6 +203,13 @@ export function MusicLibraryView() {
       ),
     [],
   );
+  const pianoCreators = useMemo(() => {
+    const normalizedQuery = query.trim().toLocaleLowerCase();
+    return youtubePianoCreators.filter((creator) =>
+      (creatorType === "all" || creator.channelType === creatorType) &&
+      (!normalizedQuery || `${creator.name} ${creator.focus}`.toLocaleLowerCase().includes(normalizedQuery)),
+    );
+  }, [creatorType, query]);
   const trackPageCount = Math.max(
     1,
     Math.ceil(tracks.length / TRACKS_PER_PAGE),
@@ -861,6 +870,57 @@ export function MusicLibraryView() {
           )}
         </div>
       </section>
+
+      <section className="music-source-heading music-creator-heading">
+        <div>
+          <p className="eyebrow">HUMAN PIANO CREATORS</p>
+          <h2>真人 Piano 创作者</h2>
+          <span>{pianoCreators.length} / {youtubePianoCreators.length} 位 · 一位创作者只计一次</span>
+        </div>
+        <select
+          value={creatorType}
+          onChange={(event) => setCreatorType(event.target.value as typeof creatorType)}
+          aria-label="创作者频道类型"
+        >
+          <option value="all">全部 YouTube 入口</option>
+          <option value="personal-channel">个人频道</option>
+          <option value="dova-playlist">DOVA 作者播放列表</option>
+        </select>
+      </section>
+      <aside className="music-creator-notice">
+        <ShieldCheck size={17} />
+        <p><strong>非 AI 筛选原则：</strong>这里只收录具名真人作曲者。频道身份不等于整频道授权；实际入库仍须打开曲目授权页，确认该首为真人原作且允许 YouTube 商用、剪辑与循环。</p>
+      </aside>
+      <section className="music-creator-grid">
+        {pianoCreators.map((creator) => (
+          <article className="music-creator-card" key={creator.id}>
+            <header>
+              <span className="music-creator-avatar"><Piano size={18} /></span>
+              <div>
+                <small>{creator.channelType === "personal-channel" ? "个人频道" : "DOVA 官方作者列表"}</small>
+                <h3>{creator.name}</h3>
+              </div>
+              <span className="music-human-badge"><CheckCircle2 size={12} />真人</span>
+            </header>
+            <div className="music-creator-tags">
+              <span>{creator.focus.replaceAll("-", " ")}</span>
+              <span>{creator.licenseBasis === "cc-by" ? "CC BY" : "DOVA 逐曲许可"}</span>
+            </div>
+            <p>优先试听慢速、温暖、平静、弱奏与留白较多的钢琴作品；长曲时长在进入曲目页后复核。</p>
+            <footer>
+              <a href={creator.youtubeUrl} target="_blank" rel="noreferrer">打开 YouTube <ArrowUpRight size={13} /></a>
+              <a href={creator.evidenceUrl} target="_blank" rel="noreferrer">作者 / 授权依据 <ExternalLink size={12} /></a>
+            </footer>
+          </article>
+        ))}
+      </section>
+      {!pianoCreators.length && (
+        <div className="music-empty">
+          <Search size={23} />
+          <strong>没有符合搜索条件的 Piano 创作者</strong>
+          <span>清空搜索词或切换 YouTube 入口类型</span>
+        </div>
+      )}
 
       <section className="music-source-heading">
         <div>

@@ -313,6 +313,454 @@ export const colorFinishingWorkflow = [
   },
 ] as const;
 
+const additionalResolvePracticalTutorials = [
+  {
+    id: "tracker-callout",
+    category: "合成 · 跟踪",
+    level: "进阶",
+    estimatedMinutes: 16,
+    prerequisite: "镜头中有持续可见、对比清楚的路牌、车辆或建筑特征。",
+    title: "跟踪路牌或车辆，让文字标注随目标移动",
+    goal: "让地点名、箭头或说明稳定跟随目标，不出现滑动和突然跳位。",
+    scenario: "路线说明、路牌标注、车辆介绍和地标讲解。",
+    settings: [
+      "跟踪区域：高对比纹理",
+      "分析：前后双向",
+      "文字偏移：避开主体",
+      "检查：逐帧 + 实时",
+    ],
+    steps: [
+      "在目标最清楚的一帧打标记，进入 Fusion 或使用支持跟踪的标题/效果。",
+      "把 Tracker 区域放在稳定高对比特征上，避开反光、遮挡和运动模糊边缘。",
+      "从参考帧向前、向后分析，并在丢失位置停止后手工修正关键帧。",
+      "把文字或图形连接到跟踪结果，调整偏移、缩放和出现时长后完整播放。",
+    ],
+    checks: [
+      "标注与目标相对位置稳定",
+      "遮挡前后不会突然跳位",
+      "文字不遮挡道路安全信息和主体",
+    ],
+    pitfall:
+      "把跟踪框放在纯色车身、天空或反光玻璃上容易漂移；自动分析失败时必须更换特征或分段跟踪。",
+  },
+  {
+    id: "adjustment-clip-version",
+    category: "调色 · 批量处理",
+    level: "进阶",
+    estimatedMinutes: 14,
+    prerequisite: "基础逐镜校正已完成，相邻镜头曝光和白平衡基本一致。",
+    title: "用 Adjustment Clip 统一章节风格而不覆盖逐镜校正",
+    goal: "把章节级 Look、暗角或画幅处理集中管理，并能快速比较与回退。",
+    scenario: "同一地点的一组镜头需要统一轻量风格或章节效果。",
+    settings: [
+      "轨道：置于目标镜头上方",
+      "范围：只覆盖同场景",
+      "强度：从 25%–50% 比较",
+      "版本：启用/禁用 A/B",
+    ],
+    steps: [
+      "在章节开始和结束处打标记，先确认底层镜头已完成技术校正。",
+      "添加 Adjustment Clip 覆盖该章节，并按标记修剪准确范围。",
+      "只添加章节级风格、画幅或轻量效果，不在这里修复单镜头曝光。",
+      "开关 Adjustment Clip 比较，并逐镜检查是否有某个镜头被过度处理。",
+    ],
+    checks: [
+      "关闭调整片后逐镜技术平衡仍成立",
+      "章节风格统一但不过强",
+      "效果边界与章节标记准确对齐",
+    ],
+    pitfall: "用 Adjustment Clip 代替逐镜校正会把曝光和白平衡错误一起放大。",
+  },
+  {
+    id: "voiceover-record",
+    category: "声音 · 录制",
+    level: "进阶",
+    estimatedMinutes: 18,
+    prerequisite: "旁白稿已按画面时长拆段，麦克风和监听设备已连接。",
+    title: "在 Fairlight 录制旁白并完成安全补录",
+    goal: "直接录制可编辑旁白，同时避免削波、回授和覆盖已有录音。",
+    scenario: "路线讲解、章节补充、纪录片旁白和 ADR。",
+    settings: [
+      "轨道：Mono VO",
+      "采样率：48 kHz",
+      "录音峰值：约 -12 至 -6 dBFS",
+      "预卷：按语气留 2–3 秒",
+    ],
+    steps: [
+      "在旁白进入点打标记并建立独立 Mono 轨道，正确选择输入和输出设备。",
+      "武装轨道前戴耳机监听，关闭扬声器回放，先录测试句检查噪声与峰值。",
+      "按段录制并保留前后房间底噪，不满意时使用新 Take 或轨道层而非覆盖原文件。",
+      "选择最佳录音后修剪呼吸和空白，匹配电平，再进行最低有效降噪和压缩。",
+    ],
+    checks: [
+      "无削波、回授和明显房间反射",
+      "旁白节奏与画面标记匹配",
+      "原始 Take 仍可恢复",
+    ],
+    pitfall:
+      "未确认输入路由就武装录音可能录到系统声或静音；用扬声器监听容易形成反馈。",
+  },
+  {
+    id: "project-archive-restore",
+    category: "质检 · 归档",
+    level: "质检",
+    estimatedMinutes: 18,
+    prerequisite:
+      "项目已经交付，原始媒体、代理、缓存和最终文件的位置均已确认。",
+    title: "创建 Project Archive 并在新位置恢复验证",
+    goal: "得到真正可恢复的项目归档，而不是只保存一个数据库条目。",
+    scenario: "项目完结、换电脑、交给他人或释放工作盘空间。",
+    settings: [
+      "Archive：项目 + 必要媒体",
+      "代理/缓存：按长期价值选择",
+      "校验：新位置恢复",
+      "保留：最终母版 + 字幕 + 授权",
+    ],
+    steps: [
+      "在项目管理器确认项目名称、版本和最终时间线，并给归档节点打完成标记。",
+      "创建 Project Archive，明确是否包含源媒体、代理和缓存，选择独立归档盘。",
+      "归档完成后暂时断开原媒体路径，在新项目库中执行 Restore Project Archive。",
+      "打开时间线并抽查头、中、尾、字幕、字体、插件和声音，再记录校验日期。",
+    ],
+    checks: [
+      "恢复后无 Offline Media",
+      "时间线、字体、插件和声音一致",
+      "母版、字幕、授权与项目归档可对应",
+    ],
+    pitfall:
+      "只导出 DRP 不会自动携带源媒体；归档完成提示也不等于已经做过异盘恢复测试。",
+  },
+  {
+    id: "transcription-rough-cut",
+    category: "剪辑 · 文字稿",
+    level: "进阶",
+    estimatedMinutes: 18,
+    prerequisite:
+      "对白音质清楚，语言受当前 Resolve 版本支持，并已备份原始时间线。",
+    title: "从文字稿查找句子并建立采访粗剪",
+    goal: "用转录快速定位内容，但由画面、语气和上下文决定最终剪辑。",
+    scenario: "采访、车内讲解、旁白和长时间口述素材。",
+    settings: [
+      "转录：按当前版本/Studio 能力",
+      "搜索：专有词与主题",
+      "时间线：先复制版本",
+      "检查：上下文前后各一句",
+    ],
+    steps: [
+      "复制时间线并给文字稿粗剪版本打标记，选择素材执行音频转录。",
+      "先校对关键人名、地名和数字，再搜索主题词并标记候选句。",
+      "把候选范围插入字符串时间线，删除重复与口头词时保留呼吸、语气和上下文。",
+      "回到画面逐剪辑点检查跳切、口型和 B-roll 需求，再完整回听。",
+    ],
+    checks: [
+      "核心观点没有因删词改变含义",
+      "每个音频接缝自然",
+      "自动文字错误没有进入成片",
+    ],
+    pitfall:
+      "文字稿不是事实核验，也看不到表情和动作；一键删除停顿或口头词容易制造机械语气和跳切。",
+  },
+  {
+    id: "object-removal-clean-plate",
+    category: "合成 · 修复",
+    level: "谨慎使用",
+    estimatedMinutes: 20,
+    prerequisite: "机位相对稳定，目标短暂且背景纹理可由邻近帧合理补全。",
+    title: "用跟踪遮罩和 Clean Plate 移除短暂干扰物",
+    goal: "清除小范围路人或污点，同时避免背景重复、涂抹和边缘闪烁。",
+    scenario: "固定镜头中的短暂路人、传感器污点或画面边缘小物体。",
+    settings: [
+      "范围：只处理必要帧",
+      "遮罩羽化：按边缘",
+      "跟踪：前后双向",
+      "检查：100% 逐帧",
+    ],
+    steps: [
+      "在目标出现和消失位置打标记并复制镜头版本，确认有足够干净背景。",
+      "建立紧贴目标的遮罩并跟踪，避免覆盖阴影和大面积运动背景。",
+      "使用 Object Removal、Patch Replacer 或 Fusion Clean Plate 生成补画，并限制处理范围。",
+      "100% 逐帧检查纹理重复、阴影、反射和遮挡边缘，失败时缩短范围或保留原画面。",
+    ],
+    checks: [
+      "背景纹理连续且不闪烁",
+      "阴影和反射关系合理",
+      "处理边缘在正常播放与逐帧检查均不可见",
+    ],
+    pitfall:
+      "复杂车流、水面、树叶和大面积遮挡缺少可靠背景信息；生成式补画不能虚构关键事实。",
+  },
+  {
+    id: "gallery-still-shot-match",
+    category: "调色 · 匹配",
+    level: "进阶",
+    estimatedMinutes: 16,
+    prerequisite: "已选定同场景参考镜头，输入色彩空间和基础曝光均正确。",
+    title: "抓取 Gallery Still 并用分屏完成镜头匹配",
+    goal: "以参考画面统一同场景曝光、白平衡和饱和度，而不是盲目复制节点。",
+    scenario: "同一路线的顺光、逆光、阴影和不同机位素材。",
+    settings: [
+      "参考：同场景基准镜头",
+      "Split Screen / Wipe",
+      "示波器：Waveform + RGB Parade",
+      "匹配顺序：曝光 → 白平衡 → 饱和度",
+    ],
+    steps: [
+      "给基准镜头打绿色标记并抓取 Gallery Still，记录选择原因。",
+      "切到目标镜头，打开 Wipe 或 Split Screen，同时观察示波器而非只看缩略图。",
+      "先匹配黑白位和中间调，再修白平衡与饱和度；只复制适合共享的节点。",
+      "在播放状态检查镜头切换，必要时对动态光线使用关键帧或分段校正。",
+    ],
+    checks: [
+      "剪辑点无明显跳亮和跳色",
+      "主体与天空仍保留各自纹理",
+      "目标镜头没有被强行做成参考镜头的错误曝光",
+    ],
+    pitfall:
+      "Shot Match 自动结果和节点复制都只是起点；不同光向、镜头和曝光不能追求像素完全相同。",
+  },
+  {
+    id: "render-queue-versions",
+    category: "质检 · 批量交付",
+    level: "质检",
+    estimatedMinutes: 16,
+    prerequisite: "时间线锁定，母版、平台版、字幕和音频版本的命名规则已确定。",
+    title: "用 Render Queue 一次管理母版、平台版和音频版本",
+    goal: "批量渲染多个明确命名的交付任务，并逐个验证真实文件。",
+    scenario: "4K 母版、YouTube 上传版、Vision/Ambience 双版本和字幕版。",
+    settings: [
+      "任务名：项目_平台_版本",
+      "范围：Entire Timeline / 标记区间",
+      "预设：母版与平台版分开",
+      "验证：每个文件独立抽查",
+    ],
+    steps: [
+      "给最终时间线打锁定标记，按交付矩阵逐项设置文件名、位置、编码、色彩和音频。",
+      "每完成一个配置就 Add to Render Queue，并用任务名写清平台和版本。",
+      "渲染前逐项复核范围、字幕、音频轨、色彩标签和覆盖文件风险，再统一开始。",
+      "渲染后按任务清单核对文件数量、属性、时长和头中尾播放，不以队列绿色完成代替验收。",
+    ],
+    checks: [
+      "任务数与交付矩阵一致",
+      "没有同名覆盖和错误范围",
+      "每个文件的画面、音频、字幕及元数据均通过",
+    ],
+    pitfall:
+      "复制 Render Job 后若忘记修改文件名、字幕或音轨，最容易得到参数正确但内容错误的版本。",
+  },
+  {
+    id: "proxy-original-relink",
+    category: "性能 · 代理媒体",
+    level: "进阶",
+    estimatedMinutes: 14,
+    prerequisite:
+      "4K 或高码率素材已正确导入，并能明确区分相机原片、代理文件和缓存。",
+    title: "生成代理媒体，并在交付前切回相机原片",
+    goal: "提升长片剪辑流畅度，同时保证最终渲染仍使用正确的高质量源媒体。",
+    scenario: "4K 长途驾驶、多机位采访、笔记本剪辑和跨盘协作。",
+    settings: [
+      "Proxy：ProRes Proxy / DNxHR LB",
+      "分辨率：Half 或 Quarter",
+      "Playback：Prefer Proxies",
+      "交付前：Prefer Camera Originals",
+    ],
+    steps: [
+      "按相机、日期和机位整理素材，确认原片路径稳定后再生成 Proxy Media。",
+      "切换到 Prefer Proxies，抽查画面、声音、时间码和变速片段是否保持同步。",
+      "移动或交接代理时使用软件内 Relink Proxy Media，不用同名文件猜测替换。",
+      "锁画后切回 Prefer Camera Originals，清除误用代理的标记并完成短段测试渲染。",
+    ],
+    checks: [
+      "代理与原片时长、帧率和时间码一致",
+      "切换原片后没有 Offline Media",
+      "最终测试文件的分辨率和细节来自原片",
+    ],
+    pitfall:
+      "代理是播放替身，不是新的母版；代理与原片帧率、音轨或时间码不同会造成错位和错误重连。",
+  },
+  {
+    id: "vertical-social-version",
+    category: "多平台 · 竖屏重构",
+    level: "进阶",
+    estimatedMinutes: 16,
+    prerequisite: "16:9 主时间线已锁画，并已复制出独立的社交平台版本。",
+    title: "复制主时间线并重构 9:16 竖屏版本",
+    goal: "保留主体、路牌和字幕信息，而不是简单裁掉横版画面的两侧。",
+    scenario: "把 YouTube 横版长片改为 Shorts、Reels 或竖屏预告。",
+    settings: [
+      "时间线：1080×1920",
+      "帧率：跟随母版",
+      "缩放：先 Fit 再逐镜调整",
+      "字幕安全区：距边缘至少 5%",
+    ],
+    steps: [
+      "Duplicate Timeline 并在名称中写明 9x16 与版本号，不直接修改已锁定母版。",
+      "把时间线改为 1080×1920，先批量建立基础缩放，再逐镜调整 Position 和 Zoom。",
+      "对横向移动主体使用关键帧或 Smart Reframe 起点，并人工修正跟踪丢失位置。",
+      "重新排版字幕、标题和画中画，在手机尺寸完整播放后再单独导出。",
+    ],
+    checks: [
+      "主体和关键路牌没有被裁掉",
+      "字幕、标题和界面元素均在安全区",
+      "竖版节奏独立成立且未改动横版母版",
+    ],
+    pitfall:
+      "自动重构只负责猜测主体；车窗反光、多人、快速转弯和遮挡都需要逐镜人工复核。",
+  },
+  {
+    id: "fairlight-loudness-pass",
+    category: "声音 · 响度交付",
+    level: "质检",
+    estimatedMinutes: 16,
+    prerequisite:
+      "对白、音乐、环境声和效果已分轨，剪辑点及基础电平已经处理完成。",
+    title: "用 Fairlight 响度表完成整片混音验收",
+    goal: "控制节目响度和真峰值，同时保留对白、音乐与环境声的动态关系。",
+    scenario: "YouTube 长片、旁白路线片、环境声版本和客户交付。",
+    settings: [
+      "YouTube 起点：约 -14 LUFS-I",
+      "True Peak：≤ -1 dBTP",
+      "测量：整片从头重置后播放",
+      "修正：先轨道关系，后总线限制",
+    ],
+    steps: [
+      "为 Dialogue、Music、Ambience 和 Effects 分配清楚的 Bus 或轨道，并清除旧响度读数。",
+      "从头到尾播放测量 Integrated Loudness、Short-Term 和 True Peak，记录问题时间码。",
+      "先用片段增益、自动化和音乐闪避修正局部关系，再少量调整总线和 Limiter。",
+      "重置响度表重新完整播放，并对导出文件再测一次，确认编码后没有新增峰值。",
+    ],
+    checks: [
+      "目标响度范围内对白和关键环境声仍清楚",
+      "真峰值没有超过交付上限",
+      "导出文件与时间线的响度关系一致",
+    ],
+    pitfall:
+      "只把总线标准化到一个 LUFS 数字会掩盖局部过响、对白过低和音乐泵动；平台目标应按实际交付要求调整。",
+  },
+  {
+    id: "timeline-version-compare",
+    category: "质检 · 版本管理",
+    level: "质检",
+    estimatedMinutes: 12,
+    prerequisite: "当前时间线已达到可回看的阶段，并已确定清楚的项目命名规则。",
+    title: "复制时间线版本并完成修改前后对比",
+    goal: "让结构、调色和声音修改都可回退，并能明确知道最终交付来自哪个版本。",
+    scenario: "客户修改、导演版与平台版、调色方案比较和交付前锁画。",
+    settings: [
+      "命名：日期_用途_v01",
+      "复制：修改前执行",
+      "标记：变更点与原因",
+      "最终：只保留一个明确锁定版",
+    ],
+    steps: [
+      "在重大修改前 Duplicate Timeline，写明日期、用途和递增版本号。",
+      "用标记记录本版改动范围与原因，不用 final、final2、最终版等含糊名称。",
+      "把候选版本放入同一 Bin，逐段对比结构、画面和声音，不混合引用错误时间线。",
+      "确认交付版本后设为 LOCKED，并让 Render Queue、字幕和音频文件都引用同一版本号。",
+    ],
+    checks: [
+      "任一重大修改均可回退",
+      "最终时间线与渲染任务版本一致",
+      "旧版本不会被误当作最新交付",
+    ],
+    pitfall:
+      "版本过多但没有命名、说明和锁定状态与没有版本管理相同；复制时间线也不会自动复制外部媒体。",
+  },
+  {
+    id: "temporal-spatial-noise-reduction",
+    category: "修复 · 视频降噪",
+    level: "进阶",
+    estimatedMinutes: 18,
+    prerequisite:
+      "已完成基础曝光与色彩管理，并准备一段含暗部、细纹理和运动主体的代表镜头；Temporal / Spatial NR 通常需要 DaVinci Resolve Studio。",
+    title: "先用 Temporal NR，再用 Spatial NR 处理夜景噪点",
+    goal: "优先消除跨帧随机噪点，再克制处理残余细颗粒，同时保护道路纹理、树叶和运动边缘。",
+    scenario:
+      "高 ISO 夜景、车内暗部、运动相机黄昏素材和被提亮后显露噪点的 Log 镜头。",
+    settings: [
+      "Viewer：100% 缩放",
+      "Temporal NR：Frames 2 · Better · Motion Range Small 起步",
+      "Luma / Chroma Threshold：从低值逐步增加",
+      "Spatial NR：Small Radius · 只补残余噪点",
+    ],
+    steps: [
+      "在 Color 页建立独立降噪节点并放在创意调色之前；停在同时包含暗部、纹理和运动的代表帧，把 Viewer 设为 100%。",
+      "打开 Motion Effects，先启用 Temporal NR：Frames 设 2、Motion Estimation 选 Better、Motion Range 从 Small 起步，再分别缓慢提高 Luma 与 Chroma Threshold。",
+      "播放运动最复杂的区段；若车灯、护栏或人物边缘出现拖影，就降低阈值、Frames 或调整 Motion Range，而不是继续加重降噪。",
+      "Temporal NR 后仍有固定细颗粒时，再开启 Spatial NR，选 Small Radius 并只加最低有效阈值；最后旁路节点做匹配亮度 A/B。",
+      "缓存或渲染 10 秒高噪声测试段，在 100% 画面检查静帧和运动，再决定是否复制参数到同机位镜头。",
+    ],
+    checks: [
+      "暗部彩色噪点减少但细纹理仍可辨认",
+      "运动边缘、车灯和树叶没有拖影或蜡化",
+      "旁路 A/B 的曝光、黑位和色彩关系基本一致",
+    ],
+    pitfall:
+      "把 Temporal 与 Spatial 阈值同时拉高很容易得到干净但塑料感的画面；不同曝光和运动状态必须逐镜复核，不能整条时间线盲目套用。",
+  },
+  {
+    id: "fairlight-noise-reduction-ab",
+    category: "声音 · 降噪诊断",
+    level: "进阶",
+    estimatedMinutes: 16,
+    prerequisite:
+      "对白已完成基础剪辑，并保留一段只含稳定底噪的参考；原始音频版本可以随时恢复。",
+    title: "先识别噪声类型，再在 Fairlight 做等响度降噪 A/B",
+    goal: "针对稳定宽带底噪、低频隆隆声或电源嗡声选择处理，而不是把所有问题交给同一个降噪旋钮。",
+    scenario: "车内空调声、室内风扇、道路低频、50/60 Hz 嗡声和轻微持续嘶声。",
+    settings: [
+      "参考：1–3 秒纯底噪",
+      "处理顺序：Clip Gain → EQ / Hum → Noise Reduction",
+      "强度：最低有效量",
+      "比较：旁路前后等响度",
+    ],
+    steps: [
+      "独听问题片段和纯底噪参考，先判断是稳定宽带噪声、低频隆隆、电源嗡声，还是会随时间变化的风噪；在标记中写明类型。",
+      "先用 Clip Gain 匹配对白电平；低频隆隆用克制的高通或 EQ，窄带嗡声优先针对 50/60 Hz 及其谐波，不急着开启宽带降噪。",
+      "对稳定底噪添加 Fairlight Noise Reduction 或当前版本可用的对应效果，使用纯底噪学习/自动检测后，从最低有效 Reduction 开始。",
+      "匹配处理前后的感知响度并反复旁路，重点听齿音、尾音、呼吸和句间环境；出现水下声、金属声或抽吸就退回强度。",
+      "从接缝前后完整回听并导出 10 秒测试文件，用耳机和普通扬声器各听一次，再决定是否应用到同一录音条件的片段。",
+    ],
+    checks: [
+      "对白清晰度提高且齿音、尾音和呼吸完整",
+      "句间底噪不会突然开关或产生抽吸",
+      "导出文件与时间线监听结果一致",
+    ],
+    pitfall:
+      "风噪、爆音、削波和不断变化的环境声通常不能靠学习一段噪声彻底修复；降噪、Voice Isolation、Gate 和压缩叠加过强会放大伪影。",
+  },
+  {
+    id: "fairlight-de-esser-dialogue",
+    category: "声音 · 人声修复",
+    level: "进阶",
+    estimatedMinutes: 14,
+    prerequisite:
+      "对白已完成剪辑和基础增益匹配，并能找到包含明显“s、sh、z”齿音但没有削波的代表句子。",
+    title: "在 Fairlight 用 De-Esser 动态控制刺耳齿音",
+    goal: "只在齿音出现时压低对应高频，避免用固定高频衰减让整段对白持续发暗。",
+    scenario: "领夹麦贴近嘴部、车内反射较强、压缩后齿音突出和旁白高频刺耳。",
+    settings: [
+      "频段：5–10 kHz 内寻找起点",
+      "Amount：从低值逐步增加",
+      "Reaction：Medium 起步",
+      "顺序：降噪 → EQ → De-Esser → Compressor",
+    ],
+    steps: [
+      "循环播放齿音最明显的完整句子，在 Fairlight Effects Library 把 De-Esser 拖到对白片段或对应轨道，不先复制到所有对白。",
+      "使用监听或频段扫查定位真正刺耳的区域，通常从 5–10 kHz 范围内寻找；确认听到的是齿音而不是整段人声主体。",
+      "从较低 Amount 和 Medium Reaction 起步，让 Reduction 只在“s、sh、z”出现时动作，再匹配旁路前后的听感响度。",
+      "关闭与开启效果反复比较完整词句；若“s”变成含糊的“th”、气息消失或声音发暗，就减少 Amount 或缩小处理范围。",
+      "跨越不同说话音量和麦克风距离回听，确认后才复制到同一录音条件的片段，并在压缩器后再次复核齿音。",
+    ],
+    checks: [
+      "刺耳齿音降低但语言清晰度仍完整",
+      "无齿音处的高频、空气感和音色基本不变",
+      "处理在轻声、正常和较响句子中都不会过度动作",
+    ],
+    pitfall:
+      "De-Esser 不是普通降噪器；频率选错或 Amount 过高会造成口齿不清。不同说话人通常需要独立设置。",
+  },
+] as const;
+
 export const colorFinishingSources = [
   {
     label: "Blackmagic Resolve 官方培训",
@@ -321,6 +769,10 @@ export const colorFinishingSources = [
   {
     label: "官方 Colorist Guide 20",
     url: "https://documents.blackmagicdesign.com/UserManuals/DaVinci-Resolve-20-Colorist-Guide.pdf",
+  },
+  {
+    label: "Blackmagic Fairlight 声音修复工具",
+    url: "https://www.blackmagicdesign.com/products/davinciresolve/fairlight",
   },
 ] as const;
 
@@ -675,4 +1127,121 @@ export const resolvePracticalTutorials = [
     ],
     pitfall: "标记变绿只代表该次检查通过，不替代最终编码文件和平台播放验证。",
   },
+  {
+    id: "multicam-sync-edit",
+    category: "剪辑 · 多机位",
+    level: "进阶",
+    estimatedMinutes: 18,
+    prerequisite: "至少两段拍摄同一事件的素材，最好有共同参考声音或同步点。",
+    title: "用波形或标记同步多机位，再实时切换角度",
+    goal: "把主机位、车内机位和手机素材同步为一个可回退修改的多机位片段。",
+    scenario: "车内讲解、采访、演出或同一段路线的多个同步机位。",
+    settings: [
+      "同步依据：Sound 或 Timecode",
+      "无共同声音：同帧标记",
+      "音频：固定使用主录音",
+      "切换后：逐点修剪",
+    ],
+    steps: [
+      "先给各机位设置清楚的 Camera Number 或 Angle，并核对采样率和帧率。",
+      "有共同声音时创建 Multicam Clip 并按 Sound 同步；无共同声音时在同一动作帧打标记后按标记同步。",
+      "打开 Multicam Viewer，先锁定要持续使用的主音频，再播放时间线实时切换画面角度。",
+      "停止后逐个检查角度切换点，用滚动或波纹修剪避开眨眼、抖动和动作中断。",
+    ],
+    checks: [
+      "口型、动作或闪光同步误差不超过可感知的一帧",
+      "切换画面不会意外切换主音频",
+      "所有角度均可回到源片调整",
+    ],
+    pitfall:
+      "直接把多条素材堆在轨道上手工对齐会增加漂移和版本维护成本；长录音还要检查设备时钟漂移。",
+  },
+  {
+    id: "stabilize-crop-qc",
+    category: "修复 · 稳定",
+    level: "进阶",
+    estimatedMinutes: 14,
+    prerequisite: "镜头已完成基础修剪，且明确哪些抖动属于有意运动。",
+    title: "逐镜稳定并控制自动裁切与果冻伪影",
+    goal: "降低微抖而不把正常转弯、摇镜或车辆振动处理成漂浮画面。",
+    scenario: "手持步行、车内吸盘、长焦风景和轻微风振镜头。",
+    settings: [
+      "Inspector：Stabilization",
+      "模式：Perspective / Similarity / Translation",
+      "Strength：从低值起步",
+      "检查：100% 缩放",
+    ],
+    steps: [
+      "选中单个镜头开启 Stabilization，等待分析完成后先看默认结果。",
+      "出现边缘拉伸时从 Perspective 改试 Similarity 或 Translation，并降低 Strength。",
+      "同时观察 Cropping Ratio 和 Smooth，确保稳定收益值得画面裁切。",
+      "以 100% 画面从头到尾播放，重点检查路灯、护栏、车窗边缘和快速转弯。",
+    ],
+    checks: [
+      "微抖减少但真实运动仍存在",
+      "无果冻、边缘拉伸和突然缩放",
+      "裁切没有破坏道路与主体构图",
+    ],
+    pitfall:
+      "稳定无法修复运动模糊、失焦和滚动快门本身；参数过强只会放大裁切与果冻感。",
+  },
+  {
+    id: "dialogue-cleanup-fairlight",
+    category: "声音 · 修复",
+    level: "进阶",
+    estimatedMinutes: 16,
+    prerequisite: "对白和环境声已分轨，且保留一段只含底噪的参考区域。",
+    title: "在 Fairlight 先修电平，再克制降噪和压缩",
+    goal: "提高对白清晰度，同时保留自然环境和说话人的真实质感。",
+    scenario: "车内讲解、街头采访、空调底噪和轻微风噪。",
+    settings: [
+      "Clip Gain：先匹配",
+      "High-pass：按人声逐步试听",
+      "降噪：最低有效量",
+      "Limiter：峰值 ≤ -1 dBTP",
+    ],
+    steps: [
+      "先用 Clip Gain 让各段对白进入相近工作电平，不急于上压缩器。",
+      "用 EQ 轻切不需要的低频隆隆声，再 A/B 检查声音是否变薄。",
+      "只对稳定底噪使用 Voice Isolation 或 Noise Reduction，从最低有效强度增加。",
+      "最后小幅压缩控制动态并用 Limiter 防止峰值越界，闭眼回听完整句子和接缝。",
+    ],
+    checks: [
+      "对白清楚但没有金属声和水下声",
+      "句首句尾与停顿不出现噪声门抽吸",
+      "关键环境声仍然自然",
+    ],
+    pitfall:
+      "把降噪、语音隔离、门限和压缩全部拉高会制造比原始底噪更明显的伪影。",
+  },
+  {
+    id: "subtitle-style-export",
+    category: "字幕 · 交付",
+    level: "入门",
+    estimatedMinutes: 14,
+    prerequisite: "已有最终对白或旁白，画面结构基本锁定。",
+    title: "生成字幕、逐句校对并验证独立字幕文件",
+    goal: "得到同步、可读、能随平台要求独立交付的字幕。",
+    scenario: "YouTube 长片、采访、教程以及需要中英文版本的项目。",
+    settings: [
+      "每屏：通常不超过 2 行",
+      "安全区：手机端检查",
+      "专有名词：人工词表",
+      "导出：SRT / VTT 按平台",
+    ],
+    steps: [
+      "按当前版本能力从音频转录字幕，或导入已有 SRT，并确认语言和时间码。",
+      "逐句核对地名、人名、数字、同音词、断句和说话人，不直接接受自动结果。",
+      "统一字幕轨样式和位置，在复杂背景及手机尺寸下检查可读性。",
+      "单独导出字幕文件后重新导入空时间线或播放器抽查，确认编码、时序和内容一致。",
+    ],
+    checks: [
+      "无错字、重叠、超出画面和明显漂移",
+      "静音观看能理解核心信息",
+      "独立字幕文件可被平台或播放器正确识别",
+    ],
+    pitfall:
+      "时间线里显示正常不代表导出的字幕编码和帧率一定正确；交付文件必须独立验证。",
+  },
+  ...additionalResolvePracticalTutorials,
 ] as const;

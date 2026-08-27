@@ -31,6 +31,18 @@
       "tracks": [
         ["Vintage Crown",135],["Watch Me Burn",140],["Morning Calm",146],["Climax",128],["Vibrant Adventures",123],["Honey Juice",120],["Coffee and You",125],["Tapestry Thread",124],["Warm Peach",128],["Wooded Acres",130],["Camouflaged Underneath",128]
       ]
+    },
+    {
+      "id": "rain", "url": "https://streambeats.bandcamp.com/album/rain",
+      "tracks": [
+        ["Butterfly Effect",153],["Firefly Nights",141],["Breezy",140],["Highway Nights",153],["Doin' Fine",144],["Galaxy",138],["Day Dreaming",150],["Red Green Blue",135],["Frozen Rain",150],["Hidden Meadow",193],["Gummy Bears",149],["Bamboo Shampoo",138],["Cloudy Thoughts",154],["Cielo",128]
+      ]
+    },
+    {
+      "id": "reflection", "url": "https://streambeats.bandcamp.com/album/reflection",
+      "tracks": [
+        ["Apollo Appetite",132],["Romantic Moments",149],["Sunday Stroll",144],["Iceberg Ahead",141],["Snowcapped Mountains",131],["Cottage Grove",137],["Fox Glare",128],["Weekend Warriors",176],["My Bucket List",131],["White Cheeks",124],["The Round Table",138],["Luna",134],["Quiet Moments with You",195],["Sage Elevation",128],["Malibu Drive",128],["Good Day Feels",157],["Dove Love",135],["Sultry Forest",116],["Charismatic Fountains",144],["Fallin' Over Spring",147],["First Light",205],["Desert View",127],["Hillside Morning",125],["Lemon Leaves",145],["Frosted Rose",121],["Forever Young with You",152],["Hard Tan Lines",125],["Coconut Husks",123],["Copper Vein",140],["Fashionably Late",138]
+      ]
     }
   ]
 }

@@ -29,6 +29,22 @@
       "evidence": [{ "title": "YouTube：寻找安全音乐", "url": "https://support.google.com/youtube/answer/15577610?hl=zh-Hans", "supports": ["youtube-use", "content-id"] }, { "title": "YouTube：许可类型", "url": "https://support.google.com/youtube/answer/2797468?hl=zh-Hans", "supports": ["youtube-use", "attribution"] }]
     },
     {
+      "id": "savfk-youtube", "name": "Savfk · YouTube 独立作曲者", "kind": "creator-library", "importMode": "download-import", "url": "https://www.youtube.com/@SavfkMusic/videos",
+      "catalogFit": "真人独立作曲者 Savfk 的 CC BY 钢琴、柔和弦乐与 Ambient；优先平静、梦幻和低刺激作品。",
+      "supportedCategoryIds": ["healing-piano", "calm-piano", "gentle-piano", "ambient-healing"],
+      "license": { "youtubeUse": "allowed-with-license", "cost": "free", "attribution": "credit-or-safelist", "contentId": "track-dependent", "monetization": "allowed", "audioEditing": "derivatives-allowed", "risk": "low", "notes": "作者在逐曲说明中明确采用 CC BY 4.0，允许免费用于盈利视频与改编；必须正确署名 Savfk、链接原曲和 CC BY 4.0，并标明修改。未署名可能产生版权声明。" },
+      "workflow": ["从 Savfk 官方 YouTube 视频说明中的链接下载，不提取 YouTube 音轨。", "复制逐曲说明中的完整 CC BY 4.0 署名，并保存视频说明与下载页。", "可裁切、Fade 和 Loop，但不得冒充原创、单独再发行或登记 Content ID。"],
+      "evidence": [{ "title": "Savfk 官方频道与逐曲 CC BY 说明", "url": "https://www.youtube.com/@SavfkMusic/videos", "supports": ["youtube-use", "attribution", "pricing"] }, { "title": "CC BY 4.0", "url": "https://creativecommons.org/licenses/by/4.0/", "supports": ["youtube-use", "attribution"] }]
+    },
+    {
+      "id": "alexander-nakarada-youtube", "name": "Alexander Nakarada · YouTube 作曲者", "kind": "creator-library", "importMode": "download-import", "url": "https://www.youtube.com/@anakarada/videos",
+      "catalogFit": "挪威真人作曲者 Alexander Nakarada 的 CC BY 钢琴与 Ambient；包含少量真实 10 分钟以上长曲。",
+      "supportedCategoryIds": ["healing-piano", "calm-piano", "gentle-piano", "ambient-healing"],
+      "license": { "youtubeUse": "allowed-with-license", "cost": "free", "attribution": "credit-or-safelist", "contentId": "track-dependent", "monetization": "allowed", "audioEditing": "derivatives-allowed", "risk": "low", "notes": "作者官方 Bandcamp 将音乐标为 CC BY 4.0，并明确允许商业使用；必须署名 Alexander Nakarada、链接 CreatorChords/原曲与 CC BY 4.0，并说明修改。部分曲目可能产生可凭署名处理的 Content ID 声明。" },
+      "workflow": ["从官方 YouTube 曲目说明或 CreatorChords 下载原文件，保留曲目页和许可快照。", "说明栏完整标注作者、原曲 URL、CC BY 4.0 链接以及裁切或循环修改。", "上传后检查 Content ID；不得单独分发音源或登记自己的 Content ID。"],
+      "evidence": [{ "title": "Alexander Nakarada 官方 YouTube 频道", "url": "https://www.youtube.com/@anakarada/videos", "supports": ["youtube-use", "attribution"] }, { "title": "官方 CC BY 4.0 曲库", "url": "https://alexandernakarada.bandcamp.com/music", "supports": ["youtube-use", "attribution", "pricing"] }, { "title": "CC BY 4.0", "url": "https://creativecommons.org/licenses/by/4.0/", "supports": ["youtube-use", "attribution"] }]
+    },
+    {
       "id": "uppbeat", "name": "Uppbeat", "kind": "freemium", "importMode": "download-import", "url": "https://uppbeat.io/music",
       "catalogFit": "已严选 100 首免费 Calm 器乐，覆盖柔和钢琴、Ambient、Lo-Fi、轻爵士与木吉他；免费额度较低，适合先试听再分月领取。",
       "supportedCategoryIds": ["healing-piano", "calm-piano", "gentle-piano", "ambient-healing", "soft-lofi", "warm-lofi", "night-drive-chillhop", "jazzhop", "warm-sunset-chillhop", "rainy-day-chillhop", "relaxed-jazz-nocturne", "gentle-piano-jazz"],

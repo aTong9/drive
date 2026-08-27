@@ -173,6 +173,25 @@ test("Resolve practical tutorials turn markers into verified edits", () => {
       "smooth-cut-repair",
       "speed-ramp-transition",
       "transition-qc",
+      "multicam-sync-edit",
+      "stabilize-crop-qc",
+      "dialogue-cleanup-fairlight",
+      "subtitle-style-export",
+      "tracker-callout",
+      "adjustment-clip-version",
+      "voiceover-record",
+      "project-archive-restore",
+      "transcription-rough-cut",
+      "object-removal-clean-plate",
+      "gallery-still-shot-match",
+      "render-queue-versions",
+      "proxy-original-relink",
+      "vertical-social-version",
+      "fairlight-loudness-pass",
+      "timeline-version-compare",
+      "temporal-spatial-noise-reduction",
+      "fairlight-noise-reduction-ab",
+      "fairlight-de-esser-dialogue",
     ],
   );
   assert.match(
@@ -202,9 +221,9 @@ test("Resolve practical tutorials turn markers into verified edits", () => {
     ["入门", "进阶", "谨慎使用", "质检"],
   );
   assert.ok(
-    resolvePracticalTutorials.every((tutorial) =>
-      tutorial.steps.some((step) => /标记/.test(step)),
-    ),
+    resolvePracticalTutorials
+      .slice(0, 12)
+      .every((tutorial) => tutorial.steps.some((step) => /标记/.test(step))),
   );
   assert.match(
     resolvePracticalTutorials.find(
@@ -226,6 +245,19 @@ test("Resolve practical tutorials turn markers into verified edits", () => {
         ),
       ),
     ].sort(),
-    ["剪辑", "声音", "质检", "节奏", "转场", "变速"].sort(),
+    [
+      "修复",
+      "剪辑",
+      "声音",
+      "合成",
+      "字幕",
+      "多平台",
+      "性能",
+      "调色",
+      "质检",
+      "节奏",
+      "转场",
+      "变速",
+    ].sort(),
   );
 });

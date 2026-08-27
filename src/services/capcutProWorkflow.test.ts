@@ -28,7 +28,7 @@ test("CapCut Pro workflow covers the complete edit-to-delivery chain", () => {
 });
 
 test("CapCut practical tutorials remain followable and verifiable", () => {
-  assert.equal(capcutPracticalTutorials.length, 8);
+  assert.equal(capcutPracticalTutorials.length, 27);
   assert.ok(
     capcutPracticalTutorials.every(
       (tutorial) => tutorial.steps.length >= 4 && tutorial.checks.length >= 3,
@@ -47,7 +47,24 @@ test("CapCut practical tutorials remain followable and verifiable", () => {
     )!.pitfall,
     /直接导出/,
   );
-  assert.equal(capcutProSources.length, 3);
+  assert.deepEqual(
+    capcutPracticalTutorials.slice(-12).map((tutorial) => tutorial.id),
+    [
+      "capcut-project-handoff",
+      "capcut-transcript-edit",
+      "capcut-vocal-isolation",
+      "capcut-mask-pip",
+      "capcut-freeze-explain",
+      "capcut-proxy-preview",
+      "capcut-music-ducking",
+      "capcut-nested-version",
+      "capcut-cover-frame-export",
+      "capcut-video-noise-reduction",
+      "capcut-audio-noise-reduction-ab",
+      "capcut-enhance-voice-dialogue",
+    ],
+  );
+  assert.equal(capcutProSources.length, 6);
   assert.ok(
     capcutProSources.every((source) =>
       source.url.startsWith("https://www.capcut.com/"),
