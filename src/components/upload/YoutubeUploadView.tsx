@@ -198,12 +198,16 @@ export function YoutubeUploadView({ routes }: { routes: ResolvedRoute[] }) {
         </label>
         <div role="tablist" aria-label="频道版本">
           <button
+            role="tab"
+            aria-selected={variant === "vision"}
             className={variant === "vision" ? "active" : ""}
             onClick={() => setVariant("vision")}
           >
             aBin Vision
           </button>
           <button
+            role="tab"
+            aria-selected={variant === "ambience"}
             className={variant === "ambience" ? "active" : ""}
             onClick={() => setVariant("ambience")}
           >
@@ -216,6 +220,8 @@ export function YoutubeUploadView({ routes }: { routes: ResolvedRoute[] }) {
           aria-label="内容语言 / Content language"
         >
           <button
+            role="tab"
+            aria-selected={languageView === "bilingual"}
             className={languageView === "bilingual" ? "active" : ""}
             onClick={() => setLanguageView("bilingual")}
           >
@@ -223,12 +229,16 @@ export function YoutubeUploadView({ routes }: { routes: ResolvedRoute[] }) {
             中英对照
           </button>
           <button
+            role="tab"
+            aria-selected={languageView === "en"}
             className={languageView === "en" ? "active" : ""}
             onClick={() => setLanguageView("en")}
           >
             EN
           </button>
           <button
+            role="tab"
+            aria-selected={languageView === "zh"}
             className={languageView === "zh" ? "active" : ""}
             onClick={() => setLanguageView("zh")}
           >

@@ -16,7 +16,7 @@ import type {
 } from "../types/domain.js";
 import { normalizeVideoProject } from "../services/videoProjectService.js";
 
-type AppView =
+export type AppView =
   | "dashboard"
   | "projects"
   | "explore"
@@ -127,10 +127,16 @@ export const usePlannerStore = create<PlannerState>()(
       gpxTrack: null,
       favoriteCameraPresetIds: [],
       favoriteDavinciPresetIds: [],
-      cameraMrAssignments: { MR1: "a7c2-mr1-night-slog3", MR2: "a7c2-mr2-daylight-general", MR3: "a7c2-mr3-day-hlg" },
+      cameraMrAssignments: {
+        MR1: "a7c2-mr1-night-slog3",
+        MR2: "a7c2-mr2-daylight-general",
+        MR3: "a7c2-mr3-day-hlg",
+      },
       customCameraPresets: [],
       researchRouteIds: [],
-      researchStartDate: new Date(Date.now() + 86400000).toISOString().slice(0, 10),
+      researchStartDate: new Date(Date.now() + 86400000)
+        .toISOString()
+        .slice(0, 10),
       setView: (view) => set({ view }),
       setMode: (mode) => set({ mode }),
       setCaptureStyle: (captureStyle) => set({ captureStyle }),
@@ -319,11 +325,47 @@ export const usePlannerStore = create<PlannerState>()(
         })),
       clearPostWorkflow: () => set({ postTasks: [], postProject: null }),
       setGpxTrack: (gpxTrack) => set({ gpxTrack }),
-      toggleFavoriteCameraPreset: (presetId) => set((state) => ({ favoriteCameraPresetIds: state.favoriteCameraPresetIds.includes(presetId) ? state.favoriteCameraPresetIds.filter((id) => id !== presetId) : [...state.favoriteCameraPresetIds, presetId] })),
-      toggleFavoriteDavinciPreset: (presetId) => set((state) => ({ favoriteDavinciPresetIds: state.favoriteDavinciPresetIds.includes(presetId) ? state.favoriteDavinciPresetIds.filter((id) => id !== presetId) : [...state.favoriteDavinciPresetIds, presetId] })),
-      assignCameraMr: (slot, presetId) => set((state) => ({ cameraMrAssignments: { ...state.cameraMrAssignments, [slot]: presetId } })),
-      saveCustomCameraPreset: (preset) => set((state) => ({ customCameraPresets: [...state.customCameraPresets.filter((item) => item.id !== preset.id), preset] })),
-      removeCustomCameraPreset: (presetId) => set((state) => ({ customCameraPresets: state.customCameraPresets.filter((item) => item.id !== presetId), favoriteCameraPresetIds: state.favoriteCameraPresetIds.filter((id) => id !== presetId) })),
+      toggleFavoriteCameraPreset: (presetId) =>
+        set((state) => ({
+          favoriteCameraPresetIds: state.favoriteCameraPresetIds.includes(
+            presetId,
+          )
+            ? state.favoriteCameraPresetIds.filter((id) => id !== presetId)
+            : [...state.favoriteCameraPresetIds, presetId],
+        })),
+      toggleFavoriteDavinciPreset: (presetId) =>
+        set((state) => ({
+          favoriteDavinciPresetIds: state.favoriteDavinciPresetIds.includes(
+            presetId,
+          )
+            ? state.favoriteDavinciPresetIds.filter((id) => id !== presetId)
+            : [...state.favoriteDavinciPresetIds, presetId],
+        })),
+      assignCameraMr: (slot, presetId) =>
+        set((state) => ({
+          cameraMrAssignments: {
+            ...state.cameraMrAssignments,
+            [slot]: presetId,
+          },
+        })),
+      saveCustomCameraPreset: (preset) =>
+        set((state) => ({
+          customCameraPresets: [
+            ...state.customCameraPresets.filter(
+              (item) => item.id !== preset.id,
+            ),
+            preset,
+          ],
+        })),
+      removeCustomCameraPreset: (presetId) =>
+        set((state) => ({
+          customCameraPresets: state.customCameraPresets.filter(
+            (item) => item.id !== presetId,
+          ),
+          favoriteCameraPresetIds: state.favoriteCameraPresetIds.filter(
+            (id) => id !== presetId,
+          ),
+        })),
       toggleResearchRoute: (routeId) =>
         set((state) => ({
           researchRouteIds: state.researchRouteIds.includes(routeId)
@@ -334,7 +376,11 @@ export const usePlannerStore = create<PlannerState>()(
         set((state) => {
           const index = state.researchRouteIds.indexOf(routeId);
           const target = direction === "up" ? index - 1 : index + 1;
-          if (index < 0 || target < 0 || target >= state.researchRouteIds.length)
+          if (
+            index < 0 ||
+            target < 0 ||
+            target >= state.researchRouteIds.length
+          )
             return state;
           const researchRouteIds = [...state.researchRouteIds];
           [researchRouteIds[index], researchRouteIds[target]] = [
@@ -361,7 +407,12 @@ export const usePlannerStore = create<PlannerState>()(
           gpxTrack: state.gpxTrack ?? null,
           favoriteCameraPresetIds: state.favoriteCameraPresetIds ?? [],
           favoriteDavinciPresetIds: state.favoriteDavinciPresetIds ?? [],
-          cameraMrAssignments: { MR1: "a7c2-mr1-night-slog3", MR2: "a7c2-mr2-daylight-general", MR3: "a7c2-mr3-day-hlg", ...(state.cameraMrAssignments ?? {}) },
+          cameraMrAssignments: {
+            MR1: "a7c2-mr1-night-slog3",
+            MR2: "a7c2-mr2-daylight-general",
+            MR3: "a7c2-mr3-day-hlg",
+            ...(state.cameraMrAssignments ?? {}),
+          },
           customCameraPresets: state.customCameraPresets ?? [],
           researchRouteIds: state.researchRouteIds ?? [],
           researchStartDate:

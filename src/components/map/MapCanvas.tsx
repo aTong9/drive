@@ -202,15 +202,15 @@ export function MapCanvas({ selected, nearbyLocations, onDrivingSummary }: MapCa
     <section className="map-canvas" aria-label={selected ? `${selected.route.name}高德地图` : "当前城市地点高德地图"}>
       <div ref={containerRef} className="amap-host" />
 
-      {status === "loading" && <div className="map-state"><span className="map-loader" /><strong>正在加载高德地图</strong><small>准备路线和拍摄点…</small></div>}
-      {status === "missing-key" && <div className="map-state is-warning"><AlertTriangle size={22} /><strong>地图凭据未加载</strong><small>请检查本地 .ENV_AMAP 中的 key 与 security</small></div>}
-      {status === "error" && <div className="map-state is-warning"><AlertTriangle size={22} /><strong>高德地图加载失败</strong><small>请检查 Key 域名白名单和网络连接</small></div>}
+      {status === "loading" && <div className="map-state" role="status" aria-live="polite"><span className="map-loader" /><strong>正在加载高德地图</strong><small>准备路线和拍摄点…</small></div>}
+      {status === "missing-key" && <div className="map-state is-warning" role="status"><AlertTriangle size={22} /><strong>地图凭据未加载</strong><small>请检查本地 .ENV_AMAP 中的 key 与 security</small></div>}
+      {status === "error" && <div className="map-state is-warning" role="alert"><AlertTriangle size={22} /><strong>高德地图加载失败</strong><small>请检查 Key 域名白名单和网络连接</small></div>}
 
       <div className="map-toolbar">
         <button onClick={() => changeZoom(1)} aria-label="放大地图"><Plus size={18} /></button>
         <button onClick={() => changeZoom(-1)} aria-label="缩小地图"><Minus size={18} /></button>
         <button onClick={locateUser} aria-label="定位当前位置"><LocateFixed size={18} /></button>
-        <input ref={fileInputRef} hidden type="file" accept=".gpx,application/gpx+xml" onChange={handleGpx} />
+        <input ref={fileInputRef} hidden type="file" accept=".gpx,application/gpx+xml" aria-label="导入 GPX 轨迹文件" onChange={handleGpx} />
         <button onClick={() => fileInputRef.current?.click()} aria-label="导入 GPX 轨迹"><Upload size={17} /></button>
         {gpxTrack && <button onClick={() => { setGpxTrack(null); setTrackMessage(""); }} aria-label="清除 GPX 轨迹"><Trash2 size={16} /></button>}
       </div>

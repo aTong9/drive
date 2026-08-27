@@ -1,11 +1,13 @@
 import { Aperture, BookOpen, Camera, Check, ChevronRight, CircleGauge, Copy, Download, ExternalLink, Film, Focus, Gauge, GitCompareArrows, Headphones, Heart, Layers3, Maximize2, Navigation, Plus, Save, Search, ShieldCheck, SlidersHorizontal, Sparkles, Star, SunMedium, ThermometerSun, Wind, X } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { CameraPreset, ResolvedRoute } from "../../types/domain.js";
 import { usePlannerStore } from "../../app/store.js";
 import { MediaParameterGlossary } from "./MediaParameterGlossary.js";
 import { CameraCompareView } from "./CameraCompareView.js";
 import { CameraDecisionTools } from "./CameraDecisionTools.js";
 import { auditCameraPreset, cameraParameterLinks, clonePresetAsCustom, type CameraParameterKey } from "../../services/cameraDecisionService.js";
+import { useDialogFocus } from "../common/useDialogFocus.js";
+import { scrollElementIntoView } from "../../utils/scrollIntoView.js";
 
 const sceneLabels: Record<CameraPreset["scene"], string> = {
   "coast-sunset": "海岸日落",
@@ -42,6 +44,8 @@ export function CameraView({ presets: catalogPresets, routes }: { presets: Camer
   const [workspace, setWorkspace] = useState<CameraWorkspace>("presets");
   const [fieldMode, setFieldMode] = useState(false);
   const [parameterKey, setParameterKey] = useState<CameraParameterKey | null>(null);
+  const parameterDialogRef = useRef<HTMLElement>(null);
+  const fieldDialogRef = useRef<HTMLDivElement>(null);
   const [glossaryQuery, setGlossaryQuery] = useState("");
   const [customName, setCustomName] = useState("");
   const [personalDraft, setPersonalDraft] = useState({ fps: "", shutter: "", aperture: "", isoMin: "", isoMax: "", wb: "" });
@@ -63,6 +67,10 @@ export function CameraView({ presets: catalogPresets, routes }: { presets: Camer
   useEffect(() => { const firstId = filtered[0]?.id; if (firstId && !filtered.some((preset) => preset.id === selectedId)) setSelectedId(firstId); }, [filtered, selectedId]);
   const selected = filtered.find((preset) => preset.id === selectedId) ?? filtered[0] ?? presets[0];
   useEffect(() => { if (selected) setPersonalDraft({ fps: String(selected.settings.fps), shutter: selected.settings.shutter, aperture: selected.settings.aperture ?? "", isoMin: String(selected.settings.iso.min), isoMax: String(selected.settings.iso.max), wb: String(selected.settings.whiteBalanceKelvin) }); }, [selected?.id]);
+  const closeParameterDialog = useCallback(() => setParameterKey(null), []);
+  const closeFieldDialog = useCallback(() => setFieldMode(false), []);
+  useDialogFocus(Boolean(parameterKey), parameterDialogRef, closeParameterDialog);
+  useDialogFocus(fieldMode, fieldDialogRef, closeFieldDialog);
   if (!selected) return null;
   const presetAudit = auditCameraPreset(selected);
   const explicitRoutes = routes.filter((route) => route.route.cameraPresetIds.includes(selected.id));
@@ -92,7 +100,7 @@ export function CameraView({ presets: catalogPresets, routes }: { presets: Camer
   };
   const explainParameter = (key: CameraParameterKey) => setParameterKey(key);
   const openGlossary = (key: CameraParameterKey) => { setGlossaryQuery(cameraParameterLinks[key].label); setWorkspace("glossary"); setParameterKey(null); };
-  const openPreset = (id: string) => { setSelectedId(id); setWorkspace("presets"); window.setTimeout(() => document.querySelector(".camera-library-layout")?.scrollIntoView({ behavior: "smooth", block: "start" }), 0); };
+  const openPreset = (id: string) => { setSelectedId(id); setWorkspace("presets"); window.setTimeout(() => scrollElementIntoView(document.querySelector(".camera-library-layout")), 0); };
   const saveCopy = () => { const base = clonePresetAsCustom(selected, customName); const copy: CameraPreset = { ...base, settings: { ...base.settings, fps: Number(personalDraft.fps) || base.settings.fps, shutter: personalDraft.shutter || base.settings.shutter, ...(personalDraft.aperture ? { aperture: personalDraft.aperture } : {}), iso: { min: Number(personalDraft.isoMin) || base.settings.iso.min, max: Number(personalDraft.isoMax) || base.settings.iso.max }, whiteBalanceKelvin: Number(personalDraft.wb) || base.settings.whiteBalanceKelvin } }; saveCustomPreset(copy); setSelectedId(copy.id); setCustomName(""); };
   const advancedParameterKey = (label: string): CameraParameterKey | undefined => ({ "编码": "codec", "色深": "colorDepth", "对焦": "focus", "稳定方式": "stabilization", "收音": "audio", "滤镜": "shutter" } as Partial<Record<string, CameraParameterKey>>)[label];
 
@@ -139,7 +147,7 @@ export function CameraView({ presets: catalogPresets, routes }: { presets: Camer
     {workspace === "glossary" && <MediaParameterGlossary key={glossaryQuery} initialQuery={glossaryQuery} />}
     {workspace === "compare" && <CameraCompareView presets={presets} />}
     {workspace === "tools" && <CameraDecisionTools presets={presets} onSelectPreset={openPreset} />}
-    {parameterKey && <div className="camera-parameter-backdrop" onClick={() => setParameterKey(null)}><aside onClick={(event) => event.stopPropagation()}><button onClick={() => setParameterKey(null)}><X size={16} /></button><small>{cameraParameterLinks[parameterKey].label}</small><h2>{cameraParameterLinks[parameterKey].short}</h2><p>{cameraParameterLinks[parameterKey].why}</p><button className="primary" onClick={() => openGlossary(parameterKey)}>在参数词典中查看完整说明<BookOpen size={14} /></button></aside></div>}
-    {fieldMode && <div className="camera-field-mode"><header><div><small>FIELD MODE</small><h2>{selected.camera} · {sceneLabels[selected.scene]}</h2></div><button onClick={() => setFieldMode(false)}><X size={20} /></button></header><div className="camera-field-values"><article><small>画幅 / 帧率</small><strong>{selected.settings.resolution}<br />{selected.settings.fps} FPS</strong></article><article><small>快门 / 光圈</small><strong>{selected.settings.shutter}<br />{selected.settings.aperture ?? "自动"}</strong></article><article><small>ISO / WB</small><strong>{selected.settings.iso.min}–{selected.settings.iso.max}<br />{selected.settings.whiteBalanceKelvin}K</strong></article><article><small>对焦 / 防抖</small><strong>{selected.settings.focus ?? "检查预设"}<br />{selected.settings.stabilization ?? "检查预设"}</strong></article></div><section><h3>现场原则</h3><p>{selected.notes}</p></section><ol>{(selected.fieldChecks ?? []).map((item) => <li key={item}><Check size={18} />{item}</li>)}</ol><footer><button onClick={copyParameters}><Copy size={16} />复制整套参数</button></footer></div>}
+    {parameterKey && <div className="camera-parameter-backdrop" onClick={closeParameterDialog}><aside ref={parameterDialogRef} role="dialog" aria-modal="true" aria-labelledby="camera-parameter-title" onClick={(event) => event.stopPropagation()}><button onClick={closeParameterDialog} aria-label="关闭参数说明"><X size={16} /></button><small>{cameraParameterLinks[parameterKey].label}</small><h2 id="camera-parameter-title">{cameraParameterLinks[parameterKey].short}</h2><p>{cameraParameterLinks[parameterKey].why}</p><button className="primary" onClick={() => openGlossary(parameterKey)}>在参数词典中查看完整说明<BookOpen size={14} /></button></aside></div>}
+    {fieldMode && <div ref={fieldDialogRef} className="camera-field-mode" role="dialog" aria-modal="true" aria-labelledby="camera-field-title"><header><div><small>FIELD MODE</small><h2 id="camera-field-title">{selected.camera} · {sceneLabels[selected.scene]}</h2></div><button onClick={closeFieldDialog} aria-label="关闭现场模式"><X size={20} /></button></header><div className="camera-field-values"><article><small>画幅 / 帧率</small><strong>{selected.settings.resolution}<br />{selected.settings.fps} FPS</strong></article><article><small>快门 / 光圈</small><strong>{selected.settings.shutter}<br />{selected.settings.aperture ?? "自动"}</strong></article><article><small>ISO / WB</small><strong>{selected.settings.iso.min}–{selected.settings.iso.max}<br />{selected.settings.whiteBalanceKelvin}K</strong></article><article><small>对焦 / 防抖</small><strong>{selected.settings.focus ?? "检查预设"}<br />{selected.settings.stabilization ?? "检查预设"}</strong></article></div><section><h3>现场原则</h3><p>{selected.notes}</p></section><ol>{(selected.fieldChecks ?? []).map((item) => <li key={item}><Check size={18} />{item}</li>)}</ol><footer><button onClick={copyParameters}><Copy size={16} />复制整套参数</button></footer></div>}
   </main>;
 }

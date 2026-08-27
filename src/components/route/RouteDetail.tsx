@@ -16,7 +16,13 @@ import {
   Trees,
   X,
 } from "lucide-react";
-import { useEffect, useState, type FormEvent } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type FormEvent,
+} from "react";
 import type { DrivingSummary, ResolvedRoute } from "../../types/domain.js";
 import { usePlannerStore } from "../../app/store.js";
 import {
@@ -26,6 +32,7 @@ import {
 import { GeoPhotoThumbnail } from "../common/GeoPhotoThumbnail.js";
 import { CityWeather } from "../common/CityWeather.js";
 import { hasXiaohongshuSource } from "../../services/catalogSearchService.js";
+import { useDialogFocus } from "../common/useDialogFocus.js";
 
 const timeLabels: Record<string, string> = {
   sunrise: "日出",
@@ -75,6 +82,7 @@ export function RouteDetail({
     (state) => state.toggleResearchRoute,
   );
   const [dialogOpen, setDialogOpen] = useState(false);
+  const planDialogRef = useRef<HTMLFormElement>(null);
   const [shareStatus, setShareStatus] = useState<
     "idle" | "shared" | "copied" | "error"
   >("idle");
@@ -107,6 +115,8 @@ export function RouteDetail({
     setScheduledDate(tomorrow);
     setObjective(`完成「${selected.route.name}」拍摄素材`);
   }, [selected.route.id]);
+  const closePlanDialog = useCallback(() => setDialogOpen(false), []);
+  useDialogFocus(dialogOpen, planDialogRef, closePlanDialog);
 
   const submitPlan = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -364,7 +374,11 @@ export function RouteDetail({
             className={`detail-research-button ${inResearchBasket ? "is-added" : ""}`}
             onClick={() => toggleResearchRoute(route.id)}
           >
-            {inResearchBasket ? <Check size={18} /> : <BookmarkPlus size={18} />}
+            {inResearchBasket ? (
+              <Check size={18} />
+            ) : (
+              <BookmarkPlus size={18} />
+            )}
             {inResearchBasket ? "已加入拍摄篮" : "加入拍摄篮"}
           </button>
           <button
@@ -412,20 +426,27 @@ export function RouteDetail({
           className="plan-dialog-backdrop"
           role="presentation"
           onMouseDown={(event) =>
-            event.target === event.currentTarget && setDialogOpen(false)
+            event.target === event.currentTarget && closePlanDialog()
           }
         >
-          <form className="plan-dialog" onSubmit={submitPlan}>
+          <form
+            ref={planDialogRef}
+            className="plan-dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="plan-dialog-title"
+            onSubmit={submitPlan}
+          >
             <button
               type="button"
               className="plan-dialog-close"
-              onClick={() => setDialogOpen(false)}
+              onClick={closePlanDialog}
               aria-label="关闭计划窗口"
             >
               <X size={17} />
             </button>
             <p className="eyebrow">NEW SHOOT PLAN</p>
-            <h3>安排下一次拍摄</h3>
+            <h3 id="plan-dialog-title">安排下一次拍摄</h3>
             <span className="plan-route-name">{route.name}</span>
             <label>
               拍摄日期

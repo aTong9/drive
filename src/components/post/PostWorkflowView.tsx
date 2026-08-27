@@ -38,10 +38,17 @@ import { PostGlossary } from "./PostGlossary.js";
 import { auditGradePreset } from "../../services/postDecisionService.js";
 import { SonyMrWorkflowPanel } from "./SonyMrWorkflowPanel.js";
 import { ColorFinishingGuide } from "./ColorFinishingGuide.js";
+import { ResolveWorkspaceTutorials } from "./ResolveWorkspaceTutorials.js";
 import {
   tutorialCatalogMeta,
   tutorialCatalogTotal,
 } from "../../data/tutorialCatalogMeta.js";
+import {
+  PostWorkspaceContextNavigation,
+  PostWorkspacePrimaryNavigation,
+  type PostWorkspaceMode,
+} from "./PostWorkspaceNavigation.js";
+import { scrollElementIntoView } from "../../utils/scrollIntoView.js";
 
 const CapCutProGuide = lazy(() =>
   import("./CapCutProGuide.js").then((module) => ({
@@ -260,19 +267,7 @@ export function PostWorkflowView({
   workflow: DavinciWorkflow;
   routes: ResolvedRoute[];
 }) {
-  const [mode, setMode] = useState<
-    | "overview"
-    | "guide"
-    | "presets"
-    | "compare"
-    | "tools"
-    | "glossary"
-    | "favorites"
-    | "pipeline"
-    | "tutorial"
-    | "capcut"
-    | "finalcut"
-  >("overview");
+  const [mode, setMode] = useState<PostWorkspaceMode>("overview");
   const [selectedPresetId, setSelectedPresetId] = useState(
     workflow.gradePresets[0]?.id ?? "",
   );
@@ -361,9 +356,10 @@ export function PostWorkflowView({
     }
     setMode("overview");
     window.requestAnimationFrame(() =>
-      document
-        .getElementById("post-project-start")
-        ?.scrollIntoView({ behavior: "smooth", block: "center" }),
+      scrollElementIntoView(
+        document.getElementById("post-project-start"),
+        "center",
+      ),
     );
   };
   const openSoftwareTutorials = (
@@ -375,7 +371,7 @@ export function PostWorkflowView({
     const scrollWhenReady = (attempt = 0) => {
       const target = document.getElementById(targetId);
       if (target) {
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        scrollElementIntoView(target);
         window.setTimeout(
           () =>
             document
@@ -398,86 +394,26 @@ export function PostWorkflowView({
       <header className="post-head">
         <div>
           <p className="eyebrow">POST PRODUCTION</p>
-          <h1>达芬奇后期流程</h1>
-          <p>从素材接收到交付归档，把拍摄成果变成可复现的成片流程。</p>
+          <h1>视频后期工作台</h1>
+          <p>
+            管理后期项目，或选择 DaVinci、剪映与 Final Cut Pro
+            教程解决当前问题。
+          </p>
         </div>
         <div className="post-head-actions">
-          <div className="post-mode">
-            <div className="post-mode-group">
-              <small>执行流程</small>
-              <nav>
-                <button
-                  className={mode === "overview" ? "active" : ""}
-                  onClick={() => setMode("overview")}
-                >
-                  <Compass size={12} /> 总览
-                </button>
-                <button
-                  className={mode === "pipeline" ? "active" : ""}
-                  onClick={() => setMode("pipeline")}
-                >
-                  <ListChecks size={12} /> 项目执行
-                </button>
-                <button
-                  className={
-                    mode === "guide" || mode === "tutorial" ? "active" : ""
-                  }
-                  onClick={() => setMode("guide")}
-                >
-                  <Workflow size={12} /> 流程指南
-                </button>
-                <button
-                  className={mode === "presets" ? "active" : ""}
-                  onClick={() => setMode("presets")}
-                >
-                  <Palette size={12} /> 调色预设
-                </button>
-                <button
-                  className={mode === "capcut" ? "active" : ""}
-                  onClick={() => setMode("capcut")}
-                >
-                  <Scissors size={12} /> 剪映教程
-                </button>
-                <button
-                  className={mode === "finalcut" ? "active" : ""}
-                  onClick={() => setMode("finalcut")}
-                >
-                  <Clapperboard size={12} /> Final Cut Pro
-                </button>
-              </nav>
-            </div>
-            <div className="post-mode-group">
-              <small>参考与诊断</small>
-              <nav>
-                <button
-                  className={mode === "tools" ? "active" : ""}
-                  onClick={() => setMode("tools")}
-                >
-                  <SlidersHorizontal size={12} /> 问题诊断
-                </button>
-                <button
-                  className={mode === "glossary" ? "active" : ""}
-                  onClick={() => setMode("glossary")}
-                >
-                  <BookOpen size={12} /> 参数词典
-                </button>
-                <button
-                  className={mode === "compare" ? "active" : ""}
-                  onClick={() => setMode("compare")}
-                >
-                  <GitCompareArrows size={12} /> 链路对比
-                </button>
-                <button
-                  className={mode === "favorites" ? "active" : ""}
-                  onClick={() => setMode("favorites")}
-                >
-                  <Heart size={12} /> 收藏 {favoritePresetIds.length}
-                </button>
-              </nav>
-            </div>
-          </div>
+          <PostWorkspacePrimaryNavigation
+            mode={mode}
+            favoriteCount={favoritePresetIds.length}
+            onModeChange={setMode}
+          />
         </div>
       </header>
+
+      <PostWorkspaceContextNavigation
+        mode={mode}
+        favoriteCount={favoritePresetIds.length}
+        onModeChange={setMode}
+      />
 
       {(mode === "guide" || mode === "presets" || mode === "pipeline") && (
         <nav className="resolve-stage-rail" aria-label="DaVinci Resolve 工作区">
@@ -627,13 +563,13 @@ export function PostWorkflowView({
                   openSoftwareTutorials("presets", "resolve-tutorial-center")
                 }
               >
-                <Palette size={20} />
+                <Workflow size={20} />
                 <span>
                   <small>DAVINCI RESOLVE</small>
-                  <strong>专业调色与声音修复</strong>
+                  <strong>剪辑、调色与声音完整流程</strong>
                   <em>
-                    HDR · 节点 · Fairlight · {tutorialCatalogMeta.resolve.count}{" "}
-                    篇
+                    Edit · Color · Fairlight ·{" "}
+                    {tutorialCatalogMeta.resolve.count} 篇实操
                   </em>
                 </span>
                 <ArrowRight size={16} />
@@ -844,6 +780,7 @@ export function PostWorkflowView({
               </a>
             </aside>
           </div>
+          <ResolveWorkspaceTutorials workspace={selected.id} />
         </section>
       ) : mode === "presets" && selectedPreset ? (
         <section className="grade-presets-page">
@@ -969,12 +906,19 @@ export function PostWorkflowView({
             </div>
           </article>
           <ResolveColorScreenshot preset={selectedPreset} />
+          <ResolveWorkspaceTutorials workspace="color" />
           <ColorFinishingGuide preset={selectedPreset} />
         </section>
       ) : mode === "capcut" ? (
         <Suspense
           fallback={
-            <section className="post-workspace">正在加载剪映教程…</section>
+            <section
+              className="post-workspace"
+              role="status"
+              aria-live="polite"
+            >
+              正在加载剪映教程…
+            </section>
           }
         >
           <CapCutProGuide />
@@ -982,7 +926,11 @@ export function PostWorkflowView({
       ) : mode === "finalcut" ? (
         <Suspense
           fallback={
-            <section className="post-workspace">
+            <section
+              className="post-workspace"
+              role="status"
+              aria-live="polite"
+            >
               正在加载 Final Cut Pro 教程…
             </section>
           }
@@ -1160,7 +1108,7 @@ export function PostWorkflowView({
               </small>
             </div>
             <i>
-              <b style={{ width: `${progress}%` }} />
+              <b style={{ transform: `scaleX(${progress / 100})` }} />
             </i>
             {!postTasks.length && (
               <button onClick={() => setMode("overview")}>先建立项目</button>

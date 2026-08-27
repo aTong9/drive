@@ -73,6 +73,7 @@ export function RouteCard({
         label={route.name}
         type={route.type}
         points={waypoints}
+        interactive={false}
       />
       <div className="route-card-topline">
         <span className="route-kind">{routeLabels[route.type]}</span>

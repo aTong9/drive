@@ -23,8 +23,10 @@ import {
   useCallback,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from "react";
+import type { AppView } from "./app/store.js";
 import type { DrivingSummary } from "./types/domain.js";
 import { Brand } from "./components/common/Brand.js";
 import { RouteList } from "./components/route/RouteList.js";
@@ -44,6 +46,11 @@ import {
   administrativeGroups,
   type AdministrativeGroupId,
 } from "./services/regionService.js";
+import {
+  applyViewMetadata,
+  moreWorkspaceViews,
+} from "./app/viewPresentation.js";
+import { useDialogFocus } from "./components/common/useDialogFocus.js";
 
 const DashboardView = lazy(() =>
   import("./components/dashboard/DashboardView.js").then((module) => ({
@@ -123,6 +130,7 @@ export function App() {
   const [sharedRouteUnavailable, setSharedRouteUnavailable] = useState(false);
   const [commandOpen, setCommandOpen] = useState(false);
   const [commandQuery, setCommandQuery] = useState("");
+  const commandDialogRef = useRef<HTMLElement>(null);
   const [destination, setDestination] = useState<{
     groupId: AdministrativeGroupId | "all";
     province: string;
@@ -136,6 +144,7 @@ export function App() {
     document.documentElement.dataset.theme = theme;
     localStorage.setItem("roadlens-theme", theme);
   }, [theme]);
+  useEffect(() => applyViewMetadata(state.view), [state.view]);
   useEffect(() => {
     if (window.innerWidth <= 760) usePlannerStore.getState().closeDetail();
   }, []);
@@ -286,20 +295,7 @@ export function App() {
       .filter((item) => routeMatchesQuery(item, query))
       .slice(0, 7);
   }, [commandQuery]);
-  const openView = (
-    view:
-      | "dashboard"
-      | "projects"
-      | "explore"
-      | "plans"
-      | "locations"
-      | "cameras"
-      | "post"
-      | "longform"
-      | "creators"
-      | "music"
-      | "upload",
-  ) => {
+  const openView = (view: AppView) => {
     state.setView(view);
     setCommandOpen(false);
     setCommandQuery("");
@@ -322,15 +318,21 @@ export function App() {
     setCommandOpen(false);
     setCommandQuery("");
   }, []);
+  const closeCommand = useCallback(() => setCommandOpen(false), []);
+  useDialogFocus(commandOpen, commandDialogRef, closeCommand);
 
   return (
     <div className="app-shell">
+      <a className="skip-link" href="#main-content">
+        跳到主要内容
+      </a>
       <header className="topbar">
         <Brand />
         <nav aria-label="主导航">
           <button
             className={state.view === "locations" ? "active" : ""}
             onClick={() => state.setView("locations")}
+            aria-current={state.view === "locations" ? "page" : undefined}
           >
             <MapIcon size={17} /> 地点库
           </button>
@@ -340,12 +342,14 @@ export function App() {
               state.closeDetail();
               state.setView("explore");
             }}
+            aria-current={state.view === "explore" ? "page" : undefined}
           >
             <Compass size={17} /> 探索路线
           </button>
           <button
             className={state.view === "plans" ? "active" : ""}
             onClick={() => state.setView("plans")}
+            aria-current={state.view === "plans" ? "page" : undefined}
           >
             <CalendarDays size={17} /> 拍摄计划{" "}
             <span className="nav-count">{state.plans.length}</span>
@@ -353,29 +357,25 @@ export function App() {
           <button
             className={state.view === "post" ? "active" : ""}
             onClick={() => state.setView("post")}
+            aria-current={state.view === "post" ? "page" : undefined}
           >
             <Clapperboard size={17} /> 后期流程
           </button>
           <button
             className={state.view === "upload" ? "active" : ""}
             onClick={() => state.setView("upload")}
+            aria-current={state.view === "upload" ? "page" : undefined}
           >
             <UploadCloud size={17} /> 上传参数
           </button>
           <button
-            className={
-              [
-                "dashboard",
-                "projects",
-                "cameras",
-                "longform",
-                "creators",
-                "music",
-              ].includes(state.view)
-                ? "active"
-                : ""
-            }
+            className={moreWorkspaceViews.has(state.view) ? "active" : ""}
             onClick={() => setCommandOpen(true)}
+            aria-expanded={commandOpen}
+            aria-controls="command-palette"
+            aria-current={
+              moreWorkspaceViews.has(state.view) ? "page" : undefined
+            }
           >
             <Menu size={17} /> 更多工作台
           </button>
@@ -385,6 +385,8 @@ export function App() {
             className="command-trigger"
             onClick={() => setCommandOpen(true)}
             aria-label="打开快捷导航"
+            aria-expanded={commandOpen}
+            aria-controls="command-palette"
           >
             <Search size={16} />
             <span>搜索与跳转</span>
@@ -405,91 +407,98 @@ export function App() {
             className="icon-button mobile-menu"
             aria-label="打开更多功能"
             onClick={() => setCommandOpen(true)}
+            aria-expanded={commandOpen}
+            aria-controls="command-palette"
           >
             <Menu size={20} />
           </button>
         </div>
       </header>
 
-      <Suspense fallback={<ViewLoadingState />}>
-        {state.view === "dashboard" ? (
-          <DashboardView
-            routes={resolvedRoutes}
-            plans={state.plans}
-            checks={state.fieldChecks}
-            postTasks={state.postTasks}
-            postProject={state.postProject}
-            onOpenRoute={openRouteFromAnywhere}
-            workflow={davinciWorkflow}
-          />
-        ) : state.view === "projects" ? (
-          <ProjectWorkspaceView routes={resolvedRoutes} />
-        ) : state.view === "explore" ? (
-          <main
-            className={`workspace ${state.detailOpen && selected ? "has-detail" : ""}`}
-          >
-            <RouteList
-              routes={routes}
-              allRoutes={resolvedRoutes}
-              nearbyLocations={nearbyLocations}
-              currentRegion={currentRegion}
-              locationStatus={locationStatus}
-              locationMessage={locationMessage}
-              onLocate={locateCurrentCity}
-              onClearLocation={() => {
-                setCurrentRegion(null);
-                setLocationStatus("idle");
-              }}
-              destination={destination}
-              onDestinationChange={(nextDestination) => {
-                setDestination(nextDestination);
-                if (nextDestination.province) {
+      <div id="main-content" tabIndex={-1} className="main-content-shell">
+        <Suspense fallback={<ViewLoadingState />}>
+          {state.view === "dashboard" ? (
+            <DashboardView
+              routes={resolvedRoutes}
+              plans={state.plans}
+              checks={state.fieldChecks}
+              postTasks={state.postTasks}
+              postProject={state.postProject}
+              onOpenRoute={openRouteFromAnywhere}
+              workflow={davinciWorkflow}
+            />
+          ) : state.view === "projects" ? (
+            <ProjectWorkspaceView routes={resolvedRoutes} />
+          ) : state.view === "explore" ? (
+            <main
+              className={`workspace ${state.detailOpen && selected ? "has-detail" : ""}`}
+            >
+              <RouteList
+                routes={routes}
+                allRoutes={resolvedRoutes}
+                nearbyLocations={nearbyLocations}
+                currentRegion={currentRegion}
+                locationStatus={locationStatus}
+                locationMessage={locationMessage}
+                onLocate={locateCurrentCity}
+                onClearLocation={() => {
                   setCurrentRegion(null);
                   setLocationStatus("idle");
-                }
-              }}
-            />
-            <MapCanvas
-              selected={selected}
-              nearbyLocations={nearbyLocations}
-              onDrivingSummary={handleDrivingSummary}
-            />
-            {state.detailOpen && selected && (
-              <RouteDetail
-                selected={selected}
-                drivingSummary={
-                  drivingSummary?.routeId === selected.route.id
-                    ? drivingSummary
-                    : null
-                }
+                }}
+                destination={destination}
+                onDestinationChange={(nextDestination) => {
+                  setDestination(nextDestination);
+                  if (nextDestination.province) {
+                    setCurrentRegion(null);
+                    setLocationStatus("idle");
+                  }
+                }}
               />
-            )}
-          </main>
-        ) : state.view === "plans" ? (
-          <PlanView routes={resolvedRoutes} />
-        ) : state.view === "locations" ? (
-          <LocationView
-            locations={catalog.locations}
-            routes={resolvedRoutes}
-            catalogSchemaVersion={catalog.schemaVersion}
-          />
-        ) : state.view === "cameras" ? (
-          <CameraView presets={catalog.cameraPresets} routes={resolvedRoutes} />
-        ) : state.view === "post" ? (
-          <PostWorkflowView
-            workflow={davinciWorkflow}
-            routes={resolvedRoutes}
-          />
-        ) : state.view === "longform" ? (
-          <LongformGuideView />
-        ) : state.view === "creators" ? (
-          <CreatorView />
-        ) : state.view === "upload" ? (
-          <YoutubeUploadView routes={resolvedRoutes} />
-        ) : (
-          <MusicLibraryView />
-        )}
-      </Suspense>
+              <MapCanvas
+                selected={selected}
+                nearbyLocations={nearbyLocations}
+                onDrivingSummary={handleDrivingSummary}
+              />
+              {state.detailOpen && selected && (
+                <RouteDetail
+                  selected={selected}
+                  drivingSummary={
+                    drivingSummary?.routeId === selected.route.id
+                      ? drivingSummary
+                      : null
+                  }
+                />
+              )}
+            </main>
+          ) : state.view === "plans" ? (
+            <PlanView routes={resolvedRoutes} />
+          ) : state.view === "locations" ? (
+            <LocationView
+              locations={catalog.locations}
+              routes={resolvedRoutes}
+              catalogSchemaVersion={catalog.schemaVersion}
+            />
+          ) : state.view === "cameras" ? (
+            <CameraView
+              presets={catalog.cameraPresets}
+              routes={resolvedRoutes}
+            />
+          ) : state.view === "post" ? (
+            <PostWorkflowView
+              workflow={davinciWorkflow}
+              routes={resolvedRoutes}
+            />
+          ) : state.view === "longform" ? (
+            <LongformGuideView />
+          ) : state.view === "creators" ? (
+            <CreatorView />
+          ) : state.view === "upload" ? (
+            <YoutubeUploadView routes={resolvedRoutes} />
+          ) : (
+            <MusicLibraryView />
+          )}
+        </Suspense>
+      </div>
 
       {routeLinkMessage && (
         <div className="route-link-notice" role="status" aria-live="polite">
@@ -503,21 +512,26 @@ export function App() {
           onMouseDown={() => setCommandOpen(false)}
         >
           <section
+            ref={commandDialogRef}
             className="command-palette"
+            id="command-palette"
             role="dialog"
             aria-modal="true"
-            aria-label="快捷导航"
+            aria-labelledby="command-palette-title"
             onMouseDown={(event) => event.stopPropagation()}
           >
             <header>
               <Search size={18} />
+              <h2 id="command-palette-title" className="sr-only">
+                快捷导航
+              </h2>
               <input
-                autoFocus
+                aria-label="搜索路线或工作台"
                 value={commandQuery}
                 onChange={(event) => setCommandQuery(event.target.value)}
                 placeholder="搜索路线或打开工作台…"
               />
-              <button onClick={() => setCommandOpen(false)} aria-label="关闭">
+              <button onClick={closeCommand} aria-label="关闭">
                 <X size={17} />
               </button>
             </header>
@@ -579,7 +593,10 @@ export function App() {
                 </button>
               ))}
               {!commandRoutes.length && (
-                <p>没有匹配路线，试试城市名或景观关键词。</p>
+                <div className="command-empty">
+                  <p>没有匹配路线，试试城市名或景观关键词。</p>
+                  <button onClick={() => setCommandQuery("")}>清除搜索</button>
+                </div>
               )}
             </div>
             <footer>
@@ -599,6 +616,7 @@ export function App() {
         <button
           className={state.view === "locations" ? "active" : ""}
           onClick={() => state.setView("locations")}
+          aria-current={state.view === "locations" ? "page" : undefined}
         >
           <MapIcon size={19} />
           <span>地点</span>
@@ -609,6 +627,7 @@ export function App() {
             state.closeDetail();
             state.setView("explore");
           }}
+          aria-current={state.view === "explore" ? "page" : undefined}
         >
           <Compass size={19} />
           <span>探索</span>
@@ -616,26 +635,29 @@ export function App() {
         <button
           className={state.view === "plans" ? "active" : ""}
           onClick={() => state.setView("plans")}
+          aria-current={state.view === "plans" ? "page" : undefined}
         >
           <CalendarDays size={19} />
           <span>计划</span>
         </button>
         <button
           className={
-            [
-              "dashboard",
-              "projects",
-              "cameras",
-              "post",
-              "longform",
-              "creators",
-              "music",
-              "upload",
-            ].includes(state.view)
+            moreWorkspaceViews.has(state.view) ||
+            state.view === "post" ||
+            state.view === "upload"
               ? "active"
               : ""
           }
           onClick={() => setCommandOpen(true)}
+          aria-expanded={commandOpen}
+          aria-controls="command-palette"
+          aria-current={
+            moreWorkspaceViews.has(state.view) ||
+            state.view === "post" ||
+            state.view === "upload"
+              ? "page"
+              : undefined
+          }
         >
           <Menu size={19} />
           <span>更多</span>

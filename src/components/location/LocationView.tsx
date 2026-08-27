@@ -28,6 +28,7 @@ import {
   type ChangeEvent,
   type FormEvent,
 } from "react";
+import { scrollElementIntoView } from "../../utils/scrollIntoView.js";
 import type {
   FieldCheck,
   Location,
@@ -289,10 +290,7 @@ export function LocationView({
   };
   const changePage = (page: number, setPage: (page: number) => void) => {
     setPage(page);
-    resultsTopRef.current?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+    scrollElementIntoView(resultsTopRef.current);
   };
   return (
     <main className={`location-page mode-${browseMode}`}>
@@ -323,6 +321,7 @@ export function LocationView({
               ref={importInputRef}
               type="file"
               accept="application/json,.json"
+              aria-label="导入地点核验 JSON"
               hidden
               onChange={handleImport}
             />
@@ -566,6 +565,7 @@ export function LocationView({
                       type={location.type}
                       points={[location]}
                       variant="location"
+                      interactive={false}
                     />
                     <div>
                       <span>

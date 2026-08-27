@@ -10,6 +10,10 @@ import {
   colorFinishingWorkflow,
   resolvePracticalTutorials,
 } from "../data/colorFinishingWorkflow.js";
+import {
+  getResolveTutorialsForWorkspace,
+  resolveTutorialCatalog,
+} from "../data/resolveTutorialCatalog.js";
 
 test("post pipeline keeps HLG and PQ distinct", () => {
   const pipeline = recommendPostPipeline("hlg", "hdr10");
@@ -259,5 +263,28 @@ test("Resolve practical tutorials turn markers into verified edits", () => {
       "转场",
       "变速",
     ].sort(),
+  );
+});
+
+test("Resolve tutorials belong to their actual workspace", () => {
+  assert.equal(resolveTutorialCatalog.length, resolvePracticalTutorials.length);
+  assert.ok(resolveTutorialCatalog.every((tutorial) => tutorial.workspace));
+  assert.deepEqual(
+    getResolveTutorialsForWorkspace("color").map((tutorial) => tutorial.id),
+    [
+      "adjustment-clip-version",
+      "gallery-still-shot-match",
+      "temporal-spatial-noise-reduction",
+    ],
+  );
+  assert.ok(
+    getResolveTutorialsForWorkspace("fairlight").every((tutorial) =>
+      /声音|响度|降噪|人声/.test(`${tutorial.category} ${tutorial.title}`),
+    ),
+  );
+  assert.ok(
+    getResolveTutorialsForWorkspace("deliver").every((tutorial) =>
+      /字幕|交付|归档|渲染|竖屏/.test(`${tutorial.category} ${tutorial.title}`),
+    ),
   );
 });

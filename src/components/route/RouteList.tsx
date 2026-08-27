@@ -33,6 +33,7 @@ import type {
 } from "../../services/currentCityService.js";
 import { paginateItems } from "../../services/localPagination.js";
 import { LocalPaginationControls } from "../common/LocalPaginationControls.js";
+import { scrollElementIntoView } from "../../utils/scrollIntoView.js";
 import {
   administrativeGroups,
   administrativeProvinces,
@@ -148,7 +149,9 @@ export function RouteList({
   }, [allRoutes]);
   const visibleProvinces = useMemo(() => {
     if (destination.groupId === "all") return administrativeProvinces;
-    const names = administrativeGroups.find((group) => group.id === destination.groupId)?.provinces;
+    const names = administrativeGroups.find(
+      (group) => group.id === destination.groupId,
+    )?.provinces;
     return administrativeProvinces.filter((province) =>
       names?.includes(province.name as never),
     );
@@ -218,7 +221,7 @@ export function RouteList({
   };
   const changePage = (nextPage: number) => {
     setPage(nextPage);
-    listTopRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    scrollElementIntoView(listTopRef.current);
   };
 
   useEffect(
@@ -273,11 +276,14 @@ export function RouteList({
         <kbd>⌘ K</kbd>
       </label>
 
-      <section className={`destination-picker ${destinationOpen ? "is-open" : ""}`}>
+      <section
+        className={`destination-picker ${destinationOpen ? "is-open" : ""}`}
+      >
         <button
           className="destination-picker-head"
           onClick={() => setDestinationOpen((open) => !open)}
           aria-expanded={destinationOpen}
+          aria-controls="destination-picker-body"
         >
           <MapPinned size={16} />
           <span>
@@ -288,18 +294,26 @@ export function RouteList({
                 : destination.province
                   ? provinceLabel(destination.province)
                   : destination.groupId !== "all"
-                    ? administrativeGroups.find((group) => group.id === destination.groupId)?.label ?? "目的地区域"
+                    ? (administrativeGroups.find(
+                        (group) => group.id === destination.groupId,
+                      )?.label ?? "目的地区域")
                     : "先选地区，再看适合拍什么"}
             </strong>
           </span>
           <i>{destinationOpen ? "收起" : "选择"}</i>
         </button>
         {destinationOpen && (
-          <div className="destination-picker-body">
+          <div className="destination-picker-body" id="destination-picker-body">
             <div className="destination-groups" aria-label="全国地理分区">
               <button
                 className={destination.groupId === "all" ? "active" : ""}
-                onClick={() => onDestinationChange({ groupId: "all", province: "", city: "" })}
+                onClick={() =>
+                  onDestinationChange({
+                    groupId: "all",
+                    province: "",
+                    city: "",
+                  })
+                }
               >
                 全国
               </button>
@@ -307,7 +321,13 @@ export function RouteList({
                 <button
                   key={group.id}
                   className={destination.groupId === group.id ? "active" : ""}
-                  onClick={() => onDestinationChange({ groupId: group.id, province: "", city: "" })}
+                  onClick={() =>
+                    onDestinationChange({
+                      groupId: group.id,
+                      province: "",
+                      city: "",
+                    })
+                  }
                 >
                   {group.label}
                 </button>
@@ -329,7 +349,8 @@ export function RouteList({
                   <option value="">全国全部省份</option>
                   {visibleProvinces.map((province) => (
                     <option key={province.name} value={province.name}>
-                      {province.label} · {routeCounts.provinces.get(province.name) ?? 0} 条
+                      {province.label} ·{" "}
+                      {routeCounts.provinces.get(province.name) ?? 0} 条
                     </option>
                   ))}
                 </select>
@@ -347,19 +368,33 @@ export function RouteList({
                     })
                   }
                 >
-                  <option value="">{selectedProvince ? "全部城市与地区" : "请先选择省份"}</option>
+                  <option value="">
+                    {selectedProvince ? "全部城市与地区" : "请先选择省份"}
+                  </option>
                   {selectedProvince?.divisions.map((division) => (
                     <option key={division.name} value={division.name}>
-                      {division.label} · {routeCounts.cities.get(`${selectedProvince.name}/${division.name}`) ?? 0} 条
+                      {division.label} ·{" "}
+                      {routeCounts.cities.get(
+                        `${selectedProvince.name}/${division.name}`,
+                      ) ?? 0}{" "}
+                      条
                     </option>
                   ))}
                 </select>
               </label>
             </div>
-            {(destination.groupId !== "all" || destination.province || destination.city) && (
+            {(destination.groupId !== "all" ||
+              destination.province ||
+              destination.city) && (
               <button
                 className="destination-clear"
-                onClick={() => onDestinationChange({ groupId: "all", province: "", city: "" })}
+                onClick={() =>
+                  onDestinationChange({
+                    groupId: "all",
+                    province: "",
+                    city: "",
+                  })
+                }
               >
                 查看全国路线
               </button>
@@ -368,37 +403,44 @@ export function RouteList({
         )}
       </section>
 
-      {(destination.groupId !== "all" || destination.province || destination.city) && routes.length > 0 && (
-        <section className="destination-overview" aria-label="目的地拍摄概览">
-          <header>
-            <span>
-              <small>DESTINATION SNAPSHOT</small>
-              <strong>这里适合拍什么</strong>
-            </span>
-            <b>{destinationOverview.total} 条</b>
-          </header>
-          <div className="destination-overview-tags">
-            {destinationOverview.routeTypes.map((item) => (
-              <span key={item.value}>{item.label} {item.count}</span>
-            ))}
-            {destinationOverview.captureStyles.map((item) => (
-              <span key={item.value}>{item.label} {item.count}</span>
-            ))}
-          </div>
-          <footer>
-            <span>{destinationOverview.sourceChecked} 条已有来源证据</span>
-            <span>{destinationOverview.fieldChecked} 条已有实地核验</span>
-            <button
-              onClick={() => {
-                const first = destinationOverview.priorityRoutes[0];
-                if (first) state.selectRoute(first.route.id);
-              }}
-            >
-              打开优先路线
-            </button>
-          </footer>
-        </section>
-      )}
+      {(destination.groupId !== "all" ||
+        destination.province ||
+        destination.city) &&
+        routes.length > 0 && (
+          <section className="destination-overview" aria-label="目的地拍摄概览">
+            <header>
+              <span>
+                <small>DESTINATION SNAPSHOT</small>
+                <strong>这里适合拍什么</strong>
+              </span>
+              <b>{destinationOverview.total} 条</b>
+            </header>
+            <div className="destination-overview-tags">
+              {destinationOverview.routeTypes.map((item) => (
+                <span key={item.value}>
+                  {item.label} {item.count}
+                </span>
+              ))}
+              {destinationOverview.captureStyles.map((item) => (
+                <span key={item.value}>
+                  {item.label} {item.count}
+                </span>
+              ))}
+            </div>
+            <footer>
+              <span>{destinationOverview.sourceChecked} 条已有来源证据</span>
+              <span>{destinationOverview.fieldChecked} 条已有实地核验</span>
+              <button
+                onClick={() => {
+                  const first = destinationOverview.priorityRoutes[0];
+                  if (first) state.selectRoute(first.route.id);
+                }}
+              >
+                打开优先路线
+              </button>
+            </footer>
+          </section>
+        )}
 
       <section className={`trip-research ${researchOpen ? "is-open" : ""}`}>
         <header>
@@ -406,6 +448,7 @@ export function RouteList({
             className="trip-research-toggle"
             onClick={() => setResearchOpen((open) => !open)}
             aria-expanded={researchOpen}
+            aria-controls="trip-research-body"
           >
             <BookmarkPlus size={16} />
             <span>
@@ -423,24 +466,44 @@ export function RouteList({
                 setResearchOpen(true);
               }}
             >
-              {selectedInResearch ? <Check size={13} /> : <BookmarkPlus size={13} />}
+              {selectedInResearch ? (
+                <Check size={13} />
+              ) : (
+                <BookmarkPlus size={13} />
+              )}
               {selectedInResearch ? "已加入当前路线" : "加入当前路线"}
             </button>
           )}
         </header>
         {researchOpen && (
-          <div className="trip-research-body">
+          <div className="trip-research-body" id="trip-research-body">
             {researchRoutes.length ? (
               <>
                 <div className="trip-summary-grid">
-                  <span><strong>{researchSummary.provinces.length}</strong><small>省级目的地</small></span>
-                  <span><strong>{researchSummary.cities.length}</strong><small>城市 / 地区</small></span>
-                  <span><strong>{formatRouteMinutes(researchSummary.totalMinutes)}</strong><small>拍摄时间</small></span>
-                  <span><strong>{researchSummary.estimatedDays}</strong><small>建议天数</small></span>
+                  <span>
+                    <strong>{researchSummary.provinces.length}</strong>
+                    <small>省级目的地</small>
+                  </span>
+                  <span>
+                    <strong>{researchSummary.cities.length}</strong>
+                    <small>城市 / 地区</small>
+                  </span>
+                  <span>
+                    <strong>
+                      {formatRouteMinutes(researchSummary.totalMinutes)}
+                    </strong>
+                    <small>拍摄时间</small>
+                  </span>
+                  <span>
+                    <strong>{researchSummary.estimatedDays}</strong>
+                    <small>建议天数</small>
+                  </span>
                 </div>
                 {researchSummary.warnings.length > 0 && (
                   <ul className="trip-warnings">
-                    {researchSummary.warnings.map((warning) => <li key={warning}>{warning}</li>)}
+                    {researchSummary.warnings.map((warning) => (
+                      <li key={warning}>{warning}</li>
+                    ))}
                   </ul>
                 )}
                 <label className="trip-start-date">
@@ -459,7 +522,13 @@ export function RouteList({
                   {researchSummary.days.map((day) => (
                     <section key={day.day} className="trip-day">
                       <header>
-                        <span>DAY {day.day} · {dateForTripDay(state.researchStartDate, day.day).slice(5)}</span>
+                        <span>
+                          DAY {day.day} ·{" "}
+                          {dateForTripDay(
+                            state.researchStartDate,
+                            day.day,
+                          ).slice(5)}
+                        </span>
                         <strong>{formatRouteMinutes(day.totalMinutes)}</strong>
                         <small>{day.cities.join(" · ")}</small>
                         <button
@@ -491,35 +560,63 @@ export function RouteList({
                         >
                           <CalendarPlus size={11} />
                           {day.routes.every((item) =>
-                            state.plans.some((plan) => plan.routeId === item.route.id),
+                            state.plans.some(
+                              (plan) => plan.routeId === item.route.id,
+                            ),
                           )
                             ? "查看计划"
                             : "转为计划"}
                         </button>
                       </header>
                       {day.routes.map((item) => {
-                        const routeIndex = state.researchRouteIds.indexOf(item.route.id);
+                        const routeIndex = state.researchRouteIds.indexOf(
+                          item.route.id,
+                        );
                         return (
                           <div key={item.route.id}>
-                            <button onClick={() => state.selectRoute(item.route.id)}>
+                            <button
+                              onClick={() => state.selectRoute(item.route.id)}
+                            >
                               <strong>{item.route.name}</strong>
-                              <small>{provinceLabel(item.route.province)} · {item.route.cities.map((city) => divisionLabel(item.route.province, city)).join(" / ")}</small>
+                              <small>
+                                {provinceLabel(item.route.province)} ·{" "}
+                                {item.route.cities
+                                  .map((city) =>
+                                    divisionLabel(item.route.province, city),
+                                  )
+                                  .join(" / ")}
+                              </small>
                             </button>
                             <div className="trip-order-actions">
                               <button
                                 disabled={routeIndex <= 0}
                                 aria-label={`上移路线：${item.route.name}`}
-                                onClick={() => state.moveResearchRoute(item.route.id, "up")}
-                              ><ArrowUp size={12} /></button>
+                                onClick={() =>
+                                  state.moveResearchRoute(item.route.id, "up")
+                                }
+                              >
+                                <ArrowUp size={12} />
+                              </button>
                               <button
-                                disabled={routeIndex === state.researchRouteIds.length - 1}
+                                disabled={
+                                  routeIndex ===
+                                  state.researchRouteIds.length - 1
+                                }
                                 aria-label={`下移路线：${item.route.name}`}
-                                onClick={() => state.moveResearchRoute(item.route.id, "down")}
-                              ><ArrowDown size={12} /></button>
+                                onClick={() =>
+                                  state.moveResearchRoute(item.route.id, "down")
+                                }
+                              >
+                                <ArrowDown size={12} />
+                              </button>
                               <button
                                 aria-label={`从旅行拍摄篮移除：${item.route.name}`}
-                                onClick={() => state.toggleResearchRoute(item.route.id)}
-                              ><Trash2 size={12} /></button>
+                                onClick={() =>
+                                  state.toggleResearchRoute(item.route.id)
+                                }
+                              >
+                                <Trash2 size={12} />
+                              </button>
                             </div>
                           </div>
                         );
@@ -527,13 +624,21 @@ export function RouteList({
                     </section>
                   ))}
                 </div>
-                <p className="trip-travel-boundary">按每天最多 8 小时拍摄自动分组；城市间驾车、休息、天气和临时管制时间尚未计入。</p>
-                <button className="trip-clear" onClick={state.clearResearchRoutes}>
+                <p className="trip-travel-boundary">
+                  按每天最多 8
+                  小时拍摄自动分组；城市间驾车、休息、天气和临时管制时间尚未计入。
+                </p>
+                <button
+                  className="trip-clear"
+                  onClick={state.clearResearchRoutes}
+                >
                   清空拍摄篮
                 </button>
               </>
             ) : (
-              <p className="trip-empty">打开一条候选路线后加入这里，用来组合跨城市拍摄行程。</p>
+              <p className="trip-empty">
+                打开一条候选路线后加入这里，用来组合跨城市拍摄行程。
+              </p>
             )}
           </div>
         )}
