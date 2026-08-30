@@ -7,7 +7,6 @@
   "creationOrigin": "human",
   "nativeLoopOnly": false,
   "items": [
-    ["Peaceful rest", 23509, "蒲鉾さちこ", "ambient", "Synth Pad・Other Synth・Slow・Weak・Ambient・Healing", "核心匹配；柔和即兴 Pad，适合日出、雾林与乡村清晨", 240, false],
     ["波に揺られる", 22768, "もっぴーさうんど", "piano", "Piano・Slow・Weak・Healing", "核心匹配；优先 T2 7:33 官方 Piano Solo 版，适合海面、河岸与雨后公路", 454, false],
     ["枕", 22767, "もっぴーさうんど", "piano", "Piano・Slow・Weak・Healing", "核心匹配；适合安静夜路、室内雨景与蓝调时刻", 216, false],
     ["Silence in Time", 22424, "shimtone", "ambient", "Piano・Synth Pad・Slow・Ambient・Healing", "核心匹配；温和钢琴基底，适合日出、田野与湖泊", 177, true],

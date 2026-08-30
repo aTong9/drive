@@ -1,0 +1,17 @@
+{
+  "platformId": "dova-syndrome",
+  "description": "DOVA 温柔钢琴爵士与爵士夜曲严格批次：无鼓、低动态，适合蓝调时刻、都市夜景和夜间公路",
+  "downloadLabel": "官方曲目页 / MP3 下载",
+  "credit": "请复制每首官方曲目页列出的作者署名与使用条件",
+  "licenseNote": "可依 DOVA 音源利用许可作为有独立影像主体的 YouTube 背景音乐并做必要裁切、Fade 与 Loop；原生 Loop 状态按曲目单独标记。",
+  "creationOrigin": "human",
+  "nativeLoopOnly": false,
+  "items": [
+    ["流れ星を探して", 20989, "のる", "jazz", "Piano Solo・Warm・Calm・Gentle・Weak・Slow・Jazz", "核心匹配；无鼓慢速钢琴爵士夜曲，适合蓝调时刻、夜空与安静城市高架", 229, false],
+    ["夜をさがして", 23500, "のる", "jazz", "Piano Solo・Warm・Calm・Gentle・Weak・Slow・Mellow", "核心匹配；无鼓温柔钢琴，适合夜间公路、收车回程与城市灯影", 154, false],
+    ["Mellow Night", 23736, "のる", "jazz", "Electric Piano・Acoustic Guitar・Warm・Calm・Gentle・Weak・Slow・Soft Swing", "核心匹配；采用 T2 官方原生 Loop，适合都市夜景、车窗霓虹与深夜咖啡馆", 133, true],
+    ["Starlight Cafe", 17309, "のる", "jazz", "Piano Solo・Warm・Calm・Gentle・Weak・Soft Swing・Jazz", "核心匹配；采用 T2 官方原生 Loop，适合星光咖啡馆、夜景延时与安静街角", 133, true],
+    ["river side", 15556, "のる", "jazz", "Piano Solo・Warm・Calm・Gentle・Weak・Jazz・Acoustic", "核心匹配；采用 T2 官方原生 Loop，适合蓝调河岸、城市水面与沿江慢行", 115, true],
+    ["あたたかな灯火の傍で", 15512, "蒲鉾さちこ", "jazz", "Piano・Keys・Warm・Calm・Gentle・Weak・Jazz・Ambient・Healing", "核心匹配；无鼓稀疏钢琴，适合暖灯酒吧、雨夜窗边与夜街转场", 230, false]
+  ]
+}

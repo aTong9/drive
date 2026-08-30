@@ -1,0 +1,14 @@
+{
+  "platformId": "dova-syndrome",
+  "description": "DOVA 5 分钟以上严格疗愈批次：仅收录完整命中 Warm、Calm、Gentle、Healing、Slow 且无鼓的真人长曲",
+  "downloadLabel": "官方曲目页 / MP3 下载",
+  "credit": "请复制每首官方曲目页列出的作者署名与使用条件",
+  "licenseNote": "可依 DOVA 音源利用许可作为有独立影像主体的 YouTube 背景音乐并做必要裁切、Fade 与后期 Loop；本批均非官方原生 Loop。",
+  "creationOrigin": "human",
+  "nativeLoopOnly": false,
+  "items": [
+    ["宝石と想いを胸に　ピアノ", 5556, "今川彰人オーケストラ", "piano", "Piano・Warm・Calm・Gentle・Healing・Weak・Slow", "核心匹配；采用 T2 官方 9:24 长时间版，适合日出、乡村清晨、温暖回忆与长段自然空镜", 564, false],
+    ["ゆったりハイキング〜癒しの森〜", 10170, "しんさんわーくす", "ambient", "Synth Pad・Synth・Warm・Calm・Gentle・Healing・Slow・Ambient", "核心匹配；8:38 疗愈自然 Ambient，适合森林、溪流、晨雾与安静徒步", 518, false],
+    ["固有共鳴α", 11033, "lei", "ambient", "Piano・Synth Pad・Synth・Warm・Calm・Gentle・Healing・Slow・Weak", "核心匹配；6:51 极稀疏空气感钢琴 Ambient，适合雨夜、车窗、夜间公路与极简都市空镜", 411, false]
+  ]
+}

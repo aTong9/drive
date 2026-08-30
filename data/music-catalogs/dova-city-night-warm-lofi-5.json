@@ -1,0 +1,16 @@
+{
+  "platformId": "dova-syndrome",
+  "description": "DOVA 城市夜景与夜间公路温暖 Lo-Fi 批次：仅收录完整命中 Warm、Calm、Gentle 且无鼓组的真人作品",
+  "downloadLabel": "官方曲目页 / MP3 下载",
+  "credit": "请复制每首官方曲目页列出的作者署名与使用条件",
+  "licenseNote": "可依 DOVA 音源利用许可作为 YouTube 背景音乐并做必要的裁切、Fade 与后期 Loop；本批均非官方原生 Loop。",
+  "creationOrigin": "human",
+  "nativeLoopOnly": false,
+  "items": [
+    ["White snow chill days", 22951, "蒲鉾さちこ", "lofi", "Electric Piano Solo・Synth・Warm・Calm・Gentle・Weak・Slow・Ambient・Healing", "核心匹配；真人即兴生演奏，温暖 Chill / Lo-Fi 质地，适合冬夜城市、霓虹、车内与雪夜回程", 220, false],
+    ["優しい窓辺", 20090, "蒲鉾さちこ", "piano", "Piano・Keys・Warm・Calm・Gentle・Ambient・Healing", "核心匹配；即兴钢琴与柔和月光意象，适合城市夜景、车窗、住宅灯光与慢速街道", 110, false],
+    ["Chill night,fall a sleep", 21565, "蒲鉾さちこ", "lofi", "Electric Piano・Synth・Warm・Calm・Gentle・Weak・Slow・Ambient・Healing", "核心匹配；无鼓的慢速 Chillout / Lo-Fi Ambient，适合夜间公路、霓虹、都市延时与深夜回程", 160, false],
+    ["寂しい町 (Lonely Town)", 14034, "蒲鉾さちこ", "lofi", "Electric Piano・Strings・Synth・Warm・Calm・Gentle・Weak・Slow・Healing", "核心匹配；适合空街、老城区、夜间小镇、公路服务区与反思驾驶", 153, false],
+    ["静かな余韻 (Quiet suggestiveness)", 16751, "蒲鉾さちこ", "ambient", "Keys・Synth・Warm・Calm・Gentle・Weak・Ambient・Healing", "核心匹配；无鼓，适合夜景收尾、驶离城市、安静路口与车内回想", 104, false]
+  ]
+}

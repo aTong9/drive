@@ -1,0 +1,12 @@
+{
+  "platformId": "dova-syndrome",
+  "description": "DOVA 近期严格 Healing 批次：较新发布、具名真人作者，完整命中 Warm、Calm、Gentle、Healing 与 Weak",
+  "downloadLabel": "官方曲目页 / MP3 下载",
+  "credit": "请复制官方曲目页列出的作者署名与使用条件",
+  "licenseNote": "可依 DOVA 音源利用许可作为有独立影像主体的 YouTube 背景音乐并做必要裁切、Fade 与后期 Loop；本曲非官方原生 Loop。",
+  "creationOrigin": "human",
+  "nativeLoopOnly": false,
+  "items": [
+    ["夢の中のぬくもり", 21779, "ゆうり (Yuli Audio Craft)", "ambient", "Synth Pad・Warm・Calm・Gentle・Healing・Weak・Nostalgic", "核心匹配；自由速度柔和 Pad，适合梦境、晨雾、柔光室内、自然空镜与安静车窗", 169, false]
+  ]
+}

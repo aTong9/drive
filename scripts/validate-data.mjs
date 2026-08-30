@@ -23,6 +23,14 @@ const dovaGentleJazzLofiCatalog = JSON.parse(await readFile(new URL("../data/mus
 const dovaSoftAcousticGuitarCatalog = JSON.parse(await readFile(new URL("../data/music-catalogs/dova-soft-acoustic-guitar-12.json", import.meta.url), "utf8"));
 const dovaAmbientSynthPadCatalog = JSON.parse(await readFile(new URL("../data/music-catalogs/dova-ambient-synth-pad-13.json", import.meta.url), "utf8"));
 const dovaRainSnowNightCatalog = JSON.parse(await readFile(new URL("../data/music-catalogs/dova-rain-snow-night-14.json", import.meta.url), "utf8"));
+const dovaSunriseCoastCountrysideCatalog = JSON.parse(await readFile(new URL("../data/music-catalogs/dova-sunrise-coast-countryside-12.json", import.meta.url), "utf8"));
+const dovaForestStreamLakeMistCatalog = JSON.parse(await readFile(new URL("../data/music-catalogs/dova-forest-stream-lake-mist-8.json", import.meta.url), "utf8"));
+const dovaCityNightWarmLofiCatalog = JSON.parse(await readFile(new URL("../data/music-catalogs/dova-city-night-warm-lofi-5.json", import.meta.url), "utf8"));
+const dovaGentlePianoJazzNightCatalog = JSON.parse(await readFile(new URL("../data/music-catalogs/dova-gentle-piano-jazz-night-6.json", import.meta.url), "utf8"));
+const dovaLongStrictHealingCatalog = JSON.parse(await readFile(new URL("../data/music-catalogs/dova-long-strict-healing-3.json", import.meta.url), "utf8"));
+const dovaMinimalHealingPianoCatalog = JSON.parse(await readFile(new URL("../data/music-catalogs/dova-minimal-healing-piano-2.json", import.meta.url), "utf8"));
+const dovaWarmNostalgicPianoCatalog = JSON.parse(await readFile(new URL("../data/music-catalogs/dova-warm-nostalgic-piano-1.json", import.meta.url), "utf8"));
+const dovaRecentStrictHealingCatalog = JSON.parse(await readFile(new URL("../data/music-catalogs/dova-recent-strict-healing-1.json", import.meta.url), "utf8"));
 const youtubeHumanPianoCreatorsCatalog = JSON.parse(await readFile(new URL("../data/music-catalogs/youtube-human-piano-creators-100.json", import.meta.url), "utf8"));
 const alexanderNakaradaLongPianoCatalog = JSON.parse(await readFile(new URL("../data/music-catalogs/alexander-nakarada-long-piano-1.json", import.meta.url), "utf8"));
 const youtubePianoCreatorDirectory = JSON.parse(await readFile(new URL("../data/music-catalogs/youtube-human-piano-creators-50.json", import.meta.url), "utf8"));
@@ -207,9 +215,9 @@ for (const [title, detailId, artist, kind, tags, description, duration] of dovaS
   if (!Number.isInteger(duration) || duration <= 0 || !/Guitar/i.test(tags)) errors.push(`dovaSoftAcousticGuitarCatalog: invalid duration or instruments for ${title}`);
   if (/Strong|Loud|Intense|EDM|Funk|力強い|騒々しい|激しい/i.test(`${tags} ${description}`)) errors.push(`dovaSoftAcousticGuitarCatalog: excluded intensity for ${title}`);
 }
-if (dovaAmbientSynthPadCatalog.items.length !== 13) errors.push(`dovaAmbientSynthPadCatalog: expected 13 tracks, found ${dovaAmbientSynthPadCatalog.items.length}`);
+if (dovaAmbientSynthPadCatalog.items.length !== 12) errors.push(`dovaAmbientSynthPadCatalog: expected 12 tracks, found ${dovaAmbientSynthPadCatalog.items.length}`);
 const priorDovaAmbientIds = new Set([...priorDovaIds, ...dovaSoftAcousticGuitarCatalog.items.map(([, detailId]) => detailId)]);
-if (new Set(dovaAmbientSynthPadCatalog.items.map(([, detailId]) => detailId)).size !== 13) errors.push("dovaAmbientSynthPadCatalog: duplicate detail id");
+if (new Set(dovaAmbientSynthPadCatalog.items.map(([, detailId]) => detailId)).size !== 12) errors.push("dovaAmbientSynthPadCatalog: duplicate detail id");
 for (const [title, detailId, artist, kind, tags, description, duration, nativeLoop] of dovaAmbientSynthPadCatalog.items) {
   if (!title || !artist || !["piano", "ambient"].includes(kind)) errors.push(`dovaAmbientSynthPadCatalog: invalid metadata for ${detailId}`);
   if (!Number.isInteger(detailId) || priorDovaAmbientIds.has(detailId)) errors.push(`dovaAmbientSynthPadCatalog: invalid or existing detail id ${detailId}`);
@@ -224,6 +232,81 @@ for (const [title, detailId, artist, kind, tags, description, duration, nativeLo
   if (!Number.isInteger(detailId) || priorDovaRainIds.has(detailId)) errors.push(`dovaRainSnowNightCatalog: invalid or existing detail id ${detailId}`);
   if (!Number.isInteger(duration) || duration <= 0 || typeof nativeLoop !== "boolean") errors.push(`dovaRainSnowNightCatalog: invalid duration or loop flag for ${title}`);
   if (/Drum|Percussion|EDM|Funk|力強い|騒々しい|激しい/i.test(`${tags} ${description}`)) errors.push(`dovaRainSnowNightCatalog: excluded rhythm or intensity for ${title}`);
+}
+if (dovaSunriseCoastCountrysideCatalog.items.length !== 12) errors.push(`dovaSunriseCoastCountrysideCatalog: expected 12 tracks, found ${dovaSunriseCoastCountrysideCatalog.items.length}`);
+const priorDovaSunriseIds = new Set([...priorDovaRainIds, ...dovaRainSnowNightCatalog.items.map(([, detailId]) => detailId)]);
+if (new Set(dovaSunriseCoastCountrysideCatalog.items.map(([, detailId]) => detailId)).size !== 12) errors.push("dovaSunriseCoastCountrysideCatalog: duplicate detail id");
+for (const [title, detailId, artist, kind, tags, description, duration, nativeLoop] of dovaSunriseCoastCountrysideCatalog.items) {
+  if (!title || !artist || !["piano", "ambient", "jazz"].includes(kind)) errors.push(`dovaSunriseCoastCountrysideCatalog: invalid metadata for ${detailId}`);
+  if (!Number.isInteger(detailId) || priorDovaSunriseIds.has(detailId)) errors.push(`dovaSunriseCoastCountrysideCatalog: invalid or existing detail id ${detailId}`);
+  if (!Number.isInteger(duration) || duration <= 0 || typeof nativeLoop !== "boolean") errors.push(`dovaSunriseCoastCountrysideCatalog: invalid duration or loop flag for ${title}`);
+  if (/Drum|Percussion|EDM|Funk|力強い|騒々しい|激しい/i.test(`${tags} ${description}`)) errors.push(`dovaSunriseCoastCountrysideCatalog: excluded rhythm or intensity for ${title}`);
+}
+if (dovaForestStreamLakeMistCatalog.items.length !== 8) errors.push(`dovaForestStreamLakeMistCatalog: expected 8 tracks, found ${dovaForestStreamLakeMistCatalog.items.length}`);
+const priorDovaNatureIds = new Set([...priorDovaSunriseIds, ...dovaSunriseCoastCountrysideCatalog.items.map(([, detailId]) => detailId)]);
+if (new Set(dovaForestStreamLakeMistCatalog.items.map(([, detailId]) => detailId)).size !== 8) errors.push("dovaForestStreamLakeMistCatalog: duplicate detail id");
+for (const [title, detailId, artist, kind, tags, description, duration, nativeLoop] of dovaForestStreamLakeMistCatalog.items) {
+  if (!title || !artist || !["piano", "ambient"].includes(kind)) errors.push(`dovaForestStreamLakeMistCatalog: invalid metadata for ${detailId}`);
+  if (!Number.isInteger(detailId) || priorDovaNatureIds.has(detailId)) errors.push(`dovaForestStreamLakeMistCatalog: invalid or existing detail id ${detailId}`);
+  if (!Number.isInteger(duration) || duration <= 0 || typeof nativeLoop !== "boolean") errors.push(`dovaForestStreamLakeMistCatalog: invalid duration or loop flag for ${title}`);
+  if (!/Warm/.test(tags) || !/Calm/.test(tags) || !/Gentle/.test(tags)) errors.push(`dovaForestStreamLakeMistCatalog: missing strict mood for ${title}`);
+  if (/Drum|Percussion|EDM|Funk|力強い|騒々しい|激しい/i.test(`${tags} ${description}`)) errors.push(`dovaForestStreamLakeMistCatalog: excluded rhythm or intensity for ${title}`);
+}
+if (dovaCityNightWarmLofiCatalog.items.length !== 5) errors.push(`dovaCityNightWarmLofiCatalog: expected 5 tracks, found ${dovaCityNightWarmLofiCatalog.items.length}`);
+const priorDovaCityNightIds = new Set([...priorDovaNatureIds, ...dovaForestStreamLakeMistCatalog.items.map(([, detailId]) => detailId)]);
+if (new Set(dovaCityNightWarmLofiCatalog.items.map(([, detailId]) => detailId)).size !== 5) errors.push("dovaCityNightWarmLofiCatalog: duplicate detail id");
+for (const [title, detailId, artist, kind, tags, description, duration, nativeLoop] of dovaCityNightWarmLofiCatalog.items) {
+  if (!title || !artist || !["piano", "ambient", "lofi"].includes(kind)) errors.push(`dovaCityNightWarmLofiCatalog: invalid metadata for ${detailId}`);
+  if (!Number.isInteger(detailId) || priorDovaCityNightIds.has(detailId)) errors.push(`dovaCityNightWarmLofiCatalog: invalid or existing detail id ${detailId}`);
+  if (!Number.isInteger(duration) || duration <= 0 || nativeLoop !== false) errors.push(`dovaCityNightWarmLofiCatalog: invalid duration or loop flag for ${title}`);
+  if (!/Warm/.test(tags) || !/Calm/.test(tags) || !/Gentle/.test(tags)) errors.push(`dovaCityNightWarmLofiCatalog: missing strict mood for ${title}`);
+  if (/Drum|Percussion|EDM|Funk|力強い|騒々しい|激しい/i.test(`${tags} ${description}`)) errors.push(`dovaCityNightWarmLofiCatalog: excluded rhythm or intensity for ${title}`);
+}
+if (dovaGentlePianoJazzNightCatalog.items.length !== 6) errors.push(`dovaGentlePianoJazzNightCatalog: expected 6 tracks, found ${dovaGentlePianoJazzNightCatalog.items.length}`);
+const priorDovaJazzNightIds = new Set([...priorDovaCityNightIds, ...dovaCityNightWarmLofiCatalog.items.map(([, detailId]) => detailId)]);
+if (new Set(dovaGentlePianoJazzNightCatalog.items.map(([, detailId]) => detailId)).size !== 6) errors.push("dovaGentlePianoJazzNightCatalog: duplicate detail id");
+for (const [title, detailId, artist, kind, tags, description, duration, nativeLoop] of dovaGentlePianoJazzNightCatalog.items) {
+  if (!title || !artist || kind !== "jazz") errors.push(`dovaGentlePianoJazzNightCatalog: invalid metadata for ${detailId}`);
+  if (!Number.isInteger(detailId) || priorDovaJazzNightIds.has(detailId)) errors.push(`dovaGentlePianoJazzNightCatalog: invalid or existing detail id ${detailId}`);
+  if (!Number.isInteger(duration) || duration <= 0 || typeof nativeLoop !== "boolean") errors.push(`dovaGentlePianoJazzNightCatalog: invalid duration or loop flag for ${title}`);
+  if (!/Warm/.test(tags) || !/Calm/.test(tags) || !/Gentle/.test(tags)) errors.push(`dovaGentlePianoJazzNightCatalog: missing strict mood for ${title}`);
+  if (/Drum|Percussion|EDM|Funk|力強い|騒々しい|激しい/i.test(`${tags} ${description}`)) errors.push(`dovaGentlePianoJazzNightCatalog: excluded rhythm or intensity for ${title}`);
+}
+if (dovaLongStrictHealingCatalog.items.length !== 3) errors.push(`dovaLongStrictHealingCatalog: expected 3 tracks, found ${dovaLongStrictHealingCatalog.items.length}`);
+const priorDovaLongIds = new Set([...priorDovaJazzNightIds, ...dovaGentlePianoJazzNightCatalog.items.map(([, detailId]) => detailId)]);
+if (new Set(dovaLongStrictHealingCatalog.items.map(([, detailId]) => detailId)).size !== 3) errors.push("dovaLongStrictHealingCatalog: duplicate detail id");
+for (const [title, detailId, artist, kind, tags, description, duration, nativeLoop] of dovaLongStrictHealingCatalog.items) {
+  if (!title || !artist || !["piano", "ambient"].includes(kind)) errors.push(`dovaLongStrictHealingCatalog: invalid metadata for ${detailId}`);
+  if (!Number.isInteger(detailId) || priorDovaLongIds.has(detailId)) errors.push(`dovaLongStrictHealingCatalog: invalid or existing detail id ${detailId}`);
+  if (!Number.isInteger(duration) || duration < 300 || nativeLoop !== false) errors.push(`dovaLongStrictHealingCatalog: invalid long duration or loop flag for ${title}`);
+  if (!/Warm/.test(tags) || !/Calm/.test(tags) || !/Gentle/.test(tags) || !/Healing/.test(tags) || !/Slow/.test(tags)) errors.push(`dovaLongStrictHealingCatalog: missing strict mood for ${title}`);
+  if (/Drum|Percussion|EDM|Funk|Forceful|力強い|騒々しい|激しい/i.test(`${tags} ${description}`)) errors.push(`dovaLongStrictHealingCatalog: excluded rhythm or intensity for ${title}`);
+}
+if (dovaMinimalHealingPianoCatalog.items.length !== 2) errors.push(`dovaMinimalHealingPianoCatalog: expected 2 tracks, found ${dovaMinimalHealingPianoCatalog.items.length}`);
+const priorDovaMinimalIds = new Set([...priorDovaLongIds, ...dovaLongStrictHealingCatalog.items.map(([, detailId]) => detailId)]);
+if (new Set(dovaMinimalHealingPianoCatalog.items.map(([, detailId]) => detailId)).size !== 2) errors.push("dovaMinimalHealingPianoCatalog: duplicate detail id");
+for (const [title, detailId, artist, kind, tags, description, duration, nativeLoop] of dovaMinimalHealingPianoCatalog.items) {
+  if (!title || !artist || kind !== "piano") errors.push(`dovaMinimalHealingPianoCatalog: invalid metadata for ${detailId}`);
+  if (!Number.isInteger(detailId) || priorDovaMinimalIds.has(detailId)) errors.push(`dovaMinimalHealingPianoCatalog: invalid or existing detail id ${detailId}`);
+  if (!Number.isInteger(duration) || duration <= 0 || nativeLoop !== false) errors.push(`dovaMinimalHealingPianoCatalog: invalid duration or loop flag for ${title}`);
+  if (!/Warm/.test(tags) || !/Calm/.test(tags) || !/Gentle/.test(tags) || !/Healing/.test(tags)) errors.push(`dovaMinimalHealingPianoCatalog: missing strict mood for ${title}`);
+  if (/Grand|Forceful|Drum|Percussion|EDM|Funk|力強い|騒々しい|激しい/i.test(`${tags} ${description}`)) errors.push(`dovaMinimalHealingPianoCatalog: excluded density or intensity for ${title}`);
+}
+if (dovaWarmNostalgicPianoCatalog.items.length !== 1) errors.push(`dovaWarmNostalgicPianoCatalog: expected 1 track, found ${dovaWarmNostalgicPianoCatalog.items.length}`);
+const priorDovaNostalgicIds = new Set([...priorDovaMinimalIds, ...dovaMinimalHealingPianoCatalog.items.map(([, detailId]) => detailId)]);
+for (const [title, detailId, artist, kind, tags, description, duration, nativeLoop] of dovaWarmNostalgicPianoCatalog.items) {
+  if (!title || !artist || kind !== "piano" || !Number.isInteger(detailId) || priorDovaNostalgicIds.has(detailId)) errors.push(`dovaWarmNostalgicPianoCatalog: invalid or existing metadata for ${detailId}`);
+  if (!Number.isInteger(duration) || duration <= 0 || nativeLoop !== false) errors.push(`dovaWarmNostalgicPianoCatalog: invalid duration or loop flag for ${title}`);
+  if (!["Warm", "Calm", "Gentle", "Healing", "Weak", "Nostalgic"].every((tag) => tags.includes(tag))) errors.push(`dovaWarmNostalgicPianoCatalog: missing strict mood for ${title}`);
+  if (/Grand|Forceful|Drum|Percussion|EDM|Funk|力強い|騒々しい|激しい/i.test(`${tags} ${description}`)) errors.push(`dovaWarmNostalgicPianoCatalog: excluded intensity for ${title}`);
+}
+if (dovaRecentStrictHealingCatalog.items.length !== 1) errors.push(`dovaRecentStrictHealingCatalog: expected 1 track, found ${dovaRecentStrictHealingCatalog.items.length}`);
+const priorDovaRecentIds = new Set([...priorDovaNostalgicIds, ...dovaWarmNostalgicPianoCatalog.items.map(([, detailId]) => detailId)]);
+for (const [title, detailId, artist, kind, tags, description, duration, nativeLoop] of dovaRecentStrictHealingCatalog.items) {
+  if (!title || !artist || kind !== "ambient" || !Number.isInteger(detailId) || priorDovaRecentIds.has(detailId)) errors.push(`dovaRecentStrictHealingCatalog: invalid or existing metadata for ${detailId}`);
+  if (!Number.isInteger(duration) || duration <= 0 || nativeLoop !== false) errors.push(`dovaRecentStrictHealingCatalog: invalid duration or loop flag for ${title}`);
+  if (!["Warm", "Calm", "Gentle", "Healing", "Weak"].every((tag) => tags.includes(tag))) errors.push(`dovaRecentStrictHealingCatalog: missing strict mood for ${title}`);
+  if (/Grand|Forceful|Drum|Percussion|EDM|Funk|力強い|騒々しい|激しい/i.test(`${tags} ${description}`)) errors.push(`dovaRecentStrictHealingCatalog: excluded intensity for ${title}`);
 }
 if (amachaGentleCatalog.platformId !== "amacha-music") errors.push("amachaGentleCatalog: unexpected platform id");
 if (amachaGentleCatalog.items.length !== 100) errors.push(`amachaGentleCatalog: expected 100 tracks, found ${amachaGentleCatalog.items.length}`);
@@ -351,13 +434,14 @@ for (const [title, duration, kind, tier] of hmixGalleryHealingCatalog.items) {
   if (/戦闘|バトル|死刑|祭り|カーニバル|行進曲|繁華街|奮闘|ボス猫|黒い影|Celebration|Frenzy|March|Festival|Carnival|Bazaar/.test(title)) errors.push(`hmixGalleryHealingCatalog: excluded intensity for ${title}`);
 }
 if (perituneHealingCatalog.platformId !== "peritune") errors.push("perituneHealingCatalog: unexpected platform id");
-if (perituneHealingCatalog.items.length !== 100) errors.push(`perituneHealingCatalog: expected 100 verified entries, found ${perituneHealingCatalog.items.length}`);
+if (perituneHealingCatalog.items.length !== 101) errors.push(`perituneHealingCatalog: expected 101 verified entries, found ${perituneHealingCatalog.items.length}`);
 if (new Set(perituneHealingCatalog.items.map(([title]) => title)).size !== perituneHealingCatalog.items.length) errors.push("perituneHealingCatalog: duplicate title/version");
-for (const [title, pageUrl, bpm, kind, nativeLoop, tags] of perituneHealingCatalog.items) {
+for (const [title, pageUrl, bpm, kind, nativeLoop, tags, duration] of perituneHealingCatalog.items) {
   if (!/^https:\/\/peritune\.com\/blog\/.+\/$/.test(pageUrl)) errors.push(`perituneHealingCatalog: invalid official page for ${title}`);
   if (!Number.isInteger(bpm) || bpm < 0 || bpm > 145) errors.push(`perituneHealingCatalog: invalid BPM for ${title}`);
   if (!["piano", "ambient", "acoustic"].includes(kind)) errors.push(`perituneHealingCatalog: invalid type for ${title}`);
   if (typeof nativeLoop !== "boolean" || typeof tags !== "string" || !/healing/i.test(tags)) errors.push(`perituneHealingCatalog: missing profile metadata for ${title}`);
+  if (duration !== undefined && (!Number.isInteger(duration) || duration <= 0)) errors.push(`perituneHealingCatalog: invalid duration for ${title}`);
   if (/battle|combat|energetic|intense|loud|funk|edm|horror|scary/i.test(`${title} ${tags}`)) errors.push(`perituneHealingCatalog: excluded intensity for ${title}`);
 }
 if (freebgmJpPianoAmbientCatalog.platformId !== "freebgm-jp") errors.push("freebgmJpPianoAmbientCatalog: unexpected platform id");

@@ -10,6 +10,14 @@ import dovaGentleJazzLofiCatalog from "../../data/music-catalogs/dova-gentle-jaz
 import dovaSoftAcousticGuitarCatalog from "../../data/music-catalogs/dova-soft-acoustic-guitar-12.json" with { type: "json" };
 import dovaAmbientSynthPadCatalog from "../../data/music-catalogs/dova-ambient-synth-pad-13.json" with { type: "json" };
 import dovaRainSnowNightCatalog from "../../data/music-catalogs/dova-rain-snow-night-14.json" with { type: "json" };
+import dovaSunriseCoastCountrysideCatalog from "../../data/music-catalogs/dova-sunrise-coast-countryside-12.json" with { type: "json" };
+import dovaForestStreamLakeMistCatalog from "../../data/music-catalogs/dova-forest-stream-lake-mist-8.json" with { type: "json" };
+import dovaCityNightWarmLofiCatalog from "../../data/music-catalogs/dova-city-night-warm-lofi-5.json" with { type: "json" };
+import dovaGentlePianoJazzNightCatalog from "../../data/music-catalogs/dova-gentle-piano-jazz-night-6.json" with { type: "json" };
+import dovaLongStrictHealingCatalog from "../../data/music-catalogs/dova-long-strict-healing-3.json" with { type: "json" };
+import dovaMinimalHealingPianoCatalog from "../../data/music-catalogs/dova-minimal-healing-piano-2.json" with { type: "json" };
+import dovaWarmNostalgicPianoCatalog from "../../data/music-catalogs/dova-warm-nostalgic-piano-1.json" with { type: "json" };
+import dovaRecentStrictHealingCatalog from "../../data/music-catalogs/dova-recent-strict-healing-1.json" with { type: "json" };
 import amachaGentleCatalog from "../../data/music-catalogs/amacha-gentle-100.json" with { type: "json" };
 import bgmerCalmCatalog from "../../data/music-catalogs/bgmer-calm-100.json" with { type: "json" };
 import purrpleCatCalmCatalog from "../../data/music-catalogs/purrple-cat-calm-100.json" with { type: "json" };
@@ -320,7 +328,8 @@ interface CompactPerituneCatalog {
   downloadLabel: string;
   credit: string;
   licenseNote: string;
-  items: Array<[string, string, number, "piano" | "ambient" | "acoustic", boolean, string]>;
+  creationOrigin?: MusicTrack["creationOrigin"];
+  items: Array<[string, string, number, "piano" | "ambient" | "acoustic", boolean, string, number?]>;
 }
 
 interface CompactFreebgmJpCatalog {
@@ -553,8 +562,8 @@ function expandDovaCatalog(catalog: CompactDovaCatalog): MusicTrack[] {
   const categoryMap = {
     piano: ["healing-piano", "calm-piano", "gentle-piano", "signature-healing-loop"],
     ambient: ["ambient-healing", "healing-piano", "calm-piano", "gentle-piano", "signature-healing-loop"],
-    lofi: ["soft-lofi", "warm-lofi", "japanese-lofi", "rainy-day-chillhop"],
-    jazz: ["relaxed-jazz-nocturne", "gentle-piano-jazz", "jazzhop"]
+    lofi: ["soft-lofi", "warm-lofi", "japanese-lofi", "rainy-day-chillhop", "signature-healing-loop"],
+    jazz: ["relaxed-jazz-nocturne", "gentle-piano-jazz", "jazzhop", "signature-healing-loop"]
   } as const;
   const sceneMap = {
     piano: ["countryside", "rain", "sunrise", "blue-hour"],
@@ -766,7 +775,7 @@ function expandHmixGalleryCatalog(catalog: CompactHmixGalleryCatalog): MusicTrac
 }
 
 function expandPerituneCatalog(catalog: CompactPerituneCatalog): MusicTrack[] {
-  return catalog.items.map(([title, pageUrl, bpm, kind, nativeLoop, tags], index) => {
+  return catalog.items.map(([title, pageUrl, bpm, kind, nativeLoop, tags, durationSeconds], index) => {
     const isPiano = kind === "piano";
     const isAcoustic = kind === "acoustic";
     return {
@@ -782,13 +791,14 @@ function expandPerituneCatalog(catalog: CompactPerituneCatalog): MusicTrack[] {
       scenes: isAcoustic
         ? ["countryside", "sunrise", "road-driving", "blue-hour"]
         : ["countryside", "rain", "sunrise", "city-night", "blue-hour"],
-      durationSeconds: null,
+      durationSeconds: durationSeconds ?? null,
       description: `${catalog.description}｜BPM：${bpm || "官方列表未显示"}｜标签：${tags}｜原生循环文件：${nativeLoop ? "有" : "曲目页未明确"}`,
       listenUrl: pageUrl,
       downloadUrl: pageUrl,
       downloadLabel: catalog.downloadLabel,
       credit: catalog.credit,
-      licenseNote: catalog.licenseNote
+      licenseNote: catalog.licenseNote,
+      ...(catalog.creationOrigin ? { creationOrigin: catalog.creationOrigin } : {})
     };
   });
 }
@@ -1083,6 +1093,14 @@ export const youtubeMusicLibrary: YoutubeMusicLibrary = {
     ...expandDovaCatalog(dovaSoftAcousticGuitarCatalog as CompactDovaCatalog),
     ...expandDovaCatalog(dovaAmbientSynthPadCatalog as CompactDovaCatalog),
     ...expandDovaCatalog(dovaRainSnowNightCatalog as CompactDovaCatalog),
+    ...expandDovaCatalog(dovaSunriseCoastCountrysideCatalog as CompactDovaCatalog),
+    ...expandDovaCatalog(dovaForestStreamLakeMistCatalog as CompactDovaCatalog),
+    ...expandDovaCatalog(dovaCityNightWarmLofiCatalog as CompactDovaCatalog),
+    ...expandDovaCatalog(dovaGentlePianoJazzNightCatalog as CompactDovaCatalog),
+    ...expandDovaCatalog(dovaLongStrictHealingCatalog as CompactDovaCatalog),
+    ...expandDovaCatalog(dovaMinimalHealingPianoCatalog as CompactDovaCatalog),
+    ...expandDovaCatalog(dovaWarmNostalgicPianoCatalog as CompactDovaCatalog),
+    ...expandDovaCatalog(dovaRecentStrictHealingCatalog as CompactDovaCatalog),
     ...expandAmachaCatalog(amachaGentleCatalog as CompactAmachaCatalog),
     ...expandBgmerCatalog(bgmerCalmCatalog as CompactBgmerCatalog),
     ...expandPurrpleCatCatalog(purrpleCatCalmCatalog as CompactPurrpleCatCatalog),
@@ -1126,7 +1144,7 @@ export function filterMusicPlatforms(input: { categoryId?: string; scene?: Music
 
 export function filterMusicAlbums(input: { platformId?: string; family?: MusicFamily; categoryId?: string; scene?: MusicScene; query?: string }) {
   const categoryIds = input.family
-    ? new Set(youtubeMusicLibrary.categories.filter((category) => input.family === "lofi" ? category.family === "lofi" || category.family === "chillhop" : category.family === input.family).map((category) => category.id))
+    ? new Set(youtubeMusicLibrary.categories.filter((category) => category.id !== "signature-healing-loop" && (input.family === "lofi" ? category.family === "lofi" || category.family === "chillhop" : category.family === input.family)).map((category) => category.id))
     : null;
   const needle = input.query?.trim().toLowerCase() ?? "";
   return youtubeMusicLibrary.albums.filter((album) => {
@@ -1141,7 +1159,7 @@ export function filterMusicAlbums(input: { platformId?: string; family?: MusicFa
 
 export function filterMusicTracks(input: { platformId?: string; family?: MusicFamily; categoryId?: string; scene?: MusicScene; query?: string; minDurationSeconds?: number; excludeAiGenerated?: boolean }) {
   const categoryIds = input.family
-    ? new Set(youtubeMusicLibrary.categories.filter((category) => input.family === "lofi" ? category.family === "lofi" || category.family === "chillhop" : category.family === input.family).map((category) => category.id))
+    ? new Set(youtubeMusicLibrary.categories.filter((category) => category.id !== "signature-healing-loop" && (input.family === "lofi" ? category.family === "lofi" || category.family === "chillhop" : category.family === input.family)).map((category) => category.id))
     : null;
   const needle = input.query?.trim().toLowerCase() ?? "";
   return youtubeMusicLibrary.tracks.filter((track) => {

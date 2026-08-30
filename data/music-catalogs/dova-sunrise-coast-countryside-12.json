@@ -1,0 +1,23 @@
+{
+  "platformId": "dova-syndrome",
+  "description": "DOVA 日出、海岸与乡村清晨批次：具名真人作曲者，优先温暖、平静、轻柔、弱动态和低存在感",
+  "downloadLabel": "官方曲目页 / MP3 下载",
+  "credit": "请复制每首官方曲目页列出的作者署名与使用条件",
+  "licenseNote": "可依 DOVA 音源利用许可作为 YouTube 背景音乐并做必要的裁切、Fade 与 Loop；原生 Loop 状态按曲目单独标记。",
+  "creationOrigin": "human",
+  "nativeLoopOnly": false,
+  "items": [
+    ["Healing Morning", 22079, "のる", "ambient", "Piano・Synth Pad・Warm・Calm・Gentle・Slow・Ambient・Healing", "核心匹配；柔和钢琴与温暖 Pad，适合日出、晨雾、乡村清晨与海岸空镜", 249, false],
+    ["君が居る朝", 22140, "ゆうり (Yuli Audio Craft)", "ambient", "Acoustic Guitar・Warm・Calm・Gentle", "核心匹配；无打击乐，适合暖阳乡村、木屋清晨与海岸散步", 147, false],
+    ["穏やかな海", 18308, "ゆうり (Yuli Audio Craft)", "piano", "Piano・Warm・Calm・Gentle・Slow・Weak", "核心匹配；适合平静海面、日出前蓝调时刻与海岸慢镜头", 84, false],
+    ["優しい海辺", 20733, "蒲鉾さちこ", "ambient", "Acoustic Guitar Duo・Strings・Warm・Calm・Gentle・Weak・Slow・Healing", "核心匹配；采用 T2 自然残响版，官方原生 Loop，适合海岸、湾岸与清晨露营", 180, true],
+    ["カーテン", 19507, "もっぴーさうんど", "piano", "Piano Solo・Warm・Calm・Gentle・Weak・Slow・Acoustic", "核心匹配；适合朝日穿窗、黎明街道与克制日出", 140, false],
+    ["穏やかな朝の光", 21404, "ゆうり (Yuli Audio Craft)", "piano", "Piano Solo・Warm・Calm・Gentle・Weak・Slow", "核心匹配；适合柔和日出、田野晨光与乡村街道", 127, false],
+    ["夕暮れに思いを馳せて", 12362, "こばっと", "ambient", "Piano・Woodwind・Harp・Warm・Calm・Gentle・Slow・Acoustic", "核心匹配；适合宁静田野、乡村晨雾、暮色与旧村落", 154, false],
+    ["冬の朝焼け", 18027, "オオヒラセイジ", "ambient", "Piano・Strings・Warm・Calm・Gentle・Ambient・Healing", "核心匹配；适合冬日日出、海岸晨光与薄雾山村", 179, false],
+    ["夏の思い出", 8414, "こっけ", "piano", "Piano Solo・Warm・Calm・Gentle・Slow・Healing", "核心匹配；适合田野清晨、乡村夏日、旧屋晨光与缓慢公路", 200, false],
+    ["無人駅", 8260, "MATSU", "ambient", "Acoustic Guitar・Warm・Calm・Gentle・Slow・Healing", "核心匹配；适合乡村清晨、无人车站与怀旧慢旅程", 106, false],
+    ["海辺のCafeにて (At seaside Cafe)", 16603, "蒲鉾さちこ", "jazz", "Piano Solo・Keys・Warm・Calm・Gentle・Ambient・Healing・Light Jazz", "补充匹配；无打击乐，适合海岸咖啡馆、晨光与明亮生活镜头", 196, false],
+    ["あの日の海へ", 21667, "のる", "piano", "Piano Solo・Warm・Calm・Gentle・Slow", "补充匹配；适合海岸回望、晨光远景与乡村旅程，旋律较完整", 216, false]
+  ]
+}

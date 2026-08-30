@@ -5,6 +5,7 @@
   "downloadLabel": "官方曲目页下载 MP3／循环版 ZIP",
   "credit": "Music: PeriTune https://peritune.com/（2026 年 3 月后署名任意；建议保留曲名与链接）",
   "licenseNote": "官网独立条款允许在视频等作品中免费商业使用与 YouTube 盈利，并允许裁切、淡入淡出、循环等必要加工；2026 年 2 月以前曲目仍可按 CC BY 4.0 使用，官网允许优先采用其署名任意规则。禁止冒充作者、把音乐本身作为主体重新上传或登记 Content ID；使用前保存曲目页与最新条款。",
+  "creationOrigin": "human",
   "items": [
     [
       "Sylblanc",
@@ -805,6 +806,15 @@
       "ambient",
       true,
       "healing, calm, gentle, whisper, ambient"
+    ],
+    [
+      "Memories2",
+      "https://peritune.com/blog/2015/10/06/memories2/",
+      0,
+      "acoustic",
+      false,
+      "healing, warm, calm, gentle, slow, piano, soft guitar, natural, everyday memories",
+      146
     ]
   ]
 }

@@ -1,0 +1,19 @@
+{
+  "platformId": "dova-syndrome",
+  "description": "DOVA 森林、溪流、湖面与晨雾严格批次：仅收录完整命中 Warm、Calm、Gentle 的具名真人作品",
+  "downloadLabel": "官方曲目页 / MP3 下载",
+  "credit": "请复制每首官方曲目页列出的作者署名与使用条件",
+  "licenseNote": "可依 DOVA 音源利用许可作为 YouTube 背景音乐并做必要的裁切、Fade 与 Loop；原生 Loop 状态按曲目单独标记。",
+  "creationOrigin": "human",
+  "nativeLoopOnly": false,
+  "items": [
+    ["木漏れ日に包まれる", 10255, "しんさんわーくす", "ambient", "Synth Pad・Warm・Calm・Gentle・Slow・Ambient・Healing", "核心匹配；自然音叠加柔和 Pad，适合林间晨雾、树冠、湖面薄雾与长镜头", 432, false],
+    ["霧の湖", 15847, "キュス", "piano", "Piano・Warm・Calm・Gentle・Slow・Healing", "核心匹配；适合雾湖、蓝灰晨雾、静止水面与缓慢推镜", 239, false],
+    ["せせらぎに耳を澄まして", 21846, "ゆうきわたる", "ambient", "Piano・Synth Pad・Warm・Calm・Gentle・Healing", "核心匹配；官方原生 Loop，适合溪流、鸟鸣、苔藓与环境声自然素材", 91, true],
+    ["水辺のピアノ", 16659, "shimtone", "piano", "Piano Solo・Warm・Calm・Gentle・Slow・Healing", "核心匹配；官方原生 Loop，适合湖边、溪流广角、倒影与缓慢水波", 120, true],
+    ["優しい日だまりと、静寂", 17957, "蒲鉾さちこ", "ambient", "Acoustic Guitar・Synth Pad・Warm・Calm・Gentle・Weak・Slow・Ambient・Healing", "核心匹配；适合林间阳光、冬日森林、湖面反光与自然空镜", 161, false],
+    ["Hand in Hand", 12910, "すもち", "ambient", "Piano・Strings・Woodwind・Warm・Calm・Gentle・Slow", "核心匹配；适合林道、野花、湖岸远景与自然纪录片式转场", 186, false],
+    ["朝霧と静寂に包まれて", 10157, "しんさんわーくす", "ambient", "Acoustic Guitar・Strings・Warm・Calm・Gentle・Slow・Ambient・Healing", "核心匹配；8 分 43 秒舒缓 Ambient，适合晨雾、森林延时、湖面长镜头与自然开场", 523, false],
+    ["また明日", 11662, "shimtone", "ambient", "Piano・Synth Pad・Warm・Calm・Gentle・Slow・Healing", "核心匹配；官方原生 Loop，适合黄昏森林、湖边收尾与步道回程", 106, true]
+  ]
+}
