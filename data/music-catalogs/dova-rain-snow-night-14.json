@@ -1,0 +1,25 @@
+{
+  "platformId": "dova-syndrome",
+  "description": "DOVA 雨景、雪夜与安静夜驾批次：具名真人作曲者，无强鼓点，优先温暖、平静、轻柔与弱动态",
+  "downloadLabel": "官方曲目页 / MP3 下载",
+  "credit": "请复制每首官方曲目页列出的作者署名与使用条件",
+  "licenseNote": "可依 DOVA 音源利用许可作为 YouTube 背景音乐并做必要的裁切、Fade 与 Loop；原生 Loop 状态按曲目单独标记。",
+  "creationOrigin": "human",
+  "nativeLoopOnly": false,
+  "items": [
+    ["優しい憂雨に", 20304, "蒲鉾さちこ", "piano", "Piano・Slow・Weak・Healing・Gentle", "核心匹配；适合雨景、雪夜与安静夜间行车", 150, false],
+    ["雨と流れる", 19730, "もっぴーさうんど", "piano", "Piano・Slow・Weak・Healing・Calm", "核心匹配；优先纯钢琴版本，适合雨夜与缓慢公路镜头", 158, false],
+    ["雨だれの街", 12369, "MATSU", "piano", "Piano・Slow・Weak・Calm・Gentle", "核心匹配；优先 T2 纯钢琴版，适合城市雨景与蓝调时刻", 104, false],
+    ["Rainy AM", 19746, "H★", "piano", "Piano・Acoustic Guitar・Strings・Synth・Slow・Healing", "核心匹配；无打击乐，适合清晨雨景、乡村与湿润街道", 147, false],
+    ["夜、ぼんやりと", 22210, "ゆうり (Yuli Audio Craft)", "ambient", "Keys・Slow・Weak・Warm・Calm・Gentle", "核心匹配；适合安静夜驾、车窗与城市灯光", 201, false],
+    ["静かな夜 (Quiet Night)", 13958, "蒲鉾さちこ", "piano", "Piano・Slow・Weak・Calm・Healing", "核心匹配；适合静夜、室内雨景与长镜头", 142, false],
+    ["冬の訪れ", 19814, "蒲鉾さちこ", "piano", "Piano・Slow・Weak・Warm・Healing", "核心匹配；适合初雪、冬日乡村与清晨公路", 146, false],
+    ["秋、深まりて", 17381, "蒲鉾さちこ", "piano", "Piano・Slow・Weak・Warm・Gentle", "核心匹配；适合深秋雨景、黄昏与安静返程", 195, false],
+    ["Dot Snow", 12058, "こおろぎ", "ambient", "Simple Synth・Slow・Weak・Warm・Calm・Gentle", "核心匹配；适合飘雪、车窗与极简冬夜画面", 161, false],
+    ["窓辺のドロップス", 13672, "すもち", "piano", "Piano Solo・Slow・Weak・Calm・Gentle", "核心匹配；适合窗边雨滴、室内静景与夜晚", 132, false],
+    ["静かな雪の夜", 17766, "のる", "ambient", "Strings・Woodwind・Slow・Weak・Warm・Calm・Gentle", "核心匹配；采用 T2 官方原生 Loop 版，适合雪夜与冬季长镜头", 120, true],
+    ["秋雨と共に (Autumn rain with you)", 17482, "蒲鉾さちこ", "piano", "Piano・Slow・Weak・Warm・Calm・Light Jazz", "补充匹配；无打击乐，适合秋雨、夜路与都市蓝调时刻", 179, false],
+    ["夜闇に、風に紛れて", 17734, "蒲鉾さちこ", "piano", "Piano・Slow・Weak・Calm・Light Jazz", "补充匹配；无打击乐，适合深夜行车与暗色城市画面", 162, false],
+    ["夜と静寂 (The night and quiet)", 18602, "蒲鉾さちこ", "piano", "Piano・Slow・Weak・Calm・Healing", "补充匹配；无打击乐，适合静夜、空镜与缓慢夜驾", 175, false]
+  ]
+}

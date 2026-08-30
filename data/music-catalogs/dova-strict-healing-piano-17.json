@@ -1,0 +1,28 @@
+{
+  "platformId": "dova-syndrome",
+  "description": "DOVA 官方曲目页逐首核验：具名真人作曲者，命中 Healing / Warm / Calm / Gentle，并排除强鼓、Funk、EDM、Energetic、Intense 与 Loud",
+  "downloadLabel": "官方曲目页 / MP3 下载",
+  "credit": "请复制每首官方曲目页列出的作者署名与使用条件",
+  "licenseNote": "可依 DOVA 音源利用许可作为 YouTube 背景音乐并做必要的裁切、Fade 与 Loop；不得将音乐本身作为主要内容重新分发。使用前仍须复核单曲页与作者附加条件。",
+  "creationOrigin": "human",
+  "nativeLoopOnly": false,
+  "items": [
+    ["朝日を纏う池の鳥達", 23250, "ハモおた", "ambient", "Slow・Healing・Ambient・Piano・A.Guitar・Synth Pad", "Track 2 为官方循环版；适合日出、湖泊与乡村", 379],
+    ["輪郭", 23370, "もっぴーさうんど", "piano", "Slow・Healing・Piano", "克制钢琴独奏，适合沉静公路与回望画面", 261],
+    ["2つの世界、2つの夏", 23687, "蒲鉾さちこ", "ambient", "Weak・Healing・Ambient・Piano", "怀旧夏景与黄昏", 231],
+    ["春風が導く先", 23335, "NEKOZOU", "piano", "Healing・Ambient・Piano・Strings", "适合春日、花田与日出", 218],
+    ["木漏れ日", 2690, "もっぴーさうんど", "piano", "Weak・Acoustic・Piano Solo", "温暖、克制且留白较多", 193],
+    ["木漏れ日と温もり", 20678, "蒲鉾さちこ", "ambient", "Weak・Healing・Ambient・Piano・Soft Synth Pad", "适合森林、雨后与清晨", 189],
+    ["ながれぼし", 2620, "もっぴーさうんど", "ambient", "Weak・Healing・Ambient・Piano", "适合夜空与蓝调时刻", 159],
+    ["木漏れ日アンビエント", 1208, "ハヤシユウ", "ambient", "Slow・Healing・Ambient・Piano", "作者说明可按固定和声切贴延长，但不标为原生循环", 157],
+    ["Snowflake Chocolates", 23154, "ハヤシユウ", "piano", "Healing・Piano・Strings", "适合温柔冬景与雪景", 141],
+    ["bud", 23352, "SHUNTA", "ambient", "Slow・Healing・Ambient・Piano・Synth Pad", "适合植物、自然与柔光", 129],
+    ["Mimosa flowers", 23213, "Tinymemory", "ambient", "Healing・Piano・Synth Pad", "简洁、温柔、自然", 127],
+    ["Wakaba", 23345, "Tinymemory", "piano", "Healing・Piano・Synth Pad", "钢琴主导，适合新绿与清晨", 117],
+    ["星屑のシェルター", 23753, "ゆうきわたる", "ambient", "Slow・Healing・Piano・Synth Pad", "官方说明可循环", 116],
+    ["夏の思い出", 2119, "Kyaai", "piano", "Healing・Piano・Strings", "Track 2 为官方循环版；适合海岸与夕阳", 109],
+    ["Message for you", 23115, "Heitaro Ashibe", "piano", "Healing・Piano Solo", "朴素、真挚、低存在感", 105],
+    ["Botanical colors", 23291, "Tinymemory", "ambient", "Healing・Piano・Synth Pad", "适合自然、疗愈与日常画面", 95],
+    ["Unbelievable dream", 23266, "蒲鉾さちこ", "piano", "Weak・Healing・Ambient・Piano Solo", "适合梦境、雨夜与回忆", 94]
+  ]
+}

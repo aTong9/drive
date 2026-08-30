@@ -196,6 +196,67 @@ test("Resolve practical tutorials turn markers into verified edits", () => {
       "temporal-spatial-noise-reduction",
       "fairlight-noise-reduction-ab",
       "fairlight-de-esser-dialogue",
+      "media-metadata-smart-bins",
+      "photo-rate-sort-album",
+      "fusion-delta-keyer-clean-plate",
+      "media-clone-checksum-backup",
+      "photo-keyframe-push-in",
+      "color-power-window-track",
+      "photo-nondestructive-crop-ratios",
+      "fusion-planar-screen-replacement",
+      "deliver-individual-clips-handles",
+      "media-dual-system-audio-sync",
+      "color-skin-qualifier-vectorscope",
+      "fairlight-automatic-ducking",
+      "cut-source-tape-assembly",
+      "edit-scene-cut-detection-review",
+      "edit-freeze-frame-hold",
+      "edit-render-cache-smart-user",
+      "fusion-text-plus-lower-third",
+      "edit-compound-clip-decompose",
+      "edit-render-in-place-restore",
+      "colortrace-revised-timeline",
+      "edit-optical-flow-speed-warp-qc",
+      "fairlight-dialogue-leveler-ab",
+      "color-shared-node-linked-fix",
+      "edit-dynamic-project-timeline-copy",
+      "fairlight-ai-remove-silence-review",
+      "media-intellisearch-context-review",
+      "edit-animated-subtitles-word-highlight",
+      "color-face-plate-mosaic-track",
+      "edit-scroll-credits-readability-qc",
+      "media-dual-mono-channel-map-qc",
+      "edit-ripple-roll-slip-slide-qc",
+      "edit-reverse-speed-audio-continuity-qc",
+      "edit-flip-horizontal-text-direction-qc",
+      "edit-paste-attributes-selective-qc",
+      "color-magic-mask-subject-background-qc",
+      "deliver-alpha-prores4444-roundtrip-qc",
+      "deliver-live-save-project-backup-restore-drill",
+      "edit-keyboard-preset-conflict-qc",
+      "edit-replace-edit-playhead-sync-qc",
+      "color-iphone-hdr-managed-sdr-hlg-qc",
+      "media-vfr-cfr-sync-transcode-qc",
+      "deliver-render-failure-range-isolation-qc",
+      "deliver-review-copy-data-burnin-qc",
+      "edit-review-feedback-marker-status-qc",
+      "fairlight-clipped-audio-backup-adr-qc",
+      "fairlight-multimic-phase-cancellation-qc",
+      "color-gradient-banding-source-grade-export-qc",
+      "color-moire-window-blur-track-qc",
+      "edit-horizon-level-rotate-safe-crop-qc",
+      "color-chromatic-fringe-qualifier-window-qc",
+      "color-auto-exposure-pump-dynamic-keyframes-qc",
+      "edit-lens-correction-straight-line-qc",
+      "edit-rolling-shutter-diagnosis-handoff-qc",
+      "color-mixed-light-power-window-track-qc",
+      "fairlight-wind-rumble-eq-replace-qc",
+      "edit-interview-static-punch-in-jump-cut-qc",
+      "fairlight-room-tone-bed-dialogue-edit-qc",
+      "edit-dynamic-zoom-still-photo-qc",
+      "edit-broll-place-on-top-dialogue-lock-qc",
+      "edit-before-after-split-screen-export-qc",
+      "edit-alpha-logo-corner-brand-master-qc",
     ],
   );
   assert.match(
@@ -251,13 +312,19 @@ test("Resolve practical tutorials turn markers into verified edits", () => {
     ].sort(),
     [
       "修复",
+      "动画",
+      "媒体",
       "剪辑",
       "声音",
       "合成",
       "字幕",
       "多平台",
       "性能",
+      "整理",
+      "标题",
+      "照片",
       "调色",
+      "交付",
       "质检",
       "节奏",
       "转场",
@@ -275,7 +342,23 @@ test("Resolve tutorials belong to their actual workspace", () => {
       "adjustment-clip-version",
       "gallery-still-shot-match",
       "temporal-spatial-noise-reduction",
+      "color-power-window-track",
+      "color-skin-qualifier-vectorscope",
+      "colortrace-revised-timeline",
+      "color-shared-node-linked-fix",
+      "color-face-plate-mosaic-track",
+      "color-magic-mask-subject-background-qc",
+      "color-iphone-hdr-managed-sdr-hlg-qc",
+      "color-gradient-banding-source-grade-export-qc",
+      "color-moire-window-blur-track-qc",
+      "color-chromatic-fringe-qualifier-window-qc",
+      "color-auto-exposure-pump-dynamic-keyframes-qc",
+      "color-mixed-light-power-window-track-qc",
     ],
+  );
+  assert.deepEqual(
+    getResolveTutorialsForWorkspace("edit").at(-1)!.id,
+    "edit-alpha-logo-corner-brand-master-qc",
   );
   assert.ok(
     getResolveTutorialsForWorkspace("fairlight").every((tutorial) =>
@@ -285,6 +368,46 @@ test("Resolve tutorials belong to their actual workspace", () => {
   assert.ok(
     getResolveTutorialsForWorkspace("deliver").every((tutorial) =>
       /字幕|交付|归档|渲染|竖屏/.test(`${tutorial.category} ${tutorial.title}`),
+    ),
+  );
+  assert.deepEqual(
+    getResolveTutorialsForWorkspace("photo").map((tutorial) => tutorial.id),
+    [
+      "photo-rate-sort-album",
+      "photo-keyframe-push-in",
+      "photo-nondestructive-crop-ratios",
+    ],
+  );
+  assert.deepEqual(
+    getResolveTutorialsForWorkspace("media").map((tutorial) => tutorial.id),
+    [
+      "proxy-original-relink",
+      "media-metadata-smart-bins",
+      "media-clone-checksum-backup",
+      "media-dual-system-audio-sync",
+      "media-intellisearch-context-review",
+      "media-dual-mono-channel-map-qc",
+      "media-vfr-cfr-sync-transcode-qc",
+    ],
+  );
+  assert.deepEqual(
+    getResolveTutorialsForWorkspace("fusion").map((tutorial) => tutorial.id),
+    [
+      "tracker-callout",
+      "object-removal-clean-plate",
+      "fusion-delta-keyer-clean-plate",
+      "fusion-planar-screen-replacement",
+      "fusion-text-plus-lower-third",
+    ],
+  );
+  assert.ok(
+    getResolveTutorialsForWorkspace("deliver").some(
+      (tutorial) => tutorial.id === "deliver-individual-clips-handles",
+    ),
+  );
+  assert.ok(
+    getResolveTutorialsForWorkspace("fairlight").some(
+      (tutorial) => tutorial.id === "fairlight-automatic-ducking",
     ),
   );
 });

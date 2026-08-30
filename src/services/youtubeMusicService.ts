@@ -2,7 +2,14 @@ import data from "../../data/youtube-music-library.json" with { type: "json" };
 import streambeatsLofiCatalog from "../../data/music-catalogs/streambeats-lofi-100.json" with { type: "json" };
 import scottBuckleyCatalog from "../../data/music-catalogs/scott-buckley-100.json" with { type: "json" };
 import incompetechCatalog from "../../data/music-catalogs/incompetech-calm-100.json" with { type: "json" };
+import incompetechLongCalmCatalog from "../../data/music-catalogs/incompetech-long-calm-5.json" with { type: "json" };
 import dovaLoopableCatalog from "../../data/music-catalogs/dova-loopable-warm-100.json" with { type: "json" };
+import dovaStrictHealingCatalog from "../../data/music-catalogs/dova-strict-healing-piano-17.json" with { type: "json" };
+import dovaStrictHealingBatch2Catalog from "../../data/music-catalogs/dova-strict-healing-piano-batch2-12.json" with { type: "json" };
+import dovaGentleJazzLofiCatalog from "../../data/music-catalogs/dova-gentle-jazz-lofi-11.json" with { type: "json" };
+import dovaSoftAcousticGuitarCatalog from "../../data/music-catalogs/dova-soft-acoustic-guitar-12.json" with { type: "json" };
+import dovaAmbientSynthPadCatalog from "../../data/music-catalogs/dova-ambient-synth-pad-13.json" with { type: "json" };
+import dovaRainSnowNightCatalog from "../../data/music-catalogs/dova-rain-snow-night-14.json" with { type: "json" };
 import amachaGentleCatalog from "../../data/music-catalogs/amacha-gentle-100.json" with { type: "json" };
 import bgmerCalmCatalog from "../../data/music-catalogs/bgmer-calm-100.json" with { type: "json" };
 import purrpleCatCalmCatalog from "../../data/music-catalogs/purrple-cat-calm-100.json" with { type: "json" };
@@ -26,6 +33,7 @@ import youtubeAudioLibraryCalmAmbientCatalog from "../../data/music-catalogs/you
 import uppbeatFreeCalmCatalog from "../../data/music-catalogs/uppbeat-free-calm-100.json" with { type: "json" };
 import teknoaxeCalmCatalog from "../../data/music-catalogs/teknoaxe-calm-100.json" with { type: "json" };
 import youtubeHumanPianoCreatorsCatalog from "../../data/music-catalogs/youtube-human-piano-creators-100.json" with { type: "json" };
+import alexanderNakaradaLongPianoCatalog from "../../data/music-catalogs/alexander-nakarada-long-piano-1.json" with { type: "json" };
 import youtubePianoCreatorDirectory from "../../data/music-catalogs/youtube-human-piano-creators-50.json" with { type: "json" };
 
 export type MusicFamily = "piano" | "lofi" | "chillhop" | "jazz";
@@ -202,6 +210,7 @@ interface CompactMetadataCatalog {
   downloadLabel: string;
   credit: string;
   licenseNote: string;
+  creationOrigin?: MusicTrack["creationOrigin"];
   items: Array<[string, string, number, "piano" | "ambient" | "jazz", string, string, number]>;
 }
 
@@ -211,7 +220,9 @@ interface CompactDovaCatalog {
   downloadLabel: string;
   credit: string;
   licenseNote: string;
-  items: Array<[string, number, string, "piano" | "ambient" | "lofi" | "jazz", string, string]>;
+  creationOrigin?: MusicTrack["creationOrigin"];
+  nativeLoopOnly?: boolean;
+  items: Array<[string, number, string, "piano" | "ambient" | "lofi" | "jazz", string, string, number?, boolean?]>;
 }
 
 interface CompactAmachaCatalog {
@@ -532,7 +543,8 @@ function expandMetadataCatalog(catalog: CompactMetadataCatalog): MusicTrack[] {
       platformId: catalog.platformId, categoryIds: [...categoryMap[kind]], scenes: [...sceneMap[kind]], durationSeconds,
       description: `${catalog.description}｜Feel：${feel}｜乐器：${instruments}｜BPM：${bpm || "自由速度"}｜ISRC：${isrc}`,
       listenUrl: pageUrl, downloadUrl: pageUrl, downloadLabel: catalog.downloadLabel,
-      credit: catalog.credit.replace("曲名", title), licenseNote: catalog.licenseNote
+      credit: catalog.credit.replace("曲名", title), licenseNote: catalog.licenseNote,
+      ...(catalog.creationOrigin ? { creationOrigin: catalog.creationOrigin } : {})
     };
   });
 }
@@ -550,14 +562,18 @@ function expandDovaCatalog(catalog: CompactDovaCatalog): MusicTrack[] {
     lofi: ["rain", "city-night", "road-driving", "blue-hour", "urban"],
     jazz: ["city-night", "blue-hour", "urban"]
   } as const;
-  return catalog.items.map(([title, detailId, artist, kind, tags, summary]) => {
+  return catalog.items.map(([title, detailId, artist, kind, tags, summary, durationSeconds, nativeLoop]) => {
     const pageUrl = `https://dova-s.jp/bgm/detail/${detailId}`;
+    const categoryIds = catalog.nativeLoopOnly || nativeLoop
+      ? [...categoryMap[kind]]
+      : categoryMap[kind].filter((id) => id !== "signature-healing-loop");
     return {
-      id: `${catalog.platformId}-loopable-${detailId}`, title, artist, platformId: catalog.platformId,
-      categoryIds: [...categoryMap[kind]], scenes: [...sceneMap[kind]], durationSeconds: null,
-      description: `${catalog.description}｜官方标签：${tags}｜${summary}`,
+      id: `${catalog.platformId}-${catalog.nativeLoopOnly ? "loopable" : "healing"}-${detailId}`, title, artist, platformId: catalog.platformId,
+      categoryIds, scenes: [...sceneMap[kind]], durationSeconds: durationSeconds ?? null,
+      description: `${catalog.description}｜官方标签：${tags}｜原生 Loop：${catalog.nativeLoopOnly || nativeLoop ? "是" : "否"}｜${summary}`,
       listenUrl: pageUrl, downloadUrl: pageUrl, downloadLabel: catalog.downloadLabel,
-      credit: catalog.credit, licenseNote: catalog.licenseNote
+      credit: catalog.credit, licenseNote: catalog.licenseNote,
+      ...(catalog.creationOrigin ? { creationOrigin: catalog.creationOrigin } : {})
     };
   });
 }
@@ -1059,7 +1075,14 @@ export const youtubeMusicLibrary: YoutubeMusicLibrary = {
     ...expandAlbumCatalog(streambeatsLofiCatalog as CompactAlbumCatalog),
     ...expandTaggedCatalog(scottBuckleyCatalog as CompactTaggedCatalog),
     ...expandMetadataCatalog(incompetechCatalog as CompactMetadataCatalog),
+    ...expandMetadataCatalog(incompetechLongCalmCatalog as CompactMetadataCatalog),
     ...expandDovaCatalog(dovaLoopableCatalog as CompactDovaCatalog),
+    ...expandDovaCatalog(dovaStrictHealingCatalog as CompactDovaCatalog),
+    ...expandDovaCatalog(dovaStrictHealingBatch2Catalog as CompactDovaCatalog),
+    ...expandDovaCatalog(dovaGentleJazzLofiCatalog as CompactDovaCatalog),
+    ...expandDovaCatalog(dovaSoftAcousticGuitarCatalog as CompactDovaCatalog),
+    ...expandDovaCatalog(dovaAmbientSynthPadCatalog as CompactDovaCatalog),
+    ...expandDovaCatalog(dovaRainSnowNightCatalog as CompactDovaCatalog),
     ...expandAmachaCatalog(amachaGentleCatalog as CompactAmachaCatalog),
     ...expandBgmerCatalog(bgmerCalmCatalog as CompactBgmerCatalog),
     ...expandPurrpleCatCatalog(purrpleCatCalmCatalog as CompactPurrpleCatCatalog),
@@ -1082,7 +1105,8 @@ export const youtubeMusicLibrary: YoutubeMusicLibrary = {
     ...expandYoutubeAudioLibraryCatalog(youtubeAudioLibraryCalmAmbientCatalog as YoutubeAudioLibraryRow[]),
     ...expandUppbeatFreeCalmCatalog(uppbeatFreeCalmCatalog as UppbeatFreeCalmRow[]),
     ...expandTeknoaxeCatalog(teknoaxeCalmCatalog as CompactTeknoaxeCatalog),
-    ...expandYoutubeHumanPianoCatalog(youtubeHumanPianoCreatorsCatalog as CompactYoutubeHumanPianoCatalog)
+    ...expandYoutubeHumanPianoCatalog(youtubeHumanPianoCreatorsCatalog as CompactYoutubeHumanPianoCatalog),
+    ...expandYoutubeHumanPianoCatalog(alexanderNakaradaLongPianoCatalog as CompactYoutubeHumanPianoCatalog)
   ]
 };
 

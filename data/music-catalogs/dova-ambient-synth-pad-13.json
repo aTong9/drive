@@ -1,0 +1,24 @@
+{
+  "platformId": "dova-syndrome",
+  "description": "DOVA 无鼓 Ambient / Synth Pad / Sparse Piano 批次：具名真人作曲者，动态弱、质地稀疏，适合雨景、日出、乡村、城市夜景和长镜头",
+  "downloadLabel": "官方曲目页 / MP3 下载",
+  "credit": "请复制每首官方曲目页列出的作者署名与使用条件",
+  "licenseNote": "可依 DOVA 音源利用许可作为 YouTube 背景音乐并做必要的裁切、Fade 与 Loop；原生 Loop 状态按曲目单独标记。",
+  "creationOrigin": "human",
+  "nativeLoopOnly": false,
+  "items": [
+    ["Peaceful rest", 23509, "蒲鉾さちこ", "ambient", "Synth Pad・Other Synth・Slow・Weak・Ambient・Healing", "核心匹配；柔和即兴 Pad，适合日出、雾林与乡村清晨", 240, false],
+    ["波に揺られる", 22768, "もっぴーさうんど", "piano", "Piano・Slow・Weak・Healing", "核心匹配；优先 T2 7:33 官方 Piano Solo 版，适合海面、河岸与雨后公路", 454, false],
+    ["枕", 22767, "もっぴーさうんど", "piano", "Piano・Slow・Weak・Healing", "核心匹配；适合安静夜路、室内雨景与蓝调时刻", 216, false],
+    ["Silence in Time", 22424, "shimtone", "ambient", "Piano・Synth Pad・Slow・Ambient・Healing", "核心匹配；温和钢琴基底，适合日出、田野与湖泊", 177, true],
+    ["When the flowers are quiet", 22119, "shimtone", "ambient", "Piano・Synth Pad・Slow・Ambient・Healing", "核心匹配；适合花田、乡村与林间光影", 141, true],
+    ["ここは羽を休める場所", 21949, "ゆうきわたる", "ambient", "Piano・Harp・Synth Pad・Slow・Healing", "核心匹配；适合休息点、雨棚与清晨村落", 114, true],
+    ["冬凪", 21441, "shimtone", "ambient", "Piano・Synth Pad・Slow・Ambient・Healing", "核心匹配；适合冬雨、薄雾与城市清晨", 132, true],
+    ["Lakeside Railway", 20610, "TECHNOTRAIN", "ambient", "Synth Lead・Synth Pad・Other Synth・Ambient・Healing", "核心匹配；适合湖畔铁路、车窗与乡间公路", 203, false],
+    ["Voyage", 19760, "TECHNOTRAIN", "ambient", "Synth Lead・Synth Pad・Strings・Ambient・Healing", "核心匹配；适合公路远行、海岸、日落与航拍", 191, false],
+    ["水の導き", 23034, "shimtone", "ambient", "Piano・Keys・Synth Lead・Synth Pad・High Strings・Slow・Healing", "补充匹配；适合溪流、湖泊与雨后乡村", 155, true],
+    ["Autumn Glow", 22605, "gooset", "ambient", "Electric Piano Solo・Synth Pad・Slow・Ambient・Healing", "补充匹配；优先 T2 0:46 无虫鸣版，适合秋日乡村与黄昏田野", 58, false],
+    ["Somnium", 22430, "山本リョーマ", "ambient", "Piano・Violin・Synth Pad・Other Synth・Slow・Ambient・Healing", "补充匹配；适合日出、梦境感转场与短景别", 57, false],
+    ["満ちていく", 21004, "ゆうきわたる", "ambient", "Piano・Synth Lead・Synth Pad・Slow・Healing", "补充匹配；适合黎明、云层与光线渐强", 57, true]
+  ]
+}

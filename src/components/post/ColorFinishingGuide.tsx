@@ -143,7 +143,7 @@ export function ColorFinishingGuide({
         <nav>
           {colorFinishingSources.map((source) => (
             <a
-              key={source.url}
+              key={`${source.url}-${source.label}`}
               href={source.url}
               target="_blank"
               rel="noreferrer"

@@ -1,0 +1,23 @@
+{
+  "platformId": "dova-syndrome",
+  "description": "DOVA 第二批严格疗愈钢琴：具名真人作曲者，命中 Healing / Warm / Calm / Gentle，并排除鼓组、强节拍、Funk、EDM、Energetic、Intense 与 Loud",
+  "downloadLabel": "官方曲目页 / MP3 下载",
+  "credit": "请复制每首官方曲目页列出的作者署名与使用条件",
+  "licenseNote": "可依 DOVA 音源利用许可作为 YouTube 背景音乐并做必要的裁切、Fade 与 Loop；本批不标为原生无缝 Loop。使用前仍须复核单曲页与作者附加条件。",
+  "creationOrigin": "human",
+  "nativeLoopOnly": false,
+  "items": [
+    ["瞧想の庭", 23580, "のる", "ambient", "穏やか・遅い・Piano・Ambient・Synth Pad", "适合冥想、雾林与缓慢延时", 358],
+    ["やわらかいまどろみの中で", 14354, "蒲鉾さちこ", "ambient", "温かい・穏やか・優しい・弱々しい・遅い・Piano・Ambient・Synth Pad", "适合柔光、静稳自然与睡眠感夜景", 282],
+    ["はるかな翼", 19409, "のる", "ambient", "穏やか・優しい・遅い・Healing・Piano・Synth Pad", "适合日出、远景、云层与公路", 299],
+    ["優しい記憶", 16159, "キュス", "piano", "穏やか・優しい・慎ましい・遅い・Healing・Piano", "钢琴为主，适合回忆、乡村与慢速旅程", 147],
+    ["KANADE", 14797, "のる", "piano", "穏やか・優しい・慎ましい・遅い・Piano Solo", "适合清晨、小雨与空镜", 136],
+    ["静かな夜長に", 19572, "蒲鉾さちこ", "ambient", "温かい・穏やか・優しい・弱々しい・Piano・Ambient・Synth Pad", "适合雨夜、城市蓝调时刻与夜路", 138],
+    ["静かな森 (Quiet forest)", 14513, "蒲鉾さちこ", "ambient", "温かい・穏やか・優しい・弱々しい・遅い・Piano・Ambient・Synth Pad", "适合森林、小雨与薄雾", 158],
+    ["Warmth", 5739, "MFP【Marron Fields Production】", "piano", "温かい・穏やか・優しい・Healing・Piano", "采用官方钢琴版；适合暖光、乡村日常与雨后", 155],
+    ["透明でゆったりした午後", 3038, "巽 良太", "piano", "穏やか・優しい・冷静・淡白・Healing・Piano", "适合安静午后、田野与窗边", 126],
+    ["暖かな日々", 8384, "いまたく", "piano", "温かい・穏やか・優しい・遅い・Piano", "适合家庭、乡村与旧时光", 123],
+    ["桜ひらり", 20495, "すもち", "piano", "温かい・穏やか・優しい・遅い・Healing・Piano・Strings", "适合春日、花田与温柔道别", 149],
+    ["初夏の風を感じて…", 18889, "蒲鉾さちこ", "piano", "温かい・穏やか・優しい・弱々しい・一部遅い・Piano Solo", "适合初夏、梅雨与温柔风景", 144]
+  ]
+}

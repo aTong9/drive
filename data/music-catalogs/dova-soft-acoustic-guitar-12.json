@@ -1,0 +1,23 @@
+{
+  "platformId": "dova-syndrome",
+  "description": "DOVA 柔和原声吉他批次：具名真人作曲者，命中 Warm / Calm / Gentle；4 首为吉他 + Piano/Pad 核心组合，8 首为低存在感柔和吉他补充",
+  "downloadLabel": "官方曲目页 / MP3 下载",
+  "credit": "请复制每首官方曲目页列出的作者署名与使用条件",
+  "licenseNote": "可依 DOVA 音源利用许可作为 YouTube 背景音乐并做必要的裁切、Fade 与 Loop；仅 Folklore 标为原生 Loop，其余只允许后期循环。",
+  "creationOrigin": "human",
+  "nativeLoopOnly": false,
+  "items": [
+    ["平穏に過ぎて", 11054, "lei", "ambient", "A.Guitar・Piano・Oboe・Synth Pad・Warm・Calm・Gentle・Slow", "核心匹配；适合乡村道路、河岸、薄暮与安静旅程", 177],
+    ["夕暮れ時", 10566, "ゆうきわたる", "piano", "Piano・A.Guitar・Ocarina・Warm・Calm・Gentle・Slow", "核心匹配；适合日落、海岸、田野与归途", 135],
+    ["At Home, After All", 20839, "Keido Honda", "ambient", "A.Guitar Solo・Gentle Synth Pad・BPM 71・Healing・Warm・Calm・Gentle・Slow", "核心匹配；适合居家暖光、雨天窗边与村落日常", 133],
+    ["心にふれる", 7602, "ゆうり (Yuli Audio Craft)", "piano", "Piano・A.Guitar・BPM 75・Warm・Calm・Gentle・Modest・Slow", "核心匹配；适合温柔过场、人物回忆与日出", 54],
+    ["レトロな置き時計", 14579, "MATSU", "ambient", "Classical A.Guitar・Warm・Calm・Gentle・Modest・Slow・Healing", "相邻匹配；适合老屋、旧街、回忆与暖色黄昏", 217],
+    ["ひとりきりの夕べ", 17696, "のる", "ambient", "A.Guitar・Warm・Calm・Gentle・Slow", "相邻匹配；适合独行夜路、村庄暮色与安静室内", 209],
+    ["Folklore", 15738, "shimtone", "ambient", "Classical A.Guitar・Warm・Calm・Gentle・Modest・Slow", "相邻匹配；曲页标为原生 Loop，适合旧村与森林小径", 135],
+    ["ゆるやかな道", 7326, "ゆうり (Yuli Audio Craft)", "ambient", "A.Guitar・BPM 75・Warm・Calm・Gentle・Modest・Slow・Weak Percussion", "相邻匹配；只用于确认打击乐存在感足够弱的版本", 109],
+    ["日が暮れる", 16200, "ゆうり (Yuli Audio Craft)", "ambient", "A.Guitar・Warm・Calm・Gentle・Modest・Slow", "相邻匹配；适合日暮、归家与安静街道", 82],
+    ["カフェでギターを", 10753, "田中芳典", "ambient", "Human-played A.Guitar Solo・Weak・Warm・Calm・Gentle・Slow・Healing", "相邻匹配；适合朝日、原木咖啡馆与乡村静物", 72],
+    ["ちむじゅらさん", 14942, "伊藤ケイスケ", "ambient", "A.Guitar・Okinawa Sanshin・Weak・Ambient・Healing・Warm・Calm・Gentle・Slow", "相邻匹配；优先采用 Track 2 吉他版，适合海岸与岛屿日落", 72],
+    ["アルペジオ", 739, "こおろぎ", "ambient", "A.Guitar Arpeggio・Warm・Calm・Gentle・Slow・Healing", "相邻匹配；适合雨天、晨雾与短章节过场", 60]
+  ]
+}

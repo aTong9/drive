@@ -937,12 +937,1480 @@ export const finalCutPracticalTutorials = [
     pitfall:
       "齿音是语言的一部分，不应完全消除；固定高频 EQ 切除会让整段声音持续发暗，而过强 DeEsser 会造成口齿不清。",
   },
+  {
+    id: "fcp-relink-original-proxy-media",
+    category: "媒体",
+    level: "质检",
+    estimatedMinutes: 14,
+    title: "区分 Original 与 Proxy 并安全重连离线媒体",
+    goal: "把移动磁盘或迁移资源库后丢失的媒体重新连接到正确文件，同时保留剪辑、关键词、角色和时间线元数据。",
+    scenario: "外置盘更换路径、项目跨电脑迁移、代理盘离线和外部调色文件回批。",
+    settings: [
+      "入口：File → Relink Files",
+      "类型：Original Media / Proxy Media",
+      "查找：Locate All / Locate Selected",
+      "确认：匹配数量与左右文件列表",
+    ],
+    steps: [
+      "在浏览器、时间线、事件或资源库中选中离线范围，先根据红色警告判断缺失的是 Original、Proxy 还是其他资源。",
+      "原片缺失选择 File → Relink Files → Original Media；只有代理缺失时选择 Proxy Media，不用代理文件冒充原片。",
+      "使用 Locate All 指向结构完整的媒体根目录，少量特殊文件才用 Locate Selected；等待 Final Cut Pro 分析名称与媒体属性。",
+      "展开匹配结果，逐项核对旧文件与新文件、帧率、媒体类型和音频通道；删除错误匹配后再继续查找。",
+      "匹配数量正确后执行 Relink Files，随后抽查多个事件和时间线片段，并切换 Original/Optimized 与 Proxy 播放模式验证。",
+    ],
+    checks: [
+      "所有目标片段的离线警告消失且能正常播放",
+      "原片和代理分别连接到正确媒体类型",
+      "剪辑点、关键词、角色、时间码和音频通道保持不变",
+    ],
+    pitfall:
+      "Relink Files 不能撤销；同目录存在多个同名候选时不会可靠自动选择，确认前必须展开匹配列表，且新文件需满足媒体类型、帧率和通道兼容条件。",
+  },
+  {
+    id: "fcp-freeze-frame-hold-segment",
+    category: "变速",
+    level: "入门",
+    estimatedMinutes: 10,
+    title: "区分 Freeze Frame 与 Hold Segment 制作定格说明",
+    goal: "在关键画面短暂停住动作并加入说明，同时根据后续剪辑需求选择独立定格片段或原片内保持段。",
+    scenario:
+      "路线地图、产品细节、人物表情、教学步骤和需要短暂标注的动作瞬间。",
+    settings: [
+      "定格片段：Edit → Add Freeze Frame",
+      "快捷键：Option-F",
+      "保持段：Retime → Hold",
+      "检查：定格前后动作与总时长",
+    ],
+    steps: [
+      "逐帧移动播放头，选择主体清楚、运动模糊较少且适合承载文字的画面；先在该帧添加标记便于回查。",
+      "需要可独立移动的静止片段时按 Option-F 添加 Freeze Frame；需要在原片内部精确控制停顿时选择 Hold Segment。",
+      "调整定格或保持段时长，并确认 Hold Segment 会增加原片在时间线中的总时长，不让后续节奏和音乐点意外错位。",
+      "添加标题或标注时保留安全区和主体视线空间，避免同时叠加无意义推拉、闪烁和复杂转场。",
+      "从定格前后各数秒回放，检查进入与退出是否自然；必要时用短声音桥保持听觉连续，再导出测试段检查清晰度。",
+    ],
+    checks: [
+      "定格帧清晰且说明文字在安全区内可读",
+      "进入和退出定格没有重复帧、跳音或意外节奏变化",
+      "所选 Freeze Frame 或 Hold Segment 与后续移动和变速需求一致",
+    ],
+    pitfall:
+      "Freeze Frame 是独立片段，Hold Segment 仍属于原片且会延长时间线；混淆两者容易在移动、变速或调整时长时破坏后续同步。",
+  },
+  {
+    id: "fcp-render-files-storage",
+    category: "性能",
+    level: "质检",
+    estimatedMinutes: 12,
+    title: "识别后台渲染状态并安全清理 Render Files",
+    goal: "让复杂效果获得稳定实时回放，同时区分可重建的渲染文件与不可删除的原始媒体，控制资源库存储占用。",
+    scenario:
+      "时间线出现灰色点状渲染指示、复杂效果掉帧、资源库持续膨胀或项目准备跨盘交接。",
+    settings: [
+      "状态：Background Tasks",
+      "局部渲染：Control-R",
+      "全部渲染：Control-Shift-R",
+      "清理：Delete Generated … Files",
+    ],
+    steps: [
+      "先观察时间线上方的灰色点状渲染指示，并打开 Background Tasks，确认卡顿来自待渲染效果而不是离线媒体或磁盘故障。",
+      "只需检查局部时选择目标片段并按 Control-R；需要完成所有待渲染区域时使用 Control-Shift-R，并等待后台任务完成。",
+      "回放复杂转场、标题、降噪和合成段，确认指示消失且播放稳定；导出前仍要用原始/优化媒体核对最终质量。",
+      "清理空间前在浏览器明确选中 clip、project、event 或 library，再执行对应的 Delete Generated … Files，优先只删 Unused Render Files。",
+      "清理后重新打开关键项目并播放复杂段；需要时让 Final Cut Pro 从原始媒体重新生成渲染文件，并记录释放空间。",
+    ],
+    checks: [
+      "目标复杂段可稳定播放且后台任务完成",
+      "清理范围与所选 clip、project、event 或 library 一致",
+      "原始媒体、剪辑和资源库结构保持完整，可按需重新渲染",
+    ],
+    pitfall:
+      "Delete Generated Files 还可包含 optimized 与 proxy media；不要无差别勾选全部项目，外置位置中的生成媒体也可能被删除，清理前必须确认范围和选项。",
+  },
+  {
+    id: "fcp-range-volume-keyframes",
+    category: "声音",
+    level: "入门",
+    estimatedMinutes: 12,
+    title: "用 Range Selection 自动建立四点音量关键帧",
+    goal: "在对白或重要环境声出现时平滑压低音乐，再自然恢复，同时保留可逐点调整的原生音量曲线。",
+    scenario: "旁白、采访、路线讲解和关键环境声需要暂时压低背景音乐或效果声。",
+    settings: [
+      "范围工具：R",
+      "音量线：拖动选区内水平线",
+      "手动关键帧：Option-click / Option-K",
+      "检查：Audio Meters + 等响度回听",
+    ],
+    steps: [
+      "先匹配对白与音乐的基础电平，让无对白段落的音乐本身处于合理响度，不用关键帧修正全局增益错误。",
+      "按 R 选择音乐中需要避让的范围，并把边界放在对白前后留有短过渡的位置，避免贴着第一个辅音才开始下降。",
+      "拖低选区内的音量线，让 Final Cut Pro 自动在范围两侧建立四个关键帧；从最低有效衰减开始，不追求完全静音。",
+      "用 Select 工具逐点调整下降、保持和恢复斜率；特殊句子可 Option-click 或 Option-K 增补关键帧，但不要堆出难维护的密集曲线。",
+      "跨越轻声、正常和较响对白回听并观察 Audio Meters，检查短停顿没有抽吸，句末音乐恢复不会抢话。",
+    ],
+    checks: [
+      "对白和关键环境声清楚且音乐仍保留连续情绪",
+      "下降与恢复平滑，短停顿不会导致明显抽吸",
+      "音量曲线关键帧数量克制且后续仍易调整",
+    ],
+    pitfall:
+      "范围调节会自动建立关键帧，但 Modify → Adjust Volume → Absolute 可能清除已有关键帧；基础电平错误时应先修整体增益再做局部闪避。",
+  },
+  {
+    id: "fcp-record-voiceover-auditions",
+    category: "声音",
+    level: "进阶",
+    estimatedMinutes: 15,
+    title: "录制 Voiceover 并用 Audition 比较多次录音",
+    goal: "直接在时间线上安全录制旁白，控制输入峰值、角色与保存事件，并把同一段多次录音整理成可比较的 Audition。",
+    scenario:
+      "路线补充、教学解说、纪录片旁白、临时 ADR 和需要对照多个语气版本的录音。",
+    settings: [
+      "入口：Window → Record Voiceover",
+      "快捷键：Option-Shift-A",
+      "输入：设备 / Mono 通道 / Input Gain",
+      "多次录音：Create Audition from takes",
+    ],
+    steps: [
+      "把旁白稿按画面时长拆段并在时间线设置开始点，连接麦克风后先关闭扬声器监听或使用耳机，避免回授和原声串入。",
+      "打开 Record Voiceover，明确选择输入设备、Mono 通道、保存 Event 和 Dialogue 角色；调整 Input Gain，让较响句子也不进入红色削波。",
+      "启用倒计时并录制第一遍，结束后检查录音是否同时出现在浏览器和时间线连接片段中，确认文件确实写入预期事件。",
+      "保持播放头起点不变录制不同语气版本，让 Final Cut Pro 把 takes 组成 Audition；逐个预听并选出节奏、发音和底噪最佳版本。",
+      "需要组合多个版本时先保留 Audition 备份，再 Break Apart Clip Items 做精剪；最后处理呼吸、淡化和电平并完整回听。",
+    ],
+    checks: [
+      "旁白无削波、回授和明显监听串音，输入峰值保留余量",
+      "录音保存到正确 Event 并分配正确 Dialogue 角色",
+      "多个 takes 可在 Audition 中比较且最终选择可恢复",
+    ],
+    pitfall:
+      "System Setting 可能选到错误输入通道；录制前必须明确设备与通道。Finalize Audition 会解散备选结构，未确认前不要过早定稿。",
+  },
+  {
+    id: "fcp-secondary-storyline",
+    category: "剪辑",
+    level: "进阶",
+    estimatedMinutes: 14,
+    title: "把连接片段整理成 Secondary Storyline",
+    goal: "让一组 B-roll、标题或声音片段保持与主故事线的连接，同时能在组内完成磁性修剪、转场和整体移动。",
+    scenario:
+      "连续 B-roll、跨多个镜头的标题动画、声音设计段和需要整体跟随主故事线移动的连接素材组。",
+    settings: [
+      "建立：Clip → Create Storyline",
+      "快捷键：Command-G",
+      "拆开：Shift-Command-G",
+      "移动：拖动灰色 Storyline 边框",
+    ],
+    steps: [
+      "先确认主故事线结构稳定，再选择逻辑上连续的两个或多个 connected clips；不要把属于不同主镜头的素材强行合组。",
+      "执行 Clip → Create Storyline 或 Command-G，检查灰色边框和连接点；原片段不连续时注意系统加入的 gap clip。",
+      "在 Storyline 内使用磁性修剪、roll、slip、slide 或转场，逐项确认组内节奏，而不改变主故事线内容。",
+      "需要整体移动时拖动 Storyline 顶部灰色边框并重新定位连接点，确认它仍附着到正确的主镜头或音频时刻。",
+      "需要恢复独立连接片段时选择 Storyline 后按 Shift-Command-G，检查拆开后的连接点、转场和 gap clip，再完整回放。",
+    ],
+    checks: [
+      "组内素材可磁性编辑且整体仍与正确主镜头同步",
+      "移动 Storyline 不会误改主故事线或丢失连接片段",
+      "拆开后连接点、转场、gap clip 和播放结果符合预期",
+    ],
+    pitfall:
+      "Secondary Storyline 与 Compound Clip 不同：它仍在父时间线中直接编辑；不连续片段会自动插入 gap clip，忽略它可能造成意外空白和时长变化。",
+  },
+  {
+    id: "fcp-batch-share-projects",
+    category: "质检",
+    level: "进阶",
+    estimatedMinutes: 14,
+    title: "批量 Share 多个项目并逐个核对输出",
+    goal: "一次提交多个同类项目或片段的输出任务，并在共享前后识别混合设置、代理媒体和文件命名风险。",
+    scenario:
+      "系列短片、多语言版本、章节成片或多个审核版需要使用同一 Destination 连续交付。",
+    settings: [
+      "选择：仅项目或仅片段",
+      "媒体：Optimized/Original",
+      "入口：File → Share",
+      "监看：Background Tasks + 独立播放器",
+    ],
+    steps: [
+      "在浏览器只选择同一批次的多个项目或多个片段，不混选两种类型；先逐项确认名称、起止范围、帧率、画幅、Roles 和字幕状态。",
+      "对使用代理回放的项目逐个切换到 Optimized/Original，并处理混合项目设置；批量共享窗口不能统一修改所有彼此不同的项目设置。",
+      "执行 File → Share 并选择支持批量共享的 Destination，在列表中核对每个待导出项目，再检查格式、分辨率、音频和字幕设置。",
+      "选择输出文件夹并开始共享，在 Background Tasks 观察每项转码完成；出现失败时记录具体项目，不盲目重新提交整个批次。",
+      "按文件名逐个用独立播放器抽查开头、中段、结尾和字幕，并把输出数量与选择数量对账，确认无缺件、重名覆盖或代理画质。",
+    ],
+    checks: [
+      "批次只包含项目或只包含片段，选择数量与输出数量一致",
+      "所有项目使用 Optimized/Original 且混合设置已逐项处理",
+      "每个文件均通过独立播放、命名和字幕抽查",
+    ],
+    pitfall:
+      "Final Cut Pro 不能在同一批次混合项目与片段，部分 Destination 也不支持批量共享；混合帧率、画幅、Roles 或字幕设置必须先在各项目内处理。",
+  },
+  {
+    id: "fcp-snapshot-compound-multicam",
+    category: "整理",
+    level: "进阶",
+    estimatedMinutes: 12,
+    title: "用 Snapshot 冻结 Compound 与 Multicam 版本",
+    goal: "在继续修改共享 Compound Clip 或 Multicam Clip 前建立自包含项目版本，防止旧交付版被父片段联动改写。",
+    scenario:
+      "系列片头、共享包装、多机位采访或重复使用的复合片段即将修改，但上一版项目必须保持可恢复。",
+    settings: [
+      "普通复制：Command-D",
+      "项目快照：Shift-Command-D",
+      "入口：Edit → Snapshot Project",
+      "命名：项目_里程碑_日期",
+    ],
+    steps: [
+      "先识别项目中的 Compound Clip 和 Multicam Clip，并确认哪些父片段还被其他项目引用；普通 Duplicate 不会切断这些共享父片段关系。",
+      "在浏览器选择需要冻结的项目，执行 Edit → Snapshot Project 或 Shift-Command-D，确认新项目名称包含 Snapshot、日期和时间。",
+      "打开快照并抽查共享片头、多机位角度和关键效果，确认内容与当前交付版一致，再用清晰里程碑名称补充项目命名。",
+      "回到工作版本修改父 Compound 或 Multicam 内容，然后重新打开快照，对比相同位置确认快照中的嵌入副本没有随之变化。",
+      "重要交付后仍要按资源库策略备份数据库和媒体；Snapshot 只保护项目结构与嵌入父片段关系，不代替媒体备份。",
+    ],
+    checks: [
+      "快照项目包含当前 Compound 与 Multicam 状态且可独立打开",
+      "修改工作版本父片段后快照内容保持不变",
+      "项目命名能辨认里程碑与日期，并另有资源库和媒体备份",
+    ],
+    pitfall:
+      "普通 Duplicate 适合一般版本分支，但共享父片段后续仍可能联动；Snapshot 也不是媒体归档，离线源文件不会因此被复制。",
+  },
+  {
+    id: "fcp-slowmo-video-quality-qc",
+    category: "变速",
+    level: "进阶",
+    estimatedMinutes: 15,
+    title: "按质量阶梯选择 Frame Blending、Optical Flow 与 Smooth Slo-Mo",
+    goal: "先利用真实高帧率素材，再按最低必要成本选择慢动作质量模式，并用渲染后的逐帧结果决定是否回退。",
+    scenario:
+      "高帧率素材需要自然慢放，或普通帧率镜头减速后出现卡顿，但复杂运动可能让生成帧产生伪影。",
+    settings: [
+      "高帧率：Retime → Automatic Speed",
+      "起点：Good · Frame Blending",
+      "升级：Better · Optical Flow",
+      "Apple silicon：Best · Machine Learning",
+    ],
+    steps: [
+      "先核对源与项目帧率；例如 120p 素材放入 30p 项目时优先使用 Retime → Automatic Speed，让每个真实源帧按项目帧率播放。",
+      "普通帧率素材确需慢放时选择目标范围并设置速度，先用 Fast 或 Good (Frame Blending) 渲染，检查卡顿与重影是否已可接受。",
+      "仍需改善时改为 Better (Optical Flow)；Apple silicon 可另复制版本尝试 Best (Machine Learning / Smooth Slo-Mo)，等待分析与渲染完成。",
+      "以相同速度 A/B 并逐帧检查交叉运动、人物手脚、细线、车轮、快速摇镜和遮挡边缘，不用播放顺滑度掩盖生成帧错误。",
+      "选择伪影最少且计算成本合理的版本；失败时降低慢放幅度或回退 Frame Blending/Nearest Frame，导出短文件后再次检查。",
+    ],
+    checks: [
+      "高帧率素材优先使用真实源帧，未无故启用生成式插帧",
+      "选定模式在渲染后无明显撕裂、重影和错误遮挡",
+      "导出测试段与时间线结果一致且项目仍保留可比较版本",
+    ],
+    pitfall:
+      "Best (Machine Learning) 需要 Apple silicon 且分析更久；算法等级更高不代表每个镜头伪影更少，官方也建议先从 Frame Blending 测试。",
+  },
+  {
+    id: "fcp-match-audio-eq-ab",
+    category: "声音",
+    level: "进阶",
+    estimatedMinutes: 13,
+    title: "用 Match Audio 匹配录音音色并手动收尾",
+    goal: "以音质可靠的参考片段匹配其他对白的 EQ 轮廓，再单独处理电平、噪声和动态，而不是把音色匹配误当自动混音。",
+    scenario:
+      "同一说话人在不同房间、不同麦克风或不同拍摄日录制，剪在一起后出现明显闷、薄或明亮度跳变。",
+    settings: [
+      "入口：Modify → Match Audio",
+      "快捷键：Shift-Command-M",
+      "多声道：选择 Audio Component",
+      "撤销匹配：Equalization → Flat",
+    ],
+    steps: [
+      "先选择电平合理、噪声较低且代表目标音色的参考对白；用 Clip Gain 匹配响度，避免更响的片段被误认为音色更好。",
+      "选中需要匹配的目标片段；对 Dual Mono、Compound、Multicam 或 Synced Clip 展开 Audio Components 并在组件级选择正确通道。",
+      "执行 Modify → Match Audio 或 Shift-Command-M，再点击参考片段并选择 Apply Match；一次只处理相近说话人与录音条件。",
+      "在 Audio Enhancements 中旁路或改回 Flat 做等响度 A/B，检查齿音、低频隆隆声、房间混响和噪声是否被错误放大。",
+      "用手动 EQ、音量、降噪和压缩完成收尾，按时间线顺序回听所有接缝并导出测试段，确认手机扬声器仍自然可懂。",
+    ],
+    checks: [
+      "目标与参考对白的音色更接近且响度比较公平",
+      "多声道片段只处理了正确 Audio Component",
+      "无新增刺耳、闷塞、低频堆积或噪声放大，导出接缝自然",
+    ],
+    pitfall:
+      "Match Audio 只做 EQ 匹配，不会自动修正响度、混响、底噪或动态；参考片段本身有问题时会把错误音色复制给所有目标。",
+  },
+  {
+    id: "fcp-adjustment-clip-roles-looks",
+    category: "调色",
+    level: "进阶",
+    estimatedMinutes: 14,
+    title: "用 Adjustment Clip 建立可切换的章节 Look",
+    goal: "把统一风格或效果放在透明调整片段上覆盖多个镜头，同时保留逐镜校正、替代 Look 和 Roles 导出控制。",
+    scenario:
+      "一个章节包含多个已匹配镜头，需要统一色彩风格、模糊、遮罩或画面变换，并希望快速比较替代版本。",
+    settings: [
+      "入口：Edit → Add Adjustment Clip",
+      "快捷键：Option-A",
+      "启用 / 禁用：V",
+      "默认 Role：Adjustment Clips",
+    ],
+    steps: [
+      "先完成各镜头曝光、白平衡和基础匹配；在时间线选择准确章节范围，确认标题、字幕或不应受影响的连接素材层级。",
+      "执行 Edit → Add Adjustment Clip 或 Option-A，修剪透明调整片段只覆盖目标范围，再添加色彩、模糊、遮罩或内建变换效果。",
+      "选择调整片段并按 V 旁路 A/B，逐镜检查高光、肤色、字幕和转场；不要用全局 Look 掩盖单镜头技术错误。",
+      "复制调整片段建立不同 Look，使用互斥启用状态或 Audition 比较；为不同版本分配清晰的 Adjustment Clip subrole。",
+      "导出前在 Timeline Index 的 Roles 中只启用目标 Look，完整回放并核对效果顺序；需要跨资源库复用时保存 Effect Preset。",
+    ],
+    checks: [
+      "Adjustment Clip 仅覆盖目标章节且下方所有预期镜头一致生效",
+      "替代 Look 可单独启用、禁用和通过 subrole 识别",
+      "字幕、标题、转场与逐镜校正未被意外覆盖",
+    ],
+    pitfall:
+      "Adjustment Clip 会影响其下方所有画面层；范围过长、层级错误或同时启用多个 Look 会造成重复处理，旧版 Final Cut Pro 若无该入口需先确认版本支持。",
+  },
+  {
+    id: "fcp-duplicate-ranges-review",
+    category: "质检",
+    level: "入门",
+    estimatedMinutes: 12,
+    title: "显示 Duplicate Ranges 并逐个复核重复镜头",
+    goal: "在长时间线中快速定位同一媒体被重复使用的范围，区分有意复现与误剪后再决定是否替换。",
+    scenario:
+      "旅行长片、采访、课程或素材复用较多的项目在锁片前需要排查无意重复镜头。",
+    settings: [
+      "入口：View → Show Duplicate Ranges",
+      "显示：时间线斜线范围",
+      "筛选：Timeline Index → Show Clips with Duplicate Ranges",
+      "导航：Option-Command-← / →",
+    ],
+    steps: [
+      "复制项目建立 Snapshot 或质检版本，再打开最终时间线；先记录哪些片头回顾、主题复现和设计性重复属于有意安排。",
+      "执行 View → Show Duplicate Ranges，或在 Clip Appearance 中勾选 Duplicate Ranges，确认重复使用的媒体范围以斜线显示。",
+      "打开 Timeline Index 的 Clips 面板，从搜索菜单选择 Show Clips with Duplicate Ranges，把重复项集中成可逐个检查的列表。",
+      "选择一个重复范围，用 Option-Command-左右方向键在相同实例间跳转；比较上下文、时长、裁切和叙事作用，标记保留、替换或删除。",
+      "处理完后重新运行重复范围筛选，确认剩余项目都有明确用途，再完整播放所有修改接缝并检查音乐、字幕和连接片段同步。",
+    ],
+    checks: [
+      "所有斜线重复范围均已逐项复核并记录处理决定",
+      "有意重复被保留，无意重复已替换或删除",
+      "修改后时间线无磁性重排、字幕错位或音频断裂",
+    ],
+    pitfall:
+      "Duplicate Ranges 只报告相同媒体范围，不判断叙事是否重复；片头回顾和主题复现可能是有意设计，不能看到斜线就批量删除。",
+  },
+  {
+    id: "fcp-beat-detection-story-first",
+    category: "剪辑 · 音乐节奏",
+    level: "进阶",
+    estimatedMinutes: 14,
+    title: "启用 Beat Detection 后按段落而不是每拍剪辑",
+    goal: "用歌曲段落、小节和节拍网格提高对齐效率，同时让动作、叙事和长镜头呼吸决定最终剪辑密度。",
+    scenario:
+      "旅行蒙太奇、运动片段或章节预告需要与音乐结构协调，也可能需要无明显断点地缩短一首音乐。",
+    settings: [
+      "入口：Clip → Enable Beat Detection",
+      "快捷键：Option-B",
+      "网格：View → Beat Detection Grid / 0",
+      "吸附：Snapping",
+    ],
+    steps: [
+      "先确认音乐许可与使用范围，粗剪画面故事并锁定需要音乐覆盖的时长；不要先按每一拍切画面再补叙事。",
+      "选中时间线音乐片段，执行 Clip → Enable Beat Detection 或 Option-B；等待分析完成并使用 0 键显示 Beat Grid。",
+      "缩放时间线区分 song parts、bars 和 beats，先用段落标记规划章节，再打开 Snapping 把候选切点靠近动作峰值和画面变化。",
+      "需要缩短音乐时优先在 song part 之间删除范围，再把结尾段吸附回来并做精细修剪；完整回听接点是否保留乐句和尾奏。",
+      "暂时隐藏网格并静音音乐检查画面逻辑，再恢复音乐完整播放；删除为踩拍而截断动作或造成视觉疲劳的切点。",
+    ],
+    checks: [
+      "画面切换与音乐段落协调，但没有机械地每拍一切",
+      "缩短音乐后乐句、节拍和结尾连续且无可闻断点",
+      "静音观看时动作完整、空间关系和故事顺序仍成立",
+    ],
+    pitfall:
+      "Beat Detection 提供节奏网格而不理解镜头价值；复杂拍号、弱拍音乐或刻意自由速度可能分析不准，最终切点仍需靠听感与画面判断。",
+  },
+  {
+    id: "fcp-reveal-source-used-ranges",
+    category: "整理 · 来源回溯",
+    level: "入门",
+    estimatedMinutes: 12,
+    title: "用 Shift-F 回到来源片段并检查 Used Media Ranges",
+    goal: "从时间线精确回到同一来源帧，找回完整音视频组件或相邻镜头，并识别素材已经使用的范围。",
+    scenario:
+      "需要替换时间线镜头、补回原始音频、寻找同一段的前后余量，或判断一个长素材还有哪些区间尚未使用。",
+    settings: [
+      "命令：File → Reveal Source in Browser",
+      "快捷键：Shift-F",
+      "显示：View → Browser → Used Media Ranges",
+      "橙线：当前项目已使用范围",
+    ],
+    steps: [
+      "在时间线选择目标片段并把播放头停在需要匹配的具体画面，执行 File → Reveal Source in Browser 或 Shift-F。",
+      "确认 Browser 选中了来源事件片段且播放头位于同一帧；对 Multicam 或 Synced Clip 再执行 Shift-F 可继续回到活动角度或视频来源。",
+      "开启 View → Browser → Used Media Ranges，用橙线识别当前项目已经使用的来源区间；不要把橙线误认为 Favorite 或关键词标记。",
+      "在来源片段重新选择带完整动作头尾或音频组件的范围，再使用 Replace、Overwrite 或仅音频编辑完成修正，并检查磁性时间线影响。",
+      "修改后再次 Shift-F 核对来源帧与橙线，播放接缝并确认同步；只有需要查找磁盘文件时才使用 Reveal in Finder。",
+    ],
+    checks: [
+      "Shift-F 返回了正确事件片段和匹配帧",
+      "Used Media Ranges 与当前项目实际使用范围一致",
+      "替换或补回组件后画面、音频和连接片段保持同步",
+    ],
+    pitfall:
+      "Reveal Source in Browser 定位资源库中的来源片段，不是 Finder 文件；浏览器过滤条件、Multicam 父级和 Synced Clip 层级可能让第一次 Shift-F 只回到中间容器。",
+  },
+  {
+    id: "fcp-caption-format-duplicate-validate",
+    category: "字幕 · 格式交付",
+    level: "进阶",
+    estimatedMinutes: 14,
+    title: "复制字幕到新格式并修复 Validation 错误",
+    goal: "在保留原字幕角色的前提下生成 CEA-608、iTT 或 SRT 交付版本，并逐项处理格式转换造成的限制和错误。",
+    scenario:
+      "同一成片需要面向广播、Apple 生态、网页播放器或通用平台交付不同字幕格式。",
+    settings: [
+      "推荐：Duplicate Captions to New Format",
+      "格式：CEA-608 / iTT / SRT",
+      "检查：Caption Inspector → Validation",
+      "导出：File → Export Captions",
+    ],
+    steps: [
+      "先复制项目 Snapshot，并确认目标平台要求的字幕格式、语言、时间基准和嵌入或 sidecar 方式；不要只凭文件扩展名选择。",
+      "选择目标语言 subrole 的全部字幕，执行 Edit → Captions → Duplicate Captions to New Format，再选择 CEA-608、iTT 或 SRT 以保留原格式。",
+      "打开新字幕角色，在 Caption Inspector 检查 Validation；逐条修复重叠、无效字符、超出行数、换行和格式丢失，不批量忽略红色错误。",
+      "逐句比较原版与转换版的文字、时间、位置和样式；CEA-608 字符集受限，SRT 样式兼容性有限，必要时使用更简单的通用格式。",
+      "通过 File → Export Captions 按语言 subrole 导出，明确 Relative to Timeline 或 Absolute；重新导入空项目或目标播放器验证文件。",
+    ],
+    checks: [
+      "原格式字幕仍保留，新格式位于清晰命名的独立角色",
+      "Caption Inspector 无未处理 Validation 错误，文字与时间未改变",
+      "导出的每个语言文件均在目标环境或重新导入测试中通过",
+    ],
+    pitfall:
+      "字幕标准支持的字符、行数、位置和样式不同；直接改角色会失去原格式，转换成功也不代表目标平台接受，必须以实际导出文件验证。",
+  },
+  {
+    id: "fcp-privacy-blur-object-track-qa",
+    category: "修复 · 隐私遮挡",
+    level: "进阶",
+    estimatedMinutes: 13,
+    title: "把 Blur 跟踪到人脸或车牌并排除隐私漏帧",
+    goal: "将模糊效果的 Shape Mask 绑定到移动目标，并在遮挡、出画和重新出现时持续保护隐私。",
+    scenario:
+      "街拍、采访、行车记录或屏幕录制中需要隐藏人脸、车牌、地址和账号信息。",
+    settings: [
+      "Settings：Drop Effect in Viewer → Add Tracker",
+      "效果：Blur / Censor",
+      "行为：Pin to Tracker",
+      "分析：前后双向",
+    ],
+    steps: [
+      "复制项目 Snapshot 并标记每个隐私目标的完整出现范围；把播放头停在目标清晰、对比度高且无遮挡的帧。",
+      "确认 Drop Effect in Viewer 为 Add Tracker，把 Blur 或 Censor 从 Effects Browser 拖到 Viewer 中目标上，并收紧跟踪框。",
+      "保持 Shape Mask 为 Pin to Tracker，执行 Analyze 前后双向跟踪；跟踪框应锁定稳定纹理，遮挡或出画时分段重新分析。",
+      "在 Shape 模式扩大遮罩并调整羽化；若必须手工修正，先确认行为仍为 Pin to Tracker，再在漂移帧添加关键帧。",
+      "逐帧检查目标出现、消失、遮挡和重新入画处，再导出测试段到独立播放器复核；全部不可识别后才交付全片。",
+    ],
+    checks: [
+      "效果遮罩全程跟随目标且没有首尾漏帧",
+      "遮挡、快速运动与重新入画处均经过逐帧人工确认",
+      "测试导出通过且 Snapshot 保留未经处理的可恢复版本",
+    ],
+    pitfall:
+      "对象跟踪依赖清晰且高对比的参考纹理；自动分析成功不等于隐私合规，最终导出仍必须逐帧检查高风险区间。",
+  },
+  {
+    id: "fcp-scrolling-credits-readability-qc",
+    category: "标题 · 滚动片尾",
+    level: "入门",
+    estimatedMinutes: 11,
+    title: "用 Scrolling Title 制作可读片尾并核对署名",
+    goal: "建立速度均匀、手机端可读且完整保留制作、音乐和素材署名的片尾字幕。",
+    scenario:
+      "纪录片、旅行片、采访或教程需要展示主创、音乐许可、素材来源和鸣谢。",
+    settings: [
+      "入口：Titles and Generators → Titles → Scrolling",
+      "文本：Text Inspector",
+      "速度：延长标题片段可减慢",
+      "对齐：Paragraph ruler / tabs",
+    ],
+    steps: [
+      "先在外部文稿中核对姓名、角色、音乐曲名、作者、许可和来源；使用 Tab 或清晰分组整理左右栏，不用空格强行对齐。",
+      "从 Titles and Generators 添加 Scrolling title 到片尾，在 Viewer 或 Text Inspector 粘贴最终文字并统一字体、字号、行距与颜色。",
+      "需要两栏时打开 paragraph ruler 设置 tab 对齐；把标题片段延长以降低滚动速度，确认首行与末行都完整经过画面。",
+      "在 Viewer 检查 title safe、最长姓名、双语文字和 URL；为竖屏版本复制项目后重新排版，不直接沿用横版字号与栏宽。",
+      "逐项对照最终文稿，导出片尾测试段并在手机和电脑完整播放；发现读不完、裁切或滚动不稳时延长片段并重新验证。",
+    ],
+    checks: [
+      "所有姓名、音乐和来源与最终文稿一致",
+      "最密集段可按正常速度阅读，文字对齐且位于安全区",
+      "测试导出在手机与电脑均无裁切、丢字或动画跳变",
+    ],
+    pitfall:
+      "Scrolling title 的动画速度受片段时长影响；直接缩短片尾会让文字加速，空格对齐还会因字体变化而错位。",
+  },
+  {
+    id: "fcp-green-screen-keyer-matte-qc",
+    category: "合成 · 绿幕抠像",
+    level: "进阶",
+    estimatedMinutes: 16,
+    title: "用 Green Screen Keyer 清理 Matte 并匹配背景",
+    goal: "从均匀绿幕或蓝幕生成干净透明通道，保护头发与半透明边缘，并让前景在新背景中自然成立。",
+    scenario: "人物讲解、产品演示或天气图式合成，需要替换均匀绿幕或蓝幕背景。",
+    settings: [
+      "效果：Effects → Green Screen Keyer",
+      "检查：View → Matte / Composite",
+      "修正：Sample Color / Edges",
+      "收尾：Spill Level / Light Wrap",
+    ],
+    steps: [
+      "把绿幕前景放入 Primary Storyline，并把背景片段连接在前景下方；选择绿幕覆盖最多且主体边缘清楚的一帧作为分析起点。",
+      "给前景添加 Green Screen Keyer，先查看自动结果，再切换 Matte：主体应为实白、背景为实黑，头发、烟雾和反光只保留合理灰阶。",
+      "用 Sample Color 框选仍未透明的幕布区域，用 Edges 画线跨过头发或反光边缘；从最少采样开始，避免把衣物或肤色一起扣掉。",
+      "使用 Matte Tools 清理孔洞和边缘，检查 Spill Level 去除绿色污染；最后在 Composite 查看位置、尺度、色温、曝光和 Light Wrap 是否匹配背景。",
+      "逐帧播放光线变化、快速动作和运动模糊区；需要时在不同时间点增加 Sample Color/Edges 调整，导出短测试并检查边缘闪烁和压缩锯齿。",
+    ],
+    checks: [
+      "Matte 中主体无意外孔洞，背景无残留灰块",
+      "头发与半透明边缘自然，没有绿边、硬边或过度侵蚀",
+      "测试导出无边缘闪烁，前景曝光、色温和清晰度与背景一致",
+    ],
+    pitfall:
+      "Keyer 无法完全补救褶皱、阴影、溢色和高压缩素材；Strength 或 Matte 收缩过强会先破坏头发、运动模糊与透明细节。",
+  },
+  {
+    id: "fcp-ripple-roll-slip-slide-two-up",
+    category: "剪辑 · 精确修剪",
+    level: "进阶",
+    estimatedMinutes: 15,
+    title: "用 Two-up 反馈完成 Ripple、Roll、Slip 与 Slide",
+    goal: "在磁性时间线中根据时长、位置和来源范围选择正确修剪方式，并用详细反馈保护同步关系。",
+    scenario:
+      "粗剪后需要逐帧改善动作切点、对白节奏或音乐卡点，但部分镜头位置与项目总时长必须保持不变。",
+    settings: [
+      "工具：Trim（T）",
+      "反馈：Show detailed trimming feedback",
+      "Ripple：改变项目总时长",
+      "Slip / Slide：片段时长不变",
+    ],
+    steps: [
+      "复制项目 Snapshot，在 Settings → Editing 开启 Show detailed trimming feedback；标记必须固定的节拍、字幕、连接片段和同步点。",
+      "拖动单个片段边缘执行 Ripple，观察后续主故事线随时长变化；需要保持总时长时改为选中剪辑点执行 Roll。",
+      "按 T 使用 Trim 工具拖动片段内部执行 Slip，让片段位置与时长不变但更换来源范围；确认两侧都有可用 Handles。",
+      "需要保持片段来源范围与时长、只改变它在相邻镜头之间的位置时执行 Slide，并观察两侧片段被相反补偿。",
+      "利用 Two-up 比较入点与出点，用逗号、句号逐帧微调；从前一剪辑点播放到后一剪辑点，检查磁性时间线、连接素材、口型和总时长。",
+    ],
+    checks: [
+      "修剪后项目总时长、片段位置和来源范围符合所选模式定义",
+      "连接片段、字幕、音乐节拍和同步点没有意外偏移",
+      "Two-up 与连续回放均显示有效 Handles，无红边、闪帧或动作断裂",
+    ],
+    pitfall:
+      "Ripple 会移动后续主故事线，Slip 和 Slide 需要额外媒体 Handles；忽略连接片段与 Two-up 反馈会让局部精剪破坏全局同步。",
+  },
+  {
+    id: "fcp-reverse-rewind-audio-qc",
+    category: "变速 · 倒放",
+    level: "谨慎使用",
+    estimatedMinutes: 12,
+    title: "区分 Reverse 与 Rewind 并重建倒放声音",
+    goal: "根据需要选择单纯反向播放或正放—倒放—正放效果，并确保磁性时间线、原声和事件含义保持可控。",
+    scenario:
+      "短动作回弹、明确回溯或局部 Rewind；不适用于需要保持真实因果和方向的纪录段落。",
+    settings: [
+      "入口：Retime → Reverse Clip",
+      "往返效果：Retime → Rewind → 1x / 2x / 4x",
+      "速度：Retime handle",
+      "声音：Detach / Mute / Replace",
+    ],
+    steps: [
+      "复制项目 Snapshot，并用 Range Selection 或独立片段限定动作范围；先记录正放起止帧、项目时长和不能移动的连接素材。",
+      "只需要反向帧顺序时选择 Retime → Reverse Clip；需要正放后倒退再恢复正放时选择 Rewind，并明确它会追加反向段和正向副本。",
+      "拖动 retiming handle 调整反向速度，检查绿色反向箭头与磁性时间线长度；不要把 Reverse 和 Rewind 的时长变化混为一谈。",
+      "独听处理后的音频，分离、静音或替换倒放对白和环境声；用正向 Room Tone、效果音与淡化重建前后衔接。",
+      "从效果前播放到效果后，逐帧检查重复、卡顿和连接素材位置；导出测试段并确认音画、时长与最终效果一致。",
+    ],
+    checks: [
+      "Reverse 或 Rewind 的结构符合预期，项目时长变化已核对",
+      "连接素材、字幕和同步点没有因新增段落意外偏移",
+      "倒放声音已处理且测试导出无跳帧、卡顿或音频突变",
+    ],
+    pitfall:
+      "Rewind 会自动复制并追加多个速度段，而 Reverse 只改变选中内容的帧顺序；两者都会让文字、因果和原声反向，使用前必须确认叙事边界。",
+  },
+  {
+    id: "fcp-distort-horizontal-flip-direction-qc",
+    category: "修复 · 镜像翻转",
+    level: "进阶",
+    estimatedMinutes: 12,
+    title: "用 Distort 对调四角完成可复核的水平镜像",
+    goal: "用 Final Cut Pro 内建 Distort 精确交换画面左右边界，并完整复核文字、方向和连接素材。",
+    scenario:
+      "需要纠正被前置镜头或采集链路镜像的素材，并希望使用官方稳定的内建控制完成。",
+    settings: [
+      "入口：Viewer → Distort（Option-D）",
+      "控制：Video Inspector 四角坐标",
+      "原则：左、右两组 X 坐标互换",
+      "保护：先建 Project Snapshot",
+    ],
+    steps: [
+      "建立 Project Snapshot，在片段中找文字、路牌、车牌和人物左右特征，确认素材本身确实镜像；记录原始 Distort 四角数值。",
+      "选中片段并按 Option-D 打开 Distort，在 Video Inspector 展开四角控制；保持各角 Y 坐标不变，把左上与右上的 X 坐标互换，再把左下与右下的 X 坐标互换。",
+      "确认四角仍形成完整矩形且没有梯形或透视偏斜；需要撤销时使用 Distort Reset，不要凭手拖近似恢复。",
+      "重新检查 Transform、Crop、关键帧、效果遮罩、对象跟踪、标题和连接素材；镜像后的左右坐标会改变既有构图关系。",
+      "连续播放前后镜头并导出短测试段，在 100% 尺寸核对文字可读性、视线、动作方向、真实路线和画面边缘。",
+    ],
+    checks: [
+      "四角坐标左右成对互换且没有梯形失真",
+      "文字、人物特征与真实空间方向正确",
+      "连接素材、遮罩、构图和测试导出均无错位",
+    ],
+    pitfall:
+      "Distort 可改变每个角的位置，拖动不对称会制造透视变形；水平镜像也不能用来美化或伪造纪实道路与事件方向。",
+  },
+  {
+    id: "fcp-paste-attributes-effects-keyframe-qc",
+    category: "整理 · 批量属性",
+    level: "进阶",
+    estimatedMinutes: 12,
+    title: "区分 Paste Attributes 与 Paste Effects 完成安全批量复用",
+    goal: "按需要复制单项属性或全部效果，并正确处理不同片段时长下的关键帧。",
+    scenario:
+      "同机位镜头需要共享裁切、效果、音频声像或关键帧，但目标片段已有部分调整必须保留。",
+    settings: [
+      "Paste Attributes：Shift-Command-V",
+      "Paste Effects：Option-Command-V",
+      "关键帧：Maintain / Stretch to Fit",
+      "保护：Project Snapshot",
+    ],
+    steps: [
+      "建立 Project Snapshot，选定已通过的参考片段并记录其 Video、Audio、Effects 与关键帧；检查目标片段已有调整和 Roles。",
+      "复制参考片段并选中 1–3 条目标片段；只需部分参数时使用 Edit → Paste Attributes（Shift-Command-V），逐项勾选要复制的属性。",
+      "只有确认目标片段应接收全部效果时才用 Paste Effects（Option-Command-V）；不要把它当作更快的 Paste Attributes。",
+      "源片段含关键帧时，按叙事需要选择 Maintain 保持原时间间隔，或 Stretch to Fit 适配目标片段时长，并检查关键动作帧。",
+      "逐条打开 Inspector、Video/Audio Animation 与 Roles 回看，确认目标原有调整未被破坏；连续播放并导出短测试段后再扩大批次。",
+    ],
+    checks: [
+      "Paste Attributes 与 Paste Effects 的选择符合复制范围",
+      "关键帧时间策略正确且目标原有必要调整仍保留",
+      "Inspector、Roles、连续回放和测试导出均无异常",
+    ],
+    pitfall:
+      "Paste Effects 会复制全部效果，Paste Attributes 才能逐项选择；对不同时长片段忽略关键帧 Maintain 与 Stretch to Fit，会让动画错过动作点。",
+  },
+  {
+    id: "fcp-scene-removal-mask-clean-frame-qc",
+    category: "合成 · 无绿幕抠像",
+    level: "进阶",
+    estimatedMinutes: 14,
+    title: "用 Scene Removal Mask 和干净参考帧移除背景",
+    goal: "利用固定机位的干净背景参考帧隔离前景人物，并在合成前验证素材是否满足 Scene Removal Mask 条件。",
+    scenario:
+      "三脚架固定拍摄的室内口播或演示，片头或片尾保留了没有人物的简单背景画面。",
+    settings: [
+      "效果：Scene Removal Mask",
+      "参考：First / Last Frame ± 1 Second",
+      "机位：固定",
+      "背景：简单、均匀、无移动阴影",
+    ],
+    steps: [
+      "建立 Project Snapshot，确认机位固定、背景简单、照明均匀、主体与背景有对比，并在片头或片尾找到没有主体的干净背景帧。",
+      "把前景片段放入 Primary Storyline，在 Effects Browser 搜索 Scene Removal Mask 并应用；把播放头停在能看到最多待移除背景的位置。",
+      "在 Video Inspector 的 Reference 选择 First Frame、First Frame + 1 Second、Last Frame - 1 Second 或 Last Frame，使其准确指向干净背景。",
+      "把新背景作为连接片段放在已抠像前景下方，逐帧检查头发、阴影、相似纹理、运动模糊和主体接近背景处；不满足拍摄前提时停止使用该效果。",
+      "匹配前后景位置、尺度、曝光、色温、锐度和景深，渲染并导出高运动测试段，在 100% 尺寸检查孔洞、背景残留和边缘闪烁。",
+    ],
+    checks: [
+      "Reference 精确指向无主体的干净背景帧",
+      "主体边缘连续且没有孔洞、背景残留或移动阴影误识别",
+      "新背景合成可信，渲染与测试导出无闪烁",
+    ],
+    pitfall:
+      "Scene Removal Mask 依赖固定机位、干净参考帧和简单背景；手持镜头、复杂纹理、移动阴影或没有空背景帧时，应改用 Magnetic Mask、Draw Mask 或绿幕。",
+  },
+  {
+    id: "fcp-prores4444-alpha-share-reimport-qc",
+    category: "交付 · Alpha 透明通道",
+    level: "进阶",
+    estimatedMinutes: 12,
+    title: "用 ProRes 4444 保留 Alpha 并重新导入验证",
+    goal: "把遮罩、Keyer 或透明动态图形输出为可继续合成的 QuickTime 文件，保留半透明边缘。",
+    scenario:
+      "需要把 Scene Removal Mask、Green Screen Keyer、标题或 Motion 图形交给其他项目和软件复用。",
+    settings: [
+      "入口：File → Share → Export File / Master File",
+      "容器：QuickTime",
+      "编码：ProRes 4444 / 4444 XQ",
+      "检查：重新导入 + 三色背景",
+    ],
+    steps: [
+      "在时间线把透明素材叠到黑、白和彩色背景上，先检查 Keyer/Mask 的头发、发光、阴影和运动模糊边缘；复制 Project Snapshot。",
+      "移除仅用于检查的背景，执行 File → Share → Export File（旧版本可能显示 Master File），在 Settings 选择 QuickTime 与 ProRes 4444 或 4444 XQ。",
+      "确认共享范围、分辨率和帧率与源项目一致；不要选择 ProRes 422、H.264 或普通 MP4，它们不会保留该 Alpha 交付。",
+      "导出后重新导入 Final Cut Pro，把文件作为连接片段依次叠到黑、白和彩色背景上，以 100% 检查透明区域和半透明边缘。",
+      "再用接收方软件打开测试文件，记录编码、版本、Alpha 解释和文件校验信息；确认无黑框、白边或颜色污染后交付。",
+    ],
+    checks: [
+      "共享编码明确为 ProRes 4444 或 4444 XQ",
+      "重新导入后三种背景均能透出且半透明边缘自然",
+      "接收方软件验证通过，帧率、分辨率和文件信息已记录",
+    ],
+    pitfall:
+      "ProRes 422 与 H.264 不会保留 Alpha；只在 Final Cut Pro Viewer 中看到透明合成，不能证明导出文件仍包含透明通道。",
+  },
+  {
+    id: "fcp-library-backup-restore-media-qc",
+    category: "交付 · 工程恢复",
+    level: "质检",
+    estimatedMinutes: 14,
+    title: "从 Library Backup 恢复数据库并单独保护媒体",
+    goal: "验证 Final Cut Pro 自动 Library Backup 可恢复项目结构，同时补齐备份不包含媒体的关键缺口。",
+    scenario:
+      "Library 无法打开、误删项目或需要回到较早剪辑状态，但原始媒体仍在独立存储中。",
+    settings: [
+      "恢复：File → Open Library → From Backup",
+      "位置：Final Cut Pro Backups / 自定义位置",
+      "内容：仅 Library 数据库",
+      "媒体：独立备份与 Consolidate",
+    ],
+    steps: [
+      "选择 Library，检查 Storage Locations 中的 Backups 位置并确认磁盘可写；另行记录 Media、Cache 与 Motion Content 的实际存储位置。",
+      "重大修改前建立 Project Snapshot；需要完整搬运或长期归档时 Consolidate 媒体和 Motion Content，并把 Library 与媒体复制到不同存储设备。",
+      "执行 File → Open Library → From Backup，从带日期时间的列表选择早于问题发生的版本；使用 Other 可定位自定义备份文件。",
+      "把恢复的备份作为独立 Library 打开，不覆盖当前文件；抽查 Events、Projects、Roles、字幕、效果和最近剪辑，并重新链接缺失媒体。",
+      "导出短测试段并记录恢复时间点、Library 路径、媒体路径和软件版本；确认后再决定复制项目回工作 Library，而不是直接替换原库。",
+    ],
+    checks: [
+      "自动备份位置可写且存在带时间日期的 Library 备份",
+      "备份成功作为独立 Library 打开，项目结构与关键编辑可核对",
+      "媒体、Motion Content 与第三方插件有独立备份或重建清单",
+    ],
+    pitfall:
+      "Final Cut Pro 自动备份只包含 Library 数据库，不包含媒体；旧备份还会被自动清理，长期归档必须另存 Library、媒体和自定义内容。",
+  },
+  {
+    id: "fcp-command-set-customize-export-qc",
+    category: "剪辑 · 快捷键",
+    level: "进阶",
+    estimatedMinutes: 12,
+    title: "复制 Command Set、自定义键位并导出验证",
+    goal: "保留默认 Command Set，用少量高频命令建立可导入、可回退的个人键位方案。",
+    scenario:
+      "需要把其他软件的操作习惯迁移到 Final Cut Pro，或为未分配命令增加快捷键。",
+    settings: [
+      "入口：Final Cut Pro → Command Sets → Customize",
+      "快捷键：Option-Command-K",
+      "起点：Duplicate 当前 Command Set",
+      "交付：Export Command Set",
+    ],
+    steps: [
+      "按 Option-Command-K 打开 Command Editor，从左上角菜单 Duplicate 当前 Command Set，并用姓名、日期或设备命名。",
+      "搜索 Blade、Add Marker、Ripple、Share 等高频命令，按下候选组合；斜线阴影键属于系统保留，不尝试分配。",
+      "若组合已占用，阅读现有命令后再决定是否替换；保持 Undo、Save 和常用系统键不变，点击 Save。",
+      "在测试 Project 完成选择、修剪、标记、撤销和播放，再导出 Command Set；切回默认后重新导入并复测。",
+    ],
+    checks: [
+      "默认 Command Set 保持完整且可随时切回",
+      "冲突提示已逐项处理，新键位在真实 Project 中生效",
+      "导出文件重新导入后得到相同映射",
+    ],
+    pitfall:
+      "直接修改或覆盖唯一的工作键位集会让回退困难；先 Duplicate，再用测试 Project 验证每个冲突。",
+  },
+  {
+    id: "fcp-replace-options-duration-audition-qc",
+    category: "剪辑 · 镜头替换",
+    level: "进阶",
+    estimatedMinutes: 12,
+    title: "区分 Replace 选项并保持磁性时间线结构",
+    goal: "根据是否允许时间线变长、从哪端取材和是否需要比较候选，选择正确的 Replace 方式。",
+    scenario:
+      "主故事线节奏已确定，需要替换整条镜头，同时保护连接标题、字幕、音效和后续同步。",
+    settings: [
+      "标准 Replace：Shift-R",
+      "Replace from Start：Option-R",
+      "固定时长：From Start / From End",
+      "保留比较：Add to Audition",
+    ],
+    steps: [
+      "复制 Project as Snapshot，记录目标整条片段与项目总时长；在 Browser 选择候选片段或范围，在时间线选择完整目标片段。",
+      "允许项目随源范围变长或变短时才用标准 Replace；必须保持目标时长时选择 Replace from Start 或 Replace from End。",
+      "需要保留原镜头并比较时使用 Add to Audition 或 Replace and Add to Audition；只有必须容纳完整候选时才用 Retime to Fit，并检查速度变化。",
+      "替换后检查主故事线总时长、连接点、标题、字幕、音频组件和转场；从替换点前后各五秒回放并导出测试段。",
+    ],
+    checks: [
+      "所选 Replace 方式与是否允许项目时长变化一致",
+      "连接片段、字幕、音频组件和后续同步保持正确",
+      "Audition 或 Snapshot 保留可比较、可回退的原版本",
+    ],
+    pitfall:
+      "标准 Replace 的时长由源选择决定，会让后续主故事线 Ripple；Retime to Fit 虽保时长，却可能制造不需要的速度变化。",
+  },
+  {
+    id: "fcp-iphone-dolby-vision-hlg-export-qc",
+    category: "调色 · iPhone HDR",
+    level: "进阶",
+    estimatedMinutes: 15,
+    title: "把 iPhone Dolby Vision 素材建立为 Rec.2020 HLG 项目",
+    goal: "按 Apple 原生流程保留 iPhone HDR 动态范围，并用 10-bit 文件和实际 HDR 播放完成交付验证。",
+    scenario:
+      "从支持 HDR Video 的 iPhone 导入 Dolby Vision 素材，并准备制作 YouTube HDR 或 Apple 设备播放版本。",
+    settings: [
+      "Library Color Processing：Wide Gamut HDR",
+      "Project Color Space：Wide Gamut HDR - Rec.2020 HLG",
+      "输出：HLG Master 或 HEVC 10-bit",
+      "验证：Share Color Space + HDR 设备",
+    ],
+    steps: [
+      "从 iPhone 或 Photos 导入相机原始 HDR 文件，检查 Inspector 中的色彩空间与文件信息；不要使用已被社交平台压成 SDR 的副本。",
+      "把 Library Color Processing 设为 Wide Gamut HDR，新建或复制 Project，并把 Color Space 设为 Wide Gamut HDR - Rec.2020 HLG。",
+      "用 HDR Tools、Color Wheels 与示波器修正异常镜头，避免同时叠加错误 Camera LUT、Color Space Override 或重复 Tone Mapping。",
+      "Share 时确认 Color Space 显示 Rec.2020 HLG，选择 HLG Master 或 HEVC 10-bit；导出后检查文件标签，并在 HDR 设备与 YouTube 测试上传中复核。",
+    ],
+    checks: [
+      "Library 与 Project 均处于正确 Wide Gamut HDR / Rec.2020 HLG 设置",
+      "导出编码为 10-bit 或更高且色彩空间标签为 Rec.2020 HLG",
+      "HDR 设备播放的普通白、肤色和高光自然，无整体发灰或硬截",
+    ],
+    pitfall:
+      "Final Cut Pro 可以编辑 iPhone Dolby Vision HDR，但常规 HLG 导出不是重新生成完整 Dolby Vision 动态元数据；项目仍为 Rec.709 时也不会因源片是 HDR 自动得到正确 HDR 母版。",
+  },
+  {
+    id: "fcp-vfr-rate-conform-sync-qc",
+    category: "媒体 · 手机可变帧率",
+    level: "进阶",
+    estimatedMinutes: 15,
+    title: "先验证手机 VFR 同步，再选择 Rate Conform 或 CFR 转码",
+    goal: "锁定最终 Project Rate，区分混合帧率画面适配与源时间基漂移，避免后期更改帧率移动全部剪辑点。",
+    scenario:
+      "iPhone、Android 或录屏素材与相机素材混剪，长片段出现掉帧感、口型漂移或导出节奏变化。",
+    settings: [
+      "Project Rate：创建项目时按最终交付锁定",
+      "Rate Conform：Fast / Frame Blending / Optical Flow 按画面选择",
+      "诊断：首、中、尾同步点",
+      "转码：必要时 CFR + 48 kHz，原片保留",
+    ],
+    steps: [
+      "创建 Project 前确认最终帧率，不让第一条手机素材自动决定错误 Rate；导入后在 Info Inspector 与 MediaInfo 核对源帧率模式和音视频时长。",
+      "在长测试范围的开头、中段和结尾检查口型或波形；用 Better Quality 回放并导出短段，区分掉帧警告、性能问题与真实同步漂移。",
+      "只有源帧率与 Project Rate 不同但同步稳定时，按运动复杂度选择 Rate Conform 的 Fast、Frame Blending 或 Optical Flow；它处理画面采样，不用于修复音频时间基。",
+      "若偏移随时间增长，外部生成目标帧率 CFR、48 kHz 中间片并作为新媒体导入；重新同步后检查首、中、尾，HDR 素材还要复核 10-bit 与色彩空间。",
+    ],
+    checks: [
+      "Project Rate 在剪辑前锁定且与最终交付一致",
+      "Rate Conform 只用于稳定的混合帧率画面，真实漂移已改用 CFR 中间片",
+      "首、中、尾及导出文件同步，原片和色彩信息均保留",
+    ],
+    pitfall:
+      "后期修改 Project Rate 会让剪辑点移动；Optimized/Proxy Media 改善性能，但不能作为源 VFR 已被修复的证据。",
+  },
+  {
+    id: "fcp-share-render-error-frame-isolation-qc",
+    category: "交付 · 共享故障",
+    level: "质检",
+    estimatedMinutes: 15,
+    title: "根据 RenderFrameAt 帧号定位无法共享的片段",
+    goal: "用错误中的片段名、时间码或绝对帧定位故障，区分坏媒体、渲染文件、目标磁盘与 Share Destination 问题。",
+    scenario:
+      "Share 出现 Video rendering error 10008、RenderFrameAt absolute frame，或外置磁盘上的共享任务失败。",
+    settings: [
+      "状态：Command-9 Background Tasks",
+      "证据：错误文本 + 片段名 + 时间码/绝对帧",
+      "测试：Range Export / Export File",
+      "磁盘：本地 APFS 或 Mac OS Extended 可写卷",
+    ],
+    steps: [
+      "复制 Project as Snapshot，在 Background Tasks 与错误弹窗记录 Share Destination、片段名、时间码或 absolute frame；检查预计文件大小和可用空间。",
+      "若错误指向片段，定位该帧前后并做 Range Export；重新导入相机原片或从备份恢复，不用重新编码的同名文件直接覆盖源媒体。",
+      "删除该 Project 的 Render Files 后重试最小范围；外置卷失败时检查格式与权限，并改用本地可写卷和 Export File 隔离 Destination 问题。",
+      "范围通过后重新共享完整 Project，在 Share Inspector 查看历史并 Reveal in Finder；用独立播放器检查故障点、片头、片尾和音画同步。",
+    ],
+    checks: [
+      "错误帧已对应到明确片段、渲染文件或目标卷问题",
+      "最小范围与完整 Project 均以目标规格成功共享",
+      "Share Inspector、Finder 文件和独立播放结果互相一致",
+    ],
+    pitfall:
+      "10008/RenderFrameAt 通常指向不可用片段；只换 Share Destination 或清空全部缓存可能暂时绕过，却不能替代源媒体备份与故障帧复核。",
+  },
+  {
+    id: "fcp-review-copy-timecode-generator-qc",
+    category: "交付 · 审片副本",
+    level: "质检",
+    estimatedMinutes: 12,
+    title: "用 Timecode Generator 制作可定位的审片副本",
+    goal: "把 Project Timecode、版本号与审片状态写入副本，让反馈能够准确回到同一 Project 版本。",
+    scenario:
+      "需要让客户、导演或远程协作者按时间码反馈剪辑、字幕、声音与调色问题。",
+    settings: [
+      "入口：Titles and Generators → Elements → Timecode",
+      "覆盖：连接片段贯穿整个 Project",
+      "版本：静态标题写日期、v号和 REVIEW",
+      "输出：独立 Export File 审片副本",
+    ],
+    steps: [
+      "复制 Project as Snapshot，把 Elements 中的 Timecode Generator 作为连接片段放到主故事线上方，并延长至整个 Project。",
+      "在 Generator Inspector 确认显示 Project Timecode；另加静态标题写项目名、日期、版本号和 REVIEW / NOT FOR DISTRIBUTION。",
+      "在浅色、深色、字幕和人脸画面检查字号、背景与安全区；不要把仅用于 Viewer 的 Overlay 当成会写入导出的元素。",
+      "用 Export File 导出独立审片副本，重新导入后核对首帧、尾帧、总时长和时间码连续性；反馈统一记录画面内时间码与版本号。",
+    ],
+    checks: [
+      "Timecode Generator 覆盖全片且显示连续 Project Timecode",
+      "画面版本、文件名和 Project Snapshot 能一一对应",
+      "审片副本可精确定位反馈且不会替代无水印母版",
+    ],
+    pitfall:
+      "Viewer Overlay 只帮助编辑，不会自动写入 Share 文件；Timecode Effect 显示源片信息，和用于整片反馈的 Project Timecode Generator 不是同一用途。",
+  },
+  {
+    id: "fcp-review-feedback-todo-completed-marker-qc",
+    category: "质检 · 审片反馈",
+    level: "质检",
+    estimatedMinutes: 14,
+    title: "用 To-Do 与 Completed Marker 关闭审片反馈",
+    goal: "把每条反馈放到准确 Project Timecode，并通过红色 To-Do 到绿色 Completed 的状态变化形成可复核闭环。",
+    scenario:
+      "客户或协作者按审片副本时间码返回剪辑、声音、字幕和调色修改清单。",
+    settings: [
+      "待办：红色 To-Do Marker",
+      "完成：绿色 Completed To-Do",
+      "修改：Shift-M / 双击 Marker",
+      "筛选：Timeline Index → Tags",
+    ],
+    steps: [
+      "复制 Project as Snapshot，核对审片副本版本；按反馈 Project Timecode 跳转，在主故事线对应位置添加 Marker 并改成红色 To-Do。",
+      "名称写“编号｜部门｜修改动作”，Notes 保留原反馈与期望；冲突或缺少信息的项目保持 To-Do，不用绿色表示“已看过”。",
+      "在 Timeline Index 的 Tags/Markers 列表逐条处理；修改后从前后各五秒回放，必要时 Share Range 测试，通过后改为绿色 Completed To-Do。",
+      "导出新审片副本，过滤并确认红色 To-Do 为零，再抽查所有 Completed；保留 Snapshot 和反馈原文以便追溯。",
+    ],
+    checks: [
+      "所有外部反馈均对应正确 Project Timecode 和原始 Notes",
+      "红色 To-Do 已清零，绿色项目均经过修改后回放或 Range Share",
+      "Snapshot、审片副本和反馈版本能够一一对应",
+    ],
+    pitfall:
+      "绿色 Completed Marker 只是状态，不会验证修改质量；若审片依据是 Project Timecode，不要误放到会随源片或剪辑变化的错误位置。",
+  },
+  {
+    id: "fcp-clipped-audio-component-voiceover-qc",
+    category: "声音 · 削波修复",
+    level: "进阶",
+    estimatedMinutes: 14,
+    title: "检查红色峰值，切换音频组件或重录 Voiceover",
+    goal: "用音频表和组件确认源削波，再以备份麦克风、外录或 Voiceover Audition 替换不可恢复的对白。",
+    scenario: "Audio Meters 显示红色峰值，降低音量后对白仍有爆裂与扁平失真。",
+    settings: [
+      "诊断：Audio Meters + 降低 Volume 6–12 dB",
+      "备份：Expand Audio Components / 外录同步",
+      "替代：Record Voiceover + Auditions",
+      "验收：等响度 A/B + Share Range",
+    ],
+    steps: [
+      "复制 Project as Snapshot，Solo 问题片段并观察 Audio Meters；把 Volume 降低 6–12 dB，若失真仍在或源波形峰顶扁平，标记为源削波。",
+      "Expand Audio Components，关闭损坏的麦克风组件并启用安全声道；有外录时创建或对齐 Synced Clip，逐段检查辅音、口型和相位。",
+      "Audio Enhancements 的 Loudness、Voice Isolation、Background Noise Removal 和 Hum Removal 都不是 De-clip；只在副本轻量处理并做等响度 A/B。",
+      "关键对白无干净备份时用 Record Voiceover 录制多个 Take，通过 Auditions 选择最佳版本；补齐 Room Tone，Share Range 后用独立播放器复核。",
+    ],
+    checks: [
+      "Audio Meters 的过载与源文件内已写入的削波已分开判断",
+      "音频组件、外录或 Voiceover 与画面同步且房间声连续",
+      "Snapshot 保留原音，Range Share 与完整导出均无爆音",
+    ],
+    pitfall:
+      "把红色峰值拉低只能防止后续总线继续过载；已经录进素材的削波不会被 Audio Enhancements 自动重建。",
+  },
+  {
+    id: "fcp-multimic-component-phase-cancellation-qc",
+    category: "声音 · 多麦相位",
+    level: "进阶",
+    estimatedMinutes: 14,
+    title: "展开 Audio Components，排查多麦相位抵消",
+    goal: "通过组件逐听、波形同步和 Mono 复核，避免参考声与主麦同时启用造成空心对白。",
+    scenario:
+      "Synced Clip 或 Multicam Clip 中相机参考声和外录都开启，声音变薄或像有短延迟。",
+    settings: [
+      "同步：Use audio for synchronization",
+      "检查：Expand Audio Components",
+      "选择：禁用参考声，保留主麦",
+      "验收：Stereo / Mono + Share Range",
+    ],
+    steps: [
+      "复制 Project as Snapshot，旁路 Audio Enhancements；在 Audio Inspector 展开并逐个启用组件，先听每个组件，再听组合，确认问题是否只在多麦叠加时出现。",
+      "若尚未同步，创建 Synced Clip 并开启 Use audio for synchronization；用拍手或辅音波形检查开头、中段和结尾，自动同步失败时回到源片手动对齐。",
+      "在 Audio Configuration 取消勾选相机参考声或较差组件，以主麦为默认；只有主麦缺字或摩擦时才展开组件分段启用备份，并用淡化手柄匹配接缝。",
+      "分别以 Stereo 和 Mono 回听，恢复必要增强后 Share Range；在独立播放器确认对白没有梳状滤波感、重复声、底噪跳变或位置漂移。",
+    ],
+    checks: [
+      "每个 Audio Component 单独与组合状态均完成比较",
+      "开头、中段和结尾均通过同步检查，参考声未被无意混入",
+      "Mono 与 Range Share 中对白仍清晰居中且切换自然",
+    ],
+    pitfall:
+      "Use audio for synchronization 能对齐共同波形，但不代表不同距离的麦克风应同时混音；参考声通常用于同步，完成后应禁用而非持续叠加。",
+  },
+  {
+    id: "fcp-gradient-banding-film-grain-master-qc",
+    category: "调色 · 色带修复",
+    level: "进阶",
+    estimatedMinutes: 15,
+    title: "定位渐变色带，用 Film Grain 与 ProRes 母版验证",
+    goal: "分清源素材、颜色调整和发布编码造成的断层，并用克制纹理与高质量母版保护渐变。",
+    scenario: "天空、雾、墙面或暗部渐变出现环带，Viewer 与发布文件结果不同。",
+    settings: [
+      "检查：100% Viewer + 逐项关闭 Effects/Color Corrections",
+      "处理：减弱过强曲线、饱和度和 Noise Reduction",
+      "纹理：Film Grain 少量叠加",
+      "母版：Export File → Apple ProRes",
+    ],
+    steps: [
+      "复制 Project as Snapshot，在 100% Viewer 查看原始片段；逐项关闭 Color Corrections、LUT 和 Effects，若色带随某项消失，就减弱该曲线、对比、饱和度或 Noise Reduction，而不是继续锐化。",
+      "原片本身已低位深时先接受可恢复上限；在 Effects Browser 搜索 Film Grain 并少量应用到问题镜头，通过 Inspector 逐步调整，只让规则环带被细微纹理打散。",
+      "在静止天空、运动边缘、肤色、字幕和暗部逐项旁路比较；若 Grain 明显可见、随压缩闪烁或污染平面图形，降低强度或移除，保留自然源噪声。",
+      "用 Export File 导出 Apple ProRes 高质量母版，再生成最终发布编码；重新导入并以 100% 比较 Viewer、ProRes 与发布文件，确认问题是调色还是二次压缩造成。",
+    ],
+    checks: [
+      "已定位原片、具体效果或发布编码中的色带来源",
+      "Film Grain 只打散渐变断层，没有明显覆盖肤色、字幕与细节",
+      "ProRes 母版和发布文件分别回批复核且色彩空间一致",
+    ],
+    pitfall:
+      "Film Grain 不能生成丢失的颜色层次；若 ProRes 母版正常而发布版出现色带，应调整编码链路而不是继续叠加效果。",
+  },
+  {
+    id: "fcp-moire-blur-effect-mask-track-qc",
+    category: "调色 · 摩尔纹修复",
+    level: "进阶",
+    estimatedMinutes: 15,
+    title: "用 Blur Effect Mask 跟踪并减轻局部摩尔纹",
+    goal: "只柔化产生彩纹的细密区域，并通过 Tracker 和 Range Share 证明没有损伤主体细节。",
+    scenario: "衣物、栅栏、建筑或显示屏出现移动彩纹与闪烁。",
+    settings: [
+      "诊断：Viewer 100% + Range Share",
+      "效果：Blur 类效果，Amount 从最低可见值起",
+      "隔离：Shape Mask / Color Mask",
+      "跟踪：Object Tracker + 逐帧修正",
+    ],
+    steps: [
+      "复制 Project as Snapshot，在 Viewer 100% 检查原始片段并先 Share Range；若共享文件正常而 Fit 预览出现波纹，视为监看缩放问题，不处理素材。",
+      "从 Effects Browser 添加轻量 Blur 类效果，在 Video Inspector 为效果添加 Shape Mask；需要限制异常色相时叠加 Color Mask，让效果只落在问题纹理。",
+      "把 Shape Mask 连接到 Object Tracker 或手动关键帧跟随，增加边缘柔化；从最低 Amount 开始，只处理到彩纹不再抢眼，保留织物、头发和脸部细节。",
+      "逐帧检查快速运动、遮挡和 Mask 边缘，旁路效果比较；重新 Share Range 并在 100% 和正常观看尺寸确认没有软斑、边缘跳变或压缩闪烁。",
+    ],
+    checks: [
+      "已用 Viewer 与 Range Share 区分真实摩尔纹和缩放预览假象",
+      "Effect Mask 与 Tracker 全程只覆盖问题区域",
+      "彩纹减弱且脸部、文字、头发和周围纹理仍清晰自然",
+    ],
+    pitfall:
+      "Blur Effect Mask 只能缓解采样伪影；强模糊或不稳定跟踪会产生明显软斑，严重摩尔纹应换用其他镜头或重新拍摄。",
+  },
+  {
+    id: "fcp-horizon-transform-overscan-safe-frame-qc",
+    category: "剪辑 · 地平线校正",
+    level: "入门",
+    estimatedMinutes: 11,
+    title: "用 Transform Rotation 拉平地平线并检查 Overscan",
+    goal: "以最小 Rotation 和 Scale 校正倾斜，同时看见并消除画框外露出的空角。",
+    scenario: "风景、道路或建筑镜头整体倾斜，但没有严重滚动快门和运动模糊。",
+    settings: [
+      "入口：Transform（Shift-T）",
+      "旋转：Video Inspector → Rotation",
+      "边缘：Viewer → Overscan",
+      "补边：Scale + Position",
+    ],
+    steps: [
+      "复制 Project as Snapshot，在代表帧确认真实地平线、建筑垂直线或道路透视；排除坡地、广角变形和有意 Dutch Angle。",
+      "选中片段按 Shift-T 打开 Transform，在 Video Inspector 小幅调整 Rotation；拖动旋转手柄时把指针拉远以获得更细精度。",
+      "打开 Viewer 的 Overscan 查看旋转后的四角，只增加刚好覆盖画框的 Scale，并用 Position 重构主体；检查人脸、字幕、路牌和边缘物体。",
+      "播放完整片段，确认参照线没有随运动漂移；在横屏与竖屏 Project 中分别检查安全区，Share Range 后复核黑边、裁切和清晰度。",
+    ],
+    checks: [
+      "Rotation 有可靠场景参照，未误校正坡度或广角透视",
+      "Overscan 检查后四角无空白，Scale 没有造成不必要裁切",
+      "横竖屏 Project 与 Range Share 中构图稳定且主体完整",
+    ],
+    pitfall:
+      "Transform 只校正整体角度，不能修复随时间变化的滚动快门、镜头畸变或剧烈摆动；过高 Scale 会直接牺牲有效分辨率。",
+  },
+  {
+    id: "fcp-chromatic-fringe-color-shape-mask-qc",
+    category: "调色 · 镜头色差",
+    level: "进阶",
+    estimatedMinutes: 15,
+    title: "用 Color Mask 与 Shape Mask 限制镜头紫边修复",
+    goal: "只降低高反差轮廓的异常色彩，并通过复合蒙版避免正常紫色、绿色物体被去色。",
+    scenario: "逆光树枝、金属反光、建筑边缘或眼镜出现紫色、绿色或青色细边。",
+    settings: [
+      "诊断：Viewer 100% + 关闭 Sharpen/Effects",
+      "颜色：Color Correction + Color Mask",
+      "范围：Shape Mask → Intersect",
+      "验收：View Masks + Share Range",
+    ],
+    steps: [
+      "复制 Project as Snapshot，在 Viewer 100% 查看原片并关闭 Sharpen、Glow 或其他边缘效果；若彩边随效果消失，先调整效果顺序和强度。",
+      "添加独立 Color Correction，用 Color Mask 取样异常紫色、绿色或青色；查看 Black and White Mask，调整取样范围与 Softness，避免把相近正常颜色全部选中。",
+      "在同一修正上添加 Shape Mask，并设为与 Color Mask 相交，只包住问题轮廓；必要时连接 Tracker 或设置关键帧，再小幅降低该区域 Saturation。",
+      "检查开头、中段、结尾和最亮反光帧，旁路修正比较真实边缘；Share Range 后在 100% 与正常尺寸复核灰边、蒙版跳动和肤色变化。",
+    ],
+    checks: [
+      "已排除 Sharpen 或其他 Effects 制造的彩色边缘光晕",
+      "Color Mask 与 Shape Mask 交集只覆盖异常色边",
+      "Range Share 中紫边减弱且真实颜色、轮廓和肤色保持自然",
+    ],
+    pitfall:
+      "Color Mask 单独使用容易选中整幅画面的同色物体；局部降饱和只能减轻横向色差，不能修复失焦、轴向色散或已经剪切的高光。",
+  },
+  {
+    id: "fcp-auto-exposure-pump-color-keyframes-qc",
+    category: "调色 · 曝光跳变",
+    level: "进阶",
+    estimatedMinutes: 15,
+    title: "用 Color Correction Keyframes 平滑曝光泵动",
+    goal: "通过独立颜色修正和少量关键帧抵消相机自动曝光，同时保留真实环境光变化。",
+    scenario: "移动镜头经过窗户、天空、树荫或人物时，整体画面突然抬亮或压暗。",
+    settings: [
+      "诊断：Video Scopes → Waveform",
+      "修正：独立 Color Wheels / Color Adjustments",
+      "关键帧：Option-K / Color Inspector Keyframe",
+      "验收：Video Animation + Share Range",
+    ],
+    steps: [
+      "复制 Project as Snapshot，关闭自动 Enhance 和其他亮度效果；播放 Waveform，确认整体信号缓慢一起移动，排除周期灯光频闪、局部闪光和真实进出阴影。",
+      "添加独立 Color Wheels 或 Color Adjustments 修正并命名 Exposure Smooth；在亮度变化开始前按 Option-K 添加关键帧，在最强点小幅调整 Global Exposure 或 Brightness。",
+      "在变化结束后的稳定位置再加关键帧并恢复参考亮度；打开 Video Animation 检查控制点，减少不必要关键帧，不把自然环境变化全部压成同一亮度。",
+      "循环旁路比较肤色、高光和黑位，Share Range 后在独立播放器检查亮度台阶、关键帧顿挫、剪切高光与暗部噪声。",
+    ],
+    checks: [
+      "Waveform 证实问题为整体曝光泵动而非灯光频闪",
+      "Color Correction Keyframes 数量克制且过渡连续",
+      "Range Share 中肤色与中间调稳定，高光和黑位未进一步剪切",
+    ],
+    pitfall:
+      "颜色关键帧会记录该修正中的全部参数；把白平衡、风格和曝光混在同一修正中容易产生意外动画，应为曝光平滑单独建立修正。",
+  },
+  {
+    id: "fcp-lens-distortion-capability-handoff-qc",
+    category: "修复 · 镜头畸变",
+    level: "谨慎使用",
+    estimatedMinutes: 12,
+    title: "区分 Lens Distortion 与 Distort，再决定校正或转交",
+    goal: "避免把 FCP 的四角 Distort 误当成桶形镜头校正，并为轻微裁切、已安装效果或专业转交建立明确门槛。",
+    scenario:
+      "广角素材的直线在画面边缘弯曲，但旋转和四角透视调整无法真正拉直。",
+    settings: [
+      "诊断：Viewer 100% + 可靠直线",
+      "能力门槛：Effects Browser 中实际安装的镜头校正效果",
+      "Distort：只修四角透视，不修曲线",
+      "验收：Snapshot + Share Range",
+    ],
+    steps: [
+      "复制 Project as Snapshot，在 Viewer 100% 用门框、建筑边缘等可靠直线判断；先排除 Transform Rotation、正常透视汇聚与 Rolling Shutter 问题。",
+      "在 Effects Browser 搜索当前安装环境是否有明确的 Lens Distortion、Fisheye Correction 或镜头配置文件；若有，只在 Snapshot 小幅应用并随时旁路比较，不假定第三方效果在所有设备存在。",
+      "若只有内置 Distort，明确它移动四角和边缘、适合透视调整但不能拉直桶形曲线；轻微问题可用最小 Scale/Crop 避开最差边缘，明显问题保留原片并转交具备镜头校正的流程。",
+      "Share Range 后在独立播放器检查直线、人物比例、四角、裁切和清晰度；把用到的第三方效果名称与版本写入交接说明，避免换机后 Missing Effect。",
+    ],
+    checks: [
+      "已区分镜头曲线畸变、四角透视、旋转和滚动快门",
+      "没有把内置 Distort 错写为桶形或鱼眼镜头校正",
+      "Range Share 构图与比例自然，第三方依赖已记录或已安全转交",
+    ],
+    pitfall:
+      "四角 Distort 会改变透视而不是镜头曲率；用它硬拉桶形畸变会制造梯形和人物变形，第三方效果也必须随 Library 交接记录。",
+  },
+  {
+    id: "fcp-rolling-shutter-isolate-correct-qc",
+    category: "修复 · 滚动快门",
+    level: "进阶",
+    estimatedMinutes: 13,
+    title: "隔离问题区间，再用 Rolling Shutter 克制修复",
+    goal: "只对出现逐行扫描变形的短区间启用原生 Rolling Shutter，避免整条长片段无差别分析与过度校正。",
+    scenario:
+      "快速摇移、车载振动或高速主体让垂直线倾斜，画面出现可见的波浪和果冻感。",
+    settings: [
+      "隔离：Blade 只切出问题区间",
+      "入口：Video Inspector → Rolling Shutter",
+      "对比：Stabilization 与 Rolling Shutter 分别旁路",
+      "验收：100% Viewer + Share Range",
+    ],
+    steps: [
+      "复制 Project as Snapshot，关闭 Stabilization 与其他变形效果；逐帧查看门框、灯杆和四角，确认问题是随运动改变形状的 Rolling Shutter，而不是普通抖动、运动模糊或固定镜头畸变。",
+      "用 Blade 切出最短问题区间并选中完整片段，在 Video Inspector 展开 Rolling Shutter 后勾选修复；等待分析完成，只对确实需要的片段处理。",
+      "分别开关 Rolling Shutter 与 Stabilization，先判断几何形变是否改善，再按需单独稳定普通位移；若叠加后出现边缘波纹、突然缩放或过度裁切，降低处理或只保留较有效的一项。",
+      "完整播放问题段和前后剪辑点，Share Range 后在 100% 与正常速度检查直线、人物比例、四角和清晰度；严重形变仍在时换镜头或用 B-roll 覆盖。",
+    ],
+    checks: [
+      "Rolling Shutter 只应用于经过 Blade 隔离的完整问题片段",
+      "已分别旁路滚快门与稳定，确认两者处理的是不同问题",
+      "Range Share 中直线更稳定且无新增波纹、拉伸或突兀裁切",
+    ],
+    pitfall:
+      "Rolling Shutter 只能减轻而不能恢复严重形变或局部闪光；它作用于整条选中片段而非 Range，未先隔离会增加分析时间和误处理。",
+  },
+  {
+    id: "fcp-mixed-light-shape-mask-color-qc",
+    category: "调色 · 混合光",
+    level: "进阶",
+    estimatedMinutes: 14,
+    title: "用 Shape Mask 分离并平衡局部混合光",
+    goal: "在独立颜色修正中处理窗光、室内灯或环境反射造成的局部色偏，不破坏已经正确的画面区域。",
+    scenario:
+      "人物脸部两侧色温不同，或移动镜头经过窗户、树荫和暖灯时出现局部蓝、黄、绿色偏。",
+    settings: [
+      "基础：先完成全局 Balance / White Balance",
+      "修正：独立 Color Wheels / Color Adjustments",
+      "隔离：Shape Mask + Softness",
+      "动画：Mask Keyframes / Tracker + Share Range",
+    ],
+    steps: [
+      "复制 Project as Snapshot，先用全局修正确定主光源白平衡和曝光；检查白墙、灰色物体、肤色与现场记忆，不让局部窗光决定整个镜头的 Balance Color。",
+      "添加独立 Color Wheels 或 Color Adjustments 修正，并为该修正添加 Shape Mask；调整位置、范围与 Softness，让蒙版覆盖偏色光区并跨越自然渐变。",
+      "选择 Inside 后小幅调整 Warmth、Tint 或色轮，让肤色和中性物更连续；反复旁路修正并检查 Outside，不消除冷窗光、暖灯或霓虹本来合理的环境色。",
+      "用关键帧或可用 Tracker 跟随光区与人物运动，检查开头、中段、结尾和遮挡；Share Range 后在 100% 与正常尺寸确认没有色温接缝、漂移和压缩色块。",
+    ],
+    checks: [
+      "全局与局部颜色修正分开，Shape Mask 只覆盖混合光区域",
+      "蒙版 Softness 与动画连续，没有跟踪漂移或色温边界",
+      "Range Share 中肤色和中性物更自然，现场冷暖光仍有可信层次",
+    ],
+    pitfall:
+      "Shape Mask 只限定空间范围，不会自动理解光源；过度中和局部颜色或把蒙版边缘放在脸部结构上，会产生明显补丁感。",
+  },
+  {
+    id: "fcp-wind-noise-eq-isolation-replace-qc",
+    category: "声音 · 风噪修复",
+    level: "谨慎使用",
+    estimatedMinutes: 15,
+    title: "用 EQ 与 Voice Isolation 克制处理风噪并替换坏句",
+    goal: "分别处理低频隆隆、背景风声和不可恢复的对白，避免把所有 Audio Enhancements 同时开启。",
+    scenario:
+      "户外采访、车窗边或运动镜头的录音出现持续轰鸣、风冲击和被覆盖的关键词。",
+    settings: [
+      "诊断：展开 Audio Components 逐源独听",
+      "顺序：Range Gain → Channel EQ → Voice Isolation / Noise Removal",
+      "对比：Audio Enhancements 分项旁路",
+      "回退：备用组件 / Voiceover / Captions",
+    ],
+    steps: [
+      "复制 Project as Snapshot，展开 Audio Components 并逐个 Solo，标记低频隆隆、短促风冲击和完全听不清的词句；优先启用较干净的领夹或外录组件。",
+      "用 Range Selection 降低个别风冲击，再添加 Channel EQ，从低频端缓慢启用 Low Cut 或衰减；循环正常对白，隆隆减轻但声音开始变薄时回退。",
+      "剩余背景风声只选择 Voice Isolation 或 Background Noise Removal 中较有效的一项，从低 Amount 开始；分别旁路并匹配响度，出现乱码感、抽吸或口齿缺失就减弱。",
+      "被风覆盖的关键词切换备用组件或 Record Voiceover，补 Room Tone、淡化与 Captions；Share Range 后在耳机、手机和独立播放器检查同步、音色接缝与可懂度。",
+    ],
+    checks: [
+      "Audio Components 已逐源比较，低频、风冲击与被覆盖对白分开处理",
+      "EQ 和单一增强处理量克制，旁路 A/B 无明显变薄、乱码或抽吸",
+      "坏句已由备用组件、Voiceover 或字幕解决，Range Share 接缝自然",
+    ],
+    pitfall:
+      "Voice Isolation 与 Noise Removal 都不能重建已经消失的字词；多组件同时强隔离还可能产生乱码和相位伪影。",
+  },
+  {
+    id: "fcp-interview-static-transform-punch-in-qc",
+    category: "剪辑 · 采访景别",
+    level: "入门",
+    estimatedMinutes: 12,
+    title: "用静态 Transform 建立采访宽景与紧景切换",
+    goal: "把单机位采访的一部分重构为紧景别，弱化必要跳切并保持磁性时间线中的构图连续。",
+    scenario:
+      "删除口误或停顿后人物出现小幅跳变，现场没有第二机位或合适 B-roll。",
+    settings: [
+      "宽景：Scale 100%",
+      "紧景：Scale 110%–125%",
+      "构图：Transform Position + Overscan 检查",
+      "动画：不使用 Transform Keyframes",
+    ],
+    steps: [
+      "播放跳切前后并确认对白、口型和姿态基本连续；大幅转头、挥手或身体移动应换剪辑点、使用连接素材或保留自然停顿。",
+      "保留一侧为 100% 宽景，选择另一侧片段并按 Shift-T 打开 Transform，在 Video Inspector 把 Scale 静态提高到约 110%–125%；不添加关键帧。",
+      "用 Position 调整眼睛高度、视线与头顶空间，打开 Overscan 检查被裁区域；确认 Captions、手势、麦克风和连接素材安全区未受影响。",
+      "在 Viewer 100% 检查肤色、头发和压缩细节，连续播放多个切点并 Share Range；若紧景明显变软或宽紧景每句机械交替，就降低 Scale 或换 B-roll。",
+    ],
+    checks: [
+      "Transform Scale 在片段内静态，没有意外动画或构图漂移",
+      "宽景与紧景的眼线、视线和头顶空间连续，切换具有明确意图",
+      "Range Share 清晰且 Captions、手势、麦克风与安全区完整",
+    ],
+    pitfall:
+      "Punch-in 不是第二台真实机位，无法解决大幅姿态跳变；源分辨率余量不足时继续放大只会损失细节。",
+  },
+  {
+    id: "fcp-room-tone-connected-bed-crossfade-qc",
+    category: "声音 · 环境底声",
+    level: "进阶",
+    estimatedMinutes: 14,
+    title: "用 Connected Room Tone 与 Fade Handles 连续对白空间",
+    goal: "在磁性时间线下建立独立环境底声连接片段，填补删词与 Voiceover 接缝而不破坏主故事线结构。",
+    scenario:
+      "采访删词、替换 Audio Component 或补录 Voiceover 后，停顿处出现绝对静音和房间声跳变。",
+    settings: [
+      "来源：同地点 / 同麦克风 / 同增益",
+      "结构：Connected Audio + Ambience Role",
+      "淡化：Fade Handles / Option-T",
+      "电平：匹配邻近对白停顿",
+    ],
+    steps: [
+      "在 Browser 中从同一录音寻找 5–20 秒无对白、脚步和明显瞬态的稳定底声，确认 Audio Components、声道格式和麦克风条件与目标对白一致。",
+      "把底声作为 Connected Audio 放在问题段下方并分配 Ambience Role，延伸覆盖删词、组件切换与 Voiceover 接缝；用音量线匹配邻近自然停顿。",
+      "需要延长时使用多个不同安静区间，避开可识别的风声、空调和鸟鸣循环；展开音频并拖动 Fade Handles，或对相邻底声用 Option-T 建立短 Crossfade。",
+      "在 Roles 视图独听 Ambience，再以 Stereo 与 Mono 回听完整段落；Share Range 后检查底声重复、相位变薄、偏声道、辅音遮蔽和磁性时间线同步。",
+    ],
+    checks: [
+      "Connected Room Tone 来源、声道与对白录音条件匹配，并已分配 Ambience Role",
+      "闭眼回听不易定位剪辑接缝，底声没有明显循环和突然静音",
+      "Stereo、Mono 与 Range Share 均无相位变薄、偏声道或同步变化",
+    ],
+    pitfall:
+      "过短底声循环会暴露重复纹理；错误声道配置或与原对白底噪叠得过响，还会造成相位变薄和空间加倍。",
+  },
+  {
+    id: "fcp-ken-burns-photo-pan-zoom-qc",
+    category: "动画 · 照片推拉",
+    level: "入门",
+    estimatedMinutes: 12,
+    title: "用 Ken Burns 起止框制作克制照片推拉",
+    goal: "用 Final Cut Pro 原生 Ken Burns 起止构图建立平滑运动，并让旁白重点、画面安全区和输出清晰度一致。",
+    scenario:
+      "路线地图、旧照片、证据截图或静止风景需要在磁性时间线中持续数秒。",
+    settings: [
+      "入口：Crop（Shift-C）→ Ken Burns",
+      "构图：绿色 Start / 红色 End",
+      "缓动：Ease In and Out",
+      "验收：Viewer 100% + Share Range",
+    ],
+    steps: [
+      "先按旁白设置照片时长，在 Viewer 100% 检查源分辨率、焦点与文字；低分辨率源图先降低最终放大幅度。",
+      "选中片段按 Shift-C 打开 Crop，选择 Ken Burns；调整绿色 Start 与红色 End 框，让两个构图都保留主体、标题和安全区。",
+      "根据叙事选择单一推进、拉远或轻微横移，必要时使用 Swap 更换方向；Control-click 选择 Ease In and Out，复杂路径才改用 Crop 与关键帧。",
+      "循环播放并与前后镜头连看，确认运动落点对应旁白重点；Share Range 后在 100% 和正常尺寸检查文字、脸部、细线、黑边与起止顿挫。",
+    ],
+    checks: [
+      "Start 与 End 构图都保留主体、文字和画面安全区",
+      "Ken Burns 方向、时长和 Ease 设置符合旁白节奏",
+      "Range Share 无黑边、抖动、软化或突然加减速",
+    ],
+    pitfall:
+      "Ken Burns 本质是两个 Crop 构图；结束框过小会过度放大，短片段频繁交换方向也会让照片段落产生模板感和晕动。",
+  },
+  {
+    id: "fcp-connected-broll-dialogue-lock-qc",
+    category: "剪辑 · B-roll 覆盖",
+    level: "入门",
+    estimatedMinutes: 13,
+    title: "用 Connected Clip 覆盖跳切并校准连接点",
+    goal: "用 Q 把 B-roll 连接到正确对白位置，让磁性时间线调整时补画仍跟随语义，同时不改动主故事线声音。",
+    scenario:
+      "采访或路线旁白删词后出现视觉跳切，需要用相关细节镜头覆盖并保持 Dialogue 连续。",
+    settings: [
+      "源范围：Browser I / O",
+      "连接编辑：Q",
+      "连接点：Command-Option-click",
+      "验收：Roles + Share Range",
+    ],
+    steps: [
+      "建立 Project Snapshot，完整听主故事线跳切前后，确认 Dialogue、呼吸和环境底声连续；在时间线选择需要覆盖的最短范围并保留数帧视觉余量。",
+      "在 Browser 为地点、时间、天气、方向和叙述事实一致的 B-roll 设置范围；关闭不需要的 Audio Components，避免补画原声叠进主混音。",
+      "把播放头或 Skimmer 放在语义锚点，按 Q 建立 Connected Clip；必要时 Command-Option-click 把连接点移到真正应跟随的关键词或动作，而不是随意留在片段首帧。",
+      "逐帧检查补画首尾没有一帧露底，在 Roles 视图确认 Dialogue 未变，再移动或修剪一小段主故事线验证连接关系；Share Range 后核对时空、方向、声音与字幕。",
+    ],
+    checks: [
+      "Connected Clip 完整覆盖跳切，首尾无闪帧或一帧露底",
+      "连接点绑定正确语义锚点，主故事线调整后补画仍保持同步",
+      "Dialogue、Captions、项目时长和 Share Range 均连续且事实正确",
+    ],
+    pitfall:
+      "Connected Clip 会随其连接的主故事线片段移动或删除；连接点放错、保留补画原声或用错误时空素材，会造成同步和事实错误。",
+  },
+  {
+    id: "fcp-before-after-trim-transform-share-qc",
+    category: "合成 · 前后对比",
+    level: "入门",
+    estimatedMinutes: 14,
+    title: "用 Trim 与 Transform 制作前后对比成片",
+    goal: "把同步的 Before 与 After 片段合成为左右对比，并通过 Share Range 验证标签、同帧关系和单一主声音。",
+    scenario: "修复演示、调色案例或客户审片需要可直接播放的前后对比文件。",
+    settings: [
+      "结构：Primary Storyline + Connected Clip",
+      "裁切：Trim 左右各 50%",
+      "定位：Transform（Shift-T）",
+      "声音：Roles 只保留一套主混音",
+    ],
+    steps: [
+      "建立 Project Snapshot，把 Before 放入 Primary Storyline，并用 Q 把 After 连接到同一开始帧；在开头、中段与结尾按动作、波形或时间码确认没有漂移。",
+      "分别按 Shift-C 使用 Trim 保留左半与右半，再按 Shift-T 用 Transform Position 对齐主体；保持等比 Scale，打开 Overscan 检查边界外内容。",
+      "添加 Before / After 标题并检查 title safe，必要时加细分隔线；在 Audio Components 或 Roles 中关闭重复音频，只保留已通过的主声音。",
+      "逐帧检查中央边界和快速运动，Share Range 后在 100% 与正常尺寸确认同步、清晰度、标签、颜色和音频与单画面版本一致。",
+    ],
+    checks: [
+      "Primary 与 Connected Clip 首、中、尾保持同帧且连接点正确",
+      "Trim 与 Transform 形成准确 50/50 构图，无黑缝、重叠或非等比变形",
+      "Share Range 标签可读、只有一套声音且颜色关系可信",
+    ],
+    pitfall:
+      "Viewer 比较和停用效果不会自动生成分屏成片；两条素材时基不同、重复 Audio Components 或分别套用不同色彩转换会让对比失去可信度。",
+  },
+  {
+    id: "fcp-alpha-logo-connected-brand-master-qc",
+    category: "标题 · 品牌角标",
+    level: "入门",
+    estimatedMinutes: 12,
+    title: "用 Alpha Connected Clip 制作品牌角标并保留 Clean Master",
+    goal: "将透明 Logo 作为真实 Connected Clip 合成到安全区，并用独立 Project 版本管理有角标与无角标交付。",
+    scenario:
+      "频道节目、系列教程或品牌授权片需要角标，同时平台或存档还需要 Clean Master。",
+    settings: [
+      "素材：PNG / 图形 Alpha Channel",
+      "连接：Q 到 Primary Storyline",
+      "尺寸：短边约 4%–8% 起步",
+      "检查：Title/Action Zones + Share Range",
+    ],
+    steps: [
+      "导入 Logo 后在黑、白和彩色背景上检查 Alpha 边缘、阴影和品牌色；若源图带白边、黑边或实心棋盘格，返回图形源文件修复。",
+      "在片头语义锚点按 Q 把 Logo 连接到 Primary Storyline 并延长至规定范围；用 Transform 等比缩放，从短边约 4%–8% 起步放在 Title/Action Zones 内。",
+      "用 Compositing Opacity 或 Video Animation Fade Handles 只做品牌规范允许的淡入淡出，避开 Captions、人脸和平台 UI；不要把 Viewer Custom Overlay 当作会导出的 Logo。",
+      "建立 Clean Project Snapshot 与 Branded Project，分别 Share Range 和完整导出；在横竖屏、黑白画面与目标设备检查边缘、尺寸、持续时间和版本命名。",
+    ],
+    checks: [
+      "Alpha Logo 在黑白和彩色背景上边缘干净，品牌色未被 Blend Mode 改变",
+      "Connected Clip 的位置、连接点、持续时间与 Opacity 符合品牌规范",
+      "Clean 与 Branded Project/文件明确分离，Share 输出版本正确",
+    ],
+    pitfall:
+      "Viewer Custom Overlay 只用于参考，不会写入 Share；错误 Alpha Interpretation、混合模式或只保留 Branded Project 会破坏边缘与交付弹性。",
+  },
 ] as const;
 
 export const finalCutProSources = [
   {
+    label: "Final Cut Pro 修复抖动与 Rolling Shutter",
+    url: "https://support.apple.com/guide/final-cut-pro/verbacf92b/mac",
+  },
+  {
+    label: "Final Cut Pro Distort 与透视调整",
+    url: "https://support.apple.com/guide/final-cut-pro/verfc8a4a9d/mac",
+  },
+  {
     label: "Final Cut Pro Mac 用户指南",
     url: "https://support.apple.com/guide/final-cut-pro/welcome/mac",
+  },
+  {
+    label: "配置并启用或禁用音频组件",
+    url: "https://support.apple.com/guide/final-cut-pro/verc1fab5f6/mac",
+  },
+  {
+    label: "Final Cut Pro 支持的导出格式",
+    url: "https://support.apple.com/guide/final-cut-pro/vere9bbb1cc4/mac",
+  },
+  {
+    label: "Final Cut Pro 效果蒙版",
+    url: "https://support.apple.com/guide/final-cut-pro/verd9d69f195/mac",
+  },
+  {
+    label: "Final Cut Pro 缩放、移动与旋转片段",
+    url: "https://support.apple.com/guide/final-cut-pro/verfc8a4713/mac",
+  },
+  {
+    label: "Final Cut Pro 为视频效果添加颜色蒙版",
+    url: "https://support.apple.com/guide/final-cut-pro/ver6210abbce/mac",
+  },
+  {
+    label: "Final Cut Pro 为颜色修正添加关键帧",
+    url: "https://support.apple.com/guide/final-cut-pro/vere6ff000b0/mac",
   },
   {
     label: "项目设置与色彩空间",
@@ -979,5 +2447,161 @@ export const finalCutProSources = [
   {
     label: "使用 DeEsser 2 控制齿音",
     url: "https://support.apple.com/guide/final-cut-pro-logic-effects/lgex2c461069/mac",
+  },
+  {
+    label: "重连原始媒体与代理媒体",
+    url: "https://support.apple.com/guide/final-cut-pro/ver26f5c8c9/mac",
+  },
+  {
+    label: "创建 Freeze Frame 与 Hold Segment",
+    url: "https://support.apple.com/guide/final-cut-pro/verc6b56b42/mac",
+  },
+  {
+    label: "后台渲染与 Render Files 管理",
+    url: "https://support.apple.com/guide/final-cut-pro/ver68a8c250/mac",
+  },
+  {
+    label: "音量与音频效果关键帧",
+    url: "https://support.apple.com/guide/final-cut-pro/ver717f5914/mac",
+  },
+  {
+    label: "录制 Voiceover 与多次录音",
+    url: "https://support.apple.com/guide/final-cut-pro/verc1faa9c5/mac",
+  },
+  {
+    label: "建立与拆分 Secondary Storyline",
+    url: "https://support.apple.com/guide/final-cut-pro/ver8e3f1748/mac",
+  },
+  {
+    label: "批量共享多个项目或片段",
+    url: "https://support.apple.com/guide/final-cut-pro/verd4e0cf686/mac",
+  },
+  {
+    label: "复制项目与建立 Snapshot",
+    url: "https://support.apple.com/guide/final-cut-pro/verfd45ffa45/mac",
+  },
+  {
+    label: "慢动作与 Video Quality 模式",
+    url: "https://support.apple.com/guide/final-cut-pro/ver40b00150/mac",
+  },
+  {
+    label: "使用 Match Audio 匹配音色",
+    url: "https://support.apple.com/guide/final-cut-pro/ver1632db40/mac",
+  },
+  {
+    label: "添加与管理 Adjustment Clips",
+    url: "https://support.apple.com/guide/final-cut-pro/verfda63436e/mac",
+  },
+  {
+    label: "显示与导航 Duplicate Ranges",
+    url: "https://support.apple.com/guide/final-cut-pro/vercefac2468/mac",
+  },
+  {
+    label: "启用 Beat Detection 并按节拍剪辑",
+    url: "https://support.apple.com/guide/final-cut-pro/edit-to-the-beat-ver65b55a2b7/mac",
+  },
+  {
+    label: "Reveal Source in Browser 来源匹配",
+    url: "https://support.apple.com/guide/final-cut-pro/find-a-project-clips-source-clip-ver7a77f37c/mac",
+  },
+  {
+    label: "转换字幕格式并保留原版",
+    url: "https://support.apple.com/guide/final-cut-pro/ver243c646c5/mac",
+  },
+  {
+    label: "把视频效果跟踪到移动对象",
+    url: "https://support.apple.com/guide/final-cut-pro/ver02684fa6a/mac",
+  },
+  {
+    label: "调整并控制 Scrolling Title 速度",
+    url: "https://support.apple.com/guide/final-cut-pro/verc2633b096/mac",
+  },
+  {
+    label: "使用 Green Screen Keyer 并检查 Matte",
+    url: "https://support.apple.com/guide/final-cut-pro/ver40b003bc/mac",
+  },
+  {
+    label: "Ripple 修剪与项目时长变化",
+    url: "https://support.apple.com/guide/final-cut-pro/extend-or-shorten-clips-ver9847ec25/mac",
+  },
+  {
+    label: "Reverse Clip 与 Rewind 的区别",
+    url: "https://support.apple.com/guide/final-cut-pro/reverse-or-rewind-clips-ver15f879b3/mac",
+  },
+  {
+    label: "使用 Distort 调整四角位置",
+    url: "https://support.apple.com/guide/final-cut-pro/verfc8a4a9d/mac",
+  },
+  {
+    label: "在片段之间复制效果与粘贴属性",
+    url: "https://support.apple.com/guide/final-cut-pro/ver3029fc422/mac",
+  },
+  {
+    label: "使用 Scene Removal Mask 移除背景",
+    url: "https://support.apple.com/guide/final-cut-pro/ver8f4ab60c6/mac",
+  },
+  {
+    label: "使用 ProRes 4444 保留 Alpha 通道",
+    url: "https://support.apple.com/101763",
+  },
+  {
+    label: "恢复 Final Cut Pro Library 自动备份",
+    url: "https://support.apple.com/guide/final-cut-pro/ver85d95b8a9/mac",
+  },
+  {
+    label: "自定义并管理 Final Cut Pro Command Set",
+    url: "https://support.apple.com/guide/final-cut-pro/modify-keyboard-shortcuts-ver761c9236/mac",
+  },
+  {
+    label: "Final Cut Pro Replace 选项与时长变化",
+    url: "https://support.apple.com/guide/final-cut-pro/ver4e2fcf0/mac",
+  },
+  {
+    label: "在 Final Cut Pro 编辑 iPhone Dolby Vision HDR",
+    url: "https://support.apple.com/102241",
+  },
+  {
+    label: "Final Cut Pro 导出 Rec.2020 HLG HDR 文件",
+    url: "https://support.apple.com/guide/final-cut-pro/ver504d31dd2/mac",
+  },
+  {
+    label: "Final Cut Pro 混合帧率与 Rate Conform",
+    url: "https://support.apple.com/guide/final-cut-pro/ver3363b44e/mac",
+  },
+  {
+    label: "Final Cut Pro Optimized 与 Proxy Media 边界",
+    url: "https://support.apple.com/guide/final-cut-pro/verb8e5f6fd/mac",
+  },
+  {
+    label: "Final Cut Pro Share 失败与 RenderFrameAt 错误处理",
+    url: "https://support.apple.com/119608",
+  },
+  {
+    label: "Final Cut Pro Share 状态与 Finder 文件定位",
+    url: "https://support.apple.com/guide/final-cut-pro/ver1632ec4a/mac",
+  },
+  {
+    label: "Final Cut Pro Timecode Generator 审片计数器",
+    url: "https://support.apple.com/guide/final-cut-pro/verca9e960b/mac",
+  },
+  {
+    label: "Final Cut Pro To-Do 与 Completed Marker",
+    url: "https://support.apple.com/guide/final-cut-pro/ver39727e41/mac",
+  },
+  {
+    label: "Final Cut Pro Ken Burns 平移与缩放",
+    url: "https://support.apple.com/guide/final-cut-pro/verb8e5de9c/mac",
+  },
+  {
+    label: "Final Cut Pro 连接 B-roll 与调整连接点",
+    url: "https://support.apple.com/guide/final-cut-pro/ver7a77ef9e/mac",
+  },
+  {
+    label: "Final Cut Pro Transform、Trim 与合成",
+    url: "https://support.apple.com/guide/final-cut-pro/work-with-built-in-effects-verfc8a4bdc/mac",
+  },
+  {
+    label: "Final Cut Pro 使用 Alpha Channel 合成图形",
+    url: "https://support.apple.com/guide/final-cut-pro/ver52cf382e/mac",
   },
 ] as const;

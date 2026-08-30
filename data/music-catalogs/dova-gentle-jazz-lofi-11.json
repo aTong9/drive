@@ -1,0 +1,22 @@
+{
+  "platformId": "dova-syndrome",
+  "description": "DOVA 温柔钢琴爵士与暖系 Soft Lo-Fi：具名真人作曲者、低存在感，并排除强鼓、Funk、EDM、Energetic、Intense、Loud 及跨平台重复作品",
+  "downloadLabel": "官方曲目页 / MP3 下载",
+  "credit": "请复制每首官方曲目页列出的作者署名与使用条件",
+  "licenseNote": "可依 DOVA 音源利用许可作为 YouTube 背景音乐并做必要的裁切、Fade 与 Loop；原生 Loop 状态以每首说明为准。使用前仍须复核单曲页与作者附加条件。",
+  "creationOrigin": "human",
+  "nativeLoopOnly": false,
+  "items": [
+    ["星に逢う夜", 22681, "のる", "jazz", "Slow・Warm・Gentle・Smooth Jazz・Piano", "钢琴主导，适合城市夜景与蓝调时刻；非原生 Loop", 185],
+    ["星の語らい", 21818, "のる", "jazz", "Mellow・Soft・Calm・Swing Piano", "适合夜间咖啡与放松谈话；非原生 Loop", 172],
+    ["やさしいひととき", 14681, "のる", "jazz", "Slow・Warm・Gentle・Piano Solo・Light Swing", "无鼓组钢琴独奏；非原生 Loop", 179],
+    ["Soft Light, Quiet Night", 22258, "松浦洋介", "jazz", "BPM 65・Calm・Gentle・Piano Jazz", "简单克制，适合夜景、Vlog 与旁白；曲页明确可重复使用", 265],
+    ["Take a Break", 13200, "Flehmann", "jazz", "Calm・Jazz・Healing・Piano", "采用 Track 2 慢速官方循环素材", 198],
+    ["曇った宝石", 2822, "かずち", "jazz", "Weak・Gentle・Calm Jazz", "适合短转场或轻循环；非原生 Loop", 78],
+    ["Cocktail Glass", 3256, "MATSU", "jazz", "Calm・Gentle・Modest・Piano・Bass", "轻爵士编制，适合夜间咖啡、酒吧与城市画面；非原生 Loop", 182],
+    ["午後のカフェ", 5937, "高橋 志郎", "jazz", "Warm・Calm・Gentle・Healing・Acoustic Swing", "低存在感，适合环境声与对白；非原生 Loop", 73],
+    ["We are Friends!", 17311, "Fukagawa", "jazz", "Warm・Gentle・Daily Light Jazz", "作者明确 1:17 为循环编辑点并允许裁切、复制、Loop 与 Fade", 159],
+    ["cozy room", 23446, "ゆうり (Yuli Audio Craft)", "lofi", "BPM 80・Warm・Calm・Gentle・Lo-Fi", "松弛暖系 Lo-Fi；非原生 Loop", 228],
+    ["Lazy Midnight（深夜にまったり）", 19637, "蒲鉾さちこ", "lofi", "Calm・Lazy・Chill・Electric Piano・Soft Synth", "低存在感深夜 Lo-Fi；曲页明确为循环仕様", 101]
+  ]
+}

@@ -4,6 +4,7 @@
   "downloadLabel": "官方曲目页 / MP3 下载",
   "credit": "请复制每首官方曲目页列出的作者署名与使用条件",
   "licenseNote": "可作为 YouTube 背景音乐并按 DOVA 规则剪时长、Fade、Loop；本批原生标记为 Loopable。使用前仍须复核单曲页与作者附加条件。",
+  "nativeLoopOnly": true,
   "items": [
     [
       "昼下がり気分",
