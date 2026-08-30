@@ -130,8 +130,8 @@ test("piano creator directory counts creators rather than tracks", () => {
   assert.equal(new Set(youtubePianoCreators.map((creator) => creator.youtubeUrl)).size, 50);
   assert.ok(youtubePianoCreators.every((creator) => creator.creationOrigin === "human"));
   assert.ok(youtubePianoCreators.every((creator) => creator.youtubeUrl.startsWith("https://www.youtube.com/")));
-  assert.ok(youtubePianoCreators.some((creator) => creator.channelType === "personal-channel"));
-  assert.ok(youtubePianoCreators.some((creator) => creator.channelType === "dova-playlist"));
+  assert.ok(youtubePianoCreators.every((creator) => creator.channelType === "personal-channel"));
+  assert.ok(youtubePianoCreators.every((creator) => creator.licenseBasis === "permission-required"));
 });
 
 test("StreamBeats official catalog contributes a verified 144-track batch", () => {
@@ -327,6 +327,178 @@ test("DOVA replaces a grand-tagged track with one recent strict human healing am
   assert.doesNotMatch(track.description, /Grand|Forceful|Drum|Percussion|EDM|Funk/i);
 });
 
+test("DOVA contributes two strict human native-loop soft music-box tracks", () => {
+  const ids = new Set([15973, 16090].map((id) => `dova-syndrome-healing-${id}`));
+  const tracks = youtubeMusicLibrary.tracks.filter((track) => ids.has(track.id));
+  assert.equal(tracks.length, 2);
+  assert.deepEqual(tracks.map((track) => track.durationSeconds).sort((a, b) => (a ?? 0) - (b ?? 0)), [113, 285]);
+  assert.ok(tracks.every((track) => track.creationOrigin === "human"));
+  assert.ok(tracks.every((track) => track.categoryIds.includes("signature-healing-loop")));
+  assert.ok(tracks.every((track) => /Warm.*Calm.*Gentle.*Healing.*Weak.*Slow/.test(track.description)));
+  assert.ok(tracks.every((track) => !/Grand|Forceful|Drum|Percussion|EDM|Funk/i.test(track.description)));
+});
+
+test("DOVA contributes six strict human soft-guitar piano and pad tracks", () => {
+  const detailIds = [8674, 3072, 21698, 19702, 11928, 3549];
+  const ids = new Set(detailIds.map((id) => `dova-syndrome-healing-${id}`));
+  const tracks = youtubeMusicLibrary.tracks.filter((track) => ids.has(track.id));
+  assert.equal(tracks.length, 6);
+  assert.ok(tracks.every((track) => track.creationOrigin === "human"));
+  assert.ok(tracks.every((track) => /Warm.*Calm.*Gentle.*Healing.*Slow/.test(track.description)));
+  assert.ok(tracks.every((track) => !/Grand|Forceful|Drum|Percussion|EDM|Funk|Energetic|Intense|Loud/i.test(track.description)));
+  assert.deepEqual(tracks.filter((track) => track.categoryIds.includes("signature-healing-loop")).map((track) => track.id).sort(), ["dova-syndrome-healing-3072", "dova-syndrome-healing-8674"]);
+  assert.equal(tracks.find((track) => track.id === "dova-syndrome-healing-21698")?.durationSeconds, 402);
+});
+
+test("DOVA contributes five strict human long-video tracks", () => {
+  const ids = new Set([7223, 20584, 19244, 21662, 1214].map((id) => `dova-syndrome-healing-${id}`));
+  const tracks = youtubeMusicLibrary.tracks.filter((track) => ids.has(track.id));
+  assert.equal(tracks.length, 5);
+  assert.ok(tracks.every((track) => track.creationOrigin === "human"));
+  assert.ok(tracks.every((track) => (track.durationSeconds ?? 0) >= 300));
+  assert.ok(tracks.every((track) => /Warm.*Calm.*Gentle.*Healing.*Slow/.test(track.description)));
+  assert.ok(tracks.every((track) => !/Grand|Forceful|Drum|Percussion|EDM|Funk|Energetic|Intense|Loud/i.test(track.description)));
+  assert.equal(tracks.find((track) => track.id === "dova-syndrome-healing-21662")?.durationSeconds, 600);
+  assert.deepEqual(tracks.filter((track) => track.categoryIds.includes("signature-healing-loop")).map((track) => track.id), ["dova-syndrome-healing-1214"]);
+});
+
+test("DOVA contributes eight new strict human native-loop tracks", () => {
+  const ids = new Set([11957, 11785, 11594, 11694, 9868, 10125, 14342, 5968].map((id) => `dova-syndrome-healing-${id}`));
+  const tracks = youtubeMusicLibrary.tracks.filter((track) => ids.has(track.id));
+  assert.equal(tracks.length, 8);
+  assert.ok(tracks.every((track) => track.creationOrigin === "human"));
+  assert.ok(tracks.every((track) => track.categoryIds.includes("signature-healing-loop")));
+  assert.ok(tracks.every((track) => /Warm.*Calm.*Gentle.*Healing/.test(track.description) && /Weak|Slow/.test(track.description)));
+  assert.ok(tracks.every((track) => !/Grand|Forceful|Drum|Percussion|EDM|Funk|Energetic|Intense|Loud/i.test(track.description)));
+  assert.equal(tracks.filter((track) => /官方标签：[^｜]*Weak[^｜]*Slow/.test(track.description)).length, 5);
+});
+
+test("DOVA contributes eight new strict human sparse piano-only tracks", () => {
+  const ids = new Set([17219, 19463, 1925, 3430, 1810, 5508, 6929, 13531].map((id) => `dova-syndrome-healing-${id}`));
+  const tracks = youtubeMusicLibrary.tracks.filter((track) => ids.has(track.id));
+  assert.equal(tracks.length, 8);
+  assert.ok(tracks.every((track) => track.creationOrigin === "human"));
+  assert.ok(tracks.every((track) => track.categoryIds.includes("healing-piano")));
+  assert.ok(tracks.every((track) => /官方标签：[^｜]*Piano[^｜]*Warm[^｜]*Calm[^｜]*Gentle[^｜]*Healing[^｜]*Weak[^｜]*Slow/.test(track.description)));
+  assert.ok(tracks.every((track) => !/Grand|Forceful|Drum|Percussion|EDM|Funk|Energetic|Intense|Loud|Passion|Serious|Tension|Dark|Fear/i.test(track.description)));
+  assert.deepEqual(tracks.filter((track) => track.categoryIds.includes("signature-healing-loop")).map((track) => track.id), ["dova-syndrome-healing-6929"]);
+});
+
+test("DOVA contributes one new strict human piano-free thin-pad ambient track", () => {
+  const track = youtubeMusicLibrary.tracks.find((item) => item.id === "dova-syndrome-healing-8553");
+  assert.ok(track);
+  assert.equal(track.creationOrigin, "human");
+  assert.equal(track.durationSeconds, 109);
+  assert.ok(track.categoryIds.includes("ambient-healing"));
+  assert.match(track.description, /官方标签：Synth Pad.*Ambient.*Warm.*Calm.*Gentle.*Healing.*Weak.*Slow/);
+  assert.doesNotMatch(track.description, /Piano|Grand|Forceful|Drum|Percussion|EDM|Funk|Energetic|Intense|Loud|Passion|Serious|Tension|Dark|Fear|Despair/);
+  assert.equal(track.categoryIds.includes("signature-healing-loop"), false);
+});
+
+test("DOVA contributes eight new strict human soft-acoustic-guitar tracks", () => {
+  const ids = new Set([15843, 12213, 23323, 672, 21967, 12191, 5345, 11231].map((id) => `dova-syndrome-healing-${id}`));
+  const tracks = youtubeMusicLibrary.tracks.filter((track) => ids.has(track.id));
+  assert.equal(tracks.length, 8);
+  assert.ok(tracks.every((track) => track.creationOrigin === "human"));
+  assert.ok(tracks.every((track) => /官方标签：[^｜]*A\.Guitar[^｜]*Acoustic[^｜]*Warm[^｜]*Calm[^｜]*Gentle[^｜]*Healing[^｜]*Slow/.test(track.description)));
+  assert.ok(tracks.every((track) => !/Grand|Forceful|Drum|Percussion|EDM|Funk|Energetic|Intense|Loud|Passion|Serious|Tension|Dark|Fear|Despair/i.test(track.description)));
+  assert.ok(tracks.every((track) => !track.categoryIds.includes("signature-healing-loop")));
+  assert.equal(tracks.find((track) => track.id === "dova-syndrome-healing-12191")?.durationSeconds, 95);
+});
+
+test("DOVA contributes eight new strict human drumless city-night ambient tracks", () => {
+  const ids = new Set([10126, 17380, 12736, 2271, 18119, 2565, 13828, 12696].map((id) => `dova-syndrome-healing-${id}`));
+  const tracks = youtubeMusicLibrary.tracks.filter((track) => ids.has(track.id));
+  assert.equal(tracks.length, 8);
+  assert.ok(tracks.every((track) => track.creationOrigin === "human"));
+  assert.ok(tracks.every((track) => /官方标签：[^｜]*Warm[^｜]*Calm[^｜]*Gentle[^｜]*Healing/.test(track.description) && /官方标签：[^｜]*(Weak|Slow)/.test(track.description)));
+  assert.ok(tracks.every((track) => !/Grand|Forceful|Drum|Percussion|Beat|Hiphop|EDM|Funk|Energetic|Intense|Loud|Passion|Serious|Tension|Dark|Fear|Despair/i.test(track.description)));
+  assert.deepEqual(tracks.filter((track) => track.categoryIds.includes("signature-healing-loop")).map((track) => track.id).sort(), ["dova-syndrome-healing-12696", "dova-syndrome-healing-13828", "dova-syndrome-healing-2565"]);
+});
+
+test("DOVA contributes eight new strict human rural rain and sunrise tracks", () => {
+  const ids = new Set([13759, 12500, 429, 15218, 796, 17573, 10647, 10776].map((id) => `dova-syndrome-healing-${id}`));
+  const tracks = youtubeMusicLibrary.tracks.filter((track) => ids.has(track.id));
+  assert.equal(tracks.length, 8);
+  assert.ok(tracks.every((track) => track.creationOrigin === "human"));
+  assert.ok(tracks.every((track) => /官方标签：[^｜]*Warm[^｜]*Calm[^｜]*Gentle[^｜]*Healing/.test(track.description) && /官方标签：[^｜]*(Weak|Slow)/.test(track.description)));
+  assert.ok(tracks.every((track) => !/Grand|Forceful|Drum|Percussion|EDM|Funk|Energetic|Intense|Loud|Passion|Serious|Tension|Dark|Fear|Despair|Void/i.test(track.description)));
+  assert.equal(tracks.filter((track) => (track.durationSeconds ?? 0) >= 150).length, 5);
+  assert.ok(tracks.every((track) => !track.categoryIds.includes("signature-healing-loop")));
+});
+
+test("DOVA contributes eight new strict human healing tracks with six native loops", () => {
+  const ids = new Set([2025, 8983, 12001, 12298, 14505, 14006, 21062, 20081].map((id) => `dova-syndrome-healing-${id}`));
+  const tracks = youtubeMusicLibrary.tracks.filter((track) => ids.has(track.id));
+  assert.equal(tracks.length, 8);
+  assert.ok(tracks.every((track) => track.creationOrigin === "human"));
+  assert.ok(tracks.every((track) => /官方标签：[^｜]*Warm[^｜]*Calm[^｜]*Gentle[^｜]*Healing[^｜]*Slow/.test(track.description)));
+  assert.ok(tracks.every((track) => !/Grand|Forceful|Drum|Percussion|EDM|Funk|Energetic|Intense|Loud|Passion|Serious|Tension|Dark|Fear|Despair|Void/i.test(track.description)));
+  assert.equal(tracks.filter((track) => track.categoryIds.includes("signature-healing-loop")).length, 6);
+  assert.equal(tracks.filter((track) => (track.durationSeconds ?? 0) >= 180).length, 2);
+});
+
+test("DOVA contributes eight new strict human low-presence piano tracks", () => {
+  const ids = new Set([2692, 14752, 5439, 12642, 1055, 3444, 11293, 9970].map((id) => `dova-syndrome-healing-${id}`));
+  const tracks = youtubeMusicLibrary.tracks.filter((track) => ids.has(track.id));
+  assert.equal(tracks.length, 8);
+  assert.ok(tracks.every((track) => track.creationOrigin === "human"));
+  assert.ok(tracks.every((track) => /官方标签：[^｜]*Piano[^｜]*Warm[^｜]*Calm[^｜]*Gentle[^｜]*Healing[^｜]*Slow/.test(track.description)));
+  assert.ok(tracks.every((track) => !/Grand|Forceful|Drum|Percussion|EDM|Funk|Energetic|Intense|Loud|Passion|Serious|Tension|Dark|Fear|Despair|Void/i.test(track.description)));
+  assert.equal(tracks.filter((track) => track.categoryIds.includes("signature-healing-loop")).length, 2);
+  assert.equal(tracks.filter((track) => track.description.includes("Sparse")).length, 4);
+  assert.equal(tracks.find((track) => track.id === "dova-syndrome-healing-1055")?.durationSeconds, 202);
+});
+
+test("DOVA contributes five new strict human drumless piano-jazz and blue-hour tracks", () => {
+  const ids = new Set([12951, 11960, 2454, 19778, 3397].map((id) => `dova-syndrome-healing-${id}`));
+  const tracks = youtubeMusicLibrary.tracks.filter((track) => ids.has(track.id));
+  assert.equal(tracks.length, 5);
+  assert.ok(tracks.every((track) => track.creationOrigin === "human"));
+  assert.ok(tracks.every((track) => /官方标签：[^｜]*Warm[^｜]*Calm[^｜]*Gentle[^｜]*Healing[^｜]*Slow/.test(track.description)));
+  assert.ok(tracks.every((track) => !/Grand|Forceful|Drum|Percussion|Swing|Beat|Funk|EDM|Energetic|Intense|Loud|Passion|Serious|Tension|Dark|Fear|Despair|Void/i.test(track.description)));
+  assert.equal(tracks.filter((track) => track.categoryIds.includes("gentle-piano-jazz")).length, 2);
+  assert.ok(tracks.every((track) => !track.categoryIds.includes("signature-healing-loop")));
+  assert.equal(tracks.find((track) => track.id === "dova-syndrome-healing-3397")?.durationSeconds, 206);
+});
+
+test("DOVA contributes eight new strict human warm city-night weak-beat Lo-Fi tracks", () => {
+  const ids = new Set([19866, 14808, 18826, 15907, 17173, 17514, 18386, 14323].map((id) => `dova-syndrome-healing-${id}`));
+  const tracks = youtubeMusicLibrary.tracks.filter((track) => ids.has(track.id));
+  assert.equal(tracks.length, 8);
+  assert.ok(tracks.every((track) => track.creationOrigin === "human"));
+  assert.ok(tracks.every((track) => /官方标签：[^｜]*Warm[^｜]*Calm[^｜]*Gentle[^｜]*Healing[^｜]*Slow[^｜]*Weak Beat/.test(track.description)));
+  assert.ok(tracks.every((track) => !/Forceful|Funk|EDM|Energetic|Intense|Loud|Passion|Serious|Tension|Dark|Fear|Despair|Void/i.test(track.description)));
+  assert.ok(tracks.every((track) => track.categoryIds.includes("warm-lofi") && track.scenes.includes("road-driving")));
+  assert.equal(tracks.filter((track) => (track.durationSeconds ?? 0) >= 180).length, 5);
+  assert.deepEqual(tracks.filter((track) => track.categoryIds.includes("signature-healing-loop")).map((track) => track.id), ["dova-syndrome-healing-14323"]);
+});
+
+test("DOVA contributes six new strict human rain forest and lake thin-ambient tracks", () => {
+  const ids = new Set([21908, 18098, 18792, 15581, 8783, 5388].map((id) => `dova-syndrome-healing-${id}`));
+  const tracks = youtubeMusicLibrary.tracks.filter((track) => ids.has(track.id));
+  assert.equal(tracks.length, 6);
+  assert.ok(tracks.every((track) => track.creationOrigin === "human"));
+  assert.ok(tracks.every((track) => /官方标签：[^｜]*Warm[^｜]*Calm[^｜]*Gentle[^｜]*Healing[^｜]*Slow/.test(track.description)));
+  assert.ok(tracks.every((track) => !/Grand|Forceful|Drum|Percussion|Funk|EDM|Energetic|Intense|Loud|Passion|Serious|Tension|Dark|Fear|Despair|Void/i.test(track.description)));
+  assert.ok(tracks.every((track) => !track.categoryIds.includes("signature-healing-loop")));
+  assert.ok(tracks.every((track) => (track.durationSeconds ?? 0) < 180));
+  assert.equal(tracks.find((track) => track.id === "dova-syndrome-healing-21908")?.durationSeconds, 134);
+});
+
+test("DOVA contributes eight new strict human countryside morning and sunrise piano tracks", () => {
+  const ids = new Set([13979, 15374, 20083, 11709, 1922, 12689, 20696, 3150].map((id) => `dova-syndrome-healing-${id}`));
+  const tracks = youtubeMusicLibrary.tracks.filter((track) => ids.has(track.id));
+  assert.equal(tracks.length, 8);
+  assert.ok(tracks.every((track) => track.creationOrigin === "human"));
+  assert.ok(tracks.every((track) => /官方标签：[^｜]*Piano[^｜]*Warm[^｜]*Calm[^｜]*Gentle[^｜]*Healing[^｜]*Slow/.test(track.description)));
+  assert.ok(tracks.every((track) => !/Grand|Forceful|Drum|Percussion|Funk|EDM|Energetic|Intense|Loud|Passion|Serious|Tension|Dark|Fear|Despair|Void/i.test(track.description)));
+  assert.equal(tracks.filter((track) => (track.durationSeconds ?? 0) >= 180).length, 1);
+  assert.deepEqual(tracks.filter((track) => track.categoryIds.includes("signature-healing-loop")).map((track) => track.id), ["dova-syndrome-healing-3150"]);
+  assert.equal(tracks.find((track) => track.id === "dova-syndrome-healing-11709")?.title, "優しさのピアニシモ");
+  assert.equal(tracks.find((track) => track.id === "dova-syndrome-healing-20083")?.title, "What comes into being");
+});
+
 test("Amacha official gentle image catalogs contribute 100 timed download pages", () => {
   const importedTracks = youtubeMusicLibrary.tracks.filter((track) => /^amacha-music-(piano|ambient|jazz)-music-[a-z0-9-]+-html$/.test(track.id));
   assert.equal(importedTracks.length, 100);
@@ -445,10 +617,10 @@ test("H/MIX GALLERY contributes 100 duration-verified official Healing tracks", 
   assert.ok(importedTracks.some((track) => track.categoryIds.includes("ambient-healing")));
 });
 
-test("PeriTune contributes a 101-entry evidence-backed Healing batch", () => {
+test("PeriTune contributes a 103-entry evidence-backed Healing batch", () => {
   const importedTracks = youtubeMusicLibrary.tracks.filter((track) => /^peritune-healing-(piano|ambient|acoustic)-\d{3}$/.test(track.id));
-  assert.equal(importedTracks.length, 101);
-  assert.equal(new Set(importedTracks.map((track) => track.id)).size, 101);
+  assert.equal(importedTracks.length, 103);
+  assert.equal(new Set(importedTracks.map((track) => track.id)).size, 103);
   assert.ok(importedTracks.every((track) => /^https:\/\/peritune\.com\/blog\/.+\/$/.test(track.downloadUrl)));
   assert.ok(importedTracks.every((track) => /YouTube/.test(track.licenseNote) && /Content ID/.test(track.licenseNote)));
   assert.ok(importedTracks.some((track) => track.categoryIds.includes("healing-piano")));
@@ -458,6 +630,18 @@ test("PeriTune contributes a 101-entry evidence-backed Healing batch", () => {
   assert.equal(memories2.durationSeconds, 146);
   assert.equal(memories2.creationOrigin, "human");
   assert.match(memories2.description, /healing, warm, calm, gentle, slow, piano, soft guitar/);
+  const softDay = importedTracks.find((track) => track.title === "Soft_Day");
+  assert.ok(softDay);
+  assert.equal(softDay.durationSeconds, 223);
+  assert.equal(softDay.creationOrigin, "human");
+  assert.match(softDay.description, /healing, warm, calm, gentle.*acoustic guitar/);
+  assert.match(softDay.description, /原生循环文件：有/);
+  const shizima2 = importedTracks.find((track) => track.title === "Shizima2");
+  assert.ok(shizima2);
+  assert.equal(shizima2.durationSeconds, 99);
+  assert.equal(shizima2.creationOrigin, "human");
+  assert.match(shizima2.description, /healing, warm, calm, gentle, quiet/);
+  assert.match(shizima2.description, /原生循环文件：有/);
 });
 
 test("FreeBGM.jp contributes 100 free Piano Ambient entries with use-boundary warnings", () => {

@@ -1,0 +1,19 @@
+{
+  "platformId": "dova-syndrome",
+  "description": "DOVA 纯 / 稀疏钢琴严格批次：Piano-only，全部 Warm、Calm、Gentle、Healing、Weak、Slow。",
+  "downloadLabel": "官方曲目页 / MP3 下载",
+  "credit": "请复制平台内的曲名、作者与 DOVA-SYNDROME 来源说明。",
+  "licenseNote": "可用于 YouTube 背景音乐及盈利视频，允许裁切、Fade 与重复；仅官方确认的文件标记为原生 Loop。",
+  "creationOrigin": "human",
+  "nativeLoopOnly": false,
+  "items": [
+    ["残暑", 17219, "もっぴーさうんど", "piano", "Piano Solo・Warm・Calm・Gentle・Healing・Weak・Slow", "纯钢琴；适合夏末乡村、蝉鸣外景、午后空屋与日落田野", 168, false],
+    ["ひとりごと", 19463, "もっぴーさうんど", "piano", "Piano Solo・Warm・Calm・Gentle・Healing・Weak・Slow", "纯钢琴；适合雨窗、独行、公路停靠、安静城市夜景与沉思长镜头", 139, false],
+    ["朝", 1925, "G-MIYA", "piano", "Piano・Warm・Calm・Gentle・Healing・Weak・Slow", "纯钢琴；适合乡村清晨、日出前、厨房暖光、雾气与安静起床镜头", 118, false],
+    ["変遷", 3430, "もっぴーさうんど", "piano", "Piano・Free Rhythm・Warm・Calm・Gentle・Healing・Weak・Slow", "纯钢琴与自由节奏；适合旧村落、季节变化、回程、老照片与时间流逝", 111, false],
+    ["紅茶が冷める前に", 1810, "G-MIYA", "piano", "Piano・Warm・Calm・Gentle・Healing・Weak・Slow", "纯钢琴；适合雨日下午、茶杯、木屋、乡村室内与生活静物", 91, false],
+    ["大切な気持ち", 5508, "OK-Sounds", "piano", "Piano Solo・Ambient・Warm・Calm・Gentle・Healing・Weak・Slow", "曲终后可在剪辑端实测循环，但非官方原生 Loop；适合雨景、人物回忆与乡村小路", 91, false],
+    ["しらなみ", 6929, "かずち", "piano", "Piano・Warm・Calm・Gentle・Healing・Weak・Slow", "官方原生 Loop；适合海岸白浪、晨雾、阴雨海边、蓝调时刻与短循环长镜头", 77, true],
+    ["光差す部屋", 13531, "巽 良太", "piano", "Piano・Warm・Calm・Gentle・Healing・Weak・Slow", "纯钢琴；适合林间木屋、晨光、雨后室内、日出与温暖回忆", 69, false]
+  ]
+}

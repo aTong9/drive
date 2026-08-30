@@ -1,0 +1,12 @@
+{
+  "platformId": "dova-syndrome",
+  "description": "DOVA Thin Synth Pad / Ambient 严格批次：无钢琴、无鼓，Warm、Calm、Gentle、Healing、Weak、Slow。",
+  "downloadLabel": "官方曲目页 / MP3 下载",
+  "credit": "请复制平台内的曲名、作者与 DOVA-SYNDROME 来源说明。",
+  "licenseNote": "可用于 YouTube 背景音乐及盈利视频，允许裁切、Fade 与重复；本曲未声明原生 Loop。",
+  "creationOrigin": "human",
+  "nativeLoopOnly": false,
+  "items": [
+    ["安らかな眠り", 8553, "alaki paca", "ambient", "Synth Pad・Strings・Ambient・Warm・Calm・Gentle・Healing・Weak・Slow", "无钢琴的轻薄 Pad；适合睡眠感雪夜、雨窗、晨雾、森林休息点与低光室内，梦境色彩较明显", 109, false]
+  ]
+}

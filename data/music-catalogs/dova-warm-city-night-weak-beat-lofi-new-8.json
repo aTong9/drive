@@ -1,0 +1,19 @@
+{
+  "platformId": "dova-syndrome",
+  "description": "DOVA 城市夜景与公路驾驶温暖 Lo-Fi：全部为 Weak Beat，不能视作无鼓曲目。",
+  "downloadLabel": "官方曲目页 / MP3 下载",
+  "credit": "请复制平台内的曲名、作者与 DOVA-SYNDROME 来源说明。",
+  "licenseNote": "可用于 YouTube 背景音乐及盈利视频，允许裁切、Fade 与重复；禁止登记 Content ID。",
+  "creationOrigin": "human",
+  "nativeLoopOnly": false,
+  "items": [
+    ["星降る夜のホットココア", 19866, "ハヤシユウ", "lofi", "Piano・E.Bass・Synth Drum・Warm・Calm・Gentle・Healing・Weak・Slow・Weak Beat", "5:29 夜景 Lo-Fi；官方 Weak + Slow，适合城市窗边、夜间 Vlog 与慢速公路休息段，采用前试听鼓点", 329, false],
+    ["Summer Grass In Sunset", 14808, "ハモおた", "lofi", "Piano・E.Guitar・Synth Pad・Synth Drum・Warm・Calm・Gentle・Healing・Slow・Weak Beat", "5:27 calm chillout；作者按长时无违和重复设计，适合夏日夕暮、黄昏公路与城郊驾驶", 327, false],
+    ["Serenity of the Mind", 18826, "松浦洋介", "lofi", "Rhodes・Synth Pad・Synth Drum・Warm・Calm・Gentle・Healing・Slow・Weak Beat", "BPM 74 且低展开漂浮；适合城市夜路、车窗灯影、雨夜驾驶与低存在感长镜头", 230, false],
+    ["Glowing Scenery", 15907, "MFP", "lofi", "A.Guitar・Synth Pad・Synth Drum・Warm・Calm・Gentle・Healing・Slow・Weak Beat", "BPM 75 soft-guitar Lo-Fi；适合日落公路、城市边缘、海岸驾驶与暖色夜景", 249, false],
+    ["間接照明とブラックコーヒー", 17173, "オオヒラセイジ", "lofi", "Other Keys・E.Guitar・Synth Drum・Jazz・Ambient・Warm・Calm・Gentle・Healing・Slow・Weak Beat", "3:04 深夜 Jazz/Ambient Lo-Fi；适合深夜咖啡、都市书房、雨夜与夜间公路，需试听鼓点", 184, false],
+    ["Autumn Piano", 17514, "MFP", "lofi", "Piano・A.Bass・Synth Drum・Warm・Calm・Gentle・Healing・Weak・Slow・Weak Beat", "BPM 70 的 Piano-main Lo-Fi；适合秋夜、旧城区、公路返程、路灯与落叶", 168, false],
+    ["the blue curtain", 18386, "のる", "lofi", "Piano・A.Guitar・Percussion・Warm・Calm・Gentle・Healing・Slow・Weak Beat", "Relax & Chill 的 soft Piano + Guitar；适合蓝调时刻、车窗雨滴与城市黄昏，需试听轻打击", 108, false],
+    ["faint silence", 14323, "shimtone", "lofi", "Piano・A.Bass・Synth Pad・Synth Drum・Ambient・Warm・Calm・Gentle・Healing・Slow・Weak Beat", "官方原生 Loop 的夜间 chillout；适合夜空、城市灯光、夜间公路与安静驾驶循环", 163, true]
+  ]
+}

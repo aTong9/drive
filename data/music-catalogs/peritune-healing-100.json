@@ -815,6 +815,24 @@
       false,
       "healing, warm, calm, gentle, slow, piano, soft guitar, natural, everyday memories",
       146
+    ],
+    [
+      "Soft_Day",
+      "https://peritune.com/blog/2019/01/27/soft_day/",
+      115,
+      "acoustic",
+      true,
+      "healing, warm, calm, gentle, soft folk, natural, cozy, mellow, acoustic guitar, harp, mandolin",
+      223
+    ],
+    [
+      "Shizima2",
+      "https://peritune.com/blog/2017/09/08/shizima2/",
+      85,
+      "ambient",
+      true,
+      "healing, warm, calm, gentle, quiet, relax, Japanese ambient, natural, piano, koto, strings",
+      99
     ]
   ]
 }

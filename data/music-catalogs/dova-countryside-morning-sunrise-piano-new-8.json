@@ -1,0 +1,19 @@
+{
+  "platformId": "dova-syndrome",
+  "description": "DOVA 乡村、清晨与日出温柔钢琴：无鼓 Piano Solo 与一首 Piano + thin Pad。",
+  "downloadLabel": "官方曲目页 / MP3 下载",
+  "credit": "请复制平台内的曲名、作者与 DOVA-SYNDROME 来源说明。",
+  "licenseNote": "可用于 YouTube 背景音乐及盈利视频，允许裁切、Fade 与重复；仅 to the sky Track 2 有官方 Loop 版本。",
+  "creationOrigin": "human",
+  "nativeLoopOnly": false,
+  "items": [
+    ["陽光の射す部屋", 13979, "MATSU", "piano", "Piano・Warm・Calm・Gentle・Healing・Slow", "清晨暖光 Piano-only；适合日出、乡村木屋、窗边与慢速生活空镜", 138, false],
+    ["秋風", 15374, "MATSU", "piano", "Piano・Warm・Calm・Gentle・Healing・Slow", "秋日柔风与花田意象 Piano-only；适合乡间花田、秋日清晨、田野微风与日出", 134, false],
+    ["What comes into being", 20083, "Heitaro Ashibe", "piano", "Piano・Ambient・Warm・Calm・Gentle・Healing・Slow", "平静新生意象 Piano Solo；适合日出、新一天、清晨田野、幼苗与希望感自然镜头", 173, false],
+    ["優しさのピアニシモ", 11709, "MAKOOTO", "piano", "Piano・Ambient・Warm・Calm・Gentle・Healing・Slow", "约 60 BPM 的温柔 Piano Solo；适合乡村清晨、雨后日出、田野与慢生活空镜", 140, false],
+    ["春風譚詩曲", 1922, "G-MIYA", "piano", "Piano・Acoustic・Warm・Calm・Gentle・Healing・Slow", "缓慢春风 Piano Solo；适合春日乡村、清晨田野、花草与村路", 123, false],
+    ["懐かしい季節", 12689, "ゆうきわたる", "piano", "Piano・Synth Pad・Acoustic・Warm・Calm・Gentle・Healing・Slow", "Piano + thin Pad 怀旧曲；适合旧村落、乡间公路、晨雾、季节变化与日出前", 110, false],
+    ["遠い約束", 20696, "こばっと", "piano", "Piano・Acoustic・Warm・Calm・Gentle・Healing・Slow", "3:25 细腻 Piano Solo；适合旧村回忆、乡间返程与日出长镜头，采用前试听叙事旋律密度", 205, false],
+    ["to the sky", 3150, "しんさんわーくす", "piano", "Piano・Acoustic・Warm・Calm・Gentle・Healing・Slow", "必须下载官方 Track 2 Loop 版，主 Track 仅 0:43；适合天空、日出与短清晨转场", 43, true]
+  ]
+}

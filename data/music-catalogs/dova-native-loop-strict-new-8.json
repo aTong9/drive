@@ -1,0 +1,19 @@
+{
+  "platformId": "dova-syndrome",
+  "description": "DOVA 原生 Loop 严格批次：全部 Warm、Calm、Gentle、Healing，并至少具备 Slow 或 Weak。",
+  "downloadLabel": "官方曲目页 / MP3 下载",
+  "credit": "请复制平台内的曲名、作者与 DOVA-SYNDROME 来源说明。",
+  "licenseNote": "可用于 YouTube 背景音乐及盈利视频，允许裁切、Fade 与重复；本批均有官方 Loop 字段或官方循环文件证据。",
+  "creationOrigin": "human",
+  "nativeLoopOnly": false,
+  "items": [
+    ["ひとときの静寂", 11957, "shimtone", "piano", "Piano・Ambient・Warm・Calm・Gentle・Healing・Weak・Slow", "官方原生 Loop；适合晨雾、湖面、雨景、无人长镜头与安静室内", 135, true],
+    ["カゼソヨグ", 11785, "shimtone", "piano", "Piano・Ambient・Warm・Calm・Gentle・Healing・Weak・Slow", "官方原生 Loop；适合乡村微风、草木、海岸、日落与慢速公路", 120, true],
+    ["アカネイロ", 11594, "shimtone", "piano", "Piano・Synth Pad・Warm・Calm・Gentle・Healing・Weak・Slow", "官方原生 Loop；适合晚霞、蓝调时刻、旧村、返程与温暖夜景", 123, true],
+    ["陽のあたる場所", 11694, "shimtone", "piano", "Piano・Other Synth・Warm・Calm・Gentle・Healing・Weak・Slow", "官方原生 Loop；适合日出、窗边暖光、乡村清晨与家庭生活空镜", 114, true],
+    ["落ち葉の影", 9868, "かずち", "ambient", "Piano・Other Keys・Synth Pad・Ambient・Warm・Calm・Gentle・Healing・Weak・Slow", "官方原生 Loop；适合秋日旧村、落叶、雨后街道、怀旧公路与自然细节", 82, true],
+    ["光の中に", 10125, "MAKOOTO", "ambient", "Piano・Synth Pad・Ambient・Warm・Calm・Gentle・Healing・Slow", "61 BPM 官方原生 Loop；适合云海、日出、白雾、明亮雨后与疗愈自然长镜头", 173, true],
+    ["星空を眺めて", 14342, "畑中ゆう", "ambient", "Piano・Synth Pad・Ambient・Warm・Calm・Gentle・Healing・Slow", "官方原生 Loop；适合星空、雪夜、城市夜景、睡眠感长镜头与夜间露营", 96, true],
+    ["帰りみち", 5968, "hotaru sounds", "ambient", "A.Guitar・Synth Pad・Acoustic・Warm・Calm・Gentle・Healing・Slow", "需选 Track 2 官方 Loop 版；适合回程、乡间公路、海岸日落、旧村黄昏与步行长镜头", 153, true]
+  ]
+}

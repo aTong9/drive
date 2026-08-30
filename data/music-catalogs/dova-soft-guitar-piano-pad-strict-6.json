@@ -1,0 +1,17 @@
+{
+  "platformId": "dova-syndrome",
+  "description": "DOVA Soft Guitar + Piano / Thin Pad 严格 S 级批次：Warm、Calm、Gentle、Healing、Slow，硬排除强节奏与打击乐。",
+  "downloadLabel": "官方曲目页 / MP3 下载",
+  "credit": "请复制平台内的曲名、作者与 DOVA-SYNDROME 来源说明。",
+  "licenseNote": "可用于 YouTube 背景音乐及盈利视频，允许裁切、Fade 与重复；仅标记官方明确提供的 Loop 版本。",
+  "creationOrigin": "human",
+  "nativeLoopOnly": false,
+  "items": [
+    ["LoopBGM001-ノスタルジー1", 8674, "Sound Of Incense", "piano", "Piano・A.Guitar・Warm・Calm・Gentle・Healing・Slow・Nostalgic", "核心匹配；官方原生 Loop，适合旧村落、乡间公路、黄昏回程与怀旧长镜头", 200, true],
+    ["TELL ME", 3072, "しんさんわーくす", "ambient", "Piano・A.Guitar・Warm・Calm・Gentle・Healing・Slow", "核心匹配；需选 Track 2 官方 Loop 版，适合晨雾森林、湖边与日出前自然空镜", 62, true],
+    ["Drifting in the Flow of Time", 21698, "松浦洋介", "ambient", "Piano・A.Guitar・Synth Pad・Ambient・Warm・Calm・Gentle・Healing・Slow", "BPM 71；适合海岸长镜头、夜间公路、云层移动、时间流逝与沉思驾驶", 402, false],
+    ["時の流れは味わうもの的なBGM", 19702, "鷹尾まさき（タカオマサキ）", "piano", "E.Piano・A.Guitar・Warm・Calm・Gentle・Healing・Slow", "简单结构的温暖电钢琴与木吉他，适合暖雨窗边、蓝调时刻、返程与生活纪录", 172, false],
+    ["DOWN", 11928, "Kosuke Nitta", "jazz", "Piano・A.Guitar・Jazz・Warm・Calm・Gentle・Healing・Slow", "慢速、平静且无鼓，适合雨天咖啡馆、城市夜景、静态街景与午后室内", 121, false],
+    ["一歩ずつ", 3549, "しんさんわーくす", "piano", "Piano・A.Guitar・Acoustic・Warm・Calm・Gentle・Healing・Slow", "简单、缓慢且安静，适合乡间步行、雨后道路、日出与慢节奏旅程过场", 89, false]
+  ]
+}

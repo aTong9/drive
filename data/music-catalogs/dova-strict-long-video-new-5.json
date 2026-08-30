@@ -1,0 +1,16 @@
+{
+  "platformId": "dova-syndrome",
+  "description": "DOVA 严格长视频批次：全部 Warm、Calm、Gentle、Healing、Slow，原始版本至少 5 分钟或提供官方 10 分钟版本。",
+  "downloadLabel": "官方曲目页 / MP3 下载",
+  "credit": "请复制平台内的曲名、作者与 DOVA-SYNDROME 来源说明。",
+  "licenseNote": "可用于 YouTube 背景音乐及盈利视频，允许裁切、Fade 与重复；仅官方明确确认的文件标记为原生 Loop。",
+  "creationOrigin": "human",
+  "nativeLoopOnly": false,
+  "items": [
+    ["星が輝きだしたら", 7223, "ゆうきわたる", "piano", "Piano・Synth Pad・Warm・Calm・Gentle・Healing・Slow", "5:52；适合星空、蓝调时刻、雪夜、安静城市夜景与夜间公路", 352, false],
+    ["今日は寝落ち枠です", 20584, "ハモおた", "ambient", "Other Keys・Ambient・Acoustic・Warm・Calm・Gentle・Healing・Weak・Slow", "5:50；重复播放违和感较低但非原生无缝，适合雪夜、雨窗、室内暖光与静态长镜头", 350, false],
+    ["Midnight Meteor Shower", 19244, "松浦洋介", "ambient", "Rhodes Piano・Synth Pad・Ambient・Warm・Calm・Gentle・Healing・Slow", "5:23；曲页提及 Loop Track 但当前下载界面状态不一致，使用前需复核，不标原生 Loop", 323, false],
+    ["Meditation 528", 21662, "TOGA", "ambient", "Synth Pad・Strings・Warm・Calm・Gentle・Healing・Slow", "官方另提供 10 分钟 Track 版本；下载时选择 10 分钟版，适合冥想、晨雾、湖面、云海与日出", 600, false],
+    ["君と歩こう", 1214, "龍崎一", "ambient", "A.Guitar・Strings・Acoustic・Warm・Calm・Gentle・Healing・Slow", "5:17；官方原生 Loop，适合乡间散步、公园、海岸、回程与温暖人物长镜头", 317, true]
+  ]
+}

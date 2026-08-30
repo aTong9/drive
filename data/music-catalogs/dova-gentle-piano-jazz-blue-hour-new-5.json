@@ -1,0 +1,16 @@
+{
+  "platformId": "dova-syndrome",
+  "description": "DOVA 无鼓温柔钢琴爵士与蓝调夜曲：严格区分官方 Jazz 和仅具夜景/Rhodes 听感的作品。",
+  "downloadLabel": "官方曲目页 / MP3 下载",
+  "credit": "请复制平台内的曲名、作者与 DOVA-SYNDROME 来源说明。",
+  "licenseNote": "可用于 YouTube 背景音乐及盈利视频，允许裁切、Fade 与重复；本批均非官方原生 Loop。",
+  "creationOrigin": "human",
+  "nativeLoopOnly": false,
+  "items": [
+    ["彩", 12951, "風可＆葉羽", "jazz", "Jazz・Piano・A.Bass・Synth Pad・Ambient・Warm・Calm・Gentle・Healing・Slow", "官方 Jazz 标签且无鼓；适合蓝调时刻、雨夜窗边、安静酒吧与都市夜景", 53, false],
+    ["のすたるじぃ", 11960, "A.TARUI", "piano", "Fender Rhodes・Other Keys・Warm・Calm・Gentle・Healing・Slow", "官方无 Jazz 标签；温暖 Rhodes 与乡愁音色，适合旧城区黄昏、回程和乡间夜路", 64, false],
+    ["HOTARU", 2454, "もっぴーさうんど", "piano", "Piano・Warm・Calm・Gentle・Healing・Slow", "午夜 Piano-only 夜曲；适合城市边缘、萤火、夏夜与蓝调时刻收尾", 55, false],
+    ["解説動画のBGMみたいなやつ", 19778, "小林 樹", "jazz", "Jazz・Other Keys・A.Bass・Synth Pad・Warm・Calm・Gentle・Healing・Slow・Weak", "官方 Jazz 标签且无鼓；作者明确控制存在感，适合都市信息画面、夜间旁白与安静咖啡馆", 40, false],
+    ["夏休みのさよなら", 3397, "GANO", "piano", "Piano・Thin Strings・Warm・Calm・Gentle・Healing・Slow・Weak", "官方无 Jazz 标签；3:26 低展开钢琴夜曲，作者说明可人工连接重复，适合夏末夕暮、返程与旧街道", 206, false]
+  ]
+}

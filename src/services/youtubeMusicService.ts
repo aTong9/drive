@@ -18,6 +18,21 @@ import dovaLongStrictHealingCatalog from "../../data/music-catalogs/dova-long-st
 import dovaMinimalHealingPianoCatalog from "../../data/music-catalogs/dova-minimal-healing-piano-2.json" with { type: "json" };
 import dovaWarmNostalgicPianoCatalog from "../../data/music-catalogs/dova-warm-nostalgic-piano-1.json" with { type: "json" };
 import dovaRecentStrictHealingCatalog from "../../data/music-catalogs/dova-recent-strict-healing-1.json" with { type: "json" };
+import dovaSoftMusicBoxLoopCatalog from "../../data/music-catalogs/dova-soft-music-box-loop-2.json" with { type: "json" };
+import dovaSoftGuitarPianoPadStrictCatalog from "../../data/music-catalogs/dova-soft-guitar-piano-pad-strict-6.json" with { type: "json" };
+import dovaStrictLongVideoNewCatalog from "../../data/music-catalogs/dova-strict-long-video-new-5.json" with { type: "json" };
+import dovaNativeLoopStrictNewCatalog from "../../data/music-catalogs/dova-native-loop-strict-new-8.json" with { type: "json" };
+import dovaSparsePianoStrictNewCatalog from "../../data/music-catalogs/dova-sparse-piano-strict-new-8.json" with { type: "json" };
+import dovaThinSynthPadStrictNewCatalog from "../../data/music-catalogs/dova-thin-synth-pad-strict-new-1.json" with { type: "json" };
+import dovaSoftAcousticGuitarOriginalNewCatalog from "../../data/music-catalogs/dova-soft-acoustic-guitar-original-new-8.json" with { type: "json" };
+import dovaDrumlessCityNightAmbientNewCatalog from "../../data/music-catalogs/dova-drumless-city-night-ambient-new-8.json" with { type: "json" };
+import dovaRuralRainSunriseStrictNewCatalog from "../../data/music-catalogs/dova-rural-rain-sunrise-strict-new-8.json" with { type: "json" };
+import dovaStrictHealingNativeLoopNewCatalog from "../../data/music-catalogs/dova-strict-healing-native-loop-new-8.json" with { type: "json" };
+import dovaSparseLowPresencePianoNewCatalog from "../../data/music-catalogs/dova-sparse-low-presence-piano-new-8.json" with { type: "json" };
+import dovaGentlePianoJazzBlueHourNewCatalog from "../../data/music-catalogs/dova-gentle-piano-jazz-blue-hour-new-5.json" with { type: "json" };
+import dovaWarmCityNightWeakBeatLofiNewCatalog from "../../data/music-catalogs/dova-warm-city-night-weak-beat-lofi-new-8.json" with { type: "json" };
+import dovaRainForestLakeThinAmbientNewCatalog from "../../data/music-catalogs/dova-rain-forest-lake-thin-ambient-new-6.json" with { type: "json" };
+import dovaCountrysideMorningSunrisePianoNewCatalog from "../../data/music-catalogs/dova-countryside-morning-sunrise-piano-new-8.json" with { type: "json" };
 import amachaGentleCatalog from "../../data/music-catalogs/amacha-gentle-100.json" with { type: "json" };
 import bgmerCalmCatalog from "../../data/music-catalogs/bgmer-calm-100.json" with { type: "json" };
 import purrpleCatCalmCatalog from "../../data/music-catalogs/purrple-cat-calm-100.json" with { type: "json" };
@@ -53,7 +68,7 @@ export interface PianoCreatorProfile {
   name: string;
   youtubeUrl: string;
   evidenceUrl: string;
-  channelType: "personal-channel" | "dova-playlist";
+  channelType: "personal-channel";
   focus: string;
   licenseBasis: string;
   creationOrigin: "human";
@@ -1101,6 +1116,21 @@ export const youtubeMusicLibrary: YoutubeMusicLibrary = {
     ...expandDovaCatalog(dovaMinimalHealingPianoCatalog as CompactDovaCatalog),
     ...expandDovaCatalog(dovaWarmNostalgicPianoCatalog as CompactDovaCatalog),
     ...expandDovaCatalog(dovaRecentStrictHealingCatalog as CompactDovaCatalog),
+    ...expandDovaCatalog(dovaSoftMusicBoxLoopCatalog as CompactDovaCatalog),
+    ...expandDovaCatalog(dovaSoftGuitarPianoPadStrictCatalog as CompactDovaCatalog),
+    ...expandDovaCatalog(dovaStrictLongVideoNewCatalog as CompactDovaCatalog),
+    ...expandDovaCatalog(dovaNativeLoopStrictNewCatalog as CompactDovaCatalog),
+    ...expandDovaCatalog(dovaSparsePianoStrictNewCatalog as CompactDovaCatalog),
+    ...expandDovaCatalog(dovaThinSynthPadStrictNewCatalog as CompactDovaCatalog),
+    ...expandDovaCatalog(dovaSoftAcousticGuitarOriginalNewCatalog as CompactDovaCatalog),
+    ...expandDovaCatalog(dovaDrumlessCityNightAmbientNewCatalog as CompactDovaCatalog),
+    ...expandDovaCatalog(dovaRuralRainSunriseStrictNewCatalog as CompactDovaCatalog),
+    ...expandDovaCatalog(dovaStrictHealingNativeLoopNewCatalog as CompactDovaCatalog),
+    ...expandDovaCatalog(dovaSparseLowPresencePianoNewCatalog as CompactDovaCatalog),
+    ...expandDovaCatalog(dovaGentlePianoJazzBlueHourNewCatalog as CompactDovaCatalog),
+    ...expandDovaCatalog(dovaWarmCityNightWeakBeatLofiNewCatalog as CompactDovaCatalog),
+    ...expandDovaCatalog(dovaRainForestLakeThinAmbientNewCatalog as CompactDovaCatalog),
+    ...expandDovaCatalog(dovaCountrysideMorningSunrisePianoNewCatalog as CompactDovaCatalog),
     ...expandAmachaCatalog(amachaGentleCatalog as CompactAmachaCatalog),
     ...expandBgmerCatalog(bgmerCalmCatalog as CompactBgmerCatalog),
     ...expandPurrpleCatCatalog(purrpleCatCalmCatalog as CompactPurrpleCatCatalog),

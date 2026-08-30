@@ -1,0 +1,17 @@
+{
+  "platformId": "dova-syndrome",
+  "description": "DOVA 雨景、湖面与森林远景薄氛围：无鼓、缓慢、低刺激的钢琴与 Synth Pad。",
+  "downloadLabel": "官方曲目页 / MP3 下载",
+  "credit": "请复制平台内的曲名、作者与 DOVA-SYNDROME 来源说明。",
+  "licenseNote": "可用于 YouTube 背景音乐及盈利视频，允许裁切、Fade 与后期重复；本批均非官方原生 Loop。",
+  "creationOrigin": "human",
+  "nativeLoopOnly": false,
+  "items": [
+    ["Synthetic Rain", 21908, "MFP", "ambient", "Synth Pad・Other Synth・Ambient・Warm・Calm・Gentle・Healing・Slow", "BPM 75 的纯 Synth 雨景薄氛围；适合雨夜、车窗雨滴、薄雾、湖面与抽象水景", 134, false],
+    ["夢の波間に", 18098, "ゆうきわたる", "ambient", "Piano・Synth Pad・Thin Strings・Warm・Calm・Gentle・Healing・Slow", "Piano + Synth Pad 水波氛围；适合湖面涟漪、晨雾、海面与柔焦自然空镜，需试听弦乐存在感", 93, false],
+    ["海辺のセレナーデ", 18792, "すもち", "piano", "Piano・Warm・Calm・Gentle・Healing・Slow", "平静且略带感伤的 Piano Solo；适合海岸、湖边、日落与水面长镜头", 150, false],
+    ["空の向こう", 15581, "のる", "piano", "Piano・Warm・Calm・Gentle・Healing・Slow", "透明音色的 relaxation Piano Solo；适合山林远景、湖面天空倒影、晨雾与旅行自然空镜", 157, false],
+    ["サンゴのダンス", 8783, "ハヤシユウ", "piano", "Piano・Harp・Low Flute・Warm・Calm・Gentle・Healing・Slow", "无鼓的深海水景曲；适合深海、清澈水面、湖底与海岸，需试听 Harp/Flute 旋律存在感", 130, false],
+    ["里の神", 5388, "風可＆葉羽", "piano", "Piano・Japanese・Acoustic・Warm・Calm・Gentle・Healing・Slow", "优先下载薄配器 Track 1，不选更厚的 Track 2 Orchestral；适合林间乡村、溪流村落、稻田与晨雾", 108, false]
+  ]
+}

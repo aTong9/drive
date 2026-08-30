@@ -1,0 +1,19 @@
+{
+  "platformId": "dova-syndrome",
+  "description": "DOVA 稀疏低存在感钢琴：全部 Warm、Calm、Gentle、Healing、Slow；优先 Piano only 与留白证据。",
+  "downloadLabel": "官方曲目页 / MP3 下载",
+  "credit": "请复制平台内的曲名、作者与 DOVA-SYNDROME 来源说明。",
+  "licenseNote": "可用于 YouTube 背景音乐及盈利视频，允许裁切、Fade 与重复；原生 Loop 状态按官方详情页逐首记录。",
+  "creationOrigin": "human",
+  "nativeLoopOnly": false,
+  "items": [
+    ["Reunion", 2692, "鷹尾まさき", "piano", "Piano・Acoustic・Warm・Calm・Gentle・Healing・Slow・Sparse", "Piano Solo，官方明确音数少、以画面为中心；适合乡村回程、旧村、雨窗与日出前", 96, false],
+    ["静かな生活", 14752, "ゆうきわたる", "piano", "Piano・Acoustic・Warm・Calm・Gentle・Healing・Slow・Sparse", "简单安静的 Piano Solo；适合乡间室内、细雨、晨光与生活空镜", 100, false],
+    ["ささやかで愛らしい日常・ピアノ曲", 5439, "今川彰人オーケストラ", "piano", "Piano・Warm・Calm・Gentle・Healing・Slow・Sparse", "建议下载 Track 2 细瘦自然版；适合乡村午后、窗边雨景与家庭片段", 161, false],
+    ["カーテンのとなりで", 12642, "EN_OKAWA", "piano", "Piano・Thin Synth・Warm・Calm・Gentle・Healing・Slow・Sparse", "几乎纯 Piano，仅有极少空间 Synth；适合风吹窗帘、清晨、雨后放晴与日出", 160, false],
+    ["game_image29", 1055, "UG", "piano", "Piano・Warm・Calm・Gentle・Healing・Slow", "本批最长的 Piano-only 曲；适合长时乡村、日出与雨景，采用前试听旋律密度", 202, false],
+    ["happy holiday", 3444, "しんさんわーくす", "piano", "Piano・Acoustic・Warm・Calm・Gentle・Healing・Slow", "官方原生 Loop；适合乡村休日、暖光清晨与慢生活，采用前试听重复疲劳", 64, true],
+    ["ソラモヨウ", 11293, "shimtone", "piano", "Piano・Warm・Calm・Gentle・Healing・Slow", "官方原生 Loop；适合天空、晨雾、日出、云层与轻快但安静的乡村镜头", 100, true],
+    ["日差し", 9970, "MAKOOTO", "piano", "Piano・Ambient・Warm・Calm・Gentle・Healing・Slow・Partly Fast", "简单温暖但官方含 Partly Fast；仅作次选，试听局部速度变化后再采用", 113, false]
+  ]
+}

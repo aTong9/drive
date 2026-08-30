@@ -1,0 +1,13 @@
+{
+  "platformId": "dova-syndrome",
+  "description": "DOVA 柔和 Music Box 严格批次：Warm、Calm、Gentle、Healing、Weak、Slow，且采用官方循环加工版本。",
+  "downloadLabel": "官方曲目页 / MP3 下载",
+  "credit": "请复制平台内的曲名、作者与 DOVA-SYNDROME 来源说明。",
+  "licenseNote": "可用于 YouTube 背景音乐及盈利视频，允许裁切、Fade 与 Loop；本批采用官方循环加工版本。",
+  "creationOrigin": "human",
+  "nativeLoopOnly": false,
+  "items": [
+    ["オルゴールの子守唄", 15973, "Make a field Music", "ambient", "Music Box・Warm・Calm・Gentle・Healing・Weak・Slow", "核心匹配；采用 Track 2 官方循环加工版，适合雪夜、室内雨窗与低变化长镜头", 113, true],
+    ["Peacefully", 16090, "Make a field Music", "ambient", "Music Box・Warm・Calm・Gentle・Healing・Weak・Slow", "核心匹配；官方循环加工版，适合慢雨、雪夜、回想与低变化长镜头", 285, true]
+  ]
+}

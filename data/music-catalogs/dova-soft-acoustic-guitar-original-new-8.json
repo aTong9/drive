@@ -1,0 +1,19 @@
+{
+  "platformId": "dova-syndrome",
+  "description": "DOVA Soft Acoustic Guitar 原始层级批次：全部 Warm、Calm、Gentle、Healing、Slow，硬排除鼓、打击乐与强情绪。",
+  "downloadLabel": "官方曲目页 / MP3 下载",
+  "credit": "请复制平台内的曲名、作者与 DOVA-SYNDROME 来源说明。",
+  "licenseNote": "可用于 YouTube 背景音乐及盈利视频，允许裁切、Fade 与重复；本批均未标记为原生 Loop。",
+  "creationOrigin": "human",
+  "nativeLoopOnly": false,
+  "items": [
+    ["遠くの朝（ピアノメロ ver.）", 15843, "hotaru sounds", "ambient", "A.Guitar・E.Guitar・Piano・Acoustic・Warm・Calm・Gentle・Healing・Slow", "作者提供人工循环区间 0:23.016–2:52.918，但非原生 Loop；适合远方清晨、乡间公路、旧村、日出前与回程", 202, false],
+    ["ナミノネ", 12213, "MATSU", "ambient", "A.Guitar・Synth Pad・Acoustic・Warm・Calm・Gentle・Healing・Slow", "木吉他与轻 Pad；适合海岸、海浪、日落、公路停靠与蓝调时刻", 148, false],
+    ["Cloudy Heaven", 23323, "MFP【Marron Fields Production】", "ambient", "A.Guitar・Synth Pad・Acoustic・Warm・Calm・Gentle・Healing・Slow", "BPM 90 的木吉他与轻 Pad；适合阴天海岸、云层、公路、晨雾与雨后空镜", 128, false],
+    ["朝の散歩", 672, "中川 裕太", "ambient", "Classical Guitar・A.Guitar・Acoustic・Warm・Calm・Gentle・Healing・Slow", "Guitar-only；适合乡村清晨、日出散步、村道与早晨街景", 116, false],
+    ["Classical Breakfast Style", 21967, "Keido Honda", "ambient", "A.Guitar・Oboe・Acoustic・Warm・Calm・Gentle・Healing・Slow", "BPM 85 的温暖吉他与温柔双簧管；适合早餐、乡村木屋、清晨阳光与生活静物", 111, false],
+    ["日本の雪景色", 12191, "田中芳典", "ambient", "Classical Guitar・A.Guitar・Acoustic・Warm・Calm・Gentle・Healing・Slow", "官方明确真人演奏、单把古典吉他；适合雪乡、冬日阳光、山村与和风公路", 95, false],
+    ["ツツジの小道", 5345, "hotaru sounds", "ambient", "Classical Guitar・A.Guitar・Acoustic・Warm・Calm・Gentle・Healing・Slow", "Guitar-only；适合花径、乡村小路、庭院、春日散步与日落前", 90, false],
+    ["楽しいの終わりはいつも", 11231, "Keido Honda", "ambient", "Classical Guitar Solo・A.Guitar・Acoustic・Warm・Calm・Gentle・Healing・Slow", "自由慢速 Guitar Solo；适合游玩后的回程、公园黄昏、乡村日落与怀旧步行", 80, false]
+  ]
+}

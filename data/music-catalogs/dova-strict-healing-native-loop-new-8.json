@@ -1,0 +1,19 @@
+{
+  "platformId": "dova-syndrome",
+  "description": "DOVA 严格 Healing 新批次：全部 Warm、Calm、Gentle、Healing、Slow；六首为官方原生 Loop。",
+  "downloadLabel": "官方曲目页 / MP3 下载",
+  "credit": "请复制平台内的曲名、作者与 DOVA-SYNDROME 来源说明。",
+  "licenseNote": "可用于 YouTube 背景音乐及盈利视频，允许裁切、Fade 与重复；原生 Loop 状态按官方详情页逐首记录。",
+  "creationOrigin": "human",
+  "nativeLoopOnly": false,
+  "items": [
+    ["peace of mind", 2025, "MATSU", "ambient", "A.Guitar・Acoustic・Warm・Calm・Gentle・Healing・Slow", "官方原生 Loop；适合乡村道路、海岸日落、木屋清晨与田野长镜头", 156, true],
+    ["安らぎと微睡み", 8983, "ゆーぎり", "piano", "Piano・Warm・Calm・Gentle・Healing・Slow", "Piano only 官方原生 Loop；适合雨窗、午睡、晨雾与低存在感长镜头", 127, true],
+    ["ささやかな幸せ", 12001, "shimtone", "piano", "Piano・High Strings・Warm・Calm・Gentle・Healing・Slow", "官方原生 Loop；适合家庭日常、乡村清晨、柔光与花草空镜", 109, true],
+    ["Dreamland", 12298, "shimtone", "ambient", "Piano・Synth Pad・Ambient・Warm・Calm・Gentle・Healing・Slow", "官方原生 Loop；适合云雾、湖面、日出与柔焦自然镜头，采用前试听轻微人声质感", 133, true],
+    ["変わりゆく街", 14505, "shimtone", "ambient", "Piano・High Strings・Ambient・Warm・Calm・Gentle・Healing・Slow", "官方原生 Loop；适合蓝调时刻、安静街道、返程与旧村落", 125, true],
+    ["蒼の風景画", 14006, "shimtone", "piano", "Piano・Warm・Calm・Gentle・Healing・Slow", "官方原生 Loop；适合蓝色时刻、海岸、雨后天空与乡村远景", 120, true],
+    ["君と眺める星の夜は", 21062, "えだまめ88", "ambient", "Synth Pad・Low Strings・Warm・Calm・Gentle・Healing・Slow", "非原生 Loop；适合星空、雪夜、露营、城市夜景与慢速夜间公路", 185, false],
+    ["Aurora", 20081, "MFP【Marron Fields Production】", "ambient", "Other Synth・Warm・Calm・Gentle・Healing・Slow", "非原生 Loop；适合极光、晨雾、云海、雪原与抽象自然空镜，采用前试听 BPM 100 的节拍体感", 184, false]
+  ]
+}

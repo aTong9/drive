@@ -1,0 +1,19 @@
+{
+  "platformId": "dova-syndrome",
+  "description": "DOVA 无鼓 City Night Ambient 严格批次：全部 Warm、Calm、Gentle、Healing，并至少具备 Slow 或 Weak。",
+  "downloadLabel": "官方曲目页 / MP3 下载",
+  "credit": "请复制平台内的曲名、作者与 DOVA-SYNDROME 来源说明。",
+  "licenseNote": "可用于 YouTube 背景音乐及盈利视频，允许裁切、Fade 与重复；仅官方确认的文件标记为原生 Loop。",
+  "creationOrigin": "human",
+  "nativeLoopOnly": false,
+  "items": [
+    ["ウキヨバナレ", 10126, "しんさんわーくす", "ambient", "Synth Pad・Other Synth・Ambient・Warm・Calm・Gentle・Healing・Slow", "自由速度手弹 Ambient；适合深夜城市、雨夜车窗、睡眠感夜驾、空旷公路与长曝光夜景", 231, false],
+    ["虹の宙", 17380, "すもち", "ambient", "Synth Pad・Strings・Ambient・Warm・Calm・Gentle・Healing・Slow", "适合星空城市、夜间公路、蓝调时刻、露营与缓慢天际线", 237, false],
+    ["深夜のピアノ", 12736, "Motoyuki", "piano", "Piano-only・Warm・Calm・Gentle・Healing・Slow", "纯深夜钢琴；适合深夜街道、雨窗、室内夜灯、静态城市与夜间独行", 194, false],
+    ["さよなら水平線", 2271, "もっぴーさうんど", "piano", "E.Piano・Other Keys・Strings・Warm・Calm・Gentle・Healing・Weak・Slow", "Track 2 为更干净的 Piano Solo，但不是 Loop；适合海岸蓝调时刻、日落后公路、雨夜与离城回程", 190, false],
+    ["Calmness", 18119, "北見ヒツジ", "ambient", "Synth Pad・Synth Lead・Chorus・Ambient・Warm・Calm・Gentle・Healing・Slow", "平静 electro ambient；适合现代城市夜景、霓虹远景、夜间高架与公路延时", 184, false],
+    ["清い夜", 2565, "alaki paca", "ambient", "E.Piano・Other Keys・Strings・Warm・Calm・Gentle・Healing・Weak・Slow", "官方原生 Loop；适合冬季城市、灯饰、雪夜公路与烛光室内，季节性较强", 159, true],
+    ["water surface", 13828, "shimtone", "ambient", "Piano・Other Synth・Ambient・Warm・Calm・Gentle・Healing・Slow", "官方原生 Loop；适合雨夜路面倒影、河边城市、蓝调时刻与湿润街景", 156, true],
+    ["Stars Clear", 12696, "shimtone", "ambient", "E.Piano・Other Keys・Synth Pad・Warm・Calm・Gentle・Healing・Slow", "官方原生 Loop；适合星空、城市夜景、静态霓虹、夜间公路与温暖室内", 99, true]
+  ]
+}

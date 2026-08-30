@@ -1,0 +1,19 @@
+{
+  "platformId": "dova-syndrome",
+  "description": "DOVA 乡村 / 雨景 / 日出严格批次：全部 Warm、Calm、Gentle、Healing，并至少具备 Slow 或 Weak。",
+  "downloadLabel": "官方曲目页 / MP3 下载",
+  "credit": "请复制平台内的曲名、作者与 DOVA-SYNDROME 来源说明。",
+  "licenseNote": "可用于 YouTube 背景音乐及盈利视频，允许裁切、Fade 与重复；本批均未声明原生 Loop。",
+  "creationOrigin": "human",
+  "nativeLoopOnly": false,
+  "items": [
+    ["白い灯台のある島", 13759, "KK", "ambient", "A.Guitar・Strings・Light Winds・Warm・Calm・Gentle・Healing・Slow", "适合海岛村落、白色灯塔、乡村海岸、日落与抵达村庄；配器较多需试听存在感", 259, false],
+    ["表象", 12500, "藍舟", "piano", "Piano・SE・Acoustic・Warm・Calm・Gentle・Healing・Slow", "Piano × SE；适合乡村午后、窗边光线、田野静物、日落前与雨后放晴，需试听环境声冲突", 208, false],
+    ["ぼくは夏色、きみは夢の中、", 429, "ともじろう", "piano", "Piano・Wave Ambience・Warm・Calm・Gentle・Healing・Slow", "带舒适海浪环境声；适合海岸、夏日乡村、潮汐、日落与海边公路", 200, false],
+    ["早朝の静けさ", 15218, "マニーラ", "piano", "Piano・Strings・Low Woodwind・Warm・Calm・Gentle・Healing・Slow", "Piano-main 轻管弦；适合日出前村镇、清晨公路、空街与晨雾", 194, false],
+    ["Rainy On Saturday Afternoon", 796, "ともじろう", "piano", "Piano-only・Warm・Calm・Gentle・Healing・Slow", "纯钢琴；适合乡村雨路、车窗雨滴、学校回程、阴天下午与慢速驾驶", 170, false],
+    ["朝風をつれて", 17573, "のる", "ambient", "Synth Pad・Flute・Strings・Warm・Calm・Gentle・Healing・Slow", "晨间轻 Pad 与管弦；适合日出、清晨田野、山间薄雾、晨风与自然空镜", 148, false],
+    ["穏やかな世界", 10647, "こばっと", "ambient", "Piano・Synth Pad・Warm・Calm・Gentle・Healing・Slow", "Piano + thin Pad；适合乡村日出、晨雾、田野、日落与风景延时", 139, false],
+    ["rain line", 10776, "ioni", "piano", "Piano Solo・Ambient・Acoustic・Warm・Calm・Gentle・Healing・Weak", "低存在感雨景钢琴；适合雨窗、乡村雨景、城市边缘公路、细雨与独处镜头", 108, false]
+  ]
+}
