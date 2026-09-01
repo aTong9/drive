@@ -11196,7 +11196,10 @@ data,
 }
 .color-finishing-guide > footer nav {
   display: flex;
-  flex: 0 0 auto;
+  flex: 1 1 420px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  min-width: 0;
   gap: 6px;
 }
 .color-finishing-guide > footer a {
