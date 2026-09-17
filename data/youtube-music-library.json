@@ -1,13 +1,13 @@
 {
   "schemaVersion": "1.3.0",
   "accessedAt": "2026-08-14",
-  "methodology": "长期主筛选标准：硬条件为 Healing + Warm + Calm + Gentle、YouTube 可商用/盈利、允许裁切时长、Fade 与 Loop；优先 Slow + Weak + Ambient + Lo-Fi + Piano + Synth Pad + Soft Guitar；排除或降级 Strong Drums、Funk、EDM、Energetic、Intense、Loud。来源顺序为 DOVA-SYNDROME、StreamBeats、其他授权清晰的公开平台。原生 Loopable 与仅允许后期循环必须分开标注。仅收录具有官方许可说明或官方帮助中心证据的来源；下载时保存曲目页、作者条件和许可快照。",
+  "methodology": "长期主筛选标准：排除 AI 生成音乐（含 AI 翻唱、AI 改编及 AI modified or generated 标注）；新增曲目必须核查创作来源，未知来源不得宣称已证实真人创作。硬条件为 Healing + Warm + Calm + Gentle、YouTube 可商用/盈利、允许裁切时长、Fade 与 Loop；优先 Slow + Weak + Ambient + Lo-Fi + Piano + Synth Pad + Soft Guitar；排除或降级 Strong Drums、Funk、EDM、Energetic、Intense、Loud。来源顺序为 DOVA-SYNDROME、StreamBeats、其他授权清晰的公开平台。原生 Loopable 与仅允许后期循环必须分开标注。仅收录具有官方许可说明或官方帮助中心证据的来源；下载时保存曲目页、作者条件和许可快照。",
   "categories": [
     { "id": "healing-piano", "family": "piano", "name": "疗愈钢琴", "description": "慢速、柔软延音与较大留白，让自然环境声保留呼吸。", "scenes": ["countryside", "rain", "sunrise"], "searchTerms": ["healing piano", "meditative piano", "slow felt piano"], "mixingNotes": "建议置于环境声下方约 12–18 dB，避免连续高音抢走鸟鸣和雨声。" },
     { "id": "calm-piano", "family": "piano", "name": "平静钢琴", "description": "稳定和声与低密度音符，适合长镜头和缓慢移动。", "scenes": ["countryside", "rain", "sunrise", "blue-hour"], "searchTerms": ["calm piano", "peaceful piano", "minimal piano"], "mixingNotes": "保留 3–6 秒自然空白段，转场时用环境声桥接而非强行踩点。" },
     { "id": "gentle-piano", "family": "piano", "name": "温柔钢琴", "description": "温暖触键和轻微情绪起伏，适合晨光、乡村与雨后画面。", "scenes": ["countryside", "rain", "sunrise"], "searchTerms": ["gentle piano", "warm piano", "soft felt piano"], "mixingNotes": "首个旋律动机尽量放在建立镜头之后，削减 2–4 kHz 为旁白和自然声让位。" },
     { "id": "ambient-healing", "family": "piano", "name": "疗愈 Ambient", "description": "以 Synth Pad、弦乐和空间纹理为主，允许没有钢琴，但必须保持低密度与低压感。", "scenes": ["countryside", "rain", "sunrise", "city-night", "road-driving", "blue-hour"], "searchTerms": ["healing ambient", "calm synth pad", "gentle atmospheric underscore"], "mixingNotes": "优先无鼓或弱鼓版本；用环境声覆盖过于明显的首尾，并避免氛围层在低中频持续堆积。" },
-    { "id": "signature-healing-loop", "family": "piano", "name": "主画像 · 原生循环疗愈", "description": "硬性要求 Healing、Warm、Calm、Gentle 与原生 Loopable；优先慢速、弱奏、Ambient、钢琴、Synth Pad 或柔和吉他，并排除强鼓、Funk、EDM 与激烈响亮编曲。", "scenes": ["countryside", "rain", "sunrise", "city-night", "road-driving", "blue-hour"], "searchTerms": ["loopable healing warm calm gentle", "slow weak ambient piano", "soft guitar synth pad seamless loop"], "mixingNotes": "只使用曲目页明确标注 Loop 或单独提供 Loop Track 的文件；长视频按原生循环边界拼接，转场处仍保留 2–4 秒环境声安全垫。" },
+    { "id": "signature-healing-loop", "family": "piano", "name": "主画像 · 原生循环疗愈", "description": "硬性排除 AI 生成音乐；要求 Healing、Warm、Calm、Gentle 与原生 Loopable；优先慢速、弱奏、Ambient、钢琴、Synth Pad 或柔和吉他，并排除强鼓、Funk、EDM 与激烈响亮编曲。", "scenes": ["countryside", "rain", "sunrise", "city-night", "road-driving", "blue-hour"], "searchTerms": ["loopable healing warm calm gentle", "slow weak ambient piano", "soft guitar synth pad seamless loop"], "mixingNotes": "只使用曲目页明确标注 Loop 或单独提供 Loop Track 的文件；长视频按原生循环边界拼接，转场处仍保留 2–4 秒环境声安全垫。" },
     { "id": "soft-lofi", "family": "lofi", "name": "柔和 Lo-Fi", "description": "鼓点克制、纹理柔软，不用明显重拍推动剪辑。", "scenes": ["city-night", "road-driving", "urban"], "searchTerms": ["soft lofi", "chill lofi no heavy drums", "night drive lofi"], "mixingNotes": "驾驶段避免重低音掩盖路噪；节拍只做流速参照，不要求镜头逐拍切换。" },
     { "id": "japanese-lofi", "family": "lofi", "name": "和风 Lo-Fi", "description": "轻量东亚音色与松弛节拍，强调夜色中的细腻层次。", "scenes": ["city-night", "road-driving", "rain"], "searchTerms": ["japanese lofi", "wafu lofi", "shamisen chillhop"], "mixingNotes": "选择点缀式民族音色，避免密集主旋律；雨刷与轮胎声应保持可辨认。" },
     { "id": "warm-lofi", "family": "lofi", "name": "温暖 Lo-Fi", "description": "柔和饱和感、温暖和弦与低存在感鼓组，适合连续夜驾。", "scenes": ["city-night", "road-driving", "blue-hour"], "searchTerms": ["warm lofi", "cozy lofi", "sunset drive chillhop"], "mixingNotes": "高通清理低频隆隆声，并把鼓组控制在不盖过车内空间感的电平。" },
@@ -181,8 +181,8 @@
       "evidence": [{ "title": "Bensound FAQ", "url": "https://www.bensound.com/faq", "supports": ["youtube-use", "attribution", "content-id", "pricing"] }, { "title": "Bensound Terms", "url": "https://www.bensound.com/terms-and-conditions", "supports": ["youtube-use", "attribution"] }]
     },
     {
-      "id": "freebgm-jp", "name": "FreeBGM.jp", "kind": "creator-library", "importMode": "download-import", "url": "https://www.freebgm.jp/",
-      "catalogFit": "日系大型曲库，适合综艺感、日常、旅行、Lo-Fi 与情绪背景的快速检索。",
+      "id": "freebgm-jp", "name": "FreeBGM.jp · 仅真人原创区", "kind": "creator-library", "importMode": "download-import", "url": "https://www.freebgm.jp/",
+      "catalogFit": "仅使用官网 Human Original 真人原创区；排除 AI BGM STORE、AI VOCAL 和 Official AI Cover。日系大型曲库，适合综艺感、日常、旅行、Lo-Fi 与情绪背景的快速检索。",
       "supportedCategoryIds": ["healing-piano", "calm-piano", "gentle-piano", "soft-lofi", "japanese-lofi", "warm-lofi", "night-drive-chillhop", "jazzhop", "japanese-chillhop"],
       "license": { "youtubeUse": "allowed-with-license", "cost": "free", "attribution": "not-generally-required", "contentId": "low", "monetization": "allowed", "audioEditing": "basic-edits", "risk": "low", "notes": "官方 FAQ 明确允许免费商业使用、YouTube 盈利且署名任意，并允许裁切、循环、淡化、变速和音量调整；禁止再分发、转售或登记 Content ID。" },
       "workflow": ["从官网直接下载并保存曲目 URL 与条款快照。", "可按成片需要裁切、循环、淡化、变速和调整音量。", "不得把音频单独再分发、销售或登记到 Content ID。"],
@@ -190,7 +190,7 @@
     },
     {
       "id": "bgmer", "name": "BGMer", "kind": "creator-library", "importMode": "download-import", "url": "https://bgmer.net/",
-      "catalogFit": "日本视频常用的轻快、日常、可爱及情绪 BGM，适合 vlog 与路线叙事。",
+      "catalogFit": "仅使用官网 Human Original 真人原创区；排除 AI BGM STORE、AI VOCAL 和 Official AI Cover。日本视频常用的轻快、日常、可爱及情绪 BGM，适合 vlog 与路线叙事。",
       "supportedCategoryIds": ["healing-piano", "calm-piano", "gentle-piano", "ambient-healing", "soft-lofi", "japanese-lofi", "warm-lofi", "rainy-day-chillhop", "warm-sunset-chillhop", "jazzhop", "japanese-chillhop", "relaxed-jazz-nocturne", "gentle-piano-jazz"],
       "license": { "youtubeUse": "allowed-with-license", "cost": "free", "attribution": "not-generally-required", "contentId": "low", "monetization": "allowed", "audioEditing": "derivatives-allowed", "risk": "low", "notes": "官方允许个人、商业及已盈利 YouTube 频道免费使用，署名与报告通常任意，并允许编曲、改编、歌唱和演奏；BGM 介绍或转载视频必须署名，禁止冒充作者或未经许可销售。" },
       "workflow": ["从 BGMer 官网下载并保存曲目名与条款日期。", "可裁切、循环或改编用于正常视频背景。", "若视频以介绍或转载音乐为主，必须按条款标注 BGMer Credit。"],
@@ -314,7 +314,7 @@
       "id": "pixabay-night-jazz", "title": "爵士夜曲与钢琴爵士精选", "artist": "Pixabay Contributors", "platformId": "pixabay-music", "kind": "curated-collection",
       "categoryIds": ["relaxed-jazz-nocturne", "gentle-piano-jazz", "jazzhop"], "scenes": ["blue-hour", "city-night", "urban"],
       "description": "偏轻柔钢琴、爵士和弦和低密度夜曲，适合蓝调时刻与安静都市镜头。",
-      "trackHighlights": ["Lofi Jazz - Study Music", "Cozy Room", "Chillhop Jazz Midnight Club", "Jazz Lounge Relaxing Background", "Calm Night Jazz"],
+      "trackHighlights": ["Cozy Room", "Chillhop Jazz Midnight Club", "Jazz Lounge Relaxing Background", "Calm Night Jazz"],
       "listenUrl": "https://pixabay.com/music/search/lofi%20jazz/", "downloadUrl": "https://pixabay.com/music/search/lofi%20jazz/", "downloadLabel": "进入合辑后逐曲官方下载",
       "credit": "通常无需署名，建议记录作者", "licenseNote": "排除铜管主奏过强和鼓组过密的曲目，并逐曲保存许可证及检查 Content ID。"
     },
@@ -678,20 +678,6 @@
       "description": "日系疗愈独奏钢琴，触键轻、速度慢，适合细雨、田野与清晨空镜。",
       "listenUrl": "https://pixabay.com/music/solo-piano-healing-piano%E9%9B%A8%E6%B0%B4-usui-493438/", "downloadUrl": "https://pixabay.com/music/solo-piano-healing-piano%E9%9B%A8%E6%B0%B4-usui-493438/", "downloadLabel": "曲目页免费下载",
       "credit": "Pixabay 通常无需署名；建议记录作者", "licenseNote": "下载当天再次检查曲目页是否新增 Content ID 标记，并把 License Certificate 与工程一起归档。"
-    },
-    {
-      "id": "pixabay-lofi-jazz-study", "title": "Lofi Jazz - Study Music", "artist": "alex-morgan", "platformId": "pixabay-music",
-      "categoryIds": ["jazzhop", "gentle-piano-jazz", "relaxed-jazz-nocturne"], "scenes": ["city-night", "blue-hour", "urban"], "durationSeconds": 152,
-      "description": "轻爵士与 Lo-Fi 交界，钢琴和弦温和，适合蓝调时刻、都市街景和室内夜景。",
-      "listenUrl": "https://pixabay.com/cs/music/modern%C3%AD-jazz-lofi-jazz-study-music-564256/", "downloadUrl": "https://pixabay.com/cs/music/modern%C3%AD-jazz-lofi-jazz-study-music-564256/", "downloadLabel": "曲目页免费下载",
-      "credit": "Pixabay 通常无需署名；建议记录作者", "licenseNote": "页面标注 Content ID Registered；必须保存该曲许可证，并在正式发布前先用不公开上传测试声明。"
-    },
-    {
-      "id": "pixabay-calm-piano-alex-morgan", "title": "Calm Piano", "artist": "alex-morgan", "platformId": "pixabay-music",
-      "categoryIds": ["calm-piano", "gentle-piano"], "scenes": ["countryside", "rain", "sunrise", "blue-hour"], "durationSeconds": 118,
-      "description": "平静、偏电影感的钢琴短曲，可用于晨雾、雨景与蓝调时刻的短段落。",
-      "listenUrl": "https://pixabay.com/music/modern-classical-calm-piano-541028/", "downloadUrl": "https://pixabay.com/music/modern-classical-calm-piano-541028/", "downloadLabel": "曲目页免费下载",
-      "credit": "Pixabay 通常无需署名；建议记录作者", "licenseNote": "曲目页当前提供 Pixabay Content License 免费下载；下载时仍需检查 Content ID 状态并保存许可证。"
     },
     {
       "id": "pixabay-soft-piano-leberch", "title": "Soft Piano", "artist": "leberch", "platformId": "pixabay-music",

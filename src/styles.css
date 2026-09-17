@@ -20622,3 +20622,94 @@ small {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Music discovery: results first, with explicit filter scope. */
+.music-section-tabs,
+.music-main-search,
+.music-profile-details {
+  max-width: 1240px;
+  margin: 0 auto 16px;
+}
+.music-section-tabs {
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 12px;
+  flex-wrap: wrap;
+}
+.music-section-tabs button,
+.music-active-filters button,
+.music-mobile-filter-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+.music-section-tabs button.active {
+  color: var(--text-primary);
+  border-color: #a997d4;
+  background: rgba(169, 151, 212, 0.14);
+}
+.music-main-search { height: 46px; }
+.music-main-search input { flex: 1; font-size: 14px; color: var(--text-primary); }
+.music-page .music-family-tabs button { min-height: 48px; padding: 10px 12px; }
+.music-page .music-family-tabs small { display: none; }
+.music-license-notice summary { font-size: 12px; cursor: pointer; }
+.music-filter-fields { display: grid; gap: 14px; min-width: 0; }
+.music-filter-panel select { width: 100%; min-width: 0; }
+.music-mobile-filter-toggle { display: none; }
+.music-active-filters { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 16px; }
+.music-active-filters > span { font-size: 14px; margin-right: auto; color: var(--text-primary); }
+.music-active-filters button { font-size: 12px; }
+.music-page .music-track-heading { margin-top: 0; }
+.music-track-license { margin-top: 10px; font-size: 12px; }
+.music-track-license summary { color: var(--text-muted); cursor: pointer; }
+.music-track-copy { min-width: 0; overflow-wrap: anywhere; }
+.music-profile-details { margin-top: 24px; color: var(--text-muted); font-size: 13px; }
+.music-profile-details > summary { padding: 14px 0; cursor: pointer; }
+.music-page button:focus-visible,
+.music-page a:focus-visible,
+.music-page summary:focus-visible,
+.music-page select:focus-visible { outline: 2px solid #a997d4; outline-offset: 3px; }
+@media (max-width: 760px) {
+  .music-page .music-hero { gap: 14px; }
+  .music-page .music-summary { gap: 12px; padding: 10px; }
+  .music-page .music-discovery-layout { grid-template-columns: minmax(0, 1fr); }
+  .music-page .music-filter-panel { position: static; padding: 12px; }
+  .music-mobile-filter-toggle { display: inline-flex; width: 100%; min-height: 44px; }
+  .music-filter-fields { display: none; }
+  .music-filter-fields.is-open { display: grid; }
+  .music-section-tabs { gap: 6px; }
+  .music-section-tabs button { flex: 1 1 auto; min-height: 44px; padding: 8px; font-size: 13px; }
+  .music-task-options span { line-height: 1.5; }
+  .music-page .music-family-tabs { gap: 6px; margin-bottom: 12px; }
+  .music-page .music-family-tabs button { padding: 8px; min-height: 44px; }
+  .music-page .music-family-tabs span { font-size: 12px; }
+  .music-active-filters button { min-height: 40px; }
+}
+.music-page { padding-top: 18px; }
+.music-page .music-hero { margin-bottom: 12px; }
+.music-page .music-hero h1 { font-size: 32px; margin-top: 0; margin-bottom: 8px; }
+.music-page .music-license-notice { padding: 9px 12px; }
+.music-page .music-license-notice > div { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; }
+.music-page .music-decision-hub { padding: 0; border: 0; background: transparent; margin-bottom: 12px; }
+.music-page .music-task-options { grid-template-columns: repeat(5, minmax(0, 1fr)); margin: 0; }
+.music-page .music-task-options button { display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 40px; font-size: 12px; }
+.music-page .music-task-options strong { font-size: 12px; }
+@media (max-width: 760px) {
+  .music-page .music-task-options { display: flex; flex-wrap: wrap; gap: 6px; }
+  .music-page .music-task-options button { flex: 1 1 auto; min-height: 44px; }
+}
+.music-results-panel { scroll-margin-top: 16px; }
+@media (max-width: 760px) {
+  .music-page .music-hero h1 { font-size: 27px; }
+  .music-page .music-task-options button { flex-basis: calc(33.333% - 6px); }
+  .music-page .music-family-tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); overflow: visible; }
+  .music-page .music-family-tabs button { min-width: 0; }
+}

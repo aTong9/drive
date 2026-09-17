@@ -22,7 +22,7 @@ import {
   SlidersHorizontal,
   Sparkles,
 } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   buildPlatformAttributionTemplate,
   filterMusicAlbums,
@@ -95,7 +95,7 @@ const editingLabels = {
 } as const;
 const formatDuration = (seconds: number | null) =>
   seconds === null
-    ? "曲目页"
+    ? "时长待核实"
     : `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, "0")}`;
 const TRACKS_PER_PAGE = 24;
 const ALBUMS_PER_PAGE = 8;
@@ -136,13 +136,15 @@ const musicTaskOptions = [
 ] as const;
 
 export function MusicLibraryView() {
+  const resultsRef = useRef<HTMLDivElement>(null);
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  const [section, setSection] = useState<"tracks" | "albums" | "platforms" | "creators">("tracks");
   const [family, setFamily] = useState<MusicFamily | "all">("all");
   const [categoryId, setCategoryId] = useState("all");
   const [scene, setScene] = useState<MusicScene | "all">("all");
   const [risk, setRisk] = useState<MusicRisk | "all">("all");
   const [query, setQuery] = useState("");
   const [longTracksOnly, setLongTracksOnly] = useState(false);
-  const [excludeAiGenerated, setExcludeAiGenerated] = useState(false);
   const [albumPlatformId, setAlbumPlatformId] = useState("all");
   const [activeMusicTask, setActiveMusicTask] = useState<string | null>(null);
   const [albumPage, setAlbumPage] = useState(1);
@@ -162,36 +164,35 @@ export function MusicLibraryView() {
   const platforms = useMemo(
     () =>
       filterMusicPlatforms({
-        ...(categoryId === "all" ? {} : { categoryId }),
-        ...(scene === "all" ? {} : { scene }),
         ...(risk === "all" ? {} : { risk }),
         query,
       }),
-    [categoryId, scene, risk, query],
+    [risk, query],
   );
   const albums = useMemo(
     () =>
       filterMusicAlbums({
         ...(albumPlatformId === "all" ? {} : { platformId: albumPlatformId }),
+        ...(risk === "all" ? {} : { risk }),
         ...(family === "all" ? {} : { family }),
         ...(categoryId === "all" ? {} : { categoryId }),
         ...(scene === "all" ? {} : { scene }),
         query,
       }),
-    [albumPlatformId, family, categoryId, scene, query],
+    [albumPlatformId, family, categoryId, scene, query, risk],
   );
   const tracks = useMemo(
     () =>
       filterMusicTracks({
         ...(albumPlatformId === "all" ? {} : { platformId: albumPlatformId }),
+        ...(risk === "all" ? {} : { risk }),
         ...(family === "all" ? {} : { family }),
         ...(categoryId === "all" ? {} : { categoryId }),
         ...(scene === "all" ? {} : { scene }),
         ...(longTracksOnly ? { minDurationSeconds: 600 } : {}),
-        ...(excludeAiGenerated ? { excludeAiGenerated: true } : {}),
         query,
       }),
-    [albumPlatformId, excludeAiGenerated, family, categoryId, scene, longTracksOnly, query],
+    [albumPlatformId, family, categoryId, scene, longTracksOnly, query, risk],
   );
   const freePlatforms = useMemo(
     () =>
@@ -225,32 +226,14 @@ export function MusicLibraryView() {
     (trackPage - 1) * TRACKS_PER_PAGE,
     trackPage * TRACKS_PER_PAGE,
   );
-  const selectedPlatformTrackCount =
-    albumPlatformId === "all"
-      ? youtubeMusicLibrary.tracks.length
-      : youtubeMusicLibrary.tracks.filter(
-          (track) => track.platformId === albumPlatformId,
-        ).length;
-  const knownDurationCount = tracks.filter(
-    (track) => track.durationSeconds !== null,
-  ).length;
-  const longTrackCount = tracks.filter(
-    (track) => (track.durationSeconds ?? 0) >= 600,
-  ).length;
-  const lowRiskPlatformCount = platforms.filter(
-    (platform) => platform.license.risk === "low",
-  ).length;
-  const selectedPlatform = youtubeMusicLibrary.platforms.find(
-    (platform) => platform.id === albumPlatformId,
-  );
 
   useEffect(
     () => setTrackPage(1),
-    [albumPlatformId, categoryId, excludeAiGenerated, family, longTracksOnly, query, scene],
+    [albumPlatformId, categoryId, family, longTracksOnly, query, scene, risk],
   );
   useEffect(
     () => setAlbumPage(1),
-    [albumPlatformId, categoryId, family, query, scene],
+    [albumPlatformId, categoryId, family, query, scene, risk],
   );
 
   function selectFamily(next: MusicFamily | "all") {
@@ -260,37 +243,40 @@ export function MusicLibraryView() {
   }
 
   function activateMusicTask(task: (typeof musicTaskOptions)[number]) {
+    setSection("tracks");
+    setTrackPage(1);
     setActiveMusicTask(task.id);
     setFamily(task.family);
     setCategoryId("all");
     setScene(task.scene);
-    setRisk("low");
+    setRisk(task.id === "night-drive" ? "low" : "all");
     setQuery("");
     setLongTracksOnly(task.longOnly);
-    setExcludeAiGenerated(false);
     setAlbumPlatformId("all");
   }
 
   function activateSignatureProfile() {
+    setSection("tracks");
+    setTrackPage(1);
     setFamily("piano");
     setCategoryId("signature-healing-loop");
     setScene("all");
     setRisk("all");
     setQuery("");
     setLongTracksOnly(false);
-    setExcludeAiGenerated(false);
     setAlbumPlatformId("dova-syndrome");
     setActiveMusicTask(null);
   }
 
   function resetDiscovery() {
+    setTrackPage(1);
+    setAlbumPage(1);
     setFamily("all");
     setCategoryId("all");
     setScene("all");
     setRisk("all");
     setQuery("");
     setLongTracksOnly(false);
-    setExcludeAiGenerated(false);
     setAlbumPlatformId("all");
     setActiveMusicTask(null);
   }
@@ -317,15 +303,11 @@ export function MusicLibraryView() {
     <main className="music-page">
       <header className="music-hero">
         <div>
-          <p className="eyebrow">YOUTUBE MUSIC CLEARANCE DESK</p>
           <h1>
-            背景音乐库
-            <br />
-            <em>先匹配画面，再清除版权</em>
+            音乐素材库
           </h1>
           <p>
-            为乡村、雨景、日出与夜间驾驶建立可执行的钢琴、Lo-Fi、Chillhop
-            和轻爵士选曲入口。
+            按画面和时长找音乐，试听后逐曲确认授权。
           </p>
         </div>
         <div className="music-summary">
@@ -335,7 +317,7 @@ export function MusicLibraryView() {
           </span>
           <span>
             <strong>{youtubeMusicLibrary.tracks.length}</strong>
-            <small>可用单曲</small>
+            <small>收录单曲</small>
           </span>
           <span>
             <strong>{youtubeMusicLibrary.platforms.length}</strong>
@@ -348,156 +330,55 @@ export function MusicLibraryView() {
         <ShieldCheck size={20} />
         <div>
           <strong>“免版税”不等于“无版权”</strong>
-          <p>{youtubeMusicLibrary.methodology}</p>
+          <details><summary>下载前确认单曲许可、署名及 Content ID 要求</summary><p>{youtubeMusicLibrary.methodology}</p></details>
         </div>
         <small>核验日期 {youtubeMusicLibrary.accessedAt}</small>
       </section>
 
-      <section className="music-signature-profile">
-        <header>
-          <div className="music-signature-icon">
-            <SlidersHorizontal size={19} />
-          </div>
-          <div>
-            <p className="eyebrow">PRIMARY MUSIC PROFILE</p>
-            <h2>长期主筛选标准</h2>
-            <span>先验授权，再验原生循环，最后听感筛选</span>
-          </div>
-          <div className="music-signature-actions">
-            <button className="primary" onClick={activateSignatureProfile}>
-              <Repeat2 size={14} />
-              查看原生循环严选
-            </button>
-            <button onClick={resetDiscovery}>
-              <RotateCcw size={13} />
-              重置
-            </button>
-          </div>
-        </header>
-        <div className="music-profile-rules">
-          <article>
-            <small>必须全部满足</small>
-            <div>
-              {[
-                "Healing",
-                "Warm",
-                "Calm",
-                "Gentle",
-                "YouTube 盈利",
-                "可裁切 / Fade / Loop",
-              ].map((item) => (
-                <span key={item}>{item}</span>
-              ))}
-            </div>
-          </article>
-          <article>
-            <small>优先加权</small>
-            <div>
-              {[
-                "Slow",
-                "Weak",
-                "Ambient",
-                "Lo-Fi",
-                "Piano",
-                "Synth Pad",
-                "Soft Guitar",
-              ].map((item) => (
-                <span key={item}>{item}</span>
-              ))}
-            </div>
-          </article>
-          <article className="avoid">
-            <small>排除或降级</small>
-            <div>
-              {[
-                "Strong Drums",
-                "Funk",
-                "EDM",
-                "Energetic",
-                "Intense",
-                "Loud",
-              ].map((item) => (
-                <span key={item}>{item}</span>
-              ))}
-            </div>
-          </article>
-        </div>
-        <footer>
-          <strong>来源优先级</strong>
-          <ol>
-            <li>
-              <i>1</i>DOVA-SYNDROME
-            </li>
-            <li>
-              <i>2</i>StreamBeats
-            </li>
-            <li>
-              <i>3</i>其他授权清晰平台
-            </li>
-          </ol>
-          <p>
-            <Repeat2 size={13} />
-            “原生 Loopable”与“仅允许后期循环”分开管理
-          </p>
-        </footer>
-      </section>
-
+      <nav className="music-section-tabs" aria-label="素材类型">
+        {([
+          ["tracks", "单曲"], ["albums", "专辑"],
+          ["platforms", "平台与授权"], ["creators", "钢琴创作者"],
+        ] as const).map(([id, label]) => (
+          <button key={id} aria-pressed={section === id} className={section === id ? "active" : ""}
+            onClick={() => { if (section !== id) { setSection(id); resetDiscovery(); } }}>
+            {label}
+          </button>
+        ))}
+      </nav>
+      <label className="music-search music-main-search">
+        <Search size={18} />
+        <input aria-label="搜索当前素材" type="search" value={query}
+          onChange={(event) => { setQuery(event.target.value); setActiveMusicTask(null); }}
+          placeholder={section === "creators" ? "搜索创作者姓名或风格" : section === "platforms" ? "搜索平台名称或授权说明" : "搜索曲名、音乐人或平台"} />
+      </label>
+      {(section === "tracks" || section === "albums") && <>
       <section className="music-decision-hub">
-        <header>
-          <div>
-            <p className="eyebrow">START WITH THE VIDEO</p>
-            <h2>先选拍摄任务，再找音乐</h2>
-            <span>快捷方案只改变筛选条件，不替你确认单曲最终授权。</span>
-          </div>
-          <small>画面 → 时长 → 授权 → 下载存证</small>
-        </header>
-        <div className="music-task-options">
+
+        <div className="music-task-options" aria-label="快捷选曲">
+          <button onClick={activateSignatureProfile}><Repeat2 size={14} />原生循环严选</button>
           {musicTaskOptions.map((task) => (
             <button
               key={task.id}
+              title={task.note}
               className={activeMusicTask === task.id ? "active" : ""}
               aria-pressed={activeMusicTask === task.id}
               onClick={() => activateMusicTask(task)}
             >
               <strong>{task.label}</strong>
-              <span>{task.note}</span>
+
             </button>
           ))}
         </div>
-        <div className="music-decision-summary">
-          <span>
-            <strong>{tracks.length}</strong>当前匹配单曲
-          </span>
-          <span>
-            <strong>{knownDurationCount}</strong>已核实时长
-          </span>
-          <span>
-            <strong>{longTrackCount}</strong>单首 ≥ 10 分钟
-          </span>
-          <span>
-            <strong>{lowRiskPlatformCount}</strong>低风险平台
-          </span>
-          <aside>
-            <ShieldCheck size={15} />
-            <div>
-              <strong>
-                {selectedPlatform ? selectedPlatform.name : "尚未锁定平台"}
-              </strong>
-              <small>
-                {selectedPlatform
-                  ? `${costLabels[selectedPlatform.license.cost]} · ${monetizationLabels[selectedPlatform.license.monetization]} · ${riskLabels[selectedPlatform.license.risk]}`
-                  : "先试听，再进入平台卡片保存许可与署名证据"}
-              </small>
-            </div>
-          </aside>
-        </div>
       </section>
+
 
       <section className="music-family-tabs" aria-label="音乐大类">
         {familyOptions.map(({ id, label, icon: Icon }) => (
           <button
             key={id}
             className={family === id ? "active" : ""}
+            aria-pressed={family === id}
             onClick={() => selectFamily(id)}
           >
             <Icon size={17} />
@@ -517,6 +398,10 @@ export function MusicLibraryView() {
 
       <section className="music-discovery-layout">
         <aside className="music-filter-panel">
+          <button className="music-mobile-filter-toggle" aria-expanded={filtersOpen} aria-controls="music-filter-fields" onClick={() => setFiltersOpen(!filtersOpen)}>
+            <SlidersHorizontal size={16} />{filtersOpen ? "收起筛选" : section === "tracks" ? "展开筛选：平台、场景、时长" : "展开筛选：平台、场景、风格"}
+          </button>
+          <div id="music-filter-fields" className={`music-filter-fields${filtersOpen ? " is-open" : ""}`}>
           <header>
             <p className="eyebrow">FILTER</p>
             <h2>筛选音乐</h2>
@@ -527,17 +412,6 @@ export function MusicLibraryView() {
               </span>
             )}
           </header>
-          <label className="music-search">
-            <Search size={15} />
-            <input
-              value={query}
-              onChange={(event) => {
-                setQuery(event.target.value);
-                setActiveMusicTask(null);
-              }}
-              placeholder="搜索专辑、曲目或平台"
-            />
-          </label>
           <label>
             <span>免费音乐平台（{freePlatforms.length}）</span>
             <select
@@ -571,7 +445,7 @@ export function MusicLibraryView() {
               ))}
             </select>
           </label>
-          <label className="music-duration-filter">
+          {section === "tracks" && <label className="music-duration-filter">
             <input
               type="checkbox"
               checked={longTracksOnly}
@@ -584,59 +458,60 @@ export function MusicLibraryView() {
               <strong>单首 10 分钟以上</strong>
               <small>仅显示已核实时长 ≥ 10:00 的曲目</small>
             </span>
-          </label>
-          <label className="music-duration-filter">
-            <input
-              type="checkbox"
-              checked={excludeAiGenerated}
-              onChange={(event) => setExcludeAiGenerated(event.target.checked)}
-            />
-            <span>
-              <strong>去掉 AI 生成音乐</strong>
-              <small>排除明确披露为 AI 生成的曲目；未披露来源仍需复核</small>
-            </span>
-          </label>
-          <div className="music-filter-group">
-            <span>细分方向</span>
-            <div className="music-category-strip" aria-label="细分音乐类型">
-              <button
-                className={categoryId === "all" ? "active" : ""}
-                onClick={() => {
-                  setCategoryId("all");
-                  setActiveMusicTask(null);
-                }}
-              >
-                全部
-              </button>
-              {categories.map((category) => (
-                <button
-                  key={category.id}
-                  className={categoryId === category.id ? "active" : ""}
-                  onClick={() => {
-                    setCategoryId(category.id);
-                    setActiveMusicTask(null);
-                  }}
-                >
-                  {category.name}
-                </button>
-              ))}
-            </div>
+          </label>}
+          <div className="music-filter-tip">
+            <ShieldCheck size={15} />
+            <p><strong>固定标准：排除 AI 生成音乐</strong><br />已披露 AI 生成、AI 改编的曲目不予收录；来源不明仍需复核。</p>
           </div>
+          <label>
+            <span>细分方向</span>
+            <select value={categoryId} onChange={(event) => { setCategoryId(event.target.value); setActiveMusicTask(null); }}>
+              <option value="all">全部方向</option>
+              {categories.map((category) => <option key={category.id} value={category.id}>{category.name}</option>)}
+            </select>
+          </label>
+          <label>
+            <span>平台许可风险</span>
+            <select value={risk} onChange={(event) => { setRisk(event.target.value as MusicRisk | "all"); setActiveMusicTask(null); }}>
+              <option value="all">全部风险</option>
+              <option value="low">低风险</option>
+              <option value="medium">需复核</option>
+              <option value="high">高风险</option>
+            </select>
+          </label>
           <div className="music-filter-tip">
             <ShieldCheck size={15} />
             <p>
               当前只展示有免费使用路径的平台。下载后仍需保存曲目许可与署名文本。
             </p>
           </div>
+          </div>
         </aside>
 
-        <div className="music-results-panel">
+        <div className="music-results-panel" ref={resultsRef}>
+          <div className="music-active-filters" aria-label="已选筛选条件">
+            <span role="status">找到 {section === "tracks" ? `${tracks.length} 首单曲` : `${albums.length} 张专辑`}</span>
+            {[
+              { label: familyOptions.find((item) => item.id === family)?.label, active: family !== "all", clear: () => selectFamily("all") },
+              { label: categories.find((item) => item.id === categoryId)?.name, active: categoryId !== "all", clear: () => setCategoryId("all") },
+              { label: sceneLabels[scene], active: scene !== "all", clear: () => setScene("all") },
+              { label: freePlatforms.find((item) => item.id === albumPlatformId)?.name, active: albumPlatformId !== "all", clear: () => setAlbumPlatformId("all") },
+              { label: risk === "all" ? "" : riskLabels[risk], active: risk !== "all", clear: () => setRisk("all") },
+              { label: "≥ 10 分钟", active: section === "tracks" && longTracksOnly, clear: () => setLongTracksOnly(false) },
+              { label: `搜索：${query}`, active: !!query, clear: () => setQuery("") },
+            ].filter((item) => item.active).map((item) => (
+              <button key={item.label} aria-label={`移除${item.label}`} onClick={() => { item.clear(); setActiveMusicTask(null); }}>{item.label} ×</button>
+            ))}
+            <button onClick={resetDiscovery}><RotateCcw size={13} />重置筛选</button>
+          </div>
+          {section === "albums" && <>
+
           <header className="music-album-heading">
             <div>
               <p className="eyebrow">CURATED ALBUMS</p>
               <h2>适合当前方向的专辑</h2>
               <span>
-                {albums.length} 专辑 · {tracks.length} 单曲
+                {albums.length} 张匹配专辑
               </span>
             </div>
           </header>
@@ -728,7 +603,7 @@ export function MusicLibraryView() {
             >
               <button
                 disabled={currentAlbumPage === 1}
-                onClick={() => setAlbumPage((page) => Math.max(1, page - 1))}
+                onClick={() => { setAlbumPage((page) => Math.max(1, page - 1)); resultsRef.current?.scrollIntoView({ block: "start" }); }}
               >
                 <ChevronLeft size={14} />
                 上一页
@@ -739,9 +614,7 @@ export function MusicLibraryView() {
               </span>
               <button
                 disabled={currentAlbumPage === albumPageCount}
-                onClick={() =>
-                  setAlbumPage((page) => Math.min(albumPageCount, page + 1))
-                }
+                onClick={() => { setAlbumPage((page) => Math.min(albumPageCount, page + 1)); resultsRef.current?.scrollIntoView({ block: "start" }); }}
               >
                 下一页
                 <ChevronRight size={14} />
@@ -752,40 +625,13 @@ export function MusicLibraryView() {
             <div className="music-empty music-album-empty">
               <Disc3 size={23} />
               <strong>当前平台或分类暂无专辑</strong>
-              <span>切换平台、场景或清空搜索词</span>
+              <span>尝试移除上方条件，或重置筛选。</span>
+              <button onClick={resetDiscovery}>清空条件，查看全部</button>
             </div>
           )}
-          <header className="music-track-heading">
-            <div>
-              <p className="eyebrow">READY-TO-USE TRACKS</p>
-              <h2>可直接试听与下载的单曲</h2>
-            </div>
-            <span>{tracks.length} 首</span>
-          </header>
-          <section className="music-catalog-progress" aria-label="曲库扩充进度">
-            <div>
-              <strong>
-                {albumPlatformId === "all"
-                  ? "全部平台当前收录"
-                  : `${freePlatforms.find((platform) => platform.id === albumPlatformId)?.name ?? "当前平台"}收录进度`}
-              </strong>
-              <span>
-                {selectedPlatformTrackCount} /{" "}
-                {albumPlatformId === "all" ? freePlatforms.length * 100 : 100}
-              </span>
-            </div>
-            <progress
-              value={Math.min(
-                selectedPlatformTrackCount,
-                albumPlatformId === "all" ? freePlatforms.length * 100 : 100,
-              )}
-              max={albumPlatformId === "all" ? freePlatforms.length * 100 : 100}
-            />
-            <small>
-              阶段目标：每个免费平台至少 100
-              首；再按平台适配类型检查各分类覆盖。
-            </small>
-          </section>
+          </>}
+          {section === "tracks" && <>
+          <h2 className="sr-only">单曲试听与下载</h2>
           <section className="music-track-list">
             {visibleTracks.map((track) => {
               const platform = youtubeMusicLibrary.platforms.find(
@@ -812,10 +658,10 @@ export function MusicLibraryView() {
                         <span key={item}>{sceneLabels[item]}</span>
                       ))}
                     </div>
-                    <aside>
-                      <strong>{track.credit}</strong>
-                      <p>{track.licenseNote}</p>
-                    </aside>
+                    <details className="music-track-license">
+                      <summary>署名与授权要求 · {platform ? riskLabels[platform.license.risk] : "需复核"}</summary>
+                      <aside><strong>{track.credit}</strong><p>{track.licenseNote}</p></aside>
+                    </details>
                   </div>
                   <footer>
                     <a href={track.listenUrl} target="_blank" rel="noreferrer">
@@ -840,7 +686,7 @@ export function MusicLibraryView() {
             <nav className="music-track-pagination" aria-label="单曲分页">
               <button
                 disabled={trackPage === 1}
-                onClick={() => setTrackPage((page) => Math.max(1, page - 1))}
+                onClick={() => { setTrackPage((page) => Math.max(1, page - 1)); resultsRef.current?.scrollIntoView({ block: "start" }); }}
               >
                 <ChevronLeft size={14} />
                 上一页
@@ -850,9 +696,7 @@ export function MusicLibraryView() {
               </span>
               <button
                 disabled={trackPage === trackPageCount}
-                onClick={() =>
-                  setTrackPage((page) => Math.min(trackPageCount, page + 1))
-                }
+                onClick={() => { setTrackPage((page) => Math.min(trackPageCount, page + 1)); resultsRef.current?.scrollIntoView({ block: "start" }); }}
               >
                 下一页
                 <ChevronRight size={14} />
@@ -863,12 +707,16 @@ export function MusicLibraryView() {
             <div className="music-empty music-track-empty">
               <Music2 size={23} />
               <strong>当前条件暂无单曲</strong>
-              <span>切换平台、场景或清空搜索词</span>
+              <span>尝试移除上方条件，或重置筛选。</span>
+              <button onClick={resetDiscovery}>清空条件，查看全部</button>
             </div>
           )}
+          </>}
         </div>
       </section>
+      </>}
 
+      {section === "creators" && <>
       <section className="music-source-heading music-creator-heading">
         <div>
           <p className="eyebrow">HUMAN PIANO CREATORS</p>
@@ -907,10 +755,12 @@ export function MusicLibraryView() {
         <div className="music-empty">
           <Search size={23} />
           <strong>没有符合搜索条件的 Piano 创作者</strong>
-          <span>清空搜索词或切换 YouTube 入口类型</span>
+          <span>清空搜索词，查看全部创作者</span>
         </div>
       )}
 
+      </>}
+      {section === "platforms" && <>
       <section className="music-source-heading">
         <div>
           <p className="eyebrow">FREE LICENSED SOURCES</p>
@@ -928,6 +778,7 @@ export function MusicLibraryView() {
           <option value="all">全部许可风险</option>
           <option value="low">优先：低风险</option>
           <option value="medium">需逐曲复核</option>
+          <option value="high">高风险</option>
         </select>
       </section>
       <section className="music-platform-grid">
@@ -1060,9 +911,103 @@ export function MusicLibraryView() {
         <div className="music-empty">
           <Search size={23} />
           <strong>没有符合当前条件的平台</strong>
-          <span>放宽风险、场景或音乐类型筛选</span>
+          <span>放宽风险筛选或清空搜索词</span>
         </div>
       )}
+      </>}
+      <details className="music-profile-details">
+        <summary>查看长期选曲标准与来源优先级</summary>
+      <section className="music-signature-profile">
+        <header>
+          <div className="music-signature-icon">
+            <SlidersHorizontal size={19} />
+          </div>
+          <div>
+            <p className="eyebrow">PRIMARY MUSIC PROFILE</p>
+            <h2>长期主筛选标准</h2>
+            <span>先排除 AI 生成，再验授权与原生循环，最后听感筛选</span>
+          </div>
+          <div className="music-signature-actions">
+            <button className="primary" onClick={activateSignatureProfile}>
+              <Repeat2 size={14} />
+              查看原生循环严选
+            </button>
+            <button onClick={resetDiscovery}>
+              <RotateCcw size={13} />
+              重置
+            </button>
+          </div>
+        </header>
+        <div className="music-profile-rules">
+          <article>
+            <small>必须全部满足</small>
+            <div>
+              {[
+                "Healing",
+                "Warm",
+                "Calm",
+                "Gentle",
+                "排除 AI 生成音乐",
+                "YouTube 盈利",
+                "可裁切 / Fade / Loop",
+              ].map((item) => (
+                <span key={item}>{item}</span>
+              ))}
+            </div>
+          </article>
+          <article>
+            <small>优先加权</small>
+            <div>
+              {[
+                "Slow",
+                "Weak",
+                "Ambient",
+                "Lo-Fi",
+                "Piano",
+                "Synth Pad",
+                "Soft Guitar",
+              ].map((item) => (
+                <span key={item}>{item}</span>
+              ))}
+            </div>
+          </article>
+          <article className="avoid">
+            <small>排除或降级</small>
+            <div>
+              {[
+                "Strong Drums",
+                "Funk",
+                "EDM",
+                "Energetic",
+                "Intense",
+                "Loud",
+              ].map((item) => (
+                <span key={item}>{item}</span>
+              ))}
+            </div>
+          </article>
+        </div>
+        <footer>
+          <strong>来源优先级</strong>
+          <ol>
+            <li>
+              <i>1</i>DOVA-SYNDROME
+            </li>
+            <li>
+              <i>2</i>StreamBeats
+            </li>
+            <li>
+              <i>3</i>其他授权清晰平台
+            </li>
+          </ol>
+          <p>
+            <Repeat2 size={13} />
+            “原生 Loopable”与“仅允许后期循环”分开管理
+          </p>
+        </footer>
+      </section>
+
+      </details>
     </main>
   );
 }

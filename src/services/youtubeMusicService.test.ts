@@ -110,7 +110,10 @@ test("AI-generated filter excludes explicitly disclosed AI music without guessin
   assert.equal(isAiGeneratedTrack(base), false);
   assert.equal(isAiGeneratedTrack({ ...base, creationOrigin: "ai-generated" }), true);
   assert.equal(isAiGeneratedTrack({ ...base, description: "AI-generated with Udio" }), true);
-  assert.ok(filterMusicTracks({ excludeAiGenerated: true }).every((track) => !isAiGeneratedTrack(track)));
+  assert.equal(isAiGeneratedTrack({ ...base, description: "AI modified or generated" }), true);
+  assert.equal(isAiGeneratedTrack({ ...base, description: "AI 生成音乐" }), true);
+  assert.equal(isAiGeneratedTrack({ ...base, creationOrigin: "human", listenUrl: "https://pixabay.com/music/lofi-lofi-vinyl-teapot-553356/" }), true);
+  assert.ok(filterMusicTracks({}).every((track) => !isAiGeneratedTrack(track)));
 });
 
 test("independent YouTube pianist batch contributes 100 human-origin CC BY tracks", () => {
@@ -533,10 +536,10 @@ test("Purrple Cat contributes 100 strictly matched per-track CC releases", () =>
   assert.ok(importedTracks.every((track) => track.categoryIds.includes("soft-lofi") && track.categoryIds.includes("warm-lofi")));
 });
 
-test("Pixabay official calm-lofi search contributes a verified 100-track batch", () => {
+test("Pixabay batch removes 22 explicitly AI-disclosed tracks", () => {
   const importedTracks = youtubeMusicLibrary.tracks.filter((track) => /^pixabay-music-calm-lofi-/.test(track.id));
-  assert.equal(importedTracks.length, 100);
-  assert.equal(new Set(importedTracks.map((track) => track.id)).size, 100);
+  assert.equal(importedTracks.length, 78);
+  assert.equal(new Set(importedTracks.map((track) => track.id)).size, 78);
   assert.ok(importedTracks.every((track) => track.durationSeconds !== null && track.durationSeconds >= 60));
   assert.ok(importedTracks.every((track) => /^https:\/\/pixabay\.com\/music\/[a-z0-9-]+-\d+\/$/.test(track.downloadUrl)));
   assert.ok(importedTracks.every((track) => track.categoryIds.includes("soft-lofi") && track.categoryIds.includes("warm-lofi")));
@@ -644,13 +647,9 @@ test("PeriTune contributes a 103-entry evidence-backed Healing batch", () => {
   assert.match(shizima2.description, /原生循环文件：有/);
 });
 
-test("FreeBGM.jp contributes 100 free Piano Ambient entries with use-boundary warnings", () => {
-  const importedTracks = youtubeMusicLibrary.tracks.filter((track) => /^freebgm-jp-piano-ambient-\d{3}$/.test(track.id));
-  assert.equal(importedTracks.length, 100);
-  assert.equal(new Set(importedTracks.map((track) => track.id)).size, 100);
-  assert.ok(importedTracks.every((track) => track.downloadUrl === "https://www.freebgm.jp/store/album.php?id=piano-ambient-deep-healing-loneliness"));
-  assert.ok(importedTracks.every((track) => track.categoryIds.includes("healing-piano") && track.categoryIds.includes("ambient-healing")));
-  assert.ok(importedTracks.every((track) => /盈利 YouTube/.test(track.licenseNote) && /长时间 BGM/.test(track.licenseNote)));
+test("AI collection and disclosed Pixabay tracks are absent from the library", () => {
+  assert.equal(youtubeMusicLibrary.tracks.some((track) => track.platformId === "freebgm-jp"), false);
+  assert.ok(youtubeMusicLibrary.tracks.every((track) => !isAiGeneratedTrack(track)));
 });
 
 test("Oto Note contributes 50 safely screened calm tracks with mandatory attribution", () => {
@@ -807,4 +806,20 @@ test("signature profile exposes individually verified native-loop tracks", () =>
   assert.ok(tracks.length >= 15);
   assert.ok(tracks.every((track) => track.platformId === "dova-syndrome"));
   assert.ok(tracks.every((track) => /loop|循环/i.test(`${track.description} ${track.downloadLabel} ${track.licenseNote}`)));
+});
+
+test("discovery applies platform risk and platform-name search to tracks and albums", () => {
+  for (const filter of [filterMusicTracks, filterMusicAlbums]) {
+    for (const risk of ["low", "medium", "high"] as const) {
+      const expected = filter({}).filter((item) => youtubeMusicLibrary.platforms.find((platform) => platform.id === item.platformId)?.license.risk === risk);
+      assert.deepEqual(filter({ risk }), expected);
+    }
+    const source = youtubeMusicLibrary.platforms.find((platform) => platform.id === "streambeats")!;
+    const expected = filter({ platformId: source.id });
+    assert.ok(expected.length > 0);
+    assert.deepEqual(filter({ platformId: source.id, query: `  ${source.name.toUpperCase()}  ` }), expected);
+    assert.equal(filter({ platformId: source.id, risk: source.license.risk === "low" ? "high" : "low" }).length, 0);
+  }
+  const combined = filterMusicTracks({ family: "piano", scene: "rain", minDurationSeconds: 600, risk: "low" });
+  assert.deepEqual(combined, filterMusicTracks({ family: "piano", scene: "rain", minDurationSeconds: 600 }).filter((track) => youtubeMusicLibrary.platforms.find((platform) => platform.id === track.platformId)?.license.risk === "low"));
 });

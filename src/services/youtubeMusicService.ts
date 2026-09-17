@@ -1,3 +1,4 @@
+import musicAiExclusions from "../../data/music-ai-exclusions.json" with { type: "json" };
 import data from "../../data/youtube-music-library.json" with { type: "json" };
 import streambeatsLofiCatalog from "../../data/music-catalogs/streambeats-lofi-100.json" with { type: "json" };
 import scottBuckleyCatalog from "../../data/music-catalogs/scott-buckley-100.json" with { type: "json" };
@@ -44,7 +45,6 @@ import musmusCalmCatalog from "../../data/music-catalogs/musmus-calm-100.json" w
 import otologicCalmCatalog from "../../data/music-catalogs/otologic-calm-100.json" with { type: "json" };
 import hmixGalleryHealingCatalog from "../../data/music-catalogs/hmix-gallery-healing-100.json" with { type: "json" };
 import perituneHealingCatalog from "../../data/music-catalogs/peritune-healing-100.json" with { type: "json" };
-import freebgmJpPianoAmbientCatalog from "../../data/music-catalogs/freebgm-jp-piano-ambient-100.json" with { type: "json" };
 import otoNoteCalmCatalog from "../../data/music-catalogs/oto-note-calm-50.json" with { type: "json" };
 import zukisuzukiCalmCatalog from "../../data/music-catalogs/zukisuzuki-calm-100.json" with { type: "json" };
 import roaMusicCalmCatalog from "../../data/music-catalogs/roa-music-calm-100.json" with { type: "json" };
@@ -182,9 +182,10 @@ export interface MusicTrack {
 }
 
 export function isAiGeneratedTrack(track: MusicTrack) {
+  if (musicAiExclusions.sources.some(({ url }) => track.listenUrl === url || track.downloadUrl === url)) return true;
   if (track.creationOrigin) return track.creationOrigin === "ai-generated";
   const disclosure = [track.description, track.credit, track.licenseNote].join(" ");
-  return /\bAI[- ]generated\b|\bgenerated (?:by|with) AI\b|\bSuno(?: AI)?\b|\bUdio(?: AI)?\b|AI生成|人工智能生成/i.test(disclosure);
+  return /\bAI[- ](?:modified or )?generated\b|\bgenerated (?:by|with) AI\b|\bSuno(?: AI)?\b|\bUdio(?: AI)?\b|AI\s*生成|人工智能生成/i.test(disclosure);
 }
 
 export interface MusicAlbum {
@@ -345,17 +346,6 @@ interface CompactPerituneCatalog {
   licenseNote: string;
   creationOrigin?: MusicTrack["creationOrigin"];
   items: Array<[string, string, number, "piano" | "ambient" | "acoustic", boolean, string, number?]>;
-}
-
-interface CompactFreebgmJpCatalog {
-  platformId: string;
-  artist: string;
-  description: string;
-  downloadLabel: string;
-  credit: string;
-  licenseNote: string;
-  collectionUrl: string;
-  items: Array<[string, number]>;
 }
 
 interface CompactOtoNoteCatalog {
@@ -818,24 +808,6 @@ function expandPerituneCatalog(catalog: CompactPerituneCatalog): MusicTrack[] {
   });
 }
 
-function expandFreebgmJpCatalog(catalog: CompactFreebgmJpCatalog): MusicTrack[] {
-  return catalog.items.map(([title, sourceOrder]) => ({
-    id: `${catalog.platformId}-piano-ambient-${String(sourceOrder).padStart(3, "0")}`,
-    title,
-    artist: catalog.artist,
-    platformId: catalog.platformId,
-    categoryIds: ["healing-piano", "calm-piano", "gentle-piano", "ambient-healing"],
-    scenes: ["countryside", "rain", "sunrise", "city-night", "road-driving", "blue-hour"],
-    durationSeconds: null,
-    description: `${catalog.description}｜官方专辑显示顺序：${sourceOrder}｜类型：Piano Ambient`,
-    listenUrl: catalog.collectionUrl,
-    downloadUrl: catalog.collectionUrl,
-    downloadLabel: catalog.downloadLabel,
-    credit: catalog.credit,
-    licenseNote: catalog.licenseNote
-  }));
-}
-
 function expandOtoNoteCatalog(catalog: CompactOtoNoteCatalog): MusicTrack[] {
   return catalog.items.map(([sourceNumber, title, kind, tier, fit, audioUrl, youtubeUrl]) => {
     const pageUrl = `https://oto-note.net/music-${sourceNumber}/`;
@@ -1142,7 +1114,6 @@ export const youtubeMusicLibrary: YoutubeMusicLibrary = {
     ...expandOtoLogicCatalog(otologicCalmCatalog as CompactOtoLogicCatalog),
     ...expandHmixGalleryCatalog(hmixGalleryHealingCatalog as CompactHmixGalleryCatalog),
     ...expandPerituneCatalog(perituneHealingCatalog as CompactPerituneCatalog),
-    ...expandFreebgmJpCatalog(freebgmJpPianoAmbientCatalog as CompactFreebgmJpCatalog),
     ...expandOtoNoteCatalog(otoNoteCalmCatalog as CompactOtoNoteCatalog),
     ...expandZukisuzukiCatalog(zukisuzukiCalmCatalog as CompactZukisuzukiCatalog),
     ...expandRoaMusicCatalog(roaMusicCalmCatalog as CompactRoaMusicCatalog),
@@ -1155,7 +1126,7 @@ export const youtubeMusicLibrary: YoutubeMusicLibrary = {
     ...expandTeknoaxeCatalog(teknoaxeCalmCatalog as CompactTeknoaxeCatalog),
     ...expandYoutubeHumanPianoCatalog(youtubeHumanPianoCreatorsCatalog as CompactYoutubeHumanPianoCatalog),
     ...expandYoutubeHumanPianoCatalog(alexanderNakaradaLongPianoCatalog as CompactYoutubeHumanPianoCatalog)
-  ]
+  ].filter((track) => !isAiGeneratedTrack(track))
 };
 
 export function filterMusicPlatforms(input: { categoryId?: string; scene?: MusicScene; risk?: MusicRisk; query?: string }) {
@@ -1172,34 +1143,37 @@ export function filterMusicPlatforms(input: { categoryId?: string; scene?: Music
   });
 }
 
-export function filterMusicAlbums(input: { platformId?: string; family?: MusicFamily; categoryId?: string; scene?: MusicScene; query?: string }) {
+export function filterMusicAlbums(input: { risk?: MusicRisk; platformId?: string; family?: MusicFamily; categoryId?: string; scene?: MusicScene; query?: string }) {
   const categoryIds = input.family
     ? new Set(youtubeMusicLibrary.categories.filter((category) => category.id !== "signature-healing-loop" && (input.family === "lofi" ? category.family === "lofi" || category.family === "chillhop" : category.family === input.family)).map((category) => category.id))
     : null;
   const needle = input.query?.trim().toLowerCase() ?? "";
   return youtubeMusicLibrary.albums.filter((album) => {
+    const platform = youtubeMusicLibrary.platforms.find((item) => item.id === album.platformId);
+    const riskMatch = !input.risk || platform?.license.risk === input.risk;
     const platformMatch = !input.platformId || album.platformId === input.platformId;
     const familyMatch = !categoryIds || album.categoryIds.some((id) => categoryIds.has(id));
     const categoryMatch = !input.categoryId || album.categoryIds.includes(input.categoryId);
     const sceneMatch = !input.scene || album.scenes.includes(input.scene);
-    const searchable = [album.title, album.artist, album.description, ...album.trackHighlights].join(" ").toLowerCase();
-    return platformMatch && familyMatch && categoryMatch && sceneMatch && (!needle || searchable.includes(needle));
+    const searchable = [platform?.name, album.title, album.artist, album.description, ...album.trackHighlights].join(" ").toLowerCase();
+    return riskMatch && platformMatch && familyMatch && categoryMatch && sceneMatch && (!needle || searchable.includes(needle));
   });
 }
 
-export function filterMusicTracks(input: { platformId?: string; family?: MusicFamily; categoryId?: string; scene?: MusicScene; query?: string; minDurationSeconds?: number; excludeAiGenerated?: boolean }) {
+export function filterMusicTracks(input: { risk?: MusicRisk; platformId?: string; family?: MusicFamily; categoryId?: string; scene?: MusicScene; query?: string; minDurationSeconds?: number }) {
   const categoryIds = input.family
     ? new Set(youtubeMusicLibrary.categories.filter((category) => category.id !== "signature-healing-loop" && (input.family === "lofi" ? category.family === "lofi" || category.family === "chillhop" : category.family === input.family)).map((category) => category.id))
     : null;
   const needle = input.query?.trim().toLowerCase() ?? "";
   return youtubeMusicLibrary.tracks.filter((track) => {
+    const platform = youtubeMusicLibrary.platforms.find((item) => item.id === track.platformId);
+    const riskMatch = !input.risk || platform?.license.risk === input.risk;
     const platformMatch = !input.platformId || track.platformId === input.platformId;
     const familyMatch = !categoryIds || track.categoryIds.some((id) => categoryIds.has(id));
     const categoryMatch = !input.categoryId || track.categoryIds.includes(input.categoryId);
     const sceneMatch = !input.scene || track.scenes.includes(input.scene);
     const durationMatch = input.minDurationSeconds === undefined || (track.durationSeconds !== null && track.durationSeconds >= input.minDurationSeconds);
-    const creationMatch = !input.excludeAiGenerated || !isAiGeneratedTrack(track);
-    const searchable = [track.title, track.artist, track.description].join(" ").toLowerCase();
-    return platformMatch && familyMatch && categoryMatch && sceneMatch && durationMatch && creationMatch && (!needle || searchable.includes(needle));
+    const searchable = [platform?.name, track.title, track.artist, track.description].join(" ").toLowerCase();
+    return riskMatch && platformMatch && familyMatch && categoryMatch && sceneMatch && durationMatch && (!needle || searchable.includes(needle));
   });
 }

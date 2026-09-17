@@ -1,6 +1,6 @@
 {
   "platformId": "pixabay-music",
-  "description": "Pixabay 官方「calm lofi」检索前六页中去重筛选；排除 Sad、Horror、Aggressive、Energetic、Intense、Loud、Funk、EDM、Action、Epic、Powerful 及不足 60 秒片段，优先 Calm、Peaceful、Chill、Relax、Mellow、Smooth、Cozy、Night、Study、Ambient、Dreamy、Jazz 与 Romantic",
+  "description": "Pixabay 官方「calm lofi」检索前六页中去重筛选；排除 Sad、Horror、Aggressive、Energetic、Intense、Loud、Funk、EDM、Action、Epic、Powerful 及不足 60 秒片段，优先 Calm、Peaceful、Chill、Relax、Mellow、Smooth、Cozy、Night、Study、Ambient、Dreamy、Jazz 与 Romantic；2026-09-17 逐页检查 100 首，依据创作来源标记删除 22 首不符合长期标准的曲目；剩余曲目未见相关披露，不等于已证实真人制作。",
   "downloadLabel": "Pixabay 官方曲目页下载并保存 License Certificate",
   "credit": "Pixabay Content License 通常无需署名；建议保留“曲名 — 作者 / Pixabay”",
   "licenseNote": "Pixabay Content License 允许免费商用、YouTube 盈利及修改后嵌入视频，可裁切、Fade 与后期循环；不得单独分发或冒充原创。部分曲目可能受 Content ID 影响，下载时必须保存逐曲 License Certificate。",
@@ -12,14 +12,6 @@
       249,
       "Lofi",
       "Lofi, Lofi Chill"
-    ],
-    [
-      "Lofi — Vinyl Teapot",
-      "/music/lofi-lofi-vinyl-teapot-553356/",
-      "Ornave",
-      216,
-      "Lofi",
-      "Lofi, Lofi Dreamy"
     ],
     [
       "Lofi - Lofi Chill - Lofi Girl",
@@ -76,14 +68,6 @@
       171,
       "Beats",
       "Lofi Lofi"
-    ],
-    [
-      "Lofi Jazz",
-      "/music/beats-lofi-jazz-576575/",
-      "The_Mountain",
-      170,
-      "Beats",
-      "Lofi Jazz"
     ],
     [
       "Lofi - Chill Lo-fi",
@@ -150,14 +134,6 @@
       "Lofi, Lofi Chill"
     ],
     [
-      "Lofi Study Session",
-      "/music/lofi-lofi-study-session-568160/",
-      "alex-morgan",
-      131,
-      "Lofi",
-      "Lofi, Lofi Study Session"
-    ],
-    [
       "LoFi - LoFi Music - Lofi Chill 2",
       "/music/lofi-lofi-lofi-music-lofi-chill-2-560425/",
       "APALONBeats",
@@ -174,52 +150,12 @@
       "Lofi Chill"
     ],
     [
-      "Relax Lofi Beat",
-      "/music/lofi-relax-lofi-beat-461489/",
-      "VibeHorn",
-      128,
-      "Lofi",
-      "Lofi"
-    ],
-    [
-      "Lofi — Moon Light",
-      "/music/lofi-lofi-moon-light-553399/",
-      "Ornave",
-      127,
-      "Lofi",
-      "Lofi, Lofi Chill"
-    ],
-    [
-      "Lofi Study",
-      "/music/old-school-hip-hop-lofi-study-576576/",
-      "The_Mountain",
-      126,
-      "Old School Hip Hop",
-      "Lofi Study"
-    ],
-    [
-      "Lofi — Night Haze",
-      "/music/lofi-lofi-night-haze-553402/",
-      "Ornave",
-      124,
-      "Lofi",
-      "Lofi, Lofi Cozy"
-    ],
-    [
       "LoFi - LoFi Music - Lofi Chill",
       "/music/beats-lofi-lofi-music-lofi-chill-569582/",
       "SolarFLEX",
       123,
       "Beats",
       "Lofi Lofi"
-    ],
-    [
-      "Lofi — Open Window",
-      "/music/lofi-lofi-open-window-553420/",
-      "Ornave",
-      122,
-      "Lofi",
-      "Lofi, Lofi Chill"
     ],
     [
       "LoFi - LoFi Music - Lofi Chill",
@@ -252,14 +188,6 @@
       115,
       "Beats",
       "Lofi Chill"
-    ],
-    [
-      "Lofi Coffee Shop",
-      "/music/lofi-lofi-coffee-shop-568150/",
-      "alex-morgan",
-      113,
-      "Lofi",
-      "Lofi, Lofi Coffee Shop"
     ],
     [
       "Lofi Chill Music",
@@ -310,14 +238,6 @@
       "Lofi, Romantic"
     ],
     [
-      "Cozy Lofi Relax",
-      "/music/lofi-cozy-lofi-relax-468509/",
-      "VibeHorn",
-      97,
-      "Lofi",
-      "Lofi"
-    ],
-    [
       "Lofi Chill - Chill",
       "/music/lofi-lofi-chill-chill-560146/",
       "MondaMusic",
@@ -358,52 +278,12 @@
       "Lofi, Lofi Cinematic"
     ],
     [
-      "Lofi Night",
-      "/music/lofi-lofi-night-522890/",
-      "PulseBox",
-      124,
-      "Lofi",
-      "Lofi, Lofi Cinematic"
-    ],
-    [
       "Lofi Beats Lofi Study",
       "/music/lofi-lofi-beats-lofi-study-560413/",
       "APALONBeats",
       122,
       "Lofi",
       "Lofi Study, Lofi"
-    ],
-    [
-      "Lofi Calm",
-      "/music/lofi-lofi-calm-522888/",
-      "PulseBox",
-      122,
-      "Lofi",
-      "Lofi, Lofi Cinematic"
-    ],
-    [
-      "Lofi Relaxing",
-      "/music/lofi-lofi-relaxing-522872/",
-      "PulseBox",
-      109,
-      "Lofi",
-      "Lofi, Lofi Cinematic"
-    ],
-    [
-      "Lofi Slow",
-      "/music/lofi-lofi-slow-522877/",
-      "PulseBox",
-      100,
-      "Lofi",
-      "Lofi, Lofi Cinematic"
-    ],
-    [
-      "Lofi Smooth",
-      "/music/lofi-lofi-smooth-522876/",
-      "PulseBox",
-      99,
-      "Lofi",
-      "Lofi, Lofi Cinematic"
     ],
     [
       "LoFi - LoFi Music",
@@ -574,14 +454,6 @@
       "Lofi Vlog, Lofi Vlog Lofi"
     ],
     [
-      "LoFi - LoFi Music",
-      "/music/lofi-lofi-lofi-music-496553/",
-      "The_Mountain",
-      102,
-      "Lofi",
-      "Lofi Lofi"
-    ],
-    [
       "LoFi - LoFi Music 2",
       "/music/lofi-lofi-lofi-music-2-560297/",
       "mirostar",
@@ -670,14 +542,6 @@
       "Lofi Hiphop"
     ],
     [
-      "Lofi Cinematic",
-      "/music/lofi-lofi-cinematic-522892/",
-      "PulseBox",
-      147,
-      "Lofi",
-      "Lofi, Lofi Cinematic"
-    ],
-    [
       "Lofi Beats",
       "/music/lofi-lofi-beats-499181/",
       "MondaMusic",
@@ -694,14 +558,6 @@
       "Lofi Lofi"
     ],
     [
-      "Lofi Beats",
-      "/music/lofi-lofi-beats-567433/",
-      "The_Mountain",
-      142,
-      "Lofi",
-      "Lofi Beats"
-    ],
-    [
       "Lofi Hiphop",
       "/music/beats-lofi-hiphop-569546/",
       "SolarFLEX",
@@ -710,36 +566,12 @@
       "Lofi Hiphop"
     ],
     [
-      "Lofi Instrumental",
-      "/music/lofi-lofi-instrumental-522889/",
-      "PulseBox",
-      132,
-      "Lofi",
-      "Lofi, Lofi Cinematic"
-    ],
-    [
-      "Lofi Retro",
-      "/music/lofi-lofi-retro-522893/",
-      "PulseBox",
-      132,
-      "Lofi",
-      "Lofi, Lofi Cinematic"
-    ],
-    [
       "Lofi Hiphop",
       "/music/lofi-lofi-hiphop-561587/",
       "ARPMedia",
       131,
       "Lofi",
       "Lofi Hiphop"
-    ],
-    [
-      "Lofi Vlog",
-      "/music/lofi-lofi-vlog-522887/",
-      "PulseBox",
-      131,
-      "Lofi",
-      "Lofi, Lofi Cinematic"
     ],
     [
       "Lofi Hiphop",
@@ -788,14 +620,6 @@
       116,
       "Beats",
       "Lofi Lofi"
-    ],
-    [
-      "Lofi Production",
-      "/music/lofi-lofi-production-522875/",
-      "PulseBox",
-      112,
-      "Lofi",
-      "Lofi, Lofi Cinematic"
     ],
     [
       "Lofi Beats",

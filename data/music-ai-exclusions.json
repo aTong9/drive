@@ -1,0 +1,107 @@
+{
+  "checkedAt": "2026-09-17",
+  "policy": "排除 AI 生成音乐，包括 AI 翻唱、AI 改编及平台标注 AI modified or generated 的音乐；未知来源不得标记为已证实真人创作。",
+  "sources": [
+    {
+      "url": "https://www.freebgm.jp/store/album.php?id=piano-ambient-deep-healing-loneliness",
+      "disclosure": "AI BGM STORE",
+      "removedCount": 100
+    },
+    {
+      "url": "https://pixabay.com/music/lofi-lofi-vinyl-teapot-553356/",
+      "disclosure": "AI generated"
+    },
+    {
+      "url": "https://pixabay.com/music/beats-lofi-jazz-576575/",
+      "disclosure": "AI generated"
+    },
+    {
+      "url": "https://pixabay.com/music/lofi-lofi-study-session-568160/",
+      "disclosure": "AI generated"
+    },
+    {
+      "url": "https://pixabay.com/music/lofi-relax-lofi-beat-461489/",
+      "disclosure": "AI generated"
+    },
+    {
+      "url": "https://pixabay.com/music/lofi-lofi-moon-light-553399/",
+      "disclosure": "AI generated"
+    },
+    {
+      "url": "https://pixabay.com/music/old-school-hip-hop-lofi-study-576576/",
+      "disclosure": "AI generated"
+    },
+    {
+      "url": "https://pixabay.com/music/lofi-lofi-night-haze-553402/",
+      "disclosure": "AI generated"
+    },
+    {
+      "url": "https://pixabay.com/music/lofi-lofi-open-window-553420/",
+      "disclosure": "AI generated"
+    },
+    {
+      "url": "https://pixabay.com/music/lofi-lofi-coffee-shop-568150/",
+      "disclosure": "AI generated"
+    },
+    {
+      "url": "https://pixabay.com/music/lofi-cozy-lofi-relax-468509/",
+      "disclosure": "AI generated"
+    },
+    {
+      "url": "https://pixabay.com/music/lofi-lofi-night-522890/",
+      "disclosure": "AI generated"
+    },
+    {
+      "url": "https://pixabay.com/music/lofi-lofi-calm-522888/",
+      "disclosure": "AI modified or generated"
+    },
+    {
+      "url": "https://pixabay.com/music/lofi-lofi-relaxing-522872/",
+      "disclosure": "AI modified or generated"
+    },
+    {
+      "url": "https://pixabay.com/music/lofi-lofi-slow-522877/",
+      "disclosure": "AI modified or generated"
+    },
+    {
+      "url": "https://pixabay.com/music/lofi-lofi-smooth-522876/",
+      "disclosure": "AI generated"
+    },
+    {
+      "url": "https://pixabay.com/music/lofi-lofi-lofi-music-496553/",
+      "disclosure": "AI generated"
+    },
+    {
+      "url": "https://pixabay.com/music/lofi-lofi-cinematic-522892/",
+      "disclosure": "AI generated"
+    },
+    {
+      "url": "https://pixabay.com/music/lofi-lofi-beats-567433/",
+      "disclosure": "AI generated"
+    },
+    {
+      "url": "https://pixabay.com/music/lofi-lofi-instrumental-522889/",
+      "disclosure": "AI modified or generated"
+    },
+    {
+      "url": "https://pixabay.com/music/lofi-lofi-retro-522893/",
+      "disclosure": "AI modified or generated"
+    },
+    {
+      "url": "https://pixabay.com/music/lofi-lofi-vlog-522887/",
+      "disclosure": "AI modified or generated"
+    },
+    {
+      "url": "https://pixabay.com/music/lofi-lofi-production-522875/",
+      "disclosure": "AI generated"
+    },
+    {
+      "url": "https://pixabay.com/music/modern-classical-calm-piano-541028/",
+      "disclosure": "AI generated"
+    },
+    {
+      "url": "https://pixabay.com/cs/music/modern%C3%AD-jazz-lofi-jazz-study-music-564256/",
+      "disclosure": "Generováno umělou inteligencí (AI generated)"
+    }
+  ]
+}

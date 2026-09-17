@@ -11,6 +11,7 @@ const regions = JSON.parse(await readFile(new URL("../data/regions.json", import
 const youtubeCreatorsSchema = JSON.parse(await readFile(new URL("../schemas/youtube-creators.schema.json", import.meta.url), "utf8"));
 const youtubeCreators = JSON.parse(await readFile(new URL("../data/youtube-creators.json", import.meta.url), "utf8"));
 const youtubeMusicSchema = JSON.parse(await readFile(new URL("../schemas/youtube-music-library.schema.json", import.meta.url), "utf8"));
+const musicAiExclusions = JSON.parse(await readFile(new URL("../data/music-ai-exclusions.json", import.meta.url), "utf8"));
 const youtubeMusic = JSON.parse(await readFile(new URL("../data/youtube-music-library.json", import.meta.url), "utf8"));
 const streambeatsLofiCatalog = JSON.parse(await readFile(new URL("../data/music-catalogs/streambeats-lofi-100.json", import.meta.url), "utf8"));
 const scottBuckleyCatalog = JSON.parse(await readFile(new URL("../data/music-catalogs/scott-buckley-100.json", import.meta.url), "utf8"));
@@ -60,7 +61,6 @@ const musmusCalmCatalog = JSON.parse(await readFile(new URL("../data/music-catal
 const otologicCalmCatalog = JSON.parse(await readFile(new URL("../data/music-catalogs/otologic-calm-100.json", import.meta.url), "utf8"));
 const hmixGalleryHealingCatalog = JSON.parse(await readFile(new URL("../data/music-catalogs/hmix-gallery-healing-100.json", import.meta.url), "utf8"));
 const perituneHealingCatalog = JSON.parse(await readFile(new URL("../data/music-catalogs/peritune-healing-100.json", import.meta.url), "utf8"));
-const freebgmJpPianoAmbientCatalog = JSON.parse(await readFile(new URL("../data/music-catalogs/freebgm-jp-piano-ambient-100.json", import.meta.url), "utf8"));
 const otoNoteCalmCatalog = JSON.parse(await readFile(new URL("../data/music-catalogs/oto-note-calm-50.json", import.meta.url), "utf8"));
 const zukisuzukiCalmCatalog = JSON.parse(await readFile(new URL("../data/music-catalogs/zukisuzuki-calm-100.json", import.meta.url), "utf8"));
 const roaMusicCalmCatalog = JSON.parse(await readFile(new URL("../data/music-catalogs/roa-music-calm-100.json", import.meta.url), "utf8"));
@@ -496,8 +496,14 @@ for (const [title, pagePath, mp3Path, duration, bpm, tags] of purrpleCatCalmCata
   if (!/calm|gentle|relaxing|smooth|dreamy|chill|downtempo|ambient/i.test(tags)) errors.push(`purrpleCatCalmCatalog: missing target tag for ${title}`);
   if (/horror|scary|aggressive|energetic|upbeat|epic|powerful|action/i.test(tags)) errors.push(`purrpleCatCalmCatalog: excluded intensity for ${title}`);
 }
+for (const { url } of musicAiExclusions.sources) {
+  if (youtubeMusic.tracks.some((track) => track.listenUrl === url || track.downloadUrl === url)
+    || pixabayCalmLofiCatalog.items.some(([, pagePath]) => `https://pixabay.com${pagePath}` === url)) {
+    errors.push(`AI-excluded music must not be reimported: ${url}`);
+  }
+}
 if (pixabayCalmLofiCatalog.platformId !== "pixabay-music") errors.push("pixabayCalmLofiCatalog: unexpected platform id");
-if (pixabayCalmLofiCatalog.items.length !== 100) errors.push(`pixabayCalmLofiCatalog: expected 100 tracks, found ${pixabayCalmLofiCatalog.items.length}`);
+if (pixabayCalmLofiCatalog.items.length !== 78) errors.push(`pixabayCalmLofiCatalog: expected 78 tracks after AI removals, found ${pixabayCalmLofiCatalog.items.length}`);
 if (new Set(pixabayCalmLofiCatalog.items.map(([, pagePath]) => pagePath)).size !== pixabayCalmLofiCatalog.items.length) errors.push("pixabayCalmLofiCatalog: duplicate page");
 for (const [title, pagePath, artist, duration, genre, tags] of pixabayCalmLofiCatalog.items) {
   if (typeof title !== "string" || title.length < 1) errors.push("pixabayCalmLofiCatalog: invalid title");
@@ -598,14 +604,7 @@ const softDay = perituneHealingCatalog.items.find(([title]) => title === "Soft_D
 if (!softDay || softDay[2] !== 115 || softDay[4] !== true || softDay[6] !== 223 || !/healing, warm, calm, gentle/.test(softDay[5])) errors.push("perituneHealingCatalog: invalid strict Soft_Day evidence");
 const shizima2 = perituneHealingCatalog.items.find(([title]) => title === "Shizima2");
 if (!shizima2 || shizima2[2] !== 85 || shizima2[4] !== true || shizima2[6] !== 99 || !/healing, warm, calm, gentle, quiet/.test(shizima2[5])) errors.push("perituneHealingCatalog: invalid strict Shizima2 evidence");
-if (freebgmJpPianoAmbientCatalog.platformId !== "freebgm-jp") errors.push("freebgmJpPianoAmbientCatalog: unexpected platform id");
-if (freebgmJpPianoAmbientCatalog.items.length !== 100) errors.push(`freebgmJpPianoAmbientCatalog: expected 100 free entries, found ${freebgmJpPianoAmbientCatalog.items.length}`);
-if (freebgmJpPianoAmbientCatalog.collectionUrl !== "https://www.freebgm.jp/store/album.php?id=piano-ambient-deep-healing-loneliness") errors.push("freebgmJpPianoAmbientCatalog: unexpected collection URL");
-if (new Set(freebgmJpPianoAmbientCatalog.items.map(([, sourceOrder]) => sourceOrder)).size !== 100) errors.push("freebgmJpPianoAmbientCatalog: duplicate source order");
-for (const [title, sourceOrder] of freebgmJpPianoAmbientCatalog.items) {
-  if (typeof title !== "string" || title.length < 2) errors.push("freebgmJpPianoAmbientCatalog: invalid title");
-  if (!Number.isInteger(sourceOrder) || sourceOrder < 1 || sourceOrder > 100) errors.push(`freebgmJpPianoAmbientCatalog: invalid source order for ${title}`);
-}
+
 if (otoNoteCalmCatalog.platformId !== "oto-note") errors.push("otoNoteCalmCatalog: unexpected platform id");
 if (otoNoteCalmCatalog.items.length !== 50) errors.push(`otoNoteCalmCatalog: expected 50 safely screened entries, found ${otoNoteCalmCatalog.items.length}`);
 if (new Set(otoNoteCalmCatalog.items.map(([sourceNumber]) => sourceNumber)).size !== 50) errors.push("otoNoteCalmCatalog: duplicate source number");
