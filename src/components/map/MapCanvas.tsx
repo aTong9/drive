@@ -215,7 +215,7 @@ export function MapCanvas({ selected, nearbyLocations, onDrivingSummary }: MapCa
         {gpxTrack && <button onClick={() => { setGpxTrack(null); setTrackMessage(""); }} aria-label="清除 GPX 轨迹"><Trash2 size={16} /></button>}
       </div>
       <button className="map-style-button" onClick={toggleStyle}><MapIcon size={16} /> {normalStyle ? "深色地图" : "标准地图"}</button>
-      <div className="map-legend"><span><i className="legend-route" />推荐路线</span><span><i className="legend-walk" />停车后步行</span>{gpxTrack && <span><i className="legend-gpx" />{trackMessage || gpxTrack.name}</span>}</div>
+      <div className="map-legend"><span><i className="legend-route" />推荐路线</span>{selected?.waypoints.some((point) => point.access.mode === "park-and-walk") && <span><i className="legend-walk" />停车后步行</span>}{gpxTrack && <span><i className="legend-gpx" />{trackMessage || gpxTrack.name}</span>}</div>
     </section>
   );
 }

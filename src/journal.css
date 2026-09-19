@@ -1,0 +1,359 @@
+/* RoadLens field journal: shared palette and decorative chrome.
+   Photography, maps and colour-grading previews keep their original colours. */
+:root {
+  --font-caption: 11px;
+  --font-body: 13px;
+  --on-accent: #172c29;
+  --danger: #e5a48c;
+  --canvas: #172c29;
+  --ink: #eceddc;
+  --muted: #b0bfaf;
+  --line: #3b5149;
+  --panel: #203831;
+  --panel-strong: #294239;
+  --orange: #c4d5a0;
+  --accent-rgb: 196, 213, 160;
+  --orange-soft: #304b3c;
+  --lime: #d9c38c;
+  --sky: #9cbec2;
+  --paper-shadow: 0 3px 12px rgb(0 0 0 / 10%);
+  --text: var(--ink);
+  --text-primary: var(--ink);
+  --text-muted: var(--muted);
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+  --on-accent: #fffdf6;
+  --danger: #9e4435;
+  --canvas: #f6f3e9;
+  --ink: #293e34;
+  --muted: #626e60;
+  --line: #d9ddcc;
+  --panel: #f0f0e4;
+  --panel-strong: #fffdf6;
+  --orange: #41684e;
+  --accent-rgb: 65, 104, 78;
+  --orange-soft: #e6edd9;
+  --lime: #766239;
+  --sky: #507c89;
+  --paper-shadow: 0 3px 12px rgb(63 79 47 / 5%);
+  color: var(--ink);
+  background: var(--canvas);
+}
+:root[data-theme] body,
+:root[data-theme] .app-shell { background: var(--canvas); color: var(--ink); }
+.app-shell { height: 100dvh; overflow: hidden; }
+:root[data-theme] :is(.plan-page, .location-page, .camera-library-page, .post-page,
+  .longform-page, .project-page, .dashboard-page, .creator-page, .music-page, .upload-page) { background: var(--canvas); }
+:root[data-theme] .topbar {
+  grid-template-columns: 230px minmax(0, 1fr) auto;
+  background: var(--panel-strong);
+  border-bottom: 1px solid var(--line);
+  box-shadow: none;
+}
+.brand { padding-inline: 20px; border-right: 0; }
+.brand-copy { flex-direction: column; gap: 3px; }
+.brand-copy strong { font-family: Georgia, serif; font-size: 17px; }
+.brand-copy small { font-size: 10px; letter-spacing: .12em; }
+.brand-mark {
+  flex-shrink: 0;
+  width: 38px;
+  height: 40px;
+  border-radius: 48% 48% 42% 42%;
+  background: #41684e;
+  color: #fff6d9;
+  box-shadow: inset 0 0 0 3px #41684e, inset 0 0 0 4px #a9bd8f;
+}
+.topbar nav { min-width: 0; padding-left: 0; gap: 0; }
+:root[data-theme] .topbar nav button { color: var(--muted); padding-inline: 12px; font-size: 12px; gap: 6px; }
+:root[data-theme] .topbar nav button.active { color: var(--orange); background: var(--orange-soft); }
+.topbar nav button.active::after { height: 3px; border-radius: 6px 6px 0 0; }
+.topbar-actions { gap: 10px; padding-right: 18px; }
+:root[data-theme] .command-trigger,
+:root[data-theme] .theme-toggle { background: var(--panel); color: var(--ink); border-color: var(--line); }
+.command-trigger { white-space: nowrap; }
+.journal-stamp { display: flex; align-items: center; gap: 5px; color: var(--orange); font-size: 11px; white-space: nowrap; }
+:root[data-theme] .command-palette { background: var(--panel-strong); box-shadow: var(--paper-shadow); border-radius: 18px; }
+.command-section > small { color: var(--orange); font-size: 12px; }
+.command-view-grid button { min-height: 44px; }
+:root[data-theme] .command-view-grid button[aria-current="page"] { background: var(--orange-soft); border-color: var(--orange); color: var(--orange); }
+:root[data-theme] :is(.command-palette header input, .command-view-grid button, .command-results button strong) { color: var(--ink); }
+
+/* The illustration is atmosphere, never evidence for a real location. */
+:root[data-theme] :is(.location-head, .plan-page-head, .dashboard-head, .project-head,
+  .camera-library-head, .post-head, .longform-head, .creator-hero, .music-hero, .upload-hero) {
+  position: relative;
+  isolation: isolate;
+  min-height: 184px;
+  padding: 26px;
+  gap: 20px;
+  border: 1px solid var(--line);
+  border-radius: 18px 18px 6px 6px;
+  background: var(--panel-strong);
+  box-shadow: var(--paper-shadow);
+}
+:is(.location-head, .plan-page-head, .dashboard-head, .project-head,
+  .camera-library-head, .post-head, .longform-head, .creator-hero, .music-hero, .upload-hero)::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border-radius: inherit;
+  background: url("/art/roadlens-countryside.jpg") center 54% / cover;
+  opacity: .24;
+  pointer-events: none;
+}
+:root[data-theme="dark"] :is(.location-head, .plan-page-head, .dashboard-head, .project-head,
+  .camera-library-head, .post-head, .longform-head, .creator-hero, .music-hero, .upload-hero)::before { opacity: .12; }
+:root[data-theme] :is(.location-head, .plan-page-head, .dashboard-head, .project-head,
+  .camera-library-head, .post-head, .longform-head, .creator-hero, .music-hero, .upload-hero) h1 {
+  font-family: "Songti SC", "STSong", Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(27px, 2.7vw, 38px);
+  line-height: 1.35;
+  color: var(--ink);
+}
+:root[data-theme] :is(.location-head, .plan-page-head, .dashboard-head, .project-head,
+  .camera-library-head, .post-head, .longform-head, .creator-hero, .music-hero, .upload-hero) :is(p, small, dt) { color: var(--muted); }
+:root[data-theme] :is(.plan-page-head, .creator-hero, .upload-hero) h1 em { color: var(--orange); font-style: normal; }
+.eyebrow { color: var(--orange); font-size: 10px; }
+.location-browser { padding: 24px; }
+.location-page:has(.location-detail.is-hidden) { grid-template-columns: 1fr; }
+:root[data-theme] .location-head {
+  display: block;
+  min-height: 288px;
+  padding: 26px 28px 0;
+  overflow: hidden;
+}
+.location-head::before { opacity: 1; background-position: 65% center; }
+:root[data-theme="light"] .location-head::before { opacity: 1; }
+:root[data-theme] .location-head > div:first-child { width: fit-content; max-width: 80%; padding: 12px 16px; margin: -8px 0 42px -12px; border-radius: 10px; background: var(--panel-strong); }
+.location-intro { max-width: 360px; font-size: 12px; line-height: 1.8; }
+.location-head-actions { flex-wrap: wrap; align-items: center; gap: 8px; margin: 0 -28px; padding: 12px 20px; background: var(--panel-strong); border-top: 1px solid var(--line); }
+.location-head-stats { display: flex; align-items: baseline; flex-wrap: wrap; text-align: left; gap: 4px 8px; margin-right: auto; }
+.location-head-stats strong { font-size: 18px; color: var(--orange); }
+.location-head-stats small { font-size: 10px; margin-right: 8px; }
+.location-head-actions button { font-size: 11px; }
+:root[data-theme] :is(.location-search, .search-field, .region-browser-compact,
+  .library-switch button, .location-card, .local-pagination, .city-weather,
+  .music-filter-panel, .music-license-notice, .post-context-nav, .post-mode) {
+  background: var(--panel-strong);
+  border-color: var(--line);
+  box-shadow: var(--paper-shadow);
+}
+:root[data-theme] :is(.library-switch button[aria-selected="true"], .location-card.active,
+  .location-filters button.active, .music-section-tabs button.active) {
+  background: var(--orange-soft);
+  border-color: var(--orange);
+  color: var(--orange);
+}
+:root[data-theme] :is(.location-search input, .search-field input) { background: transparent; color: var(--ink); }
+.location-search { height: 46px; }
+.location-search input { min-width: 0; font-size: 13px; }
+.location-card { min-height: 104px; border-radius: 5px 14px 14px 14px; }
+:root[data-theme] .location-card h2 { color: var(--ink); font-size: 15px; }
+:root[data-theme] :is(.location-card > div > span, .location-card > div > small,
+  .library-switch button small, .region-path button, .library-results-summary) { color: var(--muted); font-size: 11px; }
+:root[data-theme] .library-switch button span { color: var(--ink); font-size: 13px; }
+.location-filters button { min-height: 36px; font-size: 12px; }
+:root[data-theme] .location-check { color: var(--orange); background: var(--orange-soft); font-size: 9px; }
+.region-control-grid select { min-height: 40px; font-size: 12px; }
+:root[data-theme] :is(.library-switch button[aria-selected="true"] > svg, .location-filters button.active) { color: var(--orange); }
+:root[data-theme] :is(.music-summary, .creator-summary, .music-track-card) { background: var(--panel-strong); border-color: var(--line); }
+:root[data-theme] .music-track-card :is(h3, strong) { color: var(--ink); }
+:root[data-theme] .music-track-card :is(p, time, summary) { color: var(--muted); }
+:root[data-theme] .music-track-card footer a { color: var(--orange); background: var(--orange-soft); border-color: var(--line); }
+:root[data-theme] .music-family-tabs button { color: var(--muted); }
+:root[data-theme] .music-family-tabs button :is(svg, strong) { color: inherit; }
+:root[data-theme] .music-family-tabs button.active { color: var(--orange); border-color: var(--orange); background: var(--orange-soft); }
+.music-hero .music-summary small { font-size: 11px; }
+:root[data-theme] :is(.camera-library-head, .longform-head) dd { color: var(--ink); }
+:root[data-theme] .camera-playbook-detail > header { background: var(--orange-soft); }
+:root[data-theme] .camera-playbook-detail > header :is(h2, small, p) { color: var(--ink); }
+:root[data-theme] :is(.camera-workspace-tabs button.active, .camera-preset-list button.active,
+  .camera-device-tabs button.active, .camera-scene-tabs button.active, .creator-categories button.active,
+  .longform-tabs button.active, .longform-goal-picker button.active) { background: var(--orange-soft); border-color: var(--orange); color: var(--orange); }
+:root[data-theme] :is(.camera-workspace-tabs button.active, .camera-preset-list button.active) :is(span, small, p, strong) { color: var(--ink); }
+:root[data-theme] .post-overview-hero { background: var(--orange-soft); }
+:root[data-theme] .post-overview-hero dl div { background: var(--panel-strong); }
+:root[data-theme] .post-overview-hero :is(h2, dd) { color: var(--ink); }
+:root[data-theme] .post-overview-hero :is(p, dt) { color: var(--muted); }
+.route-sidebar-head { padding: 20px 14px; border: 1px solid var(--line); border-radius: 14px 14px 5px 5px; background: var(--orange-soft); }
+.route-sidebar > .route-sidebar-head { flex-shrink: 0; margin-bottom: 12px; }
+.route-sidebar > .search-field { flex-shrink: 0; }
+:root[data-theme] :is(.amap-route-label, .map-state) { background: var(--panel-strong); border-color: var(--line); }
+:root[data-theme] :is(.amap-route-label, .map-state) strong { color: var(--ink); }
+:root[data-theme] :is(.amap-route-label, .map-state) small { color: var(--muted); }
+.amap-route-pin { background: #41684e; border-color: #e9dfb6; }
+:root[data-theme] .route-sidebar h1 em { color: var(--orange); }
+.region-control-grid label > span, .region-control-label { font-size: 11px; }
+:root[data-theme] .location-detail { background: var(--panel-strong); }
+:root[data-theme] .location-detail-hero h2,
+:root[data-theme] .location-detail-hero p { color: #fffdf0; text-shadow: 0 1px 4px #172c29; }
+.location-detail-hero p { font-size: 11px; }
+:root[data-theme] .location-detail-scroll section > p:last-child { color: var(--muted); font-size: 12px; line-height: 1.85; }
+.location-detail-scroll section h3 { font-size: 17px; }
+:root[data-theme] .location-facts > span { background: var(--panel); border-color: var(--line); }
+:root[data-theme] .location-facts :is(small, strong) { color: var(--ink); font-size: 10px; white-space: normal; }
+:root[data-theme] .city-weather :is(p, small, dt, dd, strong, h3, span) { color: var(--muted); }
+:root[data-theme] .city-weather :is(h3, strong) { color: var(--ink); }
+.weather-forecast :is(small, span, strong), .weather-now :is(dt, dd), .weather-shoot-note { font-size: 10px; }
+:root[data-theme] :is(.plan-empty, .project-empty) { background: var(--panel-strong); border: 1px dashed var(--line); border-radius: 16px; padding: 48px 24px; }
+:root[data-theme] :is(.plan-empty, .project-empty) > span { background: var(--orange-soft); color: var(--orange); border-radius: 50% 50% 42% 42%; }
+:root[data-theme] :is(.plan-empty, .project-empty) p { color: var(--muted); }
+:root[data-theme] :is(.plan-empty, .project-empty) h1,
+:root[data-theme] :is(.plan-empty, .project-empty) h2 { color: var(--ink); }
+:root[data-theme] :is(.plan-empty, .project-empty) button { background: var(--orange-soft); color: var(--ink); }
+button, a, input, select, textarea, summary { -webkit-tap-highlight-color: transparent; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
+button:disabled { cursor: not-allowed; }
+.copy-feedback { position: relative; display: grid; justify-items: end; gap: 4px; }
+:root[data-theme] .copy-error { margin: 0; color: var(--ink); font-size: 12px; line-height: 1.6; max-width: 240px; }
+.copy-error:empty { display: none; }
+.local-pagination > div { flex-wrap: wrap; }
+.local-pagination form { display: flex; align-items: center; gap: 6px; }
+:root[data-theme] .local-pagination :is(button, label, input) { color: var(--ink); font-size: 12px; }
+.local-pagination button, .local-pagination input { min-height: 38px; }
+.local-pagination > span { flex-shrink: 0; font-size: 12px; }
+.camera-empty { display: grid; justify-items: center; gap: 12px; }
+.camera-library-layout:has(.camera-empty) { grid-template-columns: 1fr; }
+:root[data-theme] :is(.camera-empty, .music-empty) { color: var(--muted); }
+:root[data-theme] :is(.camera-empty, .music-empty) strong { color: var(--ink); font-size: 16px; }
+:root[data-theme] :is(.camera-empty, .music-empty) button { min-height: 40px; padding: 8px 16px; border: 1px solid var(--line); border-radius: 8px; background: var(--orange-soft); color: var(--orange); cursor: pointer; }
+:root[data-theme] :is(.camera-empty, .music-empty) p { margin: 0; font-size: 13px; }
+:root[data-theme] :is(.camera-core-grid strong, .camera-advanced-grid dd, .upload-fields p, .upload-fields pre) { color: var(--ink); font-size: var(--font-body); line-height: 1.7; }
+.camera-core-grid strong { white-space: normal; overflow-wrap: anywhere; }
+.camera-preset-list footer { flex-wrap: wrap; }
+:root[data-theme] :is(.camera-preset-list button p, .camera-preset-list footer span,
+  .camera-core-grid small, .camera-advanced-grid dt, .camera-section-title small,
+  .sound-environment p, .sound-environment small, .sound-environment dt,
+  .local-pagination > span, .command-results button small) { color: var(--muted); }
+:root[data-theme] :is(.camera-playbook-actions button, .upload-copy,
+  .music-track-pagination button, .music-track-card footer a) { min-height: 38px; font-size: 12px; color: var(--orange); }
+:root[data-theme] :is(.sound-environment strong, .sound-environment dd) { color: var(--ink); font-size: 12px; }
+.camera-playbook-actions button { padding: 6px; flex-wrap: wrap; }
+.camera-advanced-grid dd { overflow-wrap: anywhere; }
+.camera-playbook-detail header a { width: 36px; height: 36px; color: var(--orange); }
+:root[data-theme] .upload-copy { background: var(--orange-soft); border-color: var(--line); }
+:root[data-theme] .upload-controls button.active { color: var(--orange); background: var(--orange-soft); border-color: var(--orange); }
+:root[data-theme] .upload-template-picker button.active { border-color: var(--orange); background: var(--orange-soft); }
+:root[data-theme] .upload-template-picker button.active strong { color: var(--orange); }
+:root[data-theme] .plan-dialog { background: var(--panel-strong); }
+:root[data-theme] .plan-dialog :is(h2, label, input, textarea) { color: var(--ink); }
+:root[data-theme] .plan-dialog :is(input, textarea) { background: var(--panel); font-size: 14px; }
+:root[data-theme] .plan-dialog > button[type="submit"] { color: var(--on-accent); font-size: 14px; }
+.location-search:focus-within, .music-search:focus-within, .camera-library-toolbar > label:focus-within { outline: 2px solid var(--orange); outline-offset: 2px; }
+input[type="search"]::-webkit-search-cancel-button { cursor: pointer; }
+button:not(:disabled), summary { cursor: pointer; }
+::selection { color: var(--ink); background: var(--orange-soft); }
+* { scrollbar-color: var(--line) transparent; scrollbar-width: thin; }
+
+.music-track-copy > header > div { min-width: 0; }
+.music-track-copy time { flex-shrink: 0; white-space: nowrap; }
+:root[data-theme] .music-family-tabs button { color: var(--muted); }
+:root[data-theme] .music-family-tabs button.active :is(span, svg) { color: var(--orange); }
+@media (max-width: 1100px) {
+  .music-track-card { grid-template-columns: 31px minmax(0, 1fr); }
+  .music-track-card > footer { grid-column: 2; flex-direction: row; flex-wrap: wrap; min-width: 0; }
+  .music-track-card > footer a { flex: 1; min-height: 40px; padding: 8px; }
+}
+
+@media (hover: hover) {
+  .location-card:hover { transform: translateY(-2px); }
+  .location-card { transition: transform 150ms ease-out; }
+}
+@media (max-width: 1200px) and (min-width: 761px) {
+  :root[data-theme] .topbar { grid-template-columns: 205px minmax(0, 1fr) auto; }
+  :root[data-theme] .topbar nav button { padding-inline: 8px; font-size: 11px; }
+  .command-trigger span, .command-trigger kbd, .journal-stamp { display: none; }
+  .location-page { grid-template-columns: minmax(0, 1fr) 320px; }
+  .location-page.mode-routes { grid-template-columns: 1fr; }
+  .location-grid { grid-template-columns: 1fr; }
+}
+@media (min-width: 761px) and (max-width: 1000px) {
+  :root[data-theme] .topbar { grid-template-columns: 180px minmax(0, 1fr) auto; }
+  .topbar nav { overflow-x: auto; }
+  .brand { padding-inline: 12px; }
+  .topbar-actions { padding-right: 10px; gap: 6px; }
+}
+@media (max-width: 760px) {
+  :root[data-theme] .topbar { grid-template-columns: minmax(0, 1fr) auto; }
+  .brand-copy strong { font-size: 15px; }
+  .brand-copy small { font-size: 9px; }
+  .journal-stamp { display: none; }
+  .command-trigger span, .command-trigger kbd { display: none; }
+  .location-browser { padding: 16px; }
+  .route-sidebar > .route-sidebar-head { padding: 0; margin: 0; border: 0; background: transparent; }
+  :root[data-theme] :is(.location-head, .plan-page-head, .dashboard-head, .project-head,
+    .camera-library-head, .post-head, .longform-head, .creator-hero, .music-hero, .upload-hero) {
+    min-height: 155px;
+    padding: 20px;
+    gap: 14px;
+    border-radius: 14px 14px 5px 5px;
+  }
+  :root[data-theme] .location-head { padding: 20px 20px 0; }
+  :root[data-theme] .location-head > div:first-child { max-width: 100%; margin: 0 0 65px; padding: 10px; }
+  .location-head-actions { flex-direction: row; justify-content: flex-start; margin-inline: -20px; padding: 12px; }
+  .location-head-stats { display: grid; grid-template-columns: auto 1fr auto 1fr; gap: 3px 6px; width: 100%; }
+  .location-head-stats small { font-size: 9px; margin-right: 0; }
+  .location-head-stats strong { font-size: 15px; }
+  .location-intro { font-size: 11px; }
+  .location-card h2 { white-space: normal; }
+  :root[data-theme] .mobile-nav { background: var(--panel-strong); border-top-color: var(--line); }
+  :root[data-theme] .mobile-nav button { color: var(--muted); }
+  :root[data-theme] .mobile-nav button.active { color: var(--orange); }
+  .command-palette { max-height: calc(100dvh - 48px); overflow-y: auto; }
+  .local-pagination { flex-direction: column; align-items: stretch; gap: 10px; }
+  .local-pagination > div { display: flex; justify-content: center; }
+  .local-pagination form { order: 1; justify-content: center; width: 100%; }
+  .local-pagination button { min-height: 42px; }
+  .camera-playbook-actions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .camera-core-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  :root[data-theme] :is(.camera-library-toolbar, .location-search, .music-search) input { font-size: 16px; }
+  :root[data-theme] :is(.camera-library-page, .post-page, .longform-page, .upload-page) :is(input, select, textarea) { font-size: 16px; }
+  :root[data-theme] :is(.music-track-card footer a, .upload-copy) { min-height: 44px; }
+  .command-section > small { display: block; line-height: 1.5; }
+  .command-view-grid button { min-width: 0; padding: 10px; }
+}
+
+.plan-edit, .plan-edit label { display: grid; gap: 8px; }
+.plan-edit { margin-block: 12px; }
+.plan-edit :is(input, textarea) { width: 100%; padding: 10px; color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 8px; font: inherit; }
+.plan-edit textarea { min-height: 90px; resize: vertical; }
+.plan-edit button, .plan-undo button { min-height: 40px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px; color: var(--orange); background: var(--orange-soft); }
+.plan-edit > div { display: flex; gap: 8px; }
+.plan-undo { margin-block: 16px; padding: 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--panel-strong); }
+.plan-undo p { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.music-project-target { padding: 14px; margin-bottom: 16px; background: var(--panel-strong); border: 1px solid var(--line); border-radius: 10px; }
+.music-project-target label { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.music-project-target select { max-width: 100%; padding: 8px; color: var(--ink); background: var(--panel); border: 1px solid var(--line); }
+.music-project-target button, .music-track-card > footer button { min-height: 40px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 6px; color: var(--orange); background: var(--orange-soft); }
+.music-track-card > footer button:disabled { opacity: .6; }
+.music-project-target p { font-size: 12px; line-height: 1.6; }
+.project-section-nav { position: sticky; top: 0; z-index: 5; display: grid; gap: 8px; padding: 12px 16px; margin-block: 12px; background: var(--panel-strong); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 4px 12px #172c2910; }
+.project-section-nav > span { font-size: 12px; color: var(--muted); }
+.project-section-nav > div { display: flex; gap: 8px; flex-wrap: wrap; }
+.project-section-nav :is(a, button), .workspace-return { padding: 8px 12px; min-height: 36px; border: 1px solid var(--line); border-radius: 7px; background: var(--orange-soft); color: var(--orange); font-size: 12px; }
+.project-page [id^="project-"] { scroll-margin-top: 180px; }
+@media (max-width: 760px) { .project-section-nav > div { flex-wrap: nowrap; overflow-x: auto; } .project-section-nav :is(a, button) { flex-shrink: 0; min-height: 40px; } .project-section-nav > strong { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; } }
+.longform-readiness label { position: relative; }
+.longform-readiness label input { inset: 0 auto auto 0; width: 1px; height: 1px; }
+.longform-readiness label input:focus-visible + span { outline: 2px solid var(--orange); outline-offset: 2px; }
+.longform-scale-planner > button { min-height: 40px; padding: 8px 12px; margin-bottom: 10px; border: 1px solid var(--line); border-radius: 7px; color: var(--orange); background: var(--orange-soft); }
+.location-maintenance { margin: 12px 0; padding: 10px 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); font-size: 12px; }
+.location-maintenance summary { min-height: 28px; }
+.location-maintenance button { margin: 8px 8px 0 0; }
+.creator-project-note { width: 100%; padding: 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+.creator-project-note summary { min-height: 32px; color: var(--ink); }
+.creator-project-note pre { white-space: pre-wrap; overflow-wrap: anywhere; font: inherit; line-height: 1.7; }
+.creator-project-note label { display: grid; gap: 6px; }
+.creator-project-note :is(select, button) { min-height: 40px; max-width: 100%; padding: 8px; margin: 6px 6px 0 0; color: var(--ink); background: var(--panel-strong); border: 1px solid var(--line); border-radius: 6px; }
+.dashboard-start, .dashboard-history { padding: 20px; margin-block: 18px; border: 1px solid var(--line); background: var(--panel-strong); border-radius: 14px; }
+.dashboard-start h2 { color: var(--ink); }
+.dashboard-start p { color: var(--muted); line-height: 1.7; }
+.dashboard-start button { display: inline-flex; gap: 8px; align-items: center; min-height: 42px; padding: 10px 14px; margin: 8px 8px 0 0; border: 1px solid var(--line); border-radius: 8px; color: var(--orange); background: var(--orange-soft); }
+.dashboard-history > summary { color: var(--ink); min-height: 32px; }
+.dashboard-history .dashboard-stats { margin-top: 16px; }
+.camera-personal-values input { font-size: 14px; min-height: 40px; }
+.camera-personal-values input[aria-invalid="true"] { border-color: var(--danger); }
+.camera-personal-values [role="alert"] { color: var(--danger); font-size: 12px; line-height: 1.5; }

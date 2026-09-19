@@ -62,6 +62,25 @@ export const moreWorkspaceViews = new Set<AppView>([
   "music",
 ]);
 
+export const workspaceGroups: { title: string; views: AppView[] }[] = [
+  { title: "出发前 · 寻找与准备", views: ["locations", "explore", "plans", "cameras", "creators"] },
+  { title: "制作中 · 留住风景", views: ["projects", "post", "music", "longform"] },
+  { title: "发布与复盘 · 分享旅程", views: ["upload", "dashboard"] },
+];
+
+export function searchWorkspaceViews(query: string) {
+  const needle = query.trim().toLocaleLowerCase();
+  return workspaceGroups
+    .map((group) => ({
+      ...group,
+      views: group.views.filter((view) =>
+        `${view} ${viewPresentation[view].title} ${viewPresentation[view].description}`
+          .toLocaleLowerCase().includes(needle),
+      ),
+    }))
+    .filter((group) => group.views.length > 0);
+}
+
 export function applyViewMetadata(view: AppView) {
   const presentation = viewPresentation[view];
   document.title = `${presentation.title} · RoadLens Planner`;

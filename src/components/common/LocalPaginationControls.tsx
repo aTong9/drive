@@ -18,7 +18,13 @@ export function LocalPaginationControls({ page, pageSize, totalItems, totalPages
     <div>
       <button disabled={page === 1} onClick={() => onPageChange(1)}>首页</button>
       <button disabled={page === 1} onClick={() => onPageChange(page - 1)} aria-label="上一页"><ChevronLeft size={14} /> 上一页</button>
-      <label>第 <input type="number" min={1} max={totalPages} value={page} onChange={(event) => onPageChange(Number(event.target.value))} aria-label="当前页码" /> / {totalPages} 页</label>
+      <form onSubmit={(event) => {
+        event.preventDefault();
+        onPageChange(Number(new FormData(event.currentTarget).get("page")));
+      }}>
+        <label>第 <input key={`${page}-${totalPages}`} name="page" type="number" required min={1} max={totalPages} step={1} defaultValue={page} aria-label="跳转页码" /> / {totalPages} 页</label>
+        <button type="submit">跳转</button>
+      </form>
       <button disabled={page === totalPages} onClick={() => onPageChange(page + 1)}>下一页 <ChevronRight size={14} /></button>
       <button disabled={page === totalPages} onClick={() => onPageChange(totalPages)}>末页</button>
     </div>

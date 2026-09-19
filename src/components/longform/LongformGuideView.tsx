@@ -1,3 +1,5 @@
+import { copyToClipboard } from "../../services/clipboardService.js";
+import { buildResearchProject } from "../../services/videoProjectService.js";
 import {
   AlertTriangle,
   BookOpen,
@@ -105,12 +107,16 @@ const readinessItems = [
 export function LongformGuideView() {
   const setView = usePlannerStore((state) => state.setView);
   const [workspace, setWorkspace] = useState<Workspace>("planner");
-  const [formatId, setFormatId] = useState(longformFormats[0]!.id);
+  const { formatId, targetMinutes, shootDays, bitrateMbps, readiness: savedReadiness } = usePlannerStore((state) => state.longformDraft);
+  const updateDraft = usePlannerStore((state) => state.updateLongformDraft);
+  const resetDraft = usePlannerStore((state) => state.resetLongformDraft);
+  const setFormatId = (formatId: LongformFormatId) => updateDraft({ formatId });
+  const setTargetMinutes = (targetMinutes: number) => updateDraft({ targetMinutes });
+  const setShootDays = (shootDays: number) => updateDraft({ shootDays });
+  const setBitrateMbps = (bitrateMbps: number) => updateDraft({ bitrateMbps });
+  const readiness = new Set(savedReadiness);
+  const [copyFailed, setCopyFailed] = useState(false);
   const [phaseId, setPhaseId] = useState(longformPhases[0]!.id);
-  const [targetMinutes, setTargetMinutes] = useState(60);
-  const [shootDays, setShootDays] = useState(10);
-  const [bitrateMbps, setBitrateMbps] = useState(200);
-  const [readiness, setReadiness] = useState<Set<number>>(() => new Set());
   const [briefCopied, setBriefCopied] = useState(false);
   const format = longformFormats.find((item) => item.id === formatId)!;
   const phase = longformPhases.find((item) => item.id === phaseId)!;
@@ -138,12 +144,13 @@ export function LongformGuideView() {
     `- 观众承诺：${format.promise}`,
     `- 目标成片：${targetMinutes} 分钟`,
     `- 计划拍摄：${shootDays} 天`,
+    `- 相机码率：${bitrateMbps} Mb/s`,
     `- 建议素材：${scale.captureHoursLow.toFixed(1)}–${scale.captureHoursHigh.toFixed(1)} 小时`,
     `- 原始素材上限：约 ${Math.round(scale.storageGbHigh)} GB`,
     `- 双份存储：约 ${(scale.twoCopyStorageGb / 1000).toFixed(1)} TB`,
     `- 最低覆盖：${blueprint.minimumCoverage}`,
     "",
-    "## 成片章节",
+    "## 成片章节草案（实际剪辑后确认时间码）",
     ...chapterSchedule.map(
       (chapter) =>
         `${chapter.index}. ${chapter.range}｜${chapter.purpose}\n   - ${chapter.material}`,
@@ -160,17 +167,23 @@ export function LongformGuideView() {
       (item, index) => `- [${readiness.has(index) ? "x" : " "}] ${item}`,
     ),
   ].join("\n");
+  const createProject = () => usePlannerStore.getState().saveVideoProject(buildResearchProject(
+    `${format.name} · ${targetMinutes} 分钟`,
+    projectBrief,
+    shootBlocks.map((block) => `${block.range}｜${block.name}：${block.goal}；验收：${block.proof}`),
+  ));
   const chooseFormat = (nextId: LongformFormatId) => {
     setFormatId(nextId);
-    setReadiness(new Set());
   };
   const copyProjectBrief = async () => {
-    await navigator.clipboard.writeText(projectBrief);
-    setBriefCopied(true);
+    const copied = await copyToClipboard(projectBrief);
+    setCopyFailed(!copied);
+    setBriefCopied(copied);
     window.setTimeout(() => setBriefCopied(false), 1500);
   };
   return (
     <main className="longform-page">
+      {copyFailed && <section role="alert"><p>复制失败，可选中以下简报手动复制。</p><textarea readOnly aria-label="项目简报手动复制" value={projectBrief} rows={8} /></section>}
       <header className="longform-head">
         <div>
           <p className="eyebrow">LONGFORM PRODUCTION</p>
@@ -304,6 +317,8 @@ export function LongformGuideView() {
             </section>
             <section className="longform-scale-planner">
               <h3>2 · 项目规模预估</h3>
+              <p>草案自动保存在本机。更换影片类型会清空准备勾选，保留规模参数。</p>
+              <button onClick={() => { if (window.confirm("重置本机长片草案的参数和准备勾选？")) resetDraft(); }}>重置草案</button>
               <div className="longform-scale-inputs">
                 <label>
                   目标成片
@@ -407,12 +422,7 @@ export function LongformGuideView() {
                     type="checkbox"
                     checked={readiness.has(index)}
                     onChange={() =>
-                      setReadiness((current) => {
-                        const next = new Set(current);
-                        if (next.has(index)) next.delete(index);
-                        else next.add(index);
-                        return next;
-                      })
+                      updateDraft({ readiness: readiness.has(index) ? savedReadiness.filter((item) => item !== index) : [...savedReadiness, index] })
                     }
                   />
                   <span>
@@ -423,7 +433,7 @@ export function LongformGuideView() {
               ))}
             </div>
             <footer>
-              <button onClick={() => setReadiness(new Set())}>
+              <button onClick={() => updateDraft({ readiness: [] })}>
                 <RotateCcw size={13} />
                 清空检查
               </button>
@@ -437,7 +447,7 @@ export function LongformGuideView() {
               <button onClick={() => setWorkspace("formats")}>
                 进入 {format.name} 完整教程
               </button>
-              <button onClick={() => setView("projects")}>建立视频项目</button>
+              <button onClick={createProject}>建立视频项目</button>
             </footer>
           </section>
         </section>
@@ -576,7 +586,7 @@ export function LongformGuideView() {
                 <button onClick={() => setWorkspace("planner")}>
                   返回修改规模
                 </button>
-                <button className="primary" onClick={() => setView("projects")}>
+                <button className="primary" onClick={createProject}>
                   建立视频项目
                   <ChevronRight size={13} />
                 </button>

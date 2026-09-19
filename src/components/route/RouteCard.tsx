@@ -99,8 +99,7 @@ export function RouteCard({
       <h3>{route.name}</h3>
       <div className="route-meta">
         <span>
-          <Clock3 size={14} /> {Math.floor(route.estimatedDurationMinutes / 60)}
-          小时{route.estimatedDurationMinutes % 60 || ""}
+          <Clock3 size={14} /> 预留 {route.estimatedDurationMinutes} 分钟
         </span>
         <span>
           <MapPin size={14} /> {waypoints.length}个

@@ -1,3 +1,4 @@
+import { ProjectPublishFields } from "./ProjectPublishFields.js";
 import {
   Camera,
   Check,
@@ -28,7 +29,6 @@ import {
   exportVideoProject,
   getNextProjectAction,
   getProjectProgress,
-  generateProjectDescription,
   getRetrospectiveInsights,
   getStageGateIssues,
   importVideoProject,
@@ -179,6 +179,16 @@ export function ProjectWorkspaceView({ routes }: { routes: ResolvedRoute[] }) {
   const retrospectiveInsights = getRetrospectiveInsights(active);
   const progress = getProjectProgress(active);
   const nextAction = getNextProjectAction(active);
+  const openWorkspace = (view: "music" | "upload" | "post") => {
+    const state = usePlannerStore.getState();
+    state.selectVideoProject(active.id);
+    if (view === "post" && state.postProject?.videoProjectId !== active.id)
+      state.importPostWorkflow(davinciWorkflow, {
+        videoProjectId: active.id, ...(active.planId ? { planId: active.planId } : {}),
+        routeId: active.routeId, title: active.title,
+      });
+    state.setView(view);
+  };
   return (
     <main className="project-page">
       <header className="project-head">
@@ -223,11 +233,17 @@ export function ProjectWorkspaceView({ routes }: { routes: ResolvedRoute[] }) {
             <span>
               <strong>{project.title}</strong>
               <small>
-                {project.scheduledDate} · {statusLabels[project.status]}
+                {project.scheduledDate || "日期待定"} · {statusLabels[project.status]}
               </small>
             </span>
           </button>
         ))}
+      </nav>
+      <nav className="project-section-nav" aria-label="项目章节">
+        <strong>{statusLabels[active.status]} · {active.title}</strong>
+        <span>{nextAction}</span>
+        <div>{[["shots", "镜头"], ["pack", "出发包"], ["ingest", "素材"], ["music", "音乐"], ["delivery", "后期质检"], ["publish", "发布复盘"]].map(([id, label]) => <a key={id} href={`#project-${id}`}>{label}</a>)}</div>
+        <div><button onClick={() => openWorkspace("post")}>进入后期</button><button onClick={() => openWorkspace("music")}>挑选音乐</button><button onClick={() => openWorkspace("upload")}>准备发布资料</button></div>
       </nav>
       <section className="project-hero">
         <div>
@@ -237,12 +253,26 @@ export function ProjectWorkspaceView({ routes }: { routes: ResolvedRoute[] }) {
               : active.channelMode}
           </small>
           <h2>{active.title}</h2>
-          <p>{active.objective}</p>
+          {active.origin === "research" ? <details className="project-brief" key={`brief-${active.id}`}>
+            <summary>查看项目简报与来源</summary>
+            <p>{active.objective}</p>
+          </details> : <p>{active.objective}</p>}
+          {active.origin === "research" && <details key={`edit-${active.id}`}><summary>编辑草案与拍摄安排</summary><form className="plan-edit" key={active.id} onSubmit={(event) => {
+            event.preventDefault();
+            const data = new FormData(event.currentTarget);
+            updateProject(active.id, { title: String(data.get("title")).trim(), scheduledDate: String(data.get("date") ?? ""), objective: String(data.get("objective")).trim() });
+          }}>
+            <strong>选题草案 · 拍摄安排待确认</strong>
+            <label>项目名称<input name="title" required defaultValue={active.title} /></label>
+            <label>拍摄日期（可暂不确定）<input name="date" type="date" defaultValue={active.scheduledDate} /></label>
+            <label>执行目标与来源<textarea name="objective" required defaultValue={active.objective} /></label>
+            <button type="submit">保存草案安排</button>
+          </form></details>}
           {route && (
             <div>
               <span>
                 <Route size={13} />
-                {route.route.estimatedDurationMinutes} 分钟
+                预留 {route.route.estimatedDurationMinutes} 分钟
               </span>
               <span>
                 <MapPin size={13} />
@@ -330,7 +360,7 @@ export function ProjectWorkspaceView({ routes }: { routes: ResolvedRoute[] }) {
         </section>
       )}
       <div className="project-grid">
-        <section className="project-shots">
+        <section className="project-shots" id="project-shots">
           <header>
             <div>
               <small>SHOT LIST</small>
@@ -422,7 +452,7 @@ export function ProjectWorkspaceView({ routes }: { routes: ResolvedRoute[] }) {
             </article>
           ))}
         </section>
-        <aside className="project-pack">
+        <aside className="project-pack" id="project-pack">
           <header>
             <div>
               <small>FIELD PACK</small>
@@ -462,7 +492,7 @@ export function ProjectWorkspaceView({ routes }: { routes: ResolvedRoute[] }) {
         </aside>
       </div>
       <section className="project-production-grid">
-        <article>
+        <article id="project-ingest">
           <header>
             <Film size={17} />
             <div>
@@ -644,7 +674,7 @@ export function ProjectWorkspaceView({ routes }: { routes: ResolvedRoute[] }) {
             </p>
           )}
         </article>
-        <article>
+        <article id="project-music">
           <header>
             <Music2 size={17} />
             <div>
@@ -728,6 +758,8 @@ export function ProjectWorkspaceView({ routes }: { routes: ResolvedRoute[] }) {
                       </small>
                     </div>
                   </button>
+                  {track.artist && <p>作者：{track.artist}</p>}
+                  {typeof track.sourceUrl === "string" && /^https?:\/\//.test(track.sourceUrl) && <a href={track.sourceUrl} target="_blank" rel="noreferrer">查看曲目来源</a>}
                   <label>
                     署名文本
                     <input
@@ -772,7 +804,7 @@ export function ProjectWorkspaceView({ routes }: { routes: ResolvedRoute[] }) {
             </p>
           )}
         </article>
-        <article>
+        <article id="project-delivery">
           <header>
             <Clapperboard size={17} />
             <div>
@@ -798,22 +830,12 @@ export function ProjectWorkspaceView({ routes }: { routes: ResolvedRoute[] }) {
           </div>
           <button
             className="project-open-workbench"
-            onClick={() => {
-              const state = usePlannerStore.getState();
-              if (state.postProject?.videoProjectId !== active.id)
-                state.importPostWorkflow(davinciWorkflow, {
-                  videoProjectId: active.id,
-                  ...(active.planId ? { planId: active.planId } : {}),
-                  routeId: active.routeId,
-                  title: active.title,
-                });
-              state.setView("post");
-            }}
+            onClick={() => openWorkspace("post")}
           >
             打开达芬奇流程 <ChevronRight size={13} />
           </button>
         </article>
-        <article>
+        <article id="project-publish">
           <header>
             <Send size={17} />
             <div>
@@ -823,114 +845,7 @@ export function ProjectWorkspaceView({ routes }: { routes: ResolvedRoute[] }) {
             <span>{publish.hdrVerified ? "HDR 已验证" : "待验证"}</span>
           </header>
           <div className="project-publish-fields">
-            <label>
-              Vision 标题
-              <input
-                value={publish.visionTitle}
-                onChange={(event) =>
-                  updateProject(active.id, {
-                    publish: { ...publish, visionTitle: event.target.value },
-                  })
-                }
-              />
-            </label>
-            <label>
-              Ambience 标题
-              <input
-                value={publish.ambienceTitle}
-                onChange={(event) =>
-                  updateProject(active.id, {
-                    publish: { ...publish, ambienceTitle: event.target.value },
-                  })
-                }
-              />
-            </label>
-            <label>
-              发布简介
-              <textarea
-                value={publish.description}
-                onChange={(event) =>
-                  updateProject(active.id, {
-                    publish: { ...publish, description: event.target.value },
-                  })
-                }
-              />
-              <button
-                type="button"
-                className="publish-generate"
-                onClick={() =>
-                  updateProject(active.id, {
-                    publish: {
-                      ...publish,
-                      description: generateProjectDescription(active, route),
-                    },
-                  })
-                }
-              >
-                根据路线、设备、章节与音乐署名重新生成
-              </button>
-            </label>
-            <label>
-              章节
-              <textarea
-                value={publish.chapters}
-                onChange={(event) =>
-                  updateProject(active.id, {
-                    publish: { ...publish, chapters: event.target.value },
-                  })
-                }
-              />
-            </label>
-            <label>
-              缩略图说明
-              <textarea
-                value={publish.thumbnailNote}
-                onChange={(event) =>
-                  updateProject(active.id, {
-                    publish: { ...publish, thumbnailNote: event.target.value },
-                  })
-                }
-              />
-            </label>
-            <div>
-              <button
-                className={publish.hdrVerified ? "done" : ""}
-                onClick={() =>
-                  updateProject(active.id, {
-                    publish: { ...publish, hdrVerified: !publish.hdrVerified },
-                  })
-                }
-              >
-                <Check size={12} />
-                2160p HDR
-              </button>
-              <button
-                className={publish.visionPublished ? "done" : ""}
-                onClick={() =>
-                  updateProject(active.id, {
-                    publish: {
-                      ...publish,
-                      visionPublished: !publish.visionPublished,
-                    },
-                  })
-                }
-              >
-                Vision 已发布
-              </button>
-              <button
-                className={publish.ambiencePublished ? "done" : ""}
-                onClick={() =>
-                  updateProject(active.id, {
-                    publish: {
-                      ...publish,
-                      ambiencePublished: !publish.ambiencePublished,
-                    },
-                  })
-                }
-              >
-                Ambience 已发布
-              </button>
-            </div>
+            <ProjectPublishFields key={active.id} project={active} route={route} onChange={(publish) => updateProject(active.id, { publish })} />
             <section className="retrospective-metrics">
               <header>
                 <div>

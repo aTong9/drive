@@ -149,62 +149,12 @@ export function DashboardView({
           继续探索 <ChevronRight size={15} />
         </button>
       </header>
-      {currentProject && (
-        <section className="dashboard-current-project">
-          <span>
-            <FolderKanban size={21} />
-          </span>
-          <div>
-            <small>CURRENT VIDEO PROJECT</small>
-            <h2>{currentProject.title}</h2>
-            <p>下一步 · {nextProjectAction}</p>
-          </div>
-          <dl>
-            <div>
-              <dt>状态</dt>
-              <dd>{projectStatusLabels[currentProject.status]}</dd>
-            </div>
-            <div>
-              <dt>镜头</dt>
-              <dd>
-                {
-                  currentProject.shots.filter(
-                    (shot) =>
-                      shot.captureStatus === "captured" ||
-                      shot.captureStatus === "waived",
-                  ).length
-                }
-                /{currentProject.shots.length}
-              </dd>
-            </div>
-            <div>
-              <dt>全流程</dt>
-              <dd>{currentProjectProgress?.percent ?? 0}%</dd>
-            </div>
-          </dl>
-          <button onClick={() => setView("projects")}>
-            继续项目 <ChevronRight size={14} />
-          </button>
-        </section>
-      )}
-      {latestReviewedProject && latestInsight && (
-        <section className="dashboard-learning">
-          <Sparkles size={17} />
-          <div>
-            <small>LAST PROJECT LEARNING · {latestReviewedProject.title}</small>
-            <strong>{latestInsight}</strong>
-          </div>
-          <button
-            onClick={() =>
-              usePlannerStore
-                .getState()
-                .selectVideoProject(latestReviewedProject.id)
-            }
-          >
-            查看复盘 <ChevronRight size={13} />
-          </button>
-        </section>
-      )}
+      {!nextShoot && !currentProject && unplannedResearchRoutes.length === 0 && <section className="dashboard-start">
+        <h2>从一个想拍的地方开始</h2>
+        <p>先找地点或研究选题，确定方向后再安排拍摄。</p>
+        <button onClick={() => setView("locations")}>寻找拍摄地点 <ChevronRight size={15} /></button>
+        <button onClick={() => setView("creators")}>研究第一条选题</button>
+      </section>}
       {nextShoot && (
         <section className="dashboard-shoot-brief" aria-label="下次拍摄简报">
           <header>
@@ -295,6 +245,121 @@ export function DashboardView({
           </div>
         </section>
       )}
+      {currentProject && (
+        <section className="dashboard-current-project">
+          <span>
+            <FolderKanban size={21} />
+          </span>
+          <div>
+            <small>CURRENT VIDEO PROJECT</small>
+            <h2>{currentProject.title}</h2>
+            <p>下一步 · {nextProjectAction}</p>
+          </div>
+          <dl>
+            <div>
+              <dt>状态</dt>
+              <dd>{projectStatusLabels[currentProject.status]}</dd>
+            </div>
+            <div>
+              <dt>镜头</dt>
+              <dd>
+                {
+                  currentProject.shots.filter(
+                    (shot) =>
+                      shot.captureStatus === "captured" ||
+                      shot.captureStatus === "waived",
+                  ).length
+                }
+                /{currentProject.shots.length}
+              </dd>
+            </div>
+            <div>
+              <dt>全流程</dt>
+              <dd>{currentProjectProgress?.percent ?? 0}%</dd>
+            </div>
+          </dl>
+          <button onClick={() => usePlannerStore.getState().selectVideoProject(currentProject.id)}>
+            继续项目 <ChevronRight size={14} />
+          </button>
+        </section>
+      )}
+      {latestReviewedProject && latestInsight && (
+        <section className="dashboard-learning">
+          <Sparkles size={17} />
+          <div>
+            <small>LAST PROJECT LEARNING · {latestReviewedProject.title}</small>
+            <strong>{latestInsight}</strong>
+          </div>
+          <button
+            onClick={() =>
+              usePlannerStore
+                .getState()
+                .selectVideoProject(latestReviewedProject.id)
+            }
+          >
+            查看复盘 <ChevronRight size={13} />
+          </button>
+        </section>
+      )}
+      {unplannedResearchRoutes.length > 0 && (
+        <section
+          className="dashboard-research-resume"
+          aria-label="待继续的旅行路线研究"
+        >
+          <header>
+            <span>
+              <Route size={18} />
+            </span>
+            <div>
+              <small>TRIP RESEARCH · 尚未转为正式计划</small>
+              <h2>继续整理这趟拍摄行程</h2>
+            </div>
+            <dl>
+              <div>
+                <dt>候选路线</dt>
+                <dd>{researchSummary.routeCount} 条</dd>
+              </div>
+              <div>
+                <dt>目的地</dt>
+                <dd>
+                  {researchSummary.provinces.length} 省 ·{" "}
+                  {researchSummary.cities.length} 城
+                </dd>
+              </div>
+              <div>
+                <dt>建议安排</dt>
+                <dd>{researchSummary.estimatedDays} 天</dd>
+              </div>
+            </dl>
+            <button onClick={() => setView("explore")}>
+              继续研究 <ChevronRight size={14} />
+            </button>
+          </header>
+          <div>
+            {unplannedResearchRoutes.slice(0, 4).map((item, index) => (
+              <button
+                key={item.route.id}
+                onClick={() => onOpenRoute(item.route.id)}
+              >
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <strong>{item.route.name}</strong>
+                <small>
+                  {item.route.cities.join(" · ")} ·{" "}
+                  预留 {item.route.estimatedDurationMinutes} 分钟
+                </small>
+              </button>
+            ))}
+            {unplannedResearchRoutes.length > 4 && (
+              <small>
+                另有 {unplannedResearchRoutes.length - 4} 条保留在拍摄篮中
+              </small>
+            )}
+          </div>
+          {researchSummary.warnings.length > 0 && (
+            <footer>{researchSummary.warnings[0]}</footer>
+          )}
+        </section>
+      )}
       {postReferences.length > 0 && (
         <section
           className="dashboard-post-reference"
@@ -349,65 +414,8 @@ export function DashboardView({
           </div>
         </section>
       )}
-      {unplannedResearchRoutes.length > 0 && (
-        <section
-          className="dashboard-research-resume"
-          aria-label="待继续的旅行路线研究"
-        >
-          <header>
-            <span>
-              <Route size={18} />
-            </span>
-            <div>
-              <small>TRIP RESEARCH · 尚未转为正式计划</small>
-              <h2>继续整理这趟拍摄行程</h2>
-            </div>
-            <dl>
-              <div>
-                <dt>候选路线</dt>
-                <dd>{researchSummary.routeCount} 条</dd>
-              </div>
-              <div>
-                <dt>目的地</dt>
-                <dd>
-                  {researchSummary.provinces.length} 省 ·{" "}
-                  {researchSummary.cities.length} 城
-                </dd>
-              </div>
-              <div>
-                <dt>建议安排</dt>
-                <dd>{researchSummary.estimatedDays} 天</dd>
-              </div>
-            </dl>
-            <button onClick={() => setView("explore")}>
-              继续研究 <ChevronRight size={14} />
-            </button>
-          </header>
-          <div>
-            {unplannedResearchRoutes.slice(0, 4).map((item, index) => (
-              <button
-                key={item.route.id}
-                onClick={() => onOpenRoute(item.route.id)}
-              >
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <strong>{item.route.name}</strong>
-                <small>
-                  {item.route.cities.join(" · ")} ·{" "}
-                  {item.route.estimatedDurationMinutes} 分钟
-                </small>
-              </button>
-            ))}
-            {unplannedResearchRoutes.length > 4 && (
-              <small>
-                另有 {unplannedResearchRoutes.length - 4} 条保留在拍摄篮中
-              </small>
-            )}
-          </div>
-          {researchSummary.warnings.length > 0 && (
-            <footer>{researchSummary.warnings[0]}</footer>
-          )}
-        </section>
-      )}
+      <details className="dashboard-history">
+        <summary>累计统计与历史记录</summary>
       <section className="dashboard-stats">
         <article>
           <Route size={19} />
@@ -527,6 +535,7 @@ export function DashboardView({
           </button>
         </article>
       </section>
+      </details>
       <details className="recommend-panel">
         <summary>
           <div>

@@ -1,14 +1,15 @@
+import { useSessionState } from "../common/useSessionState.js";
 import { AlertTriangle, BookOpen, CheckCircle2, ChevronDown, Search, SlidersHorizontal, Stethoscope } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { postParameterCategoryLabels, postParameterTerms, postProblemCategoryLabels, postProblemRecipes, type PostParameterCategory, type PostProblemCategory } from "../../data/postParameterGlossary.js";
 
 export function PostGlossary() {
-  const [query, setQuery] = useState("");
-  const [category, setCategory] = useState<PostParameterCategory | "all">("all");
-  const [openId, setOpenId] = useState("highlights");
-  const [view, setView] = useState<"terms" | "diagnosis">("terms");
-  const [problemCategory, setProblemCategory] = useState<PostProblemCategory | "all">("all");
-  const [openRecipeId, setOpenRecipeId] = useState(postProblemRecipes[0]?.id ?? "");
+  const [query, setQuery] = useSessionState("post-glossary-query", "");
+  const [category, setCategory] = useSessionState<PostParameterCategory | "all">("post-glossary-category", "all");
+  const [openId, setOpenId] = useSessionState("post-glossary-openId", "highlights");
+  const [view, setView] = useSessionState<"terms" | "diagnosis">("post-glossary-view", "terms");
+  const [problemCategory, setProblemCategory] = useSessionState<PostProblemCategory | "all">("post-glossary-problemCategory", "all");
+  const [openRecipeId, setOpenRecipeId] = useSessionState("post-glossary-openRecipeId", postProblemRecipes[0]?.id ?? "");
   const filtered = useMemo(() => postParameterTerms.filter((item) => (category === "all" || item.category === category) && `${item.term} ${item.full} ${item.purpose} ${item.example} ${item.page}`.toLowerCase().includes(query.trim().toLowerCase())), [category, query]);
   const categoryCounts = useMemo(() => Object.fromEntries(Object.keys(postParameterCategoryLabels).map((key) => [key, postParameterTerms.filter((item) => item.category === key).length])), []);
   const problemFiltered = useMemo(() => postProblemRecipes.filter((item) => problemCategory === "all" || item.category === problemCategory), [problemCategory]);

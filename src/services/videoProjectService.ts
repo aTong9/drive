@@ -217,12 +217,12 @@ export function getNextProjectAction(project: LocalVideoProject) {
   if (project.status === "editing")
     return (
       project.deliveryItems.find((item) => !item.completed)?.title ??
-      "进入双频道交付质检"
+      (project.channelMode === "dual" ? "进入双频道交付质检" : "进入交付质检")
     );
   if (project.status === "review") {
     if (!project.publish.hdrVerified) return "等待 YouTube 显示 2160p HDR";
-    if (!project.publish.visionPublished) return "发布 aBin Vision";
-    if (!project.publish.ambiencePublished) return "错峰发布 aBin Ambience";
+    if (project.channelMode !== "ambience" && !project.publish.visionPublished) return "发布 aBin Vision";
+    if (project.channelMode !== "vision" && !project.publish.ambiencePublished) return "错峰发布 aBin Ambience";
     return "记录项目复盘并标记已发布";
   }
   return project.retrospective.nextAction || "根据复盘建立下一条视频项目";
@@ -249,14 +249,12 @@ export function getProjectProgress(
       Boolean(track.licenseReference.trim()),
   ).length;
   const publishChecks = [
-    project.publish.visionTitle,
-    project.publish.ambienceTitle,
+    ...(project.channelMode !== "ambience" ? [project.publish.visionTitle, project.publish.visionUploaded, project.publish.visionProcessed, project.publish.visionPublished] : []),
+    ...(project.channelMode !== "vision" ? [project.publish.ambienceTitle, project.publish.ambienceUploaded, project.publish.ambienceProcessed, project.publish.ambiencePublished] : []),
     project.publish.description,
     project.publish.chapters,
     project.publish.thumbnailNote,
     project.publish.hdrVerified,
-    project.publish.visionPublished,
-    project.publish.ambiencePublished,
   ];
   const retrospectiveChecks = [
     project.retrospective.routeNote,
@@ -401,9 +399,9 @@ export function getStageGateIssues(
     issues.push("YouTube 2160p HDR 尚未验证");
   if (
     targetIndex >= 6 &&
-    (!project.publish.visionPublished || !project.publish.ambiencePublished)
+    ((project.channelMode !== "ambience" && !project.publish.visionPublished) || (project.channelMode !== "vision" && !project.publish.ambiencePublished))
   )
-    issues.push("Vision 与 Ambience 尚未全部发布");
+    issues.push("所选频道尚未全部发布");
   if (targetIndex >= 6 && !project.retrospective.nextAction.trim())
     issues.push("尚未形成下一次可执行改进");
   return issues;
@@ -440,15 +438,16 @@ export function normalizeVideoProject(
       licenseReference: track.licenseReference ?? "",
     })),
     deliveryItems: value.deliveryItems ?? [],
-    publish: value.publish ?? {
-      visionTitle: "",
-      ambienceTitle: "",
-      description: value.objective,
-      chapters: "",
-      thumbnailNote: "使用真实视频单帧",
-      hdrVerified: false,
-      visionPublished: false,
-      ambiencePublished: false,
+    publish: {
+      ...value.publish,
+      visionTitle: value.publish?.visionTitle ?? "",
+      ambienceTitle: value.publish?.ambienceTitle ?? "",
+      description: value.publish?.description ?? value.objective,
+      chapters: value.publish?.chapters ?? "",
+      thumbnailNote: value.publish?.thumbnailNote ?? "使用真实视频单帧",
+      hdrVerified: value.publish?.hdrVerified ?? false,
+      visionPublished: value.publish?.visionPublished ?? false,
+      ambiencePublished: value.publish?.ambiencePublished ?? false,
     },
     retrospective: {
       routeNote: value.retrospective?.routeNote ?? "",
@@ -526,15 +525,26 @@ export function generateProjectDescription(
     .map((track) => `${track.title} — ${track.attribution.trim()}`)
     .join("\n");
   return [
-    project.objective,
+    project.origin === "research" ? project.title : project.objective,
     locationLine,
     cameraLine,
     project.publish.chapters ? `章节：\n${project.publish.chapters}` : "",
     attribution ? `音乐署名：\n${attribution}` : "",
-    "aBin Vision：道路环境声与授权音乐\naBin Ambience：真实道路环境声，无音乐",
+    project.origin === "research" ? "" : [
+      project.channelMode !== "ambience" ? "aBin Vision：道路环境声与授权音乐" : "",
+      project.channelMode !== "vision" ? "aBin Ambience：真实道路环境声，无音乐" : "",
+    ].filter(Boolean).join("\n"),
   ]
     .filter(Boolean)
     .join("\n\n");
+}
+
+function optionalFields(value: unknown, strings: string[], booleans: string[] = []) {
+  if (value === undefined) return true;
+  if (!value || typeof value !== "object" || Array.isArray(value)) return false;
+  const record = value as Record<string, unknown>;
+  return strings.every((key) => record[key] === undefined || typeof record[key] === "string") &&
+    booleans.every((key) => record[key] === undefined || typeof record[key] === "boolean");
 }
 
 export function validateVideoProject(
@@ -544,10 +554,8 @@ export function validateVideoProject(
   const project = value as Partial<LocalVideoProject>;
   const strings = [
     project.id,
-    project.routeId,
     project.title,
     project.objective,
-    project.scheduledDate,
     project.createdAt,
     project.updatedAt,
   ];
@@ -565,6 +573,8 @@ export function validateVideoProject(
   );
   return (
     strings.every((item) => typeof item === "string" && item.length > 0) &&
+    (typeof project.routeId === "string" && (project.routeId.length > 0 || project.origin === "research")) &&
+    (typeof project.scheduledDate === "string" && (project.scheduledDate.length > 0 || project.origin === "research")) &&
     validStatus &&
     validMode &&
     Array.isArray(project.shots) &&
@@ -572,16 +582,28 @@ export function validateVideoProject(
       (shot) =>
         typeof shot?.id === "string" &&
         typeof shot?.locationId === "string" &&
-        typeof shot?.completed === "boolean",
+        typeof shot?.completed === "boolean" &&
+        typeof shot.title === "string" && typeof shot.note === "string" &&
+        Number.isFinite(shot.targetSeconds) && shot.targetSeconds >= 0 &&
+        ["establishing", "movement", "detail", "sound", "transition", "thumbnail"].includes(shot.purpose) &&
+        (shot.captureStatus === undefined || ["pending", "captured", "missed", "waived"].includes(shot.captureStatus)),
     ) &&
     Array.isArray(project.packItems) &&
     project.packItems.every(
       (item) =>
         typeof item?.id === "string" &&
         typeof item?.title === "string" &&
-        typeof item?.completed === "boolean",
+        typeof item?.completed === "boolean" &&
+        ["route", "gear", "weather", "safety", "sound", "storage"].includes(item.group),
     ) &&
-    (!project.ingestItems || Array.isArray(project.ingestItems)) &&
+    (project.origin === undefined || project.origin === "research") &&
+    optionalFields(project, ["planId"]) &&
+    optionalFields(project.publish, ["visionTitle", "ambienceTitle", "description", "chapters", "thumbnailNote"],
+      ["hdrVerified", "visionPublished", "ambiencePublished", "visionUploaded", "visionProcessed", "ambienceUploaded", "ambienceProcessed"]) &&
+    optionalFields(project.retrospective, ["routeNote", "cameraNote", "editNote", "performanceNote", "nextAction"]) &&
+    optionalFields(project.retrospective?.metrics, ["bestMoment", "dropoffMoment"]) &&
+    [project.ingestItems, project.deliveryItems].every((items) => items === undefined || (Array.isArray(items) && items.every((item) =>
+      item && typeof item.id === "string" && typeof item.title === "string" && typeof item.completed === "boolean" && optionalFields(item, ["note"])))) &&
     (!project.mediaBatches || Array.isArray(project.mediaBatches)) &&
     (!project.mediaBatches ||
       project.mediaBatches.every(
@@ -589,10 +611,13 @@ export function validateVideoProject(
           typeof batch?.id === "string" &&
           typeof batch?.label === "string" &&
           typeof batch?.sourceDevice === "string" &&
-          Array.isArray(batch?.locationIds),
+          Array.isArray(batch?.locationIds) && batch.locationIds.every((id) => typeof id === "string") &&
+          optionalFields(batch, ["storageCard", "note"], ["primaryBackup", "secondaryBackup", "verified"]),
       )) &&
-    (!project.musicTracks || Array.isArray(project.musicTracks)) &&
-    (!project.deliveryItems || Array.isArray(project.deliveryItems))
+    (project.musicTracks === undefined || (Array.isArray(project.musicTracks) && project.musicTracks.every((track) =>
+      track && typeof track.id === "string" && typeof track.title === "string" && typeof track.platform === "string" &&
+      ["candidate", "licensed", "clearlisted"].includes(track.licenseStatus) && track.channel === "vision" &&
+      optionalFields(track, ["artist", "sourceUrl", "attribution", "licenseReference"]))))
   );
 }
 
@@ -611,4 +636,26 @@ export async function importVideoProject(file: File) {
   if (!validateVideoProject(payload.project))
     throw new Error("视频项目数据契约校验失败，请检查核心字段、状态与清单结构");
   return normalizeVideoProject(payload.project);
+}
+
+
+export function buildProjectMusicCandidate(track: { id: string; title: string; artist: string; listenUrl: string; credit: string }, platform: string): LocalVideoProject["musicTracks"][number] {
+  return { id: `catalog-${track.id}`, title: track.title, artist: track.artist, platform,
+    sourceUrl: track.listenUrl, attribution: track.credit,
+    licenseStatus: "candidate", licenseReference: "", channel: "vision" };
+}
+
+
+/** Research starts without invented dates, route evidence, or delivery claims. */
+export function buildResearchProject(title: string, objective: string, steps: string[]): LocalVideoProject {
+  const id = `research-${crypto.randomUUID()}`;
+  const now = new Date().toISOString();
+  return {
+    id, origin: "research", routeId: "", title, objective, scheduledDate: "", channelMode: "vision", status: "planning",
+    shots: [], packItems: ["确认拍摄日期、地点与可获得的素材", ...steps].map((title, index) => ({ id: `${id}-task-${index}`, group: "route", title, completed: false })),
+    ingestItems: [], mediaBatches: [], musicTracks: [], deliveryItems: [],
+    publish: { visionTitle: title, ambienceTitle: "", description: "", chapters: "", thumbnailNote: "", hdrVerified: false, visionPublished: false, ambiencePublished: false },
+    retrospective: { routeNote: "", cameraNote: "", editNote: "", performanceNote: "", nextAction: "", metrics: { views7d: 0, clickThroughRate: 0, averageViewMinutes: 0, averagePercentageViewed: 0, bestMoment: "", dropoffMoment: "" } },
+    createdAt: now, updatedAt: now,
+  };
 }

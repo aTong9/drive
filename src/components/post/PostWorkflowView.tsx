@@ -1,3 +1,6 @@
+import { useSessionState } from "../common/useSessionState.js";
+import { useScrollMemory } from "../common/useScrollMemory.js";
+import { PostMasterStatus } from "./PostMasterStatus.js";
 import {
   ArrowLeft,
   ArrowRight,
@@ -25,7 +28,7 @@ import {
   Star,
   Workflow,
 } from "lucide-react";
-import { lazy, Suspense, useMemo, useState, type CSSProperties } from "react";
+import { lazy, Suspense, useMemo, type CSSProperties } from "react";
 import type {
   DavinciStageId,
   DavinciWorkflow,
@@ -267,22 +270,25 @@ export function PostWorkflowView({
   workflow: DavinciWorkflow;
   routes: ResolvedRoute[];
 }) {
-  const [mode, setMode] = useState<PostWorkspaceMode>("overview");
-  const [selectedPresetId, setSelectedPresetId] = useState(
+  const pageRef = useScrollMemory<HTMLElement>("post-page");
+  const [mode, setMode] = useSessionState<PostWorkspaceMode>("post-mode", "overview");
+  const [selectedPresetId, setSelectedPresetId] = useSessionState("post-selectedPresetId", 
     workflow.gradePresets[0]?.id ?? "",
   );
-  const [openTutorialId, setOpenTutorialId] = useState(
+  const [openTutorialId, setOpenTutorialId] = useSessionState("post-openTutorialId", 
     workflow.beginnerTutorial[0]?.id ?? "",
   );
-  const [selectedId, setSelectedId] = useState<DavinciStageId>(
+  const [selectedId, setSelectedId] = useSessionState<DavinciStageId>("post-selectedId", 
     workflow.stages[0]?.id ?? "media",
   );
   const plans = usePlannerStore((state) => state.plans);
-  const [selectedPlanId, setSelectedPlanId] = useState(
+  const [selectedPlanId, setSelectedPlanId] = useSessionState("post-selectedPlanId", 
     () => plans.at(-1)?.id ?? "",
   );
   const postTasks = usePlannerStore((state) => state.postTasks);
   const postProject = usePlannerStore((state) => state.postProject);
+  const videoProjects = usePlannerStore((state) => state.videoProjects);
+  const linkedVideoProject = videoProjects.find((project) => project.id === postProject?.videoProjectId);
   const importPostWorkflow = usePlannerStore(
     (state) => state.importPostWorkflow,
   );
@@ -390,7 +396,8 @@ export function PostWorkflowView({
   if (!selected) return null;
 
   return (
-    <main className="post-page">
+    <main className="post-page" ref={pageRef}>
+      {postProject?.videoProjectId && <button className="workspace-return" onClick={() => usePlannerStore.getState().selectVideoProject(postProject.videoProjectId!)}>返回视频项目</button>}
       <header className="post-head">
         <div>
           <p className="eyebrow">POST PRODUCTION</p>
@@ -691,7 +698,7 @@ export function PostWorkflowView({
                   </button>
                   <button
                     className="overview-reset"
-                    onClick={clearPostWorkflow}
+                    onClick={() => { if (window.confirm("清空当前项目的后期执行进度？其他项目的清单会保留。")) clearPostWorkflow(); }}
                   >
                     <RotateCcw size={13} /> 重置当前流程
                   </button>
@@ -780,7 +787,7 @@ export function PostWorkflowView({
               </a>
             </aside>
           </div>
-          <ResolveWorkspaceTutorials workspace={selected.id} />
+          <ResolveWorkspaceTutorials key={selected.id} workspace={selected.id} />
         </section>
       ) : mode === "presets" && selectedPreset ? (
         <section className="grade-presets-page">
@@ -906,7 +913,7 @@ export function PostWorkflowView({
             </div>
           </article>
           <ResolveColorScreenshot preset={selectedPreset} />
-          <ResolveWorkspaceTutorials workspace="color" />
+          <ResolveWorkspaceTutorials key="color" workspace="color" />
           <ColorFinishingGuide preset={selectedPreset} />
         </section>
       ) : mode === "capcut" ? (
@@ -1114,40 +1121,7 @@ export function PostWorkflowView({
               <button onClick={() => setMode("overview")}>先建立项目</button>
             )}
           </div>
-          <section className="post-master-status">
-            <article className={stageIsDone("edit") ? "done" : ""}>
-              <small>PICTURE MASTER</small>
-              <strong>画面母版</strong>
-              <span>
-                {stageIsDone("edit") ? "已锁画" : "等待 Edit 工作区锁画"}
-              </span>
-            </article>
-            <article className={stageIsDone("fairlight") ? "done" : ""}>
-              <small>aBin VISION</small>
-              <strong>道路声 + 授权音乐</strong>
-              <span>
-                {stageIsDone("fairlight")
-                  ? "音频结构已完成"
-                  : "由锁定母版同步派生"}
-              </span>
-            </article>
-            <article className={stageIsDone("fairlight") ? "done" : ""}>
-              <small>aBin AMBIENCE</small>
-              <strong>真实环境声</strong>
-              <span>
-                {stageIsDone("fairlight")
-                  ? "无音乐版本已完成"
-                  : "保持相同画面结构"}
-              </span>
-            </article>
-            <article className={stageIsDone("deliver") ? "done" : ""}>
-              <small>4K HDR DELIVERY</small>
-              <strong>双频道交付</strong>
-              <span>
-                {stageIsDone("deliver") ? "等待上传复核" : "HEVC Main10 · PQ"}
-              </span>
-            </article>
-          </section>
+          <PostMasterStatus channelMode={linkedVideoProject?.channelMode ?? "dual"} research={linkedVideoProject?.origin === "research"} stageIsDone={stageIsDone} />
           <div className="pipeline-focus-head">
             <div>
               <small>ACTIVE WORKSPACE</small>

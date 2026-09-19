@@ -1,4 +1,5 @@
-import { useMemo, useState } from "react";
+import { useSessionState } from "../common/useSessionState.js";
+import { useMemo } from "react";
 import {
   AlertTriangle,
   CheckCircle2,
@@ -20,9 +21,9 @@ const topics = [
 ];
 
 export function FinalCutProGuide() {
-  const [topic, setTopic] = useState("全部");
-  const [query, setQuery] = useState("");
-  const [openId, setOpenId] = useState<string>(
+  const [topic, setTopic] = useSessionState("fcp-topic", "全部");
+  const [query, setQuery] = useSessionState("fcp-query", "");
+  const [openId, setOpenId] = useSessionState<string>("fcp-openId", 
     finalCutPracticalTutorials[0].id,
   );
   const filterTutorials = (selectedTopic: string, searchQuery: string) =>

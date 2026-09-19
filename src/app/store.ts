@@ -1,3 +1,9 @@
+import { validatePlanEdit } from "../services/planEditingService.js";
+import { normalizeLongformDraft, type LongformDraft } from "../services/longformPlanningService.js";
+import { resolvedRoutes } from "../services/catalogService.js";
+import type { CurrentRegion } from "../services/currentCityService.js";
+import type { AdministrativeGroupId } from "../services/regionService.js";
+
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import type {
@@ -29,7 +35,17 @@ export type AppView =
   | "music"
   | "upload";
 
+const postContextKey = (project: Pick<LocalPostProject, "workflowId" | "videoProjectId" | "planId" | "routeId">) =>
+  JSON.stringify([project.workflowId, project.videoProjectId ? "video" : project.planId ? "plan" : "route", project.videoProjectId ?? project.planId ?? project.routeId ?? "standalone"]);
+
 interface PlannerState {
+  longformDraft: LongformDraft;
+  updateLongformDraft: (patch: Partial<LongformDraft>) => void;
+  resetLongformDraft: () => void;
+  currentRegion: CurrentRegion | null;
+  destination: { groupId: AdministrativeGroupId | "all"; province: string; city: string };
+  setCurrentRegion: (region: CurrentRegion | null) => void;
+  setDestination: (destination: PlannerState["destination"]) => void;
   view: AppView;
   mode: RouteMode | "all";
   captureStyle: CaptureStyle | "all";
@@ -37,13 +53,18 @@ interface PlannerState {
   maxDurationMinutes: number;
   query: string;
   selectedRouteId: string;
+  routeOpenVersion: number;
   detailOpen: boolean;
   plans: LocalShootPlan[];
+  removedPlans: LocalShootPlan[];
+  restorePlan: (planId: string) => void;
+  editPlan: (planId: string, scheduledDate: string, objective: string) => void;
   videoProjects: LocalVideoProject[];
   activeVideoProjectId: string;
   fieldChecks: FieldCheck[];
   postTasks: LocalPostTask[];
   postProject: LocalPostProject | null;
+  postArchives: Record<string, { project: LocalPostProject; tasks: LocalPostTask[] }>;
   gpxTrack: LocalGpxTrack | null;
   favoriteCameraPresetIds: string[];
   favoriteDavinciPresetIds: string[];
@@ -64,6 +85,7 @@ interface PlannerState {
   ) => void;
   removePlan: (planId: string) => void;
   updatePlanStatus: (planId: string, status: WorkflowStatus) => void;
+  addProjectMusic: (projectId: string, track: LocalVideoProject["musicTracks"][number]) => void;
   saveVideoProject: (project: LocalVideoProject) => void;
   selectVideoProject: (projectId: string) => void;
   updateVideoProjectStatus: (
@@ -110,6 +132,15 @@ interface PlannerState {
 export const usePlannerStore = create<PlannerState>()(
   persist(
     (set) => ({
+      longformDraft: normalizeLongformDraft(),
+      updateLongformDraft: (patch) => set((state) => ({ longformDraft: normalizeLongformDraft({ ...state.longformDraft, ...patch,
+        readiness: patch.formatId && patch.formatId !== state.longformDraft.formatId ? [] : patch.readiness ?? state.longformDraft.readiness,
+      }) })),
+      resetLongformDraft: () => set({ longformDraft: normalizeLongformDraft() }),
+      currentRegion: null,
+      destination: { groupId: "all", province: "", city: "" },
+      setCurrentRegion: (currentRegion) => set({ currentRegion }),
+      setDestination: (destination) => set({ destination }),
       view: "locations",
       mode: "all",
       captureStyle: "all",
@@ -117,13 +148,16 @@ export const usePlannerStore = create<PlannerState>()(
       maxDurationMinutes: 240,
       query: "",
       selectedRouteId: "gd-sz-bay-night",
+      routeOpenVersion: 0,
       detailOpen: true,
       plans: [],
+      removedPlans: [],
       videoProjects: [],
       activeVideoProjectId: "",
       fieldChecks: [],
       postTasks: [],
       postProject: null,
+      postArchives: {},
       gpxTrack: null,
       favoriteCameraPresetIds: [],
       favoriteDavinciPresetIds: [],
@@ -145,8 +179,18 @@ export const usePlannerStore = create<PlannerState>()(
       setMaxDurationMinutes: (maxDurationMinutes) =>
         set({ maxDurationMinutes }),
       setQuery: (query) => set({ query }),
-      selectRoute: (selectedRouteId) =>
-        set({ selectedRouteId, detailOpen: true, view: "explore" }),
+      selectRoute: (selectedRouteId) => {
+        const target = resolvedRoutes.find((item) => item.route.id === selectedRouteId);
+        if (!target) return;
+        set((state) => ({
+          selectedRouteId, detailOpen: true, view: "explore",
+          routeOpenVersion: state.routeOpenVersion + 1,
+          currentRegion: null,
+          destination: { groupId: "all", province: "", city: "" },
+          mode: "all", captureStyle: "all", driveOnly: false, query: "",
+          maxDurationMinutes: Math.max(state.maxDurationMinutes, target.route.estimatedDurationMinutes),
+        }));
+      },
       closeDetail: () => set({ detailOpen: false }),
       addPlan: (input) =>
         set((state) => ({
@@ -163,13 +207,27 @@ export const usePlannerStore = create<PlannerState>()(
       removePlan: (planId) =>
         set((state) => ({
           plans: state.plans.filter((plan) => plan.id !== planId),
+          removedPlans: [...state.removedPlans, ...state.plans.filter((plan) => plan.id === planId)],
         })),
+      restorePlan: (planId) => set((state) => ({
+        plans: [...state.plans, ...state.removedPlans.filter((plan) => plan.id === planId && !state.plans.some((active) => active.id === planId))],
+        removedPlans: state.removedPlans.filter((plan) => plan.id !== planId),
+      })),
+      editPlan: (planId, scheduledDate, objective) => {
+        if (validatePlanEdit(scheduledDate, objective)) return;
+        set((state) => ({ plans: state.plans.map((plan) => plan.id === planId ? { ...plan, scheduledDate, objective: objective.trim() } : plan) }));
+      },
       updatePlanStatus: (planId, status) =>
         set((state) => ({
           plans: state.plans.map((plan) =>
             plan.id === planId ? { ...plan, status } : plan,
           ),
         })),
+      addProjectMusic: (projectId, track) => set((state) => ({
+        videoProjects: state.videoProjects.map((project) => project.id !== projectId || project.musicTracks.some((item) => item.id === track.id) ? project : {
+          ...project, musicTracks: [...project.musicTracks, { ...track, licenseStatus: "candidate", licenseReference: "" }], updatedAt: new Date().toISOString(),
+        }),
+      })),
       saveVideoProject: (project) =>
         set((state) => ({
           videoProjects: [
@@ -301,21 +359,18 @@ export const usePlannerStore = create<PlannerState>()(
           ],
         })),
       importPostWorkflow: (workflow, project) =>
-        set({
-          postProject: {
-            ...project,
-            workflowId: workflow.id,
-            createdAt: new Date().toISOString(),
-          },
-          postTasks: workflow.stages.flatMap((stage) =>
-            stage.tasks.map((title, index) => ({
-              id: `${workflow.id}-${stage.id}-${index + 1}`,
-              workflowId: workflow.id,
-              stageId: stage.id,
-              title,
-              completed: false,
-            })),
-          ),
+        set((state) => {
+          const postArchives = { ...state.postArchives };
+          if (state.postProject) postArchives[postContextKey(state.postProject)] = { project: state.postProject, tasks: state.postTasks };
+          const key = postContextKey({ ...project, workflowId: workflow.id });
+          const saved = postArchives[key];
+          return {
+            postArchives,
+            postProject: saved ? { ...saved.project, ...project } : { ...project, workflowId: workflow.id, createdAt: new Date().toISOString() },
+            postTasks: saved?.tasks ?? workflow.stages.flatMap((stage) => stage.tasks.map((title, index) => ({
+              id: `${workflow.id}-${stage.id}-${index + 1}`, workflowId: workflow.id, stageId: stage.id, title, completed: false,
+            }))),
+          };
         }),
       togglePostTask: (taskId) =>
         set((state) => ({
@@ -323,7 +378,11 @@ export const usePlannerStore = create<PlannerState>()(
             task.id === taskId ? { ...task, completed: !task.completed } : task,
           ),
         })),
-      clearPostWorkflow: () => set({ postTasks: [], postProject: null }),
+      clearPostWorkflow: () => set((state) => {
+        const postArchives = { ...state.postArchives };
+        if (state.postProject) delete postArchives[postContextKey(state.postProject)];
+        return { postTasks: [], postProject: null, postArchives };
+      }),
       setGpxTrack: (gpxTrack) => set({ gpxTrack }),
       toggleFavoriteCameraPreset: (presetId) =>
         set((state) => ({
@@ -394,16 +453,19 @@ export const usePlannerStore = create<PlannerState>()(
     }),
     {
       name: "roadlens-planner-device-state",
-      version: 7,
+      version: 10,
       migrate: (persisted) => {
         const state = persisted as Partial<PlannerState>;
         return {
+          longformDraft: normalizeLongformDraft(state.longformDraft),
           plans: state.plans ?? [],
+          removedPlans: state.removedPlans ?? [],
           videoProjects: (state.videoProjects ?? []).map(normalizeVideoProject),
           activeVideoProjectId: state.activeVideoProjectId ?? "",
           fieldChecks: state.fieldChecks ?? [],
           postTasks: state.postTasks ?? [],
           postProject: state.postProject ?? null,
+          postArchives: state.postArchives ?? {},
           gpxTrack: state.gpxTrack ?? null,
           favoriteCameraPresetIds: state.favoriteCameraPresetIds ?? [],
           favoriteDavinciPresetIds: state.favoriteDavinciPresetIds ?? [],
@@ -421,12 +483,15 @@ export const usePlannerStore = create<PlannerState>()(
         };
       },
       partialize: (state) => ({
+        longformDraft: state.longformDraft,
         plans: state.plans,
+        removedPlans: state.removedPlans,
         videoProjects: state.videoProjects,
         activeVideoProjectId: state.activeVideoProjectId,
         fieldChecks: state.fieldChecks,
         postTasks: state.postTasks,
         postProject: state.postProject,
+        postArchives: state.postArchives,
         gpxTrack: state.gpxTrack,
         favoriteCameraPresetIds: state.favoriteCameraPresetIds,
         favoriteDavinciPresetIds: state.favoriteDavinciPresetIds,

@@ -620,10 +620,10 @@ test("H/MIX GALLERY contributes 100 duration-verified official Healing tracks", 
   assert.ok(importedTracks.some((track) => track.categoryIds.includes("ambient-healing")));
 });
 
-test("PeriTune contributes a 103-entry evidence-backed Healing batch", () => {
+test("PeriTune contributes a 105-entry evidence-backed Healing batch", () => {
   const importedTracks = youtubeMusicLibrary.tracks.filter((track) => /^peritune-healing-(piano|ambient|acoustic)-\d{3}$/.test(track.id));
-  assert.equal(importedTracks.length, 103);
-  assert.equal(new Set(importedTracks.map((track) => track.id)).size, 103);
+  assert.equal(importedTracks.length, 105);
+  assert.equal(new Set(importedTracks.map((track) => track.id)).size, 105);
   assert.ok(importedTracks.every((track) => /^https:\/\/peritune\.com\/blog\/.+\/$/.test(track.downloadUrl)));
   assert.ok(importedTracks.every((track) => /YouTube/.test(track.licenseNote) && /Content ID/.test(track.licenseNote)));
   assert.ok(importedTracks.some((track) => track.categoryIds.includes("healing-piano")));
@@ -822,4 +822,23 @@ test("discovery applies platform risk and platform-name search to tracks and alb
   }
   const combined = filterMusicTracks({ family: "piano", scene: "rain", minDurationSeconds: 600, risk: "low" });
   assert.deepEqual(combined, filterMusicTracks({ family: "piano", scene: "rain", minDurationSeconds: 600 }).filter((track) => youtubeMusicLibrary.platforms.find((platform) => platform.id === track.platformId)?.license.risk === "low"));
+});
+
+test("September additions remain unique, searchable, and preserve loop evidence", () => {
+  const additions = [
+    ["Whisper", 249, true],
+    ["Sakuya2", 206, true]
+  ] as const;
+  for (const [title, duration, nativeLoop] of additions) {
+    const matches = youtubeMusicLibrary.tracks.filter((track) => track.title === title);
+    assert.equal(matches.length, 1, title);
+    const track = matches[0];
+    assert.ok(track);
+    assert.equal(track.durationSeconds, duration);
+    assert.equal(track.creationOrigin, "human");
+    assert.equal(isAiGeneratedTrack(track), false);
+    assert.ok(filterMusicTracks({ query: title }).some((result) => result.id === track.id));
+    assert.match(track.description, nativeLoop ? /原生循环文件：有/ : /原生 Loop：否/);
+    assert.match(track.licenseNote, /YouTube/);
+  }
 });

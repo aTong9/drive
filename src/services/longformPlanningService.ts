@@ -201,3 +201,22 @@ export function buildLongformShootBlocks(
     },
   ];
 }
+
+export interface LongformDraft {
+  formatId: LongformFormatId;
+  targetMinutes: number;
+  shootDays: number;
+  bitrateMbps: number;
+  readiness: number[];
+}
+export function normalizeLongformDraft(input: Partial<LongformDraft> = {}): LongformDraft {
+  const clamp = (value: unknown, fallback: number, min: number, max: number) =>
+    typeof value === "number" && Number.isFinite(value) ? Math.min(max, Math.max(min, Math.round(value))) : fallback;
+  return {
+    formatId: input.formatId && Object.hasOwn(captureRatios, input.formatId) ? input.formatId : "documentary",
+    targetMinutes: clamp(input.targetMinutes, 60, 10, 180),
+    shootDays: clamp(input.shootDays, 10, 1, 120),
+    bitrateMbps: clamp(input.bitrateMbps, 200, 25, 800),
+    readiness: Array.isArray(input.readiness) ? [...new Set(input.readiness.filter((index) => Number.isInteger(index) && index >= 0 && index < 6))] : [],
+  };
+}

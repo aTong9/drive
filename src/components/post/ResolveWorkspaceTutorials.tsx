@@ -1,4 +1,5 @@
-import { useMemo, useState } from "react";
+import { useSessionState } from "../common/useSessionState.js";
+import { useMemo } from "react";
 import { AlertTriangle, CheckCircle2, Search, X } from "lucide-react";
 import type { DavinciStageId } from "../../types/domain.js";
 import {
@@ -16,8 +17,8 @@ export function ResolveWorkspaceTutorials({
     () => getResolveTutorialsForWorkspace(workspace),
     [workspace],
   );
-  const [query, setQuery] = useState("");
-  const [openId, setOpenId] = useState("");
+  const [query, setQuery] = useSessionState(`resolve-${workspace}-query`, "");
+  const [openId, setOpenId] = useSessionState(`resolve-${workspace}-openId`, "");
   const visibleTutorials = tutorials.filter((tutorial) =>
     matchesTutorialSearch(
       [

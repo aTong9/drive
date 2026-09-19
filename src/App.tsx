@@ -8,6 +8,7 @@ import {
   Film,
   FolderKanban,
   Map as MapIcon,
+  Leaf,
   Menu,
   Moon,
   Music2,
@@ -37,18 +38,18 @@ import { catalog, resolvedRoutes } from "./services/catalogService.js";
 import { davinciWorkflow } from "./services/workflowService.js";
 import {
   detectCurrentRegion,
-  type CurrentRegion,
   type LocationDetectionStatus,
 } from "./services/currentCityService.js";
 import { parseSharedRouteId } from "./services/routeShareService.js";
 import { routeMatchesQuery } from "./services/catalogSearchService.js";
 import {
   administrativeGroups,
-  type AdministrativeGroupId,
 } from "./services/regionService.js";
 import {
   applyViewMetadata,
   moreWorkspaceViews,
+  searchWorkspaceViews,
+  viewPresentation,
 } from "./app/viewPresentation.js";
 import { useDialogFocus } from "./components/common/useDialogFocus.js";
 
@@ -103,6 +104,13 @@ const LongformGuideView = lazy(() =>
   })),
 );
 
+const workspaceIcons = {
+  locations: MapIcon, explore: Compass, plans: CalendarDays,
+  cameras: Camera, creators: Videotape, projects: FolderKanban,
+  post: Clapperboard, music: Music2, longform: Film,
+  upload: UploadCloud, dashboard: BarChart3,
+};
+
 function ViewLoadingState() {
   return (
     <main className="view-loading" role="status" aria-live="polite">
@@ -115,14 +123,12 @@ function ViewLoadingState() {
 export function App() {
   const state = usePlannerStore();
   const [theme, setTheme] = useState<"dark" | "light">(() =>
-    localStorage.getItem("roadlens-theme") === "light" ? "light" : "dark",
+    localStorage.getItem("roadlens-theme") === "dark" ? "dark" : "light",
   );
   const [drivingSummary, setDrivingSummary] = useState<DrivingSummary | null>(
     null,
   );
-  const [currentRegion, setCurrentRegion] = useState<CurrentRegion | null>(
-    null,
-  );
+  const { currentRegion, setCurrentRegion, destination, setDestination } = state;
   const [locationStatus, setLocationStatus] =
     useState<LocationDetectionStatus>("idle");
   const [locationMessage, setLocationMessage] = useState("");
@@ -131,11 +137,6 @@ export function App() {
   const [commandOpen, setCommandOpen] = useState(false);
   const [commandQuery, setCommandQuery] = useState("");
   const commandDialogRef = useRef<HTMLElement>(null);
-  const [destination, setDestination] = useState<{
-    groupId: AdministrativeGroupId | "all";
-    province: string;
-    city: string;
-  }>({ groupId: "all", province: "", city: "" });
   const handleDrivingSummary = useCallback(
     (summary: DrivingSummary) => setDrivingSummary(summary),
     [],
@@ -143,19 +144,29 @@ export function App() {
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
     localStorage.setItem("roadlens-theme", theme);
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme === "light" ? "#f6f3e9" : "#172c29");
   }, [theme]);
   useEffect(() => applyViewMetadata(state.view), [state.view]);
   useEffect(() => {
     if (window.innerWidth <= 760) usePlannerStore.getState().closeDetail();
   }, []);
+  useEffect(() => {
+    if (state.routeOpenVersion === 0) return;
+    setSharedRouteUnavailable(false);
+    setLocationStatus("idle");
+    setLocationMessage("");
+  }, [state.routeOpenVersion]);
   const locateCurrentCity = useCallback(async () => {
+    const routeOpenVersion = usePlannerStore.getState().routeOpenVersion;
     setLocationStatus("locating");
     setLocationMessage("");
     try {
       const region = await detectCurrentRegion();
+      if (usePlannerStore.getState().routeOpenVersion !== routeOpenVersion) return;
       setCurrentRegion(region);
       setLocationStatus("ready");
     } catch (error) {
+      if (usePlannerStore.getState().routeOpenVersion !== routeOpenVersion) return;
       const denied =
         typeof error === "object" &&
         error !== null &&
@@ -195,15 +206,7 @@ export function App() {
     }
     setSharedRouteUnavailable(false);
     const store = usePlannerStore.getState();
-    store.setMode("all");
-    store.setCaptureStyle("all");
-    store.setDriveOnly(false);
-    store.setMaxDurationMinutes(
-      Math.max(store.maxDurationMinutes, target.route.estimatedDurationMinutes),
-    );
-    store.setQuery("");
     store.selectRoute(routeId);
-    setCurrentRegion(null);
     setLocationStatus("idle");
     setRouteLinkMessage(`已打开分享路线：${target.route.name}`);
   }, [locateCurrentCity]);
@@ -295,6 +298,7 @@ export function App() {
       .filter((item) => routeMatchesQuery(item, query))
       .slice(0, 7);
   }, [commandQuery]);
+  const commandGroups = searchWorkspaceViews(commandQuery);
   const openView = (view: AppView) => {
     state.setView(view);
     setCommandOpen(false);
@@ -303,18 +307,7 @@ export function App() {
   const openRouteFromAnywhere = useCallback((routeId: string) => {
     const target = resolvedRoutes.find((item) => item.route.id === routeId);
     if (!target) return;
-    const store = usePlannerStore.getState();
-    store.setMode("all");
-    store.setCaptureStyle("all");
-    store.setDriveOnly(false);
-    store.setMaxDurationMinutes(
-      Math.max(store.maxDurationMinutes, target.route.estimatedDurationMinutes),
-    );
-    store.setQuery("");
-    setDestination({ groupId: "all", province: "", city: "" });
-    setCurrentRegion(null);
-    setLocationStatus("idle");
-    store.selectRoute(routeId);
+    usePlannerStore.getState().selectRoute(routeId);
     setCommandOpen(false);
     setCommandQuery("");
   }, []);
@@ -397,12 +390,12 @@ export function App() {
             onClick={() =>
               setTheme((value) => (value === "dark" ? "light" : "dark"))
             }
-            aria-label={theme === "dark" ? "切换到白天模式" : "切换到暗黑模式"}
-            title={theme === "dark" ? "白天模式" : "暗黑模式"}
+            aria-label={theme === "dark" ? "切换到晴日手账" : "切换到林间夜色"}
+            title={theme === "dark" ? "晴日手账" : "林间夜色"}
           >
             {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
           </button>
-          <span className="avatar">RL</span>
+          <span className="journal-stamp" title="在路上，收集日常的光"><Leaf size={15} aria-hidden="true" /> 在路上</span>
           <button
             className="icon-button mobile-menu"
             aria-label="打开更多功能"
@@ -535,43 +528,23 @@ export function App() {
                 <X size={17} />
               </button>
             </header>
-            <div className="command-section">
-              <small>更多工作台</small>
-              <div className="command-view-grid">
-                <button onClick={() => openView("dashboard")}>
-                  <BarChart3 size={16} />
-                  <span>创作工作台</span>
-                </button>
-                <button onClick={() => openView("projects")}>
-                  <FolderKanban size={16} />
-                  <span>视频项目</span>
-                </button>
-                <button onClick={() => openView("cameras")}>
-                  <Camera size={16} />
-                  <span>相机参数库</span>
-                </button>
-                <button onClick={() => openView("longform")}>
-                  <Film size={16} />
-                  <span>长片制作指南</span>
-                </button>
-                <button onClick={() => openView("creators")}>
-                  <Videotape size={16} />
-                  <span>创作者研究</span>
-                </button>
-                <button onClick={() => openView("music")}>
-                  <Music2 size={16} />
-                  <span>音乐素材库</span>
-                </button>
-                <button onClick={() => openView("post")}>
-                  <Clapperboard size={16} />
-                  <span>达芬奇流程</span>
-                </button>
-                <button onClick={() => openView("upload")}>
-                  <UploadCloud size={16} />
-                  <span>YouTube 上传参数</span>
-                </button>
+            {commandGroups.map((group) => (
+              <div className="command-section" key={group.title}>
+                <small>{group.title}</small>
+                <div className="command-view-grid">
+                  {group.views.map((view) => {
+                    const Icon = workspaceIcons[view];
+                    return (
+                      <button key={view} onClick={() => openView(view)}
+                        aria-current={state.view === view ? "page" : undefined}>
+                        <Icon size={17} aria-hidden="true" />
+                        <span>{viewPresentation[view].title}</span>
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
+            ))}
             <div className="command-section command-results">
               <small>路线结果 · {commandRoutes.length}</small>
               {commandRoutes.map((item) => (
@@ -585,8 +558,7 @@ export function App() {
                     <strong>{item.route.name}</strong>
                     <small>
                       {item.route.cities.join(" · ")} ·{" "}
-                      {Math.round(item.route.estimatedDurationMinutes / 60)}{" "}
-                      小时
+                      预留 {item.route.estimatedDurationMinutes} 分钟
                     </small>
                   </span>
                   <ArrowRight size={15} />

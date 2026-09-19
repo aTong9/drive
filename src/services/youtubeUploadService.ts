@@ -1,6 +1,11 @@
 import type { LocalVideoProject, ResolvedRoute } from "../types/domain.js";
 import { generateProjectDescription } from "./videoProjectService.js";
 
+/** Empty selection is intentionally independent of every saved project. */
+export function resolveUploadProject(projects: LocalVideoProject[], projectId: string) {
+  return projectId ? projects.find((project) => project.id === projectId) ?? projects[0] : undefined;
+}
+
 export type YoutubeChannelVariant = "vision" | "ambience";
 export type YoutubeUploadTemplate = "search" | "immersive" | "archive";
 

@@ -833,6 +833,24 @@
       true,
       "healing, warm, calm, gentle, quiet, relax, Japanese ambient, natural, piano, koto, strings",
       99
+    ],
+    [
+      "Whisper",
+      "https://peritune.com/blog/2015/11/15/whisper/",
+      90,
+      "piano",
+      true,
+      "healing, warm, calm, gentle（ほのぼの・まったり・優しい的选曲映射）, piano, chamber, fantasy, night forest；带神秘与感伤色彩，适合温柔夜景",
+      249
+    ],
+    [
+      "Sakuya2",
+      "https://peritune.com/blog/2016/01/01/sakuya2/",
+      86,
+      "ambient",
+      true,
+      "healing, warm, calm, gentle（癒し・ほのぼの・まったり・優しい的选曲映射）, natural, koto, flute, spring；柔和日式新世纪，旋律存在感较明显",
+      206
     ]
   ]
 }

@@ -29,3 +29,11 @@ test("keeps an empty collection on a stable first page", () => {
   assert.equal(result.totalItems, 0);
   assert.deepEqual(result.items, []);
 });
+
+test("page jumps cannot escape the available range or produce an invalid slice", () => {
+  const items = Array.from({ length: 72 }, (_, index) => index);
+  for (const [input, expected] of [[0, 1], [-3, 1], [NaN, 1], [Infinity, 1], [2.5, 2], [999, 3]]) {
+    assert.equal(paginateItems(items, input!, 24).page, expected);
+  }
+  assert.deepEqual(paginateItems(items, 3, 24).items, items.slice(48));
+});

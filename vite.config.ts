@@ -108,8 +108,8 @@ export default defineConfig(() => {
           name: "RoadLens Planner",
           short_name: "RoadLens",
           description: "为自驾摄影创作者规划真实、可执行的拍摄路线。",
-          theme_color: "#121512",
-          background_color: "#121512",
+          theme_color: "#f6f3e9",
+          background_color: "#f6f3e9",
           display: "standalone",
           orientation: "any",
           start_url: ".",
@@ -121,7 +121,7 @@ export default defineConfig(() => {
           ]
         },
         workbox: {
-          globPatterns: ["**/*.{js,css,html,svg}"],
+          globPatterns: ["**/*.{js,css,html,svg,jpg}"],
           cleanupOutdatedCaches: true,
           navigateFallback: "index.html"
         }

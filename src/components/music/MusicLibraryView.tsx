@@ -1,3 +1,8 @@
+import { MusicTrackCard } from "./MusicTrackCard.js";
+import { useSessionState } from "../common/useSessionState.js";
+import { useScrollMemory } from "../common/useScrollMemory.js";
+import { usePlannerStore } from "../../app/store.js";
+import { buildProjectMusicCandidate } from "../../services/videoProjectService.js";
 import {
   AlertTriangle,
   ArrowUpRight,
@@ -22,6 +27,7 @@ import {
   SlidersHorizontal,
   Sparkles,
 } from "lucide-react";
+import { copyToClipboard } from "../../services/clipboardService.js";
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
   buildPlatformAttributionTemplate,
@@ -93,10 +99,6 @@ const editingLabels = {
   "sync-only": "仅配画面，不改编",
   "track-dependent": "剪辑权限按曲确认",
 } as const;
-const formatDuration = (seconds: number | null) =>
-  seconds === null
-    ? "时长待核实"
-    : `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, "0")}`;
 const TRACKS_PER_PAGE = 24;
 const ALBUMS_PER_PAGE = 8;
 
@@ -136,20 +138,29 @@ const musicTaskOptions = [
 ] as const;
 
 export function MusicLibraryView() {
+  const projects = usePlannerStore((state) => state.videoProjects);
+  const activeProjectId = usePlannerStore((state) => state.activeVideoProjectId);
+  const addProjectMusic = usePlannerStore((state) => state.addProjectMusic);
+  const selectProject = usePlannerStore((state) => state.selectVideoProject);
+  const [targetProjectId, setTargetProjectId] = useState(activeProjectId);
+  const targetProject = projects.find((project) => project.id === targetProjectId);
+  const [musicNotice, setMusicNotice] = useState("");
   const resultsRef = useRef<HTMLDivElement>(null);
-  const [filtersOpen, setFiltersOpen] = useState(false);
-  const [section, setSection] = useState<"tracks" | "albums" | "platforms" | "creators">("tracks");
-  const [family, setFamily] = useState<MusicFamily | "all">("all");
-  const [categoryId, setCategoryId] = useState("all");
-  const [scene, setScene] = useState<MusicScene | "all">("all");
-  const [risk, setRisk] = useState<MusicRisk | "all">("all");
-  const [query, setQuery] = useState("");
-  const [longTracksOnly, setLongTracksOnly] = useState(false);
-  const [albumPlatformId, setAlbumPlatformId] = useState("all");
-  const [activeMusicTask, setActiveMusicTask] = useState<string | null>(null);
-  const [albumPage, setAlbumPage] = useState(1);
-  const [trackPage, setTrackPage] = useState(1);
+  const pageRef = useScrollMemory<HTMLElement>("music-page");
+  const [filtersOpen, setFiltersOpen] = useSessionState("music-filtersOpen", false);
+  const [section, setSection] = useSessionState<"tracks" | "albums" | "platforms" | "creators">("music-section", "tracks");
+  const [family, setFamily] = useSessionState<MusicFamily | "all">("music-family", "all");
+  const [categoryId, setCategoryId] = useSessionState("music-categoryId", "all");
+  const [scene, setScene] = useSessionState<MusicScene | "all">("music-scene", "all");
+  const [risk, setRisk] = useSessionState<MusicRisk | "all">("music-risk", "all");
+  const [query, setQuery] = useSessionState("music-query", "");
+  const [longTracksOnly, setLongTracksOnly] = useSessionState("music-longTracksOnly", false);
+  const [albumPlatformId, setAlbumPlatformId] = useSessionState("music-albumPlatformId", "all");
+  const [activeMusicTask, setActiveMusicTask] = useSessionState<string | null>("music-activeMusicTask", null);
+  const [albumPage, setAlbumPage] = useSessionState("music-albumPage", 1);
+  const [trackPage, setTrackPage] = useSessionState("music-trackPage", 1);
   const [copiedPlatformId, setCopiedPlatformId] = useState<string | null>(null);
+  const [copyErrorId, setCopyErrorId] = useState<string | null>(null);
   const categories = useMemo(
     () =>
       youtubeMusicLibrary.categories.filter(
@@ -227,14 +238,18 @@ export function MusicLibraryView() {
     trackPage * TRACKS_PER_PAGE,
   );
 
-  useEffect(
-    () => setTrackPage(1),
-    [albumPlatformId, categoryId, family, longTracksOnly, query, scene, risk],
-  );
-  useEffect(
-    () => setAlbumPage(1),
-    [albumPlatformId, categoryId, family, query, scene, risk],
-  );
+  const albumFilterKey = JSON.stringify([albumPlatformId, categoryId, family, query, scene, risk]);
+  const trackFilterKey = JSON.stringify([albumFilterKey, longTracksOnly]);
+  const previousAlbumFilters = useRef(albumFilterKey);
+  const previousTrackFilters = useRef(trackFilterKey);
+  useEffect(() => {
+    if (previousTrackFilters.current !== trackFilterKey) setTrackPage(1);
+    previousTrackFilters.current = trackFilterKey;
+  }, [trackFilterKey]);
+  useEffect(() => {
+    if (previousAlbumFilters.current !== albumFilterKey) setAlbumPage(1);
+    previousAlbumFilters.current = albumFilterKey;
+  }, [albumFilterKey]);
 
   function selectFamily(next: MusicFamily | "all") {
     setFamily(next);
@@ -286,9 +301,13 @@ export function MusicLibraryView() {
       (item) => item.id === platformId,
     );
     if (!platform) return;
-    await navigator.clipboard.writeText(
-      buildPlatformAttributionTemplate(platform),
-    );
+    setCopyErrorId(null);
+    setCopiedPlatformId(null);
+    const copied = await copyToClipboard(buildPlatformAttributionTemplate(platform));
+    if (!copied) {
+      setCopyErrorId(platformId);
+      return;
+    }
     setCopiedPlatformId(platformId);
     window.setTimeout(
       () =>
@@ -300,7 +319,7 @@ export function MusicLibraryView() {
   }
 
   return (
-    <main className="music-page">
+    <main className="music-page" ref={pageRef}>
       <header className="music-hero">
         <div>
           <h1>
@@ -632,53 +651,31 @@ export function MusicLibraryView() {
           </>}
           {section === "tracks" && <>
           <h2 className="sr-only">单曲试听与下载</h2>
+          <section className="music-project-target">
+            <label>记入视频项目 <select value={targetProject?.id ?? ""} onChange={(event) => { setTargetProjectId(event.target.value); setMusicNotice(""); }}>
+              <option value="">{projects.length ? "请选择项目" : "暂无视频项目"}</option>
+              {projects.map((project) => <option key={project.id} value={project.id}>{project.title}</option>)}
+            </select></label>
+            {targetProject ? <button onClick={() => selectProject(targetProject.id)}>查看项目许可台账</button> : <button onClick={() => usePlannerStore.getState().setView("projects")}>前往视频项目</button>}
+            <p>添加后为待许可素材，仍需逐曲核验并填写授权凭证。</p>
+            <p role="status">{musicNotice}</p>
+          </section>
           <section className="music-track-list">
             {visibleTracks.map((track) => {
               const platform = youtubeMusicLibrary.platforms.find(
                 (item) => item.id === track.platformId,
               );
               return (
-                <article className="music-track-card" key={track.id}>
-                  <div className="music-track-index">
-                    <Music2 size={16} />
-                  </div>
-                  <div className="music-track-copy">
-                    <header>
-                      <div>
-                        <h3>{track.title}</h3>
-                        <p>
-                          {track.artist} · {platform?.name}
-                        </p>
-                      </div>
-                      <time>{formatDuration(track.durationSeconds)}</time>
-                    </header>
-                    <p>{track.description}</p>
-                    <div className="music-album-scenes">
-                      {track.scenes.map((item) => (
-                        <span key={item}>{sceneLabels[item]}</span>
-                      ))}
-                    </div>
-                    <details className="music-track-license">
-                      <summary>署名与授权要求 · {platform ? riskLabels[platform.license.risk] : "需复核"}</summary>
-                      <aside><strong>{track.credit}</strong><p>{track.licenseNote}</p></aside>
-                    </details>
-                  </div>
-                  <footer>
-                    <a href={track.listenUrl} target="_blank" rel="noreferrer">
-                      <Play size={12} />
-                      试听
-                    </a>
-                    <a
-                      className="primary"
-                      href={track.downloadUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <Download size={12} />
-                      {track.downloadLabel}
-                    </a>
-                  </footer>
-                </article>
+                <MusicTrackCard key={track.id} track={track}
+                  platformName={platform?.name ?? track.platformId}
+                  riskLabel={platform ? riskLabels[platform.license.risk] : "需复核"}
+                  sceneLabels={sceneLabels} canAdd={Boolean(targetProject)}
+                  added={Boolean(targetProject?.musicTracks.some((item) => item.id === `catalog-${track.id}`))}
+                  onAdd={() => {
+                    if (!targetProject) return;
+                    addProjectMusic(targetProject.id, buildProjectMusicCandidate(track, platform?.name ?? track.platformId));
+                    setMusicNotice(`已将「${track.title}」记入「${targetProject.title}」，等待许可核验。`);
+                  }} />
               );
             })}
           </section>
@@ -756,6 +753,7 @@ export function MusicLibraryView() {
           <Search size={23} />
           <strong>没有符合搜索条件的 Piano 创作者</strong>
           <span>清空搜索词，查看全部创作者</span>
+          <button onClick={resetDiscovery}>清空搜索</button>
         </div>
       )}
 
@@ -884,6 +882,7 @@ export function MusicLibraryView() {
                     {copiedPlatformId === platform.id ? "已复制" : "复制模板"}
                   </button>
                 </header>
+                <p role="status" className="copy-error">{copyErrorId === platform.id ? "复制未成功，请选中下方模板手动复制。" : ""}</p>
                 <pre>{buildPlatformAttributionTemplate(platform)}</pre>
               </section>
             </details>
@@ -912,6 +911,7 @@ export function MusicLibraryView() {
           <Search size={23} />
           <strong>没有符合当前条件的平台</strong>
           <span>放宽风险筛选或清空搜索词</span>
+          <button onClick={resetDiscovery}>重置筛选</button>
         </div>
       )}
       </>}

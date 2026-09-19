@@ -1,3 +1,5 @@
+import { useSessionState } from "../common/useSessionState.js";
+import { useScrollMemory } from "../common/useScrollMemory.js";
 import {
   AudioLines,
   Camera,
@@ -140,25 +142,26 @@ export function LocationView({
   routes: ResolvedRoute[];
   catalogSchemaVersion: string;
 }) {
-  const [query, setQuery] = useState("");
-  const [browseMode, setBrowseMode] = useState<"locations" | "routes">(
-    "locations",
+  const browserRef = useScrollMemory<HTMLElement>("location-browser");
+  const [query, setQuery] = useSessionState("location-query", "");
+  const [browseMode, setBrowseMode] = useSessionState<"locations" | "routes">(
+    "location-mode", "locations",
   );
-  const [type, setType] = useState<Location["type"] | "all">("all");
-  const [captureStyle, setCaptureStyle] = useState<
+  const [type, setType] = useSessionState<Location["type"] | "all">("location-type", "all");
+  const [captureStyle, setCaptureStyle] = useSessionState<
     ResolvedRoute["route"]["captureStyle"] | "all"
-  >("all");
-  const [driveOnly, setDriveOnly] = useState(false);
-  const [region, setRegion] = useState<{ province?: string; city?: string }>(
-    {},
+  >("location-capture", "all");
+  const [driveOnly, setDriveOnly] = useSessionState("location-drive", false);
+  const [region, setRegion] = useSessionState<{ province?: string; city?: string }>(
+    "location-region", {},
   );
-  const [regionGroup, setRegionGroup] = useState<AdministrativeGroupId | "all">(
-    "all",
+  const [regionGroup, setRegionGroup] = useSessionState<AdministrativeGroupId | "all">(
+    "location-group", "all",
   );
-  const [locationPage, setLocationPage] = useState(1);
-  const [routePage, setRoutePage] = useState(1);
-  const [selectedId, setSelectedId] = useState(locations[0]?.id ?? "");
-  const [detailVisible, setDetailVisible] = useState(
+  const [locationPage, setLocationPage] = useSessionState("location-page", 1);
+  const [routePage, setRoutePage] = useSessionState("location-route-page", 1);
+  const [selectedId, setSelectedId] = useSessionState("location-selected", locations[0]?.id ?? "");
+  const [detailVisible, setDetailVisible] = useSessionState("location-detail",
     () => window.innerWidth > 760,
   );
   const [editing, setEditing] = useState(false);
@@ -170,26 +173,7 @@ export function LocationView({
   const removeFieldCheck = usePlannerStore((state) => state.removeFieldCheck);
   const importFieldChecks = usePlannerStore((state) => state.importFieldChecks);
   const selectStoredRoute = usePlannerStore((state) => state.selectRoute);
-  const setExploreMode = usePlannerStore((state) => state.setMode);
-  const setExploreCaptureStyle = usePlannerStore(
-    (state) => state.setCaptureStyle,
-  );
-  const setExploreDriveOnly = usePlannerStore((state) => state.setDriveOnly);
-  const setExploreDuration = usePlannerStore(
-    (state) => state.setMaxDurationMinutes,
-  );
-  const setExploreQuery = usePlannerStore((state) => state.setQuery);
-  const selectRoute = (routeId: string) => {
-    const target = routes.find((item) => item.route.id === routeId);
-    setExploreMode("all");
-    setExploreCaptureStyle("all");
-    setExploreDriveOnly(false);
-    setExploreDuration(
-      Math.max(360, target?.route.estimatedDurationMinutes ?? 360),
-    );
-    setExploreQuery("");
-    selectStoredRoute(routeId);
-  };
+  const selectRoute = selectStoredRoute;
   const selected =
     locations.find((location) => location.id === selectedId) ?? locations[0];
   const check = selected
@@ -246,14 +230,14 @@ export function LocationView({
     [filteredRoutes, routePage],
   );
 
-  useEffect(
-    () => setLocationPage(1),
-    [query, region.province, region.city, type],
-  );
-  useEffect(
-    () => setRoutePage(1),
-    [query, region.province, region.city, captureStyle, driveOnly],
-  );
+  const locationFilterKey = JSON.stringify([query, region.province, region.city, type]);
+  const routeFilterKey = JSON.stringify([query, region.province, region.city, captureStyle, driveOnly]);
+  const previousFilters = useRef({ locationFilterKey, routeFilterKey });
+  useEffect(() => {
+    if (previousFilters.current.locationFilterKey !== locationFilterKey) setLocationPage(1);
+    if (previousFilters.current.routeFilterKey !== routeFilterKey) setRoutePage(1);
+    previousFilters.current = { locationFilterKey, routeFilterKey };
+  }, [locationFilterKey, routeFilterKey]);
 
   if (!selected) return null;
   const relatedRoutes = routes.filter((route) =>
@@ -294,13 +278,13 @@ export function LocationView({
   };
   return (
     <main className={`location-page mode-${browseMode}`}>
-      <section className="location-browser">
+      <section className="location-browser" ref={browserRef}>
         <header className="location-head">
           <div>
-            <p className="eyebrow">PLACE & ROUTE ATLAS</p>
+            <p className="eyebrow">FIELD NOTES / 风景采集簿</p>
             <h1>地点与路线图鉴</h1>
             <p className="location-intro">
-              全国行政目录负责完整导航，来源核验内容负责真实拍摄决策；两者分层展示。
+              循着山海与城市的光，寻找下一次出发的地方。地点来源与实地核验分开记录。
             </p>
             {importMessage && (
               <small className="import-message">{importMessage}</small>
@@ -317,6 +301,9 @@ export function LocationView({
               <strong>{routes.length}</strong>
               <small>完整路线</small>
             </div>
+          </div>
+        </header>
+        <details className="location-maintenance"><summary>核验记录维护 · 导入与备份</summary>
             <input
               ref={importInputRef}
               type="file"
@@ -349,8 +336,7 @@ export function LocationView({
             >
               <Download size={15} /> 导出 JSON
             </button>
-          </div>
-        </header>
+        </details>
         <section
           className="region-browser region-browser-compact"
           aria-label="地点行政区划"
@@ -485,6 +471,8 @@ export function LocationView({
         <label className="location-search">
           <Search size={17} />
           <input
+            type="search"
+            aria-label={browseMode === "locations" ? "搜索地点或城市" : "搜索路线、途经点或城市"}
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder={
@@ -682,7 +670,7 @@ export function LocationView({
                     <h2>{route.name}</h2>
                     <div className="library-route-meta">
                       <span>
-                        <Clock3 size={13} /> 约 {route.estimatedDurationMinutes}{" "}
+                        <Clock3 size={13} /> 预留 {route.estimatedDurationMinutes}{" "}
                         分钟
                       </span>
                       <span>

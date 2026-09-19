@@ -1,6 +1,8 @@
+import { resolvedRoutes } from "./catalogService.js";
+import { buildVideoProject } from "./videoProjectService.js";
 import assert from "node:assert/strict";
 import test from "node:test";
-import { buildYoutubeUploadGuide } from "./youtubeUploadService.js";
+import { buildYoutubeUploadGuide, resolveUploadProject } from "./youtubeUploadService.js";
 import { estimateSocialBladeEarnings } from "./youtubeCreatorService.js";
 
 test("provides conservative upload defaults without a connected YouTube API", () => {
@@ -67,4 +69,15 @@ test("provides separate English originals and Chinese localized metadata", () =>
   assert.ok(guide.tagsZh.includes("夜间驾驶"));
   assert.equal(guide.checks.length, guide.checksEn.length);
   assert.match(guide.thumbnailEn, /4K HDR/);
+});
+
+
+test("keeps the general upload template separate from saved projects", () => {
+  const route = resolvedRoutes[0]!;
+  const project = buildVideoProject({ id: "plan", routeId: route.route.id, scheduledDate: "2026-09-19", objective: "测试", status: "planned", createdAt: "2026-09-19" }, route);
+  const projects = [{ ...project, id: "first" }, { ...project, id: "second" }];
+  assert.equal(resolveUploadProject(projects, ""), undefined);
+  assert.equal(resolveUploadProject(projects, "second"), projects[1]);
+  assert.equal(resolveUploadProject(projects, "deleted"), projects[0]);
+  assert.equal(resolveUploadProject([], "deleted"), undefined);
 });

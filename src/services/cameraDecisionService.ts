@@ -705,3 +705,26 @@ export function clonePresetAsCustom(
     notes: `${name.trim() || "个人预设"}｜基于 ${preset.camera} ${preset.scene} 复制，可继续作为个人现场起点。`,
   };
 }
+
+export type PersonalCameraDraft = Record<"fps" | "shutter" | "aperture" | "isoMin" | "isoMax" | "wb", string>;
+
+/** Same numeric limits as the catalog contract; device support still needs checking. */
+export function validatePersonalCameraDraft(draft: PersonalCameraDraft) {
+  const errors: Partial<Record<keyof PersonalCameraDraft, string>> = {};
+  for (const [key, min, max, label] of [
+    ["fps", 1, 240, "帧率"],
+    ["isoMin", 50, Number.MAX_SAFE_INTEGER, "最低 ISO"],
+    ["isoMax", 50, Number.MAX_SAFE_INTEGER, "最高 ISO"],
+    ["wb", 2000, 12000, "白平衡"],
+  ] as const) {
+    const value = Number(draft[key]);
+    if (!draft[key].trim() || !Number.isSafeInteger(value) || value < min || value > max)
+      errors[key] = max === Number.MAX_SAFE_INTEGER ? `${label}须为不小于 ${min} 的整数` : `${label}须为 ${min}–${max} 的整数`;
+  }
+  if (!errors.isoMin && !errors.isoMax && Number(draft.isoMin) > Number(draft.isoMax))
+    errors.isoMax = "最高 ISO 不能低于最低 ISO";
+  if (!/^1\/[1-9]\d*$/.test(draft.shutter.trim())) errors.shutter = "请输入快门分数，例如 1/60";
+  if (draft.aperture.trim() && (!/^F\d+(?:\.\d+)?$/.test(draft.aperture.trim()) || Number(draft.aperture.trim().slice(1)) <= 0))
+    errors.aperture = "请输入正数光圈，例如 F2.8；无光圈选项可留空";
+  return errors;
+}

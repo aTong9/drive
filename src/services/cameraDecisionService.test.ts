@@ -1,3 +1,4 @@
+import { validatePersonalCameraDraft } from "./cameraDecisionService.js";
 import assert from "node:assert/strict";
 import test from "node:test";
 import type { CameraPreset } from "../types/domain.js";
@@ -207,4 +208,18 @@ test("preset audit finds missing production metadata", () => {
   assert.ok(result.warnings.some((item) => item.includes("10-bit")));
   assert.ok(result.warnings.some((item) => item.includes("编码格式")));
   assert.ok(result.score < 100);
+});
+
+
+test("personal camera parameters reject invalid numbers and reversed ISO limits", () => {
+  const draft = { fps: "30", shutter: "1/60", aperture: "F2.8", isoMin: "100", isoMax: "3200", wb: "5600" };
+  assert.deepEqual(validatePersonalCameraDraft(draft), {});
+  for (const fps of ["", "0", "241", "NaN", "Infinity", "29.5"]) assert.ok(validatePersonalCameraDraft({ ...draft, fps }).fps);
+  assert.ok(validatePersonalCameraDraft({ ...draft, isoMin: "3201" }).isoMax);
+  assert.ok(validatePersonalCameraDraft({ ...draft, isoMin: "49" }).isoMin);
+  assert.ok(validatePersonalCameraDraft({ ...draft, wb: "1999" }).wb);
+  assert.ok(validatePersonalCameraDraft({ ...draft, wb: "12001" }).wb);
+  assert.ok(validatePersonalCameraDraft({ ...draft, shutter: "1/0" }).shutter);
+  assert.ok(validatePersonalCameraDraft({ ...draft, aperture: "F0" }).aperture);
+  assert.deepEqual(validatePersonalCameraDraft({ ...draft, aperture: "", fps: "240", wb: "12000" }), {});
 });

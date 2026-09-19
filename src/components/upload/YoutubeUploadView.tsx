@@ -16,10 +16,12 @@ import {
   UploadCloud,
 } from "lucide-react";
 import { useMemo, useState, type ReactNode } from "react";
+import { copyToClipboard } from "../../services/clipboardService.js";
 import type { ResolvedRoute } from "../../types/domain.js";
 import { usePlannerStore } from "../../app/store.js";
 import {
   buildYoutubeUploadGuide,
+  resolveUploadProject,
   type YoutubeChannelVariant,
   type YoutubeUploadTemplate,
 } from "../../services/youtubeUploadService.js";
@@ -61,19 +63,26 @@ const templates: Array<{
 type UploadLanguageView = "bilingual" | "en" | "zh";
 
 function CopyButton({ value }: { value: string }) {
-  const [copied, setCopied] = useState(false);
+  const [feedback, setFeedback] = useState<{ value: string; status: "pending" | "copied" | "error" } | null>(null);
+  const status = feedback?.value === value ? feedback.status : null;
   return (
+    <span className="copy-feedback">
     <button
       className="upload-copy"
-      onClick={() => {
-        void navigator.clipboard.writeText(value);
-        setCopied(true);
-        window.setTimeout(() => setCopied(false), 1400);
+      disabled={status === "pending"}
+      onClick={async () => {
+        setFeedback({ value, status: "pending" });
+        const copied = await copyToClipboard(value);
+        setFeedback({ value, status: copied ? "copied" : "error" });
       }}
     >
       <Clipboard size={13} />
-      {copied ? "已复制 / Copied" : "复制 / Copy"}
+      {status === "copied" ? "已复制 / Copied" : status === "pending" ? "正在复制…" : "复制 / Copy"}
     </button>
+    <span role="status" className={status === "error" ? "copy-error" : "sr-only"}>
+      {status === "error" ? "复制未成功，请选中下方文字手动复制。" : status === "copied" ? "已复制到剪贴板" : ""}
+    </span>
+    </span>
   );
 }
 
@@ -140,7 +149,7 @@ export function YoutubeUploadView({ routes }: { routes: ResolvedRoute[] }) {
   const [languageView, setLanguageView] =
     useState<UploadLanguageView>("bilingual");
   const [distributionDuration, setDistributionDuration] = useState(60);
-  const project = projects.find((item) => item.id === projectId) ?? projects[0];
+  const project = resolveUploadProject(projects, projectId);
   const route = routes.find((item) => item.route.id === project?.routeId);
   const guide = useMemo(
     () => buildYoutubeUploadGuide(project, route, variant, template),
@@ -181,6 +190,7 @@ export function YoutubeUploadView({ routes }: { routes: ResolvedRoute[] }) {
         </div>
         <UploadCloud size={58} />
       </header>
+      {project && <button className="workspace-return" onClick={() => usePlannerStore.getState().selectVideoProject(project.id)}>返回项目：{project.title}</button>}
       <section className="upload-controls">
         <label>
           视频项目 / Video project

@@ -590,7 +590,7 @@ for (const [title, duration, kind, tier] of hmixGalleryHealingCatalog.items) {
   if (/戦闘|バトル|死刑|祭り|カーニバル|行進曲|繁華街|奮闘|ボス猫|黒い影|Celebration|Frenzy|March|Festival|Carnival|Bazaar/.test(title)) errors.push(`hmixGalleryHealingCatalog: excluded intensity for ${title}`);
 }
 if (perituneHealingCatalog.platformId !== "peritune") errors.push("perituneHealingCatalog: unexpected platform id");
-if (perituneHealingCatalog.items.length !== 103) errors.push(`perituneHealingCatalog: expected 103 verified entries, found ${perituneHealingCatalog.items.length}`);
+if (perituneHealingCatalog.items.length !== 105) errors.push(`perituneHealingCatalog: expected 105 verified entries, found ${perituneHealingCatalog.items.length}`);
 if (new Set(perituneHealingCatalog.items.map(([title]) => title)).size !== perituneHealingCatalog.items.length) errors.push("perituneHealingCatalog: duplicate title/version");
 for (const [title, pageUrl, bpm, kind, nativeLoop, tags, duration] of perituneHealingCatalog.items) {
   if (!/^https:\/\/peritune\.com\/blog\/.+\/$/.test(pageUrl)) errors.push(`perituneHealingCatalog: invalid official page for ${title}`);

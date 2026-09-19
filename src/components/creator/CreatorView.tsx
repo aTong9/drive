@@ -1,3 +1,6 @@
+import { CreatorProjectNote } from "./CreatorProjectNote.js";
+import { useSessionState } from "../common/useSessionState.js";
+import { useScrollMemory } from "../common/useScrollMemory.js";
 import {
   estimateCreatorRevenuePotential,
   sortCreatorModelsByRevenuePotential,
@@ -22,7 +25,7 @@ import {
   Volume2,
   Waves,
 } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useRef } from "react";
 import type {
   AppearanceMode,
   OrdinaryCreatorModel,
@@ -69,36 +72,39 @@ const categoryLabels = Object.fromEntries(
 ) as Record<CreatorCategory | "all", string>;
 
 export function CreatorView() {
-  const [researchMode, setResearchMode] = useState<"benchmarks" | "models">(
-    "benchmarks",
+  const [expandedModels, setExpandedModels] = useSessionState<Record<string, boolean>>("creator-expanded-models", {});
+  const [expandedCreators, setExpandedCreators] = useSessionState<Record<string, boolean>>("creator-expanded-creators", {});
+  const pageRef = useScrollMemory<HTMLElement>("creator-page");
+  const [researchMode, setResearchMode] = useSessionState<"benchmarks" | "models">("creator-researchMode",
+    "models",
   );
-  const [category, setCategory] = useState<CreatorCategory | "all">("all");
-  const [appearanceMode, setAppearanceMode] = useState<AppearanceMode | "all">(
+  const [category, setCategory] = useSessionState<CreatorCategory | "all">("creator-category", "all");
+  const [appearanceMode, setAppearanceMode] = useSessionState<AppearanceMode | "all">("creator-appearanceMode",
     "all",
   );
-  const [query, setQuery] = useState("");
-  const [modelQuery, setModelQuery] = useState("");
-  const [ordinaryCreatorModels, setOrdinaryCreatorModels] = useState<
+  const [query, setQuery] = useSessionState("creator-query", "");
+  const [modelQuery, setModelQuery] = useSessionState("creator-modelQuery", "");
+  const [ordinaryCreatorModels, setOrdinaryCreatorModels] = useSessionState<
     OrdinaryCreatorModel[] | null
-  >(null);
+  >("creator-ordinaryCreatorModels", null);
   const [modelLoadError, setModelLoadError] = useState("");
-  const [modelPage, setModelPage] = useState(1);
-  const [modelCollection, setModelCollection] = useState("all");
-  const [revenueSort, setRevenueSort] = useState<
+  const [modelPage, setModelPage] = useSessionState("creator-modelPage", 1);
+  const [modelCollection, setModelCollection] = useSessionState("creator-modelCollection", "all");
+  const [revenueSort, setRevenueSort] = useSessionState<
     "annual-desc" | "annual-asc" | "library"
-  >("annual-desc");
-  const [revenueTierFilter, setRevenueTierFilter] = useState<
+  >("creator-revenueSort", "library");
+  const [revenueTierFilter, setRevenueTierFilter] = useSessionState<
     "all" | "top" | "mid" | "starter"
-  >("all");
-  const [costFilter, setCostFilter] = useState<"all" | "low" | "high">("all");
-  const [cardDensity, setCardDensity] = useState<"compact" | "detailed">(
+  >("creator-revenueTierFilter", "all");
+  const [costFilter, setCostFilter] = useSessionState<"all" | "low" | "high">("creator-costFilter", "all");
+  const [cardDensity, setCardDensity] = useSessionState<"compact" | "detailed">("creator-cardDensity",
     "compact",
   );
   const [monthlyViews, setMonthlyViews] = useState(1000000);
-  const [benchmarkPage, setBenchmarkPage] = useState(1);
-  const [benchmarkDensity, setBenchmarkDensity] = useState<
+  const [benchmarkPage, setBenchmarkPage] = useSessionState("creator-benchmarkPage", 1);
+  const [benchmarkDensity, setBenchmarkDensity] = useSessionState<
     "compact" | "detailed"
-  >("compact");
+  >("creator-benchmarkDensity", "compact");
   const recentModelIds = useMemo(
     () => new Set<string>(recentOrdinaryCreatorDiscoveryIds),
     [],
@@ -140,7 +146,12 @@ export function CreatorView() {
     () => paginateItems(creators, benchmarkPage, 12),
     [benchmarkPage, creators],
   );
-  useEffect(() => setBenchmarkPage(1), [category, query]);
+  const benchmarkFilterKey = `${category}:${query}`;
+  const previousBenchmarkFilter = useRef(benchmarkFilterKey);
+  useEffect(() => {
+    if (previousBenchmarkFilter.current !== benchmarkFilterKey) setBenchmarkPage(1);
+    previousBenchmarkFilter.current = benchmarkFilterKey;
+  }, [benchmarkFilterKey]);
   const matchingChannelModels = (ordinaryCreatorModels ?? []).filter(
     (model) => {
       const needle = modelQuery.trim().toLowerCase();
@@ -204,7 +215,7 @@ export function CreatorView() {
   const quickCollections = ordinaryCreatorCollections.slice(0, 8);
 
   return (
-    <main className="creator-page">
+    <main className="creator-page" ref={pageRef}>
       <header className="creator-hero">
         <div>
           <p className="eyebrow">GLOBAL CREATOR FIELD NOTES</p>
@@ -464,7 +475,7 @@ export function CreatorView() {
             <div>
               <strong>成熟期年收益潜力模型</strong>
               <p>
-                默认按广告价值、购买意图、常青搜索、变现宽度和生产效率综合排序，并扣除高设备与运营成本。区间假设频道已稳定运营，不代表参考博主真实收入，也不保证你能达到。
+                默认按内容方向浏览。需要比较收益时，可主动选择模型排序；模型参考广告价值、购买意图、常青搜索、变现宽度和生产效率，并扣除高设备与运营成本。区间假设频道已稳定运营，不代表参考博主真实收入，也不保证你能达到。
               </p>
             </div>
           </aside>
@@ -472,10 +483,6 @@ export function CreatorView() {
             <span>
               <strong>{filteredChannelModels.length}</strong>
               当前匹配
-            </span>
-            <span>
-              <strong>{topPotentialCount}</strong>
-              S–A 高潜力
             </span>
             <span>
               <strong>{lowCostCount}</strong>
@@ -523,7 +530,7 @@ export function CreatorView() {
                     <strong>为什么普通人可做</strong>
                     <p>{model.beginnerFit}</p>
                   </aside>
-                  <section className="ordinary-revenue-estimate">
+                  <details className="ordinary-revenue-estimate"><summary>收益估算 · 查看假设区间</summary>
                     <div>
                       <span>收益潜力 {revenue.tier}</span>
                       <strong>
@@ -532,11 +539,12 @@ export function CreatorView() {
                       </strong>
                       <small>成熟期宽区间 · 综合得分 {revenue.score}/100</small>
                     </div>
-                    <p>{revenue.rationale.join(" · ")}</p>
-                  </section>
+                    <p>{revenue.rationale.join(" · ")}</p><p>成熟期模型估算，不是案例收入或收入承诺。</p>
+                  </details>
                   <details
                     className="ordinary-card-details"
-                    open={cardDensity === "detailed" ? true : undefined}
+                    open={expandedModels[model.id] ?? cardDensity === "detailed"}
+                    onToggle={(event) => { const open = event.currentTarget.open; setExpandedModels((current) => current[model.id] === open ? current : { ...current, [model.id]: open }); }}
                   >
                     <summary>
                       <span>查看装备、固定流程、选题与参考博主</span>
@@ -568,7 +576,7 @@ export function CreatorView() {
                       <h4>第一批可拍选题</h4>
                       <div className="ordinary-topics">
                         {model.firstTopics.map((topic) => (
-                          <span key={topic}>{topic}</span>
+                          <CreatorProjectNote key={topic} topic={topic} steps={model.repeatableFormat} references={model.references} />
                         ))}
                       </div>
                     </section>
@@ -794,7 +802,8 @@ export function CreatorView() {
                 </a>
                 <details
                   className="creator-card-details"
-                  open={benchmarkDensity === "detailed" ? true : undefined}
+                  open={expandedCreators[creator.id] ?? benchmarkDensity === "detailed"}
+                  onToggle={(event) => { const open = event.currentTarget.open; setExpandedCreators((current) => current[creator.id] === open ? current : { ...current, [creator.id]: open }); }}
                 >
                   <summary>
                     <span>查看播放逻辑、工作流与分析工具</span>

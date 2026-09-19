@@ -244,6 +244,8 @@ export interface ProjectMediaBatch {
   note: string;
 }
 export interface ProjectMusicTrack {
+  sourceUrl?: string;
+  artist?: string;
   id: string;
   title: string;
   platform: string;
@@ -253,6 +255,10 @@ export interface ProjectMusicTrack {
   channel: "vision";
 }
 export interface ProjectPublishPackage {
+  visionUploaded?: boolean;
+  visionProcessed?: boolean;
+  ambienceUploaded?: boolean;
+  ambienceProcessed?: boolean;
   visionTitle: string;
   ambienceTitle: string;
   description: string;
@@ -278,6 +284,7 @@ export interface ProjectRetrospective {
   };
 }
 export interface LocalVideoProject {
+  origin?: "research";
   id: string;
   planId?: string;
   routeId: string;

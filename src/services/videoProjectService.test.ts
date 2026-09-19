@@ -113,7 +113,7 @@ test("full project progress includes publishing and retrospective work", () => {
   assert.ok(initial.percent < 100);
   assert.ok(
     initial.sections.some(
-      (section) => section.id === "publish" && section.total === 8,
+      (section) => section.id === "publish" && section.total === 12,
     ),
   );
   project.shots.forEach((item) => {
@@ -249,4 +249,24 @@ test("retrospective metrics generate actionable next-project insights", () => {
   assert.ok(insights.some((item) => item.includes("压缩开场")));
   assert.ok(insights.some((item) => item.includes("高表现片段")));
   assert.equal(hasRetrospectiveData(project), true);
+});
+
+ test("project import validation rejects malformed nested records before they reach views", () => {
+  const project = buildVideoProject(plan, route);
+  for (const patch of [
+    { musicTracks: [null] }, { musicTracks: [{ id: "bad", title: {}, platform: "source" }] },
+    { publish: { description: {} } }, { publish: { visionUploaded: "yes" } },
+    { retrospective: { nextAction: [] } }, { ingestItems: [null] },
+    { deliveryItems: [{ id: "bad", title: "check", completed: "yes" }] },
+    { packItems: [{ id: "bad", title: "task", completed: false, group: "unknown" }] },
+    { shots: [{ ...project.shots[0], note: {} }] },
+  ]) assert.equal(validateVideoProject({ ...project, ...patch }), false, JSON.stringify(patch));
+  const legacy = { ...project, publish: { visionTitle: "旧标题" } };
+  assert.equal(validateVideoProject(legacy), true);
+  if (validateVideoProject(legacy)) {
+    const normalized = normalizeVideoProject(legacy);
+    assert.equal(normalized.publish.visionTitle, "旧标题");
+    assert.equal(normalized.publish.visionPublished, false);
+    assert.equal(normalized.publish.chapters, "");
+  }
 });

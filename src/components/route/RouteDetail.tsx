@@ -181,9 +181,7 @@ export function RouteDetail({
           <div>
             <span>
               <Clock3 size={14} />{" "}
-              {drivingSummary?.status === "ready"
-                ? formatDrivingTime(drivingSummary.durationSeconds)
-                : `行程约 ${route.estimatedDurationMinutes} 分钟`}
+              拍摄行程预留 {route.estimatedDurationMinutes} 分钟
             </span>
             <span>
               <Navigation size={14} />{" "}
@@ -258,6 +256,7 @@ export function RouteDetail({
           )}
         </section>
 
+        <p className="route-duration-note">拍摄行程预留来自路线方案，不是实时驾车用时；交通、停车、天气等待与现场拍摄请另行核对。驾车时间以当次高德规划为准。</p>
         <CityWeather cities={route.cities} compact />
 
         <section className="detail-section">
@@ -470,7 +469,7 @@ export function RouteDetail({
             </label>
             <div className="plan-dialog-summary">
               <span>
-                <Clock3 size={14} /> 行程约 {route.estimatedDurationMinutes}{" "}
+                <Clock3 size={14} /> 拍摄行程预留 {route.estimatedDurationMinutes}{" "}
                 分钟
               </span>
               <span>
