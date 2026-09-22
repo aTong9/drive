@@ -154,8 +154,8 @@ export function buildYoutubeUploadGuide(
     tags,
     tagsZh,
     playlist: isVision
-      ? "aBin Vision · Cinematic Night Drives 4K HDR"
-      : "aBin Ambience · Real Road Sounds 4K HDR",
+      ? "Vision · Cinematic Night Drives 4K HDR"
+      : "Ambience · Real Road Sounds 4K HDR",
     category: "Travel & Events",
     language: "English",
     visibility: "Private",

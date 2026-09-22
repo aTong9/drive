@@ -125,6 +125,8 @@ export function FinalCutProGuide() {
           <label className="resolve-tutorial-search">
             <Search size={14} />
             <input
+              type="search"
+              aria-label="搜索 Final Cut Pro 教程"
               value={query}
               onChange={(event) => updateQuery(event.target.value)}
               placeholder="搜索标记、磁性时间线、Roles、代理、调色…"

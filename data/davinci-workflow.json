@@ -144,7 +144,7 @@
         "07 HDR Safety：Max Output 1000 nits，普通白维持 80–120 nits"
       ],
       "cautions": [
-        "这是 aBin_NightDrive_HDR_Base_v1 的可抄录起始参数，不代表已保存为 Resolve PowerGrade。",
+        "这是 NightDrive_HDR_Base_v1 的可抄录起始参数，不代表已保存为 Resolve PowerGrade。",
         "降噪数值只适合轻噪素材；运动拖影、尾灯残影或塑料感出现时立即降低或关闭。"
       ]
     },

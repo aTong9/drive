@@ -87,10 +87,6 @@ export function RouteDetail({
     "idle" | "shared" | "copied" | "error"
   >("idle");
   const tomorrow = new Date(Date.now() + 86400000).toISOString().slice(0, 10);
-  const [scheduledDate, setScheduledDate] = useState(tomorrow);
-  const [objective, setObjective] = useState(
-    `完成「${selected.route.name}」拍摄素材`,
-  );
   const { route, waypoints, cameraPresets } = selected;
   const driveOnly = route.executionMode === "drive-only";
   const inResearchBasket = researchRouteIds.includes(route.id);
@@ -112,15 +108,18 @@ export function RouteDetail({
   useEffect(() => {
     setDialogOpen(false);
     setShareStatus("idle");
-    setScheduledDate(tomorrow);
-    setObjective(`完成「${selected.route.name}」拍摄素材`);
   }, [selected.route.id]);
   const closePlanDialog = useCallback(() => setDialogOpen(false), []);
   useDialogFocus(dialogOpen, planDialogRef, closePlanDialog);
 
   const submitPlan = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    addPlan({ routeId: route.id, scheduledDate, objective: objective.trim() });
+    const form = new FormData(event.currentTarget);
+    addPlan({
+      routeId: route.id,
+      scheduledDate: String(form.get("scheduledDate") ?? ""),
+      objective: String(form.get("objective") ?? "").trim(),
+    });
     setDialogOpen(false);
   };
 
@@ -452,16 +451,16 @@ export function RouteDetail({
               <input
                 type="date"
                 min={new Date().toISOString().slice(0, 10)}
-                value={scheduledDate}
-                onChange={(event) => setScheduledDate(event.target.value)}
+                name="scheduledDate"
+                defaultValue={tomorrow}
                 required
               />
             </label>
             <label>
               创作目标
               <textarea
-                value={objective}
-                onChange={(event) => setObjective(event.target.value)}
+                name="objective"
+                defaultValue={`完成「${route.name}」拍摄素材`}
                 rows={3}
                 minLength={5}
                 required

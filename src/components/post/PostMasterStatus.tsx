@@ -9,11 +9,11 @@ export function PostMasterStatus({ channelMode, research, stageIsDone }: {
       <span>{stageIsDone("edit") ? "剪辑清单完成，请确认锁画" : "等待 Edit 工作区锁画"}</span>
     </article>
     {channelMode !== "ambience" && <article className={stageIsDone("fairlight") ? "done" : ""}>
-      <small>aBin VISION</small><strong>{research ? "选题声音设计" : "道路声 + 授权音乐"}</strong>
+      <small>VISION</small><strong>{research ? "选题声音设计" : "道路声 + 授权音乐"}</strong>
       <span>{stageIsDone("fairlight") ? "声音清单完成，交付前试听" : "按项目确认声音与音乐许可"}</span>
     </article>}
     {channelMode !== "vision" && <article className={stageIsDone("fairlight") ? "done" : ""}>
-      <small>aBin AMBIENCE</small><strong>真实环境声</strong>
+      <small>AMBIENCE</small><strong>真实环境声</strong>
       <span>{stageIsDone("fairlight") ? "声音清单完成，确认无音乐版本" : "保持相同画面结构"}</span>
     </article>}
     <article className={stageIsDone("deliver") ? "done" : ""}>

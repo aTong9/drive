@@ -39,8 +39,8 @@ const templates: Array<{
 }> = [
   {
     value: "search",
-    label: "aBin 专属默认",
-    labelEn: "aBin default",
+    label: "默认模板",
+    labelEn: "Default template",
     note: "地点优先；固定夜驾、4K HDR 与声音承诺",
     noteEn: "Location-first title with a clear picture and sound promise",
   },
@@ -213,7 +213,7 @@ export function YoutubeUploadView({ routes }: { routes: ResolvedRoute[] }) {
             className={variant === "vision" ? "active" : ""}
             onClick={() => setVariant("vision")}
           >
-            aBin Vision
+            Vision
           </button>
           <button
             role="tab"
@@ -221,7 +221,7 @@ export function YoutubeUploadView({ routes }: { routes: ResolvedRoute[] }) {
             className={variant === "ambience" ? "active" : ""}
             onClick={() => setVariant("ambience")}
           >
-            aBin Ambience
+            Ambience
           </button>
         </div>
         <div

@@ -458,8 +458,8 @@ export function PostWorkflowView({
               <p className="eyebrow">ONE MASTER · TWO CHANNELS</p>
               <h2>先建立母版，再分发双频道</h2>
               <p>
-                一条 Picture Master 保持画面锁定；aBin Vision
-                使用道路声与授权音乐，aBin Ambience 只保留真实环境声。
+                一条 Picture Master 保持画面锁定；Vision
+                使用道路声与授权音乐，Ambience 只保留真实环境声。
               </p>
             </div>
             <dl>

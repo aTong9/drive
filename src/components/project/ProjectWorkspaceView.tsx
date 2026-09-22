@@ -249,7 +249,7 @@ export function ProjectWorkspaceView({ routes }: { routes: ResolvedRoute[] }) {
         <div>
           <small>
             {active.channelMode === "dual"
-              ? "aBin Vision + aBin Ambience"
+              ? "Vision + Ambience"
               : active.channelMode}
           </small>
           <h2>{active.title}</h2>
@@ -516,40 +516,8 @@ export function ProjectWorkspaceView({ routes }: { routes: ResolvedRoute[] }) {
               </button>
             ))}
           </div>
-          <div className="media-batch-add">
-            <input
-              value={batchLabel}
-              onChange={(event) => setBatchLabel(event.target.value)}
-              placeholder="批次名称，例如 CARD-A"
-            />
-            <input
-              value={batchDevice}
-              onChange={(event) => setBatchDevice(event.target.value)}
-              placeholder="来源设备"
-            />
-            <input
-              value={batchCard}
-              onChange={(event) => setBatchCard(event.target.value)}
-              placeholder="存储卡编号"
-            />
-            <input
-              type="number"
-              min="0"
-              value={batchFiles || ""}
-              onChange={(event) => setBatchFiles(Number(event.target.value))}
-              placeholder="文件数"
-            />
-            <input
-              type="number"
-              min="0"
-              step="0.1"
-              value={batchGB || ""}
-              onChange={(event) => setBatchGB(Number(event.target.value))}
-              placeholder="容量 GB"
-            />
-            <button
-              disabled={!batchLabel.trim() || !batchDevice.trim()}
-              onClick={() => {
+          <form className="media-batch-add" onSubmit={(event) => {
+                event.preventDefault();
                 updateProject(active.id, {
                   mediaBatches: [
                     ...mediaBatches,
@@ -573,12 +541,51 @@ export function ProjectWorkspaceView({ routes }: { routes: ResolvedRoute[] }) {
                 setBatchCard("");
                 setBatchFiles(0);
                 setBatchGB(0);
-              }}
+              }}>
+            <input
+              required
+              value={batchLabel}
+              onChange={(event) => setBatchLabel(event.target.value)}
+              placeholder="批次名称，例如 CARD-A"
+            />
+            <input
+              required
+              value={batchDevice}
+              onChange={(event) => setBatchDevice(event.target.value)}
+              placeholder="来源设备"
+            />
+            <input
+              value={batchCard}
+              onChange={(event) => setBatchCard(event.target.value)}
+              placeholder="存储卡编号"
+            />
+            <input
+              type="number"
+              min="0"
+              max={Number.MAX_SAFE_INTEGER}
+              step="1"
+              value={batchFiles || ""}
+              onChange={(event) => setBatchFiles(Number(event.target.value))}
+              aria-label="素材文件数"
+              placeholder="文件数"
+            />
+            <input
+              type="number"
+              min="0"
+              step="any"
+              value={batchGB || ""}
+              onChange={(event) => setBatchGB(Number(event.target.value))}
+              aria-label="素材容量 GB"
+              placeholder="容量 GB"
+            />
+            <button type="submit"
+              disabled={!batchLabel.trim() || !batchDevice.trim()}
+
             >
               <Plus size={12} />
               登记批次
             </button>
-          </div>
+          </form>
           {mediaBatches.length ? (
             <div className="media-batch-list">
               {mediaBatches.map((batch) => (
@@ -690,6 +697,7 @@ export function ProjectWorkspaceView({ routes }: { routes: ResolvedRoute[] }) {
               placeholder="候选曲名"
             />
             <select
+              aria-label="音乐来源平台"
               value={musicPlatform}
               onChange={(event) => setMusicPlatform(event.target.value)}
             >

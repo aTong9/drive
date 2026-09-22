@@ -236,7 +236,7 @@ test("publishing description includes route, chapters and music attribution", ()
   const description = generateProjectDescription(project, route);
   assert.match(description, /起点 → 终点/);
   assert.match(description, /Night Road — Artist A/);
-  assert.match(description, /aBin Ambience/);
+  assert.match(description, /Ambience/);
 });
 
 test("retrospective metrics generate actionable next-project insights", () => {
@@ -269,4 +269,18 @@ test("retrospective metrics generate actionable next-project insights", () => {
     assert.equal(normalized.publish.visionPublished, false);
     assert.equal(normalized.publish.chapters, "");
   }
+});
+
+
+test("media batch import rejects invalid counts and sizes while accepting legacy omissions", () => {
+  const project = buildVideoProject(plan, route);
+  const batch = { id: "batch", label: "CARD-A", sourceDevice: "Camera", locationIds: [] };
+  const valid = (fields: object) => validateVideoProject({ ...project, mediaBatches: [{ ...batch, ...fields }] });
+  assert.equal(valid({}), true);
+  assert.equal(valid({ fileCount: 0, totalGB: 0 }), true);
+  assert.equal(valid({ fileCount: 3, totalGB: 1.25 }), true);
+  for (const fileCount of [-1, 1.5, Infinity, NaN, "3", Number.MAX_SAFE_INTEGER + 1])
+    assert.equal(valid({ fileCount }), false);
+  for (const totalGB of [-1, Infinity, NaN, "1.2"])
+    assert.equal(valid({ totalGB }), false);
 });

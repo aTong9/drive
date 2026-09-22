@@ -16,7 +16,7 @@ test("provides conservative upload defaults without a connected YouTube API", ()
   assert.ok(guide.checks.some((item) => item.includes("2160p HDR")));
 });
 
-test("keeps the two aBin channel promises distinct", () => {
+test("keeps the two channel promises distinct", () => {
   const vision = buildYoutubeUploadGuide(undefined, undefined, "vision");
   const ambience = buildYoutubeUploadGuide(undefined, undefined, "ambience");
   assert.match(vision.title, /Cinematic Night Drive/);

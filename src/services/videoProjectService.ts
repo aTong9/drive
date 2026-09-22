@@ -112,7 +112,7 @@ export function buildVideoProject(
   }));
   const deliveryItems = [
     "Picture Master 已锁画",
-    "aBin Vision 与 Ambience 画面长度一致",
+    "Vision 与 Ambience 画面长度一致",
     "Vision 音乐许可和署名已复核",
     "响度、True Peak 与三端试听通过",
     "HEVC Main10 / BT.2020 / PQ 元数据通过",
@@ -221,8 +221,8 @@ export function getNextProjectAction(project: LocalVideoProject) {
     );
   if (project.status === "review") {
     if (!project.publish.hdrVerified) return "等待 YouTube 显示 2160p HDR";
-    if (project.channelMode !== "ambience" && !project.publish.visionPublished) return "发布 aBin Vision";
-    if (project.channelMode !== "vision" && !project.publish.ambiencePublished) return "错峰发布 aBin Ambience";
+    if (project.channelMode !== "ambience" && !project.publish.visionPublished) return "发布 Vision";
+    if (project.channelMode !== "vision" && !project.publish.ambiencePublished) return "错峰发布 Ambience";
     return "记录项目复盘并标记已发布";
   }
   return project.retrospective.nextAction || "根据复盘建立下一条视频项目";
@@ -531,8 +531,8 @@ export function generateProjectDescription(
     project.publish.chapters ? `章节：\n${project.publish.chapters}` : "",
     attribution ? `音乐署名：\n${attribution}` : "",
     project.origin === "research" ? "" : [
-      project.channelMode !== "ambience" ? "aBin Vision：道路环境声与授权音乐" : "",
-      project.channelMode !== "vision" ? "aBin Ambience：真实道路环境声，无音乐" : "",
+      project.channelMode !== "ambience" ? "Vision：道路环境声与授权音乐" : "",
+      project.channelMode !== "vision" ? "Ambience：真实道路环境声，无音乐" : "",
     ].filter(Boolean).join("\n"),
   ]
     .filter(Boolean)
@@ -611,6 +611,8 @@ export function validateVideoProject(
           typeof batch?.id === "string" &&
           typeof batch?.label === "string" &&
           typeof batch?.sourceDevice === "string" &&
+          (batch.fileCount === undefined || (Number.isSafeInteger(batch.fileCount) && batch.fileCount >= 0)) &&
+          (batch.totalGB === undefined || (typeof batch.totalGB === "number" && Number.isFinite(batch.totalGB) && batch.totalGB >= 0)) &&
           Array.isArray(batch?.locationIds) && batch.locationIds.every((id) => typeof id === "string") &&
           optionalFields(batch, ["storageCard", "note"], ["primaryBackup", "secondaryBackup", "verified"]),
       )) &&
