@@ -3037,7 +3037,8 @@ data,
 }
 .location-page {
   display: grid;
-  grid-template-columns: minmax(460px, 1fr) 390px;
+  grid-template-columns: minmax(0, 1fr);
+  position: relative;
   height: calc(100vh - 68px);
   background: var(--canvas);
 }
@@ -3045,6 +3046,8 @@ data,
   grid-template-columns: 1fr;
 }
 .location-browser {
+  overflow-anchor: none;
+  scrollbar-gutter: stable;
   min-width: 0;
   padding: 34px clamp(20px, 4vw, 58px);
   overflow-y: auto;
@@ -3053,7 +3056,7 @@ data,
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  max-width: 900px;
+  max-width: 1180px;
   margin: 0 auto 22px;
 }
 .location-head h1 {
@@ -3123,7 +3126,7 @@ data,
   font-size: var(--font-caption);
 }
 .region-browser {
-  max-width: 900px;
+  max-width: 1180px;
   margin: 0 auto 14px;
 }
 .region-browser-compact {
@@ -3303,15 +3306,8 @@ data,
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 7px;
-  max-width: 900px;
-  margin: 0 auto 11px;
-}
-.mode-routes .library-switch,
-.mode-routes .location-search,
-.mode-routes .region-browser,
-.mode-routes .capture-library-filters,
-.mode-routes .library-route-grid {
   max-width: 1180px;
+  margin: 0 auto 11px;
 }
 .library-switch button {
   display: grid;
@@ -3352,7 +3348,7 @@ data,
   display: flex;
   align-items: center;
   gap: 9px;
-  max-width: 900px;
+  max-width: 1180px;
   height: 42px;
   padding: 0 12px;
   margin: 0 auto 11px;
@@ -3383,13 +3379,10 @@ data,
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 900px;
+  max-width: 1180px;
   margin: 0 auto 10px;
   color: var(--muted);
   font-size: var(--font-caption);
-}
-.mode-routes .library-results-summary {
-  max-width: 1180px;
 }
 .library-results-summary strong {
   color: var(--ink);
@@ -3409,7 +3402,7 @@ data,
 .location-filters {
   display: flex;
   gap: 6px;
-  max-width: 900px;
+  max-width: 1180px;
   margin: 0 auto 19px;
   overflow-x: auto;
   scrollbar-width: none;
@@ -3433,7 +3426,7 @@ data,
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 9px;
-  max-width: 900px;
+  max-width: 1180px;
   margin: 0 auto;
 }
 .location-results-anchor {
@@ -3444,7 +3437,7 @@ data,
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  max-width: 900px;
+  max-width: 1180px;
   margin: 18px auto 0;
   padding: 12px 14px;
   border: 1px solid var(--line);
@@ -3637,7 +3630,7 @@ data,
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
   gap: 11px;
-  max-width: 900px;
+  max-width: 1180px;
   margin: 0 auto;
 }
 .library-route-card {
@@ -3809,6 +3802,11 @@ data,
   font-size: var(--font-caption);
 }
 .location-detail {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: min(390px, 100%);
+  z-index: 20;
+  box-shadow: -12px 0 32px rgb(0 0 0 / 12%);
   display: flex;
   flex-direction: column;
   min-width: 0;
@@ -3819,7 +3817,18 @@ data,
   display: none;
 }
 .location-detail-close {
-  display: none;
+  position: absolute;
+  z-index: 3;
+  top: 14px;
+  right: 14px;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--panel-strong);
+  color: var(--ink);
 }
 .location-detail-hero {
   position: relative;
@@ -18832,6 +18841,7 @@ small {
     min-height: 360px;
   }
   .location-detail {
+    width: auto;
     position: fixed;
     z-index: 80;
     inset: var(--mobile-topbar-height) 0 var(--mobile-nav-height);

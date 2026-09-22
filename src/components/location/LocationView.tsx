@@ -162,7 +162,7 @@ export function LocationView({
   const [routePage, setRoutePage] = useSessionState("location-route-page", 1);
   const [selectedId, setSelectedId] = useSessionState("location-selected", locations[0]?.id ?? "");
   const [detailVisible, setDetailVisible] = useSessionState("location-detail",
-    () => window.innerWidth > 760,
+    false,
   );
   const [editing, setEditing] = useState(false);
   const [importMessage, setImportMessage] = useState("");
@@ -303,7 +303,15 @@ export function LocationView({
             </div>
           </div>
         </header>
-        <details className="location-maintenance"><summary>核验记录维护 · 导入与备份</summary>
+        <details className="location-maintenance">
+          <summary>
+            <ShieldCheck size={19} aria-hidden="true" />
+            <span><strong>实地核验记录</strong><small>{fieldChecks.length ? `已保存 ${fieldChecks.length} 条 · 导入与备份` : "保存你的实地观察，随时备份"}</small></span>
+            <ChevronRight size={16} className="maintenance-chevron" aria-hidden="true" />
+          </summary>
+          <div className="location-maintenance-body">
+            <p>导入已有核验记录，或将当前记录备份为 JSON。不会修改地点来源资料。</p>
+            <div className="location-maintenance-actions">
             <input
               ref={importInputRef}
               type="file"
@@ -336,6 +344,8 @@ export function LocationView({
             >
               <Download size={15} /> 导出 JSON
             </button>
+            </div>
+          </div>
         </details>
         <section
           className="region-browser region-browser-compact"
@@ -460,7 +470,7 @@ export function LocationView({
           <button
             role="tab"
             aria-selected={browseMode === "routes"}
-            onClick={() => setBrowseMode("routes")}
+            onClick={() => { setBrowseMode("routes"); setDetailVisible(false); }}
           >
             <Navigation size={16} />
             <span>路线</span>

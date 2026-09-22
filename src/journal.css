@@ -266,7 +266,7 @@ button:not(:disabled), summary { cursor: pointer; }
   :root[data-theme] .topbar { grid-template-columns: 205px minmax(0, 1fr) auto; }
   :root[data-theme] .topbar nav button { padding-inline: 8px; font-size: 11px; }
   .command-trigger span, .command-trigger kbd, .journal-stamp { display: none; }
-  .location-page { grid-template-columns: minmax(0, 1fr) 320px; }
+  .location-page { grid-template-columns: minmax(0, 1fr); }
   .location-page.mode-routes { grid-template-columns: 1fr; }
   .location-grid { grid-template-columns: 1fr; }
 }
@@ -340,9 +340,18 @@ button:not(:disabled), summary { cursor: pointer; }
 .longform-readiness label input { inset: 0 auto auto 0; width: 1px; height: 1px; }
 .longform-readiness label input:focus-visible + span { outline: 2px solid var(--orange); outline-offset: 2px; }
 .longform-scale-planner > button { min-height: 40px; padding: 8px 12px; margin-bottom: 10px; border: 1px solid var(--line); border-radius: 7px; color: var(--orange); background: var(--orange-soft); }
-.location-maintenance { margin: 12px 0; padding: 10px 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); font-size: 12px; }
-.location-maintenance summary { min-height: 28px; }
-.location-maintenance button { margin: 8px 8px 0 0; }
+.location-maintenance { max-width: 1180px; margin: 12px auto; border: 1px solid var(--line); border-radius: 12px; background: var(--panel-strong); }
+.location-maintenance summary { display: flex; align-items: center; gap: 12px; padding: 14px 16px; cursor: pointer; list-style: none; color: var(--orange); }
+.location-maintenance summary::-webkit-details-marker { display: none; }
+.location-maintenance summary > span { display: grid; gap: 4px; flex: 1; }
+.location-maintenance summary strong { color: var(--ink); font-size: 13px; font-weight: 600; }
+.location-maintenance summary small { color: var(--muted); font-size: 11px; }
+.location-maintenance[open] .maintenance-chevron { transform: rotate(90deg); }
+.location-maintenance-body { padding: 0 16px 16px; border-top: 1px solid var(--line); }
+.location-maintenance-body p { margin: 12px 0; font-size: 12px; line-height: 1.6; color: var(--muted); }
+.location-maintenance-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.location-maintenance-actions button { min-height: 38px; padding: 8px 12px; margin: 0; border: 1px solid var(--line); border-radius: 7px; background: var(--panel); color: var(--ink); font-size: 12px; }
+.location-maintenance-actions button:disabled { opacity: .45; cursor: not-allowed; }
 .creator-project-note { width: 100%; padding: 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
 .creator-project-note summary { min-height: 32px; color: var(--ink); }
 .creator-project-note pre { white-space: pre-wrap; overflow-wrap: anywhere; font: inherit; line-height: 1.7; }
