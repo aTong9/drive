@@ -1,6 +1,7 @@
 import { validatePlanEdit } from "../services/planEditingService.js";
+import { validProjectMetrics } from "../services/videoProjectService.js";
 import { normalizeLongformDraft, type LongformDraft } from "../services/longformPlanningService.js";
-import { resolvedRoutes } from "../services/catalogService.js";
+import { getRouteSummary } from "../services/browserCatalogService.js";
 import type { CurrentRegion } from "../services/currentCityService.js";
 import type { AdministrativeGroupId } from "../services/regionService.js";
 
@@ -13,14 +14,15 @@ import type {
   FieldCheck,
   LocalGpxTrack,
   LocalPostProject,
-  LocalPostTask,
   LocalShootPlan,
   LocalVideoProject,
   RouteMode,
   VideoProjectStatus,
   WorkflowStatus,
 } from "../types/domain.js";
-import { normalizeVideoProject } from "../services/videoProjectService.js";
+import { deviceStorage } from "../services/deviceStorage.js";
+import { deviceStateVersion, deviceStorageKey, emptyDeviceState, selectDeviceState, type DeviceState } from "../services/deviceStateService.js";
+import { defaultLocationBrowse, type LocationBrowseState } from "../services/workspaceUrlService.js";
 
 export type AppView =
   | "dashboard"
@@ -38,8 +40,9 @@ export type AppView =
 const postContextKey = (project: Pick<LocalPostProject, "workflowId" | "videoProjectId" | "planId" | "routeId">) =>
   JSON.stringify([project.workflowId, project.videoProjectId ? "video" : project.planId ? "plan" : "route", project.videoProjectId ?? project.planId ?? project.routeId ?? "standalone"]);
 
-interface PlannerState {
-  longformDraft: LongformDraft;
+interface PlannerState extends DeviceState {
+  locationBrowse: LocationBrowseState;
+  setLocationBrowse: (patch: Partial<LocationBrowseState>) => void;
   updateLongformDraft: (patch: Partial<LongformDraft>) => void;
   resetLongformDraft: () => void;
   currentRegion: CurrentRegion | null;
@@ -55,23 +58,8 @@ interface PlannerState {
   selectedRouteId: string;
   routeOpenVersion: number;
   detailOpen: boolean;
-  plans: LocalShootPlan[];
-  removedPlans: LocalShootPlan[];
   restorePlan: (planId: string) => void;
   editPlan: (planId: string, scheduledDate: string, objective: string) => void;
-  videoProjects: LocalVideoProject[];
-  activeVideoProjectId: string;
-  fieldChecks: FieldCheck[];
-  postTasks: LocalPostTask[];
-  postProject: LocalPostProject | null;
-  postArchives: Record<string, { project: LocalPostProject; tasks: LocalPostTask[] }>;
-  gpxTrack: LocalGpxTrack | null;
-  favoriteCameraPresetIds: string[];
-  favoriteDavinciPresetIds: string[];
-  cameraMrAssignments: Partial<Record<"MR1" | "MR2" | "MR3", string>>;
-  customCameraPresets: CameraPreset[];
-  researchRouteIds: string[];
-  researchStartDate: string;
   setView: (view: AppView) => void;
   setMode: (mode: RouteMode | "all") => void;
   setCaptureStyle: (captureStyle: CaptureStyle | "all") => void;
@@ -130,9 +118,18 @@ interface PlannerState {
 }
 
 export const usePlannerStore = create<PlannerState>()(
-  persist(
+  persist<PlannerState, [], [], DeviceState>(
     (set) => ({
-      longformDraft: normalizeLongformDraft(),
+      ...emptyDeviceState(),
+      locationBrowse: defaultLocationBrowse,
+      setLocationBrowse: (patch) => set((state) => {
+        const previous = state.locationBrowse;
+        const next = { ...previous, ...patch };
+        const sharedFilterChanged = next.query !== previous.query || next.region.province !== previous.region.province || next.region.city !== previous.region.city;
+        if (sharedFilterChanged || next.type !== previous.type) next.locationPage = 1;
+        if (sharedFilterChanged || next.captureStyle !== previous.captureStyle || next.driveOnly !== previous.driveOnly) next.routePage = 1;
+        return { locationBrowse: next };
+      }),
       updateLongformDraft: (patch) => set((state) => ({ longformDraft: normalizeLongformDraft({ ...state.longformDraft, ...patch,
         readiness: patch.formatId && patch.formatId !== state.longformDraft.formatId ? [] : patch.readiness ?? state.longformDraft.readiness,
       }) })),
@@ -150,27 +147,6 @@ export const usePlannerStore = create<PlannerState>()(
       selectedRouteId: "gd-sz-bay-night",
       routeOpenVersion: 0,
       detailOpen: true,
-      plans: [],
-      removedPlans: [],
-      videoProjects: [],
-      activeVideoProjectId: "",
-      fieldChecks: [],
-      postTasks: [],
-      postProject: null,
-      postArchives: {},
-      gpxTrack: null,
-      favoriteCameraPresetIds: [],
-      favoriteDavinciPresetIds: [],
-      cameraMrAssignments: {
-        MR1: "a7c2-mr1-night-slog3",
-        MR2: "a7c2-mr2-daylight-general",
-        MR3: "a7c2-mr3-day-hlg",
-      },
-      customCameraPresets: [],
-      researchRouteIds: [],
-      researchStartDate: new Date(Date.now() + 86400000)
-        .toISOString()
-        .slice(0, 10),
       setView: (view) => set({ view }),
       setMode: (mode) => set({ mode }),
       setCaptureStyle: (captureStyle) => set({ captureStyle }),
@@ -180,7 +156,7 @@ export const usePlannerStore = create<PlannerState>()(
         set({ maxDurationMinutes }),
       setQuery: (query) => set({ query }),
       selectRoute: (selectedRouteId) => {
-        const target = resolvedRoutes.find((item) => item.route.id === selectedRouteId);
+        const target = getRouteSummary(selectedRouteId);
         if (!target) return;
         set((state) => ({
           selectedRouteId, detailOpen: true, view: "explore",
@@ -188,7 +164,7 @@ export const usePlannerStore = create<PlannerState>()(
           currentRegion: null,
           destination: { groupId: "all", province: "", city: "" },
           mode: "all", captureStyle: "all", driveOnly: false, query: "",
-          maxDurationMinutes: Math.max(state.maxDurationMinutes, target.route.estimatedDurationMinutes),
+          maxDurationMinutes: Math.max(state.maxDurationMinutes, target.estimatedDurationMinutes),
         }));
       },
       closeDetail: () => set({ detailOpen: false }),
@@ -323,14 +299,16 @@ export const usePlannerStore = create<PlannerState>()(
             };
           }),
         })),
-      updateVideoProject: (projectId, patch) =>
+      updateVideoProject: (projectId, patch) => {
+        if (!validProjectMetrics(patch.retrospective?.metrics)) return;
         set((state) => ({
           videoProjects: state.videoProjects.map((project) =>
             project.id === projectId
               ? { ...project, ...patch, updatedAt: new Date().toISOString() }
               : project,
           ),
-        })),
+        }));
+      },
       saveFieldCheck: (input) =>
         set((state) => ({
           fieldChecks: [
@@ -452,54 +430,10 @@ export const usePlannerStore = create<PlannerState>()(
       clearResearchRoutes: () => set({ researchRouteIds: [] }),
     }),
     {
-      name: "roadlens-planner-device-state",
-      version: 11,
-      migrate: (persisted) => {
-        const state = persisted as Partial<PlannerState>;
-        return {
-          longformDraft: normalizeLongformDraft(state.longformDraft),
-          plans: state.plans ?? [],
-          removedPlans: state.removedPlans ?? [],
-          videoProjects: (state.videoProjects ?? []).map(normalizeVideoProject),
-          activeVideoProjectId: state.activeVideoProjectId ?? "",
-          fieldChecks: state.fieldChecks ?? [],
-          postTasks: state.postTasks ?? [],
-          postProject: state.postProject ?? null,
-          postArchives: state.postArchives ?? {},
-          gpxTrack: state.gpxTrack ?? null,
-          favoriteCameraPresetIds: state.favoriteCameraPresetIds ?? [],
-          favoriteDavinciPresetIds: state.favoriteDavinciPresetIds ?? [],
-          cameraMrAssignments: {
-            MR1: "a7c2-mr1-night-slog3",
-            MR2: "a7c2-mr2-daylight-general",
-            MR3: "a7c2-mr3-day-hlg",
-            ...(state.cameraMrAssignments ?? {}),
-          },
-          customCameraPresets: state.customCameraPresets ?? [],
-          researchRouteIds: state.researchRouteIds ?? [],
-          researchStartDate:
-            state.researchStartDate ??
-            new Date(Date.now() + 86400000).toISOString().slice(0, 10),
-        };
-      },
-      partialize: (state) => ({
-        longformDraft: state.longformDraft,
-        plans: state.plans,
-        removedPlans: state.removedPlans,
-        videoProjects: state.videoProjects,
-        activeVideoProjectId: state.activeVideoProjectId,
-        fieldChecks: state.fieldChecks,
-        postTasks: state.postTasks,
-        postProject: state.postProject,
-        postArchives: state.postArchives,
-        gpxTrack: state.gpxTrack,
-        favoriteCameraPresetIds: state.favoriteCameraPresetIds,
-        favoriteDavinciPresetIds: state.favoriteDavinciPresetIds,
-        cameraMrAssignments: state.cameraMrAssignments,
-        customCameraPresets: state.customCameraPresets,
-        researchRouteIds: state.researchRouteIds,
-        researchStartDate: state.researchStartDate,
-      }),
+      name: deviceStorageKey,
+      version: deviceStateVersion,
+      storage: deviceStorage.storage,
+      partialize: selectDeviceState,
     },
   ),
 );

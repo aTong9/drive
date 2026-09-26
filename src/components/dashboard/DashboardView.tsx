@@ -27,6 +27,7 @@ import { usePlannerStore } from "../../app/store.js";
 import type { CSSProperties } from "react";
 import { useMemo, useState } from "react";
 import { recommendRoutes } from "../../services/recommendationService.js";
+import { getRouteEvidence } from "../../services/catalogEvidenceService.js";
 import {
   getNextProjectAction,
   getProjectProgress,
@@ -644,9 +645,7 @@ export function DashboardView({
                   <span>{String(index + 1).padStart(2, "0")}</span>
                   <div>
                     <small>
-                      {item.route.verification.status === "field-checked"
-                        ? "实地核验"
-                        : "来源核验"}{" "}
+                      {getRouteEvidence(item.route, item.waypoints, checks).label}{" "}
                       · 匹配分 {score}
                     </small>
                     <strong>{item.route.name}</strong>
@@ -657,7 +656,7 @@ export function DashboardView({
               ))
             ) : (
               <div className="dashboard-empty-mini">
-                当前条件下没有通过验证且时长合适的路线
+                {recommendInput.city}暂无符合当前时长的来源核验路线。请增加可用时间，或主动选择其他城市。
               </div>
             )}
           </div>

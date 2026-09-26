@@ -21,10 +21,9 @@ import {
 import { useEffect, useMemo, useRef, useState } from "react";
 import type {
   CaptureStyle,
-  Location,
-  ResolvedRoute,
   RouteMode,
 } from "../../types/domain.js";
+import type { LocationSummary, ResolvedRouteSummary } from "../../services/catalogSummary.js";
 import { usePlannerStore } from "../../app/store.js";
 import { RouteCard } from "./RouteCard.js";
 import type {
@@ -43,6 +42,8 @@ import {
   type AdministrativeGroupId,
 } from "../../services/regionService.js";
 import { buildDestinationOverview } from "../../services/destinationDiscoveryService.js";
+import { compareRouteEvidence } from "../../services/catalogEvidenceService.js";
+import { localDateInput } from "../../services/localDate.js";
 import {
   buildTripResearchSummary,
   dateForTripDay,
@@ -91,9 +92,9 @@ const captureStyles: Array<{
 ];
 
 interface RouteListProps {
-  routes: ResolvedRoute[];
-  allRoutes: ResolvedRoute[];
-  nearbyLocations: Location[];
+  routes: ResolvedRouteSummary[];
+  allRoutes: ResolvedRouteSummary[];
+  nearbyLocations: LocationSummary[];
   currentRegion: CurrentRegion | null;
   locationStatus: LocationDetectionStatus;
   locationMessage: string;
@@ -167,7 +168,7 @@ export function RouteList({
     );
     return state.researchRouteIds
       .map((id) => routeById.get(id))
-      .filter((item): item is ResolvedRoute => Boolean(item));
+      .filter((item): item is ResolvedRouteSummary => Boolean(item));
   }, [allRoutes, state.researchRouteIds]);
   const researchSummary = useMemo(
     () => buildTripResearchSummary(researchRoutes),
@@ -187,7 +188,7 @@ export function RouteList({
           : sort === "visual"
             ? b.route.scores.visual - a.route.scores.visual ||
               b.route.scores.youtubePotential - a.route.scores.youtubePotential
-            : b.route.scores.youtubePotential -
+            : compareRouteEvidence(a, b) || b.route.scores.youtubePotential -
                 a.route.scores.youtubePotential ||
               b.route.scores.visual - a.route.scores.visual,
       ),
@@ -510,7 +511,7 @@ export function RouteList({
                   <span>计划从哪天出发</span>
                   <input
                     type="date"
-                    min={new Date().toISOString().slice(0, 10)}
+                    min={localDateInput()}
                     value={state.researchStartDate}
                     onChange={(event) => {
                       if (event.target.value)

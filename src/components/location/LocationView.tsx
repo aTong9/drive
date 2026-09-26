@@ -1,4 +1,6 @@
-import { useSessionState } from "../common/useSessionState.js";
+import { useLocationBrowse } from "../common/useLocationBrowse.js";
+import { useCatalogSearch } from "../common/useCatalogSearch.js";
+import { loadLocation, locationSummaryMatchesQuery, routeSummaryMatchesQuery, type LocationSummary, type ResolvedRouteSummary } from "../../services/browserCatalogService.js";
 import { useScrollMemory } from "../common/useScrollMemory.js";
 import {
   AudioLines,
@@ -32,13 +34,13 @@ import {
 } from "react";
 import { scrollElementIntoView } from "../../utils/scrollIntoView.js";
 import type {
-  FieldCheck,
   Location,
-  ResolvedRoute,
 } from "../../types/domain.js";
 import { usePlannerStore } from "../../app/store.js";
 import {
   downloadFieldChecks,
+  createFieldCheckDraft,
+  fieldCheckForLocation,
   importFieldChecks as readFieldChecks,
 } from "../../services/fieldCheckExport.js";
 import {
@@ -54,11 +56,7 @@ import { paginateItems } from "../../services/localPagination.js";
 import { GeoPhotoThumbnail } from "../common/GeoPhotoThumbnail.js";
 import { CityWeather } from "../common/CityWeather.js";
 import { LocalPaginationControls } from "../common/LocalPaginationControls.js";
-import {
-  hasXiaohongshuSource,
-  locationMatchesQuery,
-  routeMatchesQuery,
-} from "../../services/catalogSearchService.js";
+import { compareLocationEvidence, compareRouteEvidence, formatSourceEvidence, getLocationEvidence, getRouteEvidence, routeDurationLabel } from "../../services/catalogEvidenceService.js";
 
 const typeLabels: Record<Location["type"], string> = {
   coast: "海岸",
@@ -107,63 +105,32 @@ const captureIcons = {
 const LOCATION_PAGE_SIZE = 24;
 const ROUTE_PAGE_SIZE = 12;
 
-interface CheckDraft {
-  visitedAt: string;
-  parkingNote: string;
-  lightNote: string;
-  soundNote: string;
-  overallNote: string;
-}
-
-function draftFrom(check: FieldCheck | undefined): CheckDraft {
-  return check
-    ? {
-        visitedAt: check.visitedAt,
-        parkingNote: check.parkingNote,
-        lightNote: check.lightNote,
-        soundNote: check.soundNote,
-        overallNote: check.overallNote,
-      }
-    : {
-        visitedAt: new Date().toISOString().slice(0, 10),
-        parkingNote: "",
-        lightNote: "",
-        soundNote: "",
-        overallNote: "",
-      };
-}
-
 export function LocationView({
   locations,
   routes,
   catalogSchemaVersion,
 }: {
-  locations: Location[];
-  routes: ResolvedRoute[];
+  locations: LocationSummary[];
+  routes: ResolvedRouteSummary[];
   catalogSchemaVersion: string;
 }) {
   const browserRef = useScrollMemory<HTMLElement>("location-browser");
-  const [query, setQuery] = useSessionState("location-query", "");
-  const [browseMode, setBrowseMode] = useSessionState<"locations" | "routes">(
-    "location-mode", "locations",
-  );
-  const [type, setType] = useSessionState<Location["type"] | "all">("location-type", "all");
-  const [captureStyle, setCaptureStyle] = useSessionState<
-    ResolvedRoute["route"]["captureStyle"] | "all"
-  >("location-capture", "all");
-  const [driveOnly, setDriveOnly] = useSessionState("location-drive", false);
-  const [region, setRegion] = useSessionState<{ province?: string; city?: string }>(
-    "location-region", {},
-  );
-  const [regionGroup, setRegionGroup] = useSessionState<AdministrativeGroupId | "all">(
-    "location-group", "all",
-  );
-  const [locationPage, setLocationPage] = useSessionState("location-page", 1);
-  const [routePage, setRoutePage] = useSessionState("location-route-page", 1);
-  const [selectedId, setSelectedId] = useSessionState("location-selected", locations[0]?.id ?? "");
-  const [detailVisible, setDetailVisible] = useSessionState("location-detail",
-    false,
-  );
+  const [query, setQuery] = useLocationBrowse("query");
+  const [browseMode, setBrowseMode] = useLocationBrowse("browseMode");
+  const [type, setType] = useLocationBrowse("type");
+  const [captureStyle, setCaptureStyle] = useLocationBrowse("captureStyle");
+  const [driveOnly, setDriveOnly] = useLocationBrowse("driveOnly");
+  const [region, setRegion] = useLocationBrowse("region");
+  const [regionGroup, setRegionGroup] = useLocationBrowse("regionGroup");
+  const [locationPage, setLocationPage] = useLocationBrowse("locationPage");
+  const [routePage, setRoutePage] = useLocationBrowse("routePage");
+  const [selectedId, setSelectedId] = useLocationBrowse("selectedId");
+  const [detailVisible, setDetailVisible] = useLocationBrowse("detailVisible");
+  const search = useCatalogSearch(query);
+  const [loadedLocation, setLoadedLocation] = useState<Location | null>(null);
+  const [detailError, setDetailError] = useState("");
+  const [detailAttempt, setDetailAttempt] = useState(0);
+  const [exporting, setExporting] = useState(false);
   const [editing, setEditing] = useState(false);
   const [importMessage, setImportMessage] = useState("");
   const importInputRef = useRef<HTMLInputElement>(null);
@@ -181,11 +148,16 @@ export function LocationView({
   const check = selected
     ? fieldChecks.find((item) => item.locationId === selected.id)
     : undefined;
-  const [draft, setDraft] = useState<CheckDraft>(() => draftFrom(check));
+  const [draft, setDraft] = useState(() => createFieldCheckDraft(selected?.id ?? "", check));
+  useEffect(() => {
+    setEditing(false);
+    setDraft(createFieldCheckDraft(selected?.id ?? "", check));
+  }, [selected?.id]);
 
   const filtered = useMemo(
     () =>
       locations.filter((location) => {
+        if (!search.ready) return false;
         const needle = query.trim().toLowerCase();
         const matchesRegion =
           (!region.province || location.province === region.province) &&
@@ -193,10 +165,10 @@ export function LocationView({
         return (
           matchesRegion &&
           (type === "all" || location.type === type) &&
-          locationMatchesQuery(location, needle)
+          locationSummaryMatchesQuery(location, needle)
         );
-      }),
-    [locations, query, region, type],
+      }).sort(compareLocationEvidence),
+    [locations, query, region, type, search.ready],
   );
   const provinces = provincesForGroup(regionGroup);
   const cities = findProvince(region.province)?.divisions ?? [];
@@ -205,13 +177,14 @@ export function LocationView({
   ).size;
   const filteredRoutes = useMemo(
     () =>
-      routes.filter(({ route, waypoints }) => {
+      routes.filter(({ route, waypoints, cameraPresets }) => {
+        if (!search.ready) return false;
         const needle = query.trim().toLowerCase();
         const matchesRegion =
           (!region.province || route.province === region.province) &&
           (!region.city || route.cities.includes(region.city));
-        const matchesQuery = routeMatchesQuery(
-          { route, waypoints, cameraPresets: [] },
+        const matchesQuery = routeSummaryMatchesQuery(
+          { route, waypoints, cameraPresets },
           needle,
         );
         return (
@@ -220,8 +193,8 @@ export function LocationView({
           (captureStyle === "all" || route.captureStyle === captureStyle) &&
           (!driveOnly || route.executionMode === "drive-only")
         );
-      }),
-    [routes, query, region, captureStyle, driveOnly],
+      }).sort(compareRouteEvidence),
+    [routes, query, region, captureStyle, driveOnly, search.ready],
   );
   const pagedLocations = useMemo(
     () => paginateItems(filtered, locationPage, LOCATION_PAGE_SIZE),
@@ -231,15 +204,6 @@ export function LocationView({
     () => paginateItems(filteredRoutes, routePage, ROUTE_PAGE_SIZE),
     [filteredRoutes, routePage],
   );
-
-  const locationFilterKey = JSON.stringify([query, region.province, region.city, type]);
-  const routeFilterKey = JSON.stringify([query, region.province, region.city, captureStyle, driveOnly]);
-  const previousFilters = useRef({ locationFilterKey, routeFilterKey });
-  useEffect(() => {
-    if (previousFilters.current.locationFilterKey !== locationFilterKey) setLocationPage(1);
-    if (previousFilters.current.routeFilterKey !== routeFilterKey) setRoutePage(1);
-    previousFilters.current = { locationFilterKey, routeFilterKey };
-  }, [locationFilterKey, routeFilterKey]);
 
   const detailOpen = detailVisible && browseMode === "locations" && filtered.some((location) => location.id === selected?.id);
   useEffect(() => {
@@ -260,21 +224,34 @@ export function LocationView({
     };
   }, [detailOpen, setDetailVisible]);
 
+  useEffect(() => {
+    if (!detailOpen || !selected) return;
+    let cancelled = false;
+    setDetailError("");
+    void loadLocation(selected.id).then((location) => {
+      if (!cancelled) setLoadedLocation(location);
+    }).catch((error: unknown) => {
+      if (!cancelled) setDetailError(error instanceof Error ? error.message : "地点详情加载失败");
+    });
+    return () => { cancelled = true; };
+  }, [detailOpen, selected?.id, detailAttempt]);
+  const detail = loadedLocation?.id === selected?.id ? loadedLocation : null;
+
   if (!selected) return null;
   const relatedRoutes = routes.filter((route) =>
     route.route.waypointLocationIds.includes(selected.id),
   );
-  const openLocation = (location: Location) => {
+  const openLocation = (location: LocationSummary) => {
     setSelectedId(location.id);
     setDetailVisible(true);
     setEditing(false);
-    setDraft(
-      draftFrom(fieldChecks.find((item) => item.locationId === location.id)),
-    );
+    setDraft(createFieldCheckDraft(location.id, fieldChecks.find((item) => item.locationId === location.id)));
   };
   const submitCheck = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    saveFieldCheck({ locationId: selected.id, ...draft });
+    const input = fieldCheckForLocation(draft, selected.id);
+    if (!input) { setEditing(false); return; }
+    saveFieldCheck(input);
     setEditing(false);
   };
   const handleImport = async (event: ChangeEvent<HTMLInputElement>) => {
@@ -292,6 +269,16 @@ export function LocationView({
     } catch (error) {
       setImportMessage(error instanceof Error ? error.message : "导入失败");
     }
+  };
+  const handleExport = async () => {
+    setExporting(true);
+    try {
+      const checkedLocations = await Promise.all(fieldChecks.map((check) => loadLocation(check.locationId)));
+      downloadFieldChecks(catalogSchemaVersion, checkedLocations, fieldChecks);
+      setImportMessage(`已导出 ${fieldChecks.length} 条核验记录`);
+    } catch (error) {
+      setImportMessage(error instanceof Error ? error.message : "导出所需地点加载失败，请重试");
+    } finally { setExporting(false); }
   };
   const changePage = (page: number, setPage: (page: number) => void) => {
     setPage(page);
@@ -349,14 +336,8 @@ export function LocationView({
             </button>
             <button
               className="export-checks"
-              disabled={!fieldChecks.length}
-              onClick={() =>
-                downloadFieldChecks(
-                  catalogSchemaVersion,
-                  locations,
-                  fieldChecks,
-                )
-              }
+              disabled={!fieldChecks.length || exporting}
+              onClick={() => void handleExport()}
               title={
                 fieldChecks.length
                   ? "导出全部实地核验数据"
@@ -546,6 +527,10 @@ export function LocationView({
             </button>
           )}
         </div>
+        {!search.ready && <div className="library-empty" role={search.error ? "alert" : "status"}>
+          <strong>{search.error || "正在加载全国全文检索…"}</strong>
+          {search.error && <button onClick={search.retry}>重试检索</button>}
+        </div>}
         {browseMode === "locations" ? (
           <>
             <div className="location-filters">
@@ -572,6 +557,7 @@ export function LocationView({
                 const fieldChecked = fieldChecks.some(
                   (item) => item.locationId === location.id,
                 );
+                const evidence = getLocationEvidence(location, fieldChecked);
                 return (
                   <button
                     key={location.id}
@@ -599,14 +585,14 @@ export function LocationView({
                       </small>
                     </div>
                     <span
-                      className={`location-check ${fieldChecked ? "field" : ""}`}
+                      className={`location-check ${evidence.isField ? "field" : ""}`}
                     >
-                      {fieldChecked ? (
+                      {evidence.isField ? (
                         <CheckCircle2 size={13} />
                       ) : (
                         <ShieldCheck size={13} />
                       )}
-                      {fieldChecked ? "实地" : "来源"}
+                      {evidence.label}
                     </span>
                   </button>
                 );
@@ -693,16 +679,13 @@ export function LocationView({
                       </span>
                       <small>
                         <ShieldCheck size={12} />{" "}
-                        {hasXiaohongshuSource(route.verification.sources)
-                          ? "来源：小红书"
-                          : "来源核验"}
+                        {getRouteEvidence(route, waypoints, fieldChecks).label}
                       </small>
                     </div>
                     <h2>{route.name}</h2>
                     <div className="library-route-meta">
                       <span>
-                        <Clock3 size={13} /> 预留 {route.estimatedDurationMinutes}{" "}
-                        分钟
+                        <Clock3 size={13} /> {routeDurationLabel(route, waypoints)}
                       </span>
                       <span>
                         <MapPin size={13} /> {waypoints.length} 个
@@ -727,7 +710,6 @@ export function LocationView({
                         </li>
                       ))}
                     </ol>
-                    <p>{route.shootAdvice}</p>
                     <button onClick={() => selectRoute(route.id)}>
                       在地图中打开路线 <ChevronRight size={15} />
                     </button>
@@ -739,7 +721,7 @@ export function LocationView({
               {...pagedRoutes}
               onPageChange={(page) => changePage(page, setRoutePage)}
             />
-            {filteredRoutes.length === 0 && (
+            {search.ready && filteredRoutes.length === 0 && (
               <div className="library-empty">
                 <Navigation size={24} />
                 <strong>当前区域没有匹配路线</strong>
@@ -748,7 +730,7 @@ export function LocationView({
             )}
           </>
         )}
-        {browseMode === "locations" && filtered.length === 0 && (
+        {search.ready && browseMode === "locations" && filtered.length === 0 && (
           <div className="library-empty">
             <MapPin size={24} />
             <strong>该区域已进入全国行政目录</strong>
@@ -787,12 +769,13 @@ export function LocationView({
           </p>
         </div>
         <div className="location-detail-scroll">
+          {detail ? <>
           <div className="location-facts">
             <span>
               <CloudSun size={17} />
               <small>最佳时段</small>
               <strong>
-                {selected.shooting.bestTimes
+                {detail.shooting.bestTimes
                   .map((item) => timeLabels[item])
                   .join(" · ")}
               </strong>
@@ -801,22 +784,22 @@ export function LocationView({
               <Camera size={17} />
               <small>拍摄方式</small>
               <strong>
-                {selected.shooting.modes
+                {detail.shooting.modes
                   .map((item) => item.replaceAll("-", " "))
                   .join(" · ")}
               </strong>
             </span>
           </div>
-          <CityWeather cities={[selected.city]} compact />
+          <CityWeather cities={[detail.city]} compact />
           <section>
             <p className="eyebrow">ACCESS</p>
             <h3>到达方式</h3>
-            <p>{selected.access.note}</p>
+            <p>{detail.access.note}</p>
           </section>
           <section>
             <p className="eyebrow">SHOOTING NOTE</p>
             <h3>拍摄建议</h3>
-            <p>{selected.shooting.advice}</p>
+            <p>{detail.shooting.advice}</p>
           </section>
           <section>
             <p className="eyebrow">SOUND ENVIRONMENT</p>
@@ -827,7 +810,7 @@ export function LocationView({
                 <span>
                   <small>主要声景</small>
                   <strong>
-                    {selected.soundEnvironment.character
+                    {detail.soundEnvironment.character
                       .map((item) => soundLabels[item])
                       .join(" · ")}
                   </strong>
@@ -836,15 +819,15 @@ export function LocationView({
               <dl>
                 <div>
                   <dt>噪声风险</dt>
-                  <dd>{riskLabels[selected.soundEnvironment.noiseRisk]}</dd>
+                  <dd>{riskLabels[detail.soundEnvironment.noiseRisk]}</dd>
                 </div>
                 <div>
                   <dt>人流风险</dt>
-                  <dd>{riskLabels[selected.soundEnvironment.crowdRisk]}</dd>
+                  <dd>{riskLabels[detail.soundEnvironment.crowdRisk]}</dd>
                 </div>
               </dl>
-              <p>{selected.soundEnvironment.weatherSensitivity}</p>
-              <strong>{selected.soundEnvironment.recordingAdvice}</strong>
+              <p>{detail.soundEnvironment.weatherSensitivity}</p>
+              <strong>{detail.soundEnvironment.recordingAdvice}</strong>
             </div>
           </section>
           <section>
@@ -856,8 +839,8 @@ export function LocationView({
               {check && (
                 <button
                   onClick={() => {
-                    removeFieldCheck(selected.id);
-                    setDraft(draftFrom(undefined));
+                    removeFieldCheck(detail.id);
+                    setDraft(createFieldCheckDraft(selected.id));
                   }}
                   aria-label="删除实地核验"
                 >
@@ -887,7 +870,7 @@ export function LocationView({
                 <p>{check.overallNote}</p>
                 <button
                   onClick={() => {
-                    setDraft(draftFrom(check));
+                    setDraft(createFieldCheckDraft(selected.id, check));
                     setEditing(true);
                   }}
                 >
@@ -960,7 +943,7 @@ export function LocationView({
               <button
                 className="start-field-check"
                 onClick={() => {
-                  setDraft(draftFrom(undefined));
+                  setDraft(createFieldCheckDraft(selected.id));
                   setEditing(true);
                 }}
               >
@@ -971,7 +954,8 @@ export function LocationView({
           <section>
             <p className="eyebrow">SOURCES</p>
             <h3>来源证据</h3>
-            {selected.verification.sources.map((source) => (
+            <p>{getLocationEvidence(detail, Boolean(check)).label} · 来源只支持下列事实，出发前仍需核对开放与通行条件。</p>
+            {detail.verification.sources.map((source) => (
               <a
                 className="source-link"
                 key={source.url}
@@ -981,7 +965,7 @@ export function LocationView({
               >
                 <span>
                   {source.title}
-                  <small>{source.supports.join(" · ")}</small>
+                  <small>{formatSourceEvidence(source)}</small>
                 </span>
                 <ExternalLink size={14} />
               </a>
@@ -1004,6 +988,10 @@ export function LocationView({
               ))}
             </section>
           )}
+          </> : <div className="library-empty" role={detailError ? "alert" : "status"}>
+            <strong>{detailError || "正在加载地点详情…"}</strong>
+            {detailError && <button onClick={() => setDetailAttempt((attempt) => attempt + 1)}>重试加载</button>}
+          </div>}
         </div>
       </aside>
     </main>

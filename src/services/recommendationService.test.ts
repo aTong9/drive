@@ -13,3 +13,10 @@ test("recommendation explains validated matching route", () => {
 test("recommendation excludes routes beyond available time", () => {
   assert.equal(recommendRoutes([base], { city: "深圳", availableMinutes: 60, weather: "cloudy", camera: "Sony", objective: "scenic-drive" }).length, 0);
 });
+
+test("recommendation never substitutes a different city and labels time as an estimate", () => {
+  const input = { city: "南昌", availableMinutes: 240, weather: "cloudy", camera: "Sony", objective: "scenic-drive" } as const;
+  assert.deepEqual(recommendRoutes([base], input), []);
+  const results = recommendRoutes([base], { ...input, city: "深圳" });
+  assert.ok(results[0]?.reasons.some((reason) => reason.includes("估算") && reason.includes("不含交通")));
+});

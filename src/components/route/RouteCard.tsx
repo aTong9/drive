@@ -7,19 +7,19 @@ import {
   ShieldCheck,
   Trees,
 } from "lucide-react";
-import type { Location, Route } from "../../types/domain.js";
+import type { LocationSummary, RouteSummary } from "../../services/catalogSummary.js";
 import { usePlannerStore } from "../../app/store.js";
 import { GeoPhotoThumbnail } from "../common/GeoPhotoThumbnail.js";
-import { hasXiaohongshuSource } from "../../services/catalogSearchService.js";
+import { getRouteEvidence, routeDurationLabel } from "../../services/catalogEvidenceService.js";
 
 interface RouteCardProps {
-  route: Route;
-  waypoints: Location[];
+  route: RouteSummary;
+  waypoints: LocationSummary[];
   active: boolean;
   onSelect: () => void;
 }
 
-const routeLabels: Record<Route["type"], string> = {
+const routeLabels: Record<RouteSummary["type"], string> = {
   coast: "滨海",
   "city-night": "城市夜景",
   mountain: "山路",
@@ -45,23 +45,11 @@ export function RouteCard({
   const driveOnly = route.executionMode === "drive-only";
   const captured = usePlannerStore((state) =>
     state.plans.some(
-      (plan) => plan.routeId === route.id && plan.status === "captured",
+      (plan) => plan.routeId === route.id && (plan.status === "captured" || plan.status === "published"),
     ),
   );
-  const fieldChecked = usePlannerStore((state) =>
-    waypoints.every((waypoint) =>
-      state.fieldChecks.some((check) => check.locationId === waypoint.id),
-    ),
-  );
-  const verificationLabel = fieldChecked
-    ? "全程实地核验"
-    : captured
-      ? "已完成拍摄"
-      : route.verification.status === "field-checked"
-        ? "实地核验"
-        : hasXiaohongshuSource(route.verification.sources)
-          ? "来源：小红书"
-          : "来源核验";
+  const checks = usePlannerStore((state) => state.fieldChecks);
+  const evidence = getRouteEvidence(route, waypoints, checks);
   return (
     <button
       className={`route-card style-${route.captureStyle} ${active ? "is-active" : ""}`}
@@ -78,16 +66,14 @@ export function RouteCard({
       <div className="route-card-topline">
         <span className="route-kind">{routeLabels[route.type]}</span>
         <span
-          className={`verification ${fieldChecked || captured || route.verification.status === "field-checked" ? "is-field" : ""}`}
+          className={`verification ${evidence.isField ? "is-field" : ""}`}
         >
-          {fieldChecked ||
-          captured ||
-          route.verification.status === "field-checked" ? (
+          {evidence.isField ? (
             <CheckCircle2 size={12} />
           ) : (
             <ShieldCheck size={12} />
           )}
-          {verificationLabel}
+          {evidence.label}
         </span>
       </div>
       <span className={`route-capture ${driveOnly ? "is-drive-only" : ""}`}>
@@ -99,12 +85,13 @@ export function RouteCard({
       <h3>{route.name}</h3>
       <div className="route-meta">
         <span>
-          <Clock3 size={14} /> 预留 {route.estimatedDurationMinutes} 分钟
+          <Clock3 size={14} /> {routeDurationLabel(route, waypoints)}
         </span>
         <span>
           <MapPin size={14} /> {waypoints.length}个
           {driveOnly ? "道路锚点" : "拍摄点"}
         </span>
+        {captured && <span><CheckCircle2 size={14} /> 已完成拍摄</span>}
       </div>
       <div className="route-path-preview" aria-label="路线途经点">
         {waypoints.map((waypoint, index) => (

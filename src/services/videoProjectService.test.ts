@@ -10,6 +10,7 @@ import {
   hasRetrospectiveData,
   getStageGateIssues,
   normalizeVideoProject,
+  importVideoProject,
   validateVideoProject,
 } from "./videoProjectService.js";
 
@@ -299,4 +300,29 @@ test("project import rejects falsey non-array media collections before normaliza
     assert.equal(validateVideoProject({ ...project, mediaBatches }), false, `mediaBatches=${JSON.stringify(mediaBatches)}`);
   }
   assert.equal(validateVideoProject({ ...project, mediaBatches: undefined }), true);
+});
+
+test("project file import rejects duplicate nested ids in every persisted collection", async () => {
+  const project = buildVideoProject(plan, route);
+  project.mediaBatches = [{ id: "batch", label: "A", sourceDevice: "Camera", storageCard: "", fileCount: 1, totalGB: 1, locationIds: [], primaryBackup: false, secondaryBackup: false, verified: false, note: "" }];
+  project.musicTracks = [{ id: "music", title: "Track", platform: "Library", licenseStatus: "candidate", attribution: "", licenseReference: "", channel: "vision" }];
+  for (const key of ["shots", "packItems", "ingestItems", "deliveryItems", "mediaBatches", "musicTracks"] as const) {
+    const duplicate = { ...project, [key]: [...project[key], project[key][0]] };
+    const file = new File([JSON.stringify({ exportType: "roadlens-video-project", exportVersion: "1.0.0", project: duplicate })], "duplicate.json");
+    await assert.rejects(() => importVideoProject(file), /契约校验/, key);
+  }
+});
+
+test("project file import enforces the same dates and metrics as device restoration", async () => {
+  const project = buildVideoProject(plan, route);
+  for (const patch of [{ createdAt: "invalid" }, { updatedAt: "invalid" }, { scheduledDate: "2026-02-30" },
+    { retrospective: { metrics: { views7d: -1 } } }, { retrospective: { metrics: { clickThroughRate: "3" } } }]) {
+    const file = new File([JSON.stringify({ exportType: "roadlens-video-project", exportVersion: "1.0.0", project: { ...project, ...patch } })], "invalid.json");
+    await assert.rejects(() => importVideoProject(file), /契约校验/);
+  }
+  const { musicTracks: _music, mediaBatches: _media, ...legacy } = project;
+  const restored = await importVideoProject(new File([JSON.stringify({ exportType: "roadlens-video-project", exportVersion: "1.0.0", project: legacy })], "legacy.json"));
+  assert.equal(restored.createdAt, project.createdAt);
+  assert.deepEqual(restored.mediaBatches, []);
+  assert.deepEqual(restored.musicTracks, []);
 });

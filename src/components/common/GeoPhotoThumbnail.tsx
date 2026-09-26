@@ -16,7 +16,7 @@ interface GeoPhotoThumbnailProps {
   id: string;
   label: string;
   type: Location["type"] | Route["type"];
-  points: Location[];
+  points: Array<Pick<Location, "id" | "name" | "city" | "coordinate">>;
   variant?: "card" | "location" | "hero";
   interactive?: boolean;
 }

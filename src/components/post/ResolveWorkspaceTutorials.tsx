@@ -1,6 +1,7 @@
+import { TutorialBody } from "./TutorialBody.js";
 import { useSessionState } from "../common/useSessionState.js";
 import { useMemo } from "react";
-import { AlertTriangle, CheckCircle2, Search, X } from "lucide-react";
+import { Search, X } from "lucide-react";
 import type { DavinciStageId } from "../../types/domain.js";
 import {
   getResolveTutorialsForWorkspace,
@@ -98,48 +99,8 @@ export function ResolveWorkspaceTutorials({
                     </div>
                   </div>
                 </summary>
-                <div className="resolve-tutorial-body">
-                  <p className="resolve-tutorial-scenario">
-                    <strong>适用场景</strong>
-                    {tutorial.scenario}
-                  </p>
-                  <p className="resolve-tutorial-prerequisite">
-                    <strong>开始前</strong>
-                    {tutorial.prerequisite}
-                  </p>
-                  <div className="resolve-tutorial-settings">
-                    {tutorial.settings.map((setting) => (
-                      <span key={setting}>{setting}</span>
-                    ))}
-                  </div>
-                  <section>
-                    <strong>跟着做</strong>
-                    <ol>
-                      {tutorial.steps.map((step) => (
-                        <li key={step}>{step}</li>
-                      ))}
-                    </ol>
-                  </section>
-                  <section>
-                    <strong>通过标准</strong>
-                    <ul>
-                      {tutorial.checks.map((check) => (
-                        <li key={check}>
-                          <CheckCircle2 size={12} />
-                          {check}
-                        </li>
-                      ))}
-                    </ul>
-                  </section>
-                  <p className="resolve-tutorial-pitfall">
-                    <AlertTriangle size={12} />
-                    <span>
-                      <strong>常见失败：</strong>
-                      {tutorial.pitfall}
-                    </span>
-                  </p>
-                </div>
-              </details>
+                <TutorialBody tutorial={tutorial} />
+            </details>
             ))}
           </div>
           {!visibleTutorials.length && (

@@ -6,6 +6,7 @@ import type {
   ResolvedRoute,
   VideoProjectStatus,
 } from "../types/domain.js";
+import { validatePlanEdit } from "./planEditingService.js";
 
 const purposeLabels = {
   establishing: "建立镜头",
@@ -550,6 +551,11 @@ function optionalFields(value: unknown, strings: string[], booleans: string[] = 
     booleans.every((key) => record[key] === undefined || typeof record[key] === "boolean");
 }
 
+export function validProjectMetrics(metrics: Partial<LocalVideoProject["retrospective"]["metrics"]> | undefined) {
+  return [metrics?.views7d, metrics?.clickThroughRate, metrics?.averageViewMinutes, metrics?.averagePercentageViewed]
+    .every((value) => value === undefined || (typeof value === "number" && Number.isFinite(value) && value >= 0));
+}
+
 export function validateVideoProject(
   value: unknown,
 ): value is LocalVideoProject {
@@ -576,8 +582,10 @@ export function validateVideoProject(
   );
   return (
     strings.every((item) => typeof item === "string" && item.length > 0) &&
+    Number.isFinite(Date.parse(project.createdAt ?? "")) && Number.isFinite(Date.parse(project.updatedAt ?? "")) &&
     (typeof project.routeId === "string" && (project.routeId.length > 0 || project.origin === "research")) &&
     (typeof project.scheduledDate === "string" && (project.scheduledDate.length > 0 || project.origin === "research")) &&
+    (project.scheduledDate === "" || !validatePlanEdit(project.scheduledDate!, project.objective!)) &&
     validStatus &&
     validMode &&
     Array.isArray(project.shots) &&
@@ -605,6 +613,7 @@ export function validateVideoProject(
       ["hdrVerified", "visionPublished", "ambiencePublished", "visionUploaded", "visionProcessed", "ambienceUploaded", "ambienceProcessed"]) &&
     optionalFields(project.retrospective, ["routeNote", "cameraNote", "editNote", "performanceNote", "nextAction"]) &&
     optionalFields(project.retrospective?.metrics, ["bestMoment", "dropoffMoment"]) &&
+    validProjectMetrics(project.retrospective?.metrics) &&
     [project.ingestItems, project.deliveryItems].every((items) => items === undefined || (Array.isArray(items) && items.every((item) =>
       item && typeof item.id === "string" && typeof item.title === "string" && typeof item.completed === "boolean" && optionalFields(item, ["note"])))) &&
     (project.mediaBatches === undefined || Array.isArray(project.mediaBatches)) &&
@@ -622,7 +631,9 @@ export function validateVideoProject(
     (project.musicTracks === undefined || (Array.isArray(project.musicTracks) && project.musicTracks.every((track) =>
       track && typeof track.id === "string" && typeof track.title === "string" && typeof track.platform === "string" &&
       ["candidate", "licensed", "clearlisted"].includes(track.licenseStatus) && track.channel === "vision" &&
-      optionalFields(track, ["artist", "sourceUrl", "attribution", "licenseReference"]))))
+      optionalFields(track, ["artist", "sourceUrl", "attribution", "licenseReference"])))) &&
+    [project.shots, project.packItems, project.ingestItems, project.deliveryItems, project.mediaBatches, project.musicTracks]
+      .every((items) => items === undefined || new Set(items.map((item) => item.id)).size === items.length)
   );
 }
 

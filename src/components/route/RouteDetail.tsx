@@ -31,7 +31,8 @@ import {
 } from "../../services/routeShareService.js";
 import { GeoPhotoThumbnail } from "../common/GeoPhotoThumbnail.js";
 import { CityWeather } from "../common/CityWeather.js";
-import { hasXiaohongshuSource } from "../../services/catalogSearchService.js";
+import { getRouteEvidence, routeDurationLabel } from "../../services/catalogEvidenceService.js";
+import { localDateInput } from "../../services/localDate.js";
 import { useDialogFocus } from "../common/useDialogFocus.js";
 
 const timeLabels: Record<string, string> = {
@@ -74,6 +75,7 @@ export function RouteDetail({
   const closeDetail = usePlannerStore((state) => state.closeDetail);
   const addPlan = usePlannerStore((state) => state.addPlan);
   const setView = usePlannerStore((state) => state.setView);
+  const checks = usePlannerStore((state) => state.fieldChecks);
   const planned = usePlannerStore((state) =>
     state.plans.some((plan) => plan.routeId === selected.route.id),
   );
@@ -86,8 +88,9 @@ export function RouteDetail({
   const [shareStatus, setShareStatus] = useState<
     "idle" | "shared" | "copied" | "error"
   >("idle");
-  const tomorrow = new Date(Date.now() + 86400000).toISOString().slice(0, 10);
+  const tomorrow = localDateInput(new Date(), 1);
   const { route, waypoints, cameraPresets } = selected;
+  const evidence = getRouteEvidence(route, waypoints, checks);
   const driveOnly = route.executionMode === "drive-only";
   const inResearchBasket = researchRouteIds.includes(route.id);
   const opensAsDrivingRoute = route.captureStyle === "scenic-drive";
@@ -164,9 +167,7 @@ export function RouteDetail({
         <div className="detail-hero-copy">
           <span className="hero-badge">
             <ShieldCheck size={13} />{" "}
-            {hasXiaohongshuSource(route.verification.sources)
-              ? "来源：小红书"
-              : "来源核验"}
+            {evidence.label}
           </span>
           <span
             className={`hero-capture capture-${route.captureStyle} ${driveOnly ? "is-drive-only" : ""}`}
@@ -180,7 +181,7 @@ export function RouteDetail({
           <div>
             <span>
               <Clock3 size={14} />{" "}
-              拍摄行程预留 {route.estimatedDurationMinutes} 分钟
+              {routeDurationLabel(route, waypoints)}
             </span>
             <span>
               <Navigation size={14} />{" "}
@@ -255,7 +256,8 @@ export function RouteDetail({
           )}
         </section>
 
-        <p className="route-duration-note">拍摄行程预留来自路线方案，不是实时驾车用时；交通、停车、天气等待与现场拍摄请另行核对。驾车时间以当次高德规划为准。</p>
+        <p className="route-duration-note">{evidence.researchOnly ? "研究估算尚未核实实际可执行时长；" : "拍摄估算来自编辑方案；"}不含交通、停车和天气等待，驾车时间以当次地图规划为准。</p>
+        <p className="route-duration-note">{route.verification.note}</p>
         <CityWeather cities={route.cities} compact />
 
         <section className="detail-section">
@@ -350,6 +352,7 @@ export function RouteDetail({
                   <small>
                     {source.author ? `${source.author} · ` : ""}
                     {source.evidence.join(" · ")}
+                    {` · 查阅于 ${source.accessedAt}`}
                   </small>
                 </span>
                 <ExternalLink size={14} />
@@ -450,7 +453,7 @@ export function RouteDetail({
               拍摄日期
               <input
                 type="date"
-                min={new Date().toISOString().slice(0, 10)}
+                min={localDateInput()}
                 name="scheduledDate"
                 defaultValue={tomorrow}
                 required
@@ -468,8 +471,7 @@ export function RouteDetail({
             </label>
             <div className="plan-dialog-summary">
               <span>
-                <Clock3 size={14} /> 拍摄行程预留 {route.estimatedDurationMinutes}{" "}
-                分钟
+                <Clock3 size={14} /> {routeDurationLabel(route, waypoints)} · 不含交通
               </span>
               <span>
                 <Camera size={14} /> {cameraPresets.length} 套设备参数

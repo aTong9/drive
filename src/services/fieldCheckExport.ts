@@ -1,4 +1,15 @@
 import type { FieldCheck, Location } from "../types/domain.js";
+import { localDateInput } from "./localDate.js";
+
+export type FieldCheckDraft = Omit<FieldCheck, "updatedAt">;
+export function createFieldCheckDraft(locationId: string, check?: FieldCheck): FieldCheckDraft {
+  return { locationId, visitedAt: check?.visitedAt ?? localDateInput(), parkingNote: check?.parkingNote ?? "",
+    lightNote: check?.lightNote ?? "", soundNote: check?.soundNote ?? "", overallNote: check?.overallNote ?? "" };
+}
+
+export function fieldCheckForLocation(draft: FieldCheckDraft, locationId: string): FieldCheckDraft | null {
+  return draft.locationId === locationId ? draft : null;
+}
 
 interface FieldCheckExport {
   exportType: "roadlens-field-checks";
@@ -11,7 +22,18 @@ interface FieldCheckExport {
   }>;
 }
 
-export async function importFieldChecks(file: File, catalogSchemaVersion: string, locations: Location[]) {
+export function validateFieldCheck(value: unknown): value is FieldCheck {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return false;
+  const check = value as Partial<FieldCheck>;
+  const visited = typeof check.visitedAt === "string" && /^\d{4}-\d{2}-\d{2}$/.test(check.visitedAt)
+    ? new Date(`${check.visitedAt}T00:00:00Z`) : new Date(NaN);
+  return typeof check.locationId === "string" && check.locationId.length > 0 &&
+    Number.isFinite(visited.getTime()) && visited.toISOString().slice(0, 10) === check.visitedAt &&
+    typeof check.updatedAt === "string" && Number.isFinite(Date.parse(check.updatedAt)) &&
+    [check.parkingNote, check.lightNote, check.soundNote, check.overallNote].every((note) => typeof note === "string");
+}
+
+export async function importFieldChecks(file: File, catalogSchemaVersion: string, locations: Array<Pick<Location, "id">>) {
   const value: unknown = JSON.parse(await file.text());
   if (!value || typeof value !== "object") throw new Error("文件不是有效的核验数据对象");
   const payload = value as Partial<FieldCheckExport>;
@@ -19,17 +41,15 @@ export async function importFieldChecks(file: File, catalogSchemaVersion: string
   if (payload.catalogSchemaVersion !== catalogSchemaVersion) throw new Error(`契约版本不匹配：需要 ${catalogSchemaVersion}`);
   if (!Array.isArray(payload.records)) throw new Error("缺少核验记录数组");
   const locationIds = new Set(locations.map((location) => location.id));
+  const importedIds = new Set<string>();
   const checks: FieldCheck[] = [];
   for (const record of payload.records) {
     const check = record?.fieldCheck;
     if (!check || !locationIds.has(check.locationId)) throw new Error(`记录引用了未知地点：${check?.locationId ?? "空"}`);
-    const notes = [check.parkingNote, check.lightNote, check.soundNote, check.overallNote];
-    const visited = typeof check.visitedAt === "string" && /^\d{4}-\d{2}-\d{2}$/.test(check.visitedAt)
-      ? new Date(`${check.visitedAt}T00:00:00Z`) : new Date(NaN);
-    if (!Number.isFinite(visited.getTime()) || visited.toISOString().slice(0, 10) !== check.visitedAt ||
-      typeof check.updatedAt !== "string" || !Number.isFinite(Date.parse(check.updatedAt)) ||
-      notes.some((note) => typeof note !== "string"))
-      throw new Error(`地点 ${check.locationId} 的核验字段不完整或日期无效`);
+    if (!validateFieldCheck(check))
+      throw new Error("核验字段不完整或日期无效");
+    if (importedIds.has(check.locationId)) throw new Error(`核验文件含重复地点：${check.locationId}`);
+    importedIds.add(check.locationId);
     checks.push(check);
   }
   return checks;

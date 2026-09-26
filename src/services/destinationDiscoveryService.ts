@@ -1,4 +1,6 @@
-import type { CaptureStyle, ResolvedRoute, Route } from "../types/domain.js";
+import type { CaptureStyle, Route } from "../types/domain.js";
+import type { ResolvedRouteSummary } from "./catalogSummary.js";
+import { compareRouteEvidence } from "./catalogEvidenceService.js";
 
 const routeTypeLabels: Record<Route["type"], string> = {
   coast: "滨海",
@@ -16,7 +18,7 @@ const captureStyleLabels: Record<CaptureStyle, string> = {
   "stationary-nature": "自然定点",
 };
 
-function rankRoute(item: ResolvedRoute) {
+function rankRoute(item: ResolvedRouteSummary) {
   const verified = item.route.verification.status === "field-checked" ? 2 : 0;
   return (
     item.route.scores.youtubePotential * 2 +
@@ -35,7 +37,7 @@ function topCounts<T extends string>(values: T[], labels: Record<T, string>) {
     .map(([value, count]) => ({ value, label: labels[value], count }));
 }
 
-export function buildDestinationOverview(routes: ResolvedRoute[]) {
+export function buildDestinationOverview<T extends ResolvedRouteSummary>(routes: T[]) {
   const sourceChecked = routes.filter(
     (item) => item.route.verification.status !== "draft",
   ).length;
@@ -54,6 +56,6 @@ export function buildDestinationOverview(routes: ResolvedRoute[]) {
       routes.map((item) => item.route.captureStyle),
       captureStyleLabels,
     ),
-    priorityRoutes: [...routes].sort((a, b) => rankRoute(b) - rankRoute(a)).slice(0, 5),
+    priorityRoutes: [...routes].sort((a, b) => compareRouteEvidence(a, b) || rankRoute(b) - rankRoute(a)).slice(0, 5),
   };
 }

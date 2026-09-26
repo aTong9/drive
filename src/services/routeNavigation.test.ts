@@ -2,6 +2,8 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { usePlannerStore } from "../app/store.js";
 import { resolvedRoutes } from "./catalogService.js";
+import { getDisplayedRouteId, loadRoute, resolvedRouteSummaries } from "./browserCatalogService.js";
+import { createWorkspaceUrl, readWorkspaceUrl } from "./workspaceUrlService.js";
 
 test("opening any known route atomically clears conflicting filters and opens its detail", () => {
   const initial = usePlannerStore.getState();
@@ -34,4 +36,18 @@ test("opening any known route atomically clears conflicting filters and opens it
   } finally {
     usePlannerStore.setState(initial, true);
   }
+});
+
+test("an explicitly opened route matches its URL even when filters exclude it", async () => {
+  const href = "https://example.test/?route=gd-sz-bay-night&province=青海";
+  const navigation = readWorkspaceUrl(href);
+  const filtered = resolvedRouteSummaries.filter((item) => item.route.province === navigation.destination.province);
+  assert.ok(filtered.length);
+  assert.ok(filtered.every((item) => item.route.id !== navigation.selectedRouteId));
+  const selected = getDisplayedRouteId(navigation.selectedRouteId, navigation.detailOpen, filtered);
+  assert.equal(selected, new URL(createWorkspaceUrl(navigation, href)).searchParams.get("route"));
+  assert.equal((await loadRoute(selected!)).route.id, navigation.selectedRouteId);
+  assert.equal(getDisplayedRouteId(navigation.selectedRouteId, true, []), navigation.selectedRouteId);
+  assert.equal(getDisplayedRouteId("unknown-route", true, filtered), undefined);
+  assert.equal(getDisplayedRouteId(navigation.selectedRouteId, false, filtered), filtered[0]!.route.id);
 });

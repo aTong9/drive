@@ -1,4 +1,5 @@
-import type { LocalShootPlan, ResolvedRoute } from "../types/domain.js";
+import type { LocalShootPlan } from "../types/domain.js";
+import type { ResolvedRouteSummary } from "./catalogSummary.js";
 
 const styleLabels = {
   "scenic-drive": "风景驾车",
@@ -6,16 +7,16 @@ const styleLabels = {
   "stationary-nature": "自然定点",
 } as const;
 
-export interface TripResearchDay {
+export interface TripResearchDay<T extends ResolvedRouteSummary = ResolvedRouteSummary> {
   day: number;
-  routes: ResolvedRoute[];
+  routes: T[];
   totalMinutes: number;
   provinces: string[];
   cities: string[];
 }
 
-export function findUnplannedResearchRoutes(
-  routes: ResolvedRoute[],
+export function findUnplannedResearchRoutes<T extends ResolvedRouteSummary>(
+  routes: T[],
   researchRouteIds: string[],
   plans: LocalShootPlan[],
 ) {
@@ -24,14 +25,14 @@ export function findUnplannedResearchRoutes(
   return researchRouteIds
     .filter((routeId) => !plannedRouteIds.has(routeId))
     .map((routeId) => routeById.get(routeId))
-    .filter((item): item is ResolvedRoute => Boolean(item));
+    .filter((item): item is T => Boolean(item));
 }
 
-export function buildTripDayPlan(
-  routes: ResolvedRoute[],
+export function buildTripDayPlan<T extends ResolvedRouteSummary>(
+  routes: T[],
   dailyBudgetMinutes = 480,
-): TripResearchDay[] {
-  const days: TripResearchDay[] = [];
+): TripResearchDay<T>[] {
+  const days: TripResearchDay<T>[] = [];
   for (const route of routes) {
     let day = days.at(-1);
     if (
@@ -69,7 +70,7 @@ export function dateForTripDay(startDate: string, day: number) {
   return date.toISOString().slice(0, 10);
 }
 
-export function buildTripResearchSummary(routes: ResolvedRoute[]) {
+export function buildTripResearchSummary<T extends ResolvedRouteSummary>(routes: T[]) {
   const provinces = [...new Set(routes.map((item) => item.route.province))];
   const cities = [...new Set(routes.flatMap((item) => item.route.cities))];
   const totalMinutes = routes.reduce(

@@ -28,20 +28,20 @@ import {
   useState,
 } from "react";
 import type { AppView } from "./app/store.js";
-import type { DrivingSummary } from "./types/domain.js";
+import type { DrivingSummary, Location, ResolvedRoute } from "./types/domain.js";
 import { Brand } from "./components/common/Brand.js";
 import { RouteList } from "./components/route/RouteList.js";
 import { MapCanvas } from "./components/map/MapCanvas.js";
 import { RouteDetail } from "./components/route/RouteDetail.js";
 import { usePlannerStore } from "./app/store.js";
-import { catalog, resolvedRoutes } from "./services/catalogService.js";
+import { catalogIndex, resolvedRouteSummaries, getRouteSummary, getDisplayedRouteId, loadFullCatalog, loadLocation, loadRoute, routeSummaryMatchesQuery } from "./services/browserCatalogService.js";
 import { davinciWorkflow } from "./services/workflowService.js";
 import {
   detectCurrentRegion,
   type LocationDetectionStatus,
 } from "./services/currentCityService.js";
 import { parseSharedRouteId } from "./services/routeShareService.js";
-import { routeMatchesQuery } from "./services/catalogSearchService.js";
+import { compareRouteEvidence, routeDurationLabel } from "./services/catalogEvidenceService.js";
 import {
   administrativeGroups,
 } from "./services/regionService.js";
@@ -52,6 +52,8 @@ import {
   viewPresentation,
 } from "./app/viewPresentation.js";
 import { useDialogFocus } from "./components/common/useDialogFocus.js";
+import { useCatalogSearch } from "./components/common/useCatalogSearch.js";
+import { LocalDataTools } from "./components/common/LocalDataTools.js";
 
 const DashboardView = lazy(() =>
   import("./components/dashboard/DashboardView.js").then((module) => ({
@@ -133,10 +135,26 @@ export function App() {
     useState<LocationDetectionStatus>("idle");
   const [locationMessage, setLocationMessage] = useState("");
   const [routeLinkMessage, setRouteLinkMessage] = useState("");
-  const [sharedRouteUnavailable, setSharedRouteUnavailable] = useState(false);
   const [commandOpen, setCommandOpen] = useState(false);
   const [commandQuery, setCommandQuery] = useState("");
+  const search = useCatalogSearch((state.view === "explore" ? state.query : "") || (commandOpen ? commandQuery : ""));
+  const [fullCatalog, setFullCatalog] = useState<Awaited<ReturnType<typeof loadFullCatalog>>>();
+  const [catalogError, setCatalogError] = useState("");
+  const [catalogAttempt, setCatalogAttempt] = useState(0);
+  const needsFullCatalog = ["dashboard", "projects", "plans", "cameras", "post", "upload"].includes(state.view);
+  const resolvedRoutes = fullCatalog?.resolvedRoutes ?? [];
+  useEffect(() => {
+    if (!needsFullCatalog || fullCatalog) return;
+    let cancelled = false;
+    setCatalogError("");
+    void loadFullCatalog().then(
+      (value) => { if (!cancelled) setFullCatalog(value); },
+      () => { if (!cancelled) setCatalogError("工作区资料未能加载，请重试。"); },
+    );
+    return () => { cancelled = true; };
+  }, [needsFullCatalog, fullCatalog, catalogAttempt]);
   const commandDialogRef = useRef<HTMLElement>(null);
+  const locationRequest = useRef(0);
   const handleDrivingSummary = useCallback(
     (summary: DrivingSummary) => setDrivingSummary(summary),
     [],
@@ -150,25 +168,27 @@ export function App() {
   }, [theme]);
   useEffect(() => applyViewMetadata(state.view), [state.view]);
   useEffect(() => {
-    if (window.innerWidth <= 760) usePlannerStore.getState().closeDetail();
-  }, []);
-  useEffect(() => {
+    locationRequest.current += 1;
     if (state.routeOpenVersion === 0) return;
-    setSharedRouteUnavailable(false);
     setLocationStatus("idle");
     setLocationMessage("");
   }, [state.routeOpenVersion]);
+  useEffect(() => {
+    locationRequest.current += 1;
+    setLocationStatus((current) => current === "locating" ? "idle" : current);
+  }, [state.view, destination]);
   const locateCurrentCity = useCallback(async () => {
+    const request = ++locationRequest.current;
     const routeOpenVersion = usePlannerStore.getState().routeOpenVersion;
     setLocationStatus("locating");
     setLocationMessage("");
     try {
       const region = await detectCurrentRegion();
-      if (usePlannerStore.getState().routeOpenVersion !== routeOpenVersion) return;
+      if (request !== locationRequest.current || usePlannerStore.getState().routeOpenVersion !== routeOpenVersion) return;
       setCurrentRegion(region);
       setLocationStatus("ready");
     } catch (error) {
-      if (usePlannerStore.getState().routeOpenVersion !== routeOpenVersion) return;
+      if (request !== locationRequest.current || usePlannerStore.getState().routeOpenVersion !== routeOpenVersion) return;
       const denied =
         typeof error === "object" &&
         error !== null &&
@@ -190,28 +210,20 @@ export function App() {
     );
     const routeId = parseSharedRouteId(window.location.href);
     if (!routeId) {
-      setSharedRouteUnavailable(false);
       if (hasRouteParameter)
         setRouteLinkMessage("分享链接格式无效，可继续浏览其他路线");
-      void locateCurrentCity();
       return;
     }
-    const target = resolvedRoutes.find((item) => item.route.id === routeId);
+    const target = getRouteSummary(routeId);
     if (!target) {
-      setSharedRouteUnavailable(true);
-      usePlannerStore.getState().closeDetail();
       setRouteLinkMessage(
         "分享路线尚未包含在当前版本，请刷新或等待最新版本发布",
       );
-      void locateCurrentCity();
       return;
     }
-    setSharedRouteUnavailable(false);
-    const store = usePlannerStore.getState();
-    store.selectRoute(routeId);
     setLocationStatus("idle");
-    setRouteLinkMessage(`已打开分享路线：${target.route.name}`);
-  }, [locateCurrentCity]);
+    setRouteLinkMessage(`已打开分享路线：${target.name}`);
+  }, []);
 
   useEffect(() => {
     if (!routeLinkMessage) return;
@@ -231,7 +243,7 @@ export function App() {
   }, []);
   const routes = useMemo(
     () =>
-      resolvedRoutes.filter((item) => {
+      (!search.ready ? [] : resolvedRouteSummaries.filter((item) => {
         const query = state.query.trim().toLowerCase();
         const matchesMode =
           state.mode === "all" || item.route.modes.includes(state.mode);
@@ -242,7 +254,7 @@ export function App() {
           !state.driveOnly || item.route.executionMode === "drive-only";
         const matchesDuration =
           item.route.estimatedDurationMinutes <= state.maxDurationMinutes;
-        const matchesQuery = routeMatchesQuery(item, query);
+        const matchesQuery = routeSummaryMatchesQuery(item, query);
         const matchesCurrentCity =
           !currentRegion || item.route.cities.includes(currentRegion.city);
         const matchesDestinationProvince =
@@ -266,7 +278,7 @@ export function App() {
           matchesDestinationProvince &&
           matchesDestinationCity
         );
-      }),
+      }).sort(compareRouteEvidence)),
     [
       state.mode,
       state.captureStyle,
@@ -275,13 +287,14 @@ export function App() {
       state.query,
       currentRegion,
       destination,
+      search.ready,
     ],
   );
 
-  const nearbyLocations = useMemo(
+  const nearbySummaries = useMemo(
     () =>
       currentRegion
-        ? catalog.locations.filter(
+        ? catalogIndex.locations.filter(
             (location) =>
               location.province === currentRegion.province &&
               location.city === currentRegion.city,
@@ -290,16 +303,40 @@ export function App() {
     [currentRegion],
   );
 
-  const selected = sharedRouteUnavailable
-    ? undefined
-    : (routes.find((item) => item.route.id === state.selectedRouteId) ??
-      routes[0]);
+  const [routeDetail, setRouteDetail] = useState<ResolvedRoute>();
+  const [routeError, setRouteError] = useState("");
+  const [routeAttempt, setRouteAttempt] = useState(0);
+  const [nearbyLocations, setNearbyLocations] = useState<Location[]>([]);
+  const selectedId = getDisplayedRouteId(state.selectedRouteId, state.detailOpen, routes);
+  const selected = routeDetail?.route.id === selectedId ? routeDetail : undefined;
+  useEffect(() => {
+    if (state.view !== "explore") return;
+    let cancelled = false;
+    setRouteError("");
+    setRouteDetail(undefined);
+    if (selectedId) void loadRoute(selectedId).then(
+      (route) => { if (!cancelled) setRouteDetail(route); },
+      () => { if (!cancelled) setRouteError("路线详情未能加载，请重试。"); },
+    );
+    return () => { cancelled = true; };
+  }, [state.view, selectedId, routeAttempt]);
+  useEffect(() => {
+    if (state.view !== "explore") return;
+    let cancelled = false;
+    setNearbyLocations([]);
+    void Promise.all(nearbySummaries.map((location) => loadLocation(location.id))).then(
+      (locations) => { if (!cancelled) setNearbyLocations(locations); },
+      () => { if (!cancelled) setLocationMessage("附近地点详情加载失败，可重新定位后重试。"); },
+    );
+    return () => { cancelled = true; };
+  }, [state.view, nearbySummaries]);
   const commandRoutes = useMemo(() => {
     const query = commandQuery.trim().toLowerCase();
-    return resolvedRoutes
-      .filter((item) => routeMatchesQuery(item, query))
+    return (!search.ready ? [] : resolvedRouteSummaries)
+      .filter((item) => routeSummaryMatchesQuery(item, query))
+      .sort(compareRouteEvidence)
       .slice(0, 7);
-  }, [commandQuery]);
+  }, [commandQuery, search.ready]);
   const commandGroups = searchWorkspaceViews(commandQuery);
   const openView = (view: AppView) => {
     state.setView(view);
@@ -307,7 +344,7 @@ export function App() {
     setCommandQuery("");
   };
   const openRouteFromAnywhere = useCallback((routeId: string) => {
-    const target = resolvedRoutes.find((item) => item.route.id === routeId);
+    const target = getRouteSummary(routeId);
     if (!target) return;
     usePlannerStore.getState().selectRoute(routeId);
     setCommandOpen(false);
@@ -411,8 +448,11 @@ export function App() {
       </header>
 
       <div id="main-content" tabIndex={-1} className="main-content-shell">
+        <LocalDataTools />
         <Suspense fallback={<ViewLoadingState />}>
-          {state.view === "dashboard" ? (
+          {needsFullCatalog && !fullCatalog ? (
+            catalogError ? <main className="view-loading" role="alert">{catalogError}<button onClick={() => setCatalogAttempt((value) => value + 1)}>重新加载</button></main> : <ViewLoadingState />
+          ) : state.view === "dashboard" ? (
             <DashboardView
               routes={resolvedRoutes}
               plans={state.plans}
@@ -430,13 +470,14 @@ export function App() {
             >
               <RouteList
                 routes={routes}
-                allRoutes={resolvedRoutes}
-                nearbyLocations={nearbyLocations}
+                allRoutes={resolvedRouteSummaries}
+                nearbyLocations={nearbySummaries}
                 currentRegion={currentRegion}
                 locationStatus={locationStatus}
                 locationMessage={locationMessage}
                 onLocate={locateCurrentCity}
                 onClearLocation={() => {
+                  locationRequest.current += 1;
                   setCurrentRegion(null);
                   setLocationStatus("idle");
                 }}
@@ -449,6 +490,11 @@ export function App() {
                   }
                 }}
               />
+              {(!search.ready || search.error || routeError || (selectedId && !selected) || (state.detailOpen && !getRouteSummary(state.selectedRouteId))) && <div className="catalog-load-notice" role={search.error || routeError ? "alert" : "status"}>
+                {search.error || routeError || (!search.ready ? "正在加载搜索资料…" : selectedId ? "正在加载路线详情…" : "当前版本没有这条路线，可继续浏览其他路线。")}
+                {search.error && <button onClick={search.retry}>重试搜索</button>}
+                {routeError && <button onClick={() => setRouteAttempt((value) => value + 1)}>重试详情</button>}
+              </div>}
               <MapCanvas
                 selected={selected}
                 nearbyLocations={nearbyLocations}
@@ -469,13 +515,13 @@ export function App() {
             <PlanView routes={resolvedRoutes} />
           ) : state.view === "locations" ? (
             <LocationView
-              locations={catalog.locations}
-              routes={resolvedRoutes}
-              catalogSchemaVersion={catalog.schemaVersion}
+              locations={catalogIndex.locations}
+              routes={resolvedRouteSummaries}
+              catalogSchemaVersion={catalogIndex.schemaVersion}
             />
           ) : state.view === "cameras" ? (
             <CameraView
-              presets={catalog.cameraPresets}
+              presets={catalogIndex.cameraPresets}
               routes={resolvedRoutes}
             />
           ) : state.view === "post" ? (
@@ -549,6 +595,7 @@ export function App() {
             ))}
             <div className="command-section command-results">
               <small>路线结果 · {commandRoutes.length}</small>
+              {!search.ready && <p role="status">{search.error || "正在加载搜索资料…"}{search.error && <button onClick={search.retry}>重试</button>}</p>}
               {commandRoutes.map((item) => (
                 <button
                   key={item.route.id}
@@ -560,13 +607,13 @@ export function App() {
                     <strong>{item.route.name}</strong>
                     <small>
                       {item.route.cities.join(" · ")} ·{" "}
-                      预留 {item.route.estimatedDurationMinutes} 分钟
+                      {routeDurationLabel(item.route, item.waypoints)}
                     </small>
                   </span>
                   <ArrowRight size={15} />
                 </button>
               ))}
-              {!commandRoutes.length && (
+              {search.ready && !commandRoutes.length && (
                 <div className="command-empty">
                   <p>没有匹配路线，试试城市名或景观关键词。</p>
                   <button onClick={() => setCommandQuery("")}>清除搜索</button>
@@ -580,7 +627,7 @@ export function App() {
               <span>
                 <kbd>Esc</kbd> 关闭
               </span>
-              <span>共 {resolvedRoutes.length} 条路线</span>
+              <span>共 {resolvedRouteSummaries.length} 条路线</span>
             </footer>
           </section>
         </div>

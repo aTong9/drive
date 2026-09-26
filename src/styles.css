@@ -2210,11 +2210,7 @@ data,
   margin-top: 9px;
   border: 1px solid rgba(var(--accent-rgb), 0.16);
   border-radius: 9px;
-  background: linear-gradient(
-    105deg,
-    rgba(var(--accent-rgb), 0.09),
-    rgba(28, 32, 27, 0.8)
-  );
+  background: var(--panel-strong);
 }
 .driving-result > div {
   display: flex;
@@ -2268,11 +2264,7 @@ data,
 }
 .driving-result.access-only {
   border-color: rgba(168, 189, 120, 0.2);
-  background: linear-gradient(
-    105deg,
-    rgba(150, 177, 90, 0.09),
-    rgba(28, 32, 27, 0.8)
-  );
+  background: var(--orange-soft);
 }
 .driving-result.access-only > div > svg {
   color: var(--orange);
@@ -2651,14 +2643,15 @@ data,
   min-width: 0;
   height: 42px;
   border-radius: 8px;
-  color: white;
+  color: var(--ink);
   font-size: var(--font-caption);
   font-weight: 600;
   cursor: pointer;
 }
-.detail-plan-button {
+.detail-action-buttons .detail-plan-button {
   border: 0;
   background: var(--orange);
+  color: var(--on-accent);
   box-shadow: 0 9px 25px rgba(var(--accent-rgb), 0.15);
 }
 .detail-plan-button:hover {
@@ -6460,292 +6453,6 @@ data,
 .camera-verify-list svg {
   flex: 0 0 auto;
   color: var(--sky);
-}
-.camera-page {
-  display: grid;
-  grid-template-columns: minmax(480px, 1fr) 390px;
-  height: calc(100vh - 68px);
-  background: var(--canvas);
-}
-.camera-browser {
-  min-width: 0;
-  padding: 34px clamp(20px, 4vw, 58px);
-  overflow-y: auto;
-}
-.camera-head {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  max-width: 920px;
-  margin: 0 auto 22px;
-}
-.camera-head h1 {
-  margin: 0;
-  font-family: Georgia, "Songti SC", serif;
-  font-size: 36px;
-  font-weight: 500;
-}
-.camera-head > div:first-child > p:last-child {
-  margin: 8px 0 0;
-  color: var(--muted);
-  font-size: var(--font-caption);
-}
-.camera-count {
-  display: flex;
-  flex-direction: column;
-  text-align: right;
-}
-.camera-count strong {
-  font-family: Georgia, serif;
-  font-size: 24px;
-  font-weight: 500;
-}
-.camera-count small {
-  color: var(--muted);
-  font-size: var(--font-caption);
-}
-.camera-search {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  max-width: 920px;
-  height: 42px;
-  padding: 0 12px;
-  margin: 0 auto 11px;
-  border: 1px solid var(--line);
-  border-radius: 9px;
-  background: var(--panel);
-  color: var(--muted);
-}
-.camera-search input {
-  flex: 1;
-  border: 0;
-  outline: 0;
-  background: transparent;
-  color: var(--ink);
-  font-size: var(--font-caption);
-}
-.camera-tabs {
-  display: flex;
-  gap: 6px;
-  max-width: 920px;
-  margin: 0 auto 19px;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-.camera-tabs button {
-  flex: 0 0 auto;
-  padding: 7px 11px;
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  background: transparent;
-  color: var(--muted);
-  font-size: var(--font-caption);
-  cursor: pointer;
-}
-.camera-tabs button.active {
-  border-color: rgba(var(--accent-rgb), 0.35);
-  color: var(--danger);
-  background: var(--orange-soft);
-}
-.preset-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 11px;
-  max-width: 920px;
-  margin: 0 auto;
-}
-.preset-card {
-  min-height: 190px;
-  padding: 17px;
-  text-align: left;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: var(--panel);
-  color: inherit;
-  cursor: pointer;
-}
-.preset-card:hover,
-.preset-card.active {
-  border-color: rgba(var(--accent-rgb), 0.35);
-  background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.07), var(--panel) 55%);
-}
-.preset-card-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.preset-card-top > span {
-  display: grid;
-  place-items: center;
-  width: 35px;
-  height: 35px;
-  border-radius: 9px;
-  background: rgba(var(--accent-rgb), 0.09);
-  color: var(--danger);
-}
-.preset-card-top small {
-  color: var(--muted);
-  font-size: var(--font-caption);
-  letter-spacing: 0.08em;
-}
-.preset-card h2 {
-  margin: 17px 0 7px;
-  font-family: Georgia, "Songti SC", serif;
-  font-size: 17px;
-  font-weight: 500;
-}
-.preset-card > p {
-  min-height: 37px;
-  margin: 0 0 14px;
-  color: var(--muted);
-  font-size: var(--font-caption);
-  line-height: 1.55;
-}
-.preset-card > div:last-child {
-  display: flex;
-  gap: 6px;
-}
-.preset-card > div:last-child span {
-  padding: 5px 7px;
-  border-radius: 5px;
-  background: rgba(255, 255, 255, 0.035);
-  color: var(--ink);
-  font-size: var(--font-caption);
-}
-.camera-detail {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  border-left: 1px solid var(--line);
-  background: var(--panel);
-}
-.camera-detail-hero {
-  position: relative;
-  padding: 28px 22px 23px 83px;
-  overflow: hidden;
-  border-bottom: 1px solid var(--line);
-  background:
-    radial-gradient(
-      circle at 85% 20%,
-      rgba(var(--accent-rgb), 0.14),
-      transparent 28%
-    ),
-    var(--panel);
-}
-.camera-hero-icon {
-  position: absolute;
-  left: 22px;
-  top: 29px;
-  display: grid;
-  place-items: center;
-  width: 46px;
-  height: 46px;
-  border: 1px solid rgba(var(--accent-rgb), 0.19);
-  border-radius: 12px;
-  background: rgba(var(--accent-rgb), 0.08);
-  color: var(--danger);
-}
-.camera-detail-hero p {
-  margin: 0 0 5px;
-  color: var(--danger);
-  font-size: var(--font-caption);
-  letter-spacing: 0.12em;
-}
-.camera-detail-hero h2 {
-  margin: 0 0 7px;
-  font-family: Georgia, serif;
-  font-size: 20px;
-  font-weight: 500;
-}
-.camera-detail-hero small {
-  color: var(--muted);
-  font-size: var(--font-caption);
-  letter-spacing: 0.09em;
-}
-.camera-detail-scroll {
-  min-height: 0;
-  flex: 1;
-  padding: 18px 19px 36px;
-  overflow-y: auto;
-}
-.exposure-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 7px;
-}
-.exposure-grid > div {
-  display: grid;
-  grid-template-columns: 28px 1fr;
-  grid-template-rows: auto auto;
-  padding: 10px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--panel);
-}
-.exposure-grid svg {
-  grid-row: 1 / 3;
-  color: var(--ink);
-}
-.exposure-grid small {
-  color: var(--muted);
-  font-size: var(--font-caption);
-}
-.exposure-grid strong {
-  margin-top: 3px;
-  color: var(--ink);
-  font-size: var(--font-caption);
-  font-weight: 500;
-}
-.profile-bar {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  padding: 10px 12px;
-  margin-top: 8px;
-  border: 1px solid rgba(82, 153, 138, 0.17);
-  border-radius: 8px;
-  background: rgba(82, 153, 138, 0.045);
-  color: var(--sky);
-}
-.profile-bar span {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  gap: 2px;
-}
-.profile-bar small {
-  color: var(--muted);
-  font-size: var(--font-caption);
-}
-.profile-bar strong {
-  color: var(--ink);
-  font-size: var(--font-caption);
-  font-weight: 500;
-}
-.camera-detail-scroll > section {
-  margin-top: 22px;
-}
-.camera-detail-scroll section .eyebrow {
-  margin-bottom: 4px;
-  color: var(--muted);
-  font-size: var(--font-caption);
-}
-.camera-detail-scroll section h3 {
-  margin: 0 0 8px;
-  font-family: Georgia, "Songti SC", serif;
-  font-size: 14px;
-  font-weight: 500;
-}
-.camera-detail-scroll section > p:last-child,
-.camera-detail-scroll li {
-  color: var(--muted);
-  font-size: var(--font-caption);
-  line-height: 1.65;
-}
-.camera-detail-scroll ul {
-  padding-left: 17px;
-  margin: 0;
 }
 .camera-route {
   display: flex;

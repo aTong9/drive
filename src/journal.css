@@ -196,7 +196,10 @@
 .region-control-grid label > span, .region-control-label { font-size: 11px; }
 :root[data-theme] .location-detail { background: var(--panel-strong); }
 :root[data-theme] .location-detail-hero h2,
-:root[data-theme] .location-detail-hero p { color: #fffdf0; text-shadow: 0 1px 4px #172c29; }
+:root[data-theme] .location-detail-hero p,
+:root[data-theme] .detail-hero-copy > p { color: #fffdf0; text-shadow: 0 1px 4px #172c29; }
+.detail-hero { --ink: #fffdf0; --danger: #fffdf0; --orange: #d4e8bd; --lime: #f3ddb0; --sky: #c4e7f0; }
+.detail-hero-copy { text-shadow: 0 1px 4px #172c29; }
 .location-detail-hero p { font-size: 11px; }
 :root[data-theme] .location-detail-scroll section > p:last-child { color: var(--muted); font-size: 12px; line-height: 1.85; }
 .location-detail-scroll section h3 { font-size: 17px; }
@@ -413,3 +416,47 @@ button:not(:disabled), summary { cursor: pointer; }
 .camera-personal-values input { font-size: 14px; min-height: 40px; }
 .camera-personal-values input[aria-invalid="true"] { border-color: var(--danger); }
 .camera-personal-values [role="alert"] { color: var(--danger); font-size: 12px; line-height: 1.5; }
+/* Local backups stay available across workspaces; failures remain visible. */
+.local-data-tools {
+  padding: 8px clamp(16px, 4vw, 50px);
+  color: var(--muted);
+  font-size: var(--font-caption);
+}
+.local-data-tools > details > summary { cursor: pointer; width: fit-content; margin-left: auto; }
+.local-data-tools > details[open], .local-data-warning {
+  padding: 14px 18px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--ink);
+}
+.local-data-warning { margin-bottom: 8px; border-color: var(--danger); }
+.local-data-tools p { line-height: 1.6; overflow-wrap: anywhere; }
+.local-data-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.local-data-actions label { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.local-data-tools input { max-width: 100%; }
+.local-data-tools button, .catalog-load-notice button, .view-loading button {
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--panel);
+  color: var(--ink);
+  cursor: pointer;
+}
+.local-data-restore { padding-top: 12px; }
+.local-data-restore button + button { margin-left: 8px; }
+.catalog-load-notice {
+  position: absolute;
+  z-index: 5;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: min(90%, 440px);
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--ink);
+  box-shadow: 0 4px 16px #0002;
+}
+.workspace { position: relative; }

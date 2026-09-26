@@ -1,3 +1,4 @@
+import { TutorialBody } from "./TutorialBody.js";
 import { useSessionState } from "../common/useSessionState.js";
 import { useMemo } from "react";
 import {
@@ -182,43 +183,7 @@ export function FinalCutProGuide() {
                   </div>
                 </div>
               </summary>
-              <div className="resolve-tutorial-body">
-                <p className="resolve-tutorial-scenario">
-                  <strong>适用场景</strong>
-                  {tutorial.scenario}
-                </p>
-                <div className="resolve-tutorial-settings">
-                  {tutorial.settings.map((item) => (
-                    <span key={item}>{item}</span>
-                  ))}
-                </div>
-                <section>
-                  <strong>跟着做</strong>
-                  <ol>
-                    {tutorial.steps.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ol>
-                </section>
-                <section>
-                  <strong>通过标准</strong>
-                  <ul>
-                    {tutorial.checks.map((item) => (
-                      <li key={item}>
-                        <CheckCircle2 size={12} />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </section>
-                <p className="resolve-tutorial-pitfall">
-                  <AlertTriangle size={12} />
-                  <span>
-                    <strong>常见失败：</strong>
-                    {tutorial.pitfall}
-                  </span>
-                </p>
-              </div>
+              <TutorialBody tutorial={tutorial} />
             </details>
           ))}
         </div>

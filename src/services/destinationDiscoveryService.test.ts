@@ -29,3 +29,11 @@ test("destination overview summarizes route mix and prioritizes useful verified 
   assert.deepEqual(overview.routeTypes[0], { value: "mountain", label: "山路", count: 2 });
   assert.equal(overview.priorityRoutes[0]?.route.id, "field");
 });
+
+test("destination priority keeps high-scoring draft routes behind checked routes", () => {
+  const draft = route("draft", "coast", 5, "draft");
+  const checked = route("checked", "mountain", 3, "source-checked");
+  const overview = buildDestinationOverview([draft, checked]);
+  assert.equal(overview.priorityRoutes[0]?.route.id, "checked");
+  assert.equal(overview.total, 2);
+});

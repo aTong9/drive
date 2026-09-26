@@ -1,6 +1,8 @@
 import type { Location } from "../types/domain.js";
 import { hasAmapCredentials, loadAmap } from "./amapLoader.js";
 
+type PhotoLocation = Pick<Location, "id" | "name" | "city" | "coordinate">;
+
 const memoryCache = new Map<string, Promise<string[]>>();
 const CACHE_PREFIX = "roadlens-amap-photo-v2:";
 const MAX_CONCURRENT_PHOTO_REQUESTS = 3;
@@ -41,7 +43,7 @@ function nameMatches(expected: string, actual: string) {
   return Boolean(probe) && (right.includes(probe) || left.includes(right));
 }
 
-function distanceMeters(location: Location, poi: AmapPoi) {
+function distanceMeters(location: PhotoLocation, poi: AmapPoi) {
   if (!poi.location) return Number.POSITIVE_INFINITY;
   const latScale = 111_320;
   const lngScale = latScale * Math.cos(location.coordinate.lat * Math.PI / 180);
@@ -58,7 +60,7 @@ function writeCached(locationId: string, urls: string[]) {
   catch { /* Private browsing or quota limits should not block thumbnails. */ }
 }
 
-async function findWikimediaPhotos(location: Location): Promise<string[]> {
+async function findWikimediaPhotos(location: PhotoLocation): Promise<string[]> {
   try {
     const params = new URLSearchParams({
       action: "query",
@@ -79,7 +81,7 @@ async function findWikimediaPhotos(location: Location): Promise<string[]> {
   } catch { return []; }
 }
 
-export function findAmapLocationPhotos(location: Location): Promise<string[]> {
+export function findAmapLocationPhotos(location: PhotoLocation): Promise<string[]> {
   if (typeof window === "undefined") return Promise.resolve([]);
   const cached = readCached(location.id);
   if (cached) {
@@ -115,6 +117,6 @@ export function findAmapLocationPhotos(location: Location): Promise<string[]> {
   return request;
 }
 
-export async function findAmapLocationPhoto(location: Location): Promise<string | null> {
+export async function findAmapLocationPhoto(location: PhotoLocation): Promise<string | null> {
   return (await findAmapLocationPhotos(location))[0] ?? null;
 }

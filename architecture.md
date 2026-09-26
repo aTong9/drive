@@ -3,7 +3,7 @@
 ## 核心原则
 
 1. 数据驱动 UI。
-2. 地图是核心入口。
+2. 地点研究是默认入口，地图服务路线探索。
 3. 先完成小型纵向闭环，再扩展模块和数据量。
 4. 事实、编辑建议和实时导航信息必须分开。
 5. 数据必须先通过运行时校验，再进入强类型服务层。
@@ -38,6 +38,8 @@ data/catalog.json
 
 CLI 是服务层的最小消费者；页面通过 catalog、Dashboard、推荐、GPX 与工作流服务消费数据，不直接解释 JSON。
 
+浏览器由 `browserCatalogService` 提供全国摘要和异步详情，构建时生成详情分片与独立全文索引；Node/CLI 保持 `catalogService` 的完整 Catalog。摘要类型明确省略详情字段，不能伪装成完整领域对象。PWA 只预缓存默认入口所需资源。
+
 ## 前端目标结构
 
 ```text
@@ -60,11 +62,11 @@ src/
 
 ## 状态管理
 
-Zustand 仅保存跨页面交互状态，例如模式、筛选条件和选中实体。Catalog 数据由服务层读取，不在 Store 内复制一份。
+Zustand 管理交互状态和当前设备业务资料。`workspaceNavigation` 将工作区、筛选与选中详情同步到 URL；`deviceStorage` 只持久化 `DeviceState` 业务字段，读取/迁移失败时停止覆盖，保存失败时通知界面。完整备份经共享运行时校验后先写入存储再替换内存。Catalog 数据由服务层读取，不在 Store 内复制一份。
 
 ## 地图与坐标
 
-第一阶段使用高德地图 JS API 2.0 和 GCJ-02。地图加载封装在 `services/amapLoader.ts`，组件只负责地图实例和覆盖物生命周期。API Key 与 securityJsCode 从本地环境注入并限制允许域名，不提交到 Git；生产环境应使用服务端代理隐藏安全密钥。
+使用高德地图 JS API 2.0；大陆地点采用 GCJ-02，台湾、香港、澳门保留 WGS84。地图加载封装在 `services/amapLoader.ts`，组件只负责地图实例和覆盖物生命周期。API Key 与 securityJsCode 从本地环境注入并限制允许域名，不提交到 Git；生产环境应使用服务端代理隐藏安全密钥。
 
 地点存储可核验坐标；路线导航和实时路况由地图服务生成。GPX 与浏览器定位的 WGS84 坐标统一在 `gpxImport` 数据边界转换为 GCJ-02。
 
