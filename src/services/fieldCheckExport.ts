@@ -23,7 +23,13 @@ export async function importFieldChecks(file: File, catalogSchemaVersion: string
   for (const record of payload.records) {
     const check = record?.fieldCheck;
     if (!check || !locationIds.has(check.locationId)) throw new Error(`记录引用了未知地点：${check?.locationId ?? "空"}`);
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(check.visitedAt) || !check.updatedAt || typeof check.overallNote !== "string") throw new Error(`地点 ${check.locationId} 的核验字段不完整`);
+    const notes = [check.parkingNote, check.lightNote, check.soundNote, check.overallNote];
+    const visited = typeof check.visitedAt === "string" && /^\d{4}-\d{2}-\d{2}$/.test(check.visitedAt)
+      ? new Date(`${check.visitedAt}T00:00:00Z`) : new Date(NaN);
+    if (!Number.isFinite(visited.getTime()) || visited.toISOString().slice(0, 10) !== check.visitedAt ||
+      typeof check.updatedAt !== "string" || !Number.isFinite(Date.parse(check.updatedAt)) ||
+      notes.some((note) => typeof note !== "string"))
+      throw new Error(`地点 ${check.locationId} 的核验字段不完整或日期无效`);
     checks.push(check);
   }
   return checks;

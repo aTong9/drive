@@ -437,7 +437,10 @@ export function normalizeVideoProject(
       attribution: track.attribution ?? "",
       licenseReference: track.licenseReference ?? "",
     })),
-    deliveryItems: value.deliveryItems ?? [],
+    deliveryItems: (value.deliveryItems ?? []).map((item) => ({
+      ...item,
+      title: item.title.replace(/^aBin\s+(?=Vision\b)/i, ""),
+    })),
     publish: {
       ...value.publish,
       visionTitle: value.publish?.visionTitle ?? "",
@@ -531,7 +534,7 @@ export function generateProjectDescription(
     project.publish.chapters ? `章节：\n${project.publish.chapters}` : "",
     attribution ? `音乐署名：\n${attribution}` : "",
     project.origin === "research" ? "" : [
-      project.channelMode !== "ambience" ? "Vision：道路环境声与授权音乐" : "",
+      project.channelMode !== "ambience" ? "Vision：保留道路环境声；配乐许可与署名须逐曲核对" : "",
       project.channelMode !== "vision" ? "Ambience：真实道路环境声，无音乐" : "",
     ].filter(Boolean).join("\n"),
   ]
@@ -604,8 +607,8 @@ export function validateVideoProject(
     optionalFields(project.retrospective?.metrics, ["bestMoment", "dropoffMoment"]) &&
     [project.ingestItems, project.deliveryItems].every((items) => items === undefined || (Array.isArray(items) && items.every((item) =>
       item && typeof item.id === "string" && typeof item.title === "string" && typeof item.completed === "boolean" && optionalFields(item, ["note"])))) &&
-    (!project.mediaBatches || Array.isArray(project.mediaBatches)) &&
-    (!project.mediaBatches ||
+    (project.mediaBatches === undefined || Array.isArray(project.mediaBatches)) &&
+    (project.mediaBatches === undefined ||
       project.mediaBatches.every(
         (batch) =>
           typeof batch?.id === "string" &&

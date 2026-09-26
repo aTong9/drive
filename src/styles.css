@@ -18237,7 +18237,7 @@ small {
     .library-route-card h2,
     .region-path strong
   ) {
-  color: var(--muted);
+  color: var(--ink);
 }
 :root[data-theme="light"]
   :where(
@@ -20716,7 +20716,7 @@ small {
 .music-page button:focus-visible,
 .music-page a:focus-visible,
 .music-page summary:focus-visible,
-.music-page select:focus-visible { outline: 2px solid #a997d4; outline-offset: 3px; }
+.music-page select:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
 @media (max-width: 760px) {
   .music-page .music-hero { gap: 14px; }
   .music-page .music-summary { gap: 12px; padding: 10px; }

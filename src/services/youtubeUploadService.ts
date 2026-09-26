@@ -36,6 +36,12 @@ export function buildYoutubeUploadGuide(
   template: YoutubeUploadTemplate = "search",
 ): YoutubeUploadGuide {
   const isVision = variant === "vision";
+  const musicLicensed = !!project?.musicTracks.length && project.musicTracks.every(
+    (track) => track.licenseStatus === "licensed" || track.licenseStatus === "clearlisted",
+  );
+  const musicEn = musicLicensed ? "Licensed music + real road sounds" : "Real road sounds · [Confirm music licensing before publishing]";
+  const musicZh = musicLicensed ? "已授权音乐 + 真实道路声" : "真实道路声 · [发布前确认音乐许可]";
+  const chapters = project?.publish.chapters.trim();
   const routeName = route?.route.name ?? project?.title ?? "本次路线";
   const cities = route?.route.cities ?? [];
   const primaryPlace = cities[0] || routeName;
@@ -58,14 +64,14 @@ export function buildYoutubeUploadGuide(
   };
   const routeLine = cities.length ? cities.join(" → ") : routeName;
   const channelPromise = isVision
-    ? "A cinematic night journey with authentic road ambience and carefully licensed music. The road sound remains part of the experience."
+    ? `A cinematic night journey with authentic road ambience${musicLicensed ? " and carefully licensed music" : ""}. The road sound remains part of the experience.`
     : "An uninterrupted real-time journey with authentic road and environmental sounds. No music, no talking, no artificial sound loops.";
   const chinesePromise = isVision
-    ? "电影感夜间路线影像，保留真实道路环境声并搭配已授权音乐。"
+    ? `电影感夜间路线影像，保留真实道路环境声${musicLicensed ? "并搭配已授权音乐" : ""}。`
     : "真实道路与自然环境声，无音乐、无旁白、不使用伪造循环环境声。";
   const baseDescription =
-    project && route
-      ? generateProjectDescription(project, route)
+    project
+      ? generateProjectDescription({ ...project, channelMode: variant, musicTracks: isVision ? project.musicTracks : [], publish: { ...project.publish, chapters: "" } }, route)
       : "拍摄日期、章节、设备和音乐署名请在发布前补齐。";
   const descriptionLead: Record<YoutubeUploadTemplate, string> = {
     search: `${routeName} — filmed as a ${isVision ? "cinematic" : "natural-sound"} 4K HDR journey.`,
@@ -81,8 +87,8 @@ export function buildYoutubeUploadGuide(
       : "戴上耳机，进入未经修饰的真实道路声音，适合作为睡眠、专注或安静观看的背景。",
     archive: `路线影像档案：${routeLine}。建议使用支持 4K HDR 的电视或高分辨率显示设备观看。`,
   };
-  const descriptionEn = `${descriptionLead[template]}\n${channelPromise}\n\nROUTE\n${routeLine}\n\nVIDEO\n4K HDR · ${isVision ? "Cinematic night drive · Licensed music + real road sounds" : "Real-time ambience · No music · No talking"}\n\nCHAPTERS\n00:00 Preview\n00:45 Journey begins\n[Replace with exact chapter timestamps before publishing]\n\nFILMING NOTES\nAdd the exact filming date, camera, lens and route notes before publishing.\n\n#4KHDR #NightDrive #${isVision ? "CinematicDrive" : "RoadAmbience"}`;
-  const descriptionZh = `${descriptionLeadZh[template]}\n${chinesePromise}\n\n路线\n${routeLine}\n\n视频规格\n4K HDR · ${isVision ? "电影感夜间驾驶 · 已授权音乐 + 真实道路声" : "实时环境声 · 无音乐 · 无旁白"}\n\n章节\n00:00 预览\n00:45 旅程开始\n[发布前替换为真实章节时间码]\n\n拍摄资料\n${baseDescription}\n\n#4KHDR #夜间驾驶 #${isVision ? "电影感驾驶" : "道路环境声"}`;
+  const descriptionEn = `${descriptionLead[template]}\n${channelPromise}\n\nROUTE\n${routeLine}\n\nVIDEO\n4K HDR · ${isVision ? `Cinematic night drive · ${musicEn}` : "Real-time ambience · No music · No talking"}\n\nCHAPTERS\n${chapters || "[Add exact chapter timestamps before publishing]"}\n\nFILMING NOTES\nAdd the exact filming date, camera, lens and route notes before publishing.\n\n#4KHDR #NightDrive #${isVision ? "CinematicDrive" : "RoadAmbience"}`;
+  const descriptionZh = `${descriptionLeadZh[template]}\n${chinesePromise}\n\n路线\n${routeLine}\n\n视频规格\n4K HDR · ${isVision ? `电影感夜间驾驶 · ${musicZh}` : "实时环境声 · 无音乐 · 无旁白"}\n\n章节\n${chapters || "[发布前填写真实章节时间码]"}\n\n拍摄资料\n${baseDescription}\n\n#4KHDR #夜间驾驶 #${isVision ? "电影感驾驶" : "道路环境声"}`;
   const description = `${descriptionEn}\n\n中文\n${descriptionZh}`;
   const tags = [
     ...new Set([
@@ -125,7 +131,7 @@ export function buildYoutubeUploadGuide(
       ? ["逐曲确认音乐许可、Content ID 状态和署名文本"]
       : ["确认无未授权音乐，环境声未被过度降噪或循环伪造"]),
     "标题前半段必须出现真实地点；不要同时堆叠 Relaxing、Sleep、ASMR、Study 等用途词",
-    "将 00:45 和占位章节替换为成片真实时间码，删除所有方括号提示",
+    "核对章节与成片时间码一致，删除所有方括号提示",
     "补齐拍摄日期、路线章节、封面、播放列表、结束画面和字幕语言",
     "手机、电脑与电视端各试听一次，再设置公开或定时发布",
   ];
@@ -140,7 +146,7 @@ export function buildYoutubeUploadGuide(
           "Confirm there is no unauthorized music and that ambience is neither over-denoised nor artificially looped.",
         ]),
     "Put the real location in the first half of the title; do not stack Relaxing, Sleep, ASMR and Study keywords.",
-    "Replace 00:45 and every placeholder with exact timestamps; remove all bracketed notes.",
+    "Verify chapters against the final video timestamps; remove all bracketed notes.",
     "Complete filming date, route chapters, thumbnail, playlist, end screen and language metadata.",
     "Review picture and sound on phone, computer and TV before scheduling or publishing.",
   ];

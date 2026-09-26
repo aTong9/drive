@@ -3,7 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f6f3e9" />
+    <meta name="theme-color" content="#f4f0e5" />
+    <script id="theme-init">
+      (() => {
+        let theme = "light";
+        try {
+          if (localStorage.getItem("roadlens-theme") === "dark") theme = "dark";
+        } catch { /* Keep the default when storage is unavailable. */ }
+        document.documentElement.dataset.theme = theme;
+        document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme === "dark" ? "#142421" : "#f4f0e5");
+      })();
+    </script>
     <meta
       name="description"
       content="RoadLens Planner — 为自驾摄影创作者规划真实、可执行的拍摄路线。"

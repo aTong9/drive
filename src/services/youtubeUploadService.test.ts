@@ -20,7 +20,7 @@ test("keeps the two channel promises distinct", () => {
   const vision = buildYoutubeUploadGuide(undefined, undefined, "vision");
   const ambience = buildYoutubeUploadGuide(undefined, undefined, "ambience");
   assert.match(vision.title, /Cinematic Night Drive/);
-  assert.match(vision.description, /licensed music/i);
+  assert.match(vision.description, /Confirm music licensing/i);
   assert.match(ambience.title, /No Music, No Talking/);
   assert.match(ambience.description, /真实道路与自然环境声/);
   assert.notEqual(vision.playlist, ambience.playlist);
@@ -80,4 +80,28 @@ test("keeps the general upload template separate from saved projects", () => {
   assert.equal(resolveUploadProject(projects, "second"), projects[1]);
   assert.equal(resolveUploadProject(projects, "deleted"), projects[0]);
   assert.equal(resolveUploadProject([], "deleted"), undefined);
+});
+
+test("publishing text uses saved chapters and only claims confirmed music licenses", () => {
+  const route = resolvedRoutes[0]!;
+  const project = buildVideoProject({ id: "publish-check", routeId: route.route.id, scheduledDate: "2026-09-26", objective: "测试", status: "planned", createdAt: "2026-09-26" }, route);
+  project.publish.chapters = "00:00 Opening\n02:17 Riverside";
+  project.musicTracks = [{ id: "music", title: "Track", platform: "Library", channel: "vision", licenseStatus: "candidate", attribution: "Artist", licenseReference: "" }];
+  for (const template of ["search", "immersive", "archive"] as const) {
+    const guide = buildYoutubeUploadGuide(project, route, "vision", template);
+    for (const description of [guide.descriptionEn, guide.descriptionZh]) {
+      assert.equal(description.split(project.publish.chapters).length - 1, 1);
+      assert.doesNotMatch(description, /00:45|已授权音乐|licensed music/i);
+    }
+  }
+  project.musicTracks[0]!.licenseStatus = "licensed";
+  assert.match(buildYoutubeUploadGuide(project, route, "vision").descriptionZh, /已授权音乐/);
+  project.musicTracks[0]!.licenseStatus = "clearlisted";
+  assert.match(buildYoutubeUploadGuide(project, route, "vision").descriptionZh, /已授权音乐/);
+  const ambience = buildYoutubeUploadGuide(project, route, "ambience");
+  assert.doesNotMatch(ambience.descriptionZh, /音乐署名|Vision：/);
+  project.musicTracks.push({ ...project.musicTracks[0]!, id: "unconfirmed", licenseStatus: "candidate" });
+  assert.doesNotMatch(buildYoutubeUploadGuide(project, route, "vision").descriptionZh, /已授权音乐/);
+  project.musicTracks = [];
+  assert.doesNotMatch(buildYoutubeUploadGuide(project, route, "vision").descriptionZh, /已授权音乐/);
 });

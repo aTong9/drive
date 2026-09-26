@@ -14,3 +14,11 @@ test("imports version-matched field checks", async () => {
 test("rejects unknown location references", async () => {
   await assert.rejects(() => importFieldChecks(new File([JSON.stringify(payload)], "checks.json"), "2.0.0", []), /未知地点/);
 });
+
+test("rejects malformed field notes and impossible visit dates", async () => {
+  for (const patch of [{ parkingNote: {} }, { lightNote: [] }, { soundNote: 1 }, { updatedAt: {} }, { visitedAt: "2026-02-30" }]) {
+    const record = { ...payload.records[0], fieldCheck: { ...payload.records[0]!.fieldCheck, ...patch } };
+    const file = new File([JSON.stringify({ ...payload, records: [record] })], "checks.json");
+    await assert.rejects(() => importFieldChecks(file, "2.0.0", [location]), /核验字段/);
+  }
+});

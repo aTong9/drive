@@ -168,6 +168,8 @@ export function LocationView({
   const [importMessage, setImportMessage] = useState("");
   const importInputRef = useRef<HTMLInputElement>(null);
   const resultsTopRef = useRef<HTMLDivElement>(null);
+  const detailRef = useRef<HTMLElement>(null);
+  const detailCloseRef = useRef<HTMLButtonElement>(null);
   const fieldChecks = usePlannerStore((state) => state.fieldChecks);
   const saveFieldCheck = usePlannerStore((state) => state.saveFieldCheck);
   const removeFieldCheck = usePlannerStore((state) => state.removeFieldCheck);
@@ -238,6 +240,25 @@ export function LocationView({
     if (previousFilters.current.routeFilterKey !== routeFilterKey) setRoutePage(1);
     previousFilters.current = { locationFilterKey, routeFilterKey };
   }, [locationFilterKey, routeFilterKey]);
+
+  const detailOpen = detailVisible && browseMode === "locations" && filtered.some((location) => location.id === selected?.id);
+  useEffect(() => {
+    if (!detailOpen) return;
+    const previousFocus = document.activeElement as HTMLElement | null;
+    const panel = detailRef.current;
+    detailCloseRef.current?.focus({ preventScroll: true });
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      event.preventDefault();
+      event.stopPropagation();
+      setDetailVisible(false);
+    };
+    panel?.addEventListener("keydown", onKeyDown);
+    return () => {
+      panel?.removeEventListener("keydown", onKeyDown);
+      if (panel?.contains(document.activeElement)) previousFocus?.focus({ preventScroll: true });
+    };
+  }, [detailOpen, setDetailVisible]);
 
   if (!selected) return null;
   const relatedRoutes = routes.filter((route) =>
@@ -737,7 +758,9 @@ export function LocationView({
       </section>
 
       <aside
-        className={`location-detail ${detailVisible && browseMode === "locations" && filtered.some((location) => location.id === selected.id) ? "" : "is-hidden"}`}
+        ref={detailRef}
+        aria-label={`${selected.name}详情`}
+        className={`location-detail ${detailOpen ? "" : "is-hidden"}`}
       >
         <div className="location-detail-hero">
           <GeoPhotoThumbnail
@@ -748,6 +771,7 @@ export function LocationView({
             variant="hero"
           />
           <button
+            ref={detailCloseRef}
             className="location-detail-close"
             onClick={() => setDetailVisible(false)}
             aria-label="关闭地点详情"

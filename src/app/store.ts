@@ -453,7 +453,7 @@ export const usePlannerStore = create<PlannerState>()(
     }),
     {
       name: "roadlens-planner-device-state",
-      version: 10,
+      version: 11,
       migrate: (persisted) => {
         const state = persisted as Partial<PlannerState>;
         return {

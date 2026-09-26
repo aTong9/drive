@@ -47,6 +47,14 @@ const route = {
   cameraPresets: [{ id: "camera-a" }],
 } as unknown as ResolvedRoute;
 
+test("legacy delivery labels lose the retired brand without losing recorded work", () => {
+  const project = buildVideoProject(plan, route);
+  project.deliveryItems[1] = { ...project.deliveryItems[1]!, title: "aBin Vision 与 Ambience 画面长度一致", completed: true, note: "已核对" };
+  const normalized = normalizeVideoProject(project);
+  assert.deepEqual(normalized.deliveryItems[1], { ...project.deliveryItems[1], title: "Vision 与 Ambience 画面长度一致" });
+  assert.deepEqual(normalizeVideoProject(normalized), normalized);
+});
+
 test("video project derives a dual-channel shot list and field pack", () => {
   const project = buildVideoProject(plan, route);
   assert.equal(project.channelMode, "dual");
@@ -283,4 +291,12 @@ test("media batch import rejects invalid counts and sizes while accepting legacy
     assert.equal(valid({ fileCount }), false);
   for (const totalGB of [-1, Infinity, NaN, "1.2"])
     assert.equal(valid({ totalGB }), false);
+});
+
+test("project import rejects falsey non-array media collections before normalization", () => {
+  const project = buildVideoProject(plan, route);
+  for (const mediaBatches of [false, 0, "", null]) {
+    assert.equal(validateVideoProject({ ...project, mediaBatches }), false, `mediaBatches=${JSON.stringify(mediaBatches)}`);
+  }
+  assert.equal(validateVideoProject({ ...project, mediaBatches: undefined }), true);
 });

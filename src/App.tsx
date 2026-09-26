@@ -123,7 +123,7 @@ function ViewLoadingState() {
 export function App() {
   const state = usePlannerStore();
   const [theme, setTheme] = useState<"dark" | "light">(() =>
-    localStorage.getItem("roadlens-theme") === "dark" ? "dark" : "light",
+    document.documentElement.dataset.theme === "dark" ? "dark" : "light",
   );
   const [drivingSummary, setDrivingSummary] = useState<DrivingSummary | null>(
     null,
@@ -143,8 +143,10 @@ export function App() {
   );
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
-    localStorage.setItem("roadlens-theme", theme);
-    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme === "light" ? "#f6f3e9" : "#172c29");
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme === "light" ? "#f4f0e5" : "#142421");
+    try {
+      localStorage.setItem("roadlens-theme", theme);
+    } catch { /* Theme switching still works without persistence. */ }
   }, [theme]);
   useEffect(() => applyViewMetadata(state.view), [state.view]);
   useEffect(() => {

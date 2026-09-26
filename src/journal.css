@@ -5,18 +5,21 @@
   --font-body: 13px;
   --on-accent: #172c29;
   --danger: #e5a48c;
-  --canvas: #172c29;
-  --ink: #eceddc;
-  --muted: #b0bfaf;
-  --line: #3b5149;
-  --panel: #203831;
-  --panel-strong: #294239;
-  --orange: #c4d5a0;
-  --accent-rgb: 196, 213, 160;
-  --orange-soft: #304b3c;
+  --canvas: #142421;
+  --ink: #f0f0e3;
+  --muted: #b5c2b4;
+  --line: #42584b;
+  --panel: #1c302a;
+  --panel-strong: #263d34;
+  --orange: #c8d9a0;
+  --accent-rgb: 200, 217, 160;
+  --orange-soft: #344c37;
+  --field-bg: #192a24;
+  --control-border: #78927c;
+  --overlay-shadow: 0 16px 48px rgb(0 0 0 / 36%);
   --lime: #d9c38c;
   --sky: #9cbec2;
-  --paper-shadow: 0 3px 12px rgb(0 0 0 / 10%);
+  --paper-shadow: 0 3px 12px rgb(0 0 0 / 16%);
   --text: var(--ink);
   --text-primary: var(--ink);
   --text-muted: var(--muted);
@@ -25,15 +28,18 @@
   color-scheme: light;
   --on-accent: #fffdf6;
   --danger: #9e4435;
-  --canvas: #f6f3e9;
+  --canvas: #f4f0e5;
   --ink: #293e34;
-  --muted: #626e60;
-  --line: #d9ddcc;
-  --panel: #f0f0e4;
-  --panel-strong: #fffdf6;
-  --orange: #41684e;
-  --accent-rgb: 65, 104, 78;
-  --orange-soft: #e6edd9;
+  --muted: #5a695a;
+  --line: #d0d5c4;
+  --panel: #edece0;
+  --panel-strong: #fffdf7;
+  --orange: #365f44;
+  --accent-rgb: 54, 95, 68;
+  --orange-soft: #e3ebd7;
+  --field-bg: #fbfaf3;
+  --control-border: #7e8d79;
+  --overlay-shadow: 0 16px 48px rgb(37 55 40 / 18%);
   --lime: #766239;
   --sky: #507c89;
   --paper-shadow: 0 3px 12px rgb(63 79 47 / 5%);
@@ -71,9 +77,10 @@
 .topbar-actions { gap: 10px; padding-right: 18px; }
 :root[data-theme] .command-trigger,
 :root[data-theme] .theme-toggle { background: var(--panel); color: var(--ink); border-color: var(--line); }
+:root[data-theme] .theme-toggle { width: 40px; height: 40px; border-color: var(--control-border); }
 .command-trigger { white-space: nowrap; }
 .journal-stamp { display: flex; align-items: center; gap: 5px; color: var(--orange); font-size: 11px; white-space: nowrap; }
-:root[data-theme] .command-palette { background: var(--panel-strong); box-shadow: var(--paper-shadow); border-radius: 18px; }
+:root[data-theme] .command-palette { background: var(--panel-strong); box-shadow: var(--overlay-shadow); border-radius: 18px; }
 .command-section > small { color: var(--orange); font-size: 12px; }
 .command-view-grid button { min-height: 44px; }
 :root[data-theme] .command-view-grid button[aria-current="page"] { background: var(--orange-soft); border-color: var(--orange); color: var(--orange); }
@@ -100,7 +107,7 @@
   inset: 0;
   border-radius: inherit;
   background: url("/art/roadlens-countryside.jpg") center 54% / cover;
-  opacity: .24;
+  opacity: .18;
   pointer-events: none;
 }
 :root[data-theme="dark"] :is(.location-head, .plan-page-head, .dashboard-head, .project-head,
@@ -235,6 +242,29 @@ button:disabled { cursor: not-allowed; }
 .camera-advanced-grid dd { overflow-wrap: anywhere; }
 .camera-playbook-detail header a { width: 36px; height: 36px; color: var(--orange); }
 :root[data-theme] .upload-copy { background: var(--orange-soft); border-color: var(--line); }
+:root[data-theme] :is(.upload-controls, .upload-fields article, .upload-settings,
+  .upload-localization-flow, .upload-readiness-summary > span) {
+  background: var(--panel-strong);
+  border-color: var(--line);
+  box-shadow: var(--paper-shadow);
+}
+:root[data-theme] .upload-bilingual-content > section { background: var(--panel); border-color: var(--line); }
+:root[data-theme] .upload-template-picker button { background: var(--panel-strong); border-color: var(--control-border); }
+:root[data-theme] .upload-controls :is(button, select) { min-height: 38px; height: auto; }
+:root[data-theme] :is(.project-pack section, .project-workflow-checks, .media-batch-gates) button > span {
+  border-color: var(--control-border);
+  background: var(--field-bg);
+}
+:root[data-theme] :is(.project-pack section, .project-workflow-checks, .media-batch-gates, .project-publish-fields > div) button.done {
+  color: var(--orange);
+  background: var(--orange-soft);
+  border-color: var(--orange);
+}
+:root[data-theme] :is(.project-pack section, .project-workflow-checks, .media-batch-gates) button.done > span {
+  background: var(--orange);
+  color: var(--on-accent);
+  border-color: var(--orange);
+}
 :root[data-theme] .upload-controls button.active { color: var(--orange); background: var(--orange-soft); border-color: var(--orange); }
 :root[data-theme] .upload-template-picker button.active { border-color: var(--orange); background: var(--orange-soft); }
 :root[data-theme] .upload-template-picker button.active strong { color: var(--orange); }
@@ -244,6 +274,21 @@ button:disabled { cursor: not-allowed; }
 :root[data-theme] .plan-dialog > button[type="submit"] { color: var(--on-accent); font-size: 14px; }
 .location-search:focus-within, .music-search:focus-within, .camera-library-toolbar > label:focus-within { outline: 2px solid var(--orange); outline-offset: 2px; }
 input[type="search"]::-webkit-search-cancel-button { cursor: pointer; }
+:root[data-theme] :is(input[type="text"], input[type="number"], input[type="date"], input[type="url"], input:not([type]), select, textarea) {
+  color: var(--ink);
+  background-color: var(--field-bg);
+  border-color: var(--control-border);
+}
+:root[data-theme] :is(input, textarea)::placeholder { color: var(--muted); opacity: 1; }
+input { accent-color: var(--orange); }
+:root[data-theme] :is(.location-search, .search-field, .music-search, .camera-library-toolbar > label, .resolve-tutorial-search) { border-color: var(--control-border); }
+:root[data-theme] :is(.location-search, .search-field, .music-search, .camera-library-toolbar > label, .resolve-tutorial-search) input { background: transparent; }
+:root[data-theme] :is(input, select, textarea):disabled { color: var(--muted); background-color: var(--panel); border-color: var(--line); }
+:root[data-theme] .skip-link { background: var(--orange); color: var(--on-accent); }
+:root[data-theme] :is(button, input, select, textarea, a, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 3px;
+}
 button:not(:disabled), summary { cursor: pointer; }
 ::selection { color: var(--ink); background: var(--orange-soft); }
 * { scrollbar-color: var(--line) transparent; scrollbar-width: thin; }
@@ -259,6 +304,8 @@ button:not(:disabled), summary { cursor: pointer; }
 }
 
 @media (hover: hover) {
+  :root[data-theme] :is(.theme-toggle, .command-trigger, .command-view-grid button, .location-maintenance-actions button):not(:disabled):hover { background: var(--orange-soft); color: var(--orange); border-color: var(--orange); }
+  :root[data-theme] :is(input, select, textarea):not(:disabled):hover { border-color: var(--orange); }
   .location-card:hover { transform: translateY(-2px); }
   .location-card { transition: transform 150ms ease-out; }
 }
