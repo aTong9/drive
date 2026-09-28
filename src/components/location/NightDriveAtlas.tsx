@@ -1,16 +1,17 @@
-import { resolveNightDriveRoute, nightDriveCoordinates, nightDriveCoordinateExclusions } from "../../services/nightDriveCoordinates.js";
+import { copyToClipboard } from "../../services/clipboardService.js";
+import { createNightDriveWebSegments, createNightDriveAppUrl, resolveNightDriveRoute, nightDriveCoordinates, nightDriveCoordinateExclusions } from "../../services/nightDriveCoordinates.js";
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import { ChevronRight, X } from "lucide-react";
+import { ChevronRight, Share2, X } from "lucide-react";
 import { MapCanvas } from "../map/MapCanvas.js";
 import type { DrivingSummary, Location } from "../../types/domain.js";
-import { filterNightDriveCities, nightDriveAtlas, nightDriveTotals, nightDriveLinks, type NightDriveCity, type NightDriveStop } from "../../services/nightDriveAtlasService.js";
+import { createNightDriveShareUrl, findSharedNightDriveRoute, filterNightDriveCities, nightDriveAtlas, nightDriveTotals, nightDriveLinks, type NightDriveCity, type NightDriveStop } from "../../services/nightDriveAtlasService.js";
 import type { LocationSummary } from "../../services/browserCatalogService.js";
 import { useLocationBrowse } from "../common/useLocationBrowse.js";
 import { paginateItems } from "../../services/localPagination.js";
 import { LocalPaginationControls } from "../common/LocalPaginationControls.js";
 
 export default function NightDriveAtlas({ locations, onOpenLocation }: { locations: LocationSummary[]; onOpenLocation: (id: string) => void }) {
-  const [opened, setOpened] = useState<{ city: NightDriveCity; route: NightDriveCity["routes"][number] }>();
+  const [opened, setOpened] = useState(() => findSharedNightDriveRoute(window.location.href));
   const [query] = useLocationBrowse("query");
   const [region] = useLocationBrowse("region");
   const [group] = useLocationBrowse("regionGroup");
@@ -32,7 +33,7 @@ export default function NightDriveAtlas({ locations, onOpenLocation }: { locatio
     </li>;
   };
   return <section className="night-drive-atlas" aria-label="60 城夜景自驾专题">
-    {opened && <NightDriveMap city={opened.city} route={opened.route} onClose={() => setOpened(undefined)}>
+    {opened && <NightDriveMap city={opened.city} route={opened.route} onClose={() => { setOpened(undefined); const url = new URL(window.location.href); url.searchParams.delete("nightRoute"); window.history.replaceState(null, "", url); }}>
       <ol>{opened.route.stops.map((stop, index) => stopRow(stop, opened.city, opened.route.stops[index - 1]))}</ol>
     </NightDriveMap>}
     <header>
@@ -57,6 +58,7 @@ export default function NightDriveAtlas({ locations, onOpenLocation }: { locatio
           <summary><strong>{route.name}</strong><span>{route.stops.length} 站 · 待核验</span></summary>
           <p>{route.direction}</p><p>{route.note}</p>
           <button className="night-drive-open-map" onClick={() => setOpened({ city, route })} aria-label={`${city.name} · ${route.name}：在地图中打开路线`}>在地图中打开路线 <ChevronRight size={15} /></button>
+          <NightDriveActions city={city} route={route} />
           <ol>{route.stops.map((stop, index) => stopRow(stop, city, route.stops[index - 1]))}</ol>
         </details>)}
         <details className="night-drive-route"><summary><strong>独立补拍点</strong><span>{city.extras.length} 个</span></summary><ul>{city.extras.map((stop) => stopRow(stop, city, undefined, true))}</ul></details>
@@ -91,9 +93,47 @@ function NightDriveMap({ city, route, onClose, children }: { city: NightDriveCit
       {summary?.status === "ready" ? `驾车参考：${(summary.distanceMeters / 1000).toFixed(1)} 公里 · 约 ${Math.ceil(summary.durationSeconds / 60)} 分钟（不含拍摄停留）` : summary?.status === "error" ? summary.message : "正在准备站点坐标并规划路线…"}
       <button onClick={() => { setSummary(null); setAttempt((value) => value + 1); }}>重新规划</button>
     </div>
+    <NightDriveActions city={city} route={route} />
     <MapCanvas key={attempt} selected={undefined} atlasRoute={mapRoute} nearbyLocations={noNearbyLocations} onDrivingSummary={setSummary} />
     {location.hostname !== "atong9.github.io" && <p><a href={`https://atong9.github.io/drive/?browse=night-drive&q=${encodeURIComponent(city.name)}`} target="_blank" rel="noreferrer">在已授权的线上项目打开此城市</a></p>}
     <p className="night-drive-coordinate-credit">坐标来源：高德地图地点查询，仅用于地标定位，不代表停车入口已核验。</p>
     <details><summary>查看全部 {route.stops.length} 站与逐站导航</summary>{children}</details>
   </dialog>;
+}
+
+function NightDriveActions({ city, route }: { city: NightDriveCity; route: NightDriveCity["routes"][number] }) {
+  const [message, setMessage] = useState("");
+  const [manualCopy, setManualCopy] = useState(false);
+  const mapped = useMemo(() => resolveNightDriveRoute(city, route), [city, route]);
+  const url = createNightDriveShareUrl(city, route);
+  const share = async () => {
+    setMessage(""); setManualCopy(false);
+    try {
+      if (navigator.share) {
+        await navigator.share({ title: mapped.name, text: `查看拍摄路线：${mapped.name}`, url });
+        setMessage("分享完成"); return;
+      }
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") return;
+    }
+    if (await copyToClipboard(url)) setMessage("路线链接已复制");
+    else { setManualCopy(true); setMessage("请手动复制下方路线链接"); }
+  };
+  const segments = createNightDriveWebSegments(mapped);
+  return <div className="night-drive-actions">
+    <div className="night-drive-links"><button onClick={() => void share()} aria-label={`分享路线：${mapped.name}`}><Share2 size={15} /> 分享路线</button>
+      <details><summary>高德地图打开</summary>
+        <p>手机安装高德后，选择对应入口打开完整路线；无法唤起时使用下方分段导航。</p>
+        {mapped.missing.length > 0 && <p>不含未确认站点：{mapped.missing.join("、")}</p>}
+        <div className="night-drive-links">{(["ios", "android"] as const).map((platform) => {
+          const href = createNightDriveAppUrl(mapped, platform);
+          return href && <a key={platform} href={href}>{platform === "ios" ? "iPhone 高德 · 完整路线" : "安卓高德 · 完整路线"}</a>;
+        })}</div>
+        <p>网页版分段导航（按原序衔接）：</p>
+        <ol>{segments.map((segment) => <li key={segment.href}><a href={segment.href} target="_blank" rel="noreferrer">{segment.label}</a></li>)}</ol>
+      </details>
+    </div>
+    <p role="status">{message}</p>
+    {manualCopy && <input aria-label="路线分享链接" readOnly value={url} onFocus={(event) => event.currentTarget.select()} />}
+  </div>;
 }

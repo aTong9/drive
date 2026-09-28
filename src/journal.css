@@ -499,3 +499,9 @@ button:not(:disabled), summary { cursor: pointer; }
 .night-drive-map-dialog > details > summary { min-height: 44px; padding-block: 14px; cursor: pointer; }
 
 .night-drive-map-dialog ol { list-style: decimal; padding-left: 26px; }
+
+.night-drive-actions { margin-block: 12px; }
+.night-drive-actions > .night-drive-links > details { flex: 1; min-width: min(100%, 180px); }
+.night-drive-actions summary { min-height: 44px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 7px; color: var(--orange); cursor: pointer; }
+.night-drive-actions input { width: 100%; min-width: 0; }
+.night-drive-actions [role="status"]:empty { display: none; }

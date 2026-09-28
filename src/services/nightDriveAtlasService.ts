@@ -50,3 +50,18 @@ export function filterNightDriveCities(query: string, region: { province?: strin
     (!needle || [city.name, city.province, city.advice, ...city.routes.flatMap((route) => [route.name, route.direction, route.note, ...route.stops.map((stop) => `${stop.name} ${stop.note}`)]), ...city.extras.map((stop) => stop.name)].join(" ").toLocaleLowerCase().includes(needle)),
   );
 }
+
+export function findSharedNightDriveRoute(href: string) {
+  const id = new URL(href).searchParams.get("nightRoute");
+  for (const city of nightDriveAtlas.cities) {
+    const route = city.routes.find((route) => route.id === id);
+    if (route) return { city, route };
+  }
+  return undefined;
+}
+
+export function createNightDriveShareUrl(city: NightDriveCity, route: NightDriveCity["routes"][number]) {
+  const url = new URL("https://atong9.github.io/drive/");
+  url.search = new URLSearchParams({ browse: "night-drive", q: city.name, nightRoute: route.id }).toString();
+  return url.toString();
+}
