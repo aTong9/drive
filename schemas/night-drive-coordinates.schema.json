@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "points",
+    "excluded"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "points": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^city-[0-9]+-r[0-9]+-s[0-9]+$"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/point"
+      }
+    },
+    "excluded": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^city-[0-9]+-r[0-9]+-s[0-9]+$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "reason",
+          "sourceUrl"
+        ],
+        "properties": {
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sourceUrl": {
+            "type": "string",
+            "pattern": "^https://"
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "point": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "coordinate",
+        "source"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "coordinate": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "lat",
+            "lng",
+            "crs"
+          ],
+          "properties": {
+            "lat": {
+              "type": "number",
+              "minimum": -90,
+              "maximum": 90
+            },
+            "lng": {
+              "type": "number",
+              "minimum": -180,
+              "maximum": 180
+            },
+            "crs": {
+              "const": "GCJ-02"
+            }
+          }
+        },
+        "source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "url",
+            "accessedAt",
+            "supports"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1
+            },
+            "url": {
+              "type": "string",
+              "pattern": "^https://www\\.amap\\.com/place/[A-Z0-9]+$"
+            },
+            "accessedAt": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+            },
+            "supports": {
+              "type": "array",
+              "const": [
+                "existence",
+                "coordinate"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

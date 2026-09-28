@@ -7,9 +7,11 @@ import type { DrivingSummary, Location, ResolvedRoute } from "../../types/domain
 import { hasAmapCredentials, loadAmap } from "../../services/amapLoader.js";
 import { findAmapLocationPhoto } from "../../services/amapPhotoService.js";
 
+import type { NightDriveMapRoute } from "../../services/nightDriveCoordinates.js";
+
 interface MapCanvasProps {
   selected: ResolvedRoute | undefined;
-  keywordRoute?: { id: string; name: string; points: Array<{ keyword: string; city: string }> };
+  atlasRoute?: NightDriveMapRoute;
   nearbyLocations: Location[];
   onDrivingSummary: (summary: DrivingSummary) => void;
 }
@@ -49,7 +51,7 @@ function createMarkerContent(index: number, point: Location) {
   return root;
 }
 
-export function MapCanvas({ selected, keywordRoute, nearbyLocations, onDrivingSummary }: MapCanvasProps) {
+export function MapCanvas({ selected, atlasRoute, nearbyLocations, onDrivingSummary }: MapCanvasProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<AMap.Map | null>(null);
   const drivingRef = useRef<AMap.Driving | null>(null);
@@ -80,7 +82,7 @@ export function MapCanvas({ selected, keywordRoute, nearbyLocations, onDrivingSu
         drivingRef.current = new AMapApi.Driving({
           map,
           policy: 0,
-          hideMarkers: !keywordRoute,
+          hideMarkers: true,
           showTraffic: true,
           autoFitView: true,
           extensions: "all",
@@ -105,8 +107,8 @@ export function MapCanvas({ selected, keywordRoute, nearbyLocations, onDrivingSu
   }, []);
 
   useEffect(() => {
-    if (keywordRoute && (status === "error" || status === "missing-key")) {
-      onDrivingSummary({ status: "error", routeId: keywordRoute.id, message: "地图暂不可用，请检查地图配置或网络；也可使用下方逐站导航。" });
+    if (atlasRoute && (status === "error" || status === "missing-key")) {
+      onDrivingSummary({ status: "error", routeId: atlasRoute.id, message: "地图暂不可用，请检查地图配置或网络；也可使用下方逐站导航。" });
     }
     if (status !== "ready" || !mapRef.current || !drivingRef.current) return;
     const map = mapRef.current;
@@ -115,23 +117,41 @@ export function MapCanvas({ selected, keywordRoute, nearbyLocations, onDrivingSu
     driving.clear();
     map.remove(markersRef.current);
 
-    if (keywordRoute) {
-      onDrivingSummary({ status: "loading", routeId: keywordRoute.id });
+    if (atlasRoute) {
+      const markers = atlasRoute.points.map((point) => {
+        const content = document.createElement("button");
+        content.type = "button";
+        content.className = "amap-route-marker amap-atlas-marker";
+        content.setAttribute("aria-label", `${point.index + 1}. ${point.name} · ${point.mode}`);
+        const pin = document.createElement("span"); pin.className = "amap-route-pin"; pin.textContent = String(point.index + 1);
+        const label = document.createElement("span"); label.className = "amap-route-label"; label.textContent = `${point.name} · ${point.mode}`;
+        content.append(pin, label);
+        return new AMap.Marker({ position: [point.coordinate.lng, point.coordinate.lat], content, anchor: "bottom-center" });
+      });
+      markersRef.current = markers;
+      map.add(markers);
+      if (markers.length) map.setFitView(markers, false, [60, 60, 60, 60], 15);
+      if (atlasRoute.points.length < 2) {
+        onDrivingSummary({ status: "error", routeId: atlasRoute.id, message: `以下站点坐标尚未确认，已显示其余站点，暂不连接整条路线：${atlasRoute.missing.join("、")}` });
+        return;
+      }
+      const path = atlasRoute.points.map((point) => [point.coordinate.lng, point.coordinate.lat] as [number, number]);
+      onDrivingSummary({ status: "loading", routeId: atlasRoute.id });
       const timer = window.setTimeout(() => {
         if (requestId !== requestIdRef.current) return;
         requestIdRef.current += 1;
         driving.clear();
-        onDrivingSummary({ status: "error", routeId: keywordRoute.id, message: "路线规划超时，请重试或使用下方逐站导航。" });
+        onDrivingSummary({ status: "error", routeId: atlasRoute.id, message: "路线规划超时，请重试或使用下方逐站导航。" });
       }, 25000);
-      driving.search(keywordRoute.points, (searchStatus, result) => {
+      driving.search(path[0]!, path.at(-1)!, { waypoints: path.slice(1, -1) }, (searchStatus, result) => {
         if (requestId !== requestIdRef.current) return;
         window.clearTimeout(timer);
         const route = searchStatus === "complete" && typeof result !== "string" ? result.routes?.[0] : undefined;
         if (route) {
-          onDrivingSummary({ status: "ready", routeId: keywordRoute.id, distanceMeters: route.distance, durationSeconds: route.time, tollsYuan: route.tolls ?? 0, hasRestriction: route.restriction === 1 });
+          onDrivingSummary({ status: "ready", routeId: atlasRoute.id, distanceMeters: route.distance, durationSeconds: route.time, tollsYuan: route.tolls ?? 0, hasRestriction: route.restriction === 1 });
         } else {
           driving.clear();
-          onDrivingSummary({ status: "error", routeId: keywordRoute.id, message: "暂时无法按名称规划整条路线，请重试或使用下方逐站导航核对地点。" });
+          onDrivingSummary({ status: "error", routeId: atlasRoute.id, message: (typeof result === "string" ? result : result.info) === "INVALID_USER_DOMAIN" ? "当前域名未获高德授权，请通过线上项目地址打开地图。" : "站点坐标已显示，暂未取得驾车道路，请重试或使用逐站导航。" });
         }
       });
       return () => { window.clearTimeout(timer); requestIdRef.current += 1; driving.clear(); };
@@ -188,7 +208,7 @@ export function MapCanvas({ selected, keywordRoute, nearbyLocations, onDrivingSu
       onDrivingSummary({ status: "error", routeId: selected.route.id, message: "暂时无法取得驾车路线" });
       map.setFitView(markers, false, [90, 90, 90, 90], 14);
     });
-  }, [keywordRoute, nearbyLocations, onDrivingSummary, selected, status]);
+  }, [atlasRoute, nearbyLocations, onDrivingSummary, selected, status]);
 
   useEffect(() => {
     const map = mapRef.current;
@@ -225,7 +245,7 @@ export function MapCanvas({ selected, keywordRoute, nearbyLocations, onDrivingSu
   };
 
   return (
-    <section className="map-canvas" aria-label={keywordRoute ? `${keywordRoute.name}高德地图` : selected ? `${selected.route.name}高德地图` : "当前城市地点高德地图"}>
+    <section className="map-canvas" aria-label={atlasRoute ? `${atlasRoute.name}高德地图` : selected ? `${selected.route.name}高德地图` : "当前城市地点高德地图"}>
       <div ref={containerRef} className="amap-host" />
 
       {status === "loading" && <div className="map-state" role="status" aria-live="polite"><span className="map-loader" /><strong>正在加载高德地图</strong><small>准备路线和拍摄点…</small></div>}

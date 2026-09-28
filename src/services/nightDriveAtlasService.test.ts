@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { Ajv2020 } from "ajv/dist/2020.js";
 import schema from "../../schemas/night-drive-atlas.schema.json" with { type: "json" };
-import { filterNightDriveCities, nightDriveAtlas, nightDriveTotals, nightDriveLinks, nightDriveMapRoute } from "./nightDriveAtlasService.js";
+import { filterNightDriveCities, nightDriveAtlas, nightDriveTotals, nightDriveLinks } from "./nightDriveAtlasService.js";
 import { findProvince } from "./regionService.js";
 import { createWorkspaceUrl, readWorkspaceUrl } from "./workspaceUrlService.js";
 
@@ -47,14 +47,4 @@ test("night-drive city and landmark filters respect region and survive URL resto
   const state = readWorkspaceUrl(url);
   assert.equal(state.locationBrowse.browseMode, "night-drive");
   assert.equal(new URL(createWorkspaceUrl(state, url)).searchParams.get("browse"), "night-drive");
-});
-
-test("every atlas route maps all stops in order with a city and remains within Amap waypoint limits", () => {
-  for (const city of nightDriveAtlas.cities) for (const route of city.routes) {
-    const mapped = nightDriveMapRoute(city, route);
-    assert.equal(mapped.id, route.id);
-    assert.ok(mapped.points.length >= 2 && mapped.points.length <= 18);
-    assert.deepEqual(mapped.points.map((point) => point.keyword), route.stops.map((stop) => stop.navigationName));
-    assert.ok(mapped.points.every((point) => point.city === city.name));
-  }
 });

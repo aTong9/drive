@@ -77,6 +77,12 @@ const nightDriveSchema = JSON.parse(await readFile(new URL("../schemas/night-dri
 const nightDriveAtlas = JSON.parse(await readFile(new URL("../data/night-drive-atlas.json", import.meta.url), "utf8"));
 const validateNightDrive = new Ajv2020({ allErrors: true, strict: true }).compile(nightDriveSchema);
 if (!validateNightDrive(nightDriveAtlas)) errors.push(...(validateNightDrive.errors ?? []).map((error) => `nightDrive${error.instancePath || "/"} ${error.message}`));
+const nightDriveCoordinates = JSON.parse(await readFile(new URL("../data/night-drive-coordinates.json", import.meta.url), "utf8"));
+const coordinateSchema = JSON.parse(await readFile(new URL("../schemas/night-drive-coordinates.schema.json", import.meta.url), "utf8"));
+const validateCoordinates = new Ajv2020({ allErrors: true, strict: true }).compile(coordinateSchema);
+if (!validateCoordinates(nightDriveCoordinates)) errors.push(...(validateCoordinates.errors ?? []).map((error) => `nightDriveCoordinates${error.instancePath || "/"} ${error.message}`));
+const nightDriveStopIds = nightDriveAtlas.cities.flatMap((city) => city.routes.flatMap((route) => route.stops.map((stop) => stop.id)));
+if (nightDriveStopIds.length !== Object.keys(nightDriveCoordinates.points).length + Object.keys(nightDriveCoordinates.excluded).length || nightDriveStopIds.some((id) => !nightDriveCoordinates.points[id] && !nightDriveCoordinates.excluded[id])) errors.push("nightDriveCoordinates: every main-line stop must have a sourced coordinate or explicit exclusion");
 const validateDavinci = new Ajv2020({ allErrors: true, strict: true }).compile(davinciSchema);
 const validateRegions = new Ajv2020({ allErrors: true, strict: true, formats: { uri: true, date: true } }).compile(regionsSchema);
 const validateYoutubeCreators = new Ajv2020({ allErrors: true, strict: true, formats: { uri: true, date: true } }).compile(youtubeCreatorsSchema);

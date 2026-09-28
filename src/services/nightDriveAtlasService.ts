@@ -50,7 +50,3 @@ export function filterNightDriveCities(query: string, region: { province?: strin
     (!needle || [city.name, city.province, city.advice, ...city.routes.flatMap((route) => [route.name, route.direction, route.note, ...route.stops.map((stop) => `${stop.name} ${stop.note}`)]), ...city.extras.map((stop) => stop.name)].join(" ").toLocaleLowerCase().includes(needle)),
   );
 }
-
-export function nightDriveMapRoute(city: NightDriveCity, route: NightDriveCity["routes"][number]) {
-  return { id: route.id, name: `${city.name} · ${route.name}`, points: route.stops.map((stop) => ({ keyword: stop.navigationName, city: city.name })) };
-}

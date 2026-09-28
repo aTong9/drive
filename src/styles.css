@@ -1607,6 +1607,10 @@ data,
   min-width: max-content;
   filter: drop-shadow(0 9px 18px rgba(0, 0, 0, 0.34));
 }
+.night-drive-map-dialog button.amap-atlas-marker { min-height: 30px; padding: 0; border: 0; border-radius: 50%; background: transparent; }
+.amap-atlas-marker .amap-route-label { display: none; position: absolute; left: 100%; white-space: nowrap; }
+.amap-atlas-marker:focus .amap-route-label { display: flex; }
+@media (hover: hover) { .amap-atlas-marker:hover .amap-route-label { display: flex; } }
 .amap-marker-thumbnail {
   position: relative;
   z-index: 2;
