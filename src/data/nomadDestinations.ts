@@ -46,6 +46,18 @@ export const nomadDestinations = [
   {"id": "Brisbane", "city": "布里斯班", "country": "澳大利亚", "region": "大洋洲", "currency": "AUD", "areas": ["West End", "New Farm", "Toowong"], "keywords": ["城市生活", "远程办公", "慢旅行"], "rent": [1986, 2815], "transit": 30, "internet": 87, "note": "周租与月租需统一口径；检查房源洪水历史、空调、公共交通及网络开通条件。"},
   {"id": "Wellington", "city": "惠灵顿", "country": "新西兰", "region": "大洋洲", "currency": "NZD", "areas": ["Te Aro", "Newtown", "Mount Victoria"], "keywords": ["城市生活", "远程办公", "慢旅行"], "rent": [2037, 2169], "transit": 181, "internet": 95, "note": "检查房屋保温、防潮和采暖成本；结合坡道与公交频率比较日常通勤。"},
   {"id": "Tunis", "city": "突尼斯市", "country": "突尼斯", "region": "非洲", "currency": "TND", "areas": ["La Marsa", "Lafayette", "Les Berges du Lac"], "keywords": ["城市生活", "远程办公", "慢旅行"], "rent": [732, 1112], "transit": 50, "internet": 62, "note": "沿海片区与中心城区分开比较；确认工作时段网络、空调电费及日常出行安排。"},
+  {"id": "Hanoi", "city": "河内", "country": "越南", "region": "亚洲", "currency": "VND", "areas": ["Tay Ho（西湖一带）", "Truc Bach（竹帛）", "Ba Dinh（巴亭一带）"], "keywords": ["城市生活", "远程办公", "慢旅行"], "rent": [7335714, 10513947], "transit": 240000, "internet": 229690, "note": "片区名用于找房，具体地址以现行登记为准；核查湿度、交通噪音、空气质量与工作时段网络。"},
+  {"id": "Lima", "city": "利马", "country": "秘鲁", "region": "南美洲", "currency": "PEN", "areas": ["Miraflores", "Barranco", "San Isidro"], "keywords": ["城市生活", "远程办公", "慢旅行"], "rent": [1159, 2588], "transit": 91, "internet": 94, "note": "沿海与内陆片区分别比较；检查潮湿、隔音、饮用水安排及夜间返程路线。"},
+  {"id": "Quito", "city": "基多", "country": "厄瓜多尔", "region": "南美洲", "currency": "USD", "areas": ["La Carolina", "La Floresta", "González Suárez"], "keywords": ["城市生活", "远程办公", "慢旅行"], "rent": [313, 483], "transit": 21, "internet": 28, "note": "比较坡道、楼宇出入口与日常通勤；实地核查网络、热水及租金包含项目。"},
+  {"id": "Malaga", "city": "马拉加", "country": "西班牙", "region": "欧洲", "currency": "EUR", "areas": ["Teatinos", "Huelin", "El Palo"], "keywords": ["城市生活", "远程办公", "慢旅行"], "rent": [972, 1334], "transit": 24, "internet": 22, "note": "分别询问淡旺季与长租价格；检查空调、隔音和住宅到交通站点的步行路线。"},
+  {"id": "Barcelona", "city": "巴塞罗那", "country": "西班牙", "region": "欧洲", "currency": "EUR", "areas": ["Gràcia", "Poblenou", "Sants"], "keywords": ["城市生活", "远程办公", "慢旅行"], "rent": [1143, 1464], "transit": 23, "internet": 32, "note": "核对实际租期、房屋用途与合同条款；查看楼宇电梯、隔音以及日夜街道环境。"},
+  {"id": "Vienna", "city": "维也纳", "country": "奥地利", "region": "欧洲", "currency": "EUR", "areas": ["Neubau", "Leopoldstadt", "Alsergrund"], "keywords": ["城市生活", "远程办公", "慢旅行"], "rent": [844, 1168], "transit": 51, "internet": 31, "note": "租金与楼宇运营费分开核对；确认采暖、家具和网络，交通票价按个人资格复核。"},
+  {"id": "Ljubljana", "city": "卢布尔雅那", "country": "斯洛文尼亚", "region": "欧洲", "currency": "EUR", "areas": ["Trnovo", "Šiška", "Bežigrad"], "keywords": ["城市生活", "远程办公", "慢旅行"], "rent": [798, 983], "transit": 37, "internet": 37, "note": "核查冬季采暖、物业费用与租期；比较自行车、公交和步行到日常设施的路线。"},
+  {"id": "Zagreb", "city": "萨格勒布", "country": "克罗地亚", "region": "欧洲", "currency": "EUR", "areas": ["Trešnjevka", "Maksimir", "Donji Grad"], "keywords": ["城市生活", "远程办公", "慢旅行"], "rent": [592, 775], "transit": 50, "internet": 37, "note": "看房检查楼宇维护、采暖及电梯；按实际地址核查电车通勤和生活配套。"},
+  {"id": "Kathmandu", "city": "加德满都", "country": "尼泊尔", "region": "亚洲", "currency": "NPR", "areas": ["Lazimpat", "Boudha", "Baluwatar"], "keywords": ["城市生活", "远程办公", "慢旅行"], "rent": [15633, 33917], "transit": 1500, "internet": 1250, "note": "重点实测远程办公网络与备用供电；确认饮用水、热水、道路噪音和空气质量。"},
+  {"id": "Colombo", "city": "科伦坡", "country": "斯里兰卡", "region": "亚洲", "currency": "LKR", "areas": ["Cinnamon Gardens", "Bambalapitiya", "Wellawatte"], "keywords": ["城市生活", "远程办公", "慢旅行"], "rent": [89540, 200607], "transit": 2377, "internet": 6874, "note": "核查空调电费、备用供电和网络上传速度；按实际工作时间比较通勤及噪音。"},
+  {"id": "Singapore", "city": "新加坡", "country": "新加坡", "region": "亚洲", "currency": "SGD", "areas": ["Tiong Bahru", "Joo Chiat", "Queenstown"], "keywords": ["城市生活", "远程办公", "慢旅行"], "rent": [2765, 3820], "transit": 128, "internet": 35, "note": "先核查房源类型、合法租期与合同；租金为整套一居室口径，不能当作合租单间价格。"},
+  {"id": "Perth", "city": "珀斯", "country": "澳大利亚", "region": "大洋洲", "currency": "AUD", "areas": ["Leederville", "Subiaco", "East Perth"], "keywords": ["城市生活", "远程办公", "慢旅行"], "rent": [2347, 2742], "transit": 140, "internet": 88, "note": "统一周租与月租口径；比较公交接驳、空调、保温与宽带开通条件。"},
 ] as const;
 
 export function filterNomadDestinations(query: string, region: string) {
@@ -85,7 +97,11 @@ export const nomadExchangeRates = {
     "RON": 4.629417,
     "GEL": 2.601676,
     "TND": 2.947661,
-    "USD": 1
+    "USD": 1,
+    "PEN": 3.392941,
+    "NPR": 153.493654,
+    "LKR": 330.026559,
+    "SGD": 1.278218
   },
 } as const;
 
