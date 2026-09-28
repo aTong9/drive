@@ -25,6 +25,8 @@ import {
   X,
 } from "lucide-react";
 import {
+  lazy,
+  Suspense,
   useEffect,
   useMemo,
   useRef,
@@ -104,6 +106,7 @@ const captureIcons = {
 } as const;
 const LOCATION_PAGE_SIZE = 24;
 const ROUTE_PAGE_SIZE = 12;
+const NightDriveAtlas = lazy(() => import("./NightDriveAtlas.js"));
 
 export function LocationView({
   locations,
@@ -126,7 +129,7 @@ export function LocationView({
   const [routePage, setRoutePage] = useLocationBrowse("routePage");
   const [selectedId, setSelectedId] = useLocationBrowse("selectedId");
   const [detailVisible, setDetailVisible] = useLocationBrowse("detailVisible");
-  const search = useCatalogSearch(query);
+  const search = useCatalogSearch(browseMode === "night-drive" ? "" : query);
   const [loadedLocation, setLoadedLocation] = useState<Location | null>(null);
   const [detailError, setDetailError] = useState("");
   const [detailAttempt, setDetailAttempt] = useState(0);
@@ -158,7 +161,7 @@ export function LocationView({
     () =>
       locations.filter((location) => {
         if (!search.ready) return false;
-        const needle = query.trim().toLowerCase();
+        const needle = browseMode === "night-drive" ? "" : query.trim().toLowerCase();
         const matchesRegion =
           (!region.province || location.province === region.province) &&
           (!region.city || location.city === region.city);
@@ -168,7 +171,7 @@ export function LocationView({
           locationSummaryMatchesQuery(location, needle)
         );
       }).sort(compareLocationEvidence),
-    [locations, query, region, type, search.ready],
+    [locations, query, region, type, search.ready, browseMode],
   );
   const provinces = provincesForGroup(regionGroup);
   const cities = findProvince(region.province)?.divisions ?? [];
@@ -179,7 +182,7 @@ export function LocationView({
     () =>
       routes.filter(({ route, waypoints, cameraPresets }) => {
         if (!search.ready) return false;
-        const needle = query.trim().toLowerCase();
+        const needle = browseMode === "night-drive" ? "" : query.trim().toLowerCase();
         const matchesRegion =
           (!region.province || route.province === region.province) &&
           (!region.city || route.cities.includes(region.city));
@@ -194,7 +197,7 @@ export function LocationView({
           (!driveOnly || route.executionMode === "drive-only")
         );
       }).sort(compareRouteEvidence),
-    [routes, query, region, captureStyle, driveOnly, search.ready],
+    [routes, query, region, captureStyle, driveOnly, search.ready, browseMode],
   );
   const pagedLocations = useMemo(
     () => paginateItems(filtered, locationPage, LOCATION_PAGE_SIZE),
@@ -478,6 +481,9 @@ export function LocationView({
             <span>路线</span>
             <small>{filteredRoutes.length} 条完整流程</small>
           </button>
+          <button role="tab" aria-selected={browseMode === "night-drive"} onClick={() => { setBrowseMode("night-drive"); setLocationPage(1); setDetailVisible(false); }}>
+            <CarFront size={16} /><span>夜景自驾</span><small>60 城研究清单</small>
+          </button>
         </div>
         <div ref={resultsTopRef} className="location-results-anchor" />
         <label className="location-search">
@@ -495,6 +501,7 @@ export function LocationView({
           />
         </label>
         <div className="library-results-summary" aria-live="polite">
+          {browseMode !== "night-drive" &&
           <span>
             <strong>
               {browseMode === "locations"
@@ -507,7 +514,7 @@ export function LocationView({
               : region.province
                 ? ` · ${provinceLabel(region.province)}`
                 : " · 全国"}
-          </span>
+          </span>}
           {(query ||
             region.province ||
             type !== "all" ||
@@ -531,7 +538,13 @@ export function LocationView({
           <strong>{search.error || "正在加载全国全文检索…"}</strong>
           {search.error && <button onClick={search.retry}>重试检索</button>}
         </div>}
-        {browseMode === "locations" ? (
+        {browseMode === "night-drive" ? (
+          <Suspense fallback={<p role="status">正在加载夜景自驾清单…</p>}>
+            <NightDriveAtlas locations={locations} onOpenLocation={(id) => {
+              setQuery(""); setType("all"); setBrowseMode("locations"); setSelectedId(id); setDetailVisible(true);
+            }} />
+          </Suspense>
+        ) : browseMode === "locations" ? (
           <>
             <div className="location-filters">
               <button

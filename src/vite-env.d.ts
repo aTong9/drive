@@ -58,6 +58,10 @@ declare namespace AMap {
       options: { waypoints?: Array<[number, number]> },
       callback: (status: "complete" | "no_data" | "error", result: DrivingResult | string) => void
     ): void;
+    search(
+      points: Array<{ keyword: string; city: string }>,
+      callback: (status: "complete" | "no_data" | "error", result: DrivingResult | string) => void
+    ): void;
     clear(): void;
     setPolicy(policy: number): void;
   }

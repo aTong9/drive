@@ -1,0 +1,242 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "source",
+    "cities"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fileName",
+        "sha256",
+        "date",
+        "conversationUrl",
+        "status",
+        "note",
+        "scope",
+        "references"
+      ],
+      "properties": {
+        "fileName": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "date": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "conversationUrl": {
+          "type": "string",
+          "pattern": "^https://chatgpt.com/c/"
+        },
+        "status": {
+          "const": "unverified"
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "references": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label",
+              "url"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "url": {
+                "type": "string",
+                "pattern": "^https://(www\\.cnr\\.cn/|www\\.stats\\.gov\\.cn/|lbs\\.amap\\.com/)"
+              }
+            }
+          }
+        }
+      }
+    },
+    "cities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/city"
+      },
+      "minItems": 1
+    }
+  },
+  "$defs": {
+    "link": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "label",
+        "url"
+      ],
+      "properties": {
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "pattern": "^(https://(uri\\.amap\\.com/search\\?|en\\.wikivoyage\\.org/wiki/)|iosamap://path\\?)"
+        }
+      }
+    },
+    "stop": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "mode",
+        "note",
+        "navigationName",
+        "searchName"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mode": {
+          "enum": [
+            "外观",
+            "步行",
+            "远眺",
+            "途经",
+            "日间"
+          ]
+        },
+        "note": {
+          "type": "string"
+        },
+        "navigationName": {
+          "type": "string",
+          "minLength": 1
+        },
+        "searchName": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "route": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "direction",
+        "note",
+        "stops"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "direction": {
+          "type": "string",
+          "minLength": 1
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        },
+        "stops": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/stop"
+          },
+          "minItems": 2
+        }
+      }
+    },
+    "city": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "province",
+        "advice",
+        "routes",
+        "extras",
+        "sourceNote",
+        "sources"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "province": {
+          "type": "string",
+          "minLength": 1
+        },
+        "advice": {
+          "type": "string",
+          "minLength": 1
+        },
+        "routes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/route"
+          },
+          "minItems": 1
+        },
+        "extras": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/stop"
+          }
+        },
+        "sourceNote": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/link"
+          },
+          "minItems": 1
+        }
+      }
+    }
+  }
+}

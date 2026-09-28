@@ -5,7 +5,7 @@ import { administrativeGroups, findProvince, type AdministrativeGroupId } from "
 
 export interface LocationBrowseState {
   query: string;
-  browseMode: "locations" | "routes";
+  browseMode: "locations" | "routes" | "night-drive";
   type: Location["type"] | "all";
   captureStyle: CaptureStyle | "all";
   driveOnly: boolean;
@@ -68,7 +68,7 @@ export function readWorkspaceUrl(href: string): WorkspaceNavigation {
     locationBrowse: {
       ...defaultLocationBrowse,
       query: view === "locations" ? query : "",
-      browseMode: choice(params.get("browse"), ["locations", "routes"], "locations"),
+      browseMode: choice(params.get("browse"), ["locations", "routes", "night-drive"], "locations"),
       type: choice(params.get("type"), locationTypes, "all"),
       captureStyle: view === "locations" ? captureStyle : "all",
       driveOnly: view === "locations" && params.get("drive") === "1",

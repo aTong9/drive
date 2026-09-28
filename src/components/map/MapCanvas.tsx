@@ -9,6 +9,7 @@ import { findAmapLocationPhoto } from "../../services/amapPhotoService.js";
 
 interface MapCanvasProps {
   selected: ResolvedRoute | undefined;
+  keywordRoute?: { id: string; name: string; points: Array<{ keyword: string; city: string }> };
   nearbyLocations: Location[];
   onDrivingSummary: (summary: DrivingSummary) => void;
 }
@@ -48,7 +49,7 @@ function createMarkerContent(index: number, point: Location) {
   return root;
 }
 
-export function MapCanvas({ selected, nearbyLocations, onDrivingSummary }: MapCanvasProps) {
+export function MapCanvas({ selected, keywordRoute, nearbyLocations, onDrivingSummary }: MapCanvasProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<AMap.Map | null>(null);
   const drivingRef = useRef<AMap.Driving | null>(null);
@@ -79,7 +80,7 @@ export function MapCanvas({ selected, nearbyLocations, onDrivingSummary }: MapCa
         drivingRef.current = new AMapApi.Driving({
           map,
           policy: 0,
-          hideMarkers: true,
+          hideMarkers: !keywordRoute,
           showTraffic: true,
           autoFitView: true,
           extensions: "all",
@@ -104,12 +105,37 @@ export function MapCanvas({ selected, nearbyLocations, onDrivingSummary }: MapCa
   }, []);
 
   useEffect(() => {
+    if (keywordRoute && (status === "error" || status === "missing-key")) {
+      onDrivingSummary({ status: "error", routeId: keywordRoute.id, message: "地图暂不可用，请检查地图配置或网络；也可使用下方逐站导航。" });
+    }
     if (status !== "ready" || !mapRef.current || !drivingRef.current) return;
     const map = mapRef.current;
     const driving = drivingRef.current;
     const requestId = ++requestIdRef.current;
     driving.clear();
     map.remove(markersRef.current);
+
+    if (keywordRoute) {
+      onDrivingSummary({ status: "loading", routeId: keywordRoute.id });
+      const timer = window.setTimeout(() => {
+        if (requestId !== requestIdRef.current) return;
+        requestIdRef.current += 1;
+        driving.clear();
+        onDrivingSummary({ status: "error", routeId: keywordRoute.id, message: "路线规划超时，请重试或使用下方逐站导航。" });
+      }, 25000);
+      driving.search(keywordRoute.points, (searchStatus, result) => {
+        if (requestId !== requestIdRef.current) return;
+        window.clearTimeout(timer);
+        const route = searchStatus === "complete" && typeof result !== "string" ? result.routes?.[0] : undefined;
+        if (route) {
+          onDrivingSummary({ status: "ready", routeId: keywordRoute.id, distanceMeters: route.distance, durationSeconds: route.time, tollsYuan: route.tolls ?? 0, hasRestriction: route.restriction === 1 });
+        } else {
+          driving.clear();
+          onDrivingSummary({ status: "error", routeId: keywordRoute.id, message: "暂时无法按名称规划整条路线，请重试或使用下方逐站导航核对地点。" });
+        }
+      });
+      return () => { window.clearTimeout(timer); requestIdRef.current += 1; driving.clear(); };
+    }
 
     if (!selected) {
       const markers = nearbyLocations.map((point) => new AMap.Marker({
@@ -162,7 +188,7 @@ export function MapCanvas({ selected, nearbyLocations, onDrivingSummary }: MapCa
       onDrivingSummary({ status: "error", routeId: selected.route.id, message: "暂时无法取得驾车路线" });
       map.setFitView(markers, false, [90, 90, 90, 90], 14);
     });
-  }, [nearbyLocations, onDrivingSummary, selected, status]);
+  }, [keywordRoute, nearbyLocations, onDrivingSummary, selected, status]);
 
   useEffect(() => {
     const map = mapRef.current;
@@ -199,7 +225,7 @@ export function MapCanvas({ selected, nearbyLocations, onDrivingSummary }: MapCa
   };
 
   return (
-    <section className="map-canvas" aria-label={selected ? `${selected.route.name}高德地图` : "当前城市地点高德地图"}>
+    <section className="map-canvas" aria-label={keywordRoute ? `${keywordRoute.name}高德地图` : selected ? `${selected.route.name}高德地图` : "当前城市地点高德地图"}>
       <div ref={containerRef} className="amap-host" />
 
       {status === "loading" && <div className="map-state" role="status" aria-live="polite"><span className="map-loader" /><strong>正在加载高德地图</strong><small>准备路线和拍摄点…</small></div>}
