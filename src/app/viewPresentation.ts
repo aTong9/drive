@@ -6,6 +6,10 @@ type ViewPresentation = {
 };
 
 export const viewPresentation: Record<AppView, ViewPresentation> = {
+  nomad: {
+    title: "全球旅居",
+    description: "研究全球旅居、数字游民 Digital nomad 的居住区域、生活成本、远程办公与相关关键词。",
+  },
   dashboard: {
     title: "创作工作台",
     description: "查看自驾视频创作项目、拍摄任务与后期进度。",
@@ -54,6 +58,7 @@ export const viewPresentation: Record<AppView, ViewPresentation> = {
 };
 
 export const moreWorkspaceViews = new Set<AppView>([
+  "nomad",
   "dashboard",
   "projects",
   "cameras",
@@ -63,7 +68,7 @@ export const moreWorkspaceViews = new Set<AppView>([
 ]);
 
 export const workspaceGroups: { title: string; views: AppView[] }[] = [
-  { title: "出发前 · 寻找与准备", views: ["locations", "explore", "plans", "cameras", "creators"] },
+  { title: "出发前 · 寻找与准备", views: ["locations", "explore", "nomad", "plans", "cameras", "creators"] },
   { title: "制作中 · 留住风景", views: ["projects", "post", "music", "longform"] },
   { title: "发布与复盘 · 分享旅程", views: ["upload", "dashboard"] },
 ];

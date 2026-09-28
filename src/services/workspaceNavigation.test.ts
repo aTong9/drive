@@ -10,5 +10,5 @@ test("workspace navigation covers every page once and searches labels, descripti
   assert.deepEqual(searchWorkspaceViews("DaVinci").flatMap((group) => group.views), ["post"]);
   assert.deepEqual(searchWorkspaceViews("CAMERAS").flatMap((group) => group.views), ["cameras"]);
   assert.deepEqual(searchWorkspaceViews("no-such-workspace"), []);
-  assert.equal(searchWorkspaceViews("").flatMap((group) => group.views).length, 11);
+  assert.equal(searchWorkspaceViews("").flatMap((group) => group.views).length, 12);
 });

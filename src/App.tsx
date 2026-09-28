@@ -7,6 +7,7 @@ import {
   Compass,
   Film,
   FolderKanban,
+  Globe2,
   Map as MapIcon,
   Leaf,
   Menu,
@@ -106,7 +107,10 @@ const LongformGuideView = lazy(() =>
   })),
 );
 
+const NomadView = lazy(() => import("./components/nomad/NomadView.js").then((module) => ({ default: module.NomadView })));
+
 const workspaceIcons = {
+  nomad: Globe2,
   locations: MapIcon, explore: Compass, plans: CalendarDays,
   cameras: Camera, creators: Videotape, projects: FolderKanban,
   post: Clapperboard, music: Music2, longform: Film,
@@ -531,6 +535,8 @@ export function App() {
             />
           ) : state.view === "longform" ? (
             <LongformGuideView />
+          ) : state.view === "nomad" ? (
+            <NomadView />
           ) : state.view === "creators" ? (
             <CreatorView />
           ) : state.view === "upload" ? (

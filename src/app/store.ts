@@ -25,6 +25,7 @@ import { deviceStateVersion, deviceStorageKey, emptyDeviceState, selectDeviceSta
 import { defaultLocationBrowse, type LocationBrowseState } from "../services/workspaceUrlService.js";
 
 export type AppView =
+  | "nomad"
   | "dashboard"
   | "projects"
   | "explore"
