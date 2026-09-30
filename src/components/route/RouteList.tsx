@@ -25,6 +25,7 @@ import type {
 } from "../../types/domain.js";
 import type { LocationSummary, ResolvedRouteSummary } from "../../services/catalogSummary.js";
 import { usePlannerStore } from "../../app/store.js";
+import { useShallow } from "zustand/react/shallow";
 import { RouteCard } from "./RouteCard.js";
 import type {
   CurrentRegion,
@@ -124,7 +125,29 @@ export function RouteList({
   destination,
   onDestinationChange,
 }: RouteListProps) {
-  const state = usePlannerStore();
+  const state = usePlannerStore(useShallow((store) => ({
+    addPlan: store.addPlan,
+    captureStyle: store.captureStyle,
+    clearResearchRoutes: store.clearResearchRoutes,
+    driveOnly: store.driveOnly,
+    maxDurationMinutes: store.maxDurationMinutes,
+    mode: store.mode,
+    moveResearchRoute: store.moveResearchRoute,
+    plans: store.plans,
+    query: store.query,
+    researchRouteIds: store.researchRouteIds,
+    researchStartDate: store.researchStartDate,
+    selectRoute: store.selectRoute,
+    selectedRouteId: store.selectedRouteId,
+    setCaptureStyle: store.setCaptureStyle,
+    setDriveOnly: store.setDriveOnly,
+    setMaxDurationMinutes: store.setMaxDurationMinutes,
+    setMode: store.setMode,
+    setQuery: store.setQuery,
+    setResearchStartDate: store.setResearchStartDate,
+    setView: store.setView,
+    toggleResearchRoute: store.toggleResearchRoute,
+  })));
   const [sort, setSort] = useState<"recommended" | "shortest" | "visual">(
     "recommended",
   );

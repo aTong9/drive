@@ -3,6 +3,7 @@ import type {
   LocalShootPlan,
   ResolvedRoute,
 } from "../types/domain.js";
+import { localDateInput } from "./localDate.js";
 
 export interface ShootBriefRoute {
   planId: string;
@@ -18,13 +19,6 @@ export interface ShootBriefing {
   totalMinutes: number;
   routes: ShootBriefRoute[];
   presets: CameraPreset[];
-}
-
-function localDateValue(date: Date) {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
-  return `${year}-${month}-${day}`;
 }
 
 function relativeDateLabel(date: string, today: string) {
@@ -54,7 +48,7 @@ export function buildNextShootBriefing(
     );
   if (!planned.length) return null;
 
-  const today = localDateValue(now);
+  const today = localDateInput(now);
   const nextDate =
     planned.find((plan) => plan.scheduledDate >= today)?.scheduledDate ??
     planned[0]!.scheduledDate;

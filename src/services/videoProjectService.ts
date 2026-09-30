@@ -7,6 +7,7 @@ import type {
   VideoProjectStatus,
 } from "../types/domain.js";
 import { validatePlanEdit } from "./planEditingService.js";
+import { downloadBlob } from "./downloadService.js";
 
 const purposeLabels = {
   establishing: "建立镜头",
@@ -180,18 +181,9 @@ export function exportVideoProject(project: LocalVideoProject) {
     exportedAt: new Date().toISOString(),
     project,
   };
-  const url = URL.createObjectURL(
-    new Blob([JSON.stringify(payload, null, 2)], {
-      type: "application/json;charset=utf-8",
-    }),
-  );
-  const anchor = document.createElement("a");
-  anchor.href = url;
-  anchor.download = `${project.id}-shoot-pack.json`;
-  document.body.append(anchor);
-  anchor.click();
-  anchor.remove();
-  URL.revokeObjectURL(url);
+  downloadBlob(new Blob([JSON.stringify(payload, null, 2)], {
+    type: "application/json;charset=utf-8",
+  }), `${project.id}-shoot-pack.json`);
 }
 
 export function getNextProjectAction(project: LocalVideoProject) {

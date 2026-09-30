@@ -178,3 +178,29 @@ test("retrospective edits reject invalid numbers while cleared inputs remain bac
     assert.equal(restored.videoProjects[0]?.retrospective.metrics[field], 0);
   }
 });
+
+test("project edits preserve unrelated references and import keeps incoming order", () => {
+  const first = buildResearchProject("首个", "目标", ["步骤"]);
+  const second = buildResearchProject("第二个", "目标", ["步骤"]);
+  usePlannerStore.setState({ videoProjects: [first, second], fieldChecks: completeState().fieldChecks });
+  const before = usePlannerStore.getState().videoProjects;
+  usePlannerStore.getState().updateVideoProjectStatus("unknown", "ready");
+  assert.notEqual(usePlannerStore.getState().videoProjects, before);
+  assert.equal(usePlannerStore.getState().videoProjects[0], first);
+  assert.equal(usePlannerStore.getState().videoProjects[1], second);
+
+  usePlannerStore.getState().toggleProjectPackItem(first.id, "missing");
+  const changed = usePlannerStore.getState().videoProjects[0]!;
+  assert.notEqual(changed, first);
+  assert.equal(changed.packItems[0], first.packItems[0]);
+  assert.notEqual(changed.updatedAt, "");
+  assert.equal(usePlannerStore.getState().videoProjects[1], second);
+
+  const incoming = [
+    { ...completeState().fieldChecks[0]!, overallNote: "替换" },
+    { ...completeState().fieldChecks[0]!, locationId: "another" },
+    { ...completeState().fieldChecks[0]!, locationId: "another", overallNote: "重复项" },
+  ];
+  usePlannerStore.getState().importFieldChecks(incoming);
+  assert.deepEqual(usePlannerStore.getState().fieldChecks, incoming);
+});

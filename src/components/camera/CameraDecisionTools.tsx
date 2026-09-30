@@ -27,6 +27,7 @@ import {
   type SceneGeneratorInput,
 } from "../../services/cameraDecisionService.js";
 import type { CameraPreset } from "../../types/domain.js";
+import { copyToClipboard } from "../../services/clipboardService.js";
 
 const lightOptions = [
   ["harsh-sun", "正午强光"],
@@ -298,7 +299,7 @@ export function CameraDecisionTools({
       ].join("\n")
     : "";
   const copyFieldSheet = async () => {
-    await navigator.clipboard.writeText(fieldSheet);
+    if (!await copyToClipboard(fieldSheet)) return;
     setFieldSheetCopied(true);
     window.setTimeout(() => setFieldSheetCopied(false), 1600);
   };

@@ -35,6 +35,7 @@ import { RouteList } from "./components/route/RouteList.js";
 import { MapCanvas } from "./components/map/MapCanvas.js";
 import { RouteDetail } from "./components/route/RouteDetail.js";
 import { usePlannerStore } from "./app/store.js";
+import { useShallow } from "zustand/react/shallow";
 import { catalogIndex, resolvedRouteSummaries, getRouteSummary, getDisplayedRouteId, loadFullCatalog, loadLocation, loadRoute, routeSummaryMatchesQuery } from "./services/browserCatalogService.js";
 import { davinciWorkflow } from "./services/workflowService.js";
 import {
@@ -127,7 +128,27 @@ function ViewLoadingState() {
 }
 
 export function App() {
-  const state = usePlannerStore();
+  const state = usePlannerStore(useShallow((store) => ({
+    captureStyle: store.captureStyle,
+    closeDetail: store.closeDetail,
+    currentRegion: store.currentRegion,
+    destination: store.destination,
+    detailOpen: store.detailOpen,
+    driveOnly: store.driveOnly,
+    fieldChecks: store.fieldChecks,
+    maxDurationMinutes: store.maxDurationMinutes,
+    mode: store.mode,
+    plans: store.plans,
+    postProject: store.postProject,
+    postTasks: store.postTasks,
+    query: store.query,
+    routeOpenVersion: store.routeOpenVersion,
+    selectedRouteId: store.selectedRouteId,
+    setCurrentRegion: store.setCurrentRegion,
+    setDestination: store.setDestination,
+    setView: store.setView,
+    view: store.view,
+  })));
   const [theme, setTheme] = useState<"dark" | "light">(() =>
     document.documentElement.dataset.theme === "dark" ? "dark" : "light",
   );
@@ -247,7 +268,7 @@ export function App() {
   }, []);
   const routes = useMemo(
     () =>
-      (!search.ready ? [] : resolvedRouteSummaries.filter((item) => {
+      (state.view !== "explore" || !search.ready ? [] : resolvedRouteSummaries.filter((item) => {
         const query = state.query.trim().toLowerCase();
         const matchesMode =
           state.mode === "all" || item.route.modes.includes(state.mode);
@@ -284,6 +305,7 @@ export function App() {
         );
       }).sort(compareRouteEvidence)),
     [
+      state.view,
       state.mode,
       state.captureStyle,
       state.driveOnly,

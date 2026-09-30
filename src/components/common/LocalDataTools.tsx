@@ -3,16 +3,10 @@ import { usePlannerStore } from "../../app/store.js";
 import { deviceStorage } from "../../services/deviceStorage.js";
 import { parseDeviceBackup, selectDeviceState, serializeDeviceBackup, type DeviceState } from "../../services/deviceStateService.js";
 import { localDateInput } from "../../services/localDate.js";
+import { downloadBlob } from "../../services/downloadService.js";
 
 function download(source: string, name: string) {
-  const url = URL.createObjectURL(new Blob([source], { type: "application/json;charset=utf-8" }));
-  const anchor = document.createElement("a");
-  anchor.href = url;
-  anchor.download = name;
-  document.body.append(anchor);
-  anchor.click();
-  anchor.remove();
-  window.setTimeout(() => URL.revokeObjectURL(url), 0);
+  downloadBlob(new Blob([source], { type: "application/json;charset=utf-8" }), name);
 }
 
 export function LocalDataTools() {

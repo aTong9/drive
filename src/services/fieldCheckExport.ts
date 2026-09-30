@@ -1,5 +1,6 @@
 import type { FieldCheck, Location } from "../types/domain.js";
 import { localDateInput } from "./localDate.js";
+import { downloadBlob } from "./downloadService.js";
 
 export type FieldCheckDraft = Omit<FieldCheck, "updatedAt">;
 export function createFieldCheckDraft(locationId: string, check?: FieldCheck): FieldCheckDraft {
@@ -84,12 +85,5 @@ export function downloadFieldChecks(catalogSchemaVersion: string, locations: Loc
     records
   };
   const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json;charset=utf-8" });
-  const url = URL.createObjectURL(blob);
-  const anchor = document.createElement("a");
-  anchor.href = url;
-  anchor.download = `roadlens-field-checks-${new Date().toISOString().slice(0, 10)}.json`;
-  document.body.append(anchor);
-  anchor.click();
-  anchor.remove();
-  URL.revokeObjectURL(url);
+  downloadBlob(blob, `roadlens-field-checks-${new Date().toISOString().slice(0, 10)}.json`);
 }

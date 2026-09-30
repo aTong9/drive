@@ -10,6 +10,8 @@ import { CameraDecisionTools } from "./CameraDecisionTools.js";
 import { validatePersonalCameraDraft, type PersonalCameraDraft, auditCameraPreset, cameraParameterLinks, clonePresetAsCustom, type CameraParameterKey } from "../../services/cameraDecisionService.js";
 import { useDialogFocus } from "../common/useDialogFocus.js";
 import { scrollElementIntoView } from "../../utils/scrollIntoView.js";
+import { copyToClipboard } from "../../services/clipboardService.js";
+import { downloadBlob } from "../../services/downloadService.js";
 
 const sceneLabels: Record<CameraPreset["scene"], string> = {
   "coast-sunset": "海岸日落",
@@ -94,13 +96,12 @@ export function CameraView({ presets: catalogPresets, routes }: { presets: Camer
     `现场原则：${selected.notes}`
   ].join("\n");
   const copyParameters = async () => {
-    try { await navigator.clipboard.writeText(parameterText); setCopyStatus("copied"); window.setTimeout(() => setCopyStatus("idle"), 1600); }
-    catch { setCopyStatus("error"); }
+    if (await copyToClipboard(parameterText)) { setCopyStatus("copied"); window.setTimeout(() => setCopyStatus("idle"), 1600); }
+    else setCopyStatus("error");
   };
   const exportChecklist = () => {
     const payload = { exportType: "roadlens-camera-playbook", exportVersion: "1.0.0", exportedAt: new Date().toISOString(), preset: selected, matchedRouteIds: relatedRoutes.map((route) => route.route.id) };
-    const url = URL.createObjectURL(new Blob([JSON.stringify(payload, null, 2)], { type: "application/json;charset=utf-8" }));
-    const anchor = document.createElement("a"); anchor.href = url; anchor.download = `${selected.id}-field-check.json`; document.body.append(anchor); anchor.click(); anchor.remove(); URL.revokeObjectURL(url);
+    downloadBlob(new Blob([JSON.stringify(payload, null, 2)], { type: "application/json;charset=utf-8" }), `${selected.id}-field-check.json`);
   };
   const explainParameter = (key: CameraParameterKey) => setParameterKey(key);
   const openGlossary = (key: CameraParameterKey) => { setGlossaryQuery(cameraParameterLinks[key].label); setWorkspace("glossary"); setParameterKey(null); };

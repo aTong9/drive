@@ -41,6 +41,12 @@ export type AppView =
 const postContextKey = (project: Pick<LocalPostProject, "workflowId" | "videoProjectId" | "planId" | "routeId">) =>
   JSON.stringify([project.workflowId, project.videoProjectId ? "video" : project.planId ? "plan" : "route", project.videoProjectId ?? project.planId ?? project.routeId ?? "standalone"]);
 
+function updateVideoProjects(projects: LocalVideoProject[], projectId: string, update: (project: LocalVideoProject) => LocalVideoProject) {
+  return projects.map((project) => project.id === projectId
+    ? { ...update(project), updatedAt: new Date().toISOString() }
+    : project);
+}
+
 interface PlannerState extends DeviceState {
   locationBrowse: LocationBrowseState;
   setLocationBrowse: (patch: Partial<LocationBrowseState>) => void;
@@ -218,75 +224,46 @@ export const usePlannerStore = create<PlannerState>()(
         set({ activeVideoProjectId, view: "projects" }),
       updateVideoProjectStatus: (projectId, status) =>
         set((state) => ({
-          videoProjects: state.videoProjects.map((project) =>
-            project.id === projectId
-              ? { ...project, status, updatedAt: new Date().toISOString() }
-              : project,
-          ),
+          videoProjects: updateVideoProjects(state.videoProjects, projectId, (project) => ({ ...project, status })),
         })),
       toggleProjectShot: (projectId, shotId) =>
         set((state) => ({
-          videoProjects: state.videoProjects.map((project) =>
-            project.id === projectId
-              ? {
-                  ...project,
-                  updatedAt: new Date().toISOString(),
-                  shots: project.shots.map((shot) =>
-                    shot.id === shotId
-                      ? {
-                          ...shot,
-                          completed: shot.captureStatus !== "captured",
-                          captureStatus:
-                            shot.captureStatus === "captured"
-                              ? "pending"
-                              : "captured",
-                        }
-                      : shot,
-                  ),
-                }
-              : project,
-          ),
+          videoProjects: updateVideoProjects(state.videoProjects, projectId, (project) => ({
+            ...project,
+            shots: project.shots.map((shot) =>
+              shot.id === shotId
+                ? {
+                    ...shot,
+                    completed: shot.captureStatus !== "captured",
+                    captureStatus: shot.captureStatus === "captured" ? "pending" : "captured",
+                  }
+                : shot,
+            ),
+          })),
         })),
       setProjectShotStatus: (projectId, shotId, captureStatus) =>
         set((state) => ({
-          videoProjects: state.videoProjects.map((project) =>
-            project.id === projectId
-              ? {
-                  ...project,
-                  updatedAt: new Date().toISOString(),
-                  shots: project.shots.map((shot) =>
-                    shot.id === shotId
-                      ? {
-                          ...shot,
-                          captureStatus,
-                          completed: captureStatus === "captured",
-                        }
-                      : shot,
-                  ),
-                }
-              : project,
-          ),
+          videoProjects: updateVideoProjects(state.videoProjects, projectId, (project) => ({
+            ...project,
+            shots: project.shots.map((shot) =>
+              shot.id === shotId
+                ? { ...shot, captureStatus, completed: captureStatus === "captured" }
+                : shot,
+            ),
+          })),
         })),
       toggleProjectPackItem: (projectId, itemId) =>
         set((state) => ({
-          videoProjects: state.videoProjects.map((project) =>
-            project.id === projectId
-              ? {
-                  ...project,
-                  updatedAt: new Date().toISOString(),
-                  packItems: project.packItems.map((item) =>
-                    item.id === itemId
-                      ? { ...item, completed: !item.completed }
-                      : item,
-                  ),
-                }
-              : project,
-          ),
+          videoProjects: updateVideoProjects(state.videoProjects, projectId, (project) => ({
+            ...project,
+            packItems: project.packItems.map((item) =>
+              item.id === itemId ? { ...item, completed: !item.completed } : item,
+            ),
+          })),
         })),
       toggleProjectWorkflowItem: (projectId, scope, itemId) =>
         set((state) => ({
-          videoProjects: state.videoProjects.map((project) => {
-            if (project.id !== projectId) return project;
+          videoProjects: updateVideoProjects(state.videoProjects, projectId, (project) => {
             const key = scope === "ingest" ? "ingestItems" : "deliveryItems";
             const items = project[key] ?? [];
             return {
@@ -296,18 +273,13 @@ export const usePlannerStore = create<PlannerState>()(
                   ? { ...item, completed: !item.completed }
                   : item,
               ),
-              updatedAt: new Date().toISOString(),
             };
           }),
         })),
       updateVideoProject: (projectId, patch) => {
         if (!validProjectMetrics(patch.retrospective?.metrics)) return;
         set((state) => ({
-          videoProjects: state.videoProjects.map((project) =>
-            project.id === projectId
-              ? { ...project, ...patch, updatedAt: new Date().toISOString() }
-              : project,
-          ),
+          videoProjects: updateVideoProjects(state.videoProjects, projectId, (project) => ({ ...project, ...patch })),
         }));
       },
       saveFieldCheck: (input) =>
@@ -326,17 +298,13 @@ export const usePlannerStore = create<PlannerState>()(
           ),
         })),
       importFieldChecks: (checks) =>
-        set((state) => ({
-          fieldChecks: [
-            ...state.fieldChecks.filter(
-              (existing) =>
-                !checks.some(
-                  (incoming) => incoming.locationId === existing.locationId,
-                ),
-            ),
+        set((state) => {
+          const incomingIds = new Set(checks.map((incoming) => incoming.locationId));
+          return { fieldChecks: [
+            ...state.fieldChecks.filter((existing) => !incomingIds.has(existing.locationId)),
             ...checks,
-          ],
-        })),
+          ] };
+        }),
       importPostWorkflow: (workflow, project) =>
         set((state) => {
           const postArchives = { ...state.postArchives };
